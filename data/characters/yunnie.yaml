@@ -1,0 +1,167 @@
+# Character: Yunnie
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: yunnie
+display_name: "Yunnie"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, fire, polearm, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3042
+p_atk: 407
+p_def: 218
+e_atk: 240
+e_def: 233
+speed: 350
+crit: 375
+sp: 381
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3862
+p_atk_120: 472
+p_def_120: 268
+e_atk_120: 290
+e_def_120: 253
+speed_120: 400
+crit_120: 440
+sp_120: 461
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Noxious Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Chain Torch"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Ebony Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Paralyzing Rain"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Prisoner Hunt"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Wild Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Cross Fire"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [bow, fire]
+    target: aoe
+    power: "2x105"
+  - skill_category: active
+    name: "Sabotaging Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Evening Calm Assault"
+    sp_cost: 80
+    skill_type: attack
+    target: aoe
+    power: "4x45"
+    limit_break_upgrade: "Deal Phys. Sword, Polearm, Axe and Bow damage 1 time each to All Foes (potency: 4x45). Potency varies based on the number of types of status ailments (among poison, paralysis and blindness) on each target."
+  - skill_category: tp
+    name: "Dangerous Shot"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: ex
+    name: "Evening Calm Raging Strike"
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "6x"
+    power: "6x40"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Evening Calm Onslaught"
+    skill_type: attack
+    target: single_enemy
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise some status ailment resistances of Self by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When there are 16 or more status effects on enemies, activate attack skills twice (additional activations do not consume SP)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Evening Calm Training Kit"
+  passive_effect: "60 P.Atk, 40 E.Atk, 40 Crit; Raise Bow damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3); -30 P.Def, -30 E.Def, 60 Spd; With Evening Calm Crest equipped: After some attacks (excludes counters and Ultimate Techniques), have a low chance to inflict paralysis, poison or blindness on all enemies (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

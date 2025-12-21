@@ -1,0 +1,163 @@
+# Character: Hammy
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hammy
+display_name: "Hammy"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2756
+p_atk: 401
+p_def: 256
+e_atk: 279
+e_def: 295
+speed: 403
+crit: 276
+sp: 350
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3416
+p_atk_120: 451
+p_def_120: 306
+e_atk_120: 344
+e_def_120: 345
+speed_120: 453
+crit_120: 326
+sp_120: 440
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Wild Roster Toss"
+    sp_cost: 30
+    skill_type: attack
+    target: random
+    hit_count: "4x"
+    power: "3-4x45"
+  - skill_category: active
+    name: "Detect Weakness"
+    sp_cost: 26
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Detect Weakness** Lower Phys"
+  - skill_category: active
+    name: "Scapegoat (Physical)"
+    sp_cost: 54
+    skill_type: utility
+    target: back_row
+    effects:
+      - "**Scapegoat (Physical) (1★)** Provoke All Foes to attack Paired Ally (turns: 3-6 based on Boost Lv.) and grant Paired Ally the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Scapegoat (Elemental)"
+    sp_cost: 54
+    skill_type: utility
+    target: back_row
+    effects:
+      - "**Scapegoat (Elemental) (2★)** Provoke All Foes to attack Paired Ally (turns: 3-6 based on Boost Lv.) and grant Paired Ally the ability to dodge some elemental attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Triple Sleet Storm"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Reckless Roster Toss"
+    sp_cost: 48
+    skill_type: attack
+    target: random
+    hit_count: "8x"
+    power: "1-8x45"
+  - skill_category: active
+    name: "Gladiator Introduction"
+    sp_cost: 48
+    skill_type: buff
+    target: paired_ally
+    effects:
+      - "**Gladiator Introduction (4★)** Raise own Phys"
+      - "If Paired Ally is alive: Grant the same effect to Paired Ally (turns: 3-6 based on Boost Lv.) and also restore their BP by 3 at Max Boost"
+  - skill_category: active
+    name: "Hammy’s Trap"
+    skill_type: mixed
+    target: back_row
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "**Hammy’s Trap (5★)** Grant Single Ally the ability to counter physical attacks (turns: 3-6 based on Boost Lv.)"
+      - "Tome damage to All Foes 2 time(s) (potency: 2x70) and lower Phys"
+    limit_break_upgrade: "Grant Single Ally the ability to counter physical **and elemental** attacks (turns: 3-6 based on Boost Lv.). Subsequently move to back row (action does not count as switching). Counter: Deal Phys. Tome damage to All Foes 2 time(s) (potency: 2x70) and lower Phys. Def. and Elem. Def. by 10% (turns: 2)."
+  - skill_category: active
+    name: "Roster Edge"
+    sp_cost: 46
+    skill_type: attack
+    target: single_enemy
+    power: "230"
+  - skill_category: tp
+    sp_cost: 350
+    skill_type: attack
+    target: back_row
+    power: "475"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: utility
+    target: back_row
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hammy’s Finisher"
+    skill_type: attack
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to front row: Raise Tome of Self damage by 30% (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Grant Paired Ally an effect that recovers HP equal to 15% of damage taken. (With exceptions/Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant Paired Ally the ability to trigger a follow-up attack when attacking (*Triggers once regardless the number of attacks). Follow-up attack: Damage to Single Foe based on Paired Ally’s job (potency: 100). Damage by Paired Ally’s job: Warrior→Wind, Merchant→Fire, Thief→Dagger, Apothecary→Axe, Hunter→Bow, Cleric→Staff, Scholar→Light, Dancer→Fan."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Secrets of a Fanatic"
+  passive_effect: "60 P.Atk, 60 Spd, 200 HP; When in back row: Raise Phys. Def. and Elem. Def. by 15% of Paired Ally when provoked enemy is present; When switching: Lower Tome Res. of all enemies by 10% (turns: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

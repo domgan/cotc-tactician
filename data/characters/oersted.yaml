@@ -1,0 +1,179 @@
+# Character: Oersted
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: oersted
+display_name: "Oersted"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Kingdom of Lucrece (Live A Live)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, polearm, staff, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 409
+p_def: 338
+e_atk: 247
+e_def: 251
+speed: 285
+crit: 333
+sp: 316
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 474
+p_def_120: 403
+e_atk_120: 297
+e_def_120: 301
+speed_120: 320
+crit_120: 383
+sp_120: 386
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Bold Cut"
+    sp_cost: 15
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Valorous Slash"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Crushing Blow"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [sword, staff]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Also impart Phys"
+  - skill_category: active
+    name: "Wave Slash"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, wind]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Thousand Cuts"
+    sp_cost: 61
+    skill_type: mixed
+    damage_types: [sword, wind]
+    target: aoe
+    power: "120"
+    effects:
+      - "**Thousand Cuts (2★)** Act faster during turn"
+      - "Sword damage to All Foes (potency: 120) and lower Phys"
+  - skill_category: active
+    name: "Flourish"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [sword, wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Impart with Phys"
+  - skill_category: active
+    name: "Blade Rain"
+    sp_cost: 83
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "Windbite"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Heavenly Strike"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [sword, polearm]
+    target: single_enemy
+    power: "230"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 230). Exploits Polearm weakness (damage calculation based on Phys. Sword attack). **50%** more potent if target is broken."
+  - skill_category: tp
+    sp_cost: 76
+    skill_type: buff
+    target: self
+    power: "140, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**** Grant Self automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.) and SP recovery (amount: 5% of max SP"
+      - "With 4+ Valor Points: Restore Phys"
+      - "With 8+ Valor Points: Raise BP recovery by 1 (turns: 3)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "8x"
+    power: "8x20"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Dragonsoul"
+    skill_type: attack
+    damage_types: [sword, fire]
+    target: single_enemy
+    power: "440→525"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain 1 Valor Point when attacking using a battle skill."
+    trigger: always
+  - passive_category: innate
+    effect: "When consuming 3 BP, counter physical and elemental attacks (turns: 1). Counter: Dealing Phys. Sword damage to All Foes (potency: 90). Exploits Wind weakness (damage calculation based on Phys. Sword attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self effects based on Valor Points. ·With 4+: Raise max HP by 10%. ·With 6+: Raise Phys. Atk. by 10%. ·With 8+: Raise Sword damage by 10% and grant Damage Limit Up (effect: 30,000)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Hero’s Bracer"
+  passive_effect: "70 P.Atk, 70 P.Def; Reduce SP consumption by 20%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

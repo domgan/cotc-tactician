@@ -1,0 +1,187 @@
+# Character: Richard
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: richard
+display_name: "Richard"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3247
+p_atk: 409
+p_def: 353
+e_atk: 247
+e_def: 251
+speed: 330
+crit: 273
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4067
+p_atk_120: 474
+p_def_120: 418
+e_atk_120: 297
+e_def_120: 301
+speed_120: 365
+crit_120: 323
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Spirited Slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Fulgor"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Shin Strike"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Sword damage to Random Foe 2 time(s) (potency: 2x90) and lower Spd by 15% with every attack (turns: 2)"
+  - skill_category: active
+    name: "River Beans"
+    sp_cost: 40
+    skill_type: heal
+    target: self
+    power: "165"
+    effects:
+      - "**River Beans (2★)** Restore HP of Self (potency: 165)"
+      - "and Critical by 15% (turns: 2) and act faster next turn"
+  - skill_category: active
+    name: "Wild Triple Shock"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Bestial Assault"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Dual Strike"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Sword damage to Random Foe 2 time(s) (potency: 2x90) and impart Phys"
+  - skill_category: active
+    name: "Torrent Formation"
+    sp_cost: 75
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Torrent Formation (5★)** Impart Entire Front Row with Phys"
+      - "Up 20% and raise Sword and Polearm damage by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Rippling Slice"
+    sp_cost: 83
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "Sword damage to Random Foe 4 time(s) (potency: 4x85) and have a low chance to lower Sword Res"
+    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x85) and have a **moderate** chance to lower Sword Res. by 15% with every attack (turns: 2)."
+  - skill_category: tp
+    name: "Flowing Slash"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "Sword damage to Single Foe 4 time(s) (potency: 4x85) and lower Phys"
+  - skill_category: ex
+    name: "River Bean Basket"
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**River Bean Basket** Raise Phys"
+      - "of Entire Front Row by 10% and raise Sword and Polearm damage by 10% (turns: 2-5 based on Boost Lv.)"
+      - "and grant Dead Aim (guaranteed critical hits) (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Mighty Leading Assault"
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    power: "500→600"
+    effects:
+      - "Raise Sword damage of Entire Front Row by **10%→15%** and Polearm damage by **10%→15%** (turns: 2)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Raise Phys. Atk. of Entire Front Row by 15% and Sword and Polearm damage by 15%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Raise physical damage of Entire Front Row by 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "New King’s Cloak"
+  passive_effect: "40 P.Atk, 60 Spd, 40 SP; Raise Sword damage dealt by 15%; Grant automatic HP recovery (amount: 500)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,186 @@
+# Character: Sarisa
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sarisa
+display_name: "Sarisa"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2882
+p_atk: 368
+p_def: 235
+e_atk: 336
+e_def: 213
+speed: 445
+crit: 333
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3702
+p_atk_120: 433
+p_def_120: 255
+e_atk_120: 386
+e_def_120: 263
+speed_120: 510
+crit_120: 383
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Throw Dagger"
+    sp_cost: 15
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    power: "140"
+    effects:
+      - "Dagger damage to Single Foe (potency: 140) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Espionage"
+    sp_cost: 35
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**Espionage** Lower Phys"
+  - skill_category: active
+    name: "Quick Aid (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Quick Aid (All) (1★)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Flameblade Scheme"
+    sp_cost: 30
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**Flameblade Scheme (2★)** Lower Sword"
+  - skill_category: active
+    name: "Triple Burst"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Backdraft"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [fire]
+    target: back_row
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Afterburner"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [fire]
+    target: back_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Fire damage to Random Foe 3 time(s) (potency: 3x55) and lower Spd by 15% with every attack (turns: 2)"
+  - skill_category: active
+    name: "Double Wide Burst"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Burst Step"
+    sp_cost: 58
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Maid’s Universal Healing"
+    sp_cost: 25
+    skill_type: heal
+    target: back_row
+    effects:
+      - "**Maid’s Universal Healing ** Cure status ailments of Paired Allies and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Skilled Maiden’s Preparation"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Skilled Maiden’s Preparation** Raise Phys"
+      - "of Entire Front Row and Paired Ally by 15% (turns: 2-5 based on Boost Lv.) and grant Dead Aim (guaranteed critical hits) (turns: 2)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Heavenly Gift"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    hit_count: "5x"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Raise Phys. Atk. of Paired Ally by 15%."
+    trigger: always
+    limit_break_upgrade: "When in back row: Raise Phys. Atk. and Elem. Atk. of Paired Ally by 15%."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Raise damage dealt to broken foes by Paired Ally by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Multitalented Maid’s Eyeshade"
+  passive_effect: "40 P.Atk, 40 E.Atk, 60 Spd; When in back row: Grant Paired Ally automatic HP recovery (amount: 500); Raise Crit. of Paired Ally by 20%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

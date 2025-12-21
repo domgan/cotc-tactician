@@ -1,0 +1,187 @@
+# Character: Cornelia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cornelia
+display_name: "Cornelia"
+rarity: 4
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3210
+p_atk: 335
+p_def: 382
+e_atk: 301
+e_def: 233
+speed: 286
+crit: 223
+sp: 403
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4030
+p_atk_120: 385
+p_def_120: 432
+e_atk_120: 366
+e_def_120: 283
+speed_120: 336
+crit_120: 273
+sp_120: 473
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "First Aid"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "95"
+    effects:
+      - "**First Aid** Restore HP of Single Ally (potency: 95)"
+  - skill_category: active
+    name: "Brain Bash"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [axe]
+    target: single_ally
+    power: "130"
+  - skill_category: active
+    name: "Rejuvenate"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Rejuvenate (1★)** Grant Single Ally automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Flash of Lightning"
+    sp_cost: 32
+    skill_type: utility
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Emergency First Aid (2★)** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Greater Rejuvenate"
+    sp_cost: 36
+    skill_type: buff
+    target: single_ally
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Greater Rejuvenate (3★)** Grant Single Ally automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Greater Rejuvenate"
+    sp_cost: 29
+    skill_type: buff
+    target: single_ally
+    power: "**180**, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Greater Rejuvenate (5★)** Grant Single Ally automatic HP recovery (potency: **180**"
+  - skill_category: active
+    name: "Cleave in Two"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Cleave in Two"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Field First Aid"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Field First Aid ** Restore HP of Entire Front Row (potency: 205)"
+  - skill_category: tp
+    name: "Field First Aid Lv.2"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Field First Aid Lv.2** Restore HP of Entire Front Row (potency: 205) and cure stillness"
+  - skill_category: ex
+    name: "Healing Axe"
+    skill_type: mixed
+    damage_types: [axe]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Axe damage to All Foes 3 time(s) (potency: 3x55) and restore HP of Entire Front Row (potency: 150)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Special Vitalizing Agent"
+    skill_type: heal
+    target: single_ally
+    power: "250→300→350"
+    effects:
+      - "Restore HP of Single Ally (potency: **250→300→350**) and lower SP consumption by **40%→50%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise HP recovery skill potency of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Lower SP consumption of Paired Allies by 10%."
+    trigger: hp_condition
+    limit_break_upgrade: "At full HP: Lower SP consumption of Paired Allies by **30%**."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant Paired Ally automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant **Entire Front Row** automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Axe attacks of All Allies by 8,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Pouch of Devotion"
+  passive_effect: "30 P.Atk, 40 Crit; When exploiting enemy weakness, raise damage dealt by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,180 @@
+# Character: Auguste
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: auguste
+display_name: "Auguste"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3122
+p_atk: 408
+p_def: 303
+e_atk: 286
+e_def: 270
+speed: 400
+crit: 258
+sp: 337
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3942
+p_atk_120: 473
+p_def_120: 323
+e_atk_120: 336
+e_def_120: 320
+speed_120: 465
+crit_120: 308
+sp_120: 417
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Quad Edge"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Anti-Attack II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Anti-Attack II** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Triple Beat"
+    sp_cost: 38
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Spotlight"
+    sp_cost: 13
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Spotlight (2★)** Impart Single ally with Phys"
+      - "Up 30% and raise Critical by 30% (turns: 2-4 based on Boost Lv.)"
+      - "Also impart with Phys"
+  - skill_category: active
+    name: "Fourfold Shadow Impact"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Poems of Death"
+    sp_cost: 50
+    skill_type: attack
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Blade of Pretense"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Dagger damage to Single Foe (potency: 230) and lower Dagger Res"
+      - "Guaranteed critical hit and restore BP of Self by 3 if impassioned when selecting this action"
+  - skill_category: active
+    name: "Darkness of the Heart"
+    sp_cost: 66
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Dark damage to All Foes 2 time(s) (potency: 2x95) and lower Phys"
+      - "are lowered for 3 turns if impassioned when selecting this action"
+  - skill_category: active
+    name: "Sanguine Journal"
+    sp_cost: 40
+    skill_type: mixed
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Tome damage to Single Foe (potency: 230) and lower Tome Res"
+      - "Guaranteed critical hit and restore BP of Self by 3 if impassioned when selecting this action"
+  - skill_category: tp
+    name: "Inner Darkness"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    power: "120"
+    effects:
+      - "Dark damage to All Foes (potency: 120) and lower Dagger"
+  - skill_category: ex
+    name: "Grand Finale"
+    skill_type: buff
+    target: self
+    effects:
+      - "**Grand Finale** Grant Self the ability to activate attack skills twice (turns: 3/Turns cannot be extended/Follow-up attack will not consume SP) and raise Phys"
+    notes: "Uses: 6"
+  - skill_category: special
+    name: "The Prince of Thieves’ Claws"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impassionate Self when an ally is incapacitated or you use an Ultimate Technique (turns: 4)."
+    trigger: always
+    limit_break_upgrade: "Impassionate Self when an ally is incapacitated or you use an Ultimate Technique (**turns: 5**)."
+  - passive_category: innate
+    effect: "Raise Dagger and Tome damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Impassionate Self (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Playwright’s Quill"
+  passive_effect: "70 P.Atk, 70 E.Atk; Raise Dagger and Tome damage dealt by 10%; Start of battle: Ultimate Technique gauge fills to 100%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

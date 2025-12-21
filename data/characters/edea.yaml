@@ -1,0 +1,185 @@
+# Character: Edea
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: edea
+display_name: "Edea"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Luxendarc (BRAVELY DEFAULT)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3242
+p_atk: 389
+p_def: 383
+e_atk: 262
+e_def: 291
+speed: 260
+crit: 298
+sp: 286
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4062
+p_atk_120: 454
+p_def_120: 448
+e_atk_120: 312
+e_def_120: 341
+speed_120: 295
+crit_120: 348
+sp_120: 356
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Fire (Single)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Stunning Strike"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Protective Slash II"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Self with Phys"
+  - skill_category: active
+    name: "Desperate Resolve"
+    sp_cost: 22
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Desperate Resolve** **(2★)** Provoke All Foes and raise Phys"
+  - skill_category: active
+    name: "Triple Spirited Slash"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Fire (All)"
+    sp_cost: 50
+    skill_type: attack
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Miracle Blade"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
+  - skill_category: active
+    name: "Heaven’s Gate"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    power: "2x150→3x120→4x105→5x120"
+  - skill_category: active
+    name: "Heaven’s Gate"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [light, sword]
+    target: random
+    power: "**3x150→4x120→5x105→6x120**"
+  - skill_category: tp
+    name: "Downward Swing Slice"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Sword damage to Single Foe (potency: 260) and raise own max HP by 30% (turns: 2)"
+  - skill_category: ex
+    name: "Sword of the Four Kings"
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x100"
+    effects:
+      - "Sword damage to Single Foe 4 time(s) (potency: 4x100) and lower Phys"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Evanescence"
+    skill_type: buff
+    target: self
+    power: "3→4"
+    effects:
+      - "Counter physical attacks (potency: 200, turns: **3→4**) and grant Self Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "25% chance to raise BP recovery by 1 when hit (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Raise damage of Self by 20% when exploiting enemy weakness."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Recover 3% of SP when taking damage from enemies."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Airborne Knight’s Badge"
+  passive_effect: "40 P.Atk, 1000 HP; Raise Sword damage dealt by 15%; At full HP: Provoke all enemies"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

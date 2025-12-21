@@ -1,0 +1,198 @@
+# Character: Feintz
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: feintz
+display_name: "Feintz"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3612
+p_atk: 489
+p_def: 378
+e_atk: 247
+e_def: 301
+speed: 390
+crit: 363
+sp: 396
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4432
+p_atk_120: 554
+p_def_120: 443
+e_atk_120: 297
+e_def_120: 351
+speed_120: 425
+crit_120: 413
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 32
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    power: "120"
+    effects:
+      - "With “Avoid Group Physical Attacks” lower than 2 times"
+      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 37
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Also lower Sword Res"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(1★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "Also lower Sword Res"
+      - "With “Avoid Group Physical Attacks” lower than 2 times"
+      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+    effects:
+      - "**(3★)** Grant Self the ability to counterattack physical and elemental attacks (turns: 3-6 based on Boost Lv.)"
+      - "Also lower Sword Res"
+  - skill_category: active
+    sp_cost: 96
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Also raise Sword Res"
+      - "With “Avoid Group Physical Attacks” lower than 2 times"
+      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
+  - skill_category: active
+    sp_cost: 92
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(5★)** Grant Self the ability to trigger battle skills 2 times (turns: 2-5 based on Boost Lv./Turns cannot be extended/Additional instances do not cost SP)"
+      - "Also raise Phys"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: tp
+    sp_cost: 30
+    skill_type: buff
+    target: self
+    effects:
+      - "**** Grant Self “Avoid Group Physical Attacks” (times: 1-4 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 30
+    skill_type: buff
+    target: self
+    effects:
+      - "** Lv.2** Grant Self “Avoid Group Physical Attacks” (times: **3-6** based on Boost Lv.)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: utility
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**(EX)** Act faster during turn and provoke All Foes and grant Self “Attention” and Unsinkable (turns: 1)"
+      - "Also grant Self automatic revival (recovery amount: 100% of max HP) and automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Hidden Sword: Cait’s Claws”"
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    effects:
+      - "Act faster during turn and provoke All Foes (turns: 1)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: 1)"
+    trigger: always
+    limit_break_upgrade: "At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: **2**)"
+  - passive_category: innate
+    effect: "When consuming 3 BP, grant Self the special effect “Attention” (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "When switching to back row: Grant Entire Front Row the ability to dodge some physical attacks (times: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Grant Self Dead Aim (guaranteed critical hits). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "At full HP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Swordsman Cait’s Rose”"
+  passive_effect: "90 P.Atk, 100 SP; When in front row and with 2 BP or less: Raise BP recovery of Entire Front Row by 1; When in back row: Raise BP recovery of Self by 1"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

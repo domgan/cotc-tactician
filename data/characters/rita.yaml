@@ -1,0 +1,176 @@
+# Character: Rita
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rita
+display_name: "Rita"
+rarity: 4
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3223
+p_atk: 335
+p_def: 389
+e_atk: 306
+e_def: 228
+speed: 281
+crit: 227
+sp: 390
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4043
+p_atk_120: 385
+p_def_120: 439
+e_atk_120: 371
+e_def_120: 278
+speed_120: 331
+crit_120: 277
+sp_120: 460
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Brain Bash"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Emergency First Aid** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Gust"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Bandage"
+    sp_cost: 5
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Bandage** **(2★)** Cure bleeding of Single Ally and grant immunity to bleeding during a Boost"
+  - skill_category: active
+    name: "Hard Slash"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Lightning Ward"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Lightning Ward** **(3★)** Raise Lightning Res"
+  - skill_category: active
+    name: "Lightning Ward"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Lightning Ward** **(5★)** Raise Lightning Res"
+  - skill_category: active
+    name: "Healing Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Healing Cleave"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "**175**"
+  - skill_category: tp
+    name: "Mint Bath"
+    sp_cost: 38
+    skill_type: heal
+    target: front_row
+    power: "45"
+    effects:
+      - "**Mint Bath ** Restore HP of Entire Front Row (potency: 45)"
+      - "cure some status ailments and grant automatic HP recovery (potency: 70, turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Benevolence Smash"
+    skill_type: mixed
+    damage_types: [axe]
+    target: front_row
+    power: "180"
+    effects:
+      - "Axe damage to All Foes (potency: 180) and restore HP of Entire Front Row (potency: 180)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Critical Cleave"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Guaranteed critical hit"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When near death: Raise HP recovery skill potency of Self by 30% (excludes automatic healing skills)."
+    trigger: always
+  - passive_category: innate
+    effect: "**(6★)** When near death: Raise HP recovery skill potency of Self by 30% (excludes automatic healing skills) and raise Axe damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** When in Back Row: Raise some status ailment Res. of Front Row by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Restore 15% of damage taken by Front Row when they are hit (With some exceptions/Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "White Dove Tailfeather"
+  passive_effect: "40 P.Atk, 300 HP; Raise own critical damage by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

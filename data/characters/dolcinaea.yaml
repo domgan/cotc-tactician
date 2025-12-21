@@ -1,0 +1,198 @@
+# Character: Dolcinaea
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: dolcinaea
+display_name: "Dolcinaea"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, fire, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2766
+p_atk: 240
+p_def: 225
+e_atk: 482
+e_def: 302
+speed: 352
+crit: 282
+sp: 494
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3586
+p_atk_120: 290
+p_def_120: 275
+e_atk_120: 547
+e_def_120: 352
+speed_120: 417
+crit_120: 317
+sp_120: 564
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Crimson Zeal"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [fire]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Fire damage to Random Foe 2 time(s) (potency: 2x75) and lower Fire Res"
+  - skill_category: active
+    name: "Verdant Repose"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [wind]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Wind damage to Random Foe 2 time(s) (potency: 2x75) and lower Wind Res"
+  - skill_category: active
+    name: "Dancer: Twilight Waltz"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [fire, wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "[56 SP] Dancer: Lower Phys"
+  - skill_category: active
+    name: "Dancer: Tarantella of Fate"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [wind, fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "[56 SP] Dancer: Lower Phys"
+  - skill_category: active
+    name: "Dancer: All For You"
+    sp_cost: 64
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Dancer: All For You (2★)** Raise Phys"
+      - "[64 SP] Dancer: Raise Fire and Wind damage of Self by 30% (turns: 3-6 based on Boost Lv.)"
+      - "Diva: Grant Self the ability to dodge elemental attacks (times: 1-4 based on Boost Lv.)"
+    limit_break_upgrade: "Raise Phys. Atk., Elem. Atk. and Critical of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and impart Fervor (turns: 3/acts as a passive skill)."
+  - skill_category: active
+    name: "Scorching Samba"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [fire]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Blustering Ballet"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Dancer: Yearning For Love"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "[52 SP] Dancer: Impart Self with Elem"
+      - "Diva: Guaranteed critical hit"
+      - "Grant Damage Limit Up while using this skill (effect: 30,000)"
+  - skill_category: active
+    name: "Dancer: AspiringWind"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "[52 SP] Dancer: Impart Self with Elem"
+      - "Diva: Guaranteed critical hit"
+      - "Grant Damage Limit Up while using this skill (effect: 30,000)"
+  - skill_category: tp
+    name: "Love’s Marionette"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [wind, fire]
+    target: aoe
+    power: "210"
+  - skill_category: ex
+    name: "Dancer: All For Me"
+    skill_type: mixed
+    damage_types: [fire, wind]
+    target: aoe
+    hit_count: "3x"
+    effects:
+      - "Target is All Foes and lower Elem"
+      - "potency is increased and grant Damage Limit Up while using this skill (effect: 50,000)"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Moonbow Minuet"
+    skill_type: mixed
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Critical and Speed of Entire Front Row by **10%→15%→20%** (turns: **2→3**) and raise elemental damage of Dancers in party by **10%→15%→20%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Switch between Dancer and Diva forms when selecting a command. While in Diva: Raise Fire and Wind damage of Self by 15%, raise potency by 100% (does not stack with effects of the same type) and gain the ability to trigger critical hits with elemental attacks, but increase SP consumption by 100%."
+    trigger: always
+  - passive_category: innate
+    effect: "While in Dancer: Grant Self the ability to trigger a follow-up elemental attack when dealing Elem. Fire or Wind damage (only activates once per action). Follow-up (Fire): Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x30). Follow-up (Wind): Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x30)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire and Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Fire and Wind damage of Self by 15% and raise the limit of Elem. Atk. from support skills and equipment effects to 50%. As Dancer: Grant Self automatic SP recovery (amount: 5% of max SP). As Diva: Raise Elem. Atk of Self by 20% and Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Elegant Tea Set"
+  passive_effect: "140 E.Atk; Grant automatic SP recovery (amount: 10% of max SP); When equipped by a Dancer: Gain the ability to exploit Fan weakness with elemental attacks (damage calculation based on original elemental attack)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

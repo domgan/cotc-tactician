@@ -1,0 +1,173 @@
+# Character: Efrain
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: efrain
+display_name: "Efrain"
+rarity: 4
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2787
+p_atk: 336
+p_def: 272
+e_atk: 335
+e_def: 354
+speed: 291
+crit: 288
+sp: 395
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3527
+p_atk_120: 386
+p_def_120: 322
+e_atk_120: 400
+e_def_120: 419
+speed_120: 341
+crit_120: 323
+sp_120: 475
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Traumatic Bash"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Ethereal Healing (Single) II"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Ethereal Healing (Single) II** Grant Single Ally automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) [19 SP]"
+  - skill_category: active
+    name: "Brutal Bludgeon"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Fireball (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Trifold Bash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Enhanced Healing (Single)"
+    sp_cost: 38
+    skill_type: heal
+    target: single_ally
+    power: "225"
+    effects:
+      - "**Enhanced Healing (Single) (3★)** Restore HP of Single Ally (potency: 225)"
+  - skill_category: active
+    name: "Enhanced Healing (Single)"
+    sp_cost: 30
+    skill_type: heal
+    target: single_ally
+    power: "**295**"
+    effects:
+      - "**Enhanced Healing (Single) (5★)** Restore HP of Single Ally (potency: **295**)"
+  - skill_category: active
+    name: "Hammer of Judgement"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Hammer of Judgement"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Triple Burst Strike"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+  - skill_category: ex
+    name: "Hammer of Penintence"
+    skill_type: attack
+    damage_types: [staff, fire]
+    target: single_enemy
+    power: "290"
+    effects:
+      - "Raise Damage Limit of this skill by 50,000"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hammer of Condemnation"
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Impart Self with Phys. Atk. Up 15%."
+  - passive_category: innate
+    effect: "At full HP: Raise Staff damage of Self by 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Act faster when consuming 3 BP."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Marlow’s Secret Script"
+  passive_effect: "50 P.Atk, 10 E.Atk, 10 Spd; Raise Staff damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

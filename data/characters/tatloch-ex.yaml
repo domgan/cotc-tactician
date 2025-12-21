@@ -1,0 +1,193 @@
+# Character: Tatloch EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tatloch-ex
+display_name: "Tatloch EX"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "G'roha"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 253
+p_def: 283
+e_atk: 436
+e_def: 272
+speed: 368
+crit: 318
+sp: 422
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 318
+p_def_120: 303
+e_atk_120: 486
+e_def_120: 322
+speed_120: 433
+crit_120: 368
+sp_120: 502
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Chain Evil Impact"
+    sp_cost: 31
+    skill_type: attack
+    damage_types: [dark, dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Abyssal Misfortune"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [dark, dagger]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Fused Corruption"
+    sp_cost: 29
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Fused Corruption (1★)** Lower Elem"
+      - "of All Foes by 15% (turns: 2-5 based on Boost Lv.) and grant Dark weakness (times: 3)"
+  - skill_category: active
+    name: "Dark Frenzy"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [dark, dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Dark Res"
+  - skill_category: active
+    name: "Otherworldly Dance"
+    sp_cost: 68
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Otherworldly Dance (2★)** Raise Elem"
+  - skill_category: active
+    name: "Accelerated Corruption"
+    sp_cost: 46
+    skill_type: utility
+    target: back_row
+    effects:
+      - "**Accelerated Corruption (3★)** Act faster during turn and grant Dark weakness to All Foes (times: 2-5 based on Boost Lv.) and subsequently switch to the back row"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Dark Weakness: Regardless of the source"
+  - skill_category: active
+    name: "Flurry of Darkness"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [dark, dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Blooming Darkness"
+    sp_cost: 49
+    skill_type: attack
+    damage_types: [dark, dagger]
+    target: random
+    hit_count: "5x"
+    power: "5x30"
+    limit_break_upgrade: "Deal Elem. Dark damage to Random Foe **6** time(s) (potency: **6x30**). Exploits Dagger weakness (damage calculation based on Elem. Dark attack)."
+  - skill_category: active
+    name: "Abyssal Tentacles"
+    sp_cost: 87
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "**Abyssal Tentacles (5★)** Grant Dark weakness to Single Foe (times: 3) and deal Elem"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Dark Weakness: Regardless of the source"
+  - skill_category: tp
+    name: "Calculated Corruption"
+    sp_cost: 42
+    skill_type: utility
+    target: back_row
+    effects:
+      - "**Calculated Corruption ** Grant Dark weakness to All Foes (times: 2-5 based on Boost Lv.)"
+      - "allow All Allies to act faster during next turn and subsequently switch to the back row"
+  - skill_category: ex
+    name: "Helldance"
+    skill_type: mixed
+    target: aoe
+    effects:
+      - "**Helldance** Act faster during turn and grant Dark weakness to All Foes (times: 2-5 based on Boost Lv.)"
+      - "Impart All Allies with Elem"
+      - "raise Dark damage by 30% and grant Damage Limit by 30,000 (turns: 2)"
+      - "Granted Dark Weakness: Regardless of the source"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "The Lady of Grace’s Darkness"
+    skill_type: mixed
+    damage_types: [dark, dagger]
+    target: random
+    hit_count: "8x"
+    effects:
+      - "Lower Dark Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to back row: Allow Entire Front Row to reduce 1 additional Shield Point(s) when they exploit weakness with Elem. Dark damage (turns: 2/Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Dark damage limit of battle skills, support skills and equipment effects of Entire Front Row to 50% and raise their Damage Limit by 30,000."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Impart Self with Elem. Atk. Up 15%, raise Dark damage by 15% and grant ability to trigger critical hits when using elemental attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Empress’ Foot Chain"
+  passive_effect: "140 E.Atk; Raise Dark damage dealt by 20%; Start of battle: Grant Dark weakness to All Foes (times: 9)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

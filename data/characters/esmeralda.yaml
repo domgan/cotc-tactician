@@ -1,0 +1,172 @@
+# Character: Esmeralda
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: esmeralda
+display_name: "Esmeralda"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2912
+p_atk: 423
+p_def: 275
+e_atk: 236
+e_def: 243
+speed: 480
+crit: 308
+sp: 352
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3732
+p_atk_120: 488
+p_def_120: 295
+e_atk_120: 286
+e_def_120: 293
+speed_120: 545
+crit_120: 358
+sp_120: 432
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 39
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 30
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(Initial)** Raise Dagger damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "80"
+  - skill_category: active
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x35"
+  - skill_category: active
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 41
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(3★)** Lower Phys"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 114
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Dagger damage to Single Foe 2 time(s) (potency: 2x85) and lower Phys"
+      - "At Max Boost: Also lower Phys"
+  - skill_category: active
+    sp_cost: 114
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Dagger damage to Single Foe 2 time(s) (potency: 2x85) and lower Elem"
+      - "At Max Boost: Also lower Elem"
+  - skill_category: tp
+    sp_cost: 28
+    skill_type: utility
+    target: single_enemy
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "210"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Kakoku”"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "6x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using “Attack”, inflict the target with 1 “Laceration Point”. When there’s an enemy inflicted with “Deep Wound”, raise potency of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally breaks an enemy, inflict the target with 1 “Laceration Point”. When the target is inflicted with 9+ “Laceration Points”, inflict “Deep Wound” and reduce “Laceration Points” to 1."
+    trigger: always
+    limit_break_upgrade: "When an ally breaks an enemy, inflict the target with 1 “Laceration Point” and restore 3 BP to Self. When the target is inflicted with 9+ “Laceration Points”, inflict “Deep Wound” and reduce “Laceration Points” to 1."
+  - passive_category: innate
+    effect: "When consuming 1 BP or more, cast countdown on Self (count: 1). Once the countdown ends, deal Phys. Dagger damage to All Foes (potency: 100) and inflict 1 “Laceration Point”. However, this attack cannot break enemies."
+    trigger: always
+  - passive_category: tp
+    effect: "When there’s an enemy inflicted with “Deep Wound”, activate attacking battle skills twice (additional activations do not consume SP). *Effect is triggered even when defeating the enemy inflicted with “Deep Wound”."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Devilish Jewelry”"
+  passive_effect: "50 P.Atk, -60 P.Def, 100 Crit, 50 Spd; When there’s an enemy inflicted with status ailments, lower Phys. Def. of all enemies by 10% and grant Entire Front Row Damage Limit Up (effect: 30,000)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

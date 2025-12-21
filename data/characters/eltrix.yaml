@@ -1,0 +1,178 @@
+# Character: Eltrix
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: eltrix
+display_name: "Eltrix"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3572
+p_atk: 404
+p_def: 328
+e_atk: 237
+e_def: 246
+speed: 270
+crit: 293
+sp: 301
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4392
+p_atk_120: 469
+p_def_120: 393
+e_atk_120: 287
+e_def_120: 296
+speed_120: 305
+crit_120: 343
+sp_120: 371
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Swift Sword"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x75) and raise Speed of Self by 15% (turns: 2)"
+  - skill_category: active
+    name: "Empowering Shield"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Empowering Shield** Impart Self with Phys"
+  - skill_category: active
+    name: "Wild Triple Shadow Impact"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Take Command"
+    sp_cost: 18
+    skill_type: debuff
+    target: front_row
+    effects:
+      - "**Take Command (2★)** Provoke All Foes and impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Summon Gakko"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Dispelling Shadow Reaver"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    power: "150"
+    effects:
+      - "Dark damage to All Foes (potency: 150) and impart with Elem"
+  - skill_category: active
+    name: "Summon Wappa"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "At full HP: Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Shadowy Seaslash"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Darkmoon"
+    sp_cost: 43
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "230"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 260). Exploits Dark weakness (damage calculation based on Phys. Sword attack)."
+  - skill_category: tp
+    name: "Raging Command"
+    sp_cost: 57
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Raging Command ** Raise Phys"
+      - "of Entire Front Row by 15% and raise their Sword and Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Abyssal Slash"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "4x"
+    power: "4x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Grandport’s Fury"
+    skill_type: mixed
+    damage_types: [sword, axe]
+    target: single_enemy
+    hit_count: "2x"
+    effects:
+      - "Lower Shield Points with Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row and at full HP: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and lower SP consumption by 20%. (Effects do not stack)."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "When consuming 3 BP to use a skill, grant Self HP Barrier (potency: 75% of user’s max HP/ does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Activate attack skills twice when consuming 3 BP (the follow-up attack will not consume SP)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Grandport Lord’s Crest"
+  passive_effect: "60 P.Atk, 800 HP; Start of battle: Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack); At Full HP: Raise own Phys. Atk. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

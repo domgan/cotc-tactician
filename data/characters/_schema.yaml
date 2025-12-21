@@ -1,0 +1,507 @@
+# COTC Character Schema
+# All fields marked [HUMAN-REQUIRED] must be filled by someone with game knowledge.
+# The LLM will NOT invent any values for these fields.
+#
+# Copy _template.yaml to create a new character entry.
+
+schema_version: "1.0"
+
+fields:
+  # ===========================================================================
+  # IDENTITY
+  # ===========================================================================
+  id:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Unique identifier (lowercase, hyphenated, e.g., 'character-name-variant')"
+    pattern: "^[a-z0-9-]+$"
+    example: "primrose-ex"
+
+  display_name:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Full display name as shown in game"
+    example: "Primrose, Alluring Dancer"
+
+  rarity:
+    type: integer
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [3, 4, 5]
+    description: "Base star rarity"
+
+  # ===========================================================================
+  # CORE ATTRIBUTES
+  # ===========================================================================
+  job:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [warrior, merchant, thief, apothecary, hunter, cleric, scholar, dancer]
+    description: "Character's job class (determines primary weapon)"
+
+  primary_weapon:
+    type: string
+    required: true
+    source: "[DERIVED]"
+    description: "Primary weapon based on job"
+    notes: |
+      Derived from job:
+      - warrior -> sword
+      - merchant -> polearm
+      - thief -> dagger
+      - apothecary -> axe
+      - hunter -> bow
+      - cleric -> staff
+      - scholar -> tome
+      - dancer -> fan
+
+  # Weakness coverage - what enemy weaknesses can this character hit?
+  # This is the "Weakness to hit" field from community spreadsheet
+  weakness_coverage:
+    type: array
+    items: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [sword, polearm, dagger, axe, bow, staff, tome, fan, fire, ice, lightning, wind, light, dark]
+    description: "Weakness types this character can hit (weapons + elements)"
+    llm_usage: "Critical for boss weakness matching"
+
+  influence:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [wealth, power, fame, domination, opulence, approval]
+    description: "Character influence type (for Path Actions and some mechanics)"
+
+  origin:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Character's origin continent/world (e.g., 'Orsterra', 'Solistia', crossover worlds)"
+    notes: "Useful for identifying crossover characters (Final Fantasy, Dragon Quest, etc.)"
+
+  # ===========================================================================
+  # ROLE CAPABILITIES
+  # ===========================================================================
+  roles:
+    type: array
+    items: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [tank, healer, buffer, debuffer, breaker, dps]
+    description: "Functional roles this character can fill"
+    llm_usage: "Primary matching criteria for team composition"
+
+  role_notes:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Free-text explanation of role capabilities and strengths"
+    llm_usage: "Provides context for role effectiveness"
+    example: "Excellent party-wide healer with regen. Can also buff attack."
+
+  # ===========================================================================
+  # SKILLS
+  # ===========================================================================
+  # We assume max level characters with all skills available.
+  # The spreadsheet's star ratings (1★-5★) indicate skill board position - 
+  # we don't track this as it's not relevant for team composition.
+  # 
+  # We DO track: tp (requires Blessing), ex (conditional), special (separate gauge)
+  
+  skills:
+    type: array
+    items: skill_object
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "List of skills (focus on team-relevant ones)"
+    llm_usage: "Critical for understanding synergies and strategies"
+
+  skill_object:
+    name:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Skill name as shown in game (if named)"
+    
+    skill_category:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [active, tp, ex, special]
+      description: "Skill category"
+      notes: |
+        - active: Regular active skills (from any skill board)
+        - tp: TP skill (requires Blessing of the Lantern)
+        - ex: EX skill (conditional trigger, doesn't use equip slot)
+        - special: Special/Ultimate ability (separate gauge)
+    
+    sp_cost:
+      type: integer
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "SP cost to use (may reduce at level breakpoints)"
+    
+    skill_type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [attack, buff, debuff, heal, utility, mixed]
+      description: "Primary function of the skill"
+    
+    damage_types:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Weapon/element types this skill can hit weakness for"
+      example: ["sword", "light"]
+      notes: "From 'also hits X weakness' in skill description"
+    
+    target:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: 
+        - self
+        - single_ally
+        - paired_ally        # Character in same row slot
+        - front_row          # All frontrow allies
+        - back_row           # All backrow allies
+        - all_allies         # All 8 characters
+        - single_enemy
+        - aoe                # All enemies
+        - random             # Random enemy targets (multiple hits)
+      description: "Who the skill affects"
+    
+    hit_count:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Number of hits (can be range like '4-6x' or boost-dependent)"
+      example: |
+        - "4x"
+        - "3-5x"
+        - "2-5x based on Boost Lv."
+    
+    power:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Power value or range"
+      example: |
+        - "170~350"
+        - "260~450"
+    
+    effects:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Buff/debuff effects in standardized format"
+      example: 
+        - "Self 20% Atk Up for 3-6 turns"
+        - "inflict 15% Def Down for 2 turns"
+        - "Frontrow HP Regen (110 Strength)"
+        - "Self Guaranteed Crit for 3 turns"
+    
+    conditions:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Conditions that modify the skill"
+      example:
+        - "If Boost MAX, guaranteed Crit"
+        - "Power x1.5 if target is Broken"
+        - "If self HP is more than 50%, take 50% max HP damage"
+    
+    priority:
+      type: boolean
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Does this skill have [Priority] (acts first)?"
+      default: false
+    
+    ex_trigger:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Trigger condition for EX skills"
+      example: |
+        - "Turn 4 onwards"
+        - "No enemies are broken"
+        - "Self HP = 100%"
+    
+    notes:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Strategic notes about skill usage"
+
+  # ===========================================================================
+  # PASSIVES
+  # ===========================================================================
+  # We assume max level with all passives available.
+  # The spreadsheet's 1★/3★ labels indicate board position - not tracked here.
+  # We DO track: tp (requires Blessing), basic (innate)
+  
+  passives:
+    type: array
+    items: passive_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Passive abilities"
+
+  passive_object:
+    passive_category:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [innate, tp, basic]
+      description: "Passive category"
+      notes: |
+        - innate: Regular passives (from skill boards, always available at max level)
+        - tp: TP passive (from Blessing of the Lantern, often unlocks TP skill)
+        - basic: Basic/core passive (some characters have special innate passives)
+    
+    effect:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What the passive does (copy from game/spreadsheet)"
+      example: "Self 30% Light Damage Up"
+    
+    limit_break_upgrade:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "How 6★ Limit Break improves this passive (shown as '6*' in spreadsheet)"
+      example: "Effect is now permanent, also grants Magic Critical Hit"
+    
+    trigger:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "When/how the passive activates"
+      allowed_values:
+        - always          # Always active
+        - battle_start    # At start of battle
+        - hp_condition    # Based on HP (full, 50%, etc.)
+        - enemy_state     # Based on enemy (broken, debuffed)
+        - on_action       # When using skills/attacks
+        - on_hit          # When hit by attacks
+        - on_break        # When breaking an enemy
+      example: |
+        - "While at Full HP"
+        - "When breaking an enemy"
+
+  # ===========================================================================
+  # SYNERGIES
+  # ===========================================================================
+  synergies:
+    type: array
+    items: synergy_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Known synergies with other characters"
+    llm_usage: "Guides team composition recommendations"
+
+  synergy_object:
+    character_id:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "ID of synergistic character"
+    
+    synergy_type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: 
+        - buff_stacking
+        - element_chain
+        - role_compression
+        - speed_tuning
+        - debuff_chain
+        - other
+      description: "Type of synergy"
+    
+    description:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Explanation of why synergy works"
+
+  # ===========================================================================
+  # SPEED / TURN ORDER
+  # ===========================================================================
+  base_speed:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Base speed stat at max level (for turn order planning)"
+
+  speed_category:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [very_fast, fast, medium, slow, very_slow]
+    description: "General speed tier relative to other characters"
+
+  speed_notes:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Notes on speed tuning (naturally fast/slow, accessory needs)"
+    example: "Naturally slow, needs speed accessories to act before DPS"
+
+  # ===========================================================================
+  # LIMITATIONS
+  # ===========================================================================
+  weaknesses:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Known limitations or drawbacks"
+    llm_usage: "Prevents recommending character in unsuitable situations"
+    example:
+      - "Low HP pool, vulnerable to multi-hit attacks"
+      - "Requires 3+ turns to reach peak damage"
+      - "Skills have high SP cost"
+
+  # ===========================================================================
+  # BEST USE CASES
+  # ===========================================================================
+  best_use_cases:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Situations where this character excels"
+    llm_usage: "Guides retrieval and matching"
+    example:
+      - "Long battles where regen value adds up"
+      - "Bosses weak to [element/weapon]"
+      - "Teams needing high shield break"
+
+  # ===========================================================================
+  # INVESTMENT / PROGRESSION
+  # ===========================================================================
+  # See progression_systems.yaml for explanation of each system
+  
+  awakening_stage:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [0, 1, 2, 3, 4]
+    description: "Awakening stage this data assumes (I-IV, or 0 for none)"
+    default: 4
+    notes: |
+      Stage I: Stats +30%
+      Stage II: 4th skill slot unlocked
+      Stage III: HP +50%
+      Stage IV: A4 accessory obtained (5★ only)
+
+  has_limit_break:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Has 6★ Limit Break been applied? (allows Lv120, skill upgrades)"
+    default: false
+
+  has_blessing_of_lantern:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Has Blessing of the Lantern been unlocked? (TP passive/skill)"
+    default: false
+
+  # ===========================================================================
+  # A4 ACCESSORY
+  # ===========================================================================
+  a4_accessory:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Exclusive A4 accessory (obtained at Awakening Stage IV)"
+
+  a4_accessory.name:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Accessory name"
+    example: "Father's Memorial Vambrace"
+
+  a4_accessory.passive_effect:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "What the accessory does"
+    example: "Self 10% Sword Damage Up, Self 10% Light/Dark Res Up"
+
+  # ===========================================================================
+  # UNIQUE MECHANICS
+  # ===========================================================================
+  unique_mechanics:
+    type: array
+    items: mechanic_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Character-specific mechanics (stances, stacks, etc.)"
+
+  mechanic_object:
+    name:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Mechanic name"
+      example: |
+        - "Preparation"
+        - "Hero Points"
+        - "Sacred Flame's Blessing"
+    
+    description:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "How the mechanic works"
+      example: "Stacks up to 9, consumed to enhance skills"
+
+  # ===========================================================================
+  # METADATA
+  # ===========================================================================
+  data_confidence:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [verified, tested, theoretical, incomplete]
+    description: |
+      How reliable is this data?
+      - verified: Confirmed from game, wiki, or trusted sources
+      - tested: Personally tested but not cross-referenced
+      - theoretical: Based on skill descriptions, not tested
+      - incomplete: Missing significant information
+
+  data_notes:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Notes about data completeness or sources"
+
+  data_source:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Where this data came from (wiki URL, personal testing, etc.)"
+
+  last_updated:
+    type: date
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    format: "YYYY-MM-DD"
+    description: "When this entry was last updated"

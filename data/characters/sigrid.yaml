@@ -1,0 +1,175 @@
+# Character: Sigrid
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sigrid
+display_name: "Sigrid"
+rarity: 4
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3210
+p_atk: 394
+p_def: 330
+e_atk: 247
+e_def: 240
+speed: 296
+crit: 323
+sp: 296
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4030
+p_atk_120: 459
+p_def_120: 395
+e_atk_120: 297
+e_def_120: 290
+speed_120: 331
+crit_120: 373
+sp_120: 366
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slice"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Swift"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Swift** **(1★)** Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Repeated Slash"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Stunning Strike"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "**3x80**"
+  - skill_category: active
+    name: "Chain Thundershock"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Chain Thundershock"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x115**"
+  - skill_category: tp
+    name: "Swift Falcon"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: ex
+    name: "Swift Four Flashes"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "**Swift Four Flashes** Act faster during turn and deal Phys"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Threefold Reprisal"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When near death: Triggers a follow-up strike when using Attack. *Triggers once even during a Boost."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Lower Sword Res. of All Foes by 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Start of battle: Lower Sword Res. of All Foes by 15% (turns: **5**)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Lower own SP consumption by 20% (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Blademaster’s Pendant"
+  passive_effect: "30 P.Atk, 20 Crit, 20 SP; Raise Sword damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

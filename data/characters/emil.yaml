@@ -1,0 +1,175 @@
+# Character: Emil
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: emil
+display_name: "Emil"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, staff, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2762
+p_atk: 226
+p_def: 257
+e_atk: 465
+e_def: 334
+speed: 286
+crit: 253
+sp: 590
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3502
+p_atk_120: 276
+p_def_120: 307
+e_atk_120: 530
+e_def_120: 399
+speed_120: 336
+crit_120: 288
+sp_120: 670
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Emil’s Healing"
+    sp_cost: 24
+    skill_type: heal
+    target: front_row
+    power: "160"
+    effects:
+      - "**Emil’s Healing** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Purple Slash"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Purple Barrage"
+    sp_cost: 41
+    skill_type: mixed
+    damage_types: [dark, tome]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Dark damage to Random Foe 3 time(s) (potency: 3x55) and lower Dark Res"
+  - skill_category: active
+    name: "Shield Projection"
+    sp_cost: 47
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Shield Projection (2★)** Raise Phys"
+      - "of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and grant damage reduction of 30% (times: 1/effects of the same type and times cannot be stacked)"
+  - skill_category: active
+    name: "Purple Missile"
+    sp_cost: 123
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: random
+    hit_count: "3x"
+    power: "3x55, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    name: "Emil’s Cheer"
+    sp_cost: 50
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Emil’s Cheer (3★)** Raise Phys"
+      - "of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.) and then attempt to consume 45 SP to raise their Polearm"
+  - skill_category: active
+    name: "Emil Beam"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: single_enemy
+    power: "30"
+  - skill_category: active
+    name: "Purple Multi-Slash"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Purple Wave"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Emil’s Regen"
+    sp_cost: 52
+    skill_type: heal
+    target: front_row
+    power: "140, turns: 2"
+    effects:
+      - "**Emil’s Regen ** Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2) and cure some status ailments"
+  - skill_category: ex
+    name: "Purple Crush"
+    skill_type: attack
+    damage_types: [dark, tome]
+    target: single_enemy
+    power: "530"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Magic Condensation"
+    skill_type: buff
+    target: self
+    effects:
+      - "Recover 100% of own max SP and grant Self Damage Limit Up (effect: **10,000→50,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Elem. Atk. of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Elem. Atk. and Critical of Self by 30% and grant Self the ability to trigger critical hits with elemental attacks."
+  - passive_category: innate
+    effect: "Grant Self automatic SP recovery (amount: 10)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Elem. Atk. Up limit from battle skills and support skills and equipment effects to 50%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Plant Patterned Shawl"
+  passive_effect: "200 E.Atk, -30 P.Def, -30 E.Def; Grant automatic SP recovery (amount: 10); At 50% of SP or less: Grant automatic SP recovery (amount: 10% of max SP)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

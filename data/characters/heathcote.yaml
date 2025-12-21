@@ -1,0 +1,190 @@
+# Character: Heathcote
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: heathcote
+display_name: "Heathcote"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2822
+p_atk: 348
+p_def: 280
+e_atk: 286
+e_def: 253
+speed: 420
+crit: 343
+sp: 342
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3642
+p_atk_120: 413
+p_def_120: 300
+e_atk_120: 336
+e_def_120: 303
+speed_120: 485
+crit_120: 393
+sp_120: 422
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Single Edge"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Divine Speed"
+    sp_cost: 24
+    skill_type: buff
+    target: self
+    effects:
+      - "**Divine Speed** **(1★)** Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Double Ripping Assault"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Howling Wind"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Triple Burst"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Storm Burst"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Double Wide Burst"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Swift Jab"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "**Swift Jab** **(5★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Swift Jab"
+    sp_cost: 42
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "**Swift Jab** **(6★)** Act faster during turn and deal Phys"
+      - "Dagger damage to Single Foe (potency: 260) and lower Dagger Res"
+  - skill_category: tp
+    name: "Nayuta"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: ex
+    name: "Void"
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Eternity"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** At end of turn: 20% chance to recover from some of own status ailments."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Raise damage of Self by 20% when exploiting enemy weakness."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Grant Self an effect that activates attack skills twice (turns: 3/turns cannot be extended/follow-up attack will not consume SP)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Senior Butler's White Glove"
+  passive_effect: "40 Crit, 40 Speed, 60 SP; Raise Dagger and Wind damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

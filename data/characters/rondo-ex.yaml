@@ -1,0 +1,197 @@
+# Character: Rondo EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rondo-ex
+display_name: "Rondo EX"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark, ice, light, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2936
+p_atk: 201
+p_def: 246
+e_atk: 484
+e_def: 310
+speed: 273
+crit: 266
+sp: 572
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 251
+p_def_120: 296
+e_atk_120: 549
+e_def_120: 360
+speed_120: 323
+crit_120: 316
+sp_120: 662
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x75"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    sp_cost: 28
+    skill_type: buff
+    target: front_row
+    power: "5%-20% of user’s Max HP based on Boost Lv./Does not stack"
+    effects:
+      - "**(1★)** Grant Entire Front Row HP Barrier (potency: 5%-20% of user’s Max HP based on Boost Lv./Does not stack)"
+  - skill_category: active
+    sp_cost: 32
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(2★)** Grant Entire Front Row the special effect “Icy Torrent” (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 32
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 61
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x65) and grant Entire Front Row automatic HP recovery (potency:110/turns: 2)"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 61
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Ice damage to Single Foe 4 time(s) (potency: 4x45) and lower Ice Res"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 83
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x145"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x145) and raise damage of Entire Front Row by 15% (turns: 2)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With “Icy Waves”: Additionally raise Elem"
+  - skill_category: active
+    sp_cost: 84
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "5x"
+    power: "5x45"
+    effects:
+      - "Ice damage to All Foes 5 time(s) (potency: 5x45) and grant Entire Front Row HP Barrier (potency: 25% of user’s Max HP/Does not stack)"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x265-450 based on Boost Lv."
+    effects:
+      - "**** Act faster during turn"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**(EX)** Grant All Allies Damage Limit Up (effect: 100,000/turns: 2-5 based on Boost Lv.)"
+      - "Also grant the special effect “Icy Waves” (turns: 3)"
+      - "“Icy Waves”: Raise Damage Limit of Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Straight Aerial”"
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    effects:
+      - "Act faster during turn"
+      - "Raise Damage Limit of this Ultimate Technique by **10,000→50,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "“Attack” action becomes Elem. Ice damage. Start of battle: Grant All Allies the special effect “Icy Waves” (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Grant allies in front row with HP Barrier the special effect “Ice Raging Waves”."
+    trigger: always
+  - passive_category: innate
+    effect: "When allies in front row exploit enemy weakness: Grant them a follow-up effect (*Triggers once regardless the number of attacks). Follow-up effect: Inflict Ice weakening (times: 2). In addition, if target is affected by “Icy Waves”, deal Elem. Ice damage to All Foes (potency: 100)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Increase the damage multiplier of critical hits of Entire Front Row to 1.6 (instead of 1.25). When the target is at full HP additionally grant the ability to trigger critical hits with elemental attacks."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Surfboard Shield”"
+  passive_effect: "140 E.Atk; Raise Ice damage by 30% and raise the Ice damage limit from support skills and equipment to 60%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

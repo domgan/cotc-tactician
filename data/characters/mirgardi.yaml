@@ -1,0 +1,196 @@
+# Character: Mirgardi
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: mirgardi
+display_name: "Mirgardi"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, fan, fire, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2886
+p_atk: 415
+p_def: 267
+e_atk: 292
+e_def: 277
+speed: 342
+crit: 240
+sp: 434
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3706
+p_atk_120: 465
+p_def_120: 317
+e_atk_120: 357
+e_def_120: 327
+speed_120: 407
+crit_120: 275
+sp_120: 504
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Rampage Sweep"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x35"
+  - skill_category: active
+    name: "Dark Axe Throw"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Cyclone Strike"
+    sp_cost: 35
+    skill_type: mixed
+    damage_types: [fan, axe]
+    target: aoe
+    power: "75"
+    effects:
+      - "Fan damage to All Foes (potency: 75) and impart Self with Phys"
+  - skill_category: active
+    name: "Flame Tempest Charm"
+    sp_cost: 61
+    skill_type: mixed
+    damage_types: [fire]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fire damage to Random Foe 3 time(s) (potency: 3x65) and lower Phys"
+  - skill_category: active
+    name: "Dragon Slash"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [fan, axe]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "[41 SP] ·With 2 or more Dragon Tail Points: Restore own HP (potency: 140)"
+  - skill_category: active
+    name: "Heavenly Garb"
+    sp_cost: 46
+    skill_type: mixed
+    target: self
+    power: "80, turns: 3"
+    effects:
+      - "**Heavenly Garb (3★)** Impart Self with Phys"
+      - "Up 15% and raise Fan damage by 15% (turns: 3-6 based on Boost Lv.)"
+      - "[46 SP] ·With 2 or more Dragon Tail Points: Grant Self automatic HP recovery (potency: 80, turns: 3) ·With 4 or more Dragon Tail Points: Grant Self automatic SP recovery (amount: 15% of max SP"
+      - "turns: 3) ·With 5 or less Dragon Tail Points: Grant Self 3 Dragon Tail Points"
+  - skill_category: active
+    name: "Flame Whirlwind Charm"
+    sp_cost: 75
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Fire damage to All Foes 2 time(s) (potency: 2x95) and lower Phys"
+      - "When consuming 1 or more BP: Act faster during next turn"
+  - skill_category: active
+    name: "Dragon Break Fan"
+    sp_cost: 69
+    skill_type: mixed
+    damage_types: [fan, axe]
+    target: single_enemy
+    hit_count: "3x"
+    effects:
+      - "**Dragon Break Fan (5★)** Act faster during turn"
+      - "Fan damage to Single Foe 3 time(s) (3x35) and lower Fan Res"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Corrosion: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Dragon Slayer Charge"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [fan, axe]
+    target: single_enemy
+    power: "175"
+  - skill_category: tp
+    name: "Dragon Slash"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [fan, axe]
+    target: single_enemy
+    power: "140"
+  - skill_category: ex
+    name: "Shadow Form"
+    skill_type: mixed
+    damage_types: [fan]
+    target: random
+    power: "210"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Rice Crusher"
+    skill_type: attack
+    damage_types: [fan, axe]
+    target: aoe
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When attacked, gain one “Dragon Tail Point”. *Multiple-hit attacks activates this once. Start of battle: Increase own Dragon Tail Points by 5."
+    trigger: battle_start
+    limit_break_upgrade: "When attacked, gain one “Dragon Tail Point”. *Multiple-hit attacks activates this once. Start of battle: Increase own Dragon Tail Points by 5."
+  - passive_category: innate
+    effect: "Dragon Tail Points."
+    trigger: always
+  - passive_category: innate
+    effect: "When using “Attack”, provoke the target (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant effects to Self based on the number of own Dragon Tail Points: ·2 or more: Raise Phys. and Elem Res. by 15%. ·4 or more: Addiotionally, raise Phys. Atk. by 20%. ·6 or more: Additionally, raise Fan damage by 20% and grant Damage Limit Up (effect: 30,000)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Galdrian Successor’s Cloak"
+  passive_effect: "80 P.Atk, 60 Crit; Raise Fan damage by 10%; Recover 15% of damage taken as HP (Does not stack with effects of the same type)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

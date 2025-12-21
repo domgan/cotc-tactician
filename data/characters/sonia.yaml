@@ -1,0 +1,180 @@
+# Character: Sonia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sonia
+display_name: "Sonia"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2902
+p_atk: 373
+p_def: 255
+e_atk: 351
+e_def: 238
+speed: 430
+crit: 293
+sp: 337
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3722
+p_atk_120: 438
+p_def_120: 275
+e_atk_120: 401
+e_def_120: 288
+speed_120: 495
+crit_120: 343
+sp_120: 417
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Numbing Stab"
+    sp_cost: 13
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "100"
+  - skill_category: active
+    name: "Twin Windwave"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x55"
+  - skill_category: active
+    name: "Anti-Attack II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Anti-Attack II (1★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Twofold Break"
+    sp_cost: 28
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "White Grapes"
+    sp_cost: 40
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**White Grapes (2★)** Restore SP of Single Ally (amount: 10-40 based on Boost Lv.)"
+      - "also grant Dead Aim (guaranteed critical hits) (turns: 2)"
+  - skill_category: active
+    name: "Spike Dance"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x55"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x55) and recover **2 BP**. Subsequently move to the back row (action does not count as switching)."
+  - skill_category: active
+    name: "Blustering Break"
+    sp_cost: 53
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Storm Spike"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: random
+    hit_count: "3x"
+    power: "3x45"
+  - skill_category: active
+    name: "Self-Deception"
+    sp_cost: 41
+    skill_type: mixed
+    damage_types: [dagger, wind]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Lower Dagger Res"
+  - skill_category: tp
+    name: "Storm Flash"
+    sp_cost: 63
+    skill_type: mixed
+    damage_types: [dagger, wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: ex
+    name: "Gale Piercer"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Gale Piercer** Lower Dagger Res"
+      - "Lower 3 Shield Points regardless of the weak points"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Funerary Flurry"
+    skill_type: mixed
+    damage_types: [dagger, wind]
+    target: single_enemy
+    effects:
+      - "Dagger damage to Single Foe (potency: **5x75→5x90→5x105**) and lower Dagger Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to back row: Restore SP of Entire Front Row (amount: 5% of max SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "When switching to front row: Grant Self an effect that activates skills twice (turns: 1/cannot be extended/follow-up attack will not consume SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Dagger damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "White Grape Perfume"
+  passive_effect: "100 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Dagger Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

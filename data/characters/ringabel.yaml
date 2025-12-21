@@ -1,0 +1,178 @@
+# Character: Ringabel
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ringabel
+display_name: "Ringabel"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: wealth
+origin: "Luxendarc (BRAVELY DEFAULT)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 434
+p_def: 348
+e_atk: 227
+e_def: 256
+speed: 235
+crit: 388
+sp: 296
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 499
+p_def_120: 413
+e_atk_120: 277
+e_def_120: 306
+speed_120: 270
+crit_120: 438
+sp_120: 366
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blossom Slash"
+    sp_cost: 31
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Black Rose"
+    sp_cost: 31
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Raise the user’s max HP by 20% (turns: 2)"
+  - skill_category: active
+    name: "Dark Bane"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "290"
+  - skill_category: active
+    name: "Rage"
+    sp_cost: 16
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "30"
+    effects:
+      - "consume 10% of max HP to raise attack count with each consumption (max: 6)"
+  - skill_category: active
+    name: "Consume Aether (Dark)"
+    sp_cost: 27
+    skill_type: buff
+    target: self
+    effects:
+      - "**Consume Aether (Dark) (2★)** Impart Self with Phys"
+      - "Up 15% (turns: 3-6 based on Boost Lv.) and grant automatic SP recovery (amount: 10% of max SP"
+  - skill_category: active
+    name: "Minus Strike"
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+  - skill_category: active
+    name: "Order Break"
+    sp_cost: 71
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Black Bane"
+    sp_cost: 79
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "4x"
+    power: "4x55"
+  - skill_category: active
+    name: "Dark Calamity"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x55"
+    limit_break_upgrade: "At more than 50% HP, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: **5x75**). 10% more potent when consuming HP. Exploits Dark weaknesses (damage calculation based on Phys. Sword attack)."
+  - skill_category: tp
+    name: "Life from Death"
+    sp_cost: 74
+    skill_type: buff
+    target: self
+    effects:
+      - "**Life from Death ** Impart Self with Unsinkable (turns: 3-6 based on Boost Lv.) and raise BP recovery amount by 3 (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Rampage"
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "45"
+    effects:
+      - "consume 10% of max HP to raise attack count with each consumption (max: 9)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Dark Nebula"
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "7x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At 60% HP or less: Impart Self with Phys. Atk. Up 30% and raise Sword damage by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant automatic revival to Self once per battle (revived at 100% of max HP/SP). (Stacks with battle skills)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Raise max HP of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Everlasting Rose"
+  passive_effect: "40 P.Atk, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

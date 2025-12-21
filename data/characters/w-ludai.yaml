@@ -1,0 +1,172 @@
+# Character: W’ludai
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: w-ludai
+display_name: "W’ludai"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3440
+p_atk: 414
+p_def: 318
+e_atk: 280
+e_def: 260
+speed: 303
+crit: 226
+sp: 292
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4340
+p_atk_120: 479
+p_def_120: 368
+e_atk_120: 330
+e_def_120: 310
+speed_120: 338
+crit_120: 261
+sp_120: 372
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Shadow Impact"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Spearhead"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Polearm damage to Single Foe (potency: 170) and act faster during next turn"
+  - skill_category: active
+    name: "Blinding Thrust"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Healing Thrust"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Polearm damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
+  - skill_category: active
+    name: "Impenetrable Gloom"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Valiant Charge"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Tetra Spear"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Javelin Rush"
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: tp
+    name: "Sixfold Pierce"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "6x"
+    power: "6x25"
+  - skill_category: ex
+    name: "Energy Thrust"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "290"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hydra Pierce"
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Raise Polearm damage of Self by 30%."
+    trigger: hp_condition
+    limit_break_upgrade: "**At 50% HP or more**: Raise Polearm damage of Self by 30% and extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
+  - passive_category: innate
+    effect: "When near death: Grant Self automatic HP recovery (potency: 90)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "W’ludai’s Satchel"
+  passive_effect: "80 P.Atk, 60 SP; When breaking an enemy, lower their Polearm Res. by 15% (turns: 3); Grant automatic HP recovery (amount: 500)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,186 @@
+# Character: Throné
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: thron
+display_name: "Throné"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2792
+p_atk: 388
+p_def: 260
+e_atk: 281
+e_def: 233
+speed: 500
+crit: 318
+sp: 327
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3612
+p_atk_120: 453
+p_def_120: 280
+e_atk_120: 331
+e_def_120: 283
+speed_120: 565
+crit_120: 368
+sp_120: 407
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Sting"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Nightly Strike"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Lifesteal Dagger"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Fresh Triple Blade"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "the more SP will be restored"
+  - skill_category: active
+    name: "Snake"
+    sp_cost: 22
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Snake (2★)** Lower Phys"
+  - skill_category: active
+    name: "Trifold Wide Stab"
+    sp_cost: 76
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Dark Curtain"
+    sp_cost: 77
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "65"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: attack
+    target: single_enemy
+  - skill_category: active
+    name: "Surprise Attack"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: **230**). The faster you act during turn, the greater the potency. Potency doubles when acting first."
+  - skill_category: active
+    name: "Stealth Attack"
+    sp_cost: 84
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Stealth Assault"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x30"
+    effects:
+      - "Dagger damage to Random Foe 3 time(s) (potency: 3x30) and have a moderate chance to lower Dagger Res"
+  - skill_category: ex
+    name: "Quadruple Slash"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "restore 2 BP"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Shadow Strike"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Dagger damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) when broken enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect “Leave No Trace” (turns: 1). Leave No Trace: Activate the skill twice (additional activation does not consume SP). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Night Dew Earrings"
+  passive_effect: "60 P.Atk, 80 Spd; Grant Self Phys. Atk. Up 15%; When breaking an enemy, inflict Miss Phys. Attacks (times: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

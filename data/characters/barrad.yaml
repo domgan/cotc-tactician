@@ -1,0 +1,175 @@
+# Character: Barrad
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: barrad
+display_name: "Barrad"
+rarity: 4
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3470
+p_atk: 366
+p_def: 348
+e_atk: 285
+e_def: 275
+speed: 220
+crit: 246
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4370
+p_atk_120: 431
+p_def_120: 398
+e_atk_120: 335
+e_def_120: 325
+speed_120: 255
+crit_120: 281
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Deadly Thrust"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Breathe Deep"
+    sp_cost: 13
+    skill_type: buff
+    target: self
+    effects:
+      - "**Breathe Deep** Impart Self with Phys"
+  - skill_category: active
+    name: "Scorch"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Healing"
+    sp_cost: 10
+    skill_type: buff
+    target: self
+    power: "90, turns: 3-6 basde on Boost Lv."
+    effects:
+      - "**Healing** **Whisper** **(2★)** Grant Self automatic HP recovery (potency: 90, turns: 3-6 basde on Boost Lv.)"
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Trifold"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Trifold"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "**3x80**"
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Cloudy Sky Lance"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260"
+  - skill_category: ex
+    name: "Ambition of the Clouds"
+    skill_type: buff
+    target: self
+    effects:
+      - "**Ambition of the Clouds** Grant Self Unsinkable (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Divine Thrust"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When near death: Raise Polearm damage of Entire Front Row by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Phys. Atk. Up 15%."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Polearm damage of Paired Allies by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crest of House Bowen"
+  passive_effect: "50 P.Atk, 200 HP; Raise Polearm damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

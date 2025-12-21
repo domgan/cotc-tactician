@@ -1,0 +1,174 @@
+# Character: Promme
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: promme
+display_name: "Promme"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2897
+p_atk: 276
+p_def: 277
+e_atk: 385
+e_def: 379
+speed: 266
+crit: 283
+sp: 390
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3637
+p_atk_120: 326
+p_def_120: 327
+e_atk_120: 450
+e_def_120: 444
+speed_120: 316
+crit_120: 318
+sp_120: 470
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Traumatic Bash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Medica (All) II"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "55"
+    effects:
+      - "**Medica (All) II** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Flame of Sanctions"
+    sp_cost: 26
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Fire damage to Single Foe (potency: 170) and lower Fire Res"
+  - skill_category: active
+    name: "Hammer of Judgement"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Joy of the Sacred Flame"
+    sp_cost: 36
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Joy of the Sacred Flame (2★)** Impart Self with Elem"
+      - "Up 20% and raise Fire damage by 20% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Destructive Blow"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Medica (All) III"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Medica (All) III (4★)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 90, turns: 2)"
+  - skill_category: active
+    name: "Purifying Flames"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    power: "210"
+    effects:
+      - "Fire damage to All Foes (potency: 210) and lower Fire Res"
+  - skill_category: active
+    name: "Flamebringer’s Mercy"
+    sp_cost: 100
+    skill_type: utility
+    target: front_row
+    limit_break_upgrade: "Reduce damage taken from some attacks by Entire Front Row once by **20%-100%** based on Boost Lv. (Does not stack with effects of the same type/Effect only triggers once)."
+  - skill_category: tp
+    name: "Wedge’s Incineration"
+    sp_cost: 86
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: ex
+    name: "The Flamebringer’s Pure Flame"
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    power: "520"
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Cleansing by Fire"
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise BP recover amount of Self by 1 (turns: 2)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Act faster when consuming 3 BP."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. of Self by 30% when a combusted enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Scripture of Flame"
+  passive_effect: "60 P.Def, 40 E.Def, 40 SP; Raise Fire damage dealt by 15%; Grant automatic SP recovery (amount: 20)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

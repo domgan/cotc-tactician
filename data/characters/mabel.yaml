@@ -1,0 +1,173 @@
+# Character: Mabel
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: mabel
+display_name: "Mabel"
+rarity: 4
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2770
+p_atk: 250
+p_def: 246
+e_atk: 377
+e_def: 342
+speed: 344
+crit: 272
+sp: 489
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3590
+p_atk_120: 300
+p_def_120: 296
+e_atk_120: 442
+e_def_120: 392
+speed_120: 409
+crit_120: 307
+sp_120: 559
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Ode to Lightning II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Peacock Parade"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Peacock Parade** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Windy Waltz"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Windy Waltz (1★)** Raise Wind Res"
+  - skill_category: active
+    name: "Dispiriting Dance"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    power: "115"
+    effects:
+      - "Fan damage to All Foes (potency: 115) and impart Elem"
+  - skill_category: active
+    name: "Roaring Rhapsody II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Sage's Serenade II"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sage's Serenade II (3★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Sage's Serenade II"
+    sp_cost: 32
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sage's Serenade II (5★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Ballad of Bolts"
+    sp_cost: 42
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x115"
+  - skill_category: active
+    name: "Ballad of Bolts"
+    sp_cost: 34
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x130**"
+  - skill_category: tp
+    name: "Kagura of the Wind God II"
+    sp_cost: 39
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Kagura of the Wind God II ** Impart Entire Front Row with Elem"
+      - "Up 15% and raise Wind Res"
+  - skill_category: ex
+    name: "Purple Lightning Waltz III"
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x80) and lower Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Thundering Twirl"
+    skill_type: attack
+    damage_types: [lightning]
+    target: front_row
+    power: "330→395→495"
+    effects:
+      - "Lightning damage to All Foes (potency: **330→395→495**) and raise Wind Res"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of Front or Back Row’s augmenting effects by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Shortens duration of enfeebling effects (excluding status ailments) inflicted on Front or Back Row by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Shortens duration of enfeebling effects and status ailments inflicted on Front or Back Row by 1 turn (Does not stack)."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Raise Elem. Atk. of Paired Allies by 20% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Treasured Handmirror"
+  passive_effect: "20 E.Atk, 20 E.Def, 30 Spd; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

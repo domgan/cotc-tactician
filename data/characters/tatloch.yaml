@@ -1,0 +1,182 @@
+# Character: Tatloch
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tatloch
+display_name: "Tatloch"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: power
+origin: "G'roha"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, fan, polearm, staff, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3236
+p_atk: 415
+p_def: 225
+e_atk: 402
+e_def: 257
+speed: 292
+crit: 262
+sp: 424
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4056
+p_atk_120: 465
+p_def_120: 275
+e_atk_120: 467
+e_def_120: 307
+speed_120: 357
+crit_120: 297
+sp_120: 494
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Summon Maa’fa"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+    limit_break_upgrade: "Summon Maa’fa and deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x70). Exploits Polearm, Axe and **Staff** weaknesses (damage calculation based on Phys. Sword attack). Have a moderate chance to inflict bleeding (turns: 2)."
+  - skill_category: active
+    name: "Foot Swipe"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    power: "150"
+    effects:
+      - "Fan damage to All Foes (potency: 150) and lower Spd"
+  - skill_category: active
+    name: "Frenzied Gale"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Dance of Battle"
+    sp_cost: 56
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Dance of Battle (2★)** Raise Phys"
+  - skill_category: active
+    name: "Winds of Misfortune"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Captivating Step"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Blooming Splendor"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+  - skill_category: active
+    name: "Quadruple Tempest"
+    sp_cost: 77
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Ruinous Enchantment"
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "lower Fan Res"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 56
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**** Raise Fan damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Dance of Engagement"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Dance of Engagement** Raise Phys"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "The Lady of Grace’s Delight"
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of turn: Deal Elem. Non-elemental damage to All Foes (potency: 180), absorb 5% of damage dealt as HP and receive 1 Life Point."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Entire Front Row effects based on own Life points. ·With 3 or more: Raise damage by 15% and Damage Limit by 30,000. ·With 6 or more: Additionally raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 15%. ·With 9 or more: Additionally grant automatic HP/SP recovery (potency: 70/amount: 5% of max SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy: Lower Fan Res. by 15% (turns: 2) and receive 1 Life Point."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Empress’ Necklace"
+  passive_effect: "200 P.Atk, -60 E.Atk; Start of battle: Lower Fan and Wind Res. of All Foes by 15% (turns: 3); Start of turn (excludes first turn): Low chance to lower Phys. Def. and Elem. Def. of all enemies by 10% (turns: 1).; With 3 or more: Raise Phys. Def. and Elem. Def. by 15%.; With 6 or more: Additionally raise Phys. Atk. and Elem. Atk. by 15%.; With 9 or more: Additionally grant automatic HP/SP recovery (potency: 70/amount: 5% of max SP).; 50 P.Atk, 50 E.Atk, 40 Spd; Start of battle: Lower Fan and Wind Res. of All Foes by 15% (turns: 3); Start of turn (excludes first turn): Low chance to lower Phys. Def. and Elem. Def. of all enemies by 10% (turns: 1)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

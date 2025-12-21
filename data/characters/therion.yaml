@@ -1,0 +1,182 @@
+# Character: Therion
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: therion
+display_name: "Therion"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 378
+p_def: 255
+e_atk: 301
+e_def: 228
+speed: 445
+crit: 318
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 443
+p_def_120: 275
+e_atk_120: 351
+e_def_120: 278
+speed_120: 510
+crit_120: 368
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "HP Thief"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Wildfire"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Fire damage to Single Foe (potency: 170) and impart Phys"
+  - skill_category: active
+    name: "Restrain Foe"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Restrain Foe (2★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Double Burst"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Lower Shield Points even when not striking a weak point"
+  - skill_category: active
+    name: "Draining Dagger"
+    sp_cost: 36
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Triple Bite"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Paralyzing Tooth"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Hellfire"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Mirage Assault"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: ex
+    name: "Lycan Edge"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Thief’s Plunder"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise recovery amount of absorption skills by 50% for Self."
+    trigger: always
+  - passive_category: innate
+    effect: "When using Boost MAX on an ability, that ability is used a second time in a row."
+    trigger: always
+    limit_break_upgrade: "When using Boost MAX on an ability, that ability is used a second time in a row and raise own Phys. Atk. and Dagger damage by 15%."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy, restore 1 BP."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Famous Thief’s Lockpick"
+  passive_effect: "40 P.Atk, 60 Spd, 400 HP; Raise Dagger damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

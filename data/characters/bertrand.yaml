@@ -1,0 +1,169 @@
+# Character: Bertrand
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: bertrand
+display_name: "Bertrand"
+rarity: 4
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3052
+p_atk: 364
+p_def: 218
+e_atk: 257
+e_def: 261
+speed: 335
+crit: 378
+sp: 383
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3872
+p_atk_120: 429
+p_def_120: 268
+e_atk_120: 307
+e_def_120: 281
+speed_120: 385
+crit_120: 443
+sp_120: 463
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Quickshot"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Quicken"
+    sp_cost: 14
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Quicken (1★)** Raise Spd of Single Ally by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lightning Arrow"
+    sp_cost: 21
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    power: "85"
+    effects:
+      - "Lightning damage to All Foes (potency: 85) and lower Lightning Res"
+  - skill_category: active
+    name: "Fulmen"
+    sp_cost: 30
+    skill_type: attack
+    target: random
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Wild Shot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x50"
+  - skill_category: active
+    name: "Wild Shot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x50"
+  - skill_category: active
+    name: "Fulgor"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Fulgor"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "**250**"
+    limit_break_upgrade: "Deal Elem. Lightning damage to Single Foe (potency: 250). 50% more potent if target is paralyzed."
+  - skill_category: tp
+    name: "Hundred Thunder"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: ex
+    name: "Roaring Thunder Bird"
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "210"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "White’s Thrush"
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "4x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Lower Lightning Res. of All Foes by 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Grant Front and Back Row immunity to paralysis."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When paralyzed enemy is present, grant Self the ability to trigger critical hits when using elemental attacks and Dead Aim (guaranteed critical hits)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Virid Mantle"
+  passive_effect: "40 E.Atk, 10 Spd, 20 SP; Raise own Phys. Atk. by 10% when paralyzed enemy is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

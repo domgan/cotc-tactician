@@ -1,0 +1,201 @@
+# Character: Signa EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: signa-ex
+display_name: "Signa EX"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: approval
+origin: "Overworld (Dragon Quest III)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, polearm, staff, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3940
+p_atk: 440
+p_def: 357
+e_atk: 236
+e_def: 248
+speed: 196
+crit: 208
+sp: 378
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4760
+p_atk_120: 490
+p_def_120: 407
+e_atk_120: 301
+e_def_120: 298
+speed_120: 246
+crit_120: 258
+sp_120: 448
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe, polearm]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "**(Initial)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 18
+    skill_type: utility
+    target: self
+    effects:
+      - "**(Initial)** Act faster during turn"
+  - skill_category: active
+    sp_cost: 32
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 33
+    skill_type: attack
+    damage_types: [axe, sword]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    sp_cost: 1
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Raise Phys"
+      - "of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe, sword]
+    target: random
+    hit_count: "4x"
+    power: "4x25"
+  - skill_category: active
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: buff
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 1
+    skill_type: buff
+    target: self
+    effects:
+      - "**(5★)** Raise the potency of battle skills of Self by 30%-100% based on Boost Lv"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: self
+    effects:
+      - "With “Legend”: Grant Self Damage Limit Up (effect 100,000, turns: 3)"
+  - skill_category: tp
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: tp
+    name: "Lv.2"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "2"
+    skill_type: buff
+    target: self
+    effects:
+      - "With “Legend”: Grant Self Determination (turns: **2**)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "630"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill (effect: 300,000)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Determination to Defeat Evil”"
+    skill_type: buff
+    target: self
+    power: "3→4"
+    effects:
+      - "Grant Self “Determination” (turns: 9)"
+      - "grant Self Damage Limit Up (effect: **10,000→50,000→100,000**"
+      - "*“Determination” is granted as a support ability"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "“Attack” action changes to the following: Phys. Axe damage to Single Foe (potency: 65-440 based on Boost Lv.). *Number of attacks do not increase with Boost. Lower Shield Points even when not striking weak points. Grant Self Damage Limit Up when using “Attack” (effect: 100,000). The longer duration of “Determination” state, the higher the potency (up to 150% more potent with 5 or more turns). Reactivate the effect with 3 or more turns of “Determination”."
+    trigger: always
+  - passive_category: innate
+    effect: "When using damaging battle skills, grant Self “Determination” (turns: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. and Axe damage of Self by 30%. When in “Legend” state, also raise Damage Limit by 100,000."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. and Axe damage of Self by 30% and raise the limit of Phys. Atk. and Axe damage augments from equipment and support skills to 50%. When in “Legend” state, also raise Damage Limit by **300,000**."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Warrior’s Gloves”"
+  passive_effect: "200 P.Atk, -60 E.Atk; Grant Damage Limit Up (effect: 100,000); When equipped by an Apothecary, grant Dead Aim (guaranteed critical hits)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

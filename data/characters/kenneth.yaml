@@ -1,0 +1,169 @@
+# Character: Kenneth
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kenneth
+display_name: "Kenneth"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2236
+p_atk: 196
+p_def: 246
+e_atk: 284
+e_def: 290
+speed: 238
+crit: 176
+sp: 462
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 2896
+p_atk_120: 246
+p_def_120: 296
+e_atk_120: 349
+e_def_120: 340
+speed_120: 288
+crit_120: 226
+sp_120: 552
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Icewind (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Icewind (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Blizzard (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Triple Slam"
+    sp_cost: 25
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x50"
+  - skill_category: active
+    name: "Iceprone (Single) II"
+    sp_cost: 8
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Iceprone (Single) II (3★)** Lower Ice Res"
+  - skill_category: active
+    name: "Iceprone (Single) II"
+    sp_cost: 8
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Iceprone (Single) II (5★)** Lower Ice Res"
+  - skill_category: active
+    name: "Blizzard (All) II"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Blizzard (All) II"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "**2x90**"
+    limit_break_upgrade: "Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x90) and inflict frostbite (turns: 2)."
+  - skill_category: tp
+    name: "Icewind (Single) IV"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "260"
+  - skill_category: ex
+    name: "Frozen Fang Surge"
+    skill_type: mixed
+    damage_types: [ice]
+    target: front_row
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Restore SP of Entire Front Row (amount: 10% of max SP)"
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Drunken Icewind"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Ice damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Elem. Atk. by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Improved Fishing Rod"
+  passive_effect: "40 E.Atk, 30 SP; Start of the battle: Lower Ice Res. of All Foes by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

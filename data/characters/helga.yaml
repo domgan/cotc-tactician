@@ -1,0 +1,177 @@
+# Character: Helga
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: helga
+display_name: "Helga"
+rarity: 4
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3464
+p_atk: 352
+p_def: 350
+e_atk: 278
+e_def: 294
+speed: 223
+crit: 251
+sp: 317
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4364
+p_atk_120: 417
+p_def_120: 400
+e_atk_120: 328
+e_def_120: 344
+speed_120: 258
+crit_120: 286
+sp_120: 397
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Swift"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Swift** Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Ice Blast"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Solid Strike"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x85) and lower Spd by 15% with every attack (turns: 2)"
+  - skill_category: active
+    name: "Relax"
+    sp_cost: 11
+    skill_type: buff
+    target: single_enemy
+    power: "100"
+    effects:
+      - "**Relax (3★)** Restore own HP (potency: 100)"
+  - skill_category: active
+    name: "Relax"
+    sp_cost: 11
+    skill_type: buff
+    target: single_enemy
+    power: "**160**"
+    effects:
+      - "**Relax (5★)** Restore own HP (potency: **160**)"
+    limit_break_upgrade: "Restore own HP (potency: 160), grant Self HP Barrier (potency: 20% of user’s max HP/Does not stack) and raise Phys. Def. and Elem. Def. by 15% (turns: 2)."
+  - skill_category: active
+    name: "Chain Rime"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+  - skill_category: active
+    name: "Chain Rime"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+  - skill_category: tp
+    name: "Unmatched Arm-Crippling Thrust"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Polearm Res"
+  - skill_category: ex
+    name: "Unparalleled Arm-Leg Thrust"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Tiger’s Ruin"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "4x"
+    effects:
+      - "Polearm damage to Random Foe 4 time(s) (potency: **4x95→4x115→4x140**) and lower Spd by **5%→10%→15%** with every attack (turns: 2)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** At full HP: Provoke All Foes."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Start of battle: Impart All Foes with Phys. Atk. Down 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "50% chance to recover HP equal to 25% of damage taken when hit (with some exceptions/Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Master’s Coin"
+  passive_effect: "70 Spd; Grant automatic HP recovery (amount: 250)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

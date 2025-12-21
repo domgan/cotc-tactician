@@ -1,0 +1,197 @@
+# Character: Ceraphina
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ceraphina
+display_name: "Ceraphina"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3180
+p_atk: 235
+p_def: 332
+e_atk: 506
+e_def: 278
+speed: 291
+crit: 213
+sp: 418
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4000
+p_atk_120: 285
+p_def_120: 382
+e_atk_120: 571
+e_def_120: 328
+speed_120: 341
+crit_120: 263
+sp_120: 488
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Dark Hex"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Misanthropic Wrath"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [light, dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: active
+    name: "Cursed Offerings"
+    sp_cost: 49
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Oracle of Sanctions"
+    sp_cost: 74
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Oracle of Sanctions (2★)** Raise Phys"
+      - "When an enemy with Curse Brand is present: Also raise Phys"
+  - skill_category: active
+    name: "Absolution of Demise"
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Absolution of Demise (2★)** Restore HP (potency: 130) and SP (amount: 10-40 based on Boost Lv.) of Entire Front Row and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.)"
+      - "When an enemy with Curse Brand is present: Also cure some status ailments and grant immunity to some status ailments (turns: 2)"
+  - skill_category: active
+    name: "Wings of Demolition"
+    sp_cost: 81
+    skill_type: mixed
+    damage_types: [light, dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "When an enemy with Curse Brand is present: Lower Phys"
+  - skill_category: active
+    name: "Wings of Decay"
+    sp_cost: 81
+    skill_type: mixed
+    damage_types: [light, dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Light and Dark Res"
+      - "When an enemy with Curse Brand is present: Lower Light and Dark Res"
+  - skill_category: active
+    name: "Wings of Accurst Flame"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x35"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Burn to Ash"
+    sp_cost: 91
+    skill_type: attack
+    damage_types: [light, dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+    limit_break_upgrade: "Deal Elem. Light damage to All Foes **4** time(s) (potency: **4x95**). Exploits Dark weakness (damage calculation based on Elem. Light attack). When an enemy with Curse Brand is present: 100% more potent."
+  - skill_category: tp
+    name: "Accursed Judgement"
+    sp_cost: 99
+    skill_type: attack
+    damage_types: [light, dark]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x100"
+    effects:
+      - "When an enemy with Curse Brand is present: Guaranteed critical hits"
+  - skill_category: ex
+    name: "Dawnfire of Condemnation"
+    skill_type: mixed
+    damage_types: [dark]
+    target: front_row
+    hit_count: "4x"
+    power: "4x55"
+    effects:
+      - "Grant automatic HP recovery (potency: 110) and automatic SP recovery (amount: 3% of target’s max SP) to Entire Front Row (turns: 2-5 based on Boost Lv.) and fill own Ultimate Technique gauge by 20%"
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Judgement of the Charitable"
+    skill_type: mixed
+    damage_types: [light, dark]
+    target: aoe
+    hit_count: "3x"
+    effects:
+      - "When an enemy with Curse Brand is present: 50% more potent and lower Light and Dark Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "The “Attack” action deals Elem. Dark damage and gain the ability to trigger critical hits with elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Gain the ability to trigger a follow-up effect when exploiting weakness (only activates once per action). Follow-up effect: Inflict Curse Brand on All Foes (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Allow Entire Front Row to exploit all weaknesses with attacks that can inflict status ailments or increase their potency against enemies with status ailments. *Excludes additional effects from support skills and equipment, and special statuses."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "When enemy with Curse Brand is present: Raise own Elem. Atk. by 30% and Light and Dark damage by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Lanthorn of Judgement"
+  passive_effect: "100 E.Atk, 40 SP; Raise the limit of Light and Dark damage augments from support skills and equipment effects of to 50%; Grant the ability to trigger a follow-up attack when dealing either Light or Dark damage (only activates once per action)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

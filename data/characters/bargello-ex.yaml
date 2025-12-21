@@ -1,0 +1,177 @@
+# Character: Bargello EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: bargello-ex
+display_name: "Bargello EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2896
+p_atk: 435
+p_def: 245
+e_atk: 237
+e_def: 332
+speed: 322
+crit: 282
+sp: 494
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3716
+p_atk_120: 485
+p_def_120: 295
+e_atk_120: 302
+e_def_120: 382
+speed_120: 387
+crit_120: 317
+sp_120: 564
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Impatto"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Spassarsela Pazzo"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Fan damage to Random Foe 3 time(s) (potency: 3x55) and lower Fan Res"
+  - skill_category: active
+    name: "Debilitate II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Debilitate II (1★)** Lower Phys"
+  - skill_category: active
+    name: "Follow-up"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Follow-up (2★)** Raise BP recovery amount of Single Ally by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Draining Fan"
+    sp_cost: 36
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Signal to the Sea"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Signal to the Sea (3★)** Grant Entire Front Row Damage Limit Up (effect: 50,000/turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fourfold Fan"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Brezza Marina"
+    sp_cost: 68
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fan damage to All Foes 3 time(s) (potency: 3x65) and lower Fan Res"
+  - skill_category: active
+    name: "Perseverante Valore"
+    sp_cost: 10
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x45"
+  - skill_category: tp
+    name: "Manifíco Valore"
+    sp_cost: 69
+    skill_type: mixed
+    damage_types: [fan]
+    target: random
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Fan damage to Random Foe 5 time(s) (potency: 5x35) and have a low chance to lower Fan Res"
+  - skill_category: ex
+    name: "Ardíto Valore"
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "8x"
+    power: "65"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Girasole"
+    skill_type: buff
+    target: all_allies
+    power: "2→3"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant effects to Entire Front Row based on the number of Dancers in the party. ·2 or more: Raise Phys. Atk. and Elem. Atk. by 15%. ·3 or more: Raise Fan damage by 30%. ·4 or more: Grant automatic SP recovery (amount: 3% of target’s max SP). ·6 or more: Grant automatic HP recovery (amount: 50% of target’s max HP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self the ability to trigger a follow-up attack when consuming 3 BP to deal Phys. Fan damage (only activates once per action). Follow-up attack: Deal Phys. Fan damage to Single Foe as many times as there are Dancers in the party (potency: 100/max: 4)."
+    trigger: always
+    limit_break_upgrade: "Grant Self the ability to trigger a follow-up attack when consuming 3 BP to deal Phys. Fan damage (only activates once per action). Follow-up attack: Deal Phys. Fan damage to Single Foe as many times as there are Dancers in the party (potency: 100/**max: 8**)."
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self the special effect Stile Marino (turns: 2). Stile Marino: Gain the ability to exploit all weaknesses with some attack skills (damage calculation based on original attack). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Feather Bracelet of the Family"
+  passive_effect: "80 P.Atk, 60 SP; Raise Damage Limit by 100,000; When an ally in front row breaks an enemy: Lower Fan Res. by 20%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,211 @@
+# Character: Agnea
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: agnea
+display_name: "Agnea"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 235
+p_def: 235
+e_atk: 402
+e_def: 337
+speed: 382
+crit: 262
+sp: 544
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 285
+p_def_120: 285
+e_atk_120: 467
+e_def_120: 387
+speed_120: 447
+crit_120: 297
+sp_120: 614
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Triple Bat"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "General’s March II"
+    sp_cost: 57
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**General’s March II** Raise Phys"
+  - skill_category: active
+    name: "Ode of the Charming Wind II"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Kind Dance"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [wind, fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Storm Dance"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [wind, fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Archbishop’s Inspiration II"
+    sp_cost: 74
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Archbishop’s Inspiration II (3★)** Raise Elem"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance II: Also raise elemental damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Dance of the Shining Star"
+    sp_cost: 98
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Dance of the Shining Star (4★)** Raise Phys"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance II: Additionally restore 1 BP"
+  - skill_category: active
+    name: "Great Knight’s Inspiration II"
+    sp_cost: 74
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Great Knight’s Inspiration II (5★)** Raise Phys"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance II: Also raise physical damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Leilan Dance"
+    sp_cost: 51
+    skill_type: attack
+    damage_types: [wind, fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x45"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance II: Attack count raises to 7"
+    limit_break_upgrade: "Deal Elem. Wind damage to Single Foe **4** time(s) (potency: **4x45**). Exploits Fan weakness (damage calculation based on Elem. Wind attack)."
+  - skill_category: active
+    name: "6"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance I: Attack count raises to **6**"
+  - skill_category: active
+    name: "8"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Exuberant Dance II: Attack count raises to **8**"
+  - skill_category: tp
+    name: "Song of the Gale"
+    sp_cost: 90
+    skill_type: attack
+    damage_types: [wind, fan]
+    target: front_row
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "When consuming 1 BP or more: Allow Entire Front Row to act faster during next turn"
+  - skill_category: ex
+    name: "Song of Sun"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Song of Sun** Act faster during turn and raise the Phys"
+      - "Also raise Damage Limit of the same target (effect: 30,000, turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Moon Step Dance"
+    skill_type: buff
+    target: all_allies
+    power: "2→3"
+    effects:
+      - "Act faster during turn and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When self uses battle skills or Ultimate Technique, inflict “Fervor” on the target of allied skills (including Self) (turns: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Wind damage of Self by 30%. ·With 4 or more allies in Fervor, grant Self “Exuberant Dance I”. ·With 7 or more allies in Fervor, additionally grant Self “Exuberant Dance II”."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect Everyone Together (turns: 1). Everyone Together: The target of Self’s battle skills will change: ·Self, Single Ally → Entire Front Row ·Entire Front Row → All Allies ·Single Foe → All Foes ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Deceased Mother Hair Ornament"
+  passive_effect: "40 Spd, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,179 @@
+# Character: Nanna
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nanna
+display_name: "Nanna"
+rarity: 3
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3202
+p_atk: 389
+p_def: 333
+e_atk: 257
+e_def: 266
+speed: 285
+crit: 323
+sp: 291
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4022
+p_atk_120: 454
+p_def_120: 398
+e_atk_120: 307
+e_def_120: 316
+speed_120: 320
+crit_120: 373
+sp_120: 361
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slice"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Abide"
+    sp_cost: 5
+    skill_type: buff
+    target: self
+    effects:
+      - "**Abide** Impart Self with Phys"
+  - skill_category: active
+    name: "Shadow Strike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Armor Break"
+    sp_cost: 11
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "120"
+    effects:
+      - "Sword damage to Single Foe (potency: 120) and impart Phys"
+  - skill_category: active
+    name: "Veteran’s Bearing"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Veteran’s Bearing** **(2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Twofold Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Twofold Slash"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x110**"
+  - skill_category: tp
+    name: "Crescent Twin Blades"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: tp
+    name: "Crescent Twin Blades Lv.2"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [sword, light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Sword damage to All Foes 2 time(s) (potency: 2x95) and lower Phys"
+  - skill_category: ex
+    name: "Moonfall"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Polearm damage to Random Foe 4 time(s) (potency: 4x65) and have a low chance to lower Sword Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Moon Strike"
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Sword damage to Single Foe (potency: **440→525→655**) and impart with Phys"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Impart Paired Allies with Phys. Atk. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Impart Paired Allies with Phys. Atk. Up 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword damage of Paired Allies by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword damage of Paired Allies by 15%. Raise final damage of Armor Break, Twofold Slash, Crescent Twin Blades and Moon Strike by 50%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword attaks of All Allies by 6,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Memories of Orsterra"
+  passive_effect: "20 P.Atk, 20 Crit; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Nanna: Raise Critical and Sword damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

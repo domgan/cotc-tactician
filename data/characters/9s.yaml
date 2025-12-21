@@ -1,0 +1,189 @@
+# Character: 9S
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: 9s
+display_name: "9S"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, lightning, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3240
+p_atk: 235
+p_def: 353
+e_atk: 389
+e_def: 290
+speed: 320
+crit: 216
+sp: 362
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4140
+p_atk_120: 300
+p_def_120: 403
+e_atk_120: 439
+e_def_120: 340
+speed_120: 355
+crit_120: 251
+sp_120: 442
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "R050: Spear"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "A130: Bomb"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Self-Destruct"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "A120: Repair (Sustain)"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    power: "110, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**A120: Repair (Sustain) (2★)** Grant automatic HP recovery to Self (potency: 110, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "A110: Slow"
+    sp_cost: 18
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**A110: Slow (2★)** Lower Spd of All Foes by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "A120: Repair (Support)"
+    sp_cost: 24
+    skill_type: heal
+    target: front_row
+    power: "160"
+    effects:
+      - "**A120: Repair (Support) (3★)** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "A060: P Shield"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**A060: P Shield (4★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "A150: Volt"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Lightning damage to Single Foe (potency: 230) and lower Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Volatile Thrust"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    limit_break_upgrade: "Deal Phys. Polearm damage to Random Foe **5** time(s) (potency: **5x45**). Exploits Lightning weakness (damage calculation based on Phys. Polearm attack)."
+  - skill_category: tp
+    name: "R010: Laser"
+    sp_cost: 58
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Lightning damage to All Foes 2 time(s) (potency: 2x95) and lower Lightning Res"
+  - skill_category: ex
+    name: "A150: Volt (Mass)"
+    skill_type: attack
+    damage_types: [lightning]
+    target: front_row
+    hit_count: "3x"
+    power: "3x110"
+    effects:
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x110) and raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hacking"
+    skill_type: mixed
+    damage_types: [lightning]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "show all weak points and lower Phys"
+      - "Lower Shield Points even when not striking weak points"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Raise EXP earned by Paired Allies by 40%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Impart Paired Allies with Elem. Atk. Up 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "9S’s Goggles"
+  passive_effect: "80 E.Atk, 60 Spd; Raise Lightning damage dealt by 30%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,180 @@
+# Character: Cless
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cless
+display_name: "Cless"
+rarity: 4
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2932
+p_atk: 368
+p_def: 283
+e_atk: 241
+e_def: 244
+speed: 405
+crit: 333
+sp: 318
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3752
+p_atk_120: 433
+p_def_120: 303
+e_atk_120: 291
+e_def_120: 294
+speed_120: 470
+crit_120: 383
+sp_120: 398
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Armor Corrosive II"
+    sp_cost: 14
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Armor Corrosive II** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: utility
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Backstab"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Dagger damage to Single Foe (potency: 160) and impart Phys"
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Ripping Assault"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Ripping Assault"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "**175**"
+  - skill_category: active
+    name: "Double Break"
+    sp_cost: 28
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Double Break"
+    sp_cost: 22
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x85**"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Wail of Dawn"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Swift Wolf Claw"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+      - "Each attack has a low chance to lower Dagger Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Fangs of the White Wolf"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Impart Self with Phys. Atk. Up 15%."
+  - passive_category: innate
+    effect: "**(3★)** At 50% HP or less: Raise Dagger damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own LIghtning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% HP or less: Grant Dead Aim to Self (guaranteed critical hits)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "White Wolf’s Emblem"
+  passive_effect: "30 P.Atk, 20 Crit, 20 Spd; Raise Dagger damage dealt by Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

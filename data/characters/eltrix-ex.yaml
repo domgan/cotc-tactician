@@ -1,0 +1,189 @@
+# Character: Eltrix EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: eltrix-ex
+display_name: "Eltrix EX"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, ice, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3202
+p_atk: 292
+p_def: 228
+e_atk: 445
+e_def: 258
+speed: 330
+crit: 285
+sp: 386
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4022
+p_atk_120: 357
+p_def_120: 278
+e_atk_120: 495
+e_def_120: 278
+speed_120: 380
+crit_120: 350
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice, bow]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "Also grant Self HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 22
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(Initial)** Provoke All Foes and lower Phys"
+  - skill_category: active
+    sp_cost: 31
+    skill_type: attack
+    damage_types: [ice, bow]
+    target: random
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    sp_cost: 47
+    skill_type: attack
+    damage_types: [ice, sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    sp_cost: 53
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Raise Elem"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [ice, bow]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also lower Ice Res"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [ice, sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x110"
+    effects:
+      - "Raise Damage Limit of this skill by 50,000"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With “Fertediosa”: Attack count becomes 4 and potency raises by 50%"
+  - skill_category: active
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [ice, bow]
+    target: front_row
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also grant Entire Front Row HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [ice, bow]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 500
+    skill_type: attack
+    damage_types: [ice, sword]
+    target: aoe
+    power: "530"
+    effects:
+      - "Also grant Self HP Barrier (potency: 100% of user’s Max HP/Does not stack)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "4x"
+    power: "50%-200% of user’s Max HP based on Boost Lv."
+    effects:
+      - "**(EX)** Restore 1 BP to Self"
+      - "grant HP Barrier (potency: 50%-200% of user’s Max HP based on Boost Lv.) and grant the special effect “Fertediosa”"
+    notes: "Uses: 5"
+  - skill_category: special
+    name: "“Grandport’s Flag”"
+    skill_type: buff
+    target: self
+    power: "2→3"
+    effects:
+      - "of Self by **10%→20%→30%** (turns: **2→3**) and grant Self the special effect “Ice Raging Waves” (turns: **2→3**/Turns count cannot be extended)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: ""
+    trigger: always
+    limit_break_upgrade: "“Attack” action becomes Elem. Ice damage and exploits Bow weakness (damage calculation based on Elem. Ice attack). Start of battle: Grant Self HP Barrier (potency: 200% of user’s Max HP/Does not stack) and the special effect “Fertediosa”."
+  - passive_category: innate
+    effect: "With “Fertediosa”: Raise the effects of HP Barrier and Potency Up on Self by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Raise Elem. Atk. of Self by 30% and grant Self Damage Limit Up (effect: 10 times Self’s HP Barrier)."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "With HP Barrier: Raise the Elem. Atk. limit from support and equipment effects of Self to 50% and own Elem. Atk. by 20%. Also reduce damage taken from some attacks by 15% (Does not stack with effects of the same type) and lower SP consumption by 50%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Tropical Flower Decoration”"
+  passive_effect: "60 E.Atk, 800 HP; Start of battle: Grant the ability to dodge physical attacks (times: 8) and elemental attacks (times: 8) (Stacks with dodge counts from battle skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

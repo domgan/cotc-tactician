@@ -1,0 +1,190 @@
+# Character: Mydia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: mydia
+display_name: "Mydia"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2862
+p_atk: 421
+p_def: 292
+e_atk: 260
+e_def: 369
+speed: 296
+crit: 273
+sp: 420
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3602
+p_atk_120: 471
+p_def_120: 342
+e_atk_120: 325
+e_def_120: 434
+speed_120: 346
+crit_120: 308
+sp_120: 500
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "55"
+    effects:
+      - "**(Initial)** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 48
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Raise Phys"
+      - "also raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [staff]
+    target: front_row
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(3★)** Inflict All Foes Staff weakening (times: 6-9 based on Boost Lv.) and lower Staff"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 110
+    skill_type: mixed
+    damage_types: [staff]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Restore HP of Entire Front Row (potency: 60) and grant HP Barrier (potency: 30% of user’s max HP/Does not stack)"
+  - skill_category: active
+    sp_cost: 88
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x40"
+  - skill_category: active
+    sp_cost: 110
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x110"
+  - skill_category: tp
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [staff]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [staff]
+    target: random
+    power: "**5x45**"
+    effects:
+      - "Inflict Staff weakening (times: 2) and lower Staff Res"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    hit_count: "4x"
+    power: "4x60"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Lightning Hammer”"
+    skill_type: attack
+    damage_types: [staff]
+    target: front_row
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row: Grant Entire Front Row a follow-up attack when exploiting enemy weakness (*Triggers once regardless the number of attacks). Follow-up attack: Deal Phys. Staff damage to All Foes (potency: 150). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
+    trigger: always
+    limit_break_upgrade: "When in front row: Grant Entire Front Row a follow-up attack when exploiting enemy weakness (*Triggers once regardless the number of attacks). Follow-up attack: Deal Phys. Staff damage to All Foes **2** time(s) (potency: **2x100**). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
+  - passive_category: innate
+    effect: "At full HP: Raise own Phys. Atk. by 15%, raise Staff damage of Self by 30% and grant Entire Front Row Damage Limit Up (effect: 20,000)."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire and Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Increase the Staff damage limit of Entire Front Row from support skills and equipment effects to 50%. At full HP: Raise Staff damage of the same target by 20%."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Increase the Staff damage limit of Entire Front Row from support skills and equipment effects to 50%. At full HP: Raise Staff damage of the same target by 20%. When in back row: Grant Self automatic SP recovery (amount: 20% of Max SP)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Damage Limit of All Allies when using Staff attacks by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Flower and Wing Hair Ornament”"
+  passive_effect: "80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a cleric: Grant the ability to trigger critical hits when using elemental attacks and grant Dead Aim (guaranteed critical hits)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

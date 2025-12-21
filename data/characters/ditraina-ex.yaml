@@ -1,0 +1,185 @@
+# Character: Ditraina EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ditraina-ex
+display_name: "Ditraina EX"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark, fire, ice, light, lightning, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2927
+p_atk: 452
+p_def: 228
+e_atk: 275
+e_def: 253
+speed: 330
+crit: 345
+sp: 426
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3747
+p_atk_120: 517
+p_def_120: 278
+e_atk_120: 325
+e_def_120: 273
+speed_120: 380
+crit_120: 410
+sp_120: 506
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Precise Triple Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Guaranteed critical hits"
+  - skill_category: active
+    name: "Piercing Falcon (All)"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    power: "160"
+    effects:
+      - "Bow damage to All Foes (potency: 160) and lower Bow Res"
+  - skill_category: active
+    name: "Triple Sweeping Shot"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Hunter’s Elixir"
+    sp_cost: 80
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Hunter’s Elixir (2★)** Raise Phys"
+      - "and Critical of All Allies by 15% and raise Bow damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Tearing Daybreak"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    limit_break_upgrade: "Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85). Exploits Light and Dark weaknesses (damage calculation based on Phys. Bow attack). Damage Limit of this skill is increased by 20,000. When selecting this action with 9+ Intuition Points: **100%** more potent."
+  - skill_category: active
+    name: "Feline’s Keen Eye"
+    sp_cost: 52
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Feline’s Keen Eye (3★)** Act faster during turn and force Single Foe to always receive critical damage (turns: 1-4 based on Boost Lv./shorter turn counts overwritten)"
+  - skill_category: active
+    name: "Crepuscular Rays"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Obstructed Karma"
+    sp_cost: 75
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "3x"
+    power: "3x45, turns: 2-5 based on Boost Lv."
+    effects:
+      - "Guaranteed critical hits"
+  - skill_category: active
+    name: "Duskfall Descent"
+    sp_cost: 81
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "4x45"
+  - skill_category: tp
+    name: "Cycles of Time"
+    sp_cost: 104
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x100"
+  - skill_category: ex
+    name: "Dawn of Eternity"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x25"
+    effects:
+      - "**Dawn of Eternity** Act faster during turn"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Cosmical Catastrophe"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "6x"
+    effects:
+      - "Guaranteed critical hits"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain Intuition Point(s) every time an attack lands at least one critical hit and have a moderate chance to lower Bow Res. by 10% (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. of Self by 30% and gain effects based on the number of Intuition Points. ·3+: Gain the ability to exploit Ice and Lightning weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·6+: Also gain the ability to exploit Fire and Wind weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·9+: Also add 50% of the E.Atk attribute (including equipment attributes) to P.Atk (multiple additions to the same attribute do not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise Bow damage of Entire Front Row by 10%, the limit of Bow damage augments from support skills and equipment effects to 50% and Damage Limit by 30,000."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Ribbon of Salvation"
+  passive_effect: "70 P.Atk, 70 E.Atk; Raise Bow damage of Entire Front Row by 10%; When equipped by a Hunter: Raise critical damage multiplier (1.25→1.4)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

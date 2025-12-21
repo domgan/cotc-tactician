@@ -1,0 +1,178 @@
+# Character: Eleonora
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: eleonora
+display_name: "Eleonora"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2786
+p_atk: 253
+p_def: 214
+e_atk: 433
+e_def: 377
+speed: 352
+crit: 247
+sp: 504
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3606
+p_atk_120: 303
+p_def_120: 264
+e_atk_120: 498
+e_def_120: 427
+speed_120: 417
+crit_120: 282
+sp_120: 574
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Frosty Refrain"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Heavy Blow"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Sweep"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Warrior’s Waltz III"
+    sp_cost: 50
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Warrior’s Waltz III (2★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Frostfell Elegy"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Frostfell Elegy (2★)** Lower Ice Res"
+  - skill_category: active
+    name: "Defensive Sweep"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fan damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge physical attacks (times: 1)"
+  - skill_category: active
+    name: "Frosty Fantasia"
+    sp_cost: 44
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Ice damage to All Foes 2 time(s) (potency: 2x80) and lower Ice Res"
+  - skill_category: active
+    name: "Inspirational Spirit"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Inspirational Spirit (5★)** Raise Phys"
+      - "and Critical of Single ally by 30% (turns: 2-5 based on Boost Lv.) and grant the ability to dodge physical attacks (times: 1) at Max Boost"
+  - skill_category: active
+    name: "Winter’s Grace"
+    sp_cost: 90
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "Ice damage to Random Foe 4 time(s) (potency: 4x85) and have a low chance to impart Phys"
+  - skill_category: tp
+    name: "Ice Augment Magic (All) III"
+    sp_cost: 30
+    skill_type: buff
+    target: back_row
+    effects:
+      - "**Ice Augment Magic (All) III ** Raise Ice damage dealt of All Allies by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Exorcising Waltz"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Exorcising Waltz** Grant Entire Front Row the ability to dodge elemental attacks (times: 1-4 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Snowmoon Requiem"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "440→525→655"
+    effects:
+      - "provoke All Foes (turns: 2) and grant Self the ability to dodge physical attacks (times: **3→4→5**)"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Grant Self the ability to dodge physical attacks (times: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Grant **Entire Front Row** the ability to dodge physical attacks (times: 3)."
+  - passive_category: innate
+    effect: "When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Phys. Def. Up 10% (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When switching: Grant Self the ability to dodge physical attacks (times: 1)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Troubadour’s Head Piece"
+  passive_effect: "40 P.Atk, 40 P.Def, 60 Spd; Raise Fan damage dealt by 15%; Start of battle: Grant Self the ability to dodge physical attacks (times: 3) (Stacks with battle skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

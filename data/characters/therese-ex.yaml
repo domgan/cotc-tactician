@@ -1,0 +1,201 @@
+# Character: Therese EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: therese-ex
+display_name: "Therese EX"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: approval
+origin: "Overworld (Dragon Quest III)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, staff, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2792
+p_atk: 331
+p_def: 252
+e_atk: 450
+e_def: 329
+speed: 296
+crit: 253
+sp: 430
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3532
+p_atk_120: 381
+p_def_120: 302
+e_atk_120: 515
+e_def_120: 394
+speed_120: 346
+crit_120: 288
+sp_120: 510
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 30
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**(Initial)** Restore HP of Single Ally (potency: 160)"
+      - "Grant effects based on target’s HP"
+      - "[30 SP] ·At 60% or more: Grant HP Barrier (amount: 200/Does not stack)"
+      - "restore SP (amount: 20)"
+  - skill_category: active
+    sp_cost: 75
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**(1★)** Lower Phys"
+      - "[75 SP] ·At 60% HP or less: Also lower Elem"
+      - "·At 30% HP or less: Additionally lower Staff and Wind Res"
+  - skill_category: active
+    sp_cost: 49
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    sp_cost: 110
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Inflicted weakness count raises based on target’s HP"
+  - skill_category: active
+    sp_cost: 62
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(3★)** Raise Elem"
+      - "Grant effects based on target’s HP"
+      - "[62 SP] ·At 60% or more: Also raise Phys"
+  - skill_category: active
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    sp_cost: 72
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**(5★)** Restore HP of Entire Front Row (potency: 205)"
+      - "Grant effects based on target’s HP"
+      - "[72 SP] ·At 60% or more: Grant HP Barrier (potency: 10% of user’s max HP/Does not stack)"
+      - "restore SP (amount: 5% of target’s max SP)"
+  - skill_category: active
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Wind damage to All Foes 2 time(s) (potency: 2x95) and lower Wind Res"
+    limit_break_upgrade: "Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x95) and lower Wind Res. by 15% (turns: 2). Potency and attack count increase based on target’s HP."
+  - skill_category: tp
+    sp_cost: 41
+    skill_type: heal
+    target: single_ally
+    power: "20% of user’s max HP/Does not stack"
+    effects:
+      - "**** Restore HP of Single Ally (amount: 25%-100% based on Boost Lv.)"
+      - "Grant effects based on target’s HP"
+      - "[41 SP] ·At 60% or more: Grant HP Barrier (potency: 20% of user’s max HP/Does not stack)"
+      - "restore 1 BP"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 41
+    skill_type: heal
+    target: single_ally
+    power: "**30%** of user’s max HP/Does not stack"
+    effects:
+      - "** Lv.2** Restore HP of Single Ally (amount: **70%-???%** based on Boost Lv.)"
+      - "Grant effects based on target’s HP"
+      - "[41 SP] ·At 60% or more: Grant HP Barrier (potency: **30%** of user’s max HP/Does not stack)"
+      - "restore **2** BP"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "Grant effects based on consumed BP"
+      - "·1 BP or more: Grant automatic HP recovery (amount: 10% of max HP) and SP recovery (amount: 3% of max SP) (turns: 3)"
+      - "restore 2 BP"
+      - "·3 BP: Raise physical and elemental damage of the same target by 30% (turns: 3)"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "“Megante”"
+    skill_type: attack
+    target: aoe
+    power: "1000→1250→1500"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: **100,000→175,000→350,000**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using a battle skill to restore HP, if the recovery effect exceeds the maximum HP of the target, grant “Legend” (turns: 2/Granted as a support skill/Effects of the same type do not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "When using a battle skill, grant Entire Front Row effects based on own HP. ·30% HP or more: Grant automatic HP recovery (potency: 30, turns: 4). ·60% HP or more: Additionally, grant Damage Limit Up (effect: 30,000, turns: 2). ·100% HP: Additionally, raise Phys. Atk. and Elem. Atk. by 15% (turns: 2) and grant the special effect “Saint’s Thoughts” (turns: 2/Turns cannot be extended)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Elem. Atk. of Paired Allies by 20%. Grant Self effects based on own HP. ·60% HP or less: Raise Phys. and Elem. Res. by 30%. ·30% HP or less: Reduce damage taken from some attacks by 80%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn: Restore SP of Paired Allies (amount: 10% of max SP) and fill the Ultimate Technique gauge of Paired Allies to 100%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn: Restore SP of Paired Allies (amount: 10% of max SP) and fill the Ultimate Technique gauge of Paired Allies to 100%. Also restore SP of Entire Front Row (amount: 5% of max SP) and fill their Ultimate Technique gauge by 50%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Monk’s Rosary”"
+  passive_effect: "70 E.Atk, 700 HP; Grant automatic revival (recovery amount: 100% of max HP and 100% of max SP). Triggers immediately if incapacitated (count increases when stacked); Start of battle: Grant All Allies SP Stock (amount: 30% of wearer’s max SP)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

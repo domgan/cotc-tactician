@@ -1,0 +1,169 @@
+# Character: Herminia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: herminia
+display_name: "Herminia"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, fan, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3062
+p_atk: 427
+p_def: 223
+e_atk: 250
+e_def: 258
+speed: 350
+crit: 400
+sp: 396
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3882
+p_atk_120: 492
+p_def_120: 273
+e_atk_120: 300
+e_def_120: 278
+speed_120: 400
+crit_120: 465
+sp_120: 476
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Thousand Scythes"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Safeguard Power"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Safeguard Power** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Blazing Aurora"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Quadruple Sturdy Shot"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Spill of Moonlight"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Wild Lacerating Fan"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Radiant Arrow"
+    sp_cost: 90
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    name: "Enervating Fan"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Draining Arrow"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Ruinous Powder"
+    sp_cost: 28
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Ruinous Powder ** Lower Bow"
+  - skill_category: ex
+    name: "Banquet of Desire"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Banquet of Desire** Raise Phys"
+      - "and Bow damage of All Allies by 15% and grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "The Huntress’ Anguish"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "500→600→750"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using a battle skill, have a 30% chance to summon a lady-in-waiting to inflict bleeding on a random target (turns: 3)."
+    trigger: always
+    limit_break_upgrade: "When using a battle skill, summon a lady-in-waiting to deal Phys. Bow damage to current target 3 time(s) (potency: 3x60) and inflict bleeding (turns: 3). *Lady-in-waiting will target selected enemy if you use a non-attack skill."
+  - passive_category: innate
+    effect: "Raise Bow and Fan damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. by 30% when bleeding enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Covetous Witch Mask"
+  passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Bow and Fan damage dealt by 10%; Start of battle: High chance to all enemies with bleeding (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

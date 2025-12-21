@@ -1,0 +1,196 @@
+# Character: Temenos
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: temenos
+display_name: "Temenos"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2712
+p_atk: 261
+p_def: 297
+e_atk: 410
+e_def: 399
+speed: 296
+crit: 258
+sp: 460
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3452
+p_atk_120: 311
+p_def_120: 347
+e_atk_120: 475
+e_def_120: 464
+speed_120: 346
+crit_120: 293
+sp_120: 540
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heaven’s Light"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "Healing Shield"
+    sp_cost: 34
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Healing Shield** Restore HP of Single Ally (potency: 160) and grant a HP barrier (25% of user’s max HP/Does not stack)"
+  - skill_category: active
+    name: "Magic Thief’s Rod"
+    sp_cost: 36
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Moonlight’s Judgement"
+    sp_cost: 39
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Moonlight’s Judgement (2★)** Lower Phys"
+  - skill_category: active
+    name: "Healing Grace II"
+    sp_cost: 52
+    skill_type: heal
+    target: front_row
+    power: "80"
+    effects:
+      - "**Healing Grace II (2★)** Restore HP of Entire Front Row (potency: 80) and raise Phys"
+  - skill_category: active
+    name: "Moonwhite Veil"
+    sp_cost: 77
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: attack
+    target: single_enemy
+  - skill_category: active
+    name: "Recovery Shield"
+    sp_cost: 66
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Recovery Shield (4★)** Restore HP of Entire Front Row (potency: 130) and cure some status ailments"
+      - "Also grant a HP barrier (amount: 25% of user’s max HP/Does not stack)"
+  - skill_category: active
+    name: "Crescent Moon’s Judgement"
+    sp_cost: 101
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Additionally lower Elem"
+  - skill_category: active
+    name: "Full Moon’s Judgement"
+    sp_cost: 101
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Additionally lower Elem"
+  - skill_category: tp
+    name: "Preservation (All)"
+    sp_cost: 120
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Preservation (All) ** Grant Entire Front Row automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: tp
+    name: "Preservation (All) Lv.2"
+    sp_cost: 120
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Preservation (All) Lv.2** Grant Entire Front Row automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+      - "Triggers immediately if incapacitated (count does not increase when stacked) and grant a HP barrier (amount: 20% of user’s max HP/Does not stack)"
+  - skill_category: ex
+    name: "Heavenly Shine (All)"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "630"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "The Flamebringer’s Power"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "Act faster during turn and raise the potency of skills of All Allies (excluding Self) by 50% (turns: 1/Cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: **10,000→20,000→30,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise max HP of Self by 15% and damage by 20% when exploiting enemy’s weakness."
+    trigger: always
+    limit_break_upgrade: "Raise max HP of Self by 15% and damage by **30%** when exploiting enemy’s weakness. Lower SP consumption by 30% (effects do not stack)."
+  - passive_category: innate
+    effect: "When front row allies breaks an enemy, impart the broken enemy with Elem. Def. Down 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect Condemn (turns: 1). Condemn: When selecting an attack other than “Attack” (with some exceptions), can exploit all weaknesses (excluding non-elemental weaknesses/Damage calculation based on original attack). ---"
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect Condemn (turns: 1). Condemn: When selecting an attack other than “Attack” (with some exceptions), can exploit all weaknesses (excluding non-elemental weaknesses/Damage calculation based on original attack) and grant the ability to trigger critical hits with elemental attacks. ---"
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of All Allies by 15,000 when using Elem. Light skills."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Inquisitor’s Cloak"
+  passive_effect: "60 E.Atk, 400 HP, 40 SP; Grant Damage Limit Up (effect: 50,000); Start of battle: Ultimate Technique gauge fills to 100%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

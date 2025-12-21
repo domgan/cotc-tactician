@@ -1,0 +1,182 @@
+# Character: Harley
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: harley
+display_name: "Harley"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2831
+p_atk: 257
+p_def: 239
+e_atk: 380
+e_def: 351
+speed: 356
+crit: 262
+sp: 452
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3651
+p_atk_120: 307
+p_def_120: 289
+e_atk_120: 445
+e_def_120: 401
+speed_120: 421
+crit_120: 297
+sp_120: 522
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Waltz of the Zephyr II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Saintly Step II"
+    sp_cost: 21
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Saintly Step II** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Sweep"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Sonnet of Storms II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Lost Wind’s Elegy"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Lost Wind’s Elegy (2★)** Lower Wind Res"
+  - skill_category: active
+    name: "Saintly Step III"
+    sp_cost: 35
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Saintly Step III (3★)** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Blustery Ballad"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Stirring Saintly Step II"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Stirring Saintly Step II (5★)** Impart Entire Front Row with Phys"
+    limit_break_upgrade: "Impart Entire Front Row with Phys. Def. Up 15% and Elem. Def. Up 15% and raise Phys. and Elem. Res. by 10% (turns: 2-5 based on Boost Lv.)."
+  - skill_category: active
+    name: "Song of Sandstorms"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x100"
+    effects:
+      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart with Phys"
+  - skill_category: tp
+    name: "Clear Sky Ballad"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x100"
+    effects:
+      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart with Elem"
+  - skill_category: active
+    name: "竜巻の詩"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: ex
+    name: "Unending Wind"
+    skill_type: mixed
+    damage_types: [wind]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+    effects:
+      - "Wind damage to Random Foe 5 time(s) (potency: 5x55) and have a low chance to lower Wind Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Invisible Wall"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise BP recovery amount of Self by 1 (turns: 2)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Recover 3% of SP when taking damage from enemies."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When switching to front row: Impart Entire Front Row with Phys. Def. Up 10% and Elem. Def. Up 10% (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Harlequin’s Secret Tool"
+  passive_effect: "60 E.Atk, 40 E.Def, 40 Spd; Raise Wind damage dealt by 15%; Start of battle: Lower Phys. Atk. of all enemies by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

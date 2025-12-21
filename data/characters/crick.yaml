@@ -1,0 +1,185 @@
+# Character: Crick
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: crick
+display_name: "Crick"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3462
+p_atk: 354
+p_def: 398
+e_atk: 207
+e_def: 331
+speed: 235
+crit: 278
+sp: 336
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4282
+p_atk_120: 419
+p_def_120: 463
+e_atk_120: 257
+e_def_120: 381
+speed_120: 270
+crit_120: 328
+sp_120: 406
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Radiant Slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Guard"
+    sp_cost: 40
+    skill_type: utility
+    target: front_row
+    effects:
+      - "**Guard** Act faster during turn"
+  - skill_category: active
+    name: "Godsbalde’s Shield"
+    sp_cost: 23
+    skill_type: buff
+    target: self
+    power: "10%-40% of max HP based on Boost Lv./Does not stack"
+    effects:
+      - "**Godsbalde’s Shield (1★)** Grant Self an HP Barrier (potency: 10%-40% of max HP based on Boost Lv./Does not stack) and raise Phys"
+  - skill_category: active
+    name: "Wild Radiant Strike"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [staff]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Have a low chance to lower Elem"
+  - skill_category: active
+    name: "Novice Knight’s Support"
+    sp_cost: 70
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Novice Knight’s Support (2★)** Raise Sword"
+  - skill_category: active
+    name: "Sacred Slash"
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "also lower their Elem"
+  - skill_category: active
+    name: "Bashing Break (Front/All)"
+    sp_cost: 45
+    skill_type: mixed
+    damage_types: [staff]
+    target: front_row
+    effects:
+      - "**Bashing Break (Front/All) (4★)** Act faster during turn and grant Entire Front Row the ability to reduce 1 additional Shield Point(s) when exploiting weaknesses with Phys"
+  - skill_category: active
+    name: "Triple Effulgent Strike"
+    sp_cost: 74
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Twofold Effulgent Slash"
+    sp_cost: 51
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: tp
+    name: "Sanctifying Oracle (All) II"
+    sp_cost: 72
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Sanctifying Oracle (All) II ** Lower Phys"
+  - skill_category: ex
+    name: "Heartfire Slash"
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "**Heartfire Slash** Lower Phys"
+      - "of All Foes by 15% and lower Sword"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Godsblade’s Crusade"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self an HP Barrier (potency: 10% of max HP/Does not stack)"
+      - "raise own potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and deal Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "During battle: You are also counted as a Cleric."
+    trigger: always
+  - passive_category: innate
+    effect: "If Paired Ally is a Cleric, trigger a follow-up attack after any ally in Entire Front Row acts (only activates once per action). *If the follow-up attack breaks the enemy, only the ally who initiated the attack will qualify for the break. Follow-up attack: Deal Phys. Sword damage to All Foes (potency: 200). Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Allow all Clerics in the party to receive 1.5x greater HP Barrier durabilities and Potency augments (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Allow all Clerics in the party to receive **2.0x** greater HP Barrier durabilities and Potency augments (Does not stack)."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword and Staff damage of Self by 15%. With an HP Barrier: Also raise Damage Limit by 70,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Wellsley Crest"
+  passive_effect: "80 P.Atk, 600 HP; With an HP Barrier: Raise potency by 40% (Does not stack with effects of the same type) and Damage Limit by 30,000.; Start of battle: Grant HP Barrier (potency: 50% of wearer’s max HP/Does not stack); 50 P.Atk, 500 HP, 40 SP; With an HP Barrier: Raise potency by **20%** (Does not stack with effects of the same type) ~~and Damage Limit by 30,000~~.; Start of battle: Grant HP Barrier (potency: **25%** of wearer’s max HP/Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

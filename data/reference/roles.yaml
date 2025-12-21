@@ -1,0 +1,164 @@
+# COTC Roles Reference
+# This file defines the abstract role categories used for team composition.
+# These are functional categories, not game-defined classes.
+# A character can fill multiple roles simultaneously (role compression).
+#
+# SOURCE: [SYSTEM-DEFINED] - Abstract categories for reasoning, not game data.
+
+schema_version: "1.0"
+
+roles:
+  - id: tank
+    display_name: Tank
+    description: "Absorbs damage for the party via provoke/taunt mechanics"
+    key_capabilities:
+      - "Provoke/Taunt (redirects single-target and AoE attacks)"
+      - "Damage reduction buffs (Def/MDef Up)"
+      - "HP Barrier (absorbs damage before HP)"
+      - "Counter-attack on being hit"
+      - "Physical/Magical Sidestep (dodge mechanics)"
+    typical_position: front
+    example_skills:
+      - "AoE Taunt for 2 turns"
+      - "Self 20% Def/MDef Up"
+      - "HP Barrier (40% of Max HP)"
+      - "Counter Physical Attacks buff"
+    notes: |
+      Tanks are essential for bosses with strong single-target attacks.
+      The Taunt mechanic redirects attacks to the tank.
+      HP Barriers absorb damage before HP is reduced.
+      Some tanks have "Attention" which forces AoE to target only them.
+
+  - id: healer
+    display_name: Healer
+    description: "Restores HP to party members"
+    key_capabilities:
+      - "Single-target healing (Single-Ally Heal)"
+      - "Frontrow healing (Frontrow Heal)"
+      - "All-party healing (All Allies Heal)"
+      - "HP Regen over time (HP Regen for X turns)"
+      - "Revive/resurrection (Revive KO'd ally)"
+      - "Status ailment removal (Remove certain status ailments)"
+    typical_position: any
+    example_skills:
+      - "Frontrow Heal (205~295 Heal Strength)"
+      - "Self/Frontrow HP Regen for 3 turns (110 Regen Strength)"
+      - "Revive a KO'd ally with 25-100% of their max HP"
+    notes: |
+      Healers that can target Frontrow or All Allies are highly valued.
+      Regen effects are commonly applied at battle start and maintained.
+      Some healers also provide buffs (role compression with Buffer).
+
+  - id: buffer
+    display_name: Buffer
+    description: "Increases party stats and damage output"
+    key_capabilities:
+      - "Atk/Mag Up buffs (15-30% common)"
+      - "Weapon damage buffs (Sword/Spear/etc. Damage Up)"
+      - "Element damage buffs (Fire/Ice/etc. Damage Up)"
+      - "Crit Rate Up and Guaranteed Crit"
+      - "Damage Cap Up (+50,000 to +100,000)"
+      - "Potency Up (multiplies final damage)"
+      - "BP Regen (+1 BP/turn)"
+      - "SP Regen (recover SP each turn)"
+    typical_position: any
+    example_skills:
+      - "Frontrow 20% Atk/Sword Dmg/Spear Dmg Up for 2-5 turns"
+      - "Self Guaranteed Crit for 3 turns"
+      - "Self 100% Potency Up for 2 turns"
+      - "Frontrow +1 BP Regen for 3 turns"
+    notes: |
+      Buffers should act BEFORE DPS units in turn order (speed tuning).
+      Buff stacking and duration management is critical.
+      Active buffs typically cap at 30%, passives at 30% separately.
+      Potency Up doesn't stack with similar sources.
+      Damage Cap Up is essential for high-damage strategies.
+
+  - id: debuffer
+    display_name: Debuffer
+    description: "Decreases enemy stats and resistances"
+    key_capabilities:
+      - "Def/MDef Down (increases damage taken)"
+      - "Weapon Res Down (Sword/Spear/etc. Res Down)"
+      - "Element Res Down (Fire/Ice/etc. Res Down)"
+      - "Physical/Elemental Res Down (generic)"
+      - "Atk/Mag Down (reduces enemy damage)"
+      - "Speed Down (changes turn order)"
+      - "Weakness Implant (adds weakness or amplifies damage)"
+      - "Critical Scope (all hits become crits)"
+    typical_position: any
+    example_skills:
+      - "inflict 15% Def Down for 2 turns"
+      - "inflict 20% Sword Res Down for 3 turns"
+      - "Single-Enemy 20% Light Res Down for 2-5 turns"
+      - "Sword Weakness Implant for 4 hits"
+      - "Critical Scope for 1-4 turns"
+    notes: |
+      Debuffs on enemies can be stacked up to a cap (usually 30%).
+      Res Down effects multiply damage significantly.
+      Some skills both deal damage and apply debuffs (role compression).
+      Weakness Implant adds the weakness or increases damage by 20% per stack.
+      Critical Scope forces all damage to crit - very powerful.
+
+  - id: breaker
+    display_name: Breaker
+    description: "Efficiently reduces enemy shield count"
+    key_capabilities:
+      - "High hit-count skills (4x, 5x, 6x+ hits)"
+      - "[Priority] skills (act before normal turn order)"
+      - "Always reduces Shield Points (ignores conditions)"
+      - "Random-target attacks (hit multiple times)"
+      - "+1 Shield damage when hitting weakness"
+      - "Multi-weapon attacks (hit Sword AND Spear weakness)"
+    typical_position: any
+    example_skills:
+      - "4x random-target Sword (4x 45~90 Power)"
+      - "[Priority] 4x Single Target Sword"
+      - "also hits Dark weakness (expands weakness coverage)"
+      - "+1 shield damage when hitting Sword weakness"
+    notes: |
+      Breaking (reducing shields to 0) stuns the enemy and increases
+      damage taken. Break lasts for the current turn and next turn.
+      Boosted weapon attacks multiply hit count for faster breaking.
+      Some skills "also hit X weakness" expanding breaking options.
+      [Priority] skills act before normal turn order.
+
+  - id: dps
+    display_name: DPS (Damage Dealer)
+    description: "Deals high damage, especially during break windows"
+    key_capabilities:
+      - "High power skills (260~450+ Power)"
+      - "Weakness exploitation (power multiplier on weakness)"
+      - "Self-buff stacking (Atk Up, Damage Up, etc.)"
+      - "Guaranteed Critical / Crit multiplier increase"
+      - "Doublecast/Triplecast (reuse skill automatically)"
+      - "Damage Cap Up (+100,000 or more)"
+      - "Potency Up (100% = double damage)"
+      - "Power x2 if condition met (broken, debuffed, etc.)"
+    typical_position: any
+    example_skills:
+      - "1x single-target Sword (1x 260~450 Power)"
+      - "Power x1.5 if target is Broken"
+      - "Self Guaranteed Crit for 3 turns"
+      - "Self cast attacking skills twice in a row for 2-5 turns"
+      - "This attack has +100,000 Damage Cap"
+    notes: |
+      DPS units should receive all buffs before acting (speed tuning).
+      Break windows are the primary damage opportunity - damage is amplified.
+      Damage Cap limits maximum damage per hit; Damage Cap Up raises this.
+      Potency Up multiplies final damage (100% = 2x damage).
+      Focus on one or two main DPS rather than spreading damage.
+
+# =============================================================================
+# ROLE COMPRESSION
+# =============================================================================
+# Many characters fill multiple roles simultaneously.
+# A character can be tagged with multiple roles (e.g., [buffer, dps]).
+# This is valuable for limited party slots (4 front, 4 back).
+#
+# Examples from community data:
+# - Richard: Buffer (Frontrow Sword/Spear Dmg Up) + DPS
+# - Eliza: Healer (Frontrow Heal) + DPS (Light damage)
+# - Lionel: Tank (Taunt) + DPS (Sword damage)
+# - Sazantos: Buffer + Healer + DPS
+

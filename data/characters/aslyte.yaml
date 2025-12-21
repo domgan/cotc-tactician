@@ -1,0 +1,177 @@
+# Character: Aslyte
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: aslyte
+display_name: "Aslyte"
+rarity: 4
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2887
+p_atk: 350
+p_def: 272
+e_atk: 266
+e_def: 253
+speed: 412
+crit: 330
+sp: 337
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3707
+p_atk_120: 415
+p_def_120: 292
+e_atk_120: 316
+e_def_120: 303
+speed_120: 477
+crit_120: 380
+sp_120: 417
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Ice Blast"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Shield Breaker"
+    sp_cost: 15
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "130"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Iceprone (All) III"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Iceprone (All) III** **(2★)** Lower Ice Res"
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Freeze Drain"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Freeze Drain"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "**220**"
+  - skill_category: active
+    name: "Icicle Rain"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [ice]
+    target: random
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Icicle Rain"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [ice]
+    target: random
+    hit_count: "3x"
+    power: "**3x60**"
+  - skill_category: tp
+    name: "Fourfold Icicle Burial"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "4x"
+    power: "4x25"
+  - skill_category: ex
+    name: "Indigo Explosion"
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Indigo Ice Blast"
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "4x"
+    effects:
+      - "Ice damage to Random Foe 4 time(s) (potency: **4x95→4x115→4x140**) and lower Ice Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When breaking an enemy, lower their Ice Res. by 15% (turns: 2)."
+    trigger: on_break
+  - passive_category: innate
+    effect: "**(6★)** When breaking an enemy, lower their Elem. Def. by 15% and Ice Res. by 15% (turns: 2)."
+    trigger: on_break
+  - passive_category: innate
+    effect: "**(3★)** Raise ice damage of Paired Allies by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Great Phantom Thief’s Mask"
+  passive_effect: "30 P.Atk, 40 E.Atk; Raise own Elem. Atk. by 10% when an enemy with Ice Res. Down is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

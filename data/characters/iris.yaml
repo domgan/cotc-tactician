@@ -1,0 +1,171 @@
+# Character: Iris
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: iris
+display_name: "Iris"
+rarity: 4
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2766
+p_atk: 255
+p_def: 240
+e_atk: 382
+e_def: 347
+speed: 342
+crit: 267
+sp: 484
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3586
+p_atk_120: 305
+p_def_120: 290
+e_atk_120: 447
+e_def_120: 397
+speed_120: 407
+crit_120: 302
+sp_120: 554
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Frostly Refrain"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Lion Dance"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Lion Dance** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Sweep"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Wild Blow"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Ballad of Blizzards II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Rousing Lion Dance II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Rousing Lion Dance II (3★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Rousing Lion Dance II"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Rousing Lion Dance II (5★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Overpowering Blow"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "175"
+  - skill_category: active
+    name: "Overpowering Blow"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "**205**"
+  - skill_category: tp
+    name: "Broken Fan Strike"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "240"
+    effects:
+      - "Fan damage to Single Foe (potency: 240) and lower Fan Res"
+  - skill_category: ex
+    name: "Blue Rhapsody"
+    skill_type: attack
+    damage_types: [fan, ice]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Sapphire Swing"
+    skill_type: mixed
+    damage_types: [fan]
+    target: front_row
+    power: "330→395→495"
+    effects:
+      - "Fan damage to All Foes (potency: **330→395→495**) and impart Entire Front Row with Phys"
+      - "t Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Impart **Entire Front Row** with Phys. Atk. Up 15% (turns: 3)."
+  - passive_category: innate
+    effect: "At full HP: Raise Fan damage of Self by 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Blue Veil"
+  passive_effect: "30 P.Atk, 30 Crit; Start of the battle: Lower Fan Res. of all enemies by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

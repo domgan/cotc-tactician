@@ -1,0 +1,178 @@
+# Character: S. Odio
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: s-odio
+display_name: "S. Odio"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Dominion of Hate (Live A Live)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2722
+p_atk: 226
+p_def: 282
+e_atk: 460
+e_def: 339
+speed: 341
+crit: 218
+sp: 525
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3462
+p_atk_120: 276
+p_def_120: 332
+e_atk_120: 525
+e_def_120: 404
+speed_120: 391
+crit_120: 253
+sp_120: 605
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Torment’s Draught"
+    sp_cost: 59
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Hollow Delusion"
+    sp_cost: 64
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Hollow Delusion** Impart Self with Elem"
+      - "Up 30% and raise Dark damage by 30% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Despair’s Blessing"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "but lower their max HP by 30% (turns: 6)"
+  - skill_category: active
+    name: "Searing Madness"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [dark, fire]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower their Dark Res"
+  - skill_category: active
+    name: "Fetters of Despair"
+    skill_type: mixed
+    target: all_allies
+    power: "65"
+    effects:
+      - "**Fetters of Despair (2★)** Grant All Allies effects based on their HP (turns: 2-5 based on Boost Lv.)"
+      - "·With 50% HP or less: Raise Phys"
+      - "·With 20% HP or less: Also raise damage by 15%"
+      - "Then restore HP (potency: 65)"
+  - skill_category: active
+    name: "Twilight Abyss"
+    sp_cost: 57
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: aoe
+    power: "180"
+    limit_break_upgrade: "Deal Elem. Dark damage to All Foes (potency: 180). Exploits Fire weakness (damage calculation based on Elem. Dark attack). Moderate chance to inflict paralysis, poison, bleeding and blindness (turns: 2)."
+  - skill_category: active
+    name: "Wave of Torment"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: single_enemy
+    power: "530"
+  - skill_category: active
+    name: "Expunge"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Grant All Allies HP absortion (amount: 15% of damage dealt)"
+  - skill_category: active
+    name: "Prayers of Despair"
+    sp_cost: 150
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "**Prayers of Despair (5★)** Restore HP of All Allies (amount: 10% of max HP) and revive target if incapacitated (recovery amount: 10% of max HP)"
+  - skill_category: tp
+    sp_cost: 49
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [dark, fire]
+    target: single_enemy
+    power: "35"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Saint Alethea"
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    power: "440→525"
+    effects:
+      - "Dark damage to Single Foe (potency: **440→525**) and lower Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When SP is at 10% or more at the end of turn: Recover 1 BP, but consume 5% of max SP."
+    trigger: always
+  - passive_category: innate
+    effect: "Restore own SP (amount: 100% of max SP) when you use an Ultimate Technique."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Lower Sword, Fire and Dark Res. of an enemy by 10% when the target has 8 or more status effect icons."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crux of Despair"
+  passive_effect: "70 E.Atk, 70 SP; Grant automatic SP recovery (amount: 40)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

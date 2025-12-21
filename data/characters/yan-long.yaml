@@ -1,0 +1,180 @@
+# Character: Yan Long
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: yan-long
+display_name: "Yan Long"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3032
+p_atk: 381
+p_def: 267
+e_atk: 265
+e_def: 324
+speed: 326
+crit: 277
+sp: 348
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3772
+p_atk_120: 431
+p_def_120: 317
+e_atk_120: 330
+e_def_120: 389
+speed_120: 376
+crit_120: 312
+sp_120: 428
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Bash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "2x90"
+  - skill_category: active
+    name: "Tempered Physique"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    power: "165"
+    effects:
+      - "**Tempered Physique** Restore own HP (potency: 165) and impart Self with Phys"
+  - skill_category: active
+    name: "Blossoming Ice"
+    sp_cost: 34
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Ice damage to Random Foe 2 time(s) (potency: 2x90) and lower Staff Res"
+  - skill_category: active
+    name: "Broad Bash"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Wild Rod Bash"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [staff]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Sharpened Physique"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Sharpened Physique (3★)** Raise Phys"
+  - skill_category: active
+    name: "Greater Blossoming Ice"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    power: "180"
+    effects:
+      - "Ice damage to All Foes (potency: 180) and lower Staff Res"
+  - skill_category: active
+    name: "Draconic Bash"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "290"
+    limit_break_upgrade: "Deal Phys. Staff damage to Single Foe (potency: 290). Raise the Damage Limit of this skill by 50,000. The slower you act during turn, the greater the potency. Up to 70% more potent when acting sixth."
+  - skill_category: active
+    name: "Celestial Bash"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [staff]
+    target: random
+    power: "2x120/3x95/4x85/5x100"
+  - skill_category: tp
+    name: "Dragon’s Fortune Staff"
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "**Dragon’s Fortune Staff ** Act faster during turn and deal Phys"
+      - "At Max Boost: Grant Staff weakness to the same target (times: 2)"
+  - skill_category: ex
+    name: "Dragon’s Maw"
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "When Self has Dead Aim (guaranteed critical hits)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Draconic Commander"
+    skill_type: buff
+    target: self
+    power: "3→4"
+    effects:
+      - "of Self by **10%→20%** (turns: **3→4**) and grant Dead Aim (guaranteed critical hits) (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Staff damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** 25% chance to raise BP recovery by 1 when hit for 1 turn (Trigger once per enemy turn)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When consuming 3 BP or more: Raise own Phys. Atk. and Critical by 15% and grant Self Damage Limit Up (effect: 50,000). Also restore Phys. Atk. and Critical and grant immunity to Phys. Atk. Down and Critical Down during that turn."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Monk’s Gaiters"
+  passive_effect: "60 P.Atk, 40 E.Atk, 40 Crit; When breaking an enemy, lower their Phys. Def. by 10% and Staff and Ice Res. by 10% (turns: 3); 60 P.Atk, -60 P.Def, -60 E.Def, 60 Spd; With Rosary of Truth equipped: When breaking an enemy, recover 3 BP. (Does not stack with effects of the same type)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

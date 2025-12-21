@@ -1,0 +1,188 @@
+# Character: Scarecrow
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: scarecrow
+display_name: "Scarecrow"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3072
+p_atk: 377
+p_def: 223
+e_atk: 230
+e_def: 263
+speed: 345
+crit: 410
+sp: 376
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3892
+p_atk_120: 442
+p_def_120: 273
+e_atk_120: 280
+e_def_120: 283
+speed_120: 395
+crit_120: 475
+sp_120: 456
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Double Sturdy Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Awakening"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Awakening** **(1★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Dust Devil"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Flurry of Arrows"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Lacerating Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Meditate"
+    sp_cost: 23
+    skill_type: utility
+    target: single_enemy
+    power: "125"
+    effects:
+      - "**Meditate (4★)** Restore own HP (potency: 125)"
+  - skill_category: active
+    name: "Rending Arrow"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Shower of Arrows"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: tp
+    name: "Rat Catching"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "6x"
+    power: "6x25"
+  - skill_category: tp
+    name: "Rat Catching Lv.2"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    power: "**8x25**"
+  - skill_category: ex
+    name: "Dripstone"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Rainfall"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Guaranteed critical hit"
+      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise damage dealt to broken foes by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise critical damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Phys. Atk. of Self by 20% and critical damage by 20%."
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy, grant Self Dead Aim (guaranteed critical hits) (turns: 2)."
+    trigger: on_break
+  - passive_category: tp
+    effect: "When **an ally** breaks an enemy, grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.4) (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Damage Limit of Phys. Bow skills of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Tattered Sachet"
+  passive_effect: "40 P.Atk, 100 Crit; Raise own Critical by 30% when a broken enemy is present; Raise Lightning Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

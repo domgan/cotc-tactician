@@ -1,0 +1,217 @@
+# Character: Cyrus EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cyrus-ex
+display_name: "Cyrus EX"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: approval
+origin: "Overworld (Dragon Quest III)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, lightning, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3052
+p_atk: 434
+p_def: 298
+e_atk: 412
+e_def: 251
+speed: 235
+crit: 273
+sp: 346
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3872
+p_atk_120: 499
+p_def_120: 363
+e_atk_120: 462
+e_def_120: 301
+speed_120: 270
+crit_120: 323
+sp_120: 416
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**(1★)** Grant Self the ability to dodge some physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 83
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Fire damage to All Foes 3 time(s) (potency: 3x55) and lower Fire Res"
+  - skill_category: active
+    sp_cost: 83
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x55) and lower Lightning Res"
+  - skill_category: active
+    sp_cost: 1
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**(3★)** Restore SP of Single Ally (amount: 25%-100% of max SP"
+  - skill_category: active
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    sp_cost: 83
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Fire damage to All Foes 4 time(s) (potency: 4x45) and lower Fire Res"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    sp_cost: 108
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lightning damage to All Foes 4 time(s) (potency: 4x45) and lower Lightning Res"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    effects:
+      - "Shock: Lower Shield Points by 1 when taking Elem"
+  - skill_category: tp
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [sword, wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "At Max Boost: Guaranteed critical hit"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [sword, wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Grant Wind weakness to the same target (times: 2)"
+      - "At Max Boost: Guaranteed critical hit"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: heal
+    target: all_allies
+    power: "10%-40% of user’s max HP based on Boost Lv./Does not stack"
+    effects:
+      - "**(EX)** Restore HP of All Allies (amount: 100% of max HP) and grant HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv./Does not stack)"
+      - "raise Max HP of the same target by 30% (turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Giga Slash”"
+    skill_type: attack
+    damage_types: [lightning, sword]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Raise own potency by 100% (turns: 1/Cannot be extended/Effects of the same type do not stack) and deal Elem"
+      - "Also grant them Lightning weakness (times: 6)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Add 30% of P.Atk to E.Atk (including equipment stats/Cannot be stacked). Start of battle: Grant Self “SP Stock” (potency: 30% of max SP/does not stack)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Add **50%** of P.Atk to E.Atk (including equipment stats/Cannot be stacked). Start of battle: Grant Self “SP Stock” (potency: **50%** of max SP/does not stack)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "When in front row: Raise Entire Front Row’s Phys. Atk. and Elem. Atk. by 15% and Fire and Lightning damage by 15%. Additionally, grant Self ability to trigger critical hits when using elemental attacks and Damage Limit Up (effect: 100,000)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire and Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. When there are 4 or more allies in “Legend” state, grant automatic SP recovery (amount: 10% of max SP)."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. When there are 4 or more allies in “Legend” state, grant automatic SP recovery (amount: 10% of max SP) and the ability to activate attacking elemental skills and Ultimate Technique twice in a row (Follow-up attack will not consume SP)."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Brave’s Circlet”"
+  passive_effect: "140 E.Atk; Grant the ability to  trigger a follow-up attack when using Lightning skills (*Triggers once even during a Boost). *The “When breaking” effects only activate on the starting ally. Follow-up attack: Deal Elem. Lightning damage to All Foes (potency: 100); Start of battle: Grant Entire Front Row the special effect “Legend” (turns: 2/Does not stack)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

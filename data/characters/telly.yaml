@@ -1,0 +1,156 @@
+# Character: Telly
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: telly
+display_name: "Telly"
+rarity: 3
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 271
+p_def: 282
+e_atk: 350
+e_def: 399
+speed: 296
+crit: 283
+sp: 420
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 321
+p_def_120: 332
+e_atk_120: 415
+e_def_120: 464
+speed_120: 346
+crit_120: 318
+sp_120: 500
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heal Wounds (Single)"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "90"
+    effects:
+      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 90)"
+  - skill_category: active
+    name: "Icewind (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Icewind (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "110"
+  - skill_category: active
+    name: "Sheltering Veil"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Sheltering Veil (2★)**: Impart Single Ally with Elem"
+  - skill_category: active
+    name: "Heal More (Single)"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "150"
+    effects:
+      - "**Heal More (Single) (2★)** Restore HP of Single Ally (potency: 150)"
+  - skill_category: active
+    name: "Blizzard (Single) II"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Blizzard (Single) II"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x110**"
+  - skill_category: tp
+    name: "Divine Ethereal Healing (All) III"
+    sp_cost: 59
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Divine Ethereal Healing (All) III ** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: ex
+    name: "Preservation"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Preservation** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Telly’s Prayer"
+    skill_type: heal
+    target: single_ally
+    power: "250→300→350"
+    effects:
+      - "Restore HP of Single Ally (potency: **250→300→350**) and impart Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Exp Bonus 10% to Paired Allies."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Raise Fire Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Fire Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant Paired Ally automatic SP recovery (amount: 10)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Anthology of Church Ghost Tales"
+  passive_effect: "20 E.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Telly: Raise Elem. Atk. and Ice damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,170 @@
+# Character: Elvis
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: elvis
+display_name: "Elvis"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Excillant (BRAVELY DEFAULT II)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3136
+p_atk: 246
+p_def: 276
+e_atk: 374
+e_def: 305
+speed: 273
+crit: 226
+sp: 502
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3796
+p_atk_120: 296
+p_def_120: 326
+e_atk_120: 439
+e_def_120: 355
+speed_120: 323
+crit_120: 276
+sp_120: 592
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Thunder (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Dual Slam"
+    sp_cost: 26
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Poison"
+    sp_cost: 5
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Cure (Single)"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Cure (Single)** **(2★)** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Healing (All)"
+    sp_cost: 24
+    skill_type: heal
+    target: front_row
+    power: "160"
+    effects:
+      - "**Healing (All)** **(6★)** Restore HP of **Entire Front Row** (potency: 160)"
+  - skill_category: active
+    name: "Lightningprone (Single) III"
+    sp_cost: 12
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Lightningprone (Single) III (3★)** Lower Lightning Res"
+  - skill_category: active
+    name: "Analyze All"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Thunder (All)"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Burst"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Charged Particles"
+    sp_cost: 42
+    skill_type: mixed
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Piercing Lightning"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "**Piercing Lightning** Grant Self the ability to trigger critical hits with elemental attacks and raise own Damage Limit by 30,000 (turns: 3)"
+      - "Guaranteed critical hit at Max Boost"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Thunderstrike"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Absorb 1% of damage dealt as SP when using Attack."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Raise Lightning damage of Self by 25%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Wiswald Scarf"
+  passive_effect: "50 P.Atk, 50 E.Atk, 40 Crit; Raise Tome damage dealt by 15%; Raise Wind Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

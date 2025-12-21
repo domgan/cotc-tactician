@@ -1,0 +1,174 @@
+# Character: Morffins
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: morffins
+display_name: "Morffins"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3220
+p_atk: 295
+p_def: 352
+e_atk: 441
+e_def: 238
+speed: 231
+crit: 238
+sp: 458
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4040
+p_atk_120: 345
+p_def_120: 402
+e_atk_120: 506
+e_def_120: 288
+speed_120: 281
+crit_120: 288
+sp_120: 528
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Wild Rime"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: random
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Wine of Resistance"
+    sp_cost: 27
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Wine of Resistance** Restore HP of Single Ally (potency: 160) and cure the status ailments caused by SP Sap"
+  - skill_category: active
+    name: "Wild Cleave"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Invigorating Alcohol"
+    sp_cost: 16
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Invigorating Alcohol (2★)** Grant Single Ally “Dominance” (turns: 6-9 based on Boost Lv.)"
+  - skill_category: active
+    name: "Shaved Ice"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Heart-Strengthening Liqueur"
+    sp_cost: 50
+    skill_type: buff
+    target: front_row
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Heart-Strengthening Liqueur (3★)** Grant Entire Front Row automatic HP recovery and grant immunity to weakness (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Frozen Heart Mezcal"
+    sp_cost: 44
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Frozen Heart Mezcal (4★)** Raise Ice damage of All Allies by 15% (turns: 2-5 based on Boost Lv.) and extend the duration of Dominance (turns: 1)"
+  - skill_category: active
+    name: "From Beyond"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "65"
+    limit_break_upgrade: "Deal Elem. Ice damage to Single Foe (potency: 65). Repeat the same attack equal to the number of allies in Dominance (**up to 5 times**)."
+  - skill_category: active
+    name: "Add Ice"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "230"
+  - skill_category: tp
+    name: "Ice Smash"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: ex
+    name: "Heartwarming Cocktail"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Heartwarming Cocktail** Grant Entire Front Row “Dominance” (turns: 3-6 based on Boost Lv.)"
+      - "Dominance: Raise the potency of skills by 30% (does not stack with effects of the same type)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Digestif"
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Entire Front Row automatic SP recovery (amount: 10)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Elem. Atk. of Entire Front Row by 15% and Ice damage by 15% when 3 or more allies are in Dominance."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Raise BP recover amount of Self by 1 when an ally is in “Dominance”."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Special Cocktail Glass"
+  passive_effect: "40 E.Atk, 40 P.Def, 60 SP; When in front row: Grant Entire Front Row automatic SP recovery (amount: 15)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

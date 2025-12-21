@@ -1,0 +1,172 @@
+# Character: Madelaine
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: madelaine
+display_name: "Madelaine"
+rarity: 4
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2777
+p_atk: 281
+p_def: 272
+e_atk: 355
+e_def: 393
+speed: 291
+crit: 284
+sp: 408
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3517
+p_atk_120: 331
+p_def_120: 322
+e_atk_120: 420
+e_def_120: 458
+speed_120: 341
+crit_120: 319
+sp_120: 488
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pummel"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Heal More (Single)"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Heal More (Single)** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Brutal Bludgeon"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Lightning Bolt (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Trifold Bash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Enhanced Healing (Single)"
+    sp_cost: 38
+    skill_type: heal
+    target: single_ally
+    power: "225"
+    effects:
+      - "**Enhanced Healing (Single)** **(3★)** Restore HP of Single Ally (potency: 225)"
+  - skill_category: active
+    name: "Enhanced Healing (Single)"
+    sp_cost: 30
+    skill_type: heal
+    target: single_ally
+    power: "295"
+    effects:
+      - "**Enhanced Healing (Single)** **(5★)** Restore HP of Single Ally (potency: 295)"
+  - skill_category: active
+    name: "Aura of Wisdom II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Aura of Wisdom II (4★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Aura of Wisdom II"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Aura of Wisdom II (5★)** Impart Entire Front Row with Elem"
+    limit_break_upgrade: "Impart Entire Front Row with Elem. Atk. Up 15% and raise damage by 15% (turns: 3-6 based on Boost Lv.)."
+  - skill_category: tp
+    name: "Cake Ice Smash"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [staff]
+    target: front_row
+    power: "120"
+    effects:
+      - "Staff damage to All Foes (potency: 120) and restore HP of Entire Front Row (potency: 205)"
+  - skill_category: ex
+    name: "Great Light of Vitality II"
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Great Light of Vitality II** Grant Entire Front Row Phys"
+      - "Up 15% and raise damage by 15% (turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Explosive Assault"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "6x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Absorb 1% of damage dealt as SP when using Attack."
+    trigger: always
+  - passive_category: innate
+    effect: "When near death: Lower own SP Cost by 50% (Effects do not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Paired Allies automatic SP recovery (amount: 10)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Orphanage Postcard"
+  passive_effect: "30 P.Atk, 20 E.Def, 20 Spd; When in back row: Raise Phys. Atk. of Paired Ally by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

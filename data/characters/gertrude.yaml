@@ -1,0 +1,180 @@
+# Character: Gertrude
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: gertrude
+display_name: "Gertrude"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3235
+p_atk: 404
+p_def: 321
+e_atk: 306
+e_def: 222
+speed: 231
+crit: 246
+sp: 388
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4055
+p_atk_120: 454
+p_def_120: 371
+e_atk_120: 371
+e_def_120: 272
+speed_120: 281
+crit_120: 296
+sp_120: 458
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Amputation"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Battle Balm"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Battle Balm** Impart Self with Phys"
+      - "Up 15% and raise Spd by 15% (turns: 3)"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Emergency First Aid (1★)** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Heavy Shadow Impact"
+    sp_cost: 26
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    power: "190"
+    effects:
+      - "Dark damage to Single Foe (potency: 190) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Awaken and Enliven"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Awaken and Enliven (2★)** Cure paralysis and sleep of Single Ally and grant immunity to paralysis and sleep during a Boost"
+  - skill_category: active
+    name: "Healing Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "150"
+    effects:
+      - "Axe damage to All Foes (potency: 150) and restore own HP (potency: 140)"
+  - skill_category: active
+    name: "Urush Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Grand Cleave"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Axe damage to Single Foe (potency: 230) and lower Spd by 20% (turns: 2)"
+  - skill_category: active
+    name: "Wild Bisection"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: tp
+    name: "Grand Axe Strike"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [axe]
+    target: aoe
+    power: "150"
+    effects:
+      - "Axe damage to All Foes (potency: 150) and lower Phys"
+  - skill_category: ex
+    name: "Super Battle Balm"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Super Battle Balm** Raise the potency of battle skills of Self by 100% and grant Damage Limit Up (effect: 50,000) (turns: 3-6 based on Boost Lv.) (Cannot be extended/Effects of the same type do not stack)"
+      - "raise the Phys"
+      - "limit from battle skills to 50% and grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Demolition"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Impart Self with Phys. Atk. Up 10%."
+    trigger: hp_condition
+    limit_break_upgrade: "At full HP: Impart Self with Phys. Atk. Up 10% and increase the Phys. Atk. limit from support skills and equipment effects to 50%."
+  - passive_category: innate
+    effect: "Raise damage dealt to broken foes by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. by 20% when there’s an enemy with Speed Down."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Master Apothecary’s Pareo"
+  passive_effect: "60 P.Atk, 40 E.Def, 40 SP; Raise Axe damage dealt by 15%; When using \"Attack\", restore HP equal to 10% of damage dealt; 130 P.Atk, -80 E.Atk, -50 Spd; With Master Apothecary’s Armlet equipped: Grant automatic HP recovery (amount: 2000)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

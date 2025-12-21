@@ -1,0 +1,152 @@
+# Character: Penny
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: penny
+display_name: "Penny"
+rarity: 3
+
+# Core attributes
+job: apothecary
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3220
+p_atk: 345
+p_def: 392
+e_atk: 301
+e_def: 238
+speed: 281
+crit: 228
+sp: 388
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4040
+p_atk_120: 395
+p_def_120: 442
+e_atk_120: 366
+e_def_120: 288
+speed_120: 331
+crit_120: 278
+sp_120: 458
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Brain Bash"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "First Aid"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "90"
+    effects:
+      - "**First Aid** Restore HP of Single Ally (potency: 90)"
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: utility
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Antidote"
+    sp_cost: 5
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Antidote (2★)** Cure poison of Single Ally and grant immunity to poison during a Boost"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "150"
+    effects:
+      - "**Emergency First Aid (2★)** Restore HP of Single Ally (potency: 150)"
+  - skill_category: active
+    name: "Repeated Cleave"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+  - skill_category: active
+    name: "Repeated Cleave"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+  - skill_category: tp
+    name: "Wild Bisection"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+  - skill_category: ex
+    name: "Pomegranate Panacea"
+    skill_type: utility
+    target: front_row
+    effects:
+      - "**Pomegranate Panacea** Restore BP of Entire Front Row (amount: 1-4 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Penny’s Panacea"
+    skill_type: heal
+    target: single_ally
+    power: "250→300→350"
+    effects:
+      - "Restore HP of Single Ally (potency: **250→300→350**) and cure poison and grant immunity to poison (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Raise leaves earned by 3%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Wind Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn: Have a 10% chance to cure some status ailments of Entire Front Row (with some exceptions)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Star-Patterned Teapot"
+  passive_effect: "20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Penny: Raise Elem. Atk. and Axe damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

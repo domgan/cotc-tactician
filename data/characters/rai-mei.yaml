@@ -1,0 +1,187 @@
+# Character: Rai Mei
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rai-mei
+display_name: "Rai Mei"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, light, lightning, polearm, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3240
+p_atk: 289
+p_def: 298
+e_atk: 455
+e_def: 265
+speed: 230
+crit: 281
+sp: 442
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4140
+p_atk_120: 354
+p_def_120: 348
+e_atk_120: 505
+e_def_120: 315
+speed_120: 265
+crit_120: 316
+sp_120: 522
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Spear"
+    sp_cost: 27
+    skill_type: utility
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Oncoming Storm"
+    sp_cost: 26
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Oncoming Storm** Impart All Foes with Elem"
+      - "Down 15% and lower Lightning Res"
+  - skill_category: active
+    name: "Bolt Brandish"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Lightning damage to Single Foe (potency: 170) and raise own Elem"
+  - skill_category: active
+    name: "Thunderclap"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x55) and lower Lightning Res"
+  - skill_category: active
+    name: "Eye of the Storm"
+    sp_cost: 63
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Eye of the Storm (2★)** Raise Elem"
+      - "At Max Boost: Also raise the limit of Lightning damage augments from battle skills effects to 50% (turns: 5)"
+  - skill_category: active
+    name: "Thousand Levinspears"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [lightning, light]
+    target: random
+    hit_count: "5x"
+    power: "5x65"
+  - skill_category: active
+    name: "Roaring Skies"
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "Earthshaking Levinspear"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Stygian Levinspear"
+    sp_cost: 69
+    skill_type: attack
+    damage_types: [lightning, dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: tp
+    name: "Galvanizing Levinspear"
+    sp_cost: 85
+    skill_type: attack
+    damage_types: [lightning, sword]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Also raise Lightning damage of Entire Front Row by 20% (turns: 2)"
+  - skill_category: ex
+    name: "Thundering Anthem"
+    skill_type: attack
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "**Thundering Anthem** Act faster during turn and deal Elem"
+      - "·When consuming 1+ BP: Raise potency of All Allies by 50% (turns: 5/Turns cannot be extended/Does not stack with effects of the same type)"
+      - "·When consuming 2+ BP: Also raise their Damage Limit by 30,000 (turns: 5)"
+      - "·At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "White Lightning"
+    skill_type: mixed
+    damage_types: [lightning, fire]
+    target: aoe
+    hit_count: "8x"
+    effects:
+      - "Act faster during turn"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain the ability to exploit Polearm weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack) and gain the ability to trigger critical hits when using elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Gain the ability to trigger a follow-up attack when any front row ally attacks with Lightning damage (only activates once per action). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break. Follow-up attack: Deal Elem. Lightning damage to All Foes (potency: 100) and inflict shock (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "When broken enemy is present: For each ally who selects an Elem. Lightning attack in the action order during this turn, raise own potency by 25%, up to 100% (Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "When broken enemy is present: For each ally who selects an Elem. Lightning attack in the action order during this turn, raise own potency by **50%**, up to **200%** (Does not stack with effects of the same type), and raise own Damage Limit by 25,000, up to 100,000."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Lightning damage of Entire Front Row by 20% and raise the limit of Lightning damage augments from support and equipment effects to 50%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Clan of Mei Crest"
+  passive_effect: "140 E.Atk; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) and lower their Elem. Def. by 15% (turns: 3); When consuming 1+ BP: Raise potency of All Allies by **30%** (turns: 5/Turns cannot be extended/Does not stack with effects of the same type).; When consuming 2+ BP: Also raise their Damage Limit by **20,000** (turns: 5).; At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2).; **100** E.Atk, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) ~~and lower their Elem. Def. by 15% (turns: 3)~~"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

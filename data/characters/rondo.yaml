@@ -1,0 +1,174 @@
+# Character: Rondo
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rondo
+display_name: "Rondo"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3212
+p_atk: 424
+p_def: 343
+e_atk: 282
+e_def: 251
+speed: 265
+crit: 283
+sp: 356
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4032
+p_atk_120: 489
+p_def_120: 408
+e_atk_120: 332
+e_def_120: 301
+speed_120: 300
+crit_120: 333
+sp_120: 426
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Lightblast"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Faith’s Empowerment II"
+    sp_cost: 27
+    skill_type: buff
+    target: self
+    effects:
+      - "**Faith’s Empowerment II (1★)** Grant Self automatic SP recovery (amount: 10% of max SP) and impart with Phys"
+  - skill_category: active
+    name: "Sacred Flame’s Aura II"
+    sp_cost: 31
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sacred Flame’s Aura II (2★)** Impart Entire Front Row with Elem"
+      - "Def.Up 15% and raise Dark Res"
+  - skill_category: active
+    name: "Holy Wave"
+    sp_cost: 33
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Holy Smite"
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lightbringer"
+    sp_cost: 43
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Holy Impulse"
+    sp_cost: 71
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Sacred Charge"
+    sp_cost: 51
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: tp
+    name: "Divine Punishment"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "140"
+  - skill_category: ex
+    name: "Quiet Resolve"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Quiet Resolve** Grant Self the ability to activate attack skills twice (turns: 2-5 based on Boost Lv./Turns cannot be extended/Follow-up attack will not consume SP) and raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Aelfric’s Judgement"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Sacred Flame’s blessing (turns: 4)"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Sword damage of Self by 15% and grant Self Damage Limit Up (effect: 30,000). With Sacred Flame’s Blessing: Raise own Phys. Atk. by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Sword damage of Self by 15% and grant Self Damage Limit Up (effect: **50,000**). With Sacred Flame’s Blessing: Raise own Phys. Atk. by **30%**."
+  - passive_category: innate
+    effect: "When breaking an enemy: Grant Self Sacred Flame’s blessing (turns: 2)."
+    trigger: on_break
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crest of Ravus"
+  passive_effect: "110 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack); 80 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

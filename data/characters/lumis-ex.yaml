@@ -1,0 +1,186 @@
+# Character: Lumis EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lumis-ex
+display_name: "Lumis EX"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3165
+p_atk: 365
+p_def: 356
+e_atk: 303
+e_def: 224
+speed: 333
+crit: 244
+sp: 379
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3985
+p_atk_120: 430
+p_def_120: 406
+e_atk_120: 353
+e_def_120: 244
+speed_120: 383
+crit_120: 309
+sp_120: 459
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Chain Electrocute"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Branding Bolts"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [lightning]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Lightning damage to Random Foe 2 time(s) (potency: 2x75) and lower Lightning Res"
+  - skill_category: active
+    name: "Maiming Wild Arrows"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [bow]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Bow damage to Random Foe 2 time(s) (potency: 2x75) and lower Bow Res"
+  - skill_category: active
+    name: "Piercing Bolt Arrows"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Swift Blinding Shot"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "**Swift Blinding Shot (3★)** Act faster during turn"
+  - skill_category: active
+    name: "Bolts of Pain"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "**Bolts of Pain (4★)** Act faster during turn"
+  - skill_category: active
+    name: "Lightning Barrage"
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Wild Levin Arrows"
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    limit_break_upgrade: "Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x65). Exploits Lightning weakness (damage calculation based on Phys. Bow attack). Attack count becomes **7** at Max Boost."
+  - skill_category: tp
+    sp_cost: 101
+    skill_type: mixed
+    damage_types: [bow, lightning]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+    effects:
+      - "Bow damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.) and have a moderate chance to lower Bow and Lightning Res"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x110"
+    effects:
+      - "Guaranteed critical hits"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Divine Levin Arrows"
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: random
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row: Grant Entire Front Row automatic HP recovery (potency: 30)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Crit. of Paired Allies by 15% and critical damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. and Bow damage of Self by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Sacred Night’s Chamberstick"
+  passive_effect: "40 P.Atk, 300 HP, 70 SP; When breaking an enemy, lower their Bow and Lightning Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

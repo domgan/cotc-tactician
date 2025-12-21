@@ -1,0 +1,170 @@
+# Character: Ramona
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ramona
+display_name: "Ramona"
+rarity: 4
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3132
+p_atk: 240
+p_def: 228
+e_atk: 367
+e_def: 380
+speed: 340
+crit: 253
+sp: 371
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3872
+p_atk_120: 290
+p_def_120: 278
+e_atk_120: 432
+e_def_120: 445
+speed_120: 390
+crit_120: 288
+sp_120: 451
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Icewind (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Heal Wounds (All)"
+    sp_cost: 28
+    skill_type: heal
+    target: front_row
+    power: "60"
+    effects:
+      - "**Heal Wounds (All)** Restore HP of Entire Front Row (potency: 60)"
+  - skill_category: active
+    name: "Sheltering Veil II"
+    sp_cost: 14
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Sheltering Veil II (1★)** Impart Single Ally with Elem"
+  - skill_category: active
+    name: "Brutal Bludgeon"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [staff]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Icewind (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "125"
+    effects:
+      - "**Heal More (All) (3★)** Restore HP of Entire Front Row (potency: 125)"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 34
+    skill_type: heal
+    target: front_row
+    power: "**200**"
+    effects:
+      - "**Heal More (All) (5★)** Restore HP of Entire Front Row (potency: **200**)"
+  - skill_category: active
+    name: "Guardian Aura II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Guardian Aura II (4★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Guardian Aura II"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Guardian Aura II (5★)** Impart Entire Front Row with Elem"
+  - skill_category: tp
+    name: "Ice Flash"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [ice]
+    target: back_row
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Sacred Shield Magic (All)"
+    skill_type: buff
+    target: all_allies
+    power: "5%-20% of user’s max HP based on Boost Lv./Does not stack"
+    effects:
+      - "**Sacred Shield Magic (All)** Grant All Allies HP barrier (potency: 5%-20% of user’s max HP based on Boost Lv./Does not stack)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Curative Celebration"
+    skill_type: heal
+    target: front_row
+    power: "200→250→300"
+    effects:
+      - "Restore HP of Entire Front Row (potency: **200→250→300**) and impart with Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant Self automatic SP recovery (potency: 5)."
+    trigger: always
+    limit_break_upgrade: "Grant **Paired Allies** automatic SP recovery (potency: 5)."
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 85)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Def. and Elem. Def. of Paired Allies by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Scriptures for New Adherents"
+  passive_effect: "25 P.Def, 25 E.Def, 200 HP; When in front row: Grant Paired Ally automatic HP recovery (amount: 250)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

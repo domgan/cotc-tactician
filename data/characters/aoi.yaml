@@ -1,0 +1,188 @@
+# Character: Aoi
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: aoi
+display_name: "Aoi"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3212
+p_atk: 439
+p_def: 293
+e_atk: 242
+e_def: 231
+speed: 345
+crit: 288
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4032
+p_atk_120: 504
+p_def_120: 358
+e_atk_120: 292
+e_def_120: 281
+speed_120: 380
+crit_120: 338
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    sp_cost: 51
+    skill_type: mixed
+    damage_types: [lightning, wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Also lower Phys"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [wind, lightning]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Also lower Sword Res"
+  - skill_category: active
+    sp_cost: 47
+    skill_type: buff
+    target: self
+    effects:
+      - "**(2★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: attack
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x45"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: mixed
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Sword damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to lower Sword Res"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 93
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "Also raise Phys"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: mixed
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: special
+    name: "“Momentary Moonlight”"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "Cure status ailments of All Allies (with some exceptions) and restore Phys"
+      - "Also raise Sword damage of Self by **10%→20%→30%** (turns: 3)"
+      - "grant Self “Shiyou Stance” (turns: 3)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When selecting a command, grant Self the special effect of “Shiyou Stance” (turns: 2). If Self in not in “Shiyou Stance”, Self is considered to be in “Ryuuten Stance”. *Latent Power only useable if Self does not have “Shintou Seisou”. If Self has “Shintou Seisou”, reuse turns will not decrease."
+    trigger: always
+  - passive_category: innate
+    effect: "At the end of turn: When in “Ryuuten Stance” and Self has 10 or more status icons, restore 1 BP to Self. At the end of turn: When in “Shiyou Stance” and Self does not have “Shintou Seisou”, extend duration of “Shiyou Stance” by 1 turn and grant Self “Shintou Seisou” with the same duration as “Shiyou Stance”."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Sword damage of Self by 20%. When in “Shiyou Stance”, raise the Sword damage limit from support skills and equipment of Self to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When in “Ryuuten Stance”, grant Self 50% chance of dodging some attacks. Raise BP recovery rate by 1 with a successful dodge from this skill’s effect or Miss Phys. Attack enfeeblement (turns: 1)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“???”"
+  passive_effect: ""
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

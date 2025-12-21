@@ -1,0 +1,171 @@
+# Character: Lolo
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lolo
+display_name: "Lolo"
+rarity: 4
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3032
+p_atk: 352
+p_def: 228
+e_atk: 230
+e_def: 248
+speed: 365
+crit: 375
+sp: 381
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3852
+p_atk_120: 417
+p_def_120: 278
+e_atk_120: 280
+e_def_120: 268
+speed_120: 415
+crit_120: 440
+sp_120: 461
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Summon Lulu"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Chain Lightstrike"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Wild Shot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x50"
+  - skill_category: active
+    name: "Deceiving Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Chain Lightburst"
+    sp_cost: 30
+    skill_type: attack
+    target: aoe
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Triple Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Triple Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "**3x80**"
+  - skill_category: active
+    name: "Wild Raging Strike"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "4x"
+    power: "4x30"
+  - skill_category: active
+    name: "Wild Raging Strike"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "4x"
+    power: "**4x40**"
+  - skill_category: tp
+    name: "Obliterate Shot"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "290"
+  - skill_category: ex
+    name: "Blinding Arrows"
+    skill_type: attack
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Lulu’s Onslaught"
+    skill_type: attack
+    damage_types: [bow, staff]
+    target: single_enemy
+    hit_count: "2x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Impart Paired Allies with Phys. Atk. Up 10%."
+    trigger: hp_condition
+    limit_break_upgrade: "At full HP: Impart **Entire Front Row** with Phys. Atk. Up 10%."
+  - passive_category: innate
+    effect: "Raise potency of “Summon Lulu” by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise Bow damage of Paired Allies by 20%."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Snowy White Pelt"
+  passive_effect: "30 P.Atk, 30 Crit, 10 SP; When breaking an enemy, lower their Bow Res. by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

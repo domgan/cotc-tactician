@@ -1,0 +1,171 @@
+# Character: Millard
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: millard
+display_name: "Millard"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 251
+p_def: 292
+e_atk: 365
+e_def: 419
+speed: 296
+crit: 278
+sp: 420
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 301
+p_def_120: 342
+e_atk_120: 430
+e_def_120: 484
+speed_120: 346
+crit_120: 313
+sp_120: 500
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescene (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Heal More (All)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Guardian Aura II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Guardian Aura II (1★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Luminescence (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Crippling Bash"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [staff]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Staff damage to Single Foe (potency: 170) and impart Phys"
+  - skill_category: active
+    name: "Ethereal Healing (Single) III"
+    sp_cost: 36
+    skill_type: buff
+    target: single_ally
+    power: "140, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Ethereal Healing (Single) III (3★)** Grant Single Ally automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Flamebringer's Favor"
+    sp_cost: 35
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Flamebringer's Favor (4★)** Impart Single Ally with Phys"
+    limit_break_upgrade: "Impart **Entire Front Row** with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 2-5 based on Boost Lv.)."
+  - skill_category: active
+    name: "Enhanced Healing (All)"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Enhanced Healing (All) (5★)** Restore HP of Entire Front Row (potency: 205)"
+  - skill_category: active
+    name: "Luminescence (All) III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180"
+  - skill_category: tp
+    name: "Sustained Glow (All)"
+    sp_cost: 84
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: ex
+    name: "Holy Fire of Hope"
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Holy Fire of Hope** Raise max HP of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.) and restore HP (amount: 25% of target max HP)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Light of Heaven"
+    skill_type: heal
+    target: all_allies
+    power: "200→250→300"
+    effects:
+      - "Restore HP of All Allies (potency: **200→250→300**) and raise Light Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise HP recovery skill potency of Self by 20% (excludes automatic healing skills)."
+    trigger: always
+  - passive_category: innate
+    effect: "Recover 3% of SP when taking damage from enemies."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Grant Paired Ally automatic HP recovery (potency: 100)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Ritual Equipment"
+  passive_effect: "40 E.Atk, 40 P.Def, 60 E.Def; Raise Staff damage dealt by 15%; Raise Dark Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

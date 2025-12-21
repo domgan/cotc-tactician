@@ -1,0 +1,195 @@
+# Character: Castti
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: castti
+display_name: "Castti"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3080
+p_atk: 435
+p_def: 377
+e_atk: 271
+e_def: 303
+speed: 246
+crit: 238
+sp: 388
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3900
+p_atk_120: 485
+p_def_120: 427
+e_atk_120: 336
+e_def_120: 353
+speed_120: 296
+crit_120: 288
+sp_120: 458
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Greater Mass Rejuvenate (Front/All)"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Greater Mass Rejuvenate (Front/All)** Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sweeping Cleave"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Empowered Rehabilitate"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Empowered Rehabilitate (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Trifold Poison Cleave"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Life’s Supporter"
+    sp_cost: 60
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Life’s Supporter (2★)** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: active
+    name: "Trifold Sweeping Cleave"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Leopard Gash"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "**Leopard Gash (4★)** Act faster during turn"
+      - "Axe damage to Random Foe 4 time(s) (potency: 4x45) and lower Axe Res"
+  - skill_category: active
+    name: "Lion’s Rapid Strikes"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Relentless Cleave"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x55"
+    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe **6** time(s) (potency: **6x55**)."
+  - skill_category: tp
+    name: "Drastic Measures"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "[40 SP] ·6 or more: Raise potency by 50%"
+      - "·12 or more: Raise potency by 100%"
+  - skill_category: ex
+    name: "Mighty Diffusing Serum"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Mighty Diffusing Serum** Raise Phys"
+      - "Grant additional effects depending on the BP consumed"
+      - "·1 BP or more: Raise potency by 30% (turns: 5/Effects of the same type do no stack)"
+      - "grant Damage Limit Up (effect: 20,000, turns: 5)"
+      - "grant Dead Aim (guaranteed critical hits) (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Eir’s Skybalm Elixir"
+    skill_type: mixed
+    target: all_allies
+    power: "200→250→300"
+    effects:
+      - "Restore HP (potency: **200→250→300**) and SP (amount: **50→100→150**) of All Allies"
+      - "by **10%→15%→20%** and raise Axe damage by **10%→15%→20%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Raise Phys. Atk. and Critical of Entire Front Row by 15% and raise Axe damage by 15%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Grant Entire Front Row the ability to trigger a follow-up attack when dealing Phys. Axe damage (only activates once per action). Follow-up attack: Phys. Axe damage to All Foes (potency: 200)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self Every Drop Counts (turns: 1). Every Drop Counts: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Restore HP (potency: 205) and SP (amount: 25) of Entire Front Row."
+    trigger: always
+  - passive_category: innate
+    effect: "Restore BP of Entire Front Row (amount: 1-4 based on Boost Lv.), but delay actions during turn."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Critical of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Lower Phys. Atk., Phys. Def. and Critical of All Foes by 15% (turns: 2-5 based on Boost Lv.)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Eir’s Apothecaries Amulet"
+  passive_effect: "100 P.Atk, 40 Crit; When breaking an enemy, lower Axe Res. by 30% (turns: 3); Start of battle: Lower Axe Res. of All Foes by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

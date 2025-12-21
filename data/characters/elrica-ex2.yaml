@@ -1,0 +1,200 @@
+# Character: Elrica EX2
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: elrica-ex2
+display_name: "Elrica EX2"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, lightning, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2796
+p_atk: 270
+p_def: 210
+e_atk: 572
+e_def: 272
+speed: 282
+crit: 307
+sp: 534
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3616
+p_atk_120: 320
+p_def_120: 260
+e_atk_120: 637
+e_def_120: 322
+speed_120: 347
+crit_120: 342
+sp_120: 604
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Raise Elem"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Raise Damage Limit of this skill by 100,000"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 82
+    skill_type: buff
+    target: paired_ally
+    effects:
+      - "**(5★)** Raise potency of Self by 30%-100% based on Boost Lv"
+      - "Also restore 2 BP to Paired Allies"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: self
+    effects:
+      - "With Lion: Also grant Self Damage Limit Up (effect: 150,000, turns: 3)"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "530"
+    effects:
+      - "Raise Damage Limit of this skill by 200,000 when target is broken"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "**630**"
+    effects:
+      - "Raise Damage Limit of this skill by **400,000** when target is broken"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "6x"
+    power: "6x30"
+    effects:
+      - "**(EX)** Grant Light “Fragility” to All Foes (times: 9) and deal Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Edoras Festival”"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "Raise potency of Entire Front Row by **25%→50%→75%** (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and grant HP Barrier (potency: 100% of user’s Max HP/Does not stack)"
+      - "Also grant “Lion” to Entire Front Row (turns: 3/Granted as support skill/Does not stack)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "“Attack” action becomes Elem. Light damage and grant Self ability to trigger critical hits when using elemental attacks. During battle: Your job is also considered to be Warrior."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Grant Light “Fragility” to all enemies (times: 9)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise Elem. Atk. and Light damage of Self by 20% and raise the limit of Elem. Atk. and Light damage of Self from support skills and equipment effects to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Potency Up effects received by Warriors in party by 50% (Does not stack)."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Potency Up and HP Barrier effects received by Warriors in party by 50% (Does not stack)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“White Bouquet of Eternal Promise”"
+  passive_effect: "-50 P.Def, 200 E.Atk, -50 E.Def, 90 SP; Grant Damage Limit Up (effect: 150,000); Start of battle: Grant the special effect “Lion” (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

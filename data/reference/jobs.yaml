@@ -1,0 +1,52 @@
+# COTC Jobs Reference
+# Jobs define the primary weapon type for characters.
+# Each job has one primary weapon.
+#
+# SOURCE: [HUMAN-VERIFIED] - From community spreadsheet index
+
+schema_version: "1.0"
+
+jobs:
+  - id: warrior
+    display_name: Warrior
+    primary_weapon: sword
+    description: "Physical attackers focused on sword damage"
+
+  - id: merchant
+    display_name: Merchant
+    primary_weapon: polearm
+    description: "Versatile characters using polearms, often with BP manipulation"
+
+  - id: thief
+    display_name: Thief
+    primary_weapon: dagger
+    description: "Fast characters with debuff and utility skills"
+
+  - id: apothecary
+    display_name: Apothecary
+    primary_weapon: axe
+    description: "Healers and support characters using axes"
+
+  - id: hunter
+    display_name: Hunter
+    primary_weapon: bow
+    description: "Ranged attackers with bow skills"
+
+  - id: cleric
+    display_name: Cleric
+    primary_weapon: staff
+    description: "Healers and support characters using staves"
+
+  - id: scholar
+    display_name: Scholar
+    primary_weapon: tome
+    description: "Elemental magic users with tomes"
+
+  - id: dancer
+    display_name: Dancer
+    primary_weapon: fan
+    description: "Buffer/debuffer characters using fans"
+
+# Note: Some characters can equip secondary weapons or hit
+# multiple weapon weaknesses, but their job defines their primary.
+

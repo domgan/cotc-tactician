@@ -1,0 +1,159 @@
+# Character: José
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: jos
+display_name: "José"
+rarity: 3
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2782
+p_atk: 276
+p_def: 297
+e_atk: 345
+e_def: 394
+speed: 296
+crit: 283
+sp: 405
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3522
+p_atk_120: 326
+p_def_120: 347
+e_atk_120: 410
+e_def_120: 459
+speed_120: 346
+crit_120: 318
+sp_120: 485
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heal Wounds (Single)"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "90"
+    effects:
+      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 90)"
+  - skill_category: active
+    name: "Withering Oracle"
+    sp_cost: 6
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Withering Oracle** Impart Single Foe Elem"
+  - skill_category: active
+    name: "Luminescence (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Word of the Wise"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Word of the Wise (2★)** Impart Single Ally with Elem"
+  - skill_category: active
+    name: "Withering Oracle II"
+    sp_cost: 14
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Withering Oracle II (2★)** Impart Single Foe Elem"
+  - skill_category: active
+    name: "Heal More (Single)"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "150"
+    effects:
+      - "**Heal More (Single) (3★)** Restore HP of Single Ally (potency: 150)"
+  - skill_category: active
+    name: "Heal More (Single)"
+    sp_cost: 19
+    skill_type: heal
+    target: single_ally
+    power: "**220**"
+    effects:
+      - "**Heal More (Single) (5★)** Restore HP of Single Ally (potency: **220**)"
+  - skill_category: tp
+    name: "Guardian’s Healing"
+    sp_cost: 56
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Guardian’s Healing ** Restore HP of Entire Front Row (potency: 130) and impart with Elem"
+  - skill_category: ex
+    name: "Radiance of Perseverance"
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    power: "2x105"
+    effects:
+      - "Light damage to All Foes (potency: 2x105) and lower Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Red Valley Shine"
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Light damage to Single Foe (potency: **440→525→655**) and impart Elem"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Elem. Def. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Dark Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Def. of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Small Vial of Honey"
+  passive_effect: "20 E.Atk, 10 E.Def, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Jose: Raise Elem. Def. and Light damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

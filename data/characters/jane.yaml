@@ -1,0 +1,185 @@
+# Character: Jane
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: jane
+display_name: "Jane"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3075
+p_atk: 420
+p_def: 352
+e_atk: 271
+e_def: 258
+speed: 271
+crit: 278
+sp: 408
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3895
+p_atk_120: 470
+p_def_120: 402
+e_atk_120: 336
+e_def_120: 308
+speed_120: 321
+crit_120: 328
+sp_120: 478
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Amputation"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Explosive Cleave"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Triple Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Nourishing Meal"
+    sp_cost: 32
+    skill_type: buff
+    target: self
+    effects:
+      - "**Nourishing Meal (2★)** Raise Phys"
+  - skill_category: active
+    name: "Super Strength Porridge"
+    skill_type: mixed
+    target: front_row
+    power: "90, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Super Strength Porridge (2★)** Grant automatic HP recovery to Entire Front Row (potency: 90, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Triple Searing Sweep"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Quad Flame Cleave"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Dual Crushing Sweep"
+    sp_cost: 69
+    skill_type: mixed
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x105"
+    effects:
+      - "Lower Axe Res"
+  - skill_category: active
+    name: "Dual Volatile Cleave"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x120). **100%** more potent when the target is combusted."
+  - skill_category: tp
+    name: "Delightful Snack"
+    sp_cost: 30
+    skill_type: buff
+    target: self
+    effects:
+      - "**Delightful Snack ** Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Fivefold Frying Sweep"
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "5x"
+    power: "5x40"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Eight-Treasure Explosive Sweep"
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Axe damage of Self by 30% when a combusted enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "When dealing critical hits, lower Axe Res. of the target by 15% (turns: 2) and cause them to combust (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation,grant Self the special effect “More, Please!” (turns: 1). More, Please!: Activate attack skills twice (the follow-up attack will not consume SP). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Monster Cooking Recipe Collection"
+  passive_effect: "80 P.Atk, 20 Crit, 40 SP; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3); Start of battle: Cause all enemies to combust (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

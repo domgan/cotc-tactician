@@ -1,0 +1,164 @@
+# Character Template
+# Copy this file and rename to <character-id>.yaml
+# Fill in all [HUMAN-REQUIRED] fields
+#
+# ASSUMPTION: We assume max level characters with all skills available.
+# - 3★ characters: Lv60
+# - 4★ characters: Lv80
+# - 5★ characters: Lv100
+# - 6★ characters: Lv120 (after Limit Break)
+#
+# TIP: Run scripts/import_characters_from_csv.py to auto-generate base data,
+# then add skills, passives, and roles manually.
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: ""                    # [HUMAN-REQUIRED] lowercase-hyphenated
+display_name: ""          # [HUMAN-REQUIRED] Full name as shown in game
+rarity: 5                 # [HUMAN-REQUIRED] 3, 4, or 5 (base rarity)
+
+# ===========================================================================
+# CLASS & TYPE
+# ===========================================================================
+job: warrior              # [HUMAN-REQUIRED] warrior|merchant|thief|apothecary|hunter|cleric|scholar|dancer
+influence: power          # [HUMAN-REQUIRED] wealth|power|fame|domination|opulence|approval
+origin: "Orsterra"        # Optional: Orsterra|Solistia|G'roha|crossover worlds
+
+# Weakness coverage (what enemy weaknesses can this character hit?)
+weakness_coverage: []     # [HUMAN-REQUIRED] sword|polearm|dagger|axe|bow|staff|tome|fan|fire|ice|lightning|wind|light|dark
+
+# ===========================================================================
+# ROLES
+# ===========================================================================
+roles: []                 # [HUMAN-REQUIRED] tank|healer|buffer|debuffer|breaker|dps
+role_notes: |             # [HUMAN-REQUIRED] Explain role capabilities
+  Brief description of what roles this character fills and how.
+  Note any role compression (filling multiple roles).
+
+# ===========================================================================
+# STATS (base level)
+# ===========================================================================
+hp: 0
+p_atk: 0
+p_def: 0
+e_atk: 0
+e_def: 0
+speed: 0
+crit: 0
+sp: 0
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 0
+p_atk_120: 0
+p_def_120: 0
+e_atk_120: 0
+e_def_120: 0
+speed_120: 0
+crit_120: 0
+sp_120: 0
+
+# ===========================================================================
+# PROGRESSION
+# ===========================================================================
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4        # 0-4 (Stages I-IV)
+
+# Tier ratings (from community)
+gl_tier: ""
+jp_tier: ""
+
+# ===========================================================================
+# SKILLS
+# ===========================================================================
+# skill_category: active|tp|ex|special
+# - active: Regular skills (all available at max level)
+# - tp: Requires Blessing of the Lantern
+# - ex: Conditional trigger, doesn't use equip slot
+# - special: Uses separate gauge
+
+skills:
+  # Active skills - list the important ones for team composition
+  - skill_category: active
+    name: ""              # Optional, if skill has a name
+    sp_cost: 0
+    skill_type: attack    # attack|buff|debuff|heal|utility|mixed
+    damage_types: []      # weapon/element types this skill can hit weakness for
+    target: single_enemy  # self|single_ally|paired_ally|front_row|all_allies|single_enemy|aoe|random
+    hit_count: "1x"
+    power: "170~350"
+    effects: []           # List effects like "Self 20% Atk Up for 3 turns"
+    conditions: []        # List conditions like "If Boost MAX, guaranteed Crit"
+    limit_break_upgrade: ""  # What changes at 6★
+    notes: ""
+
+  # TP skill (requires Blessing of the Lantern)
+  - skill_category: tp
+    sp_cost: 0
+    skill_type: attack
+    damage_types: []
+    target: single_enemy
+    hit_count: "1x"
+    power: "170~350"
+
+  # EX skill (conditional trigger)
+  - skill_category: ex
+    skill_type: attack
+    damage_types: []
+    target: single_enemy
+    hit_count: "1x"
+    power: "170~350"
+    ex_trigger: "Turn 4 onwards"
+
+  # Special/Ultimate
+  - skill_category: special
+    skill_type: attack
+    damage_types: []
+    target: single_enemy
+    hit_count: "1x"
+    power: "500/600/750"
+    effects: []
+
+# ===========================================================================
+# PASSIVES
+# ===========================================================================
+# passive_category: innate|tp|basic
+
+passives:
+  - passive_category: innate
+    effect: ""
+    trigger: always       # always|battle_start|hp_condition|enemy_state|on_action|on_hit|on_break
+    limit_break_upgrade: ""
+
+  - passive_category: tp
+    effect: ""
+    trigger: always
+
+# ===========================================================================
+# UNIQUE MECHANICS
+# ===========================================================================
+# Only if character has special stances, stacks, or unique buffs
+unique_mechanics: []
+
+# ===========================================================================
+# A4 ACCESSORY
+# ===========================================================================
+a4_accessory:
+  name: ""
+  passive_effect: ""
+
+# ===========================================================================
+# SYNERGIES / USE CASES
+# ===========================================================================
+synergies: []
+best_use_cases: []
+weaknesses: []
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete  # verified|tested|theoretical|incomplete
+data_source: ""
+data_notes: ""
+last_updated: 2024-12-21

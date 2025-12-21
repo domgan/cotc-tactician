@@ -1,0 +1,196 @@
+# Character: Hujheb
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hujheb
+display_name: "Hujheb"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 472
+p_def: 223
+e_atk: 200
+e_def: 248
+speed: 290
+crit: 385
+sp: 416
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 537
+p_def_120: 273
+e_atk_120: 250
+e_def_120: 268
+speed_120: 340
+crit_120: 450
+sp_120: 496
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Wisdom Arrow Volley"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "70"
+    effects:
+      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
+  - skill_category: active
+    name: "Chaotic Arrows"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "2x"
+  - skill_category: active
+    name: "Hunting Tricks"
+    sp_cost: 26
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Hunting Tricks (1★)** Raise Phys"
+      - "raise their Bow damage by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Triple Wisdom Arrows"
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "[49 SP] ·With 2+ Wisdom Arrows: Lower Phys"
+      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
+  - skill_category: active
+    name: "Triple Paralyzing Arrows"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
+  - skill_category: active
+    name: "Tricks of the Trade"
+    sp_cost: 50
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Tricks of the Trade (3★)** Impart Entire Front Row with Phys"
+      - "[50 SP] ·With 2+ Wisdom Arrows: Raise Bow damage of the target by 20% (turns: 2-5 based on Boost Lv.)"
+      - "·With 3+ Wisdom Arrows: Also lower SP consumption by 20%"
+  - skill_category: active
+    name: "Wisdom Arrow Flurry"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "[62 SP] ·With 2+ Wisdom Arrows: Lower Phys"
+  - skill_category: active
+    name: "Swift Wisdom Arrows"
+    sp_cost: 96
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "**Swift Wisdom Arrows (5★)** Act faster during turn and deal Phys"
+      - "[96 SP] ·With 2+ Wisdom Arrows: Raise potency by 20%"
+      - "·With 3+ Wisdom Arrows: Also lower Phys"
+  - skill_category: active
+    name: "Peerless Wisdom Arrows"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "Bow damage to Single Foe 2 time(s) (potency: 2x135) and lower Bow Res"
+      - "[70 SP] ·With 2+ Wisdom Arrows: Raise potency by 10%"
+      - "·With 3+ Wisdom Arrows: Raise potency by 30%"
+  - skill_category: tp
+    name: "Starless Void"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Starless Void ** Raise the potency of Self by 100% (turns: 2/turns cannot be extended/does not stack with effects of the same type)"
+      - "Also grant Self Damage Limit Up (effect: 50,000, turns: 2-5 based on Boost Lv.) and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Disillusionment Bow"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Nightshade Arrow"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "440→525"
+    effects:
+      - "Grant all Hunters effects based on the number of Hunters in party (turns: 2)"
+      - "·1 or more: Raise Bow damage by **10%→15%**"
+      - "·2 or more: Also grant Damage Limit Up (effect: **10,000→50,000**)"
+      - "·3 or more: Also grant Dead Aim (guaranteed critical hits)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "After using a battle skill, if Wisdom Arrows are at 0, gain 3 Wisdom Arrows."
+    trigger: always
+    limit_break_upgrade: "After using a battle skill, if Wisdom Arrows are at 0, gain **6** Wisdom Arrows."
+  - passive_category: innate
+    effect: "Grant Entire Front Row effects based on the number of hunters in party. ·2 or more: Raise Bow damage by 15%. ·3 or more: Also raise Phys. Atk. by 15%. ·4 or more: Also grant Damage Limit Up (effect: 20,000)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Entire Front Row the ability to trigger a follow-up strike when dealing Phys. Bow damage (only activates once per action). Follow-up attack: Phys. Bow damage to All Foes (potency: 100) and have a low chance to inflict corrosion (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Rusted Knight’s Emblem"
+  passive_effect: "60 P.Atk, 80 SP; Raise Bow damage dealt by 15%; When equipped by a Hunter: When dealing some physical attacks other than “Attack”, exploit Dark weakness (damage calculation based on each attack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

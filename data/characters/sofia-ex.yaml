@@ -1,0 +1,195 @@
+# Character: Sofia EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sofia-ex
+display_name: "Sofia EX"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2896
+p_atk: 231
+p_def: 291
+e_atk: 389
+e_def: 335
+speed: 283
+crit: 246
+sp: 562
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3716
+p_atk_120: 281
+p_def_120: 341
+e_atk_120: 454
+e_def_120: 385
+speed_120: 333
+crit_120: 296
+sp_120: 632
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Tornado (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "First Aid"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "100"
+    effects:
+      - "**First Aid** Restore HP of Single Ally (potency: 100)"
+  - skill_category: active
+    name: "Harvesting Cleave"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Ice/Wind Ward (All) II"
+    sp_cost: 24
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Ice/Wind Ward (All) II (2★)** Raise Ice and Wind Res"
+  - skill_category: active
+    name: "Crippling Cleave"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Axe damage to Single Foe (potency: 230) and impart with Elem"
+  - skill_category: active
+    name: "Ventus Saltare (Single) II"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "With Marine Wisdom II: Also restore own BP (amount: 1)"
+  - skill_category: active
+    name: "Fire and Lightning Restor. III"
+    sp_cost: 48
+    skill_type: buff
+    target: front_row
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "III (4★)** Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.) and raise Fire and Lightning Res"
+  - skill_category: active
+    name: "Ventus Saltare (All) II"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Marine Wisdom II: Further raise attack count by 1"
+  - skill_category: active
+    name: "Tornado (Single) IV"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Marine Wisdom II: Raise potency by 50%"
+  - skill_category: tp
+    name: "Howling Storm"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Wind damage to Random Foes 4 time(s) (potency: 4x45) and impart Self with Elem"
+  - skill_category: ex
+    name: "Coral Zephyr"
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Coral Zephyr** Raise Elem"
+      - "and Wind damage of Entire Front Row by 20% and raise Fire"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Down Tempest"
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impart Self with Marine Wisdom I if you have 8 or more status effect icons. Additionally impart Self with Marine Wisdom II if you have 16 or more status effect icons."
+    trigger: always
+    limit_break_upgrade: "Impart Self with Marine Wisdom I if you have **6 or more** status effect icons. Additionally impart Self with Marine Wisdom II if you have **12 or more** status effect icons."
+  - passive_category: innate
+    effect: "During action selection, raise the Phys. Atk., Phys. Def., Elem. Atk. or Elem. Def. of each ally by 10% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "With Marine Wisdom I: Grant Self the ability to deal critical hits when using elemental attacks. With Marine Wisdom II: Grant Self Dead Aim (guaranteed critical hits)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Mermaid Wrap"
+  passive_effect: "60 E.Atk, 80 SP; Raise Wind damage dealt by 15%; Start of battle: Raise own Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

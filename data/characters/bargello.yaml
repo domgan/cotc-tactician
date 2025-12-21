@@ -1,0 +1,179 @@
+# Character: Bargello
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: bargello
+display_name: "Bargello"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2932
+p_atk: 423
+p_def: 275
+e_atk: 241
+e_def: 258
+speed: 380
+crit: 368
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3752
+p_atk_120: 488
+p_def_120: 295
+e_atk_120: 291
+e_def_120: 308
+speed_120: 445
+crit_120: 418
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Malizioso"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res"
+  - skill_category: active
+    name: "Debilitate II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Debilitate II** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Trattamento"
+    sp_cost: 33
+    skill_type: heal
+    target: single_ally
+    power: "100"
+    effects:
+      - "**Trattamento (1★)** Restore HP (potency: 100) and SP (amount: 5%-10% of max SP based on Boost Lv.) of Single Ally"
+  - skill_category: active
+    name: "Wild Fourfold Squall"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Sidestep"
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**Sidestep (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Perseverante"
+    sp_cost: 10
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x45"
+  - skill_category: active
+    name: "Raffica"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "Give the Signal"
+    sp_cost: 74
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Give the Signal (5★)** Raise Phys"
+      - "of Entire Front Row by 15% and raise Dagger and Wind damage by 15%"
+      - "Grant Damage Limit Up (effect: 30,000 / turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Astuto"
+    sp_cost: 65
+    skill_type: mixed
+    damage_types: [dagger, wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: tp
+    name: "Ardito"
+    sp_cost: 12
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "8x"
+    power: "40"
+  - skill_category: ex
+    name: "Spirito"
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "**Spirito** Restore SP of All Allies (amount: 75-200 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "For the Family"
+    skill_type: utility
+    target: all_allies
+    power: "50→100"
+    effects:
+      - "Restore **50→100** SP of All Allies"
+      - "Restore Ultimate Technique use count of All Allies excluding Self by 1"
+      - "(Use count of this Ultimate Technique cannot be restored)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Dagger and Wind damage of Entire Front Row by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Dagger and Wind damage of Entire Front Row by **15%**."
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when a broken enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise BP recovery amount of Self by 1 when a broken enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Cuffs of the Family"
+  passive_effect: "100 P.Atk, 40 SP; Gain Damage Limit Up (effect: 100,000); Grant All Allies automatic SP recovery (amount: 20) when a broken enemy is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

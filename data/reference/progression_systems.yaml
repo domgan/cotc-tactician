@@ -1,0 +1,121 @@
+# COTC Progression Systems Reference
+# This file explains the various progression/unlock systems.
+#
+# SOURCE: [HUMAN-VERIFIED] - Based on user correction
+
+schema_version: "1.0"
+
+# =============================================================================
+# AWAKENING STAGES (I-IV)
+# =============================================================================
+# Awakening increases stats and unlocks battle skill SLOTS.
+# It does NOT unlock specific skills - skills are tied to character rarity.
+
+awakening_stages:
+  stage_1:
+    name: "Awakening Stage I"
+    effect: "Base attributes (Phys. Atk, Phys. Def, Elem. Atk, Elem. Def, Critical, Speed) +30% (Up to 50%)"
+    notes: "First awakening, requires awakening materials"
+
+  stage_2:
+    name: "Awakening Stage II"
+    effect: "Unlocks the fourth battle skill slot"
+    notes: "Allows equipping 4 skills instead of 3"
+
+  stage_3:
+    name: "Awakening Stage III"
+    effect: "Base attributes (HP) +50% (Up to 1,000)"
+    notes: "Significant HP boost"
+
+  stage_4:
+    name: "Awakening Stage IV"
+    effect: "Obtain special items (A4 accessory, varies by character)"
+    notes: "3★ travelers cannot reach Stage 4"
+    restriction: "5★ and promoted 4★ characters only"
+
+# =============================================================================
+# 6★ / LIMIT BREAK
+# =============================================================================
+# This is NOT an awakening stage. It's a separate system.
+
+limit_break:
+  name: "6★ Limit Break"
+  requirements: "Requires specific materials after max awakening"
+  effects:
+    - "Raises level cap to 120 (from 100)"
+    - "Additional stat increases"
+    - "May upgrade existing skills or passives"
+  notes: |
+    Skill upgrades at 6★ are shown in spreadsheet as "6*" column.
+    Not all skills/passives get upgrades - character specific.
+
+# =============================================================================
+# BLESSING OF THE LANTERN
+# =============================================================================
+# Unlocks additional skills (TP system)
+
+blessing_of_the_lantern:
+  name: "Blessing of the Lantern"
+  effects:
+    - "Unlocks TP Passive ability"
+    - "Unlocks TP Active skill (granted by TP passive)"
+  notes: |
+    Requires duplicate characters or specific materials.
+    TP passive often has a secondary effect that unlocks a new active skill.
+    Some characters may only get passive, some get both.
+
+# =============================================================================
+# SKILL BOARDS
+# =============================================================================
+# Characters have skill boards (3-6 boards depending on rarity).
+# The star rating (1★-5★) in spreadsheets indicates which board a skill is on.
+# This is organizational only - for our purposes, we assume max level.
+
+skill_boards:
+  description: |
+    Skill star ratings in the spreadsheet indicate which skill board they're on.
+    This is purely organizational - NOT an unlock requirement.
+    
+    For team composition purposes, we assume:
+    - 3★ characters: Lv60, all their skills available
+    - 4★ characters: Lv80, all their skills available  
+    - 5★ characters: Lv100, all their skills available
+    - 6★ characters: Lv120, all their skills available (includes Limit Break upgrades)
+    
+    Characters can be "overclassed" - a base 5★ can become 6★ via Limit Break.
+    
+    You can only EQUIP 4 skills at once in battle.
+    Awakening Stage II unlocks the 4th equip slot.
+
+  battle_skill_slots:
+    slot_1: "Available from start"
+    slot_2: "Available from start"
+    slot_3: "Available from start"
+    slot_4: "Unlocked at Awakening Stage II"
+
+# =============================================================================
+# EX SKILL
+# =============================================================================
+ex_skill:
+  description: |
+    EX skills are conditional abilities that activate when their trigger is met.
+    They don't take up a skill slot - they're always "available" when conditions allow.
+    
+  examples:
+    - trigger: "Turn 4 onwards"
+    - trigger: "No enemies are broken"
+    - trigger: "Self HP = 100%"
+    - trigger: "After using Special"
+
+# =============================================================================
+# SPECIAL / ULTIMATE
+# =============================================================================
+special_skill:
+  description: |
+    Special (Ultimate) skills use a separate gauge that fills during battle.
+    They have 3 levels (Lv1, Lv10, Lv20) with increasing power.
+    Some can use 200% gauge for enhanced effects.
+    
+  gauge:
+    - "100% gauge: Normal special"
+    - "200% gauge: Enhanced special (if character supports it)"

@@ -1,0 +1,183 @@
+# Character: Ditraina
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ditraina
+display_name: "Ditraina"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2726
+p_atk: 221
+p_def: 246
+e_atk: 474
+e_def: 305
+speed: 273
+crit: 341
+sp: 550
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3386
+p_atk_120: 271
+p_def_120: 296
+e_atk_120: 539
+e_def_120: 355
+speed_120: 323
+crit_120: 391
+sp_120: 640
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Duskfall (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "SP Coil"
+    sp_cost: 25
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**SP Coil (1★)** Restore own SP (amount: 50)"
+  - skill_category: active
+    name: "Raging Luminescence"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res"
+  - skill_category: active
+    name: "Raging Duskfall"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [dark]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Dark damage to Random Foe 3 time(s) (potency: 3x55) and lower Dark Res"
+  - skill_category: active
+    name: "Blazing Aurora"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "[50 SP] ·With Infinite Light: Grant Self Elem"
+  - skill_category: active
+    name: "Gaping Void"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "·With Infinite Darkness: Raise own damage dealt by 30% (turns: 2) **Lv.96 |** Duration Up: 2 turns→3 turns"
+  - skill_category: active
+    name: "Dimming Shine"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "[64 SP] ·With Infinite Light: Lower Light Res"
+  - skill_category: active
+    name: "Fallen Baleful Star"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "·With Infinite Darkness: Lower Dark Res"
+  - skill_category: tp
+    name: "Slumbering Oracle"
+    sp_cost: 34
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Slumbering Oracle ** Lower Elem"
+      - "restore 3 BP to Self"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(EX)** Raise Light and Dark damage of All Allies by 20% and grant Self Infinite Light and Infinite Dark (turns: 2-5 based on Boost Lv.)"
+      - "Infinite Light/Darkness: Grant Damage Limit Up (effect: 30,000)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Reverie’s Calamity"
+    skill_type: mixed
+    target: single_enemy
+    effects:
+      - "With Infinite Light and Infinite Dark: Lower Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using an elemental skill, grant Self effects based on the element (turns: 3). Light: Grant Infinite Light. Dark: Grant Infinite Darkness. Infinite Light/Darkness: Grant Damage Limit Up (effect: 30,000)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self ability to trigger critical hits when using elemental attacks. With Infinite Light and Infinite Darkness: Grant Self Dead Aim (guaranteed critical hits)."
+    trigger: always
+    limit_break_upgrade: "Grant Self ability to trigger critical hits when using elemental attacks. With Infinite Light and Infinite Darkness: Grant Self Dead Aim (guaranteed critical hits) and raise own Elem. Atk. by 15%."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Grant Self the special effects of Infinite Light and Infinite Darkness (turns: 2). Infinite Light/Darkness: Grant Damage Limit Up (effect: 30,000)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Witch of Salvation’s Necklace"
+  passive_effect: "140 E.Atk; Raise elemental damage of Self by 30%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

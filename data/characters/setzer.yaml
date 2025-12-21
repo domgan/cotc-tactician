@@ -1,0 +1,228 @@
+# Character: Setzer
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: setzer
+display_name: "Setzer"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: opulence
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark, fire, light, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3092
+p_atk: 437
+p_def: 238
+e_atk: 190
+e_def: 268
+speed: 330
+crit: 405
+sp: 386
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3912
+p_atk_120: 502
+p_def_120: 288
+e_atk_120: 240
+e_def_120: 288
+speed_120: 380
+crit_120: 470
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Mysidia Rabbit"
+    sp_cost: 38
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Mysidia Rabbit** Restore HP of Entire Front Row (potency: 65)"
+      - "grant the target HP Barrier equal to the excess amount (max: 2,000 HP/Does not stack)"
+  - skill_category: active
+    name: "Game Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Blaze Queen"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Bow damage to Single Foe 2 time(s) (potency: 2x90) and lower Phys"
+      - "Also grant Fire weakness (times: 2)"
+  - skill_category: active
+    name: "Darkness Jack"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Bow damage to Single Foe 2 time(s) (potency: 2x90) and lower Elem"
+      - "Also grant Dark weakness (times: 2)"
+  - skill_category: active
+    name: "Slot: Diamond"
+    sp_cost: 100
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also grant Light weakness (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Slot: Chocobo"
+    sp_cost: 100
+    skill_type: mixed
+    damage_types: [bow, wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also grant Wind weakness (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Wind Weakness: Regardless of the source"
+  - skill_category: active
+    name: "Dice"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+      - "Also grant two weaknesses from Fire"
+  - skill_category: active
+    name: "Slot: Airship"
+    sp_cost: 113
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Bow damage to All Foes 4 time(s) (potency: 4x35) and lower Phys"
+      - "Also grant Fire weakness (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Fire Weakness: Regardless of the source"
+  - skill_category: active
+    name: "Slot: Dragon"
+    sp_cost: 123
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Bow damage to All Foes 5 time(s) (potency: 5x35) and lower Elem"
+      - "Also grant Fire weakness (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Dark Weakness: Regardless of the source"
+  - skill_category: tp
+    name: "Trick King"
+    sp_cost: 39
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Trick King ** Grant Fire and Dark weaknesses to Single Foe (times each: 4-7 based on Boost Lv.)"
+      - "Also raise the number of times when granting elemental weaknesses by 2 (turns: 4-7 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Slot: 777"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "7x"
+    power: "7x25"
+    effects:
+      - "**Slot: 777** Act faster during turn and deal Phys"
+      - "Bow damage to Single Foe 7 time(s) (potency: 7x25) and inflict “Granted Weakness Freeze” (turns: 4-7 based on Boost Lv.)"
+      - "grant Self the special effect “Double Up” (turns: 2/Turns cannot be extended)"
+      - "At Max Boost: Also grant All Allies the special effect “Double Up” (turns: 1/Turns cannot be extended)"
+      - "“Granted Weakness Freeze”: Times of granted weakness will not decrease when attacked by corresponding weakness"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Bloody Card"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    effects:
+      - "Bow damage (potency: 195) as many additional times as different elemental weaknesses the target has (includes granted weaknesses) (up to 6 times/changes during attack/granted weaknesses with 0 times remaining do not count)"
+      - "Each attack is 50% more potent if there is an enemy with 9 times remaining of the following granted weaknesses: Fire"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant Self the ability not to consume times of granted weaknesses when attacking and gain the ability to exploit Fire and Dark weaknesses with physical attacks except for “Attack” action (with some exceptions/damage calculation based on corresponding attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "At the end of turn: Grant two weaknesses among Fire, Ice, Lighning, Wind, Light or Dark randomly to each enemy (times each: 2/the same elemental weakness cannot be granted twice). When there’s a broken enemy, additionally grant Fire, Ice, Lighning, Wind, Light and Dark weaknesses to broken enemies (times each: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "At the start of turn, apply effects on enemies based on number of remaining times of granted Fire, Ice, Lightning, Wind, Light and Dark weaknesses to an enemy (even if there are multiple enemies that meet the conditions, effects are granted once only). ·3+ times: Lower Phys. Atk. and Elem. Atk. by 20% (turns: 1). ·7+ times: Also raise damage of Entire Front Row when exploiting weaknesses by 30% and raise damage limit support skills and equipment effects of Entire Front Row when exploiting weaknesses to 50%."
+    trigger: battle_start
+    limit_break_upgrade: "At the start of turn, apply effects on enemies based on number of remaining times of granted Fire, Ice, Lightning, Wind, Light and Dark weaknesses to an enemy (even if there are multiple enemies that meet the conditions, effects are granted once only). ·3+ times: Lower Phys. Atk. and Elem. Atk. by 20% (turns: 1). ·5+ times: Also lower Phys. and Elem. Res. by 20% (turns: 1). ·7+ times: Also raise damage of Entire Front Row when exploiting weaknesses by 30% and raise damage limit support skills and equipment effects of Entire Front Row when exploiting weaknesses to 50%."
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the start of turn, grant Entire Front Row effects based on number of remaining times of granted Fire and Dark weaknesses to an enemy (even if there are multiple enemies that meet the conditions, effects are granted once only). ·5+ times: Raise Phys. Atk. by 15% (turns: 1). ·7+ times: Also grant Damage Limit Up (effect: 10,000, turns: 1). ·9+ times: Also grant Damage Limit Up when dealing Phys. Bow damage (effect: 50,000, turns: 1)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Model Blackjack Airship”"
+  passive_effect: "60 P.Atk, 100 SP; When an ally breaks an enemy, raise BP recovery by 1 (turns: 2). Additionally, raise BP recovery of the wearer by 1 (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

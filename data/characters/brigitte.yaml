@@ -1,0 +1,168 @@
+# Character: Brigitte
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: brigitte
+display_name: "Brigitte"
+rarity: 4
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 256
+p_def: 274
+e_atk: 360
+e_def: 369
+speed: 331
+crit: 278
+sp: 410
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 306
+p_def_120: 324
+e_atk_120: 425
+e_def_120: 434
+speed_120: 381
+crit_120: 313
+sp_120: 490
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Traumatic Bash"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Heal Wounds (All)"
+    sp_cost: 28
+    skill_type: heal
+    target: front_row
+    power: "60"
+    effects:
+      - "**Heal Wounds (All)** Restore HP of Entire Front Row (potency: 60)"
+  - skill_category: active
+    name: "Cleanse Heart"
+    sp_cost: 20
+    skill_type: buff
+    target: self
+    effects:
+      - "**Cleanse Heart (1★)** Raise HP recovery skill potency of Self by 20% (excludes automatic healing skills) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Guardian Aura II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Guardian Aura II (2★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Elemental Bash"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [staff]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Staff damage to Single Foe (potency: 160) and impart Elem"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "125"
+    effects:
+      - "**Heal More (All) (3★)** Restore HP of Entire Front Row (potency: 125)"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 34
+    skill_type: heal
+    target: front_row
+    power: "**200**"
+    effects:
+      - "**Heal More (All) (5★)** Restore HP of Entire Front Row (potency: **200**)"
+  - skill_category: active
+    name: "Purifying Prayer"
+    sp_cost: 15
+    skill_type: utility
+    target: single_ally
+  - skill_category: active
+    name: "Purifying Prayer"
+    sp_cost: 12
+    skill_type: buff
+    target: single_ally
+    limit_break_upgrade: "Shortens duration of some enfeebling effects and status ailments on **All Allies** (turns: 2-5, based on Boost Lv.)."
+  - skill_category: tp
+    name: "Endurance Aura II"
+    sp_cost: 42
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Endurance Aura II ** Grant Entire Front Row Max HP Up 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Guardian’s Prayer"
+    skill_type: heal
+    target: front_row
+    power: "280"
+    effects:
+      - "grant Entire Front Row the following effect (times: 1-4 based on Boost Lv.)"
+      - "At the end of turn: Restore HP of Entire Front Row (potency: 280) and raise Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Prayer of Purity"
+    skill_type: heal
+    target: front_row
+    power: "250→300→350"
+    effects:
+      - "Restore HP of Entire Front Row (potency: **250→300→350**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When near death: Lower own SP Cost by 50% (Effects do not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "At 50% HP or less: Raise Spd. of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of augmenting effect granted by self by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Firstfrost Barrette"
+  passive_effect: "10 E.Atk, 10 Spd, 500 HP; 30% chance of resisting some status ailments"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

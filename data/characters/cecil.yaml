@@ -1,0 +1,196 @@
+# Character: Cecil
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cecil
+display_name: "Cecil"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Earth (Final Fantasy IV)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3252
+p_atk: 399
+p_def: 358
+e_atk: 207
+e_def: 281
+speed: 255
+crit: 323
+sp: 296
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4072
+p_atk_120: 464
+p_def_120: 423
+e_atk_120: 257
+e_def_120: 331
+speed_120: 290
+crit_120: 373
+sp_120: 366
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Light Slash"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Cure (Front/All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Cure (Front/All)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Cover"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Cover (1★)** Act faster during turn and reduce some damage taken by 20%-50% (based on Boost Lv.) and take damage in place of Single Ally (excluding Self/including Group Attacks) (turns: 1/Activates only when in front row)"
+  - skill_category: active
+    name: "Dark Flame"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Holy Guard"
+    sp_cost: 44
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Holy Guard (2★)** Raise Phys"
+  - skill_category: active
+    name: "Sacred Cross"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "With Paladin: Also lower Sword Res"
+  - skill_category: active
+    name: "Holy Flame"
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: buff
+    target: self
+    power: "25% of user’s max HP/ does not stack"
+    effects:
+      - "With Paladin: Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack)"
+  - skill_category: active
+    name: "Souleater"
+    sp_cost: 65
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Also lower Phys"
+  - skill_category: active
+    name: "Saint’s Fall"
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [sword, light]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    name: "Luminous Blast"
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Soul Shift"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x50"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Radiant Wings"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    hit_count: "5x"
+    effects:
+      - "grant Self Paladin (turns: 3)"
+      - "*Paladin is granted as a support skill"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Recover 10% of damage taken when hit (With some exceptions/Does not stack with effects of the same type). In addition, grant Self “Paladin” (turns: 2) (With some exceptions/Activates once even with multiple hits). *As this is considered as a counterattack action, it will not be activated when other counterattacks are granted or when counterattacks cannot be performed."
+    trigger: always
+    limit_break_upgrade: "Recover **15%** of damage taken when hit (With some exceptions/Does not stack with effects of the same type). In addition, grant Self “Paladin” (turns: 2) (With some exceptions/Activates once even with multiple hits). *As this is considered as a counterattack action, it will not be activated when other counterattacks are granted or when counterattacks cannot be performed."
+  - passive_category: innate
+    effect: "Impart Self with Phys. Atk. Up 15% and raise Sword damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row at 50% HP or more: Take damage for single-target attack in place of allies in the front row."
+    trigger: always
+    limit_break_upgrade: "Raise Self Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Paladin’s Gauntlets"
+  passive_effect: "40 P.Def, 40 E.Def, 600 HP; Grant automatic HP recovery (amount: 500); Raise Phys. Res. and Elem. Res. by 5%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

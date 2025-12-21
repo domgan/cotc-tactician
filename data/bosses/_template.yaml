@@ -1,0 +1,109 @@
+# COTC Boss Template
+# Copy this file and fill in ALL [HUMAN-REQUIRED] fields.
+# The LLM cannot and will not generate any of this information.
+#
+# Filename: [boss-id].yaml (e.g., boss-name.yaml)
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: ""                    # [HUMAN-REQUIRED] unique-identifier (lowercase, hyphenated)
+display_name: ""          # [HUMAN-REQUIRED] Full Name As Shown In Game
+content_type: ""          # [HUMAN-REQUIRED] story|side_story|superboss|tower|arena|event|other
+difficulty: ""            # [HUMAN-REQUIRED] easy|normal|hard|expert|extreme
+
+# ===========================================================================
+# WEAKNESSES & RESISTANCES
+# ===========================================================================
+weaknesses:
+  elements: []            # [HUMAN-REQUIRED] List: [fire, ice, lightning, wind, holy, dark]
+  weapons: []             # [HUMAN-REQUIRED] List: [sword, spear, dagger, axe, bow, staff]
+
+resistances:              # Optional - elements/weapons that deal reduced damage
+  elements: []
+  weapons: []
+
+immunities:               # Optional - elements/weapons that deal no damage
+  elements: []
+  weapons: []
+
+# ===========================================================================
+# SHIELD MECHANICS
+# ===========================================================================
+shield_count: null        # [HUMAN-REQUIRED] Initial shield count
+
+# If shield count changes per phase:
+shield_phases:
+  - phase: 1
+    shield_count: null    # [HUMAN-REQUIRED]
+    trigger: ""           # [HUMAN-REQUIRED] What triggers this phase
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: ""              # [HUMAN-REQUIRED] Attack/ability name
+    mechanic_type: ""     # [HUMAN-REQUIRED] attack|buff_self|debuff_party|ultimate|passive|phase_transition|enrage|counter|other
+    trigger: ""           # [HUMAN-REQUIRED] When it occurs (e.g., "Turn 5", "HP < 50%")
+    target: ""            # [HUMAN-REQUIRED] single|front_row|back_row|all|random|highest_hp|lowest_hp|provoker
+    damage_type: ""       # physical|elemental|true|none
+    element: ""           # fire|ice|lightning|wind|holy|dark (if elemental)
+    effects: []           # Status effects applied
+    threat_level: ""      # [HUMAN-REQUIRED] low|medium|high|critical
+    counter_strategy: ""  # [HUMAN-REQUIRED] How to handle this mechanic
+
+  # Add more mechanics as needed:
+  # - name: ""
+  #   mechanic_type: ""
+  #   ...
+
+# ===========================================================================
+# PHASES (if boss has distinct phases)
+# ===========================================================================
+phases:
+  - phase_number: 1
+    trigger: ""           # [HUMAN-REQUIRED] HP threshold or turn count
+    behavior_changes: ""  # [HUMAN-REQUIRED] What changes in this phase
+    priority_actions: ""  # [HUMAN-REQUIRED] What player should prioritize
+
+  # Add more phases as needed
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: ""              # [HUMAN-REQUIRED] tank|healer|buffer|debuffer|breaker|dps
+    priority: ""          # [HUMAN-REQUIRED] required|strongly_recommended|recommended|optional
+    reason: ""            # [HUMAN-REQUIRED] Why this role is needed
+
+  # Add more required roles as needed
+
+required_capabilities:    # [HUMAN-REQUIRED] Specific capabilities beyond roles
+  - ""
+
+# ===========================================================================
+# TIMING
+# ===========================================================================
+turn_limit: null          # Turn limit before enrage/wipe (if any)
+
+critical_turns:           # Turns where specific actions are needed
+  - turn: null
+    event: ""             # [HUMAN-REQUIRED] What happens
+    required_action: ""   # [HUMAN-REQUIRED] What player must do
+
+# ===========================================================================
+# STRATEGY NOTES
+# ===========================================================================
+general_strategy: |       # [HUMAN-REQUIRED] Overall approach to the fight
+  
+
+common_mistakes:          # [HUMAN-REQUIRED] Things players commonly get wrong
+  - ""
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete  # [HUMAN-REQUIRED] verified|tested|theoretical|incomplete
+data_source: ""              # Where this data came from
+last_updated: null           # [HUMAN-REQUIRED] YYYY-MM-DD format
+

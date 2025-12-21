@@ -1,0 +1,167 @@
+# Character: Solon
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: solon
+display_name: "Solon"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3076
+p_atk: 271
+p_def: 321
+e_atk: 394
+e_def: 310
+speed: 233
+crit: 236
+sp: 592
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3736
+p_atk_120: 321
+p_def_120: 371
+e_atk_120: 459
+e_def_120: 360
+speed_120: 283
+crit_120: 286
+sp_120: 682
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blazing Fireball"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Physical Containment"
+    sp_cost: 24
+    skill_type: mixed
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Tome damage to Single Foe (potency: 170) and impart with Phys"
+  - skill_category: active
+    name: "Analyze (All)"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Ingenious Combustion"
+    sp_cost: 16
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Sizzling Flamelance (All)"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [fire, polearm]
+    target: aoe
+    power: "150"
+    effects:
+      - "Lower Fire Res"
+  - skill_category: active
+    name: "Ambushing Flamelance (All)"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [fire, polearm]
+    target: aoe
+    power: "360"
+  - skill_category: active
+    name: "Flying Flamelance"
+    sp_cost: 123
+    skill_type: attack
+    damage_types: [fire, polearm]
+    target: random
+    hit_count: "3x"
+    power: "3x55, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    name: "Flamelance Formation"
+    sp_cost: 70
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Flamelance Formation (5★)** Impart Entire Front Row with Elem"
+      - "Up 20% and raise Polearm and Fire damage by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Piercing Flamelance (Single)"
+    sp_cost: 61
+    skill_type: mixed
+    damage_types: [fire, polearm]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Blazing Inferno Strategy"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [fire]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Firelance Shieldbreaker"
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Firelance Shieldbreaker** Lower Fire and Polearm Res"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Master Strategist"
+    skill_type: mixed
+    target: single_ally
+    effects:
+      - "Act faster during turn and raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: **10,000→50,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impart Self with Elem. Atk. Up 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "When breaking an enemy, impart with Elem. Def. Down 10% and lower Polearm Res. and Fire Res. by 10% (turns: 3)."
+    trigger: on_break
+    limit_break_upgrade: "When breaking an enemy, impart with Elem. Def. Down **15%** and lower Polearm Res. and Fire Res. by **15%** (turns: 3)."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Fire and Polearm damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when broken enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Wool Cloak of Fire"
+  passive_effect: "80 E.Atk, 40 Spd, 20 SP; Raise Fire damage dealt by 15%; Start of battle: Cause all enemies to combust (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

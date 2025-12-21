@@ -1,0 +1,204 @@
+# Character: Relm
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: relm
+display_name: "Relm"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark, fan, fire, ice, light, lightning, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2676
+p_atk: 230
+p_def: 210
+e_atk: 517
+e_def: 307
+speed: 402
+crit: 227
+sp: 514
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3496
+p_atk_120: 280
+p_def_120: 260
+e_atk_120: 582
+e_def_120: 357
+speed_120: 467
+crit_120: 262
+sp_120: 584
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Whimsical Paint"
+    sp_cost: 35
+    skill_type: attack
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Non-elemental damage to Random Foe 3 time(s) (potency: 3x55) and grant one of the special effects “Paint: Red”"
+  - skill_category: active
+    name: "Sketch: Sleeping Lion"
+    skill_type: buff
+    target: self
+    power: "105"
+    effects:
+      - "**Sketch: Sleeping Lion** Restore own HP (potency: 105)"
+      - "grant Self automatic HP recovery (potency: 80) and SP recovery (amount: 5% of max SP) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fire Paint"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Grant the special effect “Paint: Red” to All Allies (turns: 6-9 based on Boost Lv.)"
+  - skill_category: active
+    name: "Blizzard Paint"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Grant the special effect “Paint: Blue” to All Allies (turns: 6-9 based on Boost Lv.)"
+  - skill_category: active
+    name: "Thunder Paint"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Grant the special effect “Paint: Yellow” to All Allies (turns: 6-9 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sketch: Ultros"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Sketch: Dream Brothers"
+    sp_cost: 78
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Grant the special effects “Paint: Red”"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Sketch: Dragon"
+    sp_cost: 76
+    skill_type: mixed
+    target: aoe
+    power: "210"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+      - "Grant Self effects based on number of different types of own “Paint” effects"
+      - "[76 SP] ·1+: Raise Damage Limit of this skill by 50,000"
+      - "·3+: Raise Damage Limit of this skill by 200,000"
+      - "·6+: Raise Damage Limit of this skill by 400,000"
+  - skill_category: active
+    name: "Sketch: Sigfried"
+    sp_cost: 45
+    skill_type: attack
+    target: single_enemy
+    hit_count: "8x"
+    power: "1-8x25/1-8x35/1-8x45/2x260"
+  - skill_category: tp
+    name: "Sketch: Tonberry"
+    sp_cost: 200
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    power: "530"
+  - skill_category: ex
+    name: "Summon: Lakshmi"
+    skill_type: heal
+    target: all_allies
+    power: "205"
+    effects:
+      - "**Summon: Lakshmi** Restore HP of All Allies (potency: 205) and grant them the special effects “Paint: Red”"
+      - "Also raise own BP recovery by 1 (turns: 2-5 based on Boost Lv.) and grant Self the ability to trigger battle skills 2 times (times: 3/Cannot be extended/Additional instances do not cost SP)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Star Prism"
+    skill_type: attack
+    target: aoe
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "After taking action, if the user has been granted any kind of the special effects “Paint” of a specific colour combination, grant All Allies the following “Paint” effects based on corresponding colours. ·“Paint: Red” + “Paint: Blue”: Grants the special effect “Paint: Purple” (turns: 3/granted as a battle skill). ·“Paint: Red” + “Paint: Yellow”: Grants the special effect “Paint: Orange” (turns: 3/granted as a battle skill). ·“Paint: Blue” + “Paint: Yellow”: Grants the special effect “Paint: Green” (turns: 3/granted as a battle skill)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self the ability to trigger a follow-up attack when allies in front row exploit weak points (only activates once per action). Follow-up attack: Deal Elem. Non-elemental damage to All Foes (potency: 50). Attack count raises based on the number of permanent “Paint” effects on Relm. With 3 or more: Attack count becomes 2. With 6 or more: Attack count becomes 3."
+    trigger: always
+    limit_break_upgrade: "Grant Self the ability to trigger a follow-up attack when allies in front row exploit weak points (only activates once per action). Follow-up attack: Deal Elem. Non-elemental damage to All Foes (potency: 50). Attack count raises based on the number of permanent “Paint” effects on Relm. With 3 or more: Attack count becomes 2. With 6 or more: Attack count becomes 3."
+  - passive_category: innate
+    effect: "Grant Self effects based on the number of own “Paint” effects. ·1+: Raise elemental damage by 30%. ·3+: Also raise Elem. Atk. by 30% and raise the Elem. Atk. limit from support and equipment effects to 50%. ·6+: Also add 70% of P.Atk to E.Atk (including equipment stats/Cannot be stacked)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self “Rainbow Brush” (turns: 1). “Rainbow Brush”: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Fire damage to All Foes 5 time(s) (potency: 5x25) and grant All Allies “Paint: Red” (turns: 9)."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Fire damage to All Foes 5 time(s) (potency: 5x25) and grant All Allies “Paint: Blue” (turns: 9)."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Fire damage to All Foes 5 time(s) (potency: 5x25) and grant All Allies “Paint: Yellow” (turns: 9)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Mother’s Handmade Ribbon”"
+  passive_effect: "120 E.Atk, 40 SP; Start of battle: Grant the special effects “Paint: Red”, “Paint: Blue” and “Paint: Yellow” (turns: 2/granted as battle skill); When an ally breaks an enemy, grant the wearer the special effects “Paint: Red”, “Paint: Blue” and “Paint: Yellow” (turns: 2/granted as battle skill)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

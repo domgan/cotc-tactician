@@ -1,0 +1,186 @@
+# Character: Magnolia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: magnolia
+display_name: "Magnolia"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Luxendarc (BRAVELY DEFAULT)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3360
+p_atk: 454
+p_def: 348
+e_atk: 240
+e_def: 270
+speed: 240
+crit: 281
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4260
+p_atk_120: 519
+p_def_120: 398
+e_atk_120: 290
+e_def_120: 320
+speed_120: 275
+crit_120: 316
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Moon Edge"
+    sp_cost: 26
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Polearm damage to Single Foe (potency: 170) and lower Speed by 15% (turns: 2)"
+  - skill_category: active
+    name: "Crescent Moon"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+    effects:
+      - "Polearm damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
+  - skill_category: active
+    name: "Floral Moon"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+    effects:
+      - "Polearm damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
+  - skill_category: active
+    name: "Liberation Polearm"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    power: "150"
+    effects:
+      - "Polearm damage to All Foes (potency: 150) and grant Entire Front Row excluding Self HP barrier (potency: 10% of user’s max HP/does not stack)"
+      - "Grant Self counter to physical and elemental attacks (turns: 3)"
+  - skill_category: active
+    name: "Lightning Arrow"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Graceful Polearm"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [polearm]
+    target: front_row
+    power: "230"
+    effects:
+      - "Also impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Camomile Polearm"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Above and Beyond"
+    sp_cost: 58
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+  - skill_category: active
+    name: "Super Jump"
+    sp_cost: 100
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+    power: "3x195"
+    effects:
+      - "Act faster next turn and deal Phys"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+    limit_break_upgrade: "Leap high into the air and gain Jumping (count: 2). Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: **3x240**), but these attacks can’t break enemies. Jumping is removed afterwards."
+  - skill_category: tp
+    name: "Lightning Rain"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: ex
+    name: "Spirit Hunt"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Starlight Moon"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "6x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching: Lower Speed of All Foes by 30% (turns: 2). *Change reflected on the next turn."
+    trigger: always
+  - passive_category: innate
+    effect: "When consuming 3 BP, raise potency of Self by 100% (Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect Bravely Second (turns: 1). Bravely Second: Raise Polearm damage by 30% and grant Damage Limit Up (effect: 50,000) and Dead Aim (guaranteed critical hits). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Moonstone Amulet"
+  passive_effect: "60 P.Atk, 80 SP; Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); Start of battle: Lower Speed of all enemies by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

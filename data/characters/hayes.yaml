@@ -1,0 +1,174 @@
+# Character: Hayes
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hayes
+display_name: "Hayes"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3170
+p_atk: 420
+p_def: 340
+e_atk: 322
+e_def: 230
+speed: 268
+crit: 267
+sp: 348
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3990
+p_atk_120: 470
+p_def_120: 390
+e_atk_120: 387
+e_def_120: 280
+speed_120: 318
+crit_120: 317
+sp_120: 418
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Cleave in Two"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Compelling Stance"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Compelling Stance** Impart Self with Phys"
+  - skill_category: active
+    name: "Mass Rejuvenate"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Mass Rejuvenate (1★)** Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Declare"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Sear"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Sage Potion III"
+    sp_cost: 48
+    skill_type: heal
+    target: single_ally
+    power: "230"
+    effects:
+      - "**Sage Potion III (3★)** Restore HP of Single Ally (potency: 230) and cure some status ailments"
+  - skill_category: active
+    name: "Greater Mass Rejuvenate"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Greater Mass Rejuvenate (4★)** Grant automatic HP recovery to Entire Front Row (potency: 150, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Rebut"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "**Rebut (5★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Refute"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [axe, fire]
+    target: single_enemy
+    power: "120"
+    limit_break_upgrade: "Deal Phys. Axe damage (potency: **180**) and Elem. Fire damage (potency: **180**) to Single Foe. **100%** more potent if target is bleeding."
+  - skill_category: tp
+    name: "Admonition"
+    sp_cost: 85
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: ex
+    name: "Reproach"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Requiem"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Raise Axe damage of Entire Front Row by 15%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "When breaking an enemy, impart Phys. Def. Down 20% (turns: 2) and impart Self with Phys. Atk. Up 20% (turns: 2)."
+    trigger: on_break
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise potency of damaging skills by 30% when bleeding enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Compelling Spirit"
+  passive_effect: "70 P.Atk, 70 E.Atk; Raise Axe damage dealt by 15%; When breaking an enemy, have a high chance to inflict bleeding (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

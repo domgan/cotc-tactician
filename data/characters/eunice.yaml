@@ -1,0 +1,156 @@
+# Character: Eunice
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: eunice
+display_name: "Eunice"
+rarity: 3
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2886
+p_atk: 246
+p_def: 291
+e_atk: 369
+e_def: 340
+speed: 283
+crit: 236
+sp: 557
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3546
+p_atk_120: 296
+p_def_120: 341
+e_atk_120: 434
+e_def_120: 390
+speed_120: 333
+crit_120: 286
+sp_120: 647
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Blinding Light (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Lightprone (Single)"
+    sp_cost: 4
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Lightprone (Single) (1★)** Lower Light Res"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Luminescence (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Blinding Light (Single) II"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Blinding Light (Single) II"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x110**"
+  - skill_category: tp
+    name: "Chaotic Light Magic"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Light damage to Random Foe 2 time(s) (potency: 2x75) and lower Light Res"
+  - skill_category: ex
+    name: "Ancient Light’s Theory (Single)"
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    power: "140"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Refulgent Flash"
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    effects:
+      - "Light damage to Single Foe 3 time(s) (potency: **3x130→3x160→3x195**) and lower Light Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Elem. Atk Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Dark Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Light damage of Paired Allies by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Ancient Ruin Mural Study"
+  passive_effect: "20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Eunice: Raise Elem. Atk. and Light damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

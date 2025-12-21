@@ -1,0 +1,355 @@
+# COTC Boss Schema
+# All fields marked [HUMAN-REQUIRED] must be filled by someone with game knowledge.
+# The LLM will NOT invent any values for these fields.
+#
+# Copy _template.yaml to create a new boss entry.
+
+schema_version: "1.0"
+
+fields:
+  # ===========================================================================
+  # IDENTITY
+  # ===========================================================================
+  id:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Unique identifier (lowercase, hyphenated)"
+    pattern: "^[a-z0-9-]+$"
+    example: "boss-name-variant"
+
+  display_name:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Full display name as shown in game"
+
+  content_type:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [story, side_story, superboss, tower, arena, event, other]
+    description: "What content this boss appears in"
+
+  difficulty:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [easy, normal, hard, expert, extreme]
+    description: "Relative difficulty rating"
+
+  # ===========================================================================
+  # WEAKNESSES & RESISTANCES
+  # ===========================================================================
+  weaknesses:
+    type: object
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Elements and weapons the boss is weak to"
+    schema:
+      elements:
+        type: array
+        items: string
+        allowed_values: [fire, ice, lightning, wind, holy, dark]
+      weapons:
+        type: array
+        items: string
+        allowed_values: [sword, spear, dagger, axe, bow, staff]
+
+  resistances:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Elements and weapons that deal reduced damage"
+    schema:
+      elements:
+        type: array
+        items: string
+      weapons:
+        type: array
+        items: string
+
+  immunities:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Elements and weapons that deal no damage"
+    schema:
+      elements:
+        type: array
+        items: string
+      weapons:
+        type: array
+        items: string
+
+  # ===========================================================================
+  # SHIELD MECHANICS
+  # ===========================================================================
+  shield_count:
+    type: integer
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Initial shield count"
+
+  shield_phases:
+    type: array
+    items: shield_phase_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "If shield count changes per phase"
+
+  shield_phase_object:
+    phase:
+      type: integer
+      required: true
+      description: "Phase number (1-indexed)"
+    shield_count:
+      type: integer
+      required: true
+      description: "Shield count in this phase"
+    trigger:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What triggers this phase (HP threshold, turn count, etc.)"
+
+  # ===========================================================================
+  # MECHANICS
+  # ===========================================================================
+  mechanics:
+    type: array
+    items: mechanic_object
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Boss abilities and patterns"
+    llm_usage: "Critical for determining team requirements"
+
+  mechanic_object:
+    name:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Name of the mechanic/attack"
+
+    mechanic_type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: 
+        - attack
+        - buff_self
+        - debuff_party
+        - ultimate
+        - passive
+        - phase_transition
+        - enrage
+        - counter
+        - other
+      description: "Category of mechanic"
+
+    trigger:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "When this mechanic occurs (turn count, HP threshold, etc.)"
+      example: "Turn 7, then every 5 turns"
+
+    target:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: 
+        - single
+        - front_row
+        - back_row
+        - all
+        - random
+        - highest_hp
+        - lowest_hp
+        - provoker
+      description: "Who the mechanic targets"
+
+    damage_type:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [physical, elemental, true, none]
+      description: "Type of damage dealt (if any)"
+
+    element:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [fire, ice, lightning, wind, holy, dark]
+      description: "Element of attack (if elemental)"
+
+    effects:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Status effects applied"
+      example: ["poison", "blind", "atk_down"]
+
+    threat_level:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [low, medium, high, critical]
+      description: "How dangerous this mechanic is"
+
+    counter_strategy:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "How to handle this mechanic"
+      llm_usage: "Directly informs team requirements"
+
+  # ===========================================================================
+  # PHASES
+  # ===========================================================================
+  phases:
+    type: array
+    items: phase_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Distinct battle phases with different behaviors"
+
+  phase_object:
+    phase_number:
+      type: integer
+      required: true
+      description: "Phase number (1-indexed)"
+
+    trigger:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "HP threshold or turn count that triggers this phase"
+      example: "HP < 50%", "Turn 10"
+
+    behavior_changes:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What changes in this phase"
+
+    priority_actions:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "What the player should prioritize in this phase"
+
+  # ===========================================================================
+  # TEAM REQUIREMENTS
+  # ===========================================================================
+  required_roles:
+    type: array
+    items: role_requirement_object
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    llm_usage: "Primary guide for team composition"
+
+  role_requirement_object:
+    role:
+      type: string
+      required: true
+      allowed_values: [tank, healer, buffer, debuffer, breaker, dps]
+      description: "Required role"
+
+    priority:
+      type: string
+      required: true
+      allowed_values: [required, strongly_recommended, recommended, optional]
+      description: "How important this role is"
+
+    reason:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Why this role is needed for this boss"
+
+  required_capabilities:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Specific capabilities needed beyond roles"
+    llm_usage: "Detailed matching beyond role"
+    example:
+      - "Party-wide healing"
+      - "Provoke skill"
+      - "High hit count for breaking"
+      - "Fire damage for weakness"
+
+  # ===========================================================================
+  # TIMING
+  # ===========================================================================
+  turn_limit:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Turn limit before enrage or wipe mechanic"
+
+  critical_turns:
+    type: array
+    items: critical_turn_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Specific turns where actions are critical"
+
+  critical_turn_object:
+    turn:
+      type: integer
+      required: true
+      description: "Turn number"
+    event:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What happens on this turn"
+    required_action:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What the player must do"
+
+  # ===========================================================================
+  # STRATEGY NOTES
+  # ===========================================================================
+  general_strategy:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Overall approach to the fight"
+    llm_usage: "High-level guidance for reasoning"
+
+  common_mistakes:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Things players commonly get wrong"
+
+  # ===========================================================================
+  # METADATA
+  # ===========================================================================
+  data_confidence:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [verified, tested, theoretical, incomplete]
+    description: "How reliable is this data?"
+
+  data_source:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Where this data came from (wiki, testing, JP info)"
+
+  last_updated:
+    type: date
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    format: "YYYY-MM-DD"
+

@@ -1,0 +1,186 @@
+# Character: Gloria
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: gloria
+display_name: "Gloria"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Excillant (BRAVELY DEFAULT II)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2782
+p_atk: 231
+p_def: 302
+e_atk: 435
+e_def: 384
+speed: 271
+crit: 278
+sp: 460
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3522
+p_atk_120: 281
+p_def_120: 352
+e_atk_120: 500
+e_def_120: 449
+speed_120: 321
+crit_120: 313
+sp_120: 540
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blizzard (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Heal"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Heal** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Esuna"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Esuna (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Banish (All)"
+    sp_cost: 42
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "attack count becomes 3 and lower Phys"
+  - skill_category: active
+    name: "Magic Critical"
+    sp_cost: 14
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Magic Critical (2★)** Raise Elem"
+      - "and Critical of Single Ally by 10% and grant the same target the ability to deal critical hits using elemental skills (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sacred Light"
+    sp_cost: 80
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Sacred Light (3★)** Restore HP of Entire Front Row (potency: 130)"
+      - "cure some status ailments and raise Phys"
+  - skill_category: active
+    name: "Magic Icicle"
+    sp_cost: 96
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "attack count becomes 4 and raise Phys"
+  - skill_category: active
+    name: "Reraise"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Reraise (5★)** Grant Single Ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: active
+    name: "Sanction"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "attack count becomes 4 and lower Phys"
+  - skill_category: tp
+    name: "There in Spirit"
+    sp_cost: 300
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**There in Spirit ** Perform the following action at the end of every third turn: Restore HP of Entire Front Row (amount: 100% of max HP)"
+      - "restore SP (amount: 50% of max SP) and recover BP (amount: 3) (times: 1-4 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Invincible"
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Holy Mist"
+    skill_type: heal
+    target: front_row
+    power: "200→250"
+    effects:
+      - "Grant Entire Front Row automatic revival (recovery amount: **15%→25%** of max HP based on Boost Lv.)"
+      - "Restore HP (potency: **200→250**)"
+      - "grant automatic HP recovery (potency: **60→80**"
+      - "turns: 2) and raise Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using healing skills, if target’s HP is already full, raise Max HP by 20% (turns: 4/Granted as an active buff/Effects stack up to 30% if different healing skills are used). *Excludes Ultimate Techniques and automatic HP recovery. *The same skill will change its name after the boost."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Elem. Atk. and Critical of Entire Front Row by 15% and raise Ice and Light damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Elem. Atk. and Critical of Entire Front Row by **20%** and raise Ice and Light damage by **20%**."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When using attack skills (excluding counterattacks and special attacks), reduce damage by Entire Front Row taken from some attacks once by 30% (Does not stack with effects of the same type/Effect only triggers once)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Silver Sewing Kit"
+  passive_effect: "80 E.Atk, 60 SP; Start of battle: Grant Entire Front Row a HP barrier (potency: 25% user’s max HP/Does not stack); At full HP: Extend duration of augmenting effects granted by Self by 1 turn (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

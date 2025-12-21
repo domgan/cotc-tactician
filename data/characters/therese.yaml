@@ -1,0 +1,170 @@
+# Character: Therese
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: therese
+display_name: "Therese"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2876
+p_atk: 226
+p_def: 281
+e_atk: 374
+e_def: 330
+speed: 303
+crit: 266
+sp: 567
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3536
+p_atk_120: 276
+p_def_120: 331
+e_atk_120: 439
+e_def_120: 380
+speed_120: 353
+crit_120: 316
+sp_120: 657
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Lightning Bolt (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Analyze All"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Lightning Bolt (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Dual Slam"
+    sp_cost: 26
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Lightning Blast (All) II"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Lightning Blast (Single) II"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x 90"
+  - skill_category: active
+    name: "Lightning Bolt (All) III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Shocking Slam"
+    sp_cost: 36
+    skill_type: mixed
+    target: aoe
+    power: "150"
+    effects:
+      - "Tome damage to All Foes (potency: 150) and lower Lightning Res"
+  - skill_category: active
+    name: "Tonitrus Canere (All)"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: tp
+    name: "Massive Lightning Blast (All) II"
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: ex
+    name: "Idle Burst"
+    skill_type: mixed
+    damage_types: [lightning]
+    target: single_enemy
+    power: "290"
+    effects:
+      - "**Idle Burst** Lower Lightning Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Bolts of Lightning"
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "3→5"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Elem. Atk. Up 30% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Impart Self with Elem. Atk. Up 30% (**turns: 9**)."
+  - passive_category: innate
+    effect: "Raise lightning damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Act faster when consuming 3 BP and grant Self the ability to deal critical hits when using elemental attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Mantle of House Shermot"
+  passive_effect: "60 E.Atk, 40 Speed, 40 SP; Start of battle: Lower Lightning Res. of all enemies by 15% (turns: 3); When breaking an enemy, lower their Lightning Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,181 @@
+# Character: Yukes
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: yukes
+display_name: "Yukes"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 241
+p_def: 273
+e_atk: 385
+e_def: 399
+speed: 371
+crit: 238
+sp: 415
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 291
+p_def_120: 323
+e_atk_120: 450
+e_def_120: 464
+speed_120: 421
+crit_120: 273
+sp_120: 495
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Random Bash"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "7x"
+    power: "1-7x35"
+  - skill_category: active
+    name: "Broken Blade’s Mercy"
+    sp_cost: 49
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Broken Blade’s Mercy** Restore HP of Single Ally (potency: 160)"
+      - "also restore 25-100 SP based on Boost Lv"
+  - skill_category: active
+    name: "Divine Gift"
+    sp_cost: 43
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Divine Gift (1★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
+      - "20% chance each to grant automatic SP recovery (amount: 5% of max SP"
+  - skill_category: active
+    name: "Unwavering Blade"
+    sp_cost: 30
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Unwavering Blade (2★)** Raise Phys"
+      - "also restore BP by 1"
+  - skill_category: active
+    name: "Haphazard Fireball II"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "5x"
+    power: "1-5x65"
+  - skill_category: active
+    name: "Divine Blessing"
+    sp_cost: 30
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Divine Blessing (3★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+      - "20% chance to grant automatic revival (revived at 50% of max HP)"
+  - skill_category: active
+    name: "Sword of Consecration"
+    sp_cost: 47
+    skill_type: mixed
+    target: single_ally
+    effects:
+      - "**Sword of Consecration (4★)** Raise Phys"
+      - "also raise critical damage by 20% (turns: 2-5 based on Boost Lv.)"
+    limit_break_upgrade: "Raise Phys. Atk. and Crit of **Entire Front Row** by 20% (turns: 3-6 based on Boost Lv.). If target is a warrior, also raise critical damage by 20% (turns: 3-6 based on Boost Lv.)."
+  - skill_category: active
+    name: "Random Fireball II"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "7x"
+    power: "1-7x45"
+  - skill_category: active
+    name: "Divine Mercy"
+    sp_cost: 66
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Divine Mercy (5★)** Restore HP of Entire Front Row (potency: 205)"
+      - "20% chance to raise BP recovery amount by 1 (turns: 1)"
+  - skill_category: tp
+    name: "Healing of the Sacred Heart"
+    sp_cost: 74
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2"
+    effects:
+      - "**Healing of the Sacred Heart ** Grant Entire Front Row automatic SP recovery (amount: 5% of max SP"
+      - "turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2)"
+  - skill_category: ex
+    name: "Fumbled Fireball III"
+    skill_type: mixed
+    damage_types: [fire]
+    target: front_row
+    power: "1-10x45"
+    effects:
+      - "Fire damage to All Foes 1-10 times (potency: 1-10x45) and have a 30% chance to lower Phys"
+      - "Also have a 30% chance to raise Phys"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Blessing of the Noble"
+    skill_type: buff
+    target: single_ally
+    power: "2→3"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row: Grant All Allies automatic HP recovery (potency: 10)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Grant All Allies automatic SP recovery (amount: 1% of max SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "During action selection, grant each member of Entire Front Row one of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Princess Coin Pouch"
+  passive_effect: "60 Spd, 400 HP, 40 SP; Raise Fire damage dealt by 15%; At the end of turn: 20% chance to remove from some of own status ailments"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

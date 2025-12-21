@@ -1,0 +1,199 @@
+# Character: Locke
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: locke
+display_name: "Locke"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dagger, fire, ice, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 463
+p_def: 265
+e_atk: 216
+e_def: 228
+speed: 435
+crit: 338
+sp: 352
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 528
+p_def_120: 285
+e_atk_120: 266
+e_def_120: 278
+speed_120: 500
+crit_120: 388
+sp_120: 432
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Crossing Daggers"
+    sp_cost: 26
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res"
+  - skill_category: active
+    name: "Slash Up"
+    sp_cost: 39
+    skill_type: attack
+    damage_types: [dagger]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Dagger damage to Single Foe 3 time(s) (potency: 3x55) and raise Phys"
+  - skill_category: active
+    name: "Crescent Ring"
+    skill_type: attack
+    damage_types: [dagger, bow]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Sneak Slash"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Steal Strike"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "absorbs 1% of damage dealt as SP and restore 1 BP"
+  - skill_category: active
+    name: "Deadly Chase"
+    sp_cost: 143
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Phoenix Ray"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [dagger, fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Absorbs 30% of damage dealt as HP and raise BP recovery amount of Self by 1 (turns: 2)"
+  - skill_category: active
+    name: "Wild Barrage"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "Attack count becomes 8 instead if in addition user has Dead Aim"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x85) and grant Dagger weakness with each hit (times: 1). Attack count becomes 6 when broken enemy is present. Attack count becomes 8 instead if in addition user has Dead Aim."
+  - skill_category: active
+    name: "Shred Spin"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Also grant Self the ability to dodge physical and elemental attacks (with some exceptions) (times: 2)"
+  - skill_category: tp
+    name: "Eternal Shining Magicite"
+    sp_cost: 105
+    skill_type: attack
+    damage_types: [dagger, fire]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Also raise Phys"
+      - "Raise Damage Limit of this skill by 20,000"
+  - skill_category: ex
+    name: "Mirage Dive"
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "5x"
+    power: "5x45"
+    effects:
+      - "Also grant Self the ability to dodge physical and elemental attacks (with some exceptions) (times: 4)"
+      - "Raise Damage Limit of this skill by 20,000"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Summon: Phoenix"
+    skill_type: attack
+    damage_types: [dagger, fire]
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Revive fallen allies (recovery amount: 100% of max HP) and grant Entire Front Row automatic revival (recovery amount: **15%→35%** of max HP based on Boost Lv.)"
+      - "grant automatic HP recovery (amount: 20% of target’s max HP)"
+      - "automatic SP recovery (amount: 10% of target’s max SP) and raise BP recovery amount by 1 (turns: **2→3**)"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When not being damaged on a turn, during next turn grant Self Dead Aim (guaranteed critical hits), increase damage dealt by critical hits (1.25→1.4) and add 50% of Crit. to P.Atk (including equipment stats/Cannot be stacked)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Dagger damage of Self by 30% and raise final damage dealt based on remaining HP up to 99% more (at ≤1% of max HP) (stacks with Potency Up)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When consuming 3 BP, activate attacking skills twice (the follow-up will not consume SP). Additionally, when consuming 3 BP and with Dead Aim at start of turn, gain the ability to exploit Fire, Ice and Lightning weaknesses with physical attacks except for “Attack” action (with some exceptions/damage calculation based on corresponding attack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Keepsake Bandana”"
+  passive_effect: "150 P.Atk, -50 E.Def, 60 SP; Raise Phys. Atk. by 30%; Start of battle: Grant Undying (turns: 4)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,213 @@
+# Character: Sowan
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sowan
+display_name: "Sowan"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3200
+p_atk: 420
+p_def: 272
+e_atk: 406
+e_def: 238
+speed: 250
+crit: 249
+sp: 393
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4020
+p_atk_120: 470
+p_def_120: 322
+e_atk_120: 471
+e_def_120: 288
+speed_120: 300
+crit_120: 299
+sp_120: 463
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Chain Lightshower"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Fighter’s Potion"
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Fighter’s Potion (1★)** Restore HP of Single Ally (potency: 160) and raise Phys"
+  - skill_category: active
+    name: "Twilight Glare"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Twilight Vortex"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Sagely Mist"
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Sagely Mist (3★)** Restore HP of Entire Front Row (potency: 130) and cure some status ailments"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: all_allies
+  - skill_category: active
+    name: "Duskbreaker"
+    sp_cost: 73
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Axe damage to Random Foe 4 time(s) (potency: 4x65) and have a high chance to lower Axe Res"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Twilight Tonic"
+    sp_cost: 99
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Twilight Tonic (5★)** Raise Phys"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Nightfall and Daybreak: Raise Axe damage by 20% instead"
+  - skill_category: active
+    name: "Twofold Dawn Gash"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Nightfall and Daybreak: Raise Damage Limit of this skill by 20,000"
+    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe 2 time(s) (potency: **2x150**)."
+  - skill_category: active
+    name: "50,000"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Nightfall and Daybreak: Raise Damage Limit of this skill by **50,000**"
+  - skill_category: tp
+    name: "Dawnbreaker"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Axe damage to All Foes 2 time(s) (potency: 2x95) and lower Phys"
+  - skill_category: ex
+    name: "Twilight Redemption"
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "4x"
+    power: "4x60"
+    effects:
+      - "With Nightfall: Raise potency by 40%"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Twilight Elixir"
+    skill_type: heal
+    target: all_allies
+    power: "200→250→300"
+    effects:
+      - "Restore HP (potency: **200→250→300**) and SP (amount: 10% of target’s max SP) of All Allies"
+      - "restore their BP by 1, cure some status ailments"
+      - "and grant immunity to some status ailments (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Upon activation, gain Equinox (turns: 1). Equinox: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Axe damage to All Foes 3 time(s) (potency: 3x95) and gain Nightfall (turns: 6-9 based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.) and gain Daybreak (turns: 6-9 based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Phys. Atk of Entire Front Row by 15%, Phys. Res. by 15% and Damage Limit by 20,000."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic HP recovery after consuming 3 BP to use a battle skill (potency: 150, turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Bottle of Honey Throat Lozenges"
+  passive_effect: "50 P.Atk, 90 Crit; Raise Critical by 15%; Raise Axe damage by 20%; When equipped by an apothecary: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

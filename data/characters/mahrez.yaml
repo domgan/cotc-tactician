@@ -1,0 +1,190 @@
+# Character: Mahrez
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: mahrez
+display_name: "Mahrez"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, light, lightning, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3260
+p_atk: 474
+p_def: 338
+e_atk: 227
+e_def: 271
+speed: 315
+crit: 248
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4080
+p_atk_120: 539
+p_def_120: 403
+e_atk_120: 277
+e_def_120: 321
+speed_120: 350
+crit_120: 298
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 52
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(Initial)** Raise Phys"
+      - "of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.) and grant “Lion” (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack with effects of the same type)"
+      - "additionally raise Phys"
+      - "by 10% (turns: 2-5 based on Boost Lv.) and grant “Lion” (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack with effects of the same type)"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    sp_cost: 40
+    skill_type: buff
+    target: back_row
+    effects:
+      - "**(2★)** Raise BP recovery amount of Self and Warriors in the back row by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 67
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(3★)** Raise Phys"
+      - "of Entire Front Row by 15% and grant “Lion” (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack with effects of the same type)"
+      - "grant the same effects to Warriors in the back row"
+  - skill_category: active
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "**(4★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 86
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
+      - "raise the potency by 50%"
+  - skill_category: tp
+    sp_cost: 75
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "grant “Lion” to Entire Front Row (turns: 2/Granted as a support skill/Does not stack with effects of the same type)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "10x"
+    power: "10x5"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Secret Sword: Kaminari Tenga”"
+    skill_type: attack
+    target: front_row
+    hit_count: "3x"
+    effects:
+      - "grant “Lion” to Entire Front Row (turns: 3/Granted as a support skill/Does not stack with effects of the same type) and reduce the reuse turns of “Latent Power: Lion’s Battle Technique” to 0"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When selecting a command, grant Self the special effect of Lion’s Battle Technique (turns: 1). Lion’s Battle Technique: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x65). Exploits Lightning and Light weakness (damage calculation based on Phys. Sword attack). Additionally, grant Self the special effect of “Lion’s Claw”."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x65). Exploits Lightning and Light weakness (damage calculation based on Phys. Sword attack). Additionally, grant Self the special effect of “Lion’s Fang”."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise the Phys. Atk.and Sword damage limit from battle skills of All Allies to 50% (turns: 2-5 based on Boost Lv.). If the target is a Warrior, also raise Sword damage by 20% (turns: 2-5 based on Boost Lv.). Additionally, grant Self the special effect of “Lion’s Heart”."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally uses a skill, grant them the special effect of “Lion” (turns: 2). Grant additional effects based on Mahrez’s Lion effects. ·With “Lion’s Claw”: Grant them Lion’s Might (turns: 2). ·With “Lion’s Fang”: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25). ·With “Lion’s Heart”: Raise damage dealt by 20% when exploiting Sword weakness with Sword attacks (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "When an ally uses a skill, grant them the special effect of “Lion” (turns: **3**). Grant additional effects based on Mahrez’s Lion effects. ·With “Lion’s Claw”: Grant them Lion’s Might (turns: 2). ·With “Lion’s Fang”: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25). ·With “Lion’s Heart”: Raise damage dealt by 20% when exploiting Sword weakness with Sword attacks (turns: 2)."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant All Allies effects based on the number of Warriors in party. ·2 or more: Raise Phys. Atk. and Sword damage by 15%. ·3 or more: Also lower SP consumption by 30%. ·4 or more: Also raise the Phys. Atk.and Sword damage limit from support skills and equipment of All Allies to 50%. ·6 or more: Also grant Damage Limit Up (effect: 100,000)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Order of the Lion”"
+  passive_effect: "80 P.Atk, 600 HP; When an ally breaks an enemy, reduce the reuse turns of “Latent Power: Lion’s Battle Technique” by 2 turns"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

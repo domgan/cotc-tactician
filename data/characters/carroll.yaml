@@ -1,0 +1,155 @@
+# Character: Carroll
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: carroll
+display_name: "Carroll"
+rarity: 3
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [polearm, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3450
+p_atk: 349
+p_def: 343
+e_atk: 290
+e_def: 300
+speed: 225
+crit: 251
+sp: 327
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4350
+p_atk_120: 414
+p_def_120: 393
+e_atk_120: 340
+e_def_120: 350
+speed_120: 260
+crit_120: 286
+sp_120: 407
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Assault"
+    sp_cost: 11
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Gust"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Relax"
+    sp_cost: 11
+    skill_type: utility
+    target: single_enemy
+    power: "95"
+    effects:
+      - "**Relax** **(2★)** Restore own HP (potency: 95)"
+  - skill_category: active
+    name: "Deadly Thrust"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Vigorous Assault"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Vigorous Assault"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x80**"
+  - skill_category: tp
+    name: "Ambush Thrust"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "140"
+  - skill_category: ex
+    name: "Impregnable Wall Assault"
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "210"
+    effects:
+      - "**Impregnable Wall Assault** Act faster during turn"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Raging Trident"
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Impart Paired Allies with Phys. Def. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Lightning Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Lightning Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When provoked enemy is present, grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Small Shell Vial"
+  passive_effect: "20 P.Def, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Carroll: Raise Polearm damage of Paired Allies by 10% and grant them automatic SP recovery (amount: 8)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

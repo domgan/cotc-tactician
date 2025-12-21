@@ -1,0 +1,157 @@
+# Character: Vivian
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: vivian
+display_name: "Vivian"
+rarity: 3
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3042
+p_atk: 357
+p_def: 223
+e_atk: 250
+e_def: 273
+speed: 340
+crit: 385
+sp: 391
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3862
+p_atk_120: 422
+p_def_120: 273
+e_atk_120: 300
+e_def_120: 293
+speed_120: 390
+crit_120: 450
+sp_120: 471
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Quickshot"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Wild Shot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x45"
+  - skill_category: active
+    name: "Lightstrike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Target"
+    sp_cost: 5
+    skill_type: buff
+    target: self
+    effects:
+      - "**Target (2★)** Raise Crit of Self by 10% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sturdy Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Wild Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Wild Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "**3x75**"
+  - skill_category: tp
+    name: "Arrow to the Mark"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Guaranteed critical hit [38 SP]"
+  - skill_category: ex
+    name: "Reckless Arrow"
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Bow damage to All Foes 2 time(s) (potency: 2x95) and lower Bow Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Vivian Bolts"
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise Crit of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Dark Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Memoir of Fleeting Memories"
+  passive_effect: "20 P.Atk, 20 Crit; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Vivian: Raise Critical and Bow damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

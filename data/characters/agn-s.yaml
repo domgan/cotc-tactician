@@ -1,0 +1,99 @@
+# Character: Agnès
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: agn-s
+display_name: "Agnès"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Luxendarc (BRAVELY DEFAULT)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2777
+p_atk: 256
+p_def: 287
+e_atk: 390
+e_def: 394
+speed: 331
+crit: 258
+sp: 395
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3517
+p_atk_120: 306
+p_def_120: 337
+e_atk_120: 455
+e_def_120: 459
+speed_120: 381
+crit_120: 293
+sp_120: 475
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: ex
+    name: "Holy Light"
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "5x"
+    power: "5x75"
+    effects:
+      - "Light damage to Single Foe 5 time(s) (potency: 5x75) and raise Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Prayer of Winds"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Raise Spd of Entire Front Row by **10%→20%** (turns: **2→3**)"
+      - "Grant automatic HP recovery (potency: **100→125**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "30% chance to recover 50% of damage taken when hit (Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "30% chance of lowering speed of a single enemy by 15% when hit (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When consuming 3 BP to use a skill, raise BP recover amount of Self by 1 (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Maiden’s Pendant"
+  passive_effect: "100 E.Atk, 40 Speed; Grant automatic revival once per battle (revived at 25% of max HP). (Stacks with battle skills); Raise Lightning Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

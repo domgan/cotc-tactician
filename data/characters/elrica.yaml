@@ -1,0 +1,193 @@
+# Character: Elrica
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: elrica
+display_name: "Elrica"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 429
+p_def: 338
+e_atk: 227
+e_def: 251
+speed: 270
+crit: 333
+sp: 346
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 494
+p_def_120: 403
+e_atk_120: 277
+e_def_120: 301
+speed_120: 305
+crit_120: 383
+sp_120: 416
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Wild Triple Illuminate"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Royal Blade of Order"
+    sp_cost: 34
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "[34 SP] Monarch: Lower their Phys"
+      - "Warrior: Lower their Phys"
+  - skill_category: active
+    name: "Faith for Tomorrow"
+    sp_cost: 25
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Faith for Tomorrow (2★)** Restore own SP (amount: 50)"
+  - skill_category: active
+    name: "Royal Flame of Conviction"
+    sp_cost: 37
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Royal Flame of Conviction (2★)** Monarch: Raise Crit"
+      - "[37 SP] Warrior: Raise own Sword damage dealt by 30% (turns: 3-6, based on Boost Lv.)"
+  - skill_category: active
+    name: "Tenacious Royal Sword"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Brilliant Royal Slash"
+    sp_cost: 47
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "260"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 290). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 2 or more Tenacity points, consume 2 Tenacity point to activate this skill twice (the follow-up attack will not consume SP). Grant **Damage Limit Up** while using this skill (effect: 50,000)."
+  - skill_category: active
+    name: "Royal Hopeful Prayers"
+    sp_cost: 51
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Royal Hopeful Prayers (5★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
+      - "[51 SP] Monarch: Raise their max HP by 15% (turns: 2-5, based on Boost Lv.)"
+      - "consume 1 Tenacity point to grant Self HP barrier (potency: 50% of user’s max HP/does not stack)"
+  - skill_category: active
+    name: "Brilliant Royal Flurry"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [sword, light]
+    target: random
+    hit_count: "5x"
+    power: "5x35"
+    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe 5 time(s) (potency: 5x35). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 3 or more Tenacity points, consume 3 Tenacity point to activate this skill twice (the follow-up attack will not consume SP)."
+  - skill_category: tp
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**** Grant Self automatic SP recovery (amount: 10% of user’s max SP"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "** Lv.2** Raise potency of Self by 100% (turns: 2) (Turns cannot be extended/Does not stack with effects of the same type)"
+      - "grant Self automatic SP recovery (amount: 10% of user’s max SP"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    hit_count: "10x"
+    power: "10x35"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Warlord’s Sword"
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    power: "440→525→655"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+      - "Monarch: Raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When selecting a command, switch between Monarch and Warrior styles. Warrior: Raise Sword damage of Self by 30% and grant Self Damage Limit Up (effect: 50,000)."
+    trigger: always
+  - passive_category: innate
+    effect: "Monarch: Gain 1 Tenacity point when using a battle skill (regardless of attack count)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Gain 3 Tenacity points."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Start of battle: Gain 3 Tenacity points and 2 BP. At the end of turn: If Tenacity Points are 0, gain 6 Tenacity Points. *Once per battle."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Flower of Oath"
+  passive_effect: "70 P.Atk, 70 SP; 100% chance of resisting some status ailments; When breaking an enemy, lower their Sword Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

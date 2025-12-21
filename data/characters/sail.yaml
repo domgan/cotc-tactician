@@ -1,0 +1,246 @@
+# Character: Sail
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sail
+display_name: "Sail"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, lightning, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: -820
+p_atk: -65
+p_def: -65
+e_atk: -50
+e_def: -50
+speed: -35
+crit: -50
+sp: -70
+
+# Stats (Lv 120 after Limit Break)
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slash"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Heal Wounds (Single)"
+    sp_cost: 12
+    skill_type: utility
+    target: single_enemy
+    power: "100"
+    effects:
+      - "**Heal Wounds (Single)** Restore own HP (potency: 100)"
+  - skill_category: active
+    name: "Repeated Slash"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Lifesteal Sword"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x75) and restore 30% of damage dealt as HP"
+  - skill_category: active
+    name: "Trifold Wild Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Fang King’s Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "**Fang King’s Slash (2★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Level Slash"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Fighting Spirit Slash"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "Sword damage to All Foes 2 time(s) (potency: 2x70) and restore 1 BP to Self"
+  - skill_category: active
+    name: "Rest"
+    sp_cost: 42
+    skill_type: heal
+    target: single_enemy
+    power: "105"
+    effects:
+      - "**Rest (3★)** Restore own HP (potency: 105)"
+      - "restore own SP (amount: 5% of max SP) and cure certain status ailments"
+  - skill_category: active
+    name: "Beneficial Break"
+    sp_cost: 42
+    skill_type: heal
+    target: single_enemy
+    power: "105"
+    effects:
+      - "**Beneficial Break (3★)** Restore own HP (potency: 105) and SP (amount: 5% of max SP)"
+      - "Cure some status ailments and raise Phys"
+  - skill_category: active
+    name: "Sword of Protection"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
+  - skill_category: active
+    name: "???"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
+  - skill_category: active
+    name: "Full Body Armor Break"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and lower Phys"
+  - skill_category: active
+    name: "???"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Sword damage to Single Foe (potency: 260) and lower Phys"
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: active
+    name: "Vivify"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "???"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    name: "Wave Slash"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    power: "2x120/3x95/4x85/5x100"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "4x"
+    power: "4x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Black Sword"
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    power: "600→650"
+    effects:
+      - "Raise damage to Entire Front Row by 10% (turns: 2) and restore 1 BP to Self"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Usage condition: Night. Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
+    trigger: always
+  - passive_category: innate
+    effect: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
+    trigger: always
+  - passive_category: innate
+    effect: ""
+    trigger: always
+    limit_break_upgrade: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
+  - passive_category: innate
+    effect: "Reuse: 5 turns"
+    trigger: always
+  - passive_category: innate
+    effect: ""
+    trigger: always
+  - passive_category: innate
+    effect: "Absorb 1% of damage dealt as SP when using Attack."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000)."
+    trigger: always
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "(Currently unavailable):"
+  passive_effect: "??"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

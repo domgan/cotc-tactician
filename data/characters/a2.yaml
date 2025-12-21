@@ -1,0 +1,181 @@
+# Character: A2
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: a2
+display_name: "A2"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dagger, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3012
+p_atk: 454
+p_def: 305
+e_atk: 80
+e_def: 248
+speed: 450
+crit: 368
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3832
+p_atk_120: 519
+p_def_120: 325
+e_atk_120: 130
+e_def_120: 298
+speed_120: 515
+crit_120: 418
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Triple Edge"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Trifold Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Incite and Empower"
+    sp_cost: 22
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Incite and Empower (1★)** Provoke All Foes (turns: 2-5 based on Boost Lv.) and raise Phys"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Double Wide Burst"
+    sp_cost: 52
+    skill_type: debuff
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Berserk Mode"
+    sp_cost: 50
+    skill_type: mixed
+    target: single_enemy
+    effects:
+      - "**Berserk Mode (3★)** Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys"
+    limit_break_upgrade: "Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys. Atk., Critical, Speed and damage dealt by 15%. When in Berserk Mode, take 40% of max HP as damage at the end of each turn. *Can be used **twice per battle**."
+  - skill_category: active
+    name: "Crushing Strike"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Piercing Strike"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Dagger damage to Single Foe (potency: 230) and impart with Phys"
+  - skill_category: active
+    name: "Hindering Strike"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and lower Spd by 20% (turns: 2)"
+  - skill_category: tp
+    name: "Aerial Armor Break"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "150"
+    effects:
+      - "Dagger damage to All Foes (potency: 150) and lower Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Neutralize: Lethal Blade"
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "5x"
+    power: "5x35"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Neutralize: Spheric Strike"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Dagger damage to Single Foe (potency: **440→525→655**) and impart with Phys"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
+    trigger: always
+  - passive_category: innate
+    effect: "When in Berserk Mode, activate an attack skill twice. (The follow-up attack will not consume SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "While in Berserk Mode: Raise critical damage of Self by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Number 4’s Goggles"
+  passive_effect: "70 P.Atk, 700 HP; Raise damage of Self by 10% when exploiting enemy weakness; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

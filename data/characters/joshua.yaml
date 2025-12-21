@@ -1,0 +1,179 @@
+# Character: Joshua
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: joshua
+display_name: "Joshua"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3217
+p_atk: 374
+p_def: 298
+e_atk: 257
+e_def: 241
+speed: 360
+crit: 353
+sp: 291
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4037
+p_atk_120: 439
+p_def_120: 363
+e_atk_120: 307
+e_def_120: 291
+speed_120: 395
+crit_120: 403
+sp_120: 361
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Prelude to Love"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and own raise Sword damage by 20% (turns: 2)"
+  - skill_category: active
+    name: "Chain Rime"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Melancholy Fugue"
+    sp_cost: 20
+    skill_type: mixed
+    target: single_enemy
+    power: "170"
+    effects:
+      - "**Melancholy Fugue (1★)** Deal Sword damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Linear Slash"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Blink of an Eye"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Blink of an Eye (2★)** Impart Self with Phys"
+      - "Up 20% and raise Spd by 20% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Glacial Blast"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Étude of Torment"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "210"
+  - skill_category: active
+    name: "Joyous Capriccio"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Sword damage to Single Foe 3 time(s) (potency: 3x65) and grant Self Phys"
+  - skill_category: active
+    name: "Amorous Rhapsody"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Passionate Screech"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "At Max Boost: Guaranteed critical hit"
+  - skill_category: ex
+    name: "Lively Ice Sorrow Board"
+    skill_type: attack
+    damage_types: [sword, ice]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Compassionate Finale"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "6x"
+    effects:
+      - "Sword damage to Single Foe 6 time(s) (potency: **6x55→6x70→6x90**) and raise own Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise Spd of Self by 30% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "During action selection, 20% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
+    trigger: always
+    limit_break_upgrade: "During action selection, **50%** chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise critical damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Grant Self Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Love Journal"
+  passive_effect: "60 P.Atk, 80 Crit; Raise Sword damage dealt by 10%; When breaking an enemy, lower their Sword Res. by 20% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

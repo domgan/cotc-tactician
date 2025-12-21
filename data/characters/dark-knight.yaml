@@ -1,0 +1,180 @@
+# Character: Dark Knight
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: dark-knight
+display_name: "Dark Knight"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 469
+p_def: 353
+e_atk: 232
+e_def: 266
+speed: 285
+crit: 338
+sp: 316
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 534
+p_def_120: 418
+e_atk_120: 282
+e_def_120: 316
+speed_120: 320
+crit_120: 388
+sp_120: 386
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Cursed Blade"
+    sp_cost: 33
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Sword damage to Single Foe (potency: 170) and lower Phys"
+  - skill_category: active
+    name: "Shadowmist Blade"
+    sp_cost: 33
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Ebonhex"
+    sp_cost: 34
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Ebonhex (1★)** Lower Phys"
+  - skill_category: active
+    name: "Immolate Desire"
+    sp_cost: 77
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Immolate Desire (2★)** Overkill other ally to raise own Phys"
+      - "Sword damage by 30% (turns: 3-6 based on Boost Lv.) and restore BP of Entire Front Row by 2"
+  - skill_category: active
+    name: "Purge of Avarice"
+    sp_cost: 102
+    skill_type: utility
+    target: back_row
+    effects:
+      - "**Purge of Avarice (2★)** Overkill the Entire Back Row to restore own Ultimate Technique use count by 1 and fill the Ultimate Technique gauge by 25%-100% based on Boost Lv"
+  - skill_category: active
+    name: "Sable Slash: Twin Blades"
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Wild Ebonblade"
+    sp_cost: 51
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Accurst Burial"
+    sp_cost: 59
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Grants effects based on the number of allies in Cursed Puppet state (turns: 2)"
+      - "[59 SP] ·1+: Lower their Sword Res"
+      - "·4+: Also lower their Phys"
+  - skill_category: active
+    name: "Ashen Sword"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Blessings of the Damned"
+    sp_cost: 143
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "**Blessings of the Damned ** Restore HP of All Allies (amount: 10%-40% of max HP based on Boost Lv.)"
+      - "if the target is in “Cursed” status raise their Phys"
+  - skill_category: ex
+    name: "Demon Blade Fisteralda"
+    skill_type: mixed
+    target: single_enemy
+    effects:
+      - "**Demon Blade Fisteralda** Raise the limit of Phys"
+      - "Damage Limit by 100,000 (turns: 3-6 based on Boost Lv.) and potency by 100% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and gain the ability to lower 1 more Shield Point when exploiting weaknesses with Sword damage (turns: 2/Does not stack with effects of the same type)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "To Devour Greed"
+    skill_type: buff
+    target: single_enemy
+    power: "100→125→150"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant Self immunity to Fatal Sentence."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self immunity to Paralysis, Charm and Fatal Sentence."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Grant every other ally Stigmata."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "When in front row at the end of turn: Revive all fallen allies (excluding Cursed Puppets) at 100% of max HP. If revived target does not have Stigmata, render them into a Cursed Puppet."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self effects based on the number of allies in Cursed Puppet state: ·1+: Raise Phys. Atk. and Sword damage by 30%. ·3+: Also raise Damage Limit by 100,000. ·5+: Also raise BP recovery by 2. ·7+: Also gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). *Incapacitated allies in Cursed Puppet state also count."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dark Knight’s Mask"
+  passive_effect: "60 P.Atk, 80 SP; Grant Damage Limit Up (effect: 70,000); Raise the limit of Phys. Atk. augments from support skills and equipment effects to 50%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

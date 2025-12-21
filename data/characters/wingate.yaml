@@ -1,0 +1,184 @@
+# Character: Wingate
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: wingate
+display_name: "Wingate"
+rarity: 4
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2062
+p_atk: 290
+p_def: 260
+e_atk: 208
+e_def: 201
+speed: 345
+crit: 298
+sp: 242
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 2882
+p_atk_120: 355
+p_def_120: 280
+e_atk_120: 258
+e_def_120: 251
+speed_120: 410
+crit_120: 348
+sp_120: 322
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Sting"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Divine Speed"
+    sp_cost: 24
+    skill_type: buff
+    target: self
+    effects:
+      - "**Divine Speed** Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Shield Breaker"
+    sp_cost: 15
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "130"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Shadow Strikes"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Spider Fang"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Dagger damage to Single Foe (potency: 160) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Broad Break"
+    sp_cost: 26
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "110"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Broad Break"
+    sp_cost: 21
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "**145**"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Chain Shadow Reaver"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Chain Shadow Reaver"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "**2x90**"
+  - skill_category: tp
+    name: "Knight’s Dagger"
+    sp_cost: 74
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Knight’s Fury"
+    skill_type: attack
+    damage_types: [dagger, dark]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Crescent Moon"
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When in back row: Raise damage deal by Front to broken foes by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(6★)** When in back row: Raise Phys. Atk. of Front Row by 20% and damage dealt to broken foes by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise damage of Self by 20% when exploiting enemy weakness."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy, lower their Dagger Res. by 15% (turns: 3)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Zenil’s Mask"
+  passive_effect: "20 P.Atk, 20 E.Atk, 30 SP; When breaking an enemy, lower their Dark Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

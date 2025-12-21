@@ -1,0 +1,198 @@
+# Character: Partitio EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: partitio-ex
+display_name: "Partitio EX"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: opulence
+origin: "Overworld (Dragon Quest III)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2922
+p_atk: 358
+p_def: 235
+e_atk: 216
+e_def: 218
+speed: 435
+crit: 488
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3742
+p_atk_120: 423
+p_def_120: 255
+e_atk_120: 266
+e_def_120: 268
+speed_120: 500
+crit_120: 538
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 37
+    skill_type: mixed
+    damage_types: [dagger, staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Lower Speed of the target by 15% (turns: 2)"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 57
+    skill_type: attack
+    damage_types: [dagger, staff]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    sp_cost: 37
+    skill_type: mixed
+    damage_types: [dagger, staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: buff
+    target: self
+    effects:
+      - "**(2★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dagger, staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: active
+    sp_cost: 67
+    skill_type: mixed
+    damage_types: [dagger, staff]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Lower Dagger and Staff Res"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 43
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(4★)** Raise Phys"
+      - "Critical and Speed of Single Ally by 10% (turns: 2-5 based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    sp_cost: 51
+    skill_type: attack
+    damage_types: [dagger, staff]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 69
+    skill_type: attack
+    damage_types: [dagger, staff]
+    target: single_enemy
+    power: "290"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill in “Legend” state (effect: 300,000)"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: 290). Exploits Staff weakness (damage calculation based on Phys. Dagger attack). Grant Self Damage Limit Up when using this skill in “Legend” state (effect: **300,000**). At Max Boost: 50% more potent."
+  - skill_category: tp
+    sp_cost: 48
+    skill_type: buff
+    target: self
+    effects:
+      - "**** Raise Dagger damage of Self by 30% and Damage Limit by 30,000 (turns: 3-6 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 48
+    skill_type: buff
+    target: self
+    effects:
+      - "** Lv.2** Raise Dagger damage of Self by 30%"
+      - "Damage Limit Up by **100,000** and grant Fighting Spirit (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(EX)** Restore 5 BP and raise the potency of skills of Self by 150% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: 100,000, turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Fighting Spirit Explosion”"
+    skill_type: mixed
+    target: self
+    power: "2→3"
+    effects:
+      - "and Dagger damage of Self by **10%→15%→20%** and grant Dead Aim (guaranteed critical hits) (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack). Additionally, “Attack” action exploits Staff weakness (damage calculation based on Phys. Dagger attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "When dealing critical damage, grant Self the special effect “Offensive Stance”."
+    trigger: always
+  - passive_category: innate
+    effect: "Increase the damage multiplier of critical hits to 1.4 (instead of 1.25). When in “Legend” state, this multiplier increases to 2.0 instead."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. by 30%. At full HP: Add 30% of Crit to P.Atk (including equipment stats/Cannot be stacked)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. by 30%. At full HP: Raise the limit of Phys. Atk. augments from equipment and support skills to 50% and add 30% of Crit to P.Atk (including equipment stats/Cannot be stacked)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Martial Artist’s Koshiobi”"
+  passive_effect: "100 P.Atk, -60 E.Atk, 100 Crit; When dealing critical damage, raise Dagger damage by 30% (turns: 2) and raise the Dagger damage limit from support skills and equipment of Self to 50% (turns: 2).; When an ally breaks the enemy, grant “Legend” to Entire Front Row (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

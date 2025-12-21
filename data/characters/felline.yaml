@@ -1,0 +1,151 @@
+# Character: Felline
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: felline
+display_name: "Felline"
+rarity: 3
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2882
+p_atk: 363
+p_def: 280
+e_atk: 256
+e_def: 273
+speed: 410
+crit: 338
+sp: 327
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3702
+p_atk_120: 428
+p_def_120: 300
+e_atk_120: 306
+e_def_120: 323
+speed_120: 475
+crit_120: 388
+sp_120: 407
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Shackle Foe"
+    sp_cost: 6
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Shackle Foe** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Mass Shackle Foe"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Mass Shackle Foe (2★)** Impart All Foes with Phys"
+  - skill_category: active
+    name: "Shackle Foe II"
+    sp_cost: 14
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Shackle Foe II (2★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Ripping Assault"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+  - skill_category: active
+    name: "Ripping Assault"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+  - skill_category: tp
+    name: "Double Strike Assault"
+    sp_cost: 41
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Dagger damage to All Foes 2 time(s) (potency: 2x80) and impart with Phys"
+  - skill_category: ex
+    name: "Owl Claws"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "**Owl Claws** Act faster during turn and deal Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Disarming Assault"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "330→395→495"
+    effects:
+      - "Dagger damage to All Foes (potency: **330→395→495**) and impart Phys"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Raise Crit of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Wind Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When there are enemies with Phys. Atk. Down, raise critical damage of Entire Front Row by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,215 @@
+# Character: Kersjes
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kersjes
+display_name: "Kersjes"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3092
+p_atk: 432
+p_def: 223
+e_atk: 315
+e_def: 248
+speed: 305
+crit: 365
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3912
+p_atk_120: 497
+p_def_120: 273
+e_atk_120: 365
+e_def_120: 268
+speed_120: 355
+crit_120: 430
+sp_120: 386
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Emboldening Shot"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Bow damage to Single Foe (potency: 170) and impart Self with Phys"
+  - skill_category: active
+    name: "Gelid Storm"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Piercing Falcon"
+    sp_cost: 14
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "Bow damage to Single Foe (potency: 140) and lower Bow Res"
+  - skill_category: active
+    name: "Triple Rime"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Peerless Shot"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Piercing Eagle Talon"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Bow damage to Single Foe (potency: 170) and lower Bow Res"
+  - skill_category: active
+    name: "Icy Arrow"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Ice damage to Single Foe (potency: 260) and impart Elem"
+  - skill_category: active
+    name: "Chivalrous Shot"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Bow damage to Single Foe (potency: 230) and impart Self with Phys"
+  - skill_category: active
+    name: "Sturdy Peerless Shot"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "290"
+    limit_break_upgrade: "Deal Phys. Bow damage to Single Foe (potency: 290). Reactivate the effect (without consuming SP) if BP is 0 when selecting this skill."
+  - skill_category: tp
+    name: "Flowing Arrow"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Bow damage to Single Foe (potency: 230) and impart with Phys"
+  - skill_category: active
+    name: "自然体"
+    skill_type: buff
+    target: self
+    effects:
+      - "Raise damage dealt of Self by 20% (turns: 1)"
+  - skill_category: active
+    name: "穿鷲"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Bow damage to Single Foe (potency: 170) and lower Bow Res"
+  - skill_category: active
+    name: "氷紋の矢"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Ice damage to Single Foe (potency: 260) and impart Elem"
+  - skill_category: active
+    name: "金剛無双射ち"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "260"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Bow damage to Single Foe 2 time(s) (potency: 2x120) and grant Self HP Barrier (potency: 50% of user’s max HP)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Battlehawk"
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "440→525"
+    effects:
+      - "Lower Bow Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Bow damage of Self by 15% and raise Critical by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Reduce own damage taken from some attacks by 50%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise potency of Self by 100% when starting the turn with 0 BP."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Gallant Leather Belt"
+  passive_effect: "80 P.Atk, 30 Crit, 30 Spd; Raise Bow and Ice damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

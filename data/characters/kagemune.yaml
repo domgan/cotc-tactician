@@ -1,0 +1,183 @@
+# Character: Kagemune
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kagemune
+display_name: "Kagemune"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire, ice, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2862
+p_atk: 423
+p_def: 205
+e_atk: 236
+e_def: 178
+speed: 460
+crit: 378
+sp: 352
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3682
+p_atk_120: 488
+p_def_120: 225
+e_atk_120: 286
+e_def_120: 228
+speed_120: 525
+crit_120: 428
+sp_120: 432
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Poison Edge"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Haze Edge"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Spider Snare"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "150"
+    effects:
+      - "Dagger damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
+  - skill_category: active
+    name: "Dragon-Tiger Clash"
+    sp_cost: 64
+    skill_type: buff
+    target: self
+    effects:
+      - "**Dragon-Tiger Clash (2★)** Raise Dagger damage of Self by 30% (turns: 3-6 based on Boost Lv.)"
+      - "When selecting this action at night or with Midnight Shadow: Also raise Critical and Speed by 30% (turns: 3-6 based on Boost Lv.) and extend the duration of Midnight Shadow by 3 turns"
+  - skill_category: active
+    name: "Tigerfang"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Dragonrend"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Snakebite"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Traceless"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Lightless"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: tp
+    name: "Blighted Moon"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "120"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Moonblossom Dive"
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "5x"
+    power: "5x60"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Purple Rain"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "5x"
+    effects:
+      - "inflict frostbite and corrosion (turns: 2) and grant Self Midnight Shadow (turns: 5/granted as a support skill)"
+      - "Lower Shield Points even when not striking weak points"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise own Phys. Atk. by 20% and Critical and Speed by 30%. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25)."
+    trigger: always
+    limit_break_upgrade: "Raise own Phys. Atk. by 20% and Critical and Speed by **50%**. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25)."
+  - passive_category: innate
+    effect: "Grant Self a 50% chance to dodge some group attacks and random-target attacks. A successful dodge will extend the duration of Midnight Shadow by 1 turn or grant Self Midnight Shadow (turns: 2) if it is not active."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "Trigger a follow-up effect after performing some attacks (excluding counters and Ultimate Techniques/only activates once per action). Follow-up effect: Inflict either combust, frostbite or corrosion on Random Foe (turns: 1)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Nightshade Mask"
+  passive_effect: "60 Crit, 80 Spd; Raise Phys. Atk. by 15%; At night: Raise critical damage by 30%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,197 @@
+# Character: Ophilia EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ophilia-ex
+display_name: "Ophilia EX"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, ice, light, lightning, tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2756
+p_atk: 226
+p_def: 286
+e_atk: 439
+e_def: 330
+speed: 288
+crit: 236
+sp: 612
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3416
+p_atk_120: 276
+p_def_120: 336
+e_atk_120: 504
+e_def_120: 380
+speed_120: 338
+crit_120: 286
+sp_120: 702
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blizzard (Single)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Thunder (Single)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Firaga (All)"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+  - skill_category: active
+    name: "Blizzaga (All)"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+  - skill_category: active
+    name: "Thundaga (All)"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+  - skill_category: active
+    name: "Summon: Sylph"
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [wind]
+    target: front_row
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "Wind damage to All Foes 3 time(s) (potency: 3x95) and restore HP of Entire Front Row (potency: 65)"
+  - skill_category: active
+    name: "Flare (Single)"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [fire, light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Summon: Asura"
+    sp_cost: 131
+    skill_type: heal
+    target: all_allies
+    power: "205"
+    effects:
+      - "**Summon: Asura (5★)** Restore HP of All Allies (potency: 205)"
+      - "by 15% (turns: 2-5 based on Boost Lv.) and have a 20% chance to grant each target automatic revival (revived at 50% of max HP)"
+  - skill_category: active
+    name: "Meteor"
+    sp_cost: 98
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "6x"
+    power: "6x45"
+  - skill_category: tp
+    name: "Summon: Leviathan"
+    sp_cost: 500
+    skill_type: mixed
+    target: aoe
+    hit_count: "2x"
+    power: "2x630"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+      - "Raise Damage Limit of this skill by 100,000"
+  - skill_category: ex
+    name: "Summon: Dragon"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "350"
+    effects:
+      - "Raise Damage Limit of this skill by 50,000"
+      - "Grant Self Eidolon’s Blessing (turns: 2/turn count overwrites)"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Summon: Bahamut"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "6x"
+    effects:
+      - "Grant Self Eidolon’s Blessing (turns: 2/granted as battle skill/turn count overwrites)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise own Elem. Atk. by 30% and lower SP consumption by 30% (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise elemental damage by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise elemental damage by 30% and grant Self ability to trigger critical hits when using elemental attacks."
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light and Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, skill configuration changes to the following (turns: 1). ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Fire damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Ice damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Lightning damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Rydia’s Hair Ornament"
+  passive_effect: "40 E.Atk, 100 SP; Raise Elem. Atk. by 15%; Start of battle: Grant Entire Front Row the ability to dodge physical attacks (times: 2) and elemental attacks (times: 2) (Stacks with dodge counts from battle skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

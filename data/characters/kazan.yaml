@@ -1,0 +1,181 @@
+# Character: Kazan
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kazan
+display_name: "Kazan"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2826
+p_atk: 216
+p_def: 256
+e_atk: 454
+e_def: 315
+speed: 243
+crit: 321
+sp: 582
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3486
+p_atk_120: 266
+p_def_120: 306
+e_atk_120: 519
+e_def_120: 365
+speed_120: 293
+crit_120: 371
+sp_120: 672
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 38
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: heal
+    target: self
+    effects:
+      - "**(1★)** Grant Self the special effect “Ikon” (turns: 3-6 based on Boost Lv.) and restore SP (amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 80
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(2★)** Lower Phys"
+      - "Each target has a 50% chance to lower Phys"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [wind, fire]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    sp_cost: 130
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(3★)** Raise Phys"
+      - "each target has a 50% chance to increase damage dealt to broken enemies by 30% (turns: 2); a 30% chance to raise potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type); and a 10% chance to gain the ability to exploit weakness when using battle skills that double their potency against enemies under certain status ailments (turns: 2)"
+  - skill_category: active
+    sp_cost: 154
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x45, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    sp_cost: 340
+    skill_type: heal
+    target: all_allies
+    power: "65"
+    effects:
+      - "**(5★)** Grant Self the special effect “Ikon” (turns: 3-6 based on Boost Lv.)"
+      - "restore HP of All Allies (potency: 65)"
+      - "restore SP (amount: 5% of max SP) and recover 1 BP"
+      - "each target has a 30% chance to be granted automatic HP recovery (potency: 80)"
+      - "SP recovery (amount: 5% of max SP) and raise BP recovery by 1 (turns: 3); and a 10% chance to be granted HP Barrier (potency: 100% of user’s max HP)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "“Ikon”: Raise Phys"
+  - skill_category: active
+    sp_cost: 105
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x55"
+    effects:
+      - "Wind damage to Single Foe 5 time(s) (potency: 5x55) and lower Elem"
+      - "30% chance to lower Elem"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "530"
+    effects:
+      - "have a 50% chance to recover 3 BP and a 30% chance to restore own SP (amount: 100)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: self
+    effects:
+      - "**(EX)** Grant Self Damage Limit Up (effect: 100,000, turns: 3-6 based on Boost Lv.) and increase to 100% the chancs to activate additional effects on battle skills and Ultimate Technique (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "“The Four-Wings, Eight-Flames Plan”"
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When the user is in the “Ikon” special effect, have a 50% of activating elemental battle skills three times."
+    trigger: always
+  - passive_category: innate
+    effect: "Extend duration of augmenting and enfeebling effects and status ailments granted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, cast countdown on Self (count: 3). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Fire weakness (damage calculation based on Elem. Wind attack). Potency doubles when the target is broken. *If activated again while the countdown is still active, countdown is cancelled. *This attack cannot be casted multiple times by the support skill “Sake Testing”. ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Sake Cup at the Evening Banquet”"
+  passive_effect: "100 E.Atk, 40 SP; Raise Elem. Atk. by 30%; Raise the Elem. Atk. limit from support and equipment effects to 50% and grant the ability to trigger critical hits with elemental attacks"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

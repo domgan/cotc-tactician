@@ -1,0 +1,183 @@
+# Character: Agnea EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: agnea-ex
+display_name: "Agnea EX"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2872
+p_atk: 432
+p_def: 213
+e_atk: 400
+e_def: 233
+speed: 340
+crit: 305
+sp: 386
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3692
+p_atk_120: 497
+p_def_120: 263
+e_atk_120: 450
+e_def_120: 253
+speed_120: 390
+crit_120: 370
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Triple Shoot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Cure"
+    sp_cost: 42
+    skill_type: heal
+    target: all_allies
+    power: "130"
+    effects:
+      - "**Cure** Restore HP of All Allies (potency: 130)"
+  - skill_category: active
+    name: "Esuna"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Esuna (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Aim"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "**Aim (2★)** Grant Self Dead Aim (guaranteed critical hits) and deal Phys"
+  - skill_category: active
+    name: "Blink"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Blink (2★)** Grant Single Ally the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Holy Blast"
+    sp_cost: 63
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Light Arrow"
+    sp_cost: 87
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Reraise"
+    sp_cost: 60
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Reraise (5★)** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: active
+    name: "Blessed Shooter"
+    sp_cost: 95
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "4x"
+    power: "4x60"
+    effects:
+      - "Restore HP of All Allies (potency: 90)"
+  - skill_category: tp
+    name: "Black & White Barrage"
+    sp_cost: 98
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "6x"
+    power: "6x40"
+  - skill_category: ex
+    name: "Holy Cross"
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "6x"
+    power: "6x35"
+    effects:
+      - "**Holy Cross** Grant Self Damage Limit Up (effect: 50,000, turns: 3) and deal Phys"
+      - "Restore HP of All Allies (amount: 30% of damage dealt)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Pray"
+    skill_type: mixed
+    target: all_allies
+    power: "100→125→150"
+    effects:
+      - "Act faster during turn"
+      - "grant All Allies automatic HP recovery (potency: **100→125→150**)"
+      - "and Critical by **10%→15%→20%** and grant Damage Limit Up (effect: **10,000→20,000→30,000**) (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using a battle skill to restore HP, if the recovery effect exceeds the target’s max HP, grant the target HP Barrier equal to the excess amount (max: 2,000 HP/does not stack)."
+    trigger: always
+    limit_break_upgrade: "When using a battle skill to restore HP, if the recovery effect exceeds the target’s max HP, grant the target HP Barrier equal to the excess amount (max: **3,000 HP**/does not stack)."
+  - passive_category: innate
+    effect: "Grant Paired Allies automatic SP recovery (amount: 3% of target’s max SP). Also raise their Max SP by 10% and Phys. Atk. and Elem. Atk. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When Self uses a battle skill to restore HP, if the recovery effect exceeds the target’s max HP, raise their Phys. Atk., Elem. Atk., and Critical by 15% and their Damage Limit by 20,000 (turns: 2). *Only applies to recovery effects during action order (excludes automatic recovery)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Rosa’s Tiara"
+  passive_effect: "70 P.Atk, 70 E.Atk; When switching front row: Restore HP of Entire Front Row (potency: 20% of target’s max HP); When switching back row: Restore SP of Entire Front Row (amount: 20)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,176 @@
+# Character: Lemaire
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lemaire
+display_name: "Lemaire"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fan, fire, ice, light, lightning, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2771
+p_atk: 230
+p_def: 235
+e_atk: 434
+e_def: 337
+speed: 387
+crit: 233
+sp: 489
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3591
+p_atk_120: 280
+p_def_120: 285
+e_atk_120: 499
+e_def_120: 387
+speed_120: 452
+crit_120: 268
+sp_120: 559
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Studious Green"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Pure White"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [light]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Light damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 150)"
+  - skill_category: active
+    name: "Enlivening Yellow"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [lightning]
+    target: front_row
+    hit_count: "3x"
+    power: "3x 65"
+  - skill_category: active
+    name: "Cool Colors"
+    sp_cost: 24
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Cool Colors (2★)** Raise Ice"
+  - skill_category: active
+    name: "Warm Colors"
+    sp_cost: 24
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Warm Colors (2★)** Raise Fire"
+  - skill_category: active
+    name: "Passionate Red"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [fire]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Tranquil Blue"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Noble Purple"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Dark damage to Single Foe 3 time(s) (potency: 3x65) and lower with Phys"
+  - skill_category: active
+    name: "Rainbow Collage"
+    sp_cost: 54
+    skill_type: attack
+    target: single_enemy
+    power: "6x45"
+    limit_break_upgrade: "Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage 1 time each to Single Foe (potency: 6x50). Cast the skill a second time in a row with 10 or more status effect icons"
+  - skill_category: tp
+    name: "Rainbow Palette"
+    sp_cost: 64
+    skill_type: buff
+    target: self
+    effects:
+      - "**Rainbow Palette ** Raise Fire"
+  - skill_category: ex
+    name: "Rainbow Tempera"
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Rainbow Tempera** Grant Fire/Ice/Lightning/Wind/Light/Dark weakness to All Foes (times: 1-4 based on Boost Lv.)"
+      - "Granted Elemental Weakness: Regardless of the source"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Vibrant Palette"
+    skill_type: attack
+    target: front_row
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of buff casted by Self by 1 turn."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise damage of Paired Allies by 20% when exploiting enemy weakness."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When Self has 16 or more status effect icons, grant Entire Front Row automatic SP recovery (amount: 5% of max SP)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Passion-Filled Brush"
+  passive_effect: "35 P.Atk, 35 P.Def, 35 E.Atk, 35 E.Def; Raise damage dealt to broken enemies by 10%; Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,177 @@
+# Character: Z’aanta
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: z-aanta
+display_name: "Z’aanta"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dagger, fan, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 397
+p_def: 238
+e_atk: 290
+e_def: 233
+speed: 315
+crit: 365
+sp: 371
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 462
+p_def_120: 288
+e_atk_120: 340
+e_def_120: 253
+speed_120: 365
+crit_120: 430
+sp_120: 451
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Summon Hägen"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dagger, fan]
+    target: aoe
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Double Sturdy Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Lightblast"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Wild Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Awakening"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Awakening (2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Healing Wave"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    power: "140, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Healing Wave (3★)** Grant Self automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fatal Shot"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Falling Starlight"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "With the Tide"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+  - skill_category: tp
+    name: "At All Costs"
+    sp_cost: 81
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Guaranteed critical hits"
+  - skill_category: ex
+    name: "Overwhelming Strength"
+    skill_type: attack
+    damage_types: [bow, light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x150"
+    effects:
+      - "Bow attack) and raises the skill’s Damage Limit by 50,000"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Direwolf Rush"
+    skill_type: attack
+    damage_types: [dagger, bow, fan]
+    target: aoe
+    hit_count: "2x"
+    power: "140→170"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Bow damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Impart Self with Phys. Atk. Up 15% and raise Bow damage of Self by 30%."
+  - passive_category: innate
+    effect: "Raise potency of Summon Hägen by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic SP recovery (amount: 10% of max SP)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dragon Claw Clasp"
+  passive_effect: "40 Atk, 60 Crit, 40 SP; Start of the battle: Lower Bow Res. of all enemies by 15% (turns: 3); When breaking an enemy, lower their Bow Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

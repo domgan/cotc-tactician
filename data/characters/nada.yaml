@@ -1,0 +1,202 @@
+# Character: Nada
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nada
+display_name: "Nada"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3396
+p_atk: 266
+p_def: 306
+e_atk: 509
+e_def: 370
+speed: 313
+crit: 316
+sp: 622
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4056
+p_atk_120: 316
+p_def_120: 356
+e_atk_120: 574
+e_def_120: 420
+speed_120: 363
+crit_120: 366
+sp_120: 712
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 21
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(Initial)** Lower Critical of All Foes by 20% (turns: 2-5 based on Boost Lv.) and reveak 1-4 weak point(s) of each enemy based on Boost Lv"
+  - skill_category: active
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    sp_cost: 87
+    skill_type: debuff
+    target: front_row
+    power: "110"
+    effects:
+      - "**(2★)** Grant Entire Front Row automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.)"
+      - "Also lower Speed of All Foes by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [light, tome]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 168
+    skill_type: buff
+    target: front_row
+    power: "20% of user’s Max HP/Does not stack"
+    effects:
+      - "grant Entire Front Row a continuous effect at the end of turn (times: 1-4 based on Boost Lv.)"
+      - "Continuous effect: Restore 1 BP and grant an HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
+  - skill_category: active
+    sp_cost: 74
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Light damage to Random Foe 3 time(s) (potency: 3x65) and lower Light Res"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [light, tome]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: active
+    sp_cost: 49
+    skill_type: attack
+    damage_types: [light, tome]
+    target: random
+    hit_count: "5x"
+    power: "5x30"
+  - skill_category: tp
+    sp_cost: 60
+    skill_type: buff
+    target: self
+    power: "20%-80% of user’s Max HP/Does not stack"
+    effects:
+      - "**** Grant Self an HP Barrier (potency: 20%-80% of user’s Max HP/Does not stack) and raise BP recovery amount by 1 (turns: 1)"
+      - "At Max Boost: Also restore uses of EX skill by 1"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 60
+    skill_type: buff
+    target: self
+    power: "**25%-100%** of user’s Max HP/Does not stack"
+    effects:
+      - "** Lv.2** Grant Self an HP Barrier (potency: **25%-100%** of user’s Max HP/Does not stack) and raise BP recovery amount by **2** (turns: 1)"
+      - "At Max Boost: Also restore uses of EX skill by 1"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "630"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“The Mask Maker’s Pride”"
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "Grant All Allies an HP Barrier (potency: **30%→40%→50%** of user’s Max HP/Does not stack) and reduce received damage by 30% (turns: 3)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Upon activation, grant Self Mask (turns: 1). Mask: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Lower Elem. Def. of All Foes by 30% (turns: 3) and deal Elem. Light damage to All Foes 5 time(s) (potency: 5x35)."
+    trigger: always
+  - passive_category: innate
+    effect: "Restore HP of Entire Front Row (potency: 130) and raise their Phys. Def. and Elem. Def. by 20% (turns: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Entire Front Row an HP Barrier (potency: 5%-20% of user’s Max HP/Does not stack) and reduce Shield Points of All Foes by 6 regardless of weaknesses."
+    trigger: always
+  - passive_category: innate
+    effect: "At the end of turn after using “Latent Power: Mask”, raise potency of Self by 50% (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: 50,000, turns: 3) and gain the ability to trigger battle skills 2 times (turns: 2). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack)."
+    trigger: always
+    limit_break_upgrade: "At the end of turn after using “Latent Power: Mask”, raise potency of Self by **100%** (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: **100,000**, turns: 3) and gain the ability to trigger battle skills 2 times (turns: **3**). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack)."
+  - passive_category: innate
+    effect: "When Self has an HP Barrier: Raise own Light damage by 30%, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by 20% (turns: 3)."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by **30%** (turns: 3)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Soothing Mask”"
+  passive_effect: "-50 P.Def, 100 E.Atk, 90 E.Def, 500 HP; At the start of turn: Grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack); At the end of turn: If the wearer doesn’t have an HP Barrier, grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

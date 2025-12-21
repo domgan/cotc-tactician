@@ -1,0 +1,180 @@
+# Character: Millard EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: millard-ex
+display_name: "Millard EX"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 251
+p_def: 292
+e_atk: 365
+e_def: 419
+speed: 296
+crit: 278
+sp: 420
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3672
+p_atk_120: 316
+p_def_120: 342
+e_atk_120: 415
+e_def_120: 469
+speed_120: 331
+crit_120: 313
+sp_120: 500
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Twofold Thrust"
+    sp_cost: 13
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Chain Ice Blast"
+    sp_cost: 14
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Debilitating Thrust"
+    sp_cost: 28
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Polearm damage to Single Foe (potency: 170) and lower Phys"
+  - skill_category: active
+    name: "Sacred Night’s Radiance"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    power: "10%-40% of user’s max HP based on Boost Lv./does not stack"
+    effects:
+      - "**Sacred Night’s Radiance (2★)** Act faster during turn and grant an ally excluding Self HP barrier (potency: 10%-40% of user’s max HP based on Boost Lv./does not stack)"
+  - skill_category: active
+    name: "Sacred Night’s Spirit"
+    sp_cost: 70
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Sacred Night’s Spirit (2★)** Raise Phys"
+      - "of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and raise damage by 15% (turns: 2-5 based on Boost Lv.) if target is granted HP barrier"
+  - skill_category: active
+    name: "Faith Splendor"
+    sp_cost: 46
+    skill_type: buff
+    target: single_enemy
+    power: "140, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Faith Splendor (3★)** Raise max HP by 20% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Healing Triple Icestorm"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x80) and restore HP of Entire Front Row (potency: 90)"
+  - skill_category: active
+    name: "Red Hat Apprentice’s Gift"
+    sp_cost: 55
+    skill_type: heal
+    target: self
+    effects:
+      - "**Red Hat Apprentice’s Gift (5★)** Restore SP of an ally excluding Self (amount: 25-100 based on Boost Lv.)"
+      - "Restore BP by 1 if target is granted HP barrier"
+      - "Restored BP increased to 4 at Max Boost"
+  - skill_category: active
+    name: "Sacred Night’s Celebration"
+    sp_cost: 74
+    skill_type: mixed
+    target: self
+    power: "35% of user’s max HP/does not stack"
+    effects:
+      - "**Sacred Night’s Celebration (5★)** Grant an ally excluding Self HP barrier (potency: 35% of user’s max HP/does not stack) and raise Phys"
+  - skill_category: tp
+    sp_cost: 100
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x75"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "5x"
+    power: "5x30"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Blessed Light"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Act faster during turn"
+      - "grant Entire Front Row HP Barrier (potency: **40%→50%→60%** of user’s max HP) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Increase max HP of Self by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Grant All Allies excluding Self HP barrier (potency: 15% of user’s max HP/does not stack)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Ice damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Stuffed Toy Gift"
+  passive_effect: "30 P.Def, 30 E.Def, 600 HP; Grants automatic HP recovery (amount: 500); Start of battle: Raise own max HP by 15% (turns: 5)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,200 @@
+# Character: Canary
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: canary
+display_name: "Canary"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2872
+p_atk: 328
+p_def: 265
+e_atk: 276
+e_def: 248
+speed: 470
+crit: 338
+sp: 342
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3692
+p_atk_120: 393
+p_def_120: 285
+e_atk_120: 326
+e_def_120: 298
+speed_120: 535
+crit_120: 388
+sp_120: 422
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Chain Scorch"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Thief’s Triple Anti-attack"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Dagger damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Thief’s Triple Anti-dagger"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Dagger damage to Single Foe 3 time(s) (potency: 3x65) and lower Dagger Res"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Ruby Burst"
+    sp_cost: 48
+    skill_type: mixed
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x45"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Preen ‘n’ Back"
+    sp_cost: 60
+    skill_type: buff
+    target: back_row
+    effects:
+      - "**Preen ‘n’ Back (3★)** Impart Self with Thief’s Evasion (times: 1-4 based on Boost Lv.) and restore own SP (amount: 50-125 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "*Thief’s Evasion stacks up to 9 times regardless of how the effect is granted"
+  - skill_category: active
+    name: "Thief’s Triple Anti-guard"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Dagger damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Assassinate"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Rapid Flutter"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "**Rapid Flutter (5★)** Act faster during turn and deal Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Shining Assault"
+    sp_cost: 88
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Dagger damage to All Foes 4 time(s) (potency: 4x35) and grant Self Thief’s Evasion (times: 2)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Dagger damage to Single Foe (potency: 230) and impart Self with Thief’s Evasion (times: 6)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Thief’s Heist"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "6x"
+    effects:
+      - "Act faster during turn and deal Phys"
+      - "Also impart Self with Thief’s Evasion (times: 5) and raise the potency of All Allies by 50% (turns: 1/Cannot be extended/Does not stack with effects of the same type)"
+      - "Lower Shield Points even when not striking weak points"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Thief’s Evasion (times: 4). Grant Self Thief’s Evasion when using a battle skill (times: 2)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "After some attacks (excludes counters and Ultimate Techniques), unleash Pursuit as many times as own Thief’s Evasion count (max: 4). Pursuit: Deal Phys. Dagger damage to Single Foe (potency: 40). Lower Shield Points even when not striking weak points."
+    trigger: always
+    limit_break_upgrade: "After some attacks (excludes counters and Ultimate Techniques), unleash Pursuit as many times as own Thief’s Evasion count (**max: 6**). Pursuit: Deal Phys. Dagger damage to Single Foe (potency: 40). Lower Shield Points even when not striking weak points."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy: Grant Self with Thief’s Evasion (times: 3)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Beautiful Thief’s Earring"
+  passive_effect: "60 P.Atk, 80 Spd; Raise Dagger damage dealt by 15%; When breaking an enemy, lower Phys. Def. by 15% (turns: 3) and Dagger Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

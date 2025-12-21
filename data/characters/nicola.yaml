@@ -1,0 +1,192 @@
+# Character: Nicola
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nicola
+display_name: "Nicola"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2877
+p_atk: 353
+p_def: 275
+e_atk: 266
+e_def: 248
+speed: 425
+crit: 328
+sp: 347
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3697
+p_atk_120: 418
+p_def_120: 295
+e_atk_120: 316
+e_def_120: 298
+speed_120: 490
+crit_120: 378
+sp_120: 427
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Spider Fang"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Dagger damage to Single Foe (potency: 170) and impart Spd Down 15% (turns: 2)"
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Mass Armor Corrosive II"
+    sp_cost: 18
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Mass Armor Corrosive II (1★)** Impart All Foes with Phys"
+  - skill_category: active
+    name: "Vitality Thief"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Triple Burst"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Gift of SP"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Gift of SP (3★)** Restore an ally’s SP (amount: 25-100 based on Boost Lv.) [50 SP] **Lv.88 |** SP Saver: 50→40"
+  - skill_category: active
+    name: "Sacred Night’s Light"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    power: "180"
+    effects:
+      - "Light damage to All Foes (potency: 180) and impart Elem"
+  - skill_category: active
+    name: "Magic Reaper"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "180"
+  - skill_category: active
+    name: "Sonic Flash"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: tp
+    name: "Hymn of the Shining Star"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "たたかうでSP吸収"
+    skill_type: mixed
+    target: single_enemy
+    effects:
+      - "restore SP equal to 1% of damage dealt"
+    limit_break_upgrade: "When using 'Attack', restore SP equal to 1% of damage dealt and raise Phys. Atk. and Dagger damage by 15%. Instead of **Red Saint’s Flash** **Battle Skills**"
+  - skill_category: active
+    name: "トリプルスティング"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: ex
+    name: "Red Blade Thrust"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Sacred Night’s Gift"
+    skill_type: heal
+    target: front_row
+    power: "100→200→250"
+    effects:
+      - "Restore SP of Entire Front Row (amount: **100→200→250**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At 50% SP or more: Raise Phys. Atk. of entire front row by 5%."
+    trigger: always
+    limit_break_upgrade: "Raise own Phys. Atk. and Dagger damage by 15%. When using “Attack”, restore SP equal to 1% of damage dealt."
+  - passive_category: innate
+    effect: "Recover 3% of SP when taking damage from enemies."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the start of action phase, if SP is full: grant Self the effect of activating abilities twice (additional activations do not consume SP)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Red Hat’s Garb"
+  passive_effect: "60 P.Atk, 40 E.Def, 40 Crit; Raise dagger damage dealt by 15%; Start of battle: Lower Phys. Def. of all enemies by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

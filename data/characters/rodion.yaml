@@ -1,0 +1,169 @@
+# Character: Rodion
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rodion
+display_name: "Rodion"
+rarity: 4
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3245
+p_atk: 355
+p_def: 392
+e_atk: 294
+e_def: 218
+speed: 274
+crit: 221
+sp: 383
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4065
+p_atk_120: 405
+p_def_120: 442
+e_atk_120: 359
+e_def_120: 268
+speed_120: 324
+crit_120: 271
+sp_120: 453
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Brain Bash"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Light Ward"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Light Ward** Raise Light Res"
+  - skill_category: active
+    name: "Full Swing"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Shadow Impact"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Lacerating Cleave"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Rejuvenate"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Rejuvenate** **(3★)** Grant automatic HP recovery to Single Ally (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Rejuvenate"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    power: "**150**, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Rejuvenate** **(5★)** Grant automatic HP recovery to Single Ally (potency: **150**"
+  - skill_category: active
+    name: "Gory Cleave"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x115"
+  - skill_category: active
+    name: "Gory Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x130**"
+  - skill_category: tp
+    name: "Soul Sever"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Double Horizontal Slash"
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x105"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Execution"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Front Row incapacitated: Impart Self with Phys. Atk. Up 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "At **f**ull HP: Raise Axe Damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "At **f**ull HP: Raise Axe Damage of Self by **30%**."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "15% chance to recover 100% of damage taken when hit (With some exceptions/Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Protective Leather Mask"
+  passive_effect: "50 P.Atk, 20 E.Atk; Grant Self automatic HP recovery (amount: 500) when a bleeding enemy is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

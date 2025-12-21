@@ -1,0 +1,154 @@
+# Character: Evelyn
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: evelyn
+display_name: "Evelyn"
+rarity: 3
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fan]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2766
+p_atk: 250
+p_def: 240
+e_atk: 387
+e_def: 347
+speed: 352
+crit: 272
+sp: 489
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3586
+p_atk_120: 300
+p_def_120: 290
+e_atk_120: 452
+e_def_120: 397
+speed_120: 417
+crit_120: 307
+sp_120: 559
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blow"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Lion Dance"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Lion Dance** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Night Ode"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "110"
+  - skill_category: active
+    name: "Rousing Lion Dance"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Rousing Lion Dance (2★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Lion Dance II"
+    sp_cost: 14
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Lion Dance II (2★)** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Night Ode II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "Night Ode II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "**170**"
+  - skill_category: tp
+    name: "Four Beasts Parade"
+    sp_cost: 54
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Four Beasts Parade ** Raise Phys"
+  - skill_category: ex
+    name: "Ode of Darkness IV"
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Midnight Mambo"
+    skill_type: mixed
+    damage_types: [dark]
+    target: front_row
+    power: "330→395→495"
+    effects:
+      - "Dark damage to All Foes (potency: **330→395→495**) and impart Entire Front Row with Phys"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Phys. Atk. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Light Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Popular Romance Play Script"
+  passive_effect: "20 P.Atk, 20 E.Atk; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Evelyn: Raise Elem. Atk. and Dark damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

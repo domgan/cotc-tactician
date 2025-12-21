@@ -1,0 +1,169 @@
+# Character: Grieg
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: grieg
+display_name: "Grieg"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3402
+p_atk: 424
+p_def: 383
+e_atk: 227
+e_def: 301
+speed: 225
+crit: 283
+sp: 296
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4222
+p_atk_120: 489
+p_def_120: 448
+e_atk_120: 277
+e_def_120: 351
+speed_120: 260
+crit_120: 333
+sp_120: 366
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Strong Slash"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Chain Scorch"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Linear Slash"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Stout Wall"
+    sp_cost: 26
+    skill_type: utility
+    target: self
+  - skill_category: active
+    name: "Impregnable Command III"
+    sp_cost: 50
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Impregnable Command III (2★)** Raise Phys"
+  - skill_category: active
+    name: "Tenacity"
+    sp_cost: 41
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Tenacity (3★)** Act faster during turn"
+      - "provoke All Foes and raise own Phys"
+    limit_break_upgrade: "Act faster during turn, provoke All Foes and raise own Phys. Def. and Elem. Def. by **30%** (turns: 2-5 based on Boost Lv.)."
+  - skill_category: active
+    name: "Enduring Stance"
+    sp_cost: 51
+    skill_type: buff
+    target: self
+    power: "140, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Enduring Stance (4★)** Raise Max HP of Self by 30% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Crushing Slash"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    power: "210"
+  - skill_category: active
+    name: "Unyielding Sword"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Unyielding Spirit"
+    sp_cost: 60
+    skill_type: buff
+    target: self
+    effects:
+      - "**Unyielding Spirit ** Grant Self automatic revival (recovery amount: 20%-50% of max HP and 20%-50% of max SP based on Boost Lv.)"
+  - skill_category: ex
+    name: "Relentless Slash"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Indomitable Sword"
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "375→450→565"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+      - "·9 or more: 40% more potent and lower Sword Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Phys. Def. and Elem. Def. of Self by 15%. Additionally, when attacked by an enemy, grant Self 1 “Unyielding Point”. *Multiple-hit attacks activates this once. ·Since it is a counter action, it will not be activated when other counters are triggered or when it is unable to counter (unable to move, enemy’s counter, etc.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant effects to Self based on number of Unyielding Points. ·3 or more: Raise Phys. Atk. and Sword damage by 15%. ·6 or more: Additionally, raise Phys. Def. and Elem. Def. by 15%. ·9 or more: Additionally, raise Physical Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Provoke all foes (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Gauntlets of the Unbroken"
+  passive_effect: "40 P.Def, 40 E.Def, 600 HP; Raise max HP by 15%; Grant Damage Limit Up (effect: 50,000)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

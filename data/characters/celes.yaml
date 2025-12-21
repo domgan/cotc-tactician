@@ -1,0 +1,202 @@
+# Character: Celes
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: celes
+display_name: "Celes"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3072
+p_atk: 284
+p_def: 333
+e_atk: 442
+e_def: 281
+speed: 285
+crit: 263
+sp: 336
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3892
+p_atk_120: 349
+p_def_120: 398
+e_atk_120: 492
+e_def_120: 331
+speed_120: 320
+crit_120: 313
+sp_120: 406
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blizzard (Single)"
+    sp_cost: 47
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x55"
+  - skill_category: active
+    name: "Protect (Single)"
+    sp_cost: 14
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Protect (Single)** Raise Phys"
+  - skill_category: active
+    name: "SP Hold"
+    sp_cost: 25
+    skill_type: buff
+    target: self
+    effects:
+      - "**SP Hold (1★)** Impart Self with SP Stock (amount: 5%-30% of user’s max SP based on Boost Lv./Does not stack)"
+  - skill_category: active
+    name: "Blizzara (Single)"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x30"
+    effects:
+      - "Lower Ice and Light Res"
+  - skill_category: active
+    name: "Maria’s Song"
+    sp_cost: 86
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Maria’s Song (2★)** Grant Entire Front Row automatic SP recovery (amount: 3% of max SP) and raise Elem"
+  - skill_category: active
+    name: "Summon: Bismarck"
+    sp_cost: 118
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x80) and raise Fire"
+  - skill_category: active
+    name: "Blizzaga (All)"
+    sp_cost: 93
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "4x"
+    power: "4x30"
+    effects:
+      - "Lower Ice and Light Res"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: active
+    name: "Noble Ever-Victorious Blade"
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [ice]
+    target: front_row
+    hit_count: "4x"
+    power: "4x25"
+    effects:
+      - "**Noble Ever-Victorious Blade (5★)** Act faster during turn and deal Elem"
+      - "Lower Ice and Light Res"
+      - "also raise Ice and Light damage of Entire Front Row by 15% (turns: 2)"
+  - skill_category: active
+    name: "Spinning Edge"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: tp
+    name: "Cold Sacred Warblade"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "Also grant Ice weakness (times: 4)"
+      - "Raise Damage Limit of this skill by 100,000"
+  - skill_category: ex
+    name: "Change the Air"
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x50"
+    effects:
+      - "**Change the Air** Act faster during turn and deal Elem"
+      - "Grant Self the special effect “Mana Leakage” (turns: 1-4 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Freeze Dive"
+    skill_type: mixed
+    damage_types: [ice]
+    target: front_row
+    hit_count: "8x"
+    effects:
+      - "Also impart Self with SP Stock (amount: 30% of user’s max SP/Does not stack)"
+      - "also restore 5 BP to Self and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "With SP Stock at start of attack phase: Grant Self the special effect “Artificial Magitek” (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "At the end of turn after consuming 1 BP or more, grant Self “Runic Stance” (times: 2/max: 4/activates even in back row/cancels when unable to act)."
+    trigger: always
+    limit_break_upgrade: "At the end of turn after consuming 1 BP or more, grant Self “Runic Stance” (times: **3**/max: 4/activates even in back row/cancels when unable to act)."
+  - passive_category: innate
+    effect: "to Self, grant SP Stock (amount: 30% of max SP/Does not stack) and raise Elem. Atk. by 30% (turns: 3). Also lower Phys. Atk. and Elem. Atk. of the attacking enemy by 30% (turns: 3). *Triggers before other counterattack actions."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Grant Entire Front Row automatic SP recovery (amount: 3% of max SP) and raise Ice and Light damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Lower own SP consumption by 30% and raise the critical damage multiplier for Elem. Ice attacks (1.25→1.6). Also add 20% of P.Atk to E.Atk (including equipment stats/Cannot be stacked)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Deep Pink Rose Bush”"
+  passive_effect: "120 E.Atk, 40 Spd; When consuming 3 BP or more: Increase damage multiplier by 20% when exploiting an Ice weakness with Elem. Ice attacks; Start of battle: Grant SP Stock (amount: 30% of user’s max SP/Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

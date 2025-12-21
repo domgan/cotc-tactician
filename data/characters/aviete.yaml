@@ -1,0 +1,189 @@
+# Character: Aviete
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: aviete
+display_name: "Aviete"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, ice, light, lightning, staff, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2762
+p_atk: 216
+p_def: 302
+e_atk: 435
+e_def: 389
+speed: 331
+crit: 228
+sp: 450
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3502
+p_atk_120: 266
+p_def_120: 352
+e_atk_120: 500
+e_def_120: 454
+speed_120: 381
+crit_120: 263
+sp_120: 530
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 24
+    skill_type: heal
+    target: front_row
+    power: "160"
+    effects:
+      - "**(Initial)** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "“Advent: Lion of the Flame”"
+    sp_cost: 39
+    skill_type: mixed
+    damage_types: [wind, sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+    effects:
+      - "·With 6 or more “Revere Beast” Points: Also lower Phys"
+  - skill_category: active
+    name: "“Advent: Burial Claw Wolf”"
+    sp_cost: 39
+    skill_type: mixed
+    damage_types: [dark, dagger]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "·With 6 or more “Revere Beast” Points: Also have a low chance to lower Phys"
+  - skill_category: active
+    sp_cost: 30
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**(2★)** Cure status ailments of Entire Front Row and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "“Advent: Inmortal Bird”"
+    sp_cost: 120
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**“Advent: Inmortal Bird” (2★)** Grant Entire Front Row automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: active
+    name: "“Advent: Kaguya’s Moon Rabbit”"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [light, fan]
+    target: front_row
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also raise Elem"
+      - "·With 6 or more “Revere Beast” Points: Also raise Phys"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**(4★)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "“Advent: Thundering Hoof”"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [lightning, staff]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Also raise Phys"
+  - skill_category: active
+    name: "“Advent: Deep Blue Armoured Dragon”"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [ice, tome]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Also raise Phys"
+  - skill_category: tp
+    sp_cost: 97
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x100"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(EX)** Raise Phys"
+      - "fill the Ultimate Technique gauge to 100% and restore summons of Divine Beast"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Sacred Tree’s Grace”"
+    skill_type: heal
+    target: all_allies
+    power: "3→4"
+    effects:
+      - "Restore HP of All Allies (amount: **10%→20%→30%** of target’s max HP)"
+      - "by **10%→15%→20%** (turns: 2→3) and lower reuse turns of All Allies’ keepers by **3→4** turns"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain 1 “Revere Beast” Point when using “Advent” skills and gain 3 “Revere Beast” Points when using Ultimate Technique or EX skill."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Elem. Atk. by 15% and grant Self ability to trigger critical hits when using elemental attacks. Grant Self effects based on own “Revere Beast” Points. ·With 3 or more: Half the reuse turns of Self’s keeper. ·With 6 or more: Additionally grant automatic SP recovery (amount: 5% of max SP)."
+    trigger: always
+    limit_break_upgrade: "Raise own Elem. Atk. by 15% and grant Self ability to trigger critical hits when using elemental attacks. Grant Self effects based on own “Revere Beast” Points. ·With 3 or more: Half the reuse turns of Self’s keeper. ·With 6 or more: Additionally grant automatic SP recovery (amount: 5% of max SP). ·With 9 or more: Additionally activate Divine Beast summons twice."
+  - passive_category: innate
+    effect: "Grant Entire Front Row effects based on own “Revere Beast” Points. ·With 3 or more: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%. ·With 6 or more: Additionally grant automatic HP recovery (potency: 50). ·With 9 or more: Additionally grant Damage Limit Up (effect: 50,000)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Grant Self HP Barrier (potency: 50% of own max HP), fill the Ultimate Technique gauge of Self to 100% and increase arcanastone gauge by 5. Also lower preparation turns of Entire Front Row’s keepers by 3 turns."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Priest Cait Flower Decoration”"
+  passive_effect: "600 HP, 80 SP; Start of battle: Lower preparation turns of Paired Ally’s keeper by 2 turns; Halve the reuse turns of Paired Ally’s keeper"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

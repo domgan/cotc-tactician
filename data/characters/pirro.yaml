@@ -1,0 +1,178 @@
+# Character: Pirro
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: pirro
+display_name: "Pirro"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2932
+p_atk: 444
+p_def: 270
+e_atk: 226
+e_def: 235
+speed: 405
+crit: 333
+sp: 362
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3752
+p_atk_120: 509
+p_def_120: 290
+e_atk_120: 276
+e_def_120: 285
+speed_120: 470
+crit_120: 383
+sp_120: 442
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Grinding Knife"
+    sp_cost: 22
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Grinding Knife** Impart Self with Phys"
+      - "Up 15% and raise Dagger damage by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Crimson Edge"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Double Wide Burst"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Deadly Purple Smoke"
+    sp_cost: 39
+    skill_type: buff
+    target: self
+    effects:
+      - "**Deadly Purple Smoke (2★)** Restore own SP (amount: 50) and grant an effect that activates attack skills twice (turns: 2/Turns cannot be extended/Does not stack with effects of the same type/Follow-up attack will not consume SP)"
+  - skill_category: active
+    name: "Triple Red Edge"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Divine Speed Triple Blade"
+    sp_cost: 94
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "**Divine Speed Triple Blade (4★)** Act faster during turn and deal Phys"
+      - "Dagger damage to All Foes 3 time(s) (potency: 3x55) and raise Speed and Critical of Self by 15% (turns: 2)"
+  - skill_category: active
+    name: "Needle of Dark"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [dagger, dark]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Dagger damage to Single Foe (potency: 230) and lower Phys"
+  - skill_category: active
+    name: "Quintuple Edge"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe 5 time(s) (potency: 5x35). 20% more potent while having more than 6 different buffs and debuffs. Exploits Dark weakness (damage calculation based on Phys. Dagger attack)."
+  - skill_category: tp
+    name: "Heart Piercer"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "530"
+  - skill_category: ex
+    name: "Needle of Darkness"
+    skill_type: mixed
+    damage_types: [dagger, dark]
+    target: single_enemy
+    power: "230"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Cigarette End"
+    skill_type: attack
+    damage_types: [dagger, dark]
+    target: single_enemy
+    hit_count: "6x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Critical of Self by 15% and raise Dagger damage by 15%, but lower Speed by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "During action selection, 50% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Self by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Old Cigar Box"
+  passive_effect: "60 P.Atk, 40 Crit, 40 SP; Grant automatic HP recovery (amount: 300) and SP recovery (amount 30); At night: Raise Dagger damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

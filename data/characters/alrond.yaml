@@ -1,0 +1,172 @@
+# Character: Alrond
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: alrond
+display_name: "Alrond"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, light, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3200
+p_atk: 344
+p_def: 348
+e_atk: 225
+e_def: 285
+speed: 325
+crit: 246
+sp: 462
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4100
+p_atk_120: 409
+p_def_120: 398
+e_atk_120: 275
+e_def_120: 335
+speed_120: 360
+crit_120: 281
+sp_120: 542
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Thrash"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Advanced Healing Potion (Front/All)"
+    sp_cost: 43
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Advanced Healing Potion (Front/All)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    name: "Fixed Rate"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "45"
+    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: **65**). At Max Boost: Repeatedly consume **30** SP up to 6 times to activate the skill as many additional times as SP is consumed."
+  - skill_category: active
+    name: "Donate SP"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Donate SP (2★)** Restore an ally’s SP (amount: 25-100 based on Boost Lv.) [50 SP]"
+  - skill_category: active
+    name: "Hired Help: Elite Dancer II"
+    sp_cost: 77
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    hit_count: "5x"
+    power: "5x45"
+  - skill_category: active
+    name: "Merchant’s Guild"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Merchant’s Guild (3★)** Raise Physical damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and restore their BP by 1"
+  - skill_category: active
+    name: "Supreme Healing Potion (All)"
+    sp_cost: 84
+    skill_type: buff
+    target: all_allies
+    power: "140, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Supreme Healing Potion (All) (4★)** Grant All Allies automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    name: "Hired Help: Elite Warrior II"
+    sp_cost: 96
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "5x"
+    power: "5x45"
+  - skill_category: active
+    name: "Hired Help: Elite Cleric II"
+    sp_cost: 96
+    skill_type: attack
+    damage_types: [staff]
+    target: front_row
+    hit_count: "5x"
+    power: "5x45"
+    effects:
+      - "Grant Entire Front Row HP Barrier (potency: 20% of user’s max HP/Does not stack)"
+  - skill_category: tp
+    name: "Supreme Olive Potion (All)"
+    sp_cost: 200
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "**Supreme Olive Potion (All) ** Restore HP of All Allies (amount: 10% of max HP) and revive incapacitated allies (recovery amount: 25% of max HP )"
+  - skill_category: ex
+    name: "Premium Plum Jam"
+    skill_type: heal
+    target: self
+    power: "25%-100% of user’s max SP based on Boost Lv./Does not stack"
+    effects:
+      - "**Premium Plum Jam** Restore SP of Self (amount: 25%-100% of max SP based on Boost Lv.) and gain SP Stock (potency: 25%-100% of user’s max SP based on Boost Lv./Does not stack)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Promisory Note"
+    skill_type: utility
+    target: all_allies
+    effects:
+      - "Restore Ultimate Technique use count of All Allies excluding Self by 1 and fill their Ultimate Technique gauge by **20%→60%→100%**"
+      - "(Use count of this Ultimate Technique cannot be restored)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to back row: Recover 5 BP and raise Phys. Atk. of Entire Front Row by 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "At the end of turn: Restore SP of Entire Front Row (amount: 1% of max SP) and fill the Ultimate Technique gauge of the same target by 40%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant automatic HP recovery (amount: 20% of max HP), raise Phys. damage by 20% and grant immunity to certain status ailments."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Sphene Earrings"
+  passive_effect: "60 P.Atk, 80 SP; When consuming 3 BP or more using a battle skill: Raise BP recovery amount by 1 (turns: 1); When switching to back row: Restore own SP (amount: 10% of max SP)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,175 @@
+# Character: Aedelgard
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: aedelgard
+display_name: "Aedelgard"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3232
+p_atk: 409
+p_def: 346
+e_atk: 252
+e_def: 234
+speed: 260
+crit: 313
+sp: 381
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4052
+p_atk_120: 474
+p_def_120: 411
+e_atk_120: 302
+e_def_120: 284
+speed_120: 295
+crit_120: 363
+sp_120: 451
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Spirited Slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Chain Scorch"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Battle Relief"
+    sp_cost: 39
+    skill_type: buff
+    target: single_enemy
+    power: "165"
+    effects:
+      - "**Battle Relief (2★)** Restore own HP (potency: 165) and raise Phys"
+  - skill_category: active
+    name: "Ardent Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Invigoration"
+    sp_cost: 38
+    skill_type: mixed
+    target: self
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Invigoration (3★)** Grant Self automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and raise Crit by 15% and Sword damage dealt by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Noble Strike"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Wild Proud Strike"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe **4** time(s) (potency: **4x65**) and provoke them with every attack (turns: 2)."
+  - skill_category: active
+    name: "Greater Noble Strike"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [sword, fire]
+    target: single_enemy
+    power: "530"
+  - skill_category: tp
+    name: "Noble Sword"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: ex
+    name: "Grenzbruch"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Grenzbruch** Raise the Phys"
+      - "limit from battle skills of Self to 50% and raise Damage Limit by 100,000 (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Crown of Glory"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "restore own HP (potency: **250→300→350**) and SP (amount: 100% of Max SP) and grant automatic HP recovery (potency: **100→125→150**"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When hit by an attack, restore SP equal to 4% of damage taken."
+    trigger: always
+  - passive_category: innate
+    effect: "While there is a Taunted enemy, when hit by an attack, restore HP equal to 15% of damage taken."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword damage of Self by 15% and grant Self Damage Limit Up (effect: 50,000)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Chromrodian Necklace"
+  passive_effect: "70 P.Atk, 70 SP; Raise Sword damage dealt by 15%; Grant automatic SP recovery (amount: 20)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

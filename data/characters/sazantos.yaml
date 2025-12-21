@@ -1,0 +1,195 @@
+# Character: Sazantos
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sazantos
+display_name: "Sazantos"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3112
+p_atk: 424
+p_def: 328
+e_atk: 287
+e_def: 216
+speed: 290
+crit: 268
+sp: 471
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3932
+p_atk_120: 489
+p_def_120: 393
+e_atk_120: 337
+e_def_120: 266
+speed_120: 325
+crit_120: 318
+sp_120: 541
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sacred Blaze Multi-slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Dauntless Spirit"
+    sp_cost: 24
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Dauntless Spirit** Impart Self with Phys"
+      - "Up 20% and grant Damage Limit Up (effect: 50,000) (turns: 3)"
+  - skill_category: active
+    name: "Heal Wounds (All)"
+    sp_cost: 28
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Heal Wounds (All) (1★)** Restore HP of Entire Front Row (potency: 65)"
+  - skill_category: active
+    name: "Sacred Blaze of Shroud"
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Light damage to All Foes 2 time(s) (potency: 2x80) and lower Fire and Light Res"
+  - skill_category: active
+    name: "Sacred Blaze Shield"
+    sp_cost: 73
+    skill_type: mixed
+    damage_types: [light]
+    target: front_row
+    power: "200"
+    effects:
+      - "**Sacred Blaze Shield (2★)** Raise Phys"
+      - "[73 SP] When consuming 5 BP: Grant target the ability to completely block some elemental attacks (times: 1) and counter with Elem"
+  - skill_category: active
+    name: "Sacred Blaze Might"
+    sp_cost: 56
+    skill_type: debuff
+    target: front_row
+    effects:
+      - "**Sacred Blaze Might (3★)** Raise Phys"
+      - "[56 SP] When consuming 5 BP: Lower Phys"
+  - skill_category: active
+    name: "Heavy Sacred Blaze Saber"
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x135) and restore BP of Self by 1"
+      - "[76 SP] When consuming 5 BP: Guaranteed critical hit"
+  - skill_category: active
+    name: "Great Sacred Blaze Saber"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Mass Sacred Blaze Slash"
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Sacred Blaze Verse"
+    skill_type: mixed
+    target: all_allies
+    power: "20%-100% of user’s max HP based on Boost Lv./Does not stack"
+    effects:
+      - "**Sacred Blaze Verse** **** Grant All Allies HP Barrier (potency: 20%-100% of user’s max HP based on Boost Lv./Does not stack) and raise Phys"
+      - "When consuming 3+ BP: Also grant SP Stock (amount: 20% of user’s max SP/Does not stack)"
+      - "When consuming 5 BP: Also grant them Great Flame’s Blessing (turns: 1)"
+  - skill_category: tp
+    name: "Sacred Blaze Verse"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: ex
+    name: "Sword of Sacred Flame"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "6x100/7x100/9x100/11x100"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Sacred Blaze Legacy"
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "3x"
+    effects:
+      - "Grant Great Flame’s Blessing to Entire Front Row (turns: 1)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Sword damage of Self by 15% and Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max) *BP cost is 1, 3 and 5 respectively."
+    trigger: always
+  - passive_category: innate
+    effect: "When using a battle skill, restore BP of Self by 3 when breaking an enemy or a broken enemy is present."
+    trigger: on_break
+    limit_break_upgrade: "When using a battle skill, restore BP of Self by **5** when breaking an enemy or a broken enemy is present."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Recover 2 BP and gain Great Flame’s Blessing (turns: 2)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "(Enhancement is applied on an adjusted skill with respect to JP)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Flameguard’s Cloak"
+  passive_effect: "60 P.Atk, 400 HP, 40 SP; Grant Self automatic SP recovery (amount: 40) when broken enemy is present; Start of battle: Raise own BP recovery amount by 1 (turns: 3). (Does not stack with support skills and equipment effects)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

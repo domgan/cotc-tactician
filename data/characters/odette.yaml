@@ -1,0 +1,175 @@
+# Character: Odette
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: odette
+display_name: "Odette"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2911
+p_atk: 226
+p_def: 281
+e_atk: 409
+e_def: 320
+speed: 313
+crit: 221
+sp: 567
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3571
+p_atk_120: 276
+p_def_120: 331
+e_atk_120: 474
+e_def_120: 370
+speed_120: 363
+crit_120: 271
+sp_120: 657
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Tornado (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Analyze All"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Blinding Light (All) II"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Maelstrom (All) II"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Random Grand Slam"
+    sp_cost: 38
+    skill_type: attack
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Raging Luminescence"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res"
+  - skill_category: active
+    name: "Raging Tornado"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [wind]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Wind damage to Random Foe 3 time(s) (potency: 3x55) and lower Wind Res"
+  - skill_category: active
+    name: "Tornado (Single) IV"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Luminescence (Single) IV"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Light Ventus Saltare (All) II"
+    sp_cost: 75
+    skill_type: attack
+    damage_types: [wind, light]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: ex
+    name: "Application of Knowledge"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Application of Knowledge** Raise the potency of battle skills of Self by 50% (turns: 3/Cannot be extended/Does not stack with effects of the same type) and grant Self Damage Limit Up (effect 50,000, turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Ancient Winds"
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Wind and Light damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Wind and Light damage of Self by 30% and grant Self ability to trigger critical hits with elemental attacks."
+  - passive_category: innate
+    effect: "When casting a Magic skill, 10% chance to cast the same skill again in a row."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind and Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy or broken enemy is present, Self’s elemental battle skills activate 2 times. (Effects of the same type cannot be repeated/Additional activations do not consume SP)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Archaeologist's Glove"
+  passive_effect: "70 E.Atk, 700 HP; When breaking an enemy, lower their Wind and Light Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,170 @@
+# Character: Narr
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: narr
+display_name: "Narr"
+rarity: 4
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2692
+p_atk: 251
+p_def: 282
+e_atk: 390
+e_def: 444
+speed: 296
+crit: 246
+sp: 422
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 316
+p_def_120: 332
+e_atk_120: 440
+e_def_120: 464
+speed_120: 346
+crit_120: 311
+sp_120: 502
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sturdy Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Veteran’s Bearing"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Veteran’s Bearing** Impart Self with Phys"
+  - skill_category: active
+    name: "Shadow Impact"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "True Strike"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Ebony Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "**175**"
+  - skill_category: active
+    name: "Fatal Shot"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Fatal Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Arrow of Ignorance"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "290"
+  - skill_category: ex
+    name: "Seamless Arrow to All"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "240"
+    effects:
+      - "Guaranteed critical hit"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Abyssal Arrow"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At Full HP: Lower own SP consumption by 50%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise damage dealt to broken foes of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise damage dealt to broken foes of Paired Allies by **20%**."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When blind enemy is present, impart Self with Phys. Atk. Up 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Contract of Payment"
+  passive_effect: "40 P.Atk, 30 Spd; Raise own critical damage by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

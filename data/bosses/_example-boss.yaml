@@ -1,0 +1,170 @@
+# COTC Boss Example
+# This is an EXAMPLE file showing the expected format.
+# Boss data is PLACEHOLDER - actual values must be verified by a human.
+#
+# NOTE: This example uses fictional/placeholder values to demonstrate structure.
+# All actual boss data must come from game knowledge, NOT this example.
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: example-boss
+display_name: "Example Boss (Placeholder)"
+content_type: superboss
+difficulty: extreme
+
+# ===========================================================================
+# WEAKNESSES & RESISTANCES
+# ===========================================================================
+weaknesses:
+  elements: [fire, holy]
+  weapons: [sword, bow]
+
+resistances:
+  elements: [dark]
+  weapons: [axe]
+
+immunities:
+  elements: []
+  weapons: []
+
+# ===========================================================================
+# SHIELD MECHANICS
+# ===========================================================================
+shield_count: 10
+
+shield_phases:
+  - phase: 1
+    shield_count: 10
+    trigger: "Battle start"
+  - phase: 2
+    shield_count: 15
+    trigger: "HP < 50%"
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Example Ultimate Attack"
+    mechanic_type: ultimate
+    trigger: "Turn 5, then every 4 turns"
+    target: all
+    damage_type: elemental
+    element: dark
+    effects: []
+    threat_level: critical
+    counter_strategy: |
+      [PLACEHOLDER] Requires damage mitigation buffs or high HP.
+      Tank with provoke can redirect if single-target variant.
+
+  - name: "Example Counter"
+    mechanic_type: counter
+    trigger: "After receiving physical damage"
+    target: single
+    damage_type: physical
+    threat_level: medium
+    counter_strategy: |
+      [PLACEHOLDER] Use elemental attacks to avoid counter.
+      Or accept damage with a tank.
+
+  - name: "Example Buff"
+    mechanic_type: buff_self
+    trigger: "HP < 25%"
+    target: self
+    effects: [atk_up, def_up]
+    threat_level: high
+    counter_strategy: |
+      [PLACEHOLDER] Dispel buff or burst down before it matters.
+
+# ===========================================================================
+# PHASES
+# ===========================================================================
+phases:
+  - phase_number: 1
+    trigger: "HP 100% - 50%"
+    behavior_changes: "Standard attack rotation"
+    priority_actions: "Break quickly, set up buffs"
+
+  - phase_number: 2
+    trigger: "HP 50% - 25%"
+    behavior_changes: "Adds counter mechanic, faster ultimate cycle"
+    priority_actions: "Switch to elemental damage, maintain healing"
+
+  - phase_number: 3
+    trigger: "HP < 25%"
+    behavior_changes: "Enrage mode - buffs self, attacks faster"
+    priority_actions: "Burst down or focus on survival"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "[PLACEHOLDER] Must absorb ultimate attack"
+  
+  - role: healer
+    priority: required
+    reason: "[PLACEHOLDER] Consistent healing needed for phase 2+"
+  
+  - role: dps
+    priority: required
+    reason: "[PLACEHOLDER] Need fire or holy damage for weakness"
+  
+  - role: buffer
+    priority: recommended
+    reason: "[PLACEHOLDER] Attack buffs help meet DPS check"
+  
+  - role: debuffer
+    priority: optional
+    reason: "[PLACEHOLDER] Defense down speeds up kill"
+
+required_capabilities:
+  - "[PLACEHOLDER] Party-wide healing"
+  - "[PLACEHOLDER] Fire or Holy damage"
+  - "[PLACEHOLDER] Provoke skill for tank"
+  - "[PLACEHOLDER] Damage mitigation for ultimate"
+
+# ===========================================================================
+# TIMING
+# ===========================================================================
+turn_limit: 30
+
+critical_turns:
+  - turn: 5
+    event: "Ultimate attack"
+    required_action: "Have damage mitigation active"
+  
+  - turn: 9
+    event: "Second ultimate"
+    required_action: "Heal up beforehand, mitigation ready"
+
+# ===========================================================================
+# STRATEGY NOTES
+# ===========================================================================
+general_strategy: |
+  [PLACEHOLDER STRATEGY]
+  
+  Phase 1: Focus on breaking quickly and setting up buffs/debuffs.
+  Time your break to maximize damage window.
+  
+  Phase 2: Switch to elemental attacks to avoid counter.
+  Keep healing consistent.
+  
+  Phase 3: Burst down or focus on survival if undergeared.
+  
+  Key timing: Ultimate on turn 5, then every 4 turns.
+  Plan buff durations to cover break windows.
+
+common_mistakes:
+  - "[PLACEHOLDER] Not timing buffs to last through break"
+  - "[PLACEHOLDER] Using physical attacks and eating counters"
+  - "[PLACEHOLDER] Not having mitigation ready for ultimate"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Example file - not real data"
+last_updated: 2024-01-01
+

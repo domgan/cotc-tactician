@@ -1,0 +1,214 @@
+# Character: Hikari
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hikari
+display_name: "Hikari"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3242
+p_atk: 429
+p_def: 358
+e_atk: 217
+e_def: 271
+speed: 295
+crit: 303
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4062
+p_atk_120: 494
+p_def_120: 423
+e_atk_120: 267
+e_def_120: 321
+speed_120: 330
+crit_120: 353
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Wild Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Hachimonjigiri"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Level Slash"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Piercing Thrust"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: active
+    name: "Refined Swordmaster’s Stance"
+    sp_cost: 36
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Refined Swordmaster’s Stance (2★)** Impart Self with Phys"
+      - "Up 20% and raise Sword damage by 20% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Rapid Blade"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Sword damage to All Foes 2 time(s) (potency: 2x95) and lower Sword Res"
+  - skill_category: active
+    name: "Skyshatter Spear"
+    sp_cost: 63
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x65"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x65) and have a low chance to lower Polearm Res"
+  - skill_category: active
+    name: "Blossoming Slash"
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [sword]
+    target: random
+    hit_count: "2x"
+    power: "2x65"
+    effects:
+      - "Sword damage to Random Foe 2 time(s) (potency: 2x65) and have a low chance to lower Phys"
+  - skill_category: active
+    name: "Skyrending Slice"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 260). Guaranteed critical hit at Max Boost."
+  - skill_category: tp
+    name: "Elixir of Ku"
+    sp_cost: 38
+    skill_type: buff
+    target: self
+    effects:
+      - "**Elixir of Ku ** Grant Self automatic SP recovery (amount: 10% of Max SP) and raise BP recovery by 1 (turns: 3-6 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Elixir of Ku Lv.2"
+    sp_cost: 38
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Elixir of Ku Lv.2** Grant Self automatic SP recovery (amount: **15%** of Max SP)"
+      - "raise BP recovery by 1 and raise Phys"
+      - "At Max Boost: Also restore 2 BP to Self"
+  - skill_category: ex
+    name: "Soujinranbu"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "8x"
+    power: "8x25"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Jumonjigiri-Ren"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise physical damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self Demonic Warrior if you have Tenretsu or Sougetsu. Grant Self Divine Warrior if you have both Tenretsu and Sougetsu."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self the special effect Shadow’s Hold (turns: 1). Shadow’s Hold: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to Single Foe (potency: 290) and grant Self “Tenretsuzan”."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x120) and recover 2 BP."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage (potency: 105) and Phys. Polearm damage (potency: 105) to All Foes and grant Self “Sougetsusen”."
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self the special effect Shadow’s Hold (turns: 1). When an ally breaks an enemy, reduce reuse turns by 4. Shadow’s Hold: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to Single Foe (potency: 290) and grant Self “Tenretsuzan”."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x120) and recover 2 BP."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Sword damage (potency: 105) and Phys. Polearm damage (potency: 105) to All Foes and grant Self “Sougetsusen”."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Prince’s Belt"
+  passive_effect: "140 P.Atk; Grant Damage Limit Up (effect: 50,000); When breaking an enemy: Lower Phys. Def. by 10% and Phys. Res. by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

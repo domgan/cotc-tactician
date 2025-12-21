@@ -1,0 +1,173 @@
+# Character: Fiore
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: fiore
+display_name: "Fiore"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 404
+p_def: 343
+e_atk: 237
+e_def: 241
+speed: 310
+crit: 333
+sp: 286
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 469
+p_def_120: 408
+e_atk_120: 287
+e_def_120: 291
+speed_120: 345
+crit_120: 383
+sp_120: 356
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Guillotine"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Empowering Shield"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Empowering Shield** Impart Self with Phys"
+  - skill_category: active
+    name: "Shadow Impact"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Stunning Strike"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Pugnacity"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Pugnacity** **(3★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Shadow Reaver"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Crumbling Cut"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and impart Phys"
+  - skill_category: active
+    name: "Double Arching Blow"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: tp
+    name: "Once More"
+    sp_cost: 40
+    skill_type: buff
+    target: self
+    effects:
+      - "**Once More ** Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP)"
+      - "grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Chain of Demolition"
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Sword damage to Random Foe 4 time(s) (potency: 4x65) and lower Phys"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Cave In"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "500→600→750"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Atk. Up 20% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Impart Self with Phys. Atk. Up 20%."
+  - passive_category: innate
+    effect: "At full HP: Raise Sword damage of Self by 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When broken enemy is present, raise own Phys. Atk. by 10% and Sword damage by 10% and grant Self Damage Limit Up (effect: 50,000)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Father's Memorial Vambrace"
+  passive_effect: "60 P.Atk, 40 P.Def, 40 E.Def; Raise Sword damage dealt by 10%; Raise Light and Dark Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

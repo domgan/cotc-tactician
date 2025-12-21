@@ -1,0 +1,199 @@
+# Character: Alaune EX2
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: alaune-ex2
+display_name: "Alaune EX2"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, ice, light, lightning, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3442
+p_atk: 354
+p_def: 368
+e_atk: 512
+e_def: 321
+speed: 235
+crit: 378
+sp: 426
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4262
+p_atk_120: 419
+p_def_120: 433
+e_atk_120: 562
+e_def_120: 371
+speed_120: 270
+crit_120: 428
+sp_120: 496
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 37
+    skill_type: attack
+    target: single_enemy
+    power: "4x35"
+  - skill_category: active
+    sp_cost: 26
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(1★)** Lower Sword Res"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "2x"
+    power: "2x25"
+    effects:
+      - "Also restore 1 BP to Entire Front Row"
+  - skill_category: active
+    sp_cost: 43
+    skill_type: buff
+    target: self
+    power: "10%-40% of user’s Max HP"
+    effects:
+      - "**(2★)** Grant Self HP Barrier (potency: 10%-40% of user’s Max HP) and SP Stock (amount: 5%-30% of user’s Max SP)"
+  - skill_category: active
+    sp_cost: 57
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**(3★)** Lower Elem"
+      - "At Max Boost: Also grant Fire"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Elemental Weakness: Regardless of the source"
+  - skill_category: active
+    sp_cost: 77
+    skill_type: heal
+    target: self
+    power: "140"
+    effects:
+      - "**(4★)** Grant Self automatic HP recovery (potency: 140)"
+  - skill_category: active
+    sp_cost: 95
+    skill_type: attack
+    target: front_row
+    power: "6x30"
+    effects:
+      - "Also restore 1 BP to Entire Front Row"
+  - skill_category: active
+    sp_cost: 51
+    skill_type: mixed
+    damage_types: [sword, light, dark]
+    target: single_enemy
+    power: "2x30"
+    effects:
+      - "Lower Shield Points even when not striking a weak point"
+  - skill_category: tp
+    sp_cost: 48
+    skill_type: mixed
+    target: self
+    effects:
+      - "**** Cure some status ailments of Self and grant immunity to some status ailments and raise Phys"
+  - skill_category: tp
+    name: "Lv. 2"
+    sp_cost: 48
+    skill_type: mixed
+    target: self
+    effects:
+      - "2** Cure some status ailments of Self and grant immunity to some status ailments and raise Phys"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(EX)** Raise damage of Self when exploiting weakness by 30%"
+      - "raise potency by 100% (Does not stack with effects of the same type) and allow to reduce 1 additional Shield Point(s) when exploiting weakness (turns: 3-6 based on Boost Lv.)"
+      - "Also raise the Phys"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Rune Knight’s Dominion”"
+    skill_type: attack
+    target: aoe
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Upon activation, skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk., Elem. Atk. and Critical of Self by 30%, grant Damage Limit Up (effect: 50,000), raise the critical damage multiplier (1.25→1.4) and grant the ability to trigger critical hits with elemental attacks (turns: 6-9 based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self the ability to trigger a follow-up attack when using elemental attacks (turns: 6-9 based on Boost Lv.) (only activates once per action)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self the special effect Diffusion Rune (turns: 6-9 based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Act faster when consuming 1 or more BP."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Elem. Atk. of Self by 15% and raise Elemental damage by 15% when exploiting a weakness."
+    trigger: always
+    limit_break_upgrade: "Raise Phys. Atk. and Elem. Atk. of **Entire Front Row** by 15%, raise Elemental damage by 15% and raise Elemental damage by 15% when exploiting a weakness."
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience II** Raise own Light and Dark Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "When using a battle skill or an Ultimate Technique that exploits two or more elemental weaknesses, each element exploited raises final damage by 20% (up to 120%) and lower SP consumption by 5% (up to 30%)."
+    trigger: always
+  - passive_category: tp
+    effect: "When using a battle skill or an Ultimate Technique that exploits two or more elemental weaknesses, each element exploited raises final damage by **30%** (up to **180%**) and lower SP consumption by **10%** (up to **60%**)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Entire Front Row by 15,000 when using Elem. Fire, Ice, Lightning, Wind, Light and Dark skills."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Rune of Hope”"
+  passive_effect: "150 E.Atk, -20 Crit, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When consuming 3 BP or more: Grant Dead Aim (guaranteed critical hits) and raise damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

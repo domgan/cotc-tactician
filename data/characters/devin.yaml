@@ -1,0 +1,169 @@
+# Character: Devin
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: devin
+display_name: "Devin"
+rarity: 4
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [polearm, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3460
+p_atk: 351
+p_def: 343
+e_atk: 284
+e_def: 283
+speed: 217
+crit: 261
+sp: 326
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4360
+p_atk_120: 416
+p_def_120: 393
+e_atk_120: 334
+e_def_120: 333
+speed_120: 252
+crit_120: 296
+sp_120: 406
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Tease"
+    sp_cost: 5
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Gust"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Counter Position"
+    sp_cost: 24
+    skill_type: buff
+    target: self
+    power: "150, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Counter Position (2★)** Grant Self counter to physical attacks (potency: 150, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Dust Devil"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Dust Devil"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "**175**"
+  - skill_category: active
+    name: "Desperate Resolve"
+    sp_cost: 22
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Desperate Resolve** **(4★)** Provoke All Foes and raise Phys"
+  - skill_category: active
+    name: "Desperate Resolve"
+    sp_cost: 18
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Desperate Resolve** **(5★)** Provoke All Foes and raise Phys"
+  - skill_category: tp
+    name: "Wooden Spear"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260"
+  - skill_category: ex
+    name: "Great Tree Spear"
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Polearm damage to All Foes 2 time(s) (potency: 2x95) and grant Self the ability to dodge physical attacks (times: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Oaken Stance"
+    skill_type: buff
+    target: self
+    power: "3→4"
+    effects:
+      - "Impart Self with Phys"
+      - "Up **10%→20%→30%** (turns: **3→4**) and grant Self automatic HP recovery (potency: **100→125→150**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Grant Self automatic HP recovery (potency: 85)."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Def Up 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Impart Self with Phys. Def Up 15%."
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self Max HP Up 15% when provoked enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Hand-Carved Woodwork"
+  passive_effect: "20 P.Def, 20 E.Def, 300 HP; Raise own Phys. Def. by 10% when provoked enemy is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

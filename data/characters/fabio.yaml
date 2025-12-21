@@ -1,0 +1,172 @@
+# Character: Fabio
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: fabio
+display_name: "Fabio"
+rarity: 4
+
+# Core attributes
+job: dancer
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 250
+p_def: 255
+e_atk: 376
+e_def: 342
+speed: 337
+crit: 272
+sp: 480
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 300
+p_def_120: 305
+e_atk_120: 441
+e_def_120: 392
+speed_120: 402
+crit_120: 307
+sp_120: 550
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Waltz of the Zephyr"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Peacock Parade"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Peacock Parade** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Sonnet of Storm II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Double Sweep"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Twisting Tune"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Clear-headed"
+    sp_cost: 24
+    skill_type: buff
+    target: self
+    effects:
+      - "**Clear-headed (3★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Clear-headed"
+    sp_cost: 19
+    skill_type: buff
+    target: self
+    effects:
+      - "**Clear-headed (5★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Sonnet of Storm III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "175"
+  - skill_category: active
+    name: "Sonnet of Storm III"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "**205**"
+  - skill_category: tp
+    name: "Stormy Ballad"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    power: "290"
+    effects:
+      - "Wind damage to Single Foe (potency: 290) and lower Wind Res"
+  - skill_category: ex
+    name: "Typhoon Waltz II"
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Airy Arabesque"
+    skill_type: mixed
+    damage_types: [wind]
+    target: front_row
+    power: "330→395→495"
+    effects:
+      - "Wind damage to All Foes (potency: **330→395→495**) and impart Entire Front Row with Elem"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Elem. Atk. Up 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Impart Self with Elem. Atk. Up 15%."
+  - passive_category: innate
+    effect: "At full HP: Raise Wind damage of Self by 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic HP recovery (potency: 110)"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Pretentious Necklace"
+  passive_effect: "30 E.Atk, 20 Spd, 20 SP; When breaking an enemy, lower their Wind Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

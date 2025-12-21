@@ -1,0 +1,169 @@
+# Character: Varkyn
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: varkyn
+display_name: "Varkyn"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3026
+p_atk: 231
+p_def: 286
+e_atk: 419
+e_def: 300
+speed: 273
+crit: 231
+sp: 502
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3686
+p_atk_120: 281
+p_def_120: 336
+e_atk_120: 484
+e_def_120: 350
+speed_120: 323
+crit_120: 281
+sp_120: 592
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Luminescence (All) II"
+    sp_cost: 32
+    skill_type: attack
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Elemental Collapse"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Elemental Collapse (1★)** Impart Single Foe with Elem"
+  - skill_category: active
+    name: "Lightprone (All) III"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Lightprone (All) III (2★)** Lower Light Res"
+  - skill_category: active
+    name: "Dual Slam"
+    sp_cost: 26
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Raging Luminescence"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res"
+  - skill_category: active
+    name: "Clear-headed"
+    sp_cost: 24
+    skill_type: buff
+    target: self
+    effects:
+      - "**Clear-headed (4★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Luminescence (All) III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Lux Congerere (Single) II"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    limit_break_upgrade: "Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65). Attack count becomes 5 at Max Boost."
+  - skill_category: tp
+    name: "Living Soulstone - Attack Type"
+    sp_cost: 120
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "3x"
+    power: "3x55, turns: 2-5 based on Boost Lv."
+  - skill_category: ex
+    name: "Forbidden Luminescence (Single)"
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "475"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Light Shatter Form"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "375→450"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Light damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "At 50% SP or less: Impart Self with Elem. Atk. Up 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Resilience by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When broken enemy is present: Raise potency of battle skills by 30% and grant Self Damage Limit Up (effect: 50,000), but also increase SP consumption by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Medal of Genius Soldier"
+  passive_effect: "40 E.Atk, 40 E.Def, 60 Spd; Start of battle: Lower Elem. Def. of all enemies by 15% (turns: 6); -400 HP, 100 SP; With Tactician’s Cloak equipped: Raise own BP recovery amount by 1 when a broken enemy is present. (Does not stack with support skills and equipment effects)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

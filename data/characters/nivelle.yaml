@@ -1,0 +1,183 @@
+# Character: Nivelle
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nivelle
+display_name: "Nivelle"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, lightning, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2761
+p_atk: 201
+p_def: 236
+e_atk: 484
+e_def: 293
+speed: 348
+crit: 281
+sp: 577
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3421
+p_atk_120: 251
+p_def_120: 286
+e_atk_120: 549
+e_def_120: 343
+speed_120: 398
+crit_120: 331
+sp_120: 667
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Charged Bolt (Single)"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Analyze All"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Triple Beat"
+    sp_cost: 38
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Raging Flamebolt"
+    sp_cost: 41
+    skill_type: mixed
+    damage_types: [lightning, fire]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lowers Lightning Res"
+  - skill_category: active
+    name: "Voltaic Counter"
+    sp_cost: 23
+    skill_type: mixed
+    damage_types: [lightning, light]
+    target: self
+    power: "120"
+    effects:
+      - "**Voltaic Counter (2★)** Raise Lightning Res"
+      - "Grant Self counter to physical attacks with Elem"
+  - skill_category: active
+    name: "Tonitrus Ardere (All) III"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Enduring Flamebolt (All)"
+    sp_cost: 93
+    skill_type: attack
+    damage_types: [lightning, fire]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    name: "Lightning Rush"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [lightning, fire]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lightning damage to Random Foe 4 time(s) (potency: 4x45) and have a small chance to impart Elem"
+  - skill_category: active
+    name: "Charged Blast (Single) IV"
+    sp_cost: 92
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x160"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    effects:
+      - "Shock: Lower Shield Points by 1 when taking Elem"
+    limit_break_upgrade: "Deal Elem. Lightning damage to Single Foe **3** time(s) (potency: **3x110**) and inflict shock (turns: 3)."
+  - skill_category: tp
+    name: "Lightning Augment Magic (All) V"
+    sp_cost: 56
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Lightning Augment Magic (All) V ** Raise Lightning damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Charged Bolt (All) IV"
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    power: "210"
+    effects:
+      - "Shock: Lower Shield Points by 1 when taking Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Bolts of Defiance"
+    skill_type: attack
+    damage_types: [lightning, fire]
+    target: aoe
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impart Entire Front Row with Elem. Atk. Up 30% when shocked enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Lightning damage of Self by 30% and grant the ability to trigger critical hits when using elemental attacks. When breaking a shocked enemy, inflict Fire and Lightning weakening (times: 3)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Cherished Tea Brick"
+  passive_effect: "60 E.Atk, 40 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Lightning Res. by 10% (turns: 2); When there’s a broken enemy, grant the ability to trigger critical hits with elemental attacks and grant Dead Aim (guaranteed critical hits); 60 E.Atk, 40 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Lightning Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

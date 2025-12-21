@@ -1,0 +1,184 @@
+# Character: H’aanit EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: h-aanit-ex
+display_name: "H’aanit EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3096
+p_atk: 388
+p_def: 231
+e_atk: 327
+e_def: 255
+speed: 350
+crit: 342
+sp: 369
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3916
+p_atk_120: 438
+p_def_120: 281
+e_atk_120: 392
+e_def_120: 305
+speed_120: 415
+crit_120: 377
+sp_120: 439
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Summon Linde: Dance"
+    sp_cost: 15
+    skill_type: mixed
+    damage_types: [sword, polearm]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Double Sweep"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Enticing Elegy"
+    sp_cost: 29
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Enticing Elegy (1★)** Provoke All Foes (turns: 2-5 based on Boost Lv.) and lower Phys"
+  - skill_category: active
+    name: "Fire Serpent Serenade"
+    sp_cost: 32
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    power: "120"
+    effects:
+      - "Fire damage to All Foes (potency: 120) and lower Speed by 15% (turns: 2) (potency: 120)"
+  - skill_category: active
+    name: "Warding Firedance"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fire damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge some elemental attacks (times: 1)"
+  - skill_category: active
+    name: "Drizzling Dance"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fan damage to Random Foe 3 time(s) (potency: 3x65) and lower Phys"
+  - skill_category: active
+    name: "Precise Promenade"
+    sp_cost: 59
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit"
+      - "20% more potent if the target’s Speed is lowered"
+    limit_break_upgrade: "Deal Phys. Fan damage to Single Foe (potency: 260). Guaranteed critical hit. **50%** more potent if the target’s Speed is lowered."
+  - skill_category: active
+    name: "Foggy Frolic"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    name: "Phoenix Prance"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    power: "150"
+    effects:
+      - "Fan damage to All Foes (potency: 150) and lower Phys"
+  - skill_category: tp
+    sp_cost: 59
+    skill_type: mixed
+    damage_types: [fan]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Fan Res"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(EX)** Lower Fan Res"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Hail Step: Snow Leopard"
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    power: "330→395"
+    effects:
+      - "Act faster during the turn and deal Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Act faster when consuming 1 or more BP."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self 50% chance of dodging some attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Lower own SP consumption by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dark Forest Veil"
+  passive_effect: "40 P.Atk, 100 SP; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack); Start of battle: Lower Spd of all enemies by 10% (turns: 5)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

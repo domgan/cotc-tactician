@@ -1,0 +1,174 @@
+# Character: Theo
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: theo
+display_name: "Theo"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3230
+p_atk: 350
+p_def: 397
+e_atk: 306
+e_def: 238
+speed: 286
+crit: 208
+sp: 418
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4050
+p_atk_120: 400
+p_def_120: 447
+e_atk_120: 371
+e_def_120: 288
+speed_120: 336
+crit_120: 258
+sp_120: 488
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Amputation"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Mass Rejuvenate"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Mass Rejuvenate** Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Thundershock"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Rehabilitate"
+    sp_cost: 15
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Rehabilitate (2★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Threefold Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Esoteric Cure"
+    sp_cost: 43
+    skill_type: heal
+    target: front_row
+    power: "150"
+    effects:
+      - "**Esoteric Cure (3★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Wind Res"
+  - skill_category: active
+    name: "Fulgor"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Esoteric Remedy"
+    sp_cost: 55
+    skill_type: heal
+    target: single_ally
+    power: "230"
+    effects:
+      - "**Esoteric Remedy (5★)** Restore HP of Single Ally (potency: 230)"
+      - "grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments"
+    limit_break_upgrade: "Restore HP of **Entire Front Row** (potency: 230), grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments."
+  - skill_category: active
+    name: "Dual Harvest"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: tp
+    name: "Extra Harvest"
+    sp_cost: 80
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x85"
+  - skill_category: ex
+    name: "Pollonia’s Supplement"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Pollonia’s Supplement** Raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Pollonia’s Prophylaxis"
+    skill_type: heal
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Cure status ailments of Entire Front Row and grant immunity to some status ailments (turns: **2→3**) and raise Wind Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise BP recovery amount of Self by 1 (turns: 2)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise some status ailment Res. of Paired Allies by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of augmenting effect granted by self by 2 turns (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Pollonia’s Medicine Box
+·"
+  passive_effect: "**40 P.Atk, 60 P. Def., 40 E. Def.; Raise Axe damage dealt by 15%; Raise Wind Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

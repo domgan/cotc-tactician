@@ -1,0 +1,180 @@
+# Character: Kurtz
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kurtz
+display_name: "Kurtz"
+rarity: 4
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 353
+p_def: 288
+e_atk: 246
+e_def: 265
+speed: 403
+crit: 335
+sp: 317
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 418
+p_def_120: 308
+e_atk_120: 296
+e_def_120: 315
+speed_120: 468
+crit_120: 385
+sp_120: 397
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Anti-attack"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Anti-attack** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Gust"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "First Aid"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "95"
+    effects:
+      - "**First Aid (2★)** Restore HP of Single Ally (potency: 95)"
+    limit_break_upgrade: "Restore HP of Entire Front Row (potency: 95) and raise Wind damage by 10% (turns: 2)."
+  - skill_category: active
+    name: "Wind’s Edge"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Wind damage to Single Foe (potency: 160) and lower Wind Res"
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "160"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 19
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "**220**"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Spider Trap"
+    sp_cost: 39
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "145"
+    effects:
+      - "Dagger damage to All Foes (potency: 145) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Spider Trap"
+    sp_cost: 31
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "**175**"
+    effects:
+      - "Dagger damage to All Foes (potency: **175**) and lower Spd by 15% (turns: 2)"
+  - skill_category: tp
+    name: "Gale Fang"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Wind damage to Single Foe (potency: 260) and lower Wind Res"
+  - skill_category: ex
+    name: "Piercing Headwind"
+    skill_type: attack
+    damage_types: [wind, dagger]
+    target: single_enemy
+    power: "170"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Deadly Web"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "330→395→495"
+    effects:
+      - "Dagger damage to All Foes (potency: **330→395→495**) and lower Spd by **5%→10%→15%** (turns: 2)"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise Wind Res. of Self by 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise Wind damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Kurtz Syndicate Badge"
+  passive_effect: "40 E.Atk, 20 Spd, 10 SP; At full HP: Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

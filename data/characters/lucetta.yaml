@@ -1,0 +1,177 @@
+# Character: Lucetta
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lucetta
+display_name: "Lucetta"
+rarity: 4
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3035
+p_atk: 357
+p_def: 223
+e_atk: 238
+e_def: 258
+speed: 354
+crit: 387
+sp: 391
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3855
+p_atk_120: 422
+p_def_120: 273
+e_atk_120: 288
+e_def_120: 278
+speed_120: 404
+crit_120: 452
+sp_120: 471
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sweeping Shot"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Repeated Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Ice Blast"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Lacerating Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Gelid Storm"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Scalding Storm"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    power: "115"
+    effects:
+      - "Bow damage to All Foes (potency: 115) and impart Phys"
+  - skill_category: active
+    name: "Scalding Storm"
+    sp_cost: 23
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    power: "**145**"
+    effects:
+      - "Bow damage to All Foes (potency: **145**) and impart Phys"
+  - skill_category: active
+    name: "Triple Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x60"
+  - skill_category: active
+    name: "Triple Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "**3x80**"
+  - skill_category: tp
+    name: "Silver Arrow of Residual Heart"
+    sp_cost: 22
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Bow damage to Single Foe (potency: 230) and impart Self with Phys"
+  - skill_category: ex
+    name: "Silver Arrow Barrage"
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "5x"
+    power: "5x65"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Silver Arrow"
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "3x"
+    effects:
+      - "Bow damage to All Foes 3 time(s) (potency: **3x115→3x135→3x160**) and impart with Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When near death: Raise Bow damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Bow damage of Self by 20%."
+  - passive_category: innate
+    effect: "Extend duration of Paired Ally’s or own augmenting effects by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Silver Bowstring"
+  passive_effect: "20 Crit, 30 Spd, 20 SP; Raise Bow damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

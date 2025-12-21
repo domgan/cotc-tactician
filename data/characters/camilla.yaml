@@ -1,0 +1,175 @@
+# Character: Camilla
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: camilla
+display_name: "Camilla"
+rarity: 4
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3072
+p_atk: 350
+p_def: 238
+e_atk: 240
+e_def: 278
+speed: 333
+crit: 378
+sp: 371
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3892
+p_atk_120: 415
+p_def_120: 288
+e_atk_120: 290
+e_def_120: 298
+speed_120: 383
+crit_120: 443
+sp_120: 451
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sweeping Shot"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Sturdy Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "First Aid"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "95"
+    effects:
+      - "**First Aid (1★)** Restore HP of Single Ally (potency: 95)"
+  - skill_category: active
+    name: "Torch"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Flurry of Arrows"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x 75"
+  - skill_category: active
+    name: "Lacerating Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Lacerating Arrow"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "**220**"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Emergency First Aid (4★)** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 19
+    skill_type: heal
+    target: single_ally
+    power: "**225**"
+    effects:
+      - "**Emergency First Aid (5★)** Restore HP of Single Ally (potency: **225**)"
+  - skill_category: tp
+    name: "Luck Recovery"
+    sp_cost: 75
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Luck Recovery ** Restore HP of Entire Front Row (potency: 205) and raise their Critical by 20% (turns: 2)"
+  - skill_category: ex
+    name: "Arrow of Punishment"
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Bow damage to All Foes 3 time(s) (potency: 3x80) and lower Bow Res"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Spirited Snipe"
+    skill_type: attack
+    damage_types: [bow]
+    target: front_row
+    power: "440→525→655"
+    effects:
+      - "Bow damage to Single Foe (potency: **440→525→655**) and raise Bow damage dealt of Entire Front Row by **5%→10%→15%** (turns: 2)"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 85)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Bow Damage of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Bow Damage of Paired Allies by **15%**."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Raise critical damage of Entire Front Row by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Floral Gift"
+  passive_effect: "20 P.Atk, 20 Spd, 30 SP; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

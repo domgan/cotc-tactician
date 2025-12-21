@@ -1,0 +1,336 @@
+# COTC Team Schema
+# All fields marked [HUMAN-REQUIRED] must be filled by someone with game knowledge.
+# The LLM will NOT invent any values for these fields.
+#
+# Copy _template.yaml to create a new team entry.
+
+schema_version: "1.0"
+
+fields:
+  # ===========================================================================
+  # IDENTITY
+  # ===========================================================================
+  id:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Unique identifier (lowercase, hyphenated)"
+    pattern: "^[a-z0-9-]+$"
+    example: "boss-name-strategy-type"
+
+  name:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Descriptive team name"
+    example: "Fire Magic Burst Team"
+
+  boss_id:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Reference to boss this team is designed for"
+
+  # ===========================================================================
+  # CLASSIFICATION
+  # ===========================================================================
+  strategy_type:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [burst, sustain, safe, speed_clear, low_investment, cheese]
+    description: |
+      Overall strategy approach:
+      - burst: Quick kill during break windows
+      - sustain: Survive and chip away over many turns
+      - safe: Conservative approach with backup plans
+      - speed_clear: Optimized for fast clears
+      - low_investment: Works with minimal gear/awakening
+      - cheese: Exploits specific mechanics
+
+  investment_level:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [low, medium, high, whale]
+    description: |
+      Resource/character requirements:
+      - low: Common characters, basic gear
+      - medium: Some rare characters or moderate gear
+      - high: Multiple 5* characters, good gear
+      - whale: Premium characters, max awakening, perfect gear
+
+  # ===========================================================================
+  # COMPOSITION
+  # ===========================================================================
+  front_line:
+    type: array
+    items: slot_object
+    required: true
+    min_items: 1
+    max_items: 4
+    source: "[HUMAN-REQUIRED]"
+    description: "Front line party members (4 slots, positions 1-4)"
+
+  back_line:
+    type: array
+    items: slot_object
+    required: false
+    max_items: 4
+    source: "[HUMAN-REQUIRED]"
+    description: "Back line party members (4 slots, positions 5-8)"
+
+  slot_object:
+    position:
+      type: integer
+      required: true
+      allowed_values: [1, 2, 3, 4, 5, 6, 7, 8]
+      description: "Party position (1-4 front, 5-8 back)"
+
+    character_id:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "ID of the character in this slot"
+
+    role_in_team:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: 
+        - tank
+        - healer
+        - buffer
+        - debuffer
+        - breaker
+        - primary_dps
+        - secondary_dps
+        - utility
+      description: "What role this character plays in THIS team"
+
+    is_required:
+      type: boolean
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Is this specific character required, or can it be substituted?"
+
+    substitutes:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Character IDs that can substitute for this slot"
+
+    substitute_notes:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Notes on what changes with substitutions"
+
+    key_skills_used:
+      type: array
+      items: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Which skills from this character are critical for the strategy"
+
+    accessory_requirements:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Required or recommended accessories"
+
+    awakening_required:
+      type: integer
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      allowed_values: [0, 1, 2, 3, 4]
+      description: "Minimum awakening level needed"
+
+  # ===========================================================================
+  # TURN PLAN
+  # ===========================================================================
+  turn_plan:
+    type: array
+    items: turn_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Turn-by-turn action plan"
+
+  turn_object:
+    turn_range:
+      type: string
+      required: true
+      description: "Single turn '3' or range '1-5'"
+      example: |
+        - "1"
+        - "2-6"
+        - "7+"
+
+    phase:
+      type: string
+      required: false
+      allowed_values: [setup, break_push, break_window, sustain, burst, recovery]
+      description: "What phase of the battle this is"
+
+    actions:
+      type: array
+      items: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Actions per character in speed order"
+      example: 
+        - "Buffer: Apply ATK up (max boost)"
+        - "Debuffer: Apply DEF down"
+        - "DPS: Basic attack for shield"
+
+    notes:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Additional context for this turn"
+
+  # ===========================================================================
+  # SPEED ORDER
+  # ===========================================================================
+  speed_order:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Intended turn order (character IDs in speed order)"
+
+  speed_tuning_notes:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "How to achieve desired speed order (accessories, etc.)"
+
+  # ===========================================================================
+  # BUFF/DEBUFF PLAN
+  # ===========================================================================
+  buff_stacking:
+    type: array
+    items: buff_plan_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "How buffs are stacked and maintained"
+
+  buff_plan_object:
+    buff_type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What stat/damage type is being buffed"
+      example: |
+        - "sword_damage_up"
+        - "phys_atk_up"
+
+    sources:
+      type: array
+      items: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Which characters contribute to this buff"
+
+    target_cap:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Target buff percentage"
+      example: "30%"
+
+    timing:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "When to apply (before break, during break, etc.)"
+
+  # ===========================================================================
+  # EXPLANATION
+  # ===========================================================================
+  why_it_works:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    llm_usage: "Core reasoning for this team composition"
+    description: "Detailed explanation of why this team works for this boss"
+
+  key_synergies:
+    type: array
+    items: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Important character interactions"
+
+  risks_and_recovery:
+    type: array
+    items: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "What can go wrong and how to recover"
+
+  # ===========================================================================
+  # VERIFICATION
+  # ===========================================================================
+  verified:
+    type: boolean
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    description: "Has this team composition been tested successfully?"
+
+  clear_time:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Approximate clear time"
+    example: |
+      - "~8 minutes"
+      - "15-20 turns"
+
+  success_rate:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Estimated consistency"
+    example: |
+      - "90%+"
+      - "High with proper execution"
+
+  # ===========================================================================
+  # METADATA
+  # ===========================================================================
+  author:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [community, theorycraft, personal, copied]
+    description: "Source of this team composition"
+
+  source_url:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Link to original guide/video if copied"
+
+  data_confidence:
+    type: string
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [verified, tested, theoretical, incomplete]
+    description: "How reliable is this data?"
+
+  last_verified:
+    type: date
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    format: "YYYY-MM-DD"
+    description: "When this team was last tested successfully"
+
+  last_updated:
+    type: date
+    required: true
+    source: "[HUMAN-REQUIRED]"
+    format: "YYYY-MM-DD"
+

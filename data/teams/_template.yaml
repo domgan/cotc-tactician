@@ -1,0 +1,127 @@
+# COTC Team Template
+# Copy this file and fill in ALL [HUMAN-REQUIRED] fields.
+# The LLM cannot and will not generate any of this information.
+#
+# Filename: [boss-id]-[strategy-type].yaml (e.g., boss-name-burst.yaml)
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: ""                    # [HUMAN-REQUIRED] unique-identifier (lowercase, hyphenated)
+name: ""                  # [HUMAN-REQUIRED] Descriptive team name
+boss_id: ""               # [HUMAN-REQUIRED] ID of the boss this team is for
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: ""         # [HUMAN-REQUIRED] burst|sustain|safe|speed_clear|low_investment|cheese
+investment_level: ""      # [HUMAN-REQUIRED] low|medium|high|whale
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: ""      # [HUMAN-REQUIRED] Character ID
+    role_in_team: ""      # [HUMAN-REQUIRED] tank|healer|buffer|debuffer|breaker|primary_dps|secondary_dps|utility
+    is_required: true     # [HUMAN-REQUIRED] true if this specific character is needed
+    substitutes: []       # [HUMAN-REQUIRED] Character IDs that can replace this slot
+    substitute_notes: ""  # Notes on substitution tradeoffs
+    key_skills_used: []   # [HUMAN-REQUIRED] Skill names critical to strategy
+    accessory_requirements: []  # Recommended accessories
+    awakening_required: 0 # Minimum awakening level
+
+  - position: 2
+    character_id: ""
+    role_in_team: ""
+    is_required: true
+    substitutes: []
+    key_skills_used: []
+
+  - position: 3
+    character_id: ""
+    role_in_team: ""
+    is_required: true
+    substitutes: []
+    key_skills_used: []
+
+  - position: 4
+    character_id: ""
+    role_in_team: ""
+    is_required: true
+    substitutes: []
+    key_skills_used: []
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8, optional)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: ""
+    role_in_team: ""
+    is_required: false
+    substitutes: []
+    key_skills_used: []
+
+  # Add positions 6-8 as needed
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: []           # [HUMAN-REQUIRED] Character IDs in intended turn order
+speed_tuning_notes: ""    # How to achieve this speed order
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1"
+    phase: setup          # setup|break_push|break_window|sustain|burst|recovery
+    actions:              # [HUMAN-REQUIRED] Actions in speed order
+      - ""
+    notes: ""
+
+  - turn_range: "2-6"
+    phase: break_push
+    actions:
+      - ""
+
+  # Add more turns as needed
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: ""         # [HUMAN-REQUIRED] What's being buffed
+    sources: []           # [HUMAN-REQUIRED] Which characters provide this
+    target_cap: ""        # Target percentage
+    timing: ""            # [HUMAN-REQUIRED] When to apply
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |           # [HUMAN-REQUIRED] Why this team works for this boss
+  
+
+key_synergies:            # [HUMAN-REQUIRED] Important character interactions
+  - ""
+
+risks_and_recovery:       # What can go wrong and how to handle it
+  - ""
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false           # [HUMAN-REQUIRED] Has this been tested?
+clear_time: ""            # Approximate clear time
+success_rate: ""          # Estimated consistency
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: ""                # community|theorycraft|personal|copied
+source_url: ""            # Link to original if copied
+data_confidence: incomplete  # [HUMAN-REQUIRED] verified|tested|theoretical|incomplete
+last_verified: null       # YYYY-MM-DD when last tested
+last_updated: null        # [HUMAN-REQUIRED] YYYY-MM-DD
+

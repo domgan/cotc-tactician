@@ -1,0 +1,180 @@
+# Character: Avar
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: avar
+display_name: "Avar"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark, fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3220
+p_atk: 475
+p_def: 402
+e_atk: 241
+e_def: 253
+speed: 301
+crit: 208
+sp: 368
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4040
+p_atk_120: 525
+p_def_120: 452
+e_atk_120: 306
+e_def_120: 303
+speed_120: 351
+crit_120: 258
+sp_120: 438
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    sp_cost: 30
+    skill_type: buff
+    target: self
+    effects:
+      - "**(2★)** Grant Self Dead Aim (guranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Phys Def"
+  - skill_category: active
+    sp_cost: 49
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Axe Res"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "530"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "**(EX)** Grant Self the effect of lowering 1 additional Shield Points when using Axe attacks that strike a weakness (turns: 3-6 based on Boost Lv./Effects of the same type do not stack)"
+      - "Grant Self Damage Limit Up (effect: 100,000, turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Overflowing Rebellious Intentions”"
+    skill_type: buff
+    target: self
+    power: "3→4"
+    effects:
+      - "Raise potency of Self by **50%** (turns: **3→4**/Cannot be extended/Effects of the same type do not stack)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain the ability for physical attacks (other than Attack) to exploit Sword, Fire and Dark weakness (damage calculation based on physical attack damage type)."
+    trigger: always
+  - passive_category: innate
+    effect: "When selecting a command, grant Self the special effect of “Savage” (turns: 2). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot. ---"
+    trigger: always
+    limit_break_upgrade: "When selecting a command, grant Self the special effect of “Savage” (turns: **3**). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot. ---"
+  - passive_category: innate
+    effect: "Raise own Phys. Atk. and Axe damage of Self by 15% and increase the Axe damage limit from support skills and equipment effects to 50%. When in “Savage” state: Add 50% of P.Def to P.Atk (including equipment stats/Cannot be stacked)"
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Rebel’s Wristband”"
+  passive_effect: "140 P.Atk, 100 P.Def., -60 E.Atk, -40 E.Def; Grant Self Damage Limit Up (effect: 70,000); When equipped by an apothecary: Gain the ability for physical attacks (other than Attack) to exploit Polearm and Bow weakness (damage calculation based on physical attack damage type)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

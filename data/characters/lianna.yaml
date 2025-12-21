@@ -1,0 +1,180 @@
+# Character: Lianna
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lianna
+display_name: "Lianna"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2762
+p_atk: 256
+p_def: 312
+e_atk: 360
+e_def: 429
+speed: 276
+crit: 283
+sp: 350
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3502
+p_atk_120: 306
+p_def_120: 362
+e_atk_120: 425
+e_def_120: 494
+speed_120: 326
+crit_120: 318
+sp_120: 430
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heal More"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Heal More** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Blizzard (Single) II"
+    sp_cost: 28
+    skill_type: utility
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Oracle of Order II"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Oracle of Order II (1★)** Impart Single Foe Phys"
+  - skill_category: active
+    name: "Icebreaker"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Staff damage to Single Foe 2 time(s) (potency: 2x90) and impart Ice Res"
+  - skill_category: active
+    name: "Triple Leg Bash"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [staff]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Staff damage to All Foes 3 time(s) (potency: 3x65) and impart Spd Down 15% (turns: 2)"
+  - skill_category: active
+    name: "Healing Spirit II"
+    sp_cost: 82
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Healing Spirit II (3★)** Restore HP of Entire Front Row (potency: 130) and raise Elem"
+  - skill_category: active
+    name: "Glacies Debilitare (All) III"
+    sp_cost: 80
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x80) and impart Phys"
+  - skill_category: active
+    name: "Sacred Battle Veil"
+    sp_cost: 40
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Sacred Battle Veil (5★)** Impart Single Ally with Phys"
+      - "Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost"
+    limit_break_upgrade: "Impart **All Allies** with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost). Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost."
+  - skill_category: active
+    name: "Revive (Single)"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    name: "Healing Blessing"
+    sp_cost: 76
+    skill_type: buff
+    target: front_row
+    power: "110"
+    effects:
+      - "**Healing Blessing ** Grant Entire Front Row automatic HP recovery (potency: 110) and automatic SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    power: "180"
+    effects:
+      - "Ice damage to All Foes (potency: 180) and grant Entire Front Row HP Barrier (potency: 25% of user’s max HP/Does not stack)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Divine Strike"
+    skill_type: mixed
+    damage_types: [staff]
+    target: aoe
+    hit_count: "4x"
+    effects:
+      - "Staff damage to All Foes 4 time(s) (potency: **4x75→4x90**) and lower Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Recover 4% of SP when taking damage from enemies."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Grant back row automatic HP recovery (potency: 30)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Pure White Cape"
+  passive_effect: "40 P.Atk, 40 E.Atk, 60 SP; Raise ice damage dealt by 15%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

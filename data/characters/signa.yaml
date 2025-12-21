@@ -1,0 +1,170 @@
+# Character: Signa
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: signa
+display_name: "Signa"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, fire, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2676
+p_atk: 245
+p_def: 255
+e_atk: 402
+e_def: 342
+speed: 397
+crit: 262
+sp: 504
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3496
+p_atk_120: 295
+p_def_120: 305
+e_atk_120: 467
+e_def_120: 392
+speed_120: 462
+crit_120: 297
+sp_120: 574
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Maiden’s Favor"
+    sp_cost: 52
+    skill_type: buff
+    target: front_row
+    power: "80, turns: 2"
+    effects:
+      - "**Maiden’s Favor** Grant Entire Front Row automatic HP recovery (potency: 80, turns: 2) and raise Phys"
+  - skill_category: active
+    name: "Maiden’s Spirit"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Maiden’s Spirit (1★)** Raise BP recovery amount of Single Ally by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Guardian’s Elegy"
+    sp_cost: 30
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Guardian’s Elegy (2★)** Lower Sword"
+  - skill_category: active
+    name: "Sacred Blaze Ode: Flurry"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x30"
+  - skill_category: active
+    name: "Corroding Nocturne"
+    sp_cost: 72
+    skill_type: debuff
+    target: aoe
+    limit_break_upgrade: "Cast countdown on Self (**count: 3**). Once the countdown ends, lower Phys. and Elem. Res. of All Foes by 15% (turns: 3-6 based on Boost Lv.)."
+  - skill_category: active
+    name: "Sacred Blaze Ode: Divinity"
+    sp_cost: 53
+    skill_type: mixed
+    damage_types: [light, fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "[53 SP] ·6+ effects: Lower Phys"
+      - "·12+ effects: Also lower Phys"
+  - skill_category: active
+    name: "Sacred Blaze Ode: Round"
+    sp_cost: 80
+    skill_type: attack
+    damage_types: [light, fire]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Sacred Blaze Ode: Penance"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [light, fire]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Sacred Blaze Ode: Finale"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [light, fire]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: ex
+    name: "Debilitating Cantata"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Debilitating Cantata** Lower Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Debilitating Oratorio"
+    skill_type: debuff
+    target: aoe
+    power: "2→3"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 5%."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% SP or more: Lower Speed and Critical of All Foes by 5%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Little Finger’s Hair Accessory"
+  passive_effect: "60 E.Atk, 400 HP, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,184 @@
+# Character: Cyrus
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cyrus
+display_name: "Cyrus"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, ice, lightning, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2746
+p_atk: 236
+p_def: 281
+e_atk: 454
+e_def: 330
+speed: 253
+crit: 246
+sp: 582
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3406
+p_atk_120: 286
+p_def_120: 331
+e_atk_120: 519
+e_def_120: 380
+speed_120: 303
+crit_120: 296
+sp_120: 672
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Fireball (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Icewind (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Lightning Bolt (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Double Press"
+    sp_cost: 40
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: active
+    name: "Focus"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Focus (3★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Ignis Ardere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Glacies Claudere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Tonitrus Canere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Pursuit of Technical Theory"
+    sp_cost: 25
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Pursuit of Technical Theory ** Raise the potency of skills by 50% (turns: 3-6 based on Boost Lv./Cannot be extended/Does not stack with effects of the same type)"
+  - skill_category: tp
+    name: "Pursuit of Technical Theory Lv.2"
+    sp_cost: 25
+    skill_type: buff
+    target: self
+    effects:
+      - "**Pursuit of Technical Theory Lv.2** Raise the potency of skills by **100%** (turns: 3-6 based on Boost Lv./Cannot be extended/Does not stack with effects of the same type)"
+      - "grant Self automatic SP recovery (amount: 5% of max SP) and recover 1 BP"
+  - skill_category: ex
+    name: "The Three Elements"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**The Three Elements** Raise Fire/Ice/Lightning damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.)"
+      - "Restore 1 BP of the same target at Max Boost"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Chainspell"
+    skill_type: attack
+    damage_types: [fire, ice, lightning]
+    target: aoe
+    power: "195→225→280"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Show weak points of All Foes one by one."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise Fire, Ice and Lightning damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Impart Self with Elem. Atk. Up 10%, raise Critical by 20% and raise Fire, Ice and Lightning damage of Self by 20%."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "When there are broken enemies, Impart Self with Elem. Atk. Up 20% and grant the ability to trigger critical hits when using elemental attacks."
+    trigger: always
+  - passive_category: tp
+    effect: "When there are broken enemies, Impart Self with Elem. Atk. Up 20% and grant the ability to trigger critical hits when using elemental attacks. At full HP: Add 30% of P.Atk to E.Atk (including equipment stats/Cannot be stacked)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Damage Limit of Entire Front Row by 15,000 when using Elem. Fire, Ice or Lightning skills."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Professor’s Insignia"
+  passive_effect: "60 E.Atk., 40 E.Def., 40 SP; Raise Fire, Ice and Lightning damage dealt by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

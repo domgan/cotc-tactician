@@ -1,0 +1,170 @@
+# Character: Kouren
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kouren
+display_name: "Kouren"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 384
+p_def: 298
+e_atk: 327
+e_def: 216
+speed: 295
+crit: 343
+sp: 291
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 449
+p_def_120: 363
+e_atk_120: 377
+e_def_120: 266
+speed_120: 330
+crit_120: 393
+sp_120: 361
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Swallow Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Paraselene"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Full Moon"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Armor Piercer"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Warm Up"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Warm Up** **(2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Boosting Blade"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Cloudy Moon"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Peacock Slash"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x55"
+  - skill_category: active
+    name: "Arrhythmic Slash"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 290). Results 20% more potent if target has not yet acted. Raise Damage Limit of this skill by 100,000."
+  - skill_category: tp
+    name: "Counter Blade"
+    sp_cost: 40
+    skill_type: buff
+    target: self
+    effects:
+      - "**Counter Blade ** Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP)"
+      - "grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Peacock’s Radiant"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Blade of the End"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "440→525→655"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Raise some status ailments of Self by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant self 15% chance of dodging some physical attacks and raise speed by 15% with a successful dodge from this skill’s effects (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise Sword damage of Self by 30%."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Eastern Carving"
+  passive_effect: "40 P.Atk, 60 Crit, 40 SP; Raise Sword and Light damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

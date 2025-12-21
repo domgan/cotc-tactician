@@ -1,0 +1,111 @@
+# COTC Character Example
+# This is an EXAMPLE file showing the expected format.
+# Character data is PLACEHOLDER - actual values must be verified by a human.
+#
+# NOTE: This example uses fictional/placeholder values to demonstrate structure.
+# All actual character data must come from game knowledge, NOT this example.
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: example-buffer-healer
+display_name: "Example Character (Placeholder)"
+rarity: 5
+
+# ===========================================================================
+# CORE ATTRIBUTES
+# ===========================================================================
+element: holy
+weapons: [staff, dagger]
+job: Cleric
+
+# ===========================================================================
+# ROLE CAPABILITIES
+# ===========================================================================
+roles: [healer, buffer]
+role_notes: |
+  This is an example of a character that fills both healer and buffer roles.
+  Can provide party-wide healing and attack buffs.
+  [HUMAN-REQUIRED: Replace with actual character capabilities]
+
+# ===========================================================================
+# SKILLS
+# ===========================================================================
+skills:
+  - name: "Example Heal"
+    skill_type: heal
+    target: all_allies
+    effects: [heal, regen]
+    effect_duration: 3
+    effect_potency: "medium"
+    notes: "[PLACEHOLDER] Party-wide heal with regen effect"
+
+  - name: "Example Attack Buff"
+    skill_type: buff
+    target: all_allies
+    effects: [phys_atk_up]
+    effect_duration: 3
+    effect_potency: "15%"
+    bp_cost: 2
+    notes: "[PLACEHOLDER] Party attack buff"
+
+  - name: "Example Holy Attack"
+    skill_type: attack
+    damage_type: holy
+    target: single_enemy
+    hit_count: 3
+    bp_cost: 0
+    notes: "[PLACEHOLDER] Basic holy damage attack"
+
+# ===========================================================================
+# PASSIVES
+# ===========================================================================
+passives:
+  - name: "Example Passive"
+    effect: "Heal potency increased by 10%"
+    trigger: "Always active"
+
+# ===========================================================================
+# SYNERGIES
+# ===========================================================================
+synergies:
+  - character_id: example-dps
+    synergy_type: buff_stacking
+    description: "[PLACEHOLDER] Attack buff stacks with DPS self-buff"
+
+# ===========================================================================
+# SPEED / TURN ORDER
+# ===========================================================================
+base_speed: 150
+speed_category: medium
+speed_notes: "[PLACEHOLDER] Needs speed accessory to act before DPS"
+
+# ===========================================================================
+# LIMITATIONS & BEST USE CASES
+# ===========================================================================
+weaknesses:
+  - "[PLACEHOLDER] Low HP, vulnerable to burst damage"
+  - "[PLACEHOLDER] No debuff capabilities"
+
+best_use_cases:
+  - "[PLACEHOLDER] Teams needing party-wide healing"
+  - "[PLACEHOLDER] Bosses where attack buff is valuable"
+  - "[PLACEHOLDER] Holy-weak enemies"
+
+# ===========================================================================
+# AWAKENING
+# ===========================================================================
+awakening_level: 0
+awakening_notes: "[PLACEHOLDER] A4 unlocks enhanced heal skill"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_notes: |
+  THIS IS A PLACEHOLDER EXAMPLE.
+  All values are fictional and must be replaced with real game data.
+  Use this file as a structural reference only.
+data_source: "Example file - not real data"
+last_updated: 2024-01-01
+

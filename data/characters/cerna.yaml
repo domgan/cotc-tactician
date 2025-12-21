@@ -1,0 +1,177 @@
+# Character: Cerna
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cerna
+display_name: "Cerna"
+rarity: 4
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2481
+p_atk: 301
+p_def: 307
+e_atk: 223
+e_def: 230
+speed: 181
+crit: 251
+sp: 239
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3381
+p_atk_120: 366
+p_def_120: 357
+e_atk_120: 273
+e_def_120: 280
+speed_120: 216
+crit_120: 286
+sp_120: 319
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Veteran’s Bearing"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Veteran’s Bearing** Impart Self with Phys"
+  - skill_category: active
+    name: "Deadly Thrust"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Leg-Crippling Thrust"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x85) and lower Spd by 15% with every attack (turns: 2)"
+  - skill_category: active
+    name: "Arm-Crippling Thrust"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [polearm]
+    target: random
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Polearm damage to Random Foe 2 time(s) (potency: 2x85) and impart Phys"
+  - skill_category: active
+    name: "Chain Shadow Impact"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Chain Shadow Impact"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x115**"
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "The Big Haul"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "5x"
+    power: "3-5x65"
+  - skill_category: ex
+    name: "Bountiful Thsrust"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x65"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Greater Crippling Thrust"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "4x"
+    effects:
+      - "Polearm damage to Single Foe 4 time(s) (potency: **4x95→4x115→4x140**) and lower Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When unleashing some attacks, have a low chance to lower enemies’ Polearm Res. by 10% (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "When unleashing some attacks, have a low chance to lower enemies’ Polearm Res. by **15%** (turns: 2)."
+  - passive_category: innate
+    effect: "End of battle: Raise EXP earned by Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Foraging Sack"
+  passive_effect: "30 P.Atk, 20 E.Atk, 20 SP; Raise own Phys. Atk. by 10% when an enemy with Polearm Res. Down is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

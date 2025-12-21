@@ -1,0 +1,181 @@
+# Character: Dorothea
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: dorothea
+display_name: "Dorothea"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3380
+p_atk: 379
+p_def: 343
+e_atk: 290
+e_def: 290
+speed: 235
+crit: 261
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4280
+p_atk_120: 444
+p_def_120: 393
+e_atk_120: 340
+e_def_120: 340
+speed_120: 270
+crit_120: 296
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Scorch"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "4x"
+    power: "1-4x45"
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Torch"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Trade-off"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Sear"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Trifold Thrust"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Reckless Exchange"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "290"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: attack
+    target: self
+  - skill_category: tp
+    name: "Reversal Lance"
+    sp_cost: 180
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "1-2x325"
+  - skill_category: ex
+    name: "Ruined Spear"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "10x"
+    power: "4-10x30"
+    effects:
+      - "**Ruined Spear** Act faster during turn and deal Phys"
+      - "lower Polearm Res"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Hard Eight"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "500→600"
+    effects:
+      - "Restore **1→2** BP and 3 Luck to Self"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** At full HP: Raise Polearm damage of Entire Front Row by 15%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "**(6★)** At full HP: Impart Entire Front Row with Phys. Atk. Up 15% and raise Polearm damage by 15%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "**(3★)** At the end of each turn: Recover HP (potency: 100) and restore 1 Luck."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Activate a skill twice when consuming 3 BP (the follow-up attack will not consume SP). *If your remaining Luck points do not meet the Skill Change condition after using a changed skill, the follow-up attack will not be activated."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Bird Statuette"
+  passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Polearm and Fire damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

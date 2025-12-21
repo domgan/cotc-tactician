@@ -1,0 +1,184 @@
+# Character: Shana
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: shana
+display_name: "Shana"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, lightning, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2930
+p_atk: 335
+p_def: 372
+e_atk: 291
+e_def: 268
+speed: 311
+crit: 198
+sp: 580
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3750
+p_atk_120: 385
+p_def_120: 422
+e_atk_120: 356
+e_def_120: 318
+speed_120: 361
+crit_120: 248
+sp_120: 650
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Emergency First Aid (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Emergency First Aid (All)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Plum Pill"
+    sp_cost: 1
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Plum Pill** Restore SP of Single Ally (amount: 10-?? based on Boost Lv.)"
+  - skill_category: active
+    name: "Quadruple Windbolt Slash"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Rehabilitate (All)"
+    sp_cost: 30
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Rehabilitate (All) (2★)** Cure some status ailments of Entire Front Row and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Mass Rejuvenate"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Mass Rejuvenate (2★)** Grant Entire Front Row automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Refined Plum Injection"
+    sp_cost: 300
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Refined Plum Injection (3★)** Impart All Allies excluding Self with SP Stock (amount: 125-300 based on Boost Lv./does not stack)"
+  - skill_category: active
+    name: "Raging Windbolt Slash"
+    sp_cost: 66
+    skill_type: mixed
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Axe damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Phys"
+  - skill_category: active
+    name: "Cura Salute"
+    sp_cost: 1
+    skill_type: heal
+    target: all_allies
+    hit_count: "3x"
+    power: "120, turns: 2"
+    effects:
+      - "Grant additional effects to All Allies based on the number of times SP is consumed"
+      - "[1 SP] ·1+ time(s): Grant automatic HP recovery (potency: 120, turns: 2)"
+      - "·2+ time(s): Also raise max HP of All Allies by 20% (turns: 2)"
+      - "·3 time(s): Also grant HP Barrier (potency: 20% of user’s max HP/does not stack)"
+  - skill_category: active
+    name: "Triple Windbolt Gash"
+    sp_cost: 81
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Plum Injection"
+    sp_cost: 150
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Plum Injection ** Impart Entire Front Row excluding Self with SP Stock (amount: 50-150 based on Boost Lv./does not stack)"
+  - skill_category: ex
+    name: "Operazione Eterno"
+    skill_type: heal
+    target: all_allies
+    hit_count: "3x"
+    effects:
+      - "**Operazione Eterno** Restore HP of Self (amount: 25%-100% of max HP based on Boost Lv.)"
+      - "Grant additional effects to All Allies based on the number of times SP is consumed"
+      - "·1+ time(s): Grant Damage Limit Up (effect: 20,000, turns: 2-5 based on Boost Lv.)"
+      - "·2+ time(s): Also raise BP recovery amount by 3 (turns: 1)"
+      - "·3 time(s): Also grant Undying (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Tritale Arcobaleno"
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "6x"
+    effects:
+      - "Impart Self with SP Stock (potency: **100%→200%→300%** of user’s max SP/does not stack)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart All Allies with SP Stock (amount: 20% of user’s max SP/does not stack)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Impart All Allies with SP Stock (amount: **40%** of user’s max SP/does not stack)."
+  - passive_category: innate
+    effect: "When in front row and with SP Stock: Grant Entire Front Row an effect that recovers HP equal to 10% of damage. (With exceptions/Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic SP recovery (amount: 5% of max SP). With SP Stock: Recovery amount doubles."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Traveler’s Cape"
+  passive_effect: "140 SP; 100% chance of resisting some status ailments; Grant Self SP Stock when consuming 3 or more BP (amount: 10% of user’s max SP/does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

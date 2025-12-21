@@ -1,0 +1,173 @@
+# Character: Noelle
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: noelle
+display_name: "Noelle"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2895
+p_atk: 244
+p_def: 287
+e_atk: 404
+e_def: 332
+speed: 288
+crit: 230
+sp: 556
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3555
+p_atk_120: 294
+p_def_120: 337
+e_atk_120: 469
+e_def_120: 382
+speed_120: 338
+crit_120: 280
+sp_120: 646
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Tornado (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Elemental Boost"
+    sp_cost: 21
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Elemental Boost** Impart Single Ally with Elem"
+  - skill_category: active
+    name: "Elemental Collapse"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Elemental Collapse (1★)** Impart Single Foe with Elem"
+  - skill_category: active
+    name: "Tornado (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Tornado (Single) II"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Windprone (All) II"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Windprone (All) II (3★)** Lower Wind Res"
+  - skill_category: active
+    name: "Windprone (All) II"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Windprone (All) II (5★)** Lower Wind Res"
+    limit_break_upgrade: "Lower Wind Res. of All Foes by **20%** (turns: 4-7 based on Boost Lv.) and inflict corrosion (turns: 2)."
+  - skill_category: active
+    name: "Maelstorm (All)"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Maelstorm (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "**2x75**"
+  - skill_category: tp
+    name: "Lost Storm"
+    sp_cost: 68
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Wind damage to All Foes 3 time(s) (potency: 3x65) and lower Wind Res"
+  - skill_category: ex
+    name: "Magnus Ventus (All) IV"
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Windbeast’s Wings"
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    power: "330→395→495"
+    effects:
+      - "Wind damage to All Foes (potency: **330→395→495**) and lower Wind Res"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of Battle: Raise EXP earned by Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Wind damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dalberk’s Thesis"
+  passive_effect: "30 E.Atk, 20 Spd, 20 SP; Raise own Elem. Atk. by 10% when an enemy with Wind Res. Down is present"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

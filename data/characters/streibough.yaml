@@ -1,0 +1,178 @@
+# Character: Streibough
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: streibough
+display_name: "Streibough"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Kingdom of Lucrece (Live A Live)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, ice, lightning, tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2996
+p_atk: 216
+p_def: 276
+e_atk: 419
+e_def: 335
+speed: 313
+crit: 221
+sp: 567
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3656
+p_atk_120: 266
+p_def_120: 326
+e_atk_120: 484
+e_def_120: 385
+speed_120: 363
+crit_120: 271
+sp_120: 657
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Red Ballet"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Icebind"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "70"
+  - skill_category: active
+    name: "Violet Daze"
+    sp_cost: 34
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Dark damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2)"
+  - skill_category: active
+    name: "Silver Fangs"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Purple Mist"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Gale Force"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [lightning, wind]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Blue Squall"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [lightning, wind]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Crimson Eruption"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "35"
+  - skill_category: active
+    name: "Amber Flurry"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "180"
+    effects:
+      - "Lightning damage to All Foes (potency: 180) and raise potency with every 2 Magic Points (up to a max of 80% additional potency)"
+  - skill_category: tp
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Dark damage to All Foes 3 time(s) (potency: 3x80) and grant Self 1 Magic Point"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    target: aoe
+    power: "5x35"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Black Abyss"
+    skill_type: mixed
+    damage_types: [dark]
+    target: self
+    power: "2→3"
+    effects:
+      - "Act faster during turn"
+      - "grant Self the ability to dodge some elemental attacks (turns: **2→3**)"
+      - "and impart Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When using a battle skill, restore own SP (amount: 10) and gain 1 Magic Point."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20%."
+    trigger: always
+    limit_break_upgrade: "Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20% and raise potency by 100%."
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Critical by 30% and grant Self ability to trigger critical hits when using elemental attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Mage’s Cloak"
+  passive_effect: "70 P.Atk, 700 HP; Start of battle: Provoke All Foes (turns: 3); Start of battle: Fill own Ultimate Technique gauge to 100%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

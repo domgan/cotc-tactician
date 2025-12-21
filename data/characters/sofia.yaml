@@ -1,0 +1,179 @@
+# Character: Sofia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sofia
+display_name: "Sofia"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2896
+p_atk: 231
+p_def: 291
+e_atk: 389
+e_def: 335
+speed: 283
+crit: 246
+sp: 562
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3556
+p_atk_120: 281
+p_def_120: 341
+e_atk_120: 454
+e_def_120: 385
+speed_120: 333
+crit_120: 296
+sp_120: 652
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Icewind (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Icewind (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Wild Icewind"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Ice damage to Random Foe 2 time(s) (potency: 2x75) and lower Ice Res"
+  - skill_category: active
+    name: "Elemental Break"
+    sp_cost: 20
+    skill_type: mixed
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Tome damage to Single Foe ((potency: 170) and impart Elem Def"
+  - skill_category: active
+    name: "Blizzard (Single) II"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Icewind (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Raging Icewind"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Ice damage to Random Foe 3 time(s) (potency: 3x55) and lower Ice Res"
+  - skill_category: active
+    name: "Icewind (All) III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Glacius Claudere (Single) III"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: tp
+    name: "Ultimate Arctica"
+    sp_cost: 500
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "530"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Argentea Arctica"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At Full HP: Lower own SP consumption by 50%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise Ice damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Ice damage of Self by 30% and grant Self ability to trigger critical hits when using elemental attacks."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Impart Self with Elem. Atk. Up 15% and grant Damage Limit Up (effect: 50,000)."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Plant Sketch"
+  passive_effect: "60 E.Atk, 40 P.Def, 40 E.Def; Start of battle: Lower Ice Res. of all enemies by 15% (turns: 3); Raise Fire Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

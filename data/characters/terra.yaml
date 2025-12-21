@@ -1,0 +1,201 @@
+# Character: Terra
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: terra
+display_name: "Terra"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fire, ice, light, lightning, tome, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2846
+p_atk: 196
+p_def: 251
+e_atk: 464
+e_def: 325
+speed: 263
+crit: 311
+sp: 602
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3506
+p_atk_120: 246
+p_def_120: 301
+e_atk_120: 529
+e_def_120: 375
+speed_120: 313
+crit_120: 361
+sp_120: 692
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Cure (Front/All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Cure (Front/All)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Fire (Single)"
+    sp_cost: 23
+    skill_type: attack
+    damage_types: [fire, wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Fira Aspir (Single)"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [fire, wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Fira (Single)"
+    sp_cost: 57
+    skill_type: attack
+    damage_types: [fire, wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Dispel"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    name: "Firaga"
+    sp_cost: 89
+    skill_type: mixed
+    damage_types: [fire, wind]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Lower Fire Res"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Summon: Maduin"
+    sp_cost: 77
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Riot Sword"
+    sp_cost: 240
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x180"
+    effects:
+      - "At Max Boost: Raise Damage Limit of this skill by 300,000"
+  - skill_category: active
+    name: "Meltdown"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [fire, wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+    effects:
+      - "Lower Fire Res"
+      - "Raise Damage Limit of this skill by 100,000"
+  - skill_category: tp
+    name: "Summon: Seraphim"
+    sp_cost: 99
+    skill_type: heal
+    target: all_allies
+    power: "65-155 based on Boost Lv."
+    effects:
+      - "**Summon: Seraphim ** Restore HP of All Allies (potency: 65-155 based on Boost Lv.)"
+      - "Restore own SP (amount: 25%-100% of max SP based on Boost Lv.)"
+  - skill_category: ex
+    name: "Magitek Laser"
+    skill_type: mixed
+    damage_types: [fire, wind]
+    target: aoe
+    hit_count: "4x"
+    power: "4x60"
+    effects:
+      - "**Magitek Laser** Raise own Elem"
+      - "grant Damage Limit Up (effect: 100,000) (turns: 3-6 based on Boost Lv.) and gain 1-4 “Magitek Point” (based on Boost Lv.)"
+      - "Lower Fire Res"
+      - "by 15% and raise Fire Res"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Ultima"
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "4x"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by **10,000→50,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in “Magitek Knight” style: Gain 1 “Magitek Point” when using elemental skills."
+    trigger: always
+  - passive_category: innate
+    effect: "With 1 or more “Magitek Points”, when selecting a command, switch between “Magitek Knight” and “Trance” styles."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Elem. Atk. of Self by 15%, raise Fire damage by 15% and grant Damage Limit Up (effect: 100,000). Additionally, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
+    trigger: always
+    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, raise Fire damage by 15% and grant Damage Limit Up (effect: 100,000). Additionally, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) and automatic SP recovery (amount: 5% of max SP)."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Fire and Wind damage of Entire Front Row by 15% and raise Damage Limit of Elem. Fire and Wind battle skills by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Broken Magic Stone Fragment”"
+  passive_effect: "-30 P.Def, 200 E.Atk, -30 E.Def, 20 SP; After using Ultimate Technique for the first time, restore 1 use and fill the Ultimate Technique gauge by 200% (once per battle)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

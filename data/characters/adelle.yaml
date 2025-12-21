@@ -1,0 +1,186 @@
+# Character: Adelle
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: adelle
+display_name: "Adelle"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Excillant (BRAVELY DEFAULT II)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2887
+p_atk: 398
+p_def: 255
+e_atk: 266
+e_def: 228
+speed: 425
+crit: 348
+sp: 327
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3707
+p_atk_120: 463
+p_def_120: 275
+e_atk_120: 316
+e_def_120: 278
+speed_120: 490
+crit_120: 398
+sp_120: 407
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Banish (Single)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Poison Slash"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Dream Within a Dream"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Utsusemi"
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**Utsusemi** **(3★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) [50 SP] **Lv.88 |** SP Saver: 50→40"
+  - skill_category: active
+    name: "Banish (All)"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Venomous Pain"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Afterimage"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: active
+    name: "Afterimage"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: tp
+    name: "Swift Instant Strike"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+  - skill_category: ex
+    name: "Thousand-Handed Sand Lily"
+    skill_type: buff
+    target: self
+    effects:
+      - "**Thousand-Handed Sand Lily** Grant Self an effect that activates attack skills twice (turns: 3/Duration cannot be extended/Additional activations will not consume SP) and raise Dagger damage of Self by 30% (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Phantasmic Dance"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "500→600"
+    effects:
+      - "Guaranteed critical hit"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise critical damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Impart Self with Phys. Atk. Up 30% when poisoned enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self 30% chance of dodging some physical attacks and have a moderate chance to poison all enemies with a successful dodge from this skill’s effects (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Mighty Mercenary's Muffler"
+  passive_effect: "100 P. Atk, 40 SP; Increase Dagger damage dealt by 15%; Extend duration of some inflicted status ailments by 1 turn (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,153 @@
+# Character: Julio
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: julio
+display_name: "Julio"
+rarity: 3
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2266
+p_atk: 206
+p_def: 251
+e_atk: 284
+e_def: 280
+speed: 233
+crit: 184
+sp: 457
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 2926
+p_atk_120: 256
+p_def_120: 301
+e_atk_120: 349
+e_def_120: 330
+speed_120: 283
+crit_120: 234
+sp_120: 547
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Icewind (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Icewind (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "110"
+  - skill_category: active
+    name: "Iceprone (Single)"
+    sp_cost: 4
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Iceprone (Single) (1★)** Lower Ice Res"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Icewind (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Icewind (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "Icewind (All) II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "**170**"
+  - skill_category: tp
+    name: "Ice Heart"
+    sp_cost: 64
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Ice Heart ** Impart Self with Elem"
+      - "Up 30% and raise Ice damage by 30% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Frozen Raging Strike III"
+    skill_type: attack
+    damage_types: [ice]
+    target: random
+    hit_count: "4x"
+    power: "4x85"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Red Valley Ice Blast"
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Ice damage to Single Foe (potency: **440→525→655**) and lower Ice Res"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Elem. Def. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Fire Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Fire Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Show weak points of All Foes one by one."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Sea Creature Sketchbook"
+  passive_effect: "200 HP, 20 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Julio: Raise Ice damage of Paired Allies by 10% and grant them automatic SP recovery (amount: 8)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

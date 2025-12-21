@@ -1,0 +1,169 @@
+# Character: Laura
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: laura
+display_name: "Laura"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2890
+p_atk: 255
+p_def: 293
+e_atk: 351
+e_def: 349
+speed: 275
+crit: 227
+sp: 552
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3550
+p_atk_120: 305
+p_def_120: 343
+e_atk_120: 416
+e_def_120: 399
+speed_120: 325
+crit_120: 277
+sp_120: 642
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Lightning Bolt (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Double Slam"
+    sp_cost: 18
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Lightning Bolt (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Lightning Blast (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Lightning Bolt (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Paralyzing Slam"
+    sp_cost: 23
+    skill_type: attack
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Paralyzing Slam"
+    sp_cost: 18
+    skill_type: attack
+    target: single_enemy
+    power: "**220**"
+  - skill_category: active
+    name: "Lightning Bolt (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Lightning Bolt (All) II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "**175**"
+  - skill_category: tp
+    name: "Raging Bolt Shock III"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Rapid Thunder (All) II"
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "**Rapid Thunder (All) II** Act faster during turn and deal Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Ancient Bolts (Single)"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart All Foes with Elem. Def. Down 15% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Impart All Foes with Elem. Def. Down 15% (**turns: 5**)."
+  - passive_category: innate
+    effect: "Raise Lightning damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Elem. Atk. by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Atlan Brooch"
+  passive_effect: "30 E.Atk, 20 Spd, 20 SP; Start of the battle: Lower Lightning Res. of all enemies by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

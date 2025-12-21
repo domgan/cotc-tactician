@@ -1,0 +1,168 @@
+# Character: Levan
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: levan
+display_name: "Levan"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2866
+p_atk: 246
+p_def: 286
+e_atk: 344
+e_def: 355
+speed: 281
+crit: 241
+sp: 547
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3526
+p_atk_120: 296
+p_def_120: 336
+e_atk_120: 409
+e_def_120: 405
+speed_120: 331
+crit_120: 291
+sp_120: 637
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Luminescence (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Blinding Light (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Luminescence (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Dual Slam"
+    sp_cost: 26
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Dual Slam"
+    sp_cost: 21
+    skill_type: attack
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x115**"
+  - skill_category: active
+    name: "Luminescence (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Luminescence (All) II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "**175**"
+  - skill_category: tp
+    name: "Lux Congerere (Single) III"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Lumen Debilitare (Single) IV"
+    skill_type: mixed
+    damage_types: [light, tome]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Lower Light Res"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Ancient Light (Single)"
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Show weak points of All Foes one by one."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "10% chance to attack twice when using an elemental skill. (The follow-up attack will not consume SP)."
+    trigger: always
+    limit_break_upgrade: "During action selection, **30%** chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Light damage of Paired Allies by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Mr. Heard’s Journals"
+  passive_effect: "40 E.Atk, 10 E.Def, 20 SP; When breaking an enemy, lower their Light Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,198 @@
+# COTC Team Example
+# This is an EXAMPLE file showing the expected format.
+# Team data is PLACEHOLDER - actual values must be verified by a human.
+#
+# NOTE: This example uses fictional/placeholder values to demonstrate structure.
+# All actual team data must come from game knowledge, NOT this example.
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: example-boss-burst-team
+name: "Example Burst Team (Placeholder)"
+boss_id: example-boss
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: burst
+investment_level: medium
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: example-tank
+    role_in_team: tank
+    is_required: true
+    substitutes: [alt-tank-1, alt-tank-2]
+    substitute_notes: "Any tank with provoke works, but example-tank has best mitigation"
+    key_skills_used:
+      - "Provoke Skill"
+      - "Damage Mitigation Skill"
+    accessory_requirements:
+      - "HP accessory"
+      - "Defense accessory"
+    awakening_required: 0
+
+  - position: 2
+    character_id: example-buffer-healer
+    role_in_team: healer
+    is_required: true
+    substitutes: [alt-healer]
+    substitute_notes: "Needs party-wide heal capability"
+    key_skills_used:
+      - "Example Heal"
+      - "Example Attack Buff"
+    accessory_requirements: []
+    awakening_required: 0
+
+  - position: 3
+    character_id: example-debuffer
+    role_in_team: debuffer
+    is_required: false
+    substitutes: [alt-debuffer-1, alt-debuffer-2]
+    key_skills_used:
+      - "Defense Down Skill"
+      - "Fire Res Down Skill"
+    accessory_requirements: []
+    awakening_required: 0
+
+  - position: 4
+    character_id: example-fire-dps
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core DPS - no good substitutes for this strategy"
+    key_skills_used:
+      - "Fire Nuke Skill"
+      - "Self Buff Skill"
+    accessory_requirements:
+      - "Fire damage accessory"
+      - "Elemental attack accessory"
+    awakening_required: 3
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (optional)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: example-secondary-dps
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: [any-fire-dps]
+    key_skills_used:
+      - "Fire Attack"
+    accessory_requirements: []
+    awakening_required: 0
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order:
+  - example-debuffer      # Debuff first
+  - example-buffer-healer # Buff second
+  - example-tank          # Provoke after buffs
+  - example-fire-dps      # DPS last to receive all buffs
+
+speed_tuning_notes: |
+  [PLACEHOLDER]
+  - Debuffer is naturally fast, no tuning needed
+  - Buffer needs speed accessory to beat tank
+  - DPS should be slowest to receive all buffs before acting
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1"
+    phase: setup
+    actions:
+      - "Debuffer: Apply defense down (no boost)"
+      - "Buffer: Apply regen (no boost)"
+      - "Tank: Provoke"
+      - "DPS: Self buff (max boost)"
+    notes: "Setup turn - establish buffs and provoke"
+
+  - turn_range: "2-4"
+    phase: break_push
+    actions:
+      - "All: Focus on reducing shields"
+      - "Buffer: Refresh regen if needed"
+      - "Tank: Maintain provoke"
+    notes: "Push for break, maintain buffs"
+
+  - turn_range: "5"
+    phase: sustain
+    actions:
+      - "Tank: Use damage mitigation skill"
+      - "Buffer: Heal if needed"
+      - "DPS: Continue shield break or damage"
+    notes: "CRITICAL: Ultimate coming, need mitigation"
+
+  - turn_range: "6+"
+    phase: burst
+    actions:
+      - "Break enemy and burst"
+      - "Debuffer: Ensure defense down is active"
+      - "Buffer: Apply attack buff (max boost)"
+      - "DPS: Fire nuke (max boost)"
+    notes: "Main damage window after break"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: phys_atk_up
+    sources: [example-buffer-healer, example-fire-dps]
+    target_cap: "30%"
+    timing: "Apply on turn 1 and refresh before break"
+
+  - buff_type: fire_res_down
+    sources: [example-debuffer]
+    target_cap: "30%"
+    timing: "Apply turn 1, extend before break"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  [PLACEHOLDER EXPLANATION]
+  
+  This team exploits the boss's fire weakness while handling the key mechanics:
+  
+  1. Tank absorbs the ultimate attack with mitigation skill
+  2. Healer provides consistent party healing and attack buff
+  3. Debuffer reduces boss defense and fire resistance
+  4. Fire DPS deals massive damage during break windows
+  
+  The speed order ensures buffs are applied before DPS acts.
+  Buff durations are managed to persist through break windows.
+
+key_synergies:
+  - "[PLACEHOLDER] Buffer's attack up stacks with DPS's self-buff"
+  - "[PLACEHOLDER] Debuffer's fire res down multiplies with defense down"
+  - "[PLACEHOLDER] Tank's provoke protects the squishy DPS"
+
+risks_and_recovery:
+  - "[PLACEHOLDER] If tank dies to ultimate, no provoke - heal up and revive ASAP"
+  - "[PLACEHOLDER] If DPS dies, switch to secondary DPS from back line"
+  - "[PLACEHOLDER] If buffs drop before break, reset buff rotation"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "~10 minutes"
+success_rate: "Theoretical - not tested"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: theorycraft
+source_url: ""
+data_confidence: incomplete
+last_verified: null
+last_updated: 2024-01-01
+

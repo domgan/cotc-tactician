@@ -1,0 +1,185 @@
+# Character: Ochette
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ochette
+display_name: "Ochette"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, light, lightning, polearm, sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2862
+p_atk: 457
+p_def: 213
+e_atk: 220
+e_def: 238
+speed: 410
+crit: 395
+sp: 376
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3682
+p_atk_120: 522
+p_def_120: 263
+e_atk_120: 270
+e_def_120: 258
+speed_120: 460
+crit_120: 460
+sp_120: 456
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Shooting"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword, bow, lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "90"
+  - skill_category: active
+    name: "Rapid Fire"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "2x75/3x65/4x55/5x60"
+  - skill_category: active
+    name: "Chaotic Thunderbird"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Dismantle"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "grant Self automatic HP recovery (potency: 80, turns: 2) and raise Phys"
+  - skill_category: active
+    name: "Leghold Trap"
+    sp_cost: 45
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Indomitable Beast"
+    sp_cost: 120
+    skill_type: buff
+    target: self
+    effects:
+      - "**Indomitable Beast (3★)** Raise Phys"
+      - "and Speed of Self by 15% and raise BP recovery amount of Self by 1 (turns: 3-6 based on Boost Lv.) and grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Bow Shot"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [bow]
+    target: back_row
+    power: "170"
+    effects:
+      - "move to the back row (action does not count as switching) and act faster during next turn"
+  - skill_category: active
+    name: "Arc Shot"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+      - "Also lower Bow Res"
+  - skill_category: active
+    name: "Raging Arrow"
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "6x"
+    power: "6x40"
+  - skill_category: tp
+    name: "Hunting Capture"
+    sp_cost: 40
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Hunting Capture ** Raise Phys"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "Thunder Phoenix Flash Bow"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "5x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP)."
+    trigger: on_break
+    limit_break_upgrade: "When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP) and lower Bow Res. by 15% (turns: 2)."
+  - passive_category: innate
+    effect: "Raise Phys. Attack and critical damage of Self by 15%. During skill consecutive strikes, raise potency of Self by 80% (Cannot be extended/Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant Self the special effect of Animal Instincts (turns: 1). Animal Instincts: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Bow damage to All Foes (potency: 240). At Max Boost: Guaranteed critical hit."
+    trigger: always
+  - passive_category: innate
+    effect: "Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.) and reduce 1 Shield Point. At Max Boost: Grant Self Damage Limit Up (effect: 40,000, turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Bow damage to Single Foe (potency: 290). At Max Boost: Guaranteed critical hit."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Beastling Armlet"
+  passive_effect: "60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. and Bow damage by 15%; 60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

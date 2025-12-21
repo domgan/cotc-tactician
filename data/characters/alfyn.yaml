@@ -1,0 +1,176 @@
+# Character: Alfyn
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: alfyn
+display_name: "Alfyn"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3235
+p_atk: 380
+p_def: 392
+e_atk: 286
+e_def: 238
+speed: 256
+crit: 268
+sp: 383
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4055
+p_atk_120: 430
+p_def_120: 442
+e_atk_120: 351
+e_def_120: 288
+speed_120: 306
+crit_120: 318
+sp_120: 453
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Amputation"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Icicle"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Rehabilitate"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Rehabilitate (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fire and Ice Restoration III"
+    sp_cost: 48
+    skill_type: buff
+    target: front_row
+    power: "150"
+    effects:
+      - "**Fire and Ice Restoration III (2★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Fire Res"
+  - skill_category: active
+    name: "Pomegranate Panacea"
+    sp_cost: 100
+    skill_type: utility
+    target: front_row
+    effects:
+      - "**Pomegranate Panacea (2★)** Restore BP of Entire Front Row (amount: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fourfold Cleave"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Fourfold Icicle"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Last Stand"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+  - skill_category: active
+    name: "Vivify"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    name: "Brave Axe Elixir (All) II"
+    sp_cost: 40
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Brave Axe Elixir (All) II ** Raise Phys"
+      - "of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Sacrifical Sunder"
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "60% of user’s max HP/does not stack"
+    effects:
+      - "**Sacrifical Sunder** Grant Self HP barrier (potency: 60% of user’s max HP/does not stack)"
+      - "Raise the Damage Limit of this skill by 50,000"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Heroic Strike"
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "500→600"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of augmenting effect granted by self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
+    trigger: always
+    limit_break_upgrade: "Survive an otherwise lethal attack with 1 HP remaining **3 times per battle**."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Axe damage by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dreamer’s Medicine Box"
+  passive_effect: "40 P.Atk, 40 P.Def, 600 HP; Raise axe damage by 15%; At 75% HP or less: Raise P.Atk by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

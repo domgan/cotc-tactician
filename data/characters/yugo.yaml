@@ -1,0 +1,157 @@
+# Character: Yugo
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: yugo
+display_name: "Yugo"
+rarity: 3
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [ice, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 399
+p_def: 353
+e_atk: 247
+e_def: 246
+speed: 285
+crit: 323
+sp: 281
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 464
+p_def_120: 418
+e_atk_120: 297
+e_def_120: 296
+speed_120: 320
+crit_120: 373
+sp_120: 351
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slice"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Strong Defense"
+    sp_cost: 5
+    skill_type: buff
+    target: self
+    effects:
+      - "**Strong Defense** Impart Self with Phys"
+  - skill_category: active
+    name: "Ice Blast"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Arm Slash"
+    sp_cost: 11
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "120"
+    effects:
+      - "Sword damage to Single Foe (potency: 120) and impart Phys"
+  - skill_category: active
+    name: "Stout Wall"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Stout Wall (2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Spirited Slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "210"
+  - skill_category: active
+    name: "Spirited Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "**240**"
+  - skill_category: tp
+    name: "Shell Slash"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "140"
+  - skill_category: ex
+    name: "Devouring Flash"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Red Valley Starving Strike"
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Sword damage to Single Foe (potency: **440→525→655**) and impart Phys"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Impart Paired Allies with Phys. Def. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Raise Fire Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Raise Fire Res. of Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Paired Allies the ability to recover 10% of damage taken when hit (With some exceptions/Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Leather Pouch of Tree Nuts"
+  passive_effect: "20 P.Atk, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Yugo: Raise Phys. Def. and Sword damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

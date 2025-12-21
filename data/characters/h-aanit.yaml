@@ -1,0 +1,181 @@
+# Character: H’aanit
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: h-aanit
+display_name: "H’aanit"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, lightning, polearm, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3096
+p_atk: 388
+p_def: 231
+e_atk: 327
+e_def: 255
+speed: 350
+crit: 342
+sp: 369
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3916
+p_atk_120: 453
+p_def_120: 281
+e_atk_120: 377
+e_def_120: 275
+speed_120: 400
+crit_120: 407
+sp_120: 449
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Summon Linde"
+    sp_cost: 15
+    skill_type: attack
+    damage_types: [sword, polearm]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "True Strike"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Thunderbird"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Rain of Arrows"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "5x"
+    power: "3-5x45"
+  - skill_category: active
+    name: "Pugnacity"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Pugnacity (2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Grand Thunderbird"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Cripling Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Guaranteed critical hit"
+  - skill_category: active
+    name: "Arrowstorm"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "5x"
+    power: "3-5x40"
+  - skill_category: active
+    name: "Arrowstorm"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "**4-6x40**"
+  - skill_category: active
+    name: "Deadly Arrow"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "180"
+  - skill_category: tp
+    name: "Darkwood Arrow Barrage"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x25"
+  - skill_category: ex
+    name: "Arrow of Enlightenment"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x75"
+    effects:
+      - "Guaranteed critical hits"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Snow Leopard Rush"
+    skill_type: attack
+    damage_types: [sword, polearm, bow]
+    target: aoe
+    power: "168→200→250"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** 50% chance of triggering a follow-up strike when using Attack. *Triggers once even during a Boost."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Raise potency of “Summon Linde” by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Bow damage of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Archer's Quiver"
+  passive_effect: "60 P.Atk, 40 E.Atk, 40 SP; Raise Bow and Lightning damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

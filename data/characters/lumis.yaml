@@ -1,0 +1,177 @@
+# Character: Lumis
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lumis
+display_name: "Lumis"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3165
+p_atk: 365
+p_def: 356
+e_atk: 303
+e_def: 224
+speed: 333
+crit: 244
+sp: 379
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3985
+p_atk_120: 415
+p_def_120: 406
+e_atk_120: 368
+e_def_120: 274
+speed_120: 383
+crit_120: 294
+sp_120: 449
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Cleave"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Emergency First Aid** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Clear Sight (All)"
+    sp_cost: 12
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Clear Sight (All) (1★)** Cure blindness of Entire Front Row and grant immunity to blindness during a Boost Lv.)"
+  - skill_category: active
+    name: "Storm Rend"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Trifold Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Thunderproof Formula II"
+    sp_cost: 32
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Thunderproof Formula II (3★)** Restore HP of Single Ally (potency: 160) and raise Lightning Res"
+  - skill_category: active
+    name: "Delta Tempest"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Esoteric Salve"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "45"
+    effects:
+      - "**Esoteric Salve (5★)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 90, turns: 2)"
+  - skill_category: active
+    name: "Raging Cleave"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "4x"
+    power: "4x55"
+    limit_break_upgrade: "Deal Phys. Axe damage to Random Foe **5** time(s) (potency: **5x55**)."
+  - skill_category: tp
+    name: "Double Rage Strike"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    damage_types: [axe]
+    target: front_row
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Restore HP of Entire Front Row (potency: 110) and raise Critical by 15% (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Splitting Rage"
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "3→5"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** When in back row: Grant front row automatic HP recovery (potency: 100)."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Raise Crit of Self by 30%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise critical damage of Paired Allies by 20%."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Comrade’s Keepsake
+·"
+  passive_effect: "**60 P.Atk, 40 E.Atk, 40 Crit; Raise axe damage by 15%; Grants automatic HP recovery (amount: 500)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

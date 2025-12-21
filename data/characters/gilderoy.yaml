@@ -1,0 +1,171 @@
+# Character: Gilderoy
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: gilderoy
+display_name: "Gilderoy"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3528
+p_atk: 354
+p_def: 363
+e_atk: 280
+e_def: 300
+speed: 208
+crit: 251
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4428
+p_atk_120: 419
+p_def_120: 413
+e_atk_120: 330
+e_def_120: 350
+speed_120: 243
+crit_120: 286
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Deadly Thrust"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Incite"
+    sp_cost: 13
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Thundershock"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "2x90"
+  - skill_category: active
+    name: "Paralyzing Thrust"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Desperate Resolve"
+    sp_cost: 22
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Desperate Resolve (3★)** Provoke All Foes and raise Phys"
+  - skill_category: active
+    name: "Chain Lightning"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Cunning Counters"
+    sp_cost: 35
+    skill_type: buff
+    target: self
+    effects:
+      - "**Cunning Counters** **(5★)** Grant Self counter to physical attacks (turns: 3-6 based on Boost"
+  - skill_category: active
+    name: "Healing Thrust"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Polearm damage to Single Foe (potency: 230) and restore own HP (potency: 140)"
+  - skill_category: tp
+    name: "Raging Spear"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Jewel Shield"
+    skill_type: buff
+    target: front_row
+    power: "20% of user’s max HP/Does not stack"
+    effects:
+      - "**Jewel Shield** Raise own Max HP by 30% (turns: 3-6 based on Boost Lv.) and grant Entire Front Row HP Barrier (potency: 20% of user’s max HP/Does not stack)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Winning Shot"
+    skill_type: buff
+    target: single_enemy
+    power: "3→4"
+    effects:
+      - "Counter physical and elemental attacks (potency: 180, turns: **3→4**) and raise own Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Impart Self with Phys. Def. Up 20% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Start of battle: Impart Self with Phys. Def. Up 20% and provoke all enemies (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "When near death: Grant Self automatic HP recovery (potency: 90)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Physical Res. of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Genuine Scales"
+  passive_effect: "100 P.Def, 40 E.Def; Raise Polearm damage dealt by 15%; Raise Wind Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

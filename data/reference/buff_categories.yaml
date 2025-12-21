@@ -1,0 +1,151 @@
+# COTC Buff/Debuff Categories Reference
+# This file documents how buffs and debuffs stack in COTC.
+# Understanding this is critical for team composition.
+#
+# SOURCE: [HUMAN-REQUIRED] - Specific percentages and caps must come from game data.
+# The structure below is a template; actual values need verification.
+
+schema_version: "1.0"
+
+# =============================================================================
+# BUFF STACKING RULES
+# =============================================================================
+# Buffs in COTC fall into categories. Within a category, effects can stack
+# up to a cap. Different categories stack multiplicatively.
+
+buff_categories:
+  # --- ATTACK BUFFS ---
+  - id: phys_atk_up
+    display_name: "Physical Attack Up"
+    affects: phys_atk
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED] e.g., 30%
+    stacking_notes: |
+      Multiple sources of phys ATK up stack additively within category.
+      Cap is typically around 30% but needs verification.
+
+  - id: elem_atk_up
+    display_name: "Elemental Attack Up"
+    affects: elem_atk
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: "Same stacking rules as physical attack up."
+
+  # --- DAMAGE TYPE BUFFS ---
+  - id: weapon_damage_up
+    display_name: "Weapon Damage Up"
+    affects: specific_weapon  # sword_damage_up, dagger_damage_up, etc.
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: |
+      Each weapon type has its own damage up category.
+      e.g., Sword Damage Up is separate from Dagger Damage Up.
+      Stacks with generic physical damage up.
+
+  - id: element_damage_up
+    display_name: "Element Damage Up"
+    affects: specific_element  # fire_damage_up, ice_damage_up, etc.
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: |
+      Each element has its own damage up category.
+      Stacks with generic elemental damage up.
+
+  # --- DEFENSE BUFFS ---
+  - id: phys_def_up
+    display_name: "Physical Defense Up"
+    affects: phys_def
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: "Reduces physical damage taken."
+
+  - id: elem_def_up
+    display_name: "Elemental Defense Up"
+    affects: elem_def
+    type: buff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: "Reduces elemental damage taken."
+
+  # --- DEBUFFS (on enemies) ---
+  - id: phys_def_down
+    display_name: "Physical Defense Down"
+    affects: enemy_phys_def
+    type: debuff
+    cap_percentage: null  # [HUMAN-REQUIRED] e.g., 30%
+    stacking_notes: |
+      Multiple phys def down effects stack additively.
+      Can be applied by multiple characters to reach cap faster.
+      Duration can be extended by reapplying before expiry.
+
+  - id: elem_def_down
+    display_name: "Elemental Defense Down"
+    affects: enemy_elem_def
+    type: debuff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: "Same as physical defense down."
+
+  - id: weapon_res_down
+    display_name: "Weapon Resistance Down"
+    affects: enemy_weapon_res  # sword_res_down, dagger_res_down, etc.
+    type: debuff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: |
+      Weapon-specific resistance down.
+      Stacks with generic physical defense down.
+
+  - id: element_res_down
+    display_name: "Element Resistance Down"
+    affects: enemy_element_res  # fire_res_down, ice_res_down, etc.
+    type: debuff
+    cap_percentage: null  # [HUMAN-REQUIRED]
+    stacking_notes: |
+      Element-specific resistance down.
+      Stacks with generic elemental defense down.
+
+# =============================================================================
+# DURATION MECHANICS
+# =============================================================================
+
+duration_mechanics:
+  base_unit: turns
+  
+  extension_methods:
+    - method: "reapply_before_expiry"
+      description: |
+        Applying the same buff/debuff before it expires extends duration.
+        New duration = remaining + new duration (up to a cap).
+    
+    - method: "accessory_extension"
+      description: |
+        Some accessories extend buff/debuff duration.
+        [HUMAN-REQUIRED] - Specific accessories and extension amounts.
+    
+    - method: "max_boost"
+      description: |
+        Using max boost (3 BP) on buff skills often extends duration.
+        [HUMAN-REQUIRED] - Specific skill interactions.
+
+# =============================================================================
+# STACKING STRATEGY NOTES
+# =============================================================================
+
+strategy_notes: |
+  BUFF TIMING:
+  - Apply buffs in early turns BEFORE breaking the enemy
+  - Ensure buff durations will last through the break window
+  - Buffers should have higher speed than DPS units
+  
+  DEBUFF TIMING:
+  - Apply defense/resistance down before DPS acts
+  - Stack multiple debuffers for faster cap reaching
+  - Some attack skills also apply debuffs (role compression)
+  
+  STACKING EXAMPLE:
+  - Character A: 10% sword damage up (2 turns)
+  - Character B: 15% sword damage up (3 turns, max boost)
+  - Result: 25% sword damage up, refreshes to 3 turn duration
+  - Then Character A reapplies: caps at 30% (if cap), extends duration
+  
+  NOTE: Actual percentages and caps are [HUMAN-REQUIRED] data.
+  This file provides the framework; specific numbers need verification.
+

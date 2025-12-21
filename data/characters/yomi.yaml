@@ -1,0 +1,188 @@
+# Character: Yomi
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: yomi
+display_name: "Yomi"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, ice, light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3276
+p_atk: 295
+p_def: 305
+e_atk: 467
+e_def: 392
+speed: 412
+crit: 277
+sp: 554
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4096
+p_atk_120: 345
+p_def_120: 355
+e_atk_120: 532
+e_def_120: 442
+speed_120: 477
+crit_120: 312
+sp_120: 624
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 45
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    power: "120"
+    effects:
+      - "Also lower Phys"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**(Initial)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 52
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**(1★)** Lower Shield Points of a Random Foe regardless of the weakness and lower their Ice and Light Res"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(2★)** Lower Phys"
+  - skill_category: active
+    sp_cost: 41
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(2★)** Lower Ice and Light Res"
+  - skill_category: active
+    sp_cost: 112
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**(3★)** Act faster during turn and raise potency of Single Ally’s Elem"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 116
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(4★)** Raise Ice and Light damage of All Allies by 30% and grant the ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "290"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**(5★)** Lower Shield Points of All Foes by 4 regardless of the weakness and inflict Frostbite (turns: 2)"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: tp
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**** Lower Shield Points of Single Foe by 3-6 based on Boost Lv"
+  - skill_category: tp
+    name: "Lv.2"
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "** Lv.2** Lower Shield Points of Single Foe by 3-6 based on Boost Lv"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: aoe
+    effects:
+      - "**(EX)** Raise Ice Res"
+      - "Down limits from battle skills and support skills and equipment effects of All Foes to 50% (turns: 2-5 based on Boost Lv.) and grant All Allies the special effect “Night Song” (turns: 9)"
+      - "“Night Song”: Raise Elem"
+      - "grant the ability to ignore effects that completely dodge or block attacks and raise Damage Limit of elemental attacks by 75,000 (Does not stack with itself)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Narration: Singing the Crescent Moon”"
+    skill_type: debuff
+    target: single_enemy
+    power: "3→4"
+    effects:
+      - "Lower Ice and Light Res"
+      - "raise Ice and Light damage of All Allies by **5%→10%→15%** (turns: **3→4**) and grant them the special effect “Night Song” (turns: 9/Granted as a support skill)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Grant Self the special effect “Night Song” (turns: 9)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "At the end of turn, restore 1 BP, cure Sleep and Comatose and grant the special effect “Night Song” (turns: 9) to allies who have not attacked during turn."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%."
+    trigger: always
+    limit_break_upgrade: "When in back row: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5%."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn, restore SP (amount: 5% of target’s Max SP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn, restore SP (amount: 5% of target’s Max SP), grant HP Barrier (amount: 1000 HP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Yomi’s Hair Ornament”"
+  passive_effect: "-50 Crit, 60 Spd, 900 HP, 90 SP; Grant Damage Limit Up (effect: 100,000) when using elemental attacks; When in back row: Lower Ice Res. of all enemies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

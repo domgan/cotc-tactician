@@ -1,0 +1,185 @@
+# Character: Kainé
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kain
+display_name: "Kainé"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3252
+p_atk: 508
+p_def: 225
+e_atk: 241
+e_def: 198
+speed: 330
+crit: 368
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4072
+p_atk_120: 573
+p_def_120: 245
+e_atk_120: 291
+e_def_120: 248
+speed_120: 395
+crit_120: 418
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Triple Edge"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Shield Burst"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Blue Slash"
+    sp_cost: 47
+    skill_type: mixed
+    damage_types: [dagger, light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Also lower Phys"
+  - skill_category: active
+    name: "Armor Shredder"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "[43 SP] When consuming 3+ BP: Also lower Phys"
+      - "When consuming 5 BP: Lower Phys"
+  - skill_category: active
+    name: "Blue Phantasm"
+    sp_cost: 47
+    skill_type: attack
+    damage_types: [dagger, light]
+    target: aoe
+    power: "150"
+    effects:
+      - "**Blue Phantasm (3★)** Provoke All Foes and grant Self counter to physical and elemental attacks (turns: 3-8 based on Boost)"
+  - skill_category: active
+    name: "Blue Barrage"
+    sp_cost: 73
+    skill_type: attack
+    damage_types: [dagger, light]
+    target: single_enemy
+    power: "3x85/4x75/6x50/8x90"
+  - skill_category: active
+    name: "Consecutive Blade"
+    sp_cost: 76
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Dagger damage to Random Foe 5 time(s) (potency: 5x35) and have a low chance to lower Dagger Res"
+      - "[76 SP] When consuming 3+ BP: Have a moderate chance to lower Dagger Res"
+      - "When consuming 5 BP: Have a high chance to lower Dagger Res"
+  - skill_category: active
+    name: "Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x135). [62 SP]
+When consuming 3+ BP: Guaranteed critical hits.
+When consuming 5 BP: Raise Damge Limit of this skill by 50,000."
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "[62 SP] When consuming 3+ BP: Guaranteed critical hits"
+      - "When consuming 5 BP: Raise Damge Limit of this skill by 50,000"
+  - skill_category: tp
+    name: "Chop Your $#&!@ Off"
+    sp_cost: 112
+    skill_type: buff
+    target: self
+    effects:
+      - "**Chop Your $#&!@ Off ** Impart Self with Phys"
+      - "Up 50% and raise BP recovery by 1 (turns: 3-8 based on Boost Lv.)"
+  - skill_category: ex
+    name: "I’LL CHOP YOU TO PIECES!"
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "8x"
+    power: "8x25"
+    effects:
+      - "When consuming 3+ BP: Guaranteed critical hits"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Impart Self with Phys. Atk. Up"
+    skill_type: buff
+    target: single_enemy
+    power: "3→4"
+    effects:
+      - "10%→15%→20%** (turns: **3→4**) and grant Fighting Spirit (turns: **3→4**/Turns cannot be extended)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Phys. Atk. of Self by 15% and enhance Boost Levels to Lv.2/Lv.4/Lv.6 when consuming 1, 3 or 5 BP respectively."
+    trigger: always
+  - passive_category: innate
+    effect: "When consuming 3+ BP: Raise potency of Self by 100% (does not stack with effects of the same type). When consuming 5 BP: Additionally raise Damage Limit by 100,000."
+    trigger: always
+    limit_break_upgrade: "When consuming 3+ BP: Raise potency of Self by 100% (does not stack with effects of the same type). When consuming 5 BP: Raise potency by **120%** instead and raise Damage Limit by 100,000."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. Up limit from battle skills and support skills and equipment effects to 50%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Moon Tears Floral Ornament"
+  passive_effect: "200 P.Atk, -30 P.Def, -30 E.Def; Start of battle: Ultimate Technique gauge fills to 100%; When consuming 3 BP or more: Raise Phys. Atk. by 30%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

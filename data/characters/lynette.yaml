@@ -1,0 +1,173 @@
+# Character: Lynette
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: lynette
+display_name: "Lynette"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2786
+p_atk: 250
+p_def: 240
+e_atk: 402
+e_def: 342
+speed: 342
+crit: 272
+sp: 499
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3606
+p_atk_120: 300
+p_def_120: 290
+e_atk_120: 467
+e_def_120: 392
+speed_120: 407
+crit_120: 307
+sp_120: 569
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Impassioned Ode II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Masterful Moves II"
+    sp_cost: 21
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Masterful Moves II** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Double Sweep"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Scorching Song II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Elegy of the Pyre"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Elegy of the Pyre (2★)** Lower Fire Res"
+  - skill_category: active
+    name: "Masterful Cheer III"
+    sp_cost: 50
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Masterful Cheer III (3★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Incinerating Step"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [fire]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Waltz of the Crimson Lotus"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x100"
+    effects:
+      - "Fire damage to All Foes 2 time(s) (potency: 2x100) and lower Fire Res"
+  - skill_category: active
+    name: "Bemusing Strut"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Fan damage to Single Foe 3 time(s) (potency: 3x65) and impart Elem"
+  - skill_category: tp
+    name: "Flame Burst"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [fire]
+    target: back_row
+    power: "260"
+  - skill_category: ex
+    name: "Battle-Hardening Inspiration III"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Battle-Hardening Inspiration III** Raise Phys"
+      - "and Critical of Entire Front Row by 20% and grant ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Child of the Dance"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Elem. Atk. Up 10% (turns: 1)."
+    trigger: always
+    limit_break_upgrade: "When switching: Impart Entire Front Row with Phys. Atk. Up **15%** and Elem. Atk. Up **15%** (turns: 1)."
+  - passive_category: innate
+    effect: "Raise Fire damage of Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of buff casted by Self by 1 turn."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Late Mother's Shoes"
+  passive_effect: "60 E.Atk, 40 P.Def, 40 E.Def; Raise Fire damage dealt by 15%; Raise Ice Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

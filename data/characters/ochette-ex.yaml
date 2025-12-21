@@ -1,0 +1,171 @@
+# Character: Ochette EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ochette-ex
+display_name: "Ochette EX"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: opulence
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, fire, ice, lightning, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3082
+p_atk: 429
+p_def: 348
+e_atk: 247
+e_def: 241
+speed: 335
+crit: 253
+sp: 396
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3902
+p_atk_120: 494
+p_def_120: 413
+e_atk_120: 297
+e_def_120: 291
+speed_120: 370
+crit_120: 303
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 31
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 52
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**(Initial)** Act faster during turn and inflict Single Foe with the effect of always receiving critical damage (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 40
+    skill_type: attack
+    target: single_enemy
+    power: "3x100"
+  - skill_category: active
+    sp_cost: 90
+    skill_type: utility
+    target: front_row
+  - skill_category: active
+    sp_cost: 57
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Impart Entire Front Row with Phys"
+      - "Up 15% and raise physical damage by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 103
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    sp_cost: 74
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "30"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Grant Self Damage Limit Up when using this skill (effect: 100,000) and Boost Lv"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: tp
+    sp_cost: 129
+    skill_type: heal
+    target: back_row
+    effects:
+      - "**** Restore HP of Single Ally (amount: 40%-100% of max HP based on Boost Lv./Back row allies can be selected) or revive when incapacitated (amount: 40%-100% of max HP based on Boost Lv.)"
+      - "restore SP (amount: 25%-100% of max SP based on Boost Lv.) and restore BP (amount: 1-4 based on Boost Lv.)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "“Great Invention: Super Tasty Jerky”"
+    skill_type: buff
+    target: self
+    power: "2→3"
+    effects:
+      - "Act faster during turn and grant Self Damage Limit Up (effect: **50,000→75,000→100,000**"
+      - "restore **3→4→5** BP of all Warriors"
+      - "Merchants and Apothecaries in party (excluding Self) and grant them Damage Limit Up (effect: **50,000→75,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When consuming 1 or more BP, gain the same amount of “Inventor Points”."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self effects based on own “Inventor Points”. ·With 3 or more: Raise Sword damage by 30%. ·With 6 or more: Additionally increase damage dealt by critical hits (1.25→1.4) ·With 9 or more: Additionally raise Phys. Atk. by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Add 20% of P.Def to P.Atk (including equipment stats/Cannot be stacked)"
+    trigger: always
+    limit_break_upgrade: "Add 20% of own P.Def to P.Atk of all Warriors, Merchants and Apothecaries in party (including equipment stats/Cannot be stacked)."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When selecting a command, grant All Allies the special effect “Remodeling” (turns: 1). Remodeling: Raise potency of Sword, Polearm and Axe attacks by 75% (Stacks with effects of the same type). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Cool Goggles”"
+  passive_effect: "100 P.Atk, 100 P.Def, -60 E.Def; Start of battle: Ultimate Technique gauge fills to 200%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,182 @@
+# Character: Trish
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: trish
+display_name: "Trish"
+rarity: 4
+
+# Core attributes
+job: warrior
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [sword, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3195
+p_atk: 386
+p_def: 333
+e_atk: 269
+e_def: 256
+speed: 282
+crit: 314
+sp: 292
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4015
+p_atk_120: 451
+p_def_120: 398
+e_atk_120: 319
+e_def_120: 306
+speed_120: 317
+crit_120: 364
+sp_120: 362
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Guillotine"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Healing"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    power: "100, turns: 3-6 based on Boost Lv."
+    effects:
+      - "**Healing** **Breath** Grant Self automatic HP recovery (potency: 100, turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Gust"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Stunning"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Mince"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x50"
+  - skill_category: active
+    name: "Mince"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "**4x50**"
+  - skill_category: active
+    name: "Refreshment"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Refreshment** **(3★)** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Refreshment"
+    sp_cost: 19
+    skill_type: heal
+    target: single_ally
+    power: "**225**"
+    effects:
+      - "**Refreshment** **(5★)** Restore HP of Single Ally (potency: **225**)"
+  - skill_category: active
+    name: "Howling"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Howling"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Luxurious Refreshment"
+    sp_cost: 72
+    skill_type: heal
+    target: front_row
+    power: "25"
+    effects:
+      - "**Luxurious Refreshment ** Restore HP of Entire Front Row (potency: 25) and impart with Phys"
+  - skill_category: ex
+    name: "Strip Cutting"
+    skill_type: attack
+    damage_types: [sword]
+    target: front_row
+    hit_count: "2x"
+    power: "2x105"
+    effects:
+      - "**Strip Cutting** Act faster during turn and deal Phys"
+      - "Sword damage to All Foes 2 time(s) (potency: 2x105) and raise Sword damage of Entire Front Row by 10% (turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Fabulous Fillet"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "250→300→350"
+    effects:
+      - "Sword damage to Single Foe 3 time(s) (potency: **3x130→3x160→3x195**) and restore own HP (potency: **250→300→350**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Absorb 10% of damage dealt as HP when using Attack."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** When near death: Raise HP recovery skill potency of Self by 30% (excludes automatic healing skills)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When attacking (with some exceptions) have a low chance to impart enemies with Sword Res. Down 10% (turns: 2)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Trish’s Special Seasoning"
+  passive_effect: "20 P.Atk, 20 SP, 400 HP; Raise Sword damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,152 @@
+# Character: Manuel
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: manuel
+display_name: "Manuel"
+rarity: 3
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 1986
+p_atk: 210
+p_def: 200
+e_atk: 312
+e_def: 287
+speed: 277
+crit: 237
+sp: 409
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 2806
+p_atk_120: 260
+p_def_120: 250
+e_atk_120: 377
+e_def_120: 337
+speed_120: 342
+crit_120: 272
+sp_120: 479
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blow"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Mole Dance"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Mole Dance** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Waltz of the Zephyr"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Spirited Mole Dance"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Spirited Mole Dance (2★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Heavy Blow"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Spirited Mole Dance II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Spirited Mole Dance II (3★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Spirited Mole Dance II"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Spirited Mole Dance II (5★)** Impart Entire Front Row with Phys"
+  - skill_category: tp
+    name: "Mole’s Dance Fan"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [fan]
+    target: front_row
+    power: "260"
+    effects:
+      - "Fan damage to Single Foe (potency: 260) and impart Entire Front Row with Phys"
+  - skill_category: ex
+    name: "Divine Protection Inspiration"
+    skill_type: utility
+    target: front_row
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Red Valley Dance"
+    skill_type: mixed
+    damage_types: [fan]
+    target: front_row
+    power: "440→525→655"
+    effects:
+      - "Fan damage to Single Foe (potency: **440→525→655**) and impart Entire Front Row with Phys"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Elem. Atk. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Start of battle: Raise Lightning Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Phys. Def. of Paired Ally by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Handcrafted Jewelry"
+  passive_effect: "20 P.Atk, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Yugo: Raise Phys. Atk. and Fan damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

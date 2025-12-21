@@ -1,0 +1,185 @@
+# Character: Jillmeila
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: jillmeila
+display_name: "Jillmeila"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2902
+p_atk: 403
+p_def: 226
+e_atk: 276
+e_def: 254
+speed: 340
+crit: 405
+sp: 375
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3722
+p_atk_120: 468
+p_def_120: 276
+e_atk_120: 326
+e_def_120: 274
+speed_120: 390
+crit_120: 470
+sp_120: 455
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Sturdy Shot"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Dark Scar"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "140"
+  - skill_category: active
+    name: "Lacerating Arrow"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Chain Shadow Reaver"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Flurry of Arrows"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Hunter’s Spirit"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Hunter’s Spirit (3★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Blood Rain"
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Chaotic Eclipse"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Devastation"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Crimson Rage Strike"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "闇衝"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "闘気解放"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**闘気解放 (3★)** Impart Self with Phys"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "630"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Killer Snipe"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own damage by 30% when bleeding enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise own damage by 30% and grant Self Damage Limit Up (effect: 50,000) when bleeding enemy is present."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise potency of Self by 30% when bleeding enemy is present (Effects of the same type do not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Executioner’s Gloves"
+  passive_effect: "60 P.Atk, 60 E.Atk, 20 SP; When breaking an enemy, have a high chance to inflict bleeding (turns: 6)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

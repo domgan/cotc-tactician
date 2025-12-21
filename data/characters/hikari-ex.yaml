@@ -1,0 +1,208 @@
+# Character: Hikari EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hikari-ex
+display_name: "Hikari EX"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, ice, light, lightning, staff, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2812
+p_atk: 246
+p_def: 267
+e_atk: 525
+e_def: 334
+speed: 241
+crit: 298
+sp: 460
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3552
+p_atk_120: 296
+p_def_120: 317
+e_atk_120: 590
+e_def_120: 399
+speed_120: 291
+crit_120: 333
+sp_120: 540
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Conjure Resplendence (Single) II"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Conjure Light (All)"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Debilitation Ceremony"
+    sp_cost: 26
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Debilitation Ceremony (1★)** Lower Elem"
+  - skill_category: active
+    name: "Conjure Effulgence (All) III"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "lower their Elem"
+  - skill_category: active
+    name: "Prayer for Rain"
+    sp_cost: 84
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Prayer for Rain (2★)** Restore SP of Entire Front Row (amount: 8% of max SP) and grant them automatic SP recovery (amount: 5% of max SP"
+  - skill_category: active
+    name: "Conjure Wild Light"
+    sp_cost: 61
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "lower Light Res"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Dance of Divine Opulence"
+    sp_cost: 74
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Dance of Divine Opulence (4★)** Raise Elem"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Conjure Resplendence (All) II"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Conjure Radiance (Single) IV"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: tp
+    name: "Divine Blessing"
+    sp_cost: 35
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Divine Blessing ** Restore own SP (amount: 50-125 based on Boost Lv.) and gain 1-4 Conjuration Points based on Boost Lv"
+  - skill_category: tp
+    name: "Divine Blessing Lv.2"
+    sp_cost: 35
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Divine Blessing Lv.2** Restore own SP (amount: **100-250** based on Boost Lv.) and gain **2-5** Conjuration Points based on Boost Lv"
+  - skill_category: ex
+    name: "Hinoekagura’s Legacy"
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "Light damage to Single Foe 4 time(s) (potency: 4x85) and restore own SP (amount: 100% of max SP)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hinoeuma’s Legacy"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "8x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Switch between Conjurer and Onslaught forms while selecting this action. Onslaught form consumes 25% of max SP every turn to grant All Allies the Celestial Chorus effect and raise your own potency by 75% (Does not stack with effects of the same type), but is terminated if you are rendered unable to act or SP is depleted."
+    trigger: always
+  - passive_category: innate
+    effect: "While in Onslaught form: Gain the ability to trigger a follow-up attack and gain 1 Conjuration Point after any ally attacks (excluding counters and Ultimate Techniques/only activates once per action). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break. Follow-up attack: Deal Elem. Light damage to All Foes (potency: 100)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self effects based on own Conjuration Points. ·3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack). ·6+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: 2x100). ·9+: Raise the limit of Elem. Atk. from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks."
+    trigger: always
+    limit_break_upgrade: "Grant Self effects based on own Conjuration Points. ·3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack). ·**5**+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: **2x150**). ·7+ Gain automatic SP recovery (amount: 10% of max SP). ·9+: Raise the limit of Elem. Atk. and Light damage from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks."
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise own Critical by 15%, Light damage by 15% and Damage Limit by 100,000."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "At full HP: Raise Elem. Atk. of Self by 20%, Critical by 15%, Light damage by 15% and Damage Limit by 100,000."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Light attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Conjurer’s Purifying Rod"
+  passive_effect: "140 E.Atk; When an ally breaks an enemy, lower Elem. Def. by 10% (turns: 3); When consuming 3 BP or more: Raise Elem. Atk. by 15% and Damage Limit by 50,000; 3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack).; 6+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: 2x100).; 9+: Raise the limit of Elem. Atk. from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks.; 3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack).; **6**+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: **2x150**).; 7+ Gain automatic SP recovery (amount: 10% of max SP).~~; 9+: Raise the limit of Elem. Atk. ~~and Light damage~~ from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks.; 140 E.Atk; When an ally breaks an enemy, lower Elem. Def. by 10% (turns: 3); When consuming 3 BP or more: Raise Elem. Atk. by 15% ~~and Damage Limit by 50,000~~"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

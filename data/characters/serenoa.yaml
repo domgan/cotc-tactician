@@ -1,0 +1,170 @@
+# Character: Serenoa
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: serenoa
+display_name: "Serenoa"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Norzelia (TRIANGLE STRATEGY)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 379
+p_def: 338
+e_atk: 242
+e_def: 216
+speed: 315
+crit: 348
+sp: 301
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 444
+p_def_120: 403
+e_atk_120: 292
+e_def_120: 266
+speed_120: 350
+crit_120: 398
+sp_120: 371
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Delaying Strike"
+    sp_cost: 35
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Sword damage to Single Foe (potency: 170) and lower Spd by 30% (turns: 2)"
+  - skill_category: active
+    name: "Raging Beast"
+    sp_cost: 35
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Raging Beast** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Ranged Firestone"
+    sp_cost: 1
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Panacea Pellet"
+    sp_cost: 1
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Panacea Pellet (2★)** Restore HP of Single Ally (recovery amount: 25%-100% of max HP based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    name: "Strength in Numbers"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Strength in Numbers (2★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Desperate Resolve"
+    sp_cost: 22
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Desperate Resolve (3★)** Provoke All Foes and impart Self with Phys"
+  - skill_category: active
+    name: "Sweeping Slash"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "210"
+  - skill_category: active
+    name: "Twofold Turn"
+    sp_cost: 30
+    skill_type: buff
+    target: self
+    effects:
+      - "**Twofold Turn (5★)** Grant Self an effect that activates attack skills twice (turns: 2/turns cannot be extended/follow-up attack will not consume SP) and impart Phys"
+  - skill_category: active
+    name: "Hawk Dive"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: **260**). 20% more potent if target is broken."
+  - skill_category: tp
+    name: "Our Path is Set"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Our Path is Set ** Raise BP recovery amount of Self by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Royal Sword: Fivefold Hawk Dive"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x65"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Under Conviction’s Banner"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Raise Spd of Entire Front Row by **5%→10%** (turns: **2→3**)"
+      - "restore 1 BP and charge their Ultimate Technique gauge by 1 BP (Excluding Self)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Trigger a follow-up strike when using Attack. *Triggers once even during a Boost."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Self counter to physical attacks (potency: 120)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% HP or less: Raise Phys. Atk., Phys. Def. and Elem. Def. of Self by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crest of the Woffort Family"
+  passive_effect: "40 P.Atk, 40 Crit, 300 HP; Start of battle: Provoke All Foes and impart Self with Phys. Def. Up 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

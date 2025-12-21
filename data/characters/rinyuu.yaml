@@ -1,0 +1,177 @@
+# Character: Rinyuu
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rinyuu
+display_name: "Rinyuu"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, lightning, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2702
+p_atk: 241
+p_def: 322
+e_atk: 370
+e_def: 424
+speed: 286
+crit: 253
+sp: 485
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3442
+p_atk_120: 291
+p_def_120: 372
+e_atk_120: 435
+e_def_120: 489
+speed_120: 336
+crit_120: 288
+sp_120: 565
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Homemade Stew"
+    sp_cost: 35
+    skill_type: heal
+    target: front_row
+    power: "100"
+    effects:
+      - "**Homemade Stew** Restore HP (potency: 100) and SP (amount: 20) of Single Ally and raise Ice Res"
+  - skill_category: active
+    name: "Trapper (Bow/All)"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Vigilance (Lightning/Single)"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Heal More (All) (2★)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Trapper (Bow/Single)"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Gracious Prayer"
+    sp_cost: 20
+    skill_type: buff
+    target: all_allies
+    power: "80"
+    effects:
+      - "**Gracious Prayer (3★)** Grant All Allies automatic HP recovery (potency: 80)"
+      - "by 15% and grant immunity to paralysis and sleep"
+  - skill_category: active
+    name: "Vigilance (Lightning/All)"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Preservation"
+    sp_cost: 60
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Preservation (5★)** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost)"
+    limit_break_upgrade: "Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost). Triggers immediately if incapacitated (count does not increase when stacked). *Can be used **6 times per battle**"
+  - skill_category: active
+    name: "Crusader’s Prayer"
+    sp_cost: 20
+    skill_type: mixed
+    target: all_allies
+    effects:
+      - "**Crusader’s Prayer (5★)** Raise Phys"
+      - "damage dealt by 10% and grant immunity to silence and terror"
+  - skill_category: tp
+    name: "Transfer SP & BP"
+    sp_cost: 110
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Transfer SP & BP ** Restore SP (amount: 25-100 based on Boost Lv.) and BP (amount: 1-4 based on Boost Lv.) of Single Ally"
+  - skill_category: ex
+    name: "Immaculate Life Spring"
+    skill_type: heal
+    target: all_allies
+    power: "130"
+    effects:
+      - "**Immaculate Life Spring** Restore HP of All Allies (potency: 130) and revive fallen allies (recovery amount: 100% of max HP)"
+      - "Also raise Phys"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Prayer of the Virtous"
+    skill_type: heal
+    target: front_row
+    power: "200→250"
+    effects:
+      - "Restore HP of Entire Front Row (potency: **200→250**)"
+      - "grant immunity to certain status ailments (turns: 2) and grant the ability to dodge some elemental attacks (time(s): **1→2**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Paired Ally automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Lower SP consumption of Entire Front Row by 10%. Effects do not stack."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Reduce own damage taken from some attacks by 50% once. (Does not stack with effects of the same type)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Blue-Twined Bell Trinket"
+  passive_effect: "400 HP, 100 SP; When in back row: Raise Phys. Def. of Paired Ally by 15%; Grant automatic SP recovery to Entire Front Row (amount: 5)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

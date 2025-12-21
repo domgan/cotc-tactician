@@ -1,0 +1,174 @@
+# Character: Alaune
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: alaune
+display_name: "Alaune"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2906
+p_atk: 201
+p_def: 316
+e_atk: 404
+e_def: 360
+speed: 293
+crit: 211
+sp: 577
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3566
+p_atk_120: 251
+p_def_120: 366
+e_atk_120: 469
+e_def_120: 410
+speed_120: 343
+crit_120: 261
+sp_120: 667
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminescence (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Fireball (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Heal More (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Heal More (All) (1★)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Triple Beat"
+    sp_cost: 38
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Revive (Single)"
+    sp_cost: 50
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Mind Ruin"
+    sp_cost: 18
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Mind Ruin (3★)** Impart All Foes with Elem"
+  - skill_category: active
+    name: "Dark Restoration II"
+    sp_cost: 39
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Dark Restoration II (4★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and raise Dark Res"
+  - skill_category: active
+    name: "Lux Congerere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Ignis Aredere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Chaos Light Flame Magic III"
+    sp_cost: 79
+    skill_type: mixed
+    damage_types: [light, fire]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Light damage to Random Foes 3 time(s) (potency: 3x85) and lower Fire and Light Res"
+  - skill_category: ex
+    name: "Forbidden Light Flame Magic (All)"
+    skill_type: attack
+    damage_types: [light, fire]
+    target: aoe
+    power: "530"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Hopeful Prayers"
+    skill_type: heal
+    target: all_allies
+    power: "200→250"
+    effects:
+      - "Raise max HP of All Allies by **20%→25%** (turns: 5) and restore HP (potency: **200→250**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Fire and Light damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "While in Front Row: Impart Entire Front Row with Elem. Def. Up 10%."
+    trigger: always
+    limit_break_upgrade: "While in Front Row: Impart Entire Front Row with Elem. Def. Up **15%**."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. of Entire Front Row by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Queen of Edoras’ Cape"
+  passive_effect: "40 E.Atk, 60 Spd, 400 HP; At 50% HP or less: Raise Phys. Def. by 30%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

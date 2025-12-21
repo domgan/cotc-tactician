@@ -1,0 +1,183 @@
+# Character: Eliza
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: eliza
+display_name: "Eliza"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3092
+p_atk: 359
+p_def: 338
+e_atk: 337
+e_def: 251
+speed: 280
+crit: 278
+sp: 368
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3912
+p_atk_120: 424
+p_def_120: 403
+e_atk_120: 387
+e_def_120: 301
+speed_120: 315
+crit_120: 328
+sp_120: 438
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Illuminate"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Chain Lightblast"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Twofold Slash"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Elemental Ruin"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Sword damage to Single Foe (potency: 170) and impart Elem"
+  - skill_category: active
+    name: "Lightprone (Single) III"
+    sp_cost: 12
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Lightprone (Single) III (2★)** Impart to Single Foe Light Res"
+  - skill_category: active
+    name: "Triple Effulgence"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Sword of the Sacred Flame"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Sword of the Sacred Flame"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword, light]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Sacred Flame's Blessing"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Sacred Flame's Blessing** **(5★)** Restore HP of Entire Front Row (potency: 205)"
+  - skill_category: active
+    name: "Light of the Sacred Flame"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Light damage to Single Foe (potency: 260) and impart Self with Elem"
+  - skill_category: tp
+    name: "Triple Light Slash"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: ex
+    name: "Sealed Sword of the Flame"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    power: "115"
+    effects:
+      - "**Sealed Sword of the Flame** Grant All Foes Sword and Light weaknesses (times each: 2)"
+      - "Granted Sword Weakness: Regardless of the source"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Divine Sword of the Flame"
+    skill_type: attack
+    damage_types: [sword, light]
+    target: aoe
+    power: "290→335→415"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Raise Light damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Impart Paired Allies with Elem. Atk. Up 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Lower SP consumption of Paired Allies by 30% (Effects do not stack)."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Medal of the Knights Ardante"
+  passive_effect: "30 P.Atk, 80 E.Atk, 30 SP; Start of battle: Impart Self with Elem. Atk. Up 10% (turns: 5); Grant Self automatic HP recovery (amount: 500)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

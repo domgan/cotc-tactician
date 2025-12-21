@@ -1,0 +1,191 @@
+# Character: Tiziano
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tiziano
+display_name: "Tiziano"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2912
+p_atk: 398
+p_def: 270
+e_atk: 241
+e_def: 243
+speed: 460
+crit: 308
+sp: 372
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3732
+p_atk_120: 463
+p_def_120: 290
+e_atk_120: 291
+e_def_120: 293
+speed_120: 525
+crit_120: 358
+sp_120: 452
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Break"
+    sp_cost: 28
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Vitality Snatch"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Noli Me Tangere"
+    sp_cost: 30
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Noli Me Tangere (1★)** Lower Phys"
+  - skill_category: active
+    name: "Triple Ripping Assault"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Crude Joke"
+    sp_cost: 52
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Crude Joke (2★)** Impart Single Ally with Phys"
+      - "by 15% (turns: 2-5 based on Boost Lv.) and grant Dead Aim (guaranteed critical hits) (turns: 2)"
+  - skill_category: active
+    name: "Follow-up"
+    sp_cost: 60
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Follow-up (3★)** Raise BP recovery amount of Single Ally by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Uragano"
+    sp_cost: 75
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: aoe
+    hit_count: "5x"
+    power: "5x25"
+  - skill_category: active
+    name: "Affievolire"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+    effects:
+      - "Also grant Dagger weakness (times: 2)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Dagger Weakness: Regardless of the source"
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: **2x150**). Exploits Wind weakness (damage calculation based on Phys. Dagger attack). Also grant Dagger weakness (times: 2)."
+  - skill_category: active
+    name: "Witty Joke"
+    sp_cost: 57
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Witty Joke (5★)** Impart Entire Front Row with Phys"
+      - "Up 15% and raise Crit"
+      - "raise critical damage by 15% and Damage Limit by 20,000 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Mortificare"
+    sp_cost: 75
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "**Mortificare ** Act faster during turn and deal Phys"
+      - "Dagger damage to Single Foe (potency: 260) and grant Dagger weakness (times: 3-6 based on Boost Lv.)"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Premeditare"
+    skill_type: mixed
+    target: aoe
+    effects:
+      - "**Premeditare** Impart All Allies with Phys"
+      - "Up 20% and raise critical damage by 20% (turns: 2-5 based on Boost Lv.)"
+      - "grant Thieves in party Dead Aim (guaranteed critical hits) (turns: 2) and grant All Foes Dagger weakness (times: 3-6 based on Boost Lv.)"
+      - "Granted Dagger Weakness: Regardless of the source"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Ritorsione di Orfano"
+    skill_type: debuff
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Lower Dagger Res"
+      - "raise Dagger damage of Entire Front Row by **5%→10%→15%** and grant Dead Aim (guaranteed critical hits) (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When an ally in front row breaks an enemy, lower Dagger Res. of the broken target by 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Entire Front Row effects based on number of Thieves in party. 2+: Raise Dagger damage by 15%. 3+: Also raise Phys. Atk. and Critical by 15%. 4+: Also raise the critical damage multiplier (1.25→1.4)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Damage Limit of Entire Front Row by 30,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Stylish Scarf"
+  passive_effect: "50 P.Atk, 40 Spd, 50 SP; When breaking an enemy, lower Dagger Res. by 10% (turns: 3) and grant Dagger weakness (times: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

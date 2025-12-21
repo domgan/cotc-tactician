@@ -1,0 +1,200 @@
+# Character: Sazantos EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sazantos-ex
+display_name: "Sazantos EX"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3220
+p_atk: 479
+p_def: 288
+e_atk: 225
+e_def: 245
+speed: 300
+crit: 346
+sp: 342
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4120
+p_atk_120: 544
+p_def_120: 338
+e_atk_120: 275
+e_def_120: 295
+speed_120: 335
+crit_120: 381
+sp_120: 422
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Jump"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "280"
+  - skill_category: active
+    name: "Tornado (Single)"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Wind damage to Single Foe (potency: 170) and act faster during next turn"
+  - skill_category: active
+    name: "Puncture"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Polearm damage to Single Foe 2 time(s) (potency: 2x90) and lower Phys"
+  - skill_category: active
+    name: "Dragon’s Fang"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Polearm damage to All Foes 2 time(s) (potency: 2x80) and lower Polearm Res"
+  - skill_category: active
+    name: "Impulse Drive"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Polearm damage to Single Foe 3 time(s) (potency: 3x65) and impart Self with Phys"
+  - skill_category: active
+    name: "Lancet"
+    sp_cost: 47
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Cyclone (All)"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    power: "180"
+    effects:
+      - "Wind damage to All Foes (potency: 180) and act faster during next turn"
+  - skill_category: active
+    name: "Lance Burst"
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Polearm damage to Single Foe 2 time(s) (potency: 2x120) and lower Phys"
+  - skill_category: active
+    name: "Double Jump"
+    sp_cost: 108
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x140"
+    effects:
+      - "Raise Damage Limit of this skill by 50,000"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+    limit_break_upgrade: "Leap high into the air and gain Jumping. Act much faster during next turn and deal Phys. Polearm damage to Single Foe 6 time(s) (potency: 6x140), but these attacks can’t break enemies. Jumping is removed afterwards. Exploits Fire and Wind weaknesses (damage calculation based on Phys. Polearm attack). Raise Damage Limit of this skill by **70,000**."
+  - skill_category: tp
+    name: "Fang and Claw"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    power: "3x85/4x75/5x75/6x70"
+    effects:
+      - "Also lower Phys"
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: ex
+    name: "Rising Drive"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "8x"
+    power: "8x30"
+    effects:
+      - "**Rising Drive** Act faster during turn and deal Phys"
+      - "Lower Polearm Res"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Dragoon’s Pride"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    power: "8→12"
+    effects:
+      - "Raise the Damage Limit of this Ultimate Technique by **10,000→50,000→100,000**"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise own Phys. Atk. by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise the potency of Jump, Double Jump and Dragoon’s Pride by 100%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Fire and Wind Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "While Jumping: Grant Entire Front Row the ability to trigger a follow-up strike after acting (*Triggers once only regardless of action). Follow-up attack: Deal Phys. Polearm damage to All Foes (potency: 200). *Cannot break enemies before they can act again."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Kain’s Gloves"
+  passive_effect: "100 P.Atk, 40 Crit.; Start of battle: Raise BP recovery by 1 (turns: 3); At full HP: Lower Polearm Res. of all foes by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

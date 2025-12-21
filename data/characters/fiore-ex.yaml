@@ -1,0 +1,187 @@
+# Character: Fiore EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: fiore-ex
+display_name: "Fiore EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3222
+p_atk: 404
+p_def: 343
+e_atk: 237
+e_def: 241
+speed: 310
+crit: 333
+sp: 286
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4042
+p_atk_120: 454
+p_def_120: 393
+e_atk_120: 302
+e_def_120: 291
+speed_120: 375
+crit_120: 368
+sp_120: 356
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heavy Blow"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Dancer’s Prelude"
+    sp_cost: 22
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Dancer’s Prelude** Impart Self with Phys"
+      - "Up 15% and raise Fan damage by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sunlit Strut"
+    sp_cost: 21
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "140"
+    effects:
+      - "[21 SP] Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Physical Counter Melody"
+    sp_cost: 85
+    skill_type: mixed
+    target: self
+    power: "230"
+    effects:
+      - "grant Self the ability to completely block some physical attacks and counter with Fan damage (potency: 230) and combustion (turns: 2)"
+  - skill_category: active
+    name: "Elemental Counter Melody"
+    sp_cost: 85
+    skill_type: mixed
+    target: self
+    power: "230"
+    effects:
+      - "grant Self the ability to completely block some elemental attacks and counter with Fan damage (potency: 230) and combustion (turns: 2)"
+  - skill_category: active
+    name: "Scorching Step"
+    sp_cost: 36
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Dance of Daybreak"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "**Dance of Daybreak (4★)** Act faster during turn"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Dance: Double Arching Blow"
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Dance: Crumbling Cut"
+    sp_cost: 53
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Fan damage to Single Foe (potency: 230) and impart with Phys"
+    limit_break_upgrade: "Deal Phys. Fan damage to Single Foe (potency: 230) and impart with Phys. Def. Down 20%. **50%** more potent if target is combusted."
+  - skill_category: tp
+    name: "Burning Fan’s Elegy"
+    sp_cost: 26
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Burning Fan’s Elegy ** Lower Fan Res"
+  - skill_category: ex
+    name: "Dance: Collapse Blow"
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "8x"
+    power: "630"
+    effects:
+      - "Guaranteed critical hit"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Dance: Cave In"
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impart Self with Phys. Atk. Up 20% and raise Fan damage by 20% when a broken enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "When using Physical or Elemental Counter Melody, take damage for single-target attack in place of ally in the Front Row (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Entire Front Row by 10% and grant Damage Limit Up (effect: 20,000) when a combusted enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Sunny Sandals"
+  passive_effect: "50 P.Atk, 500 HP, 40 SP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At full HP: Reduce own damage taken from some attacks by 25% (Does not stack with effects of the same type)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

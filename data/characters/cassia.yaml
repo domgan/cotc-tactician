@@ -1,0 +1,180 @@
+# Character: Cassia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cassia
+display_name: "Cassia"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark, light, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3022
+p_atk: 427
+p_def: 213
+e_atk: 265
+e_def: 263
+speed: 360
+crit: 355
+sp: 406
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3842
+p_atk_120: 492
+p_def_120: 263
+e_atk_120: 315
+e_def_120: 283
+speed_120: 410
+crit_120: 420
+sp_120: 486
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [bow, light]
+    target: single_enemy
+    power: "210"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Also lower Phys"
+  - skill_category: active
+    sp_cost: 48
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(1★)** Raise Phys"
+      - "and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000) (turns: 2-5 based on Boost Lv.)"
+      - "also restore 1 BP"
+  - skill_category: active
+    sp_cost: 84
+    skill_type: buff
+    target: self
+    power: "110"
+    effects:
+      - "**(2★)** Grant Self automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 3-6 based on Boost Lv.)"
+      - "restore own HP (potency: 140) and SP (amount: 100) and raise BP recovery by 1 (turns: 3)"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: mixed
+    damage_types: [bow, light]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Have a moderate chance to lower Bow Res"
+  - skill_category: active
+    sp_cost: 95
+    skill_type: attack
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70, turns: 2-5 based on Boost Lv."
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "5x"
+    power: "5x25"
+  - skill_category: active
+    sp_cost: 26
+    skill_type: mixed
+    target: single_ally
+    effects:
+      - "**(5★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [bow, light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x150"
+    effects:
+      - "Raise the Damage Limit of this skill by 50,000"
+  - skill_category: tp
+    skill_type: buff
+    target: self
+    effects:
+      - "**** Increase the uses of EX skill by 1 and grant Self “Fighting Spirit” (turns: 3-6 based on Boost Lv./cannot be extended)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "10x"
+    power: "10x5"
+    effects:
+      - "Grant Self the special effect “Evil Eye Unleashed” (turns: 2/cannot be extended/granted as a support ability)"
+      - "“Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type)"
+      - "grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Moonlight Disaster”"
+    skill_type: attack
+    damage_types: [bow, light]
+    target: aoe
+    hit_count: "2x"
+    effects:
+      - "Raise the Damage Limit of this Ultimate Technique by 150,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Raise Phys. Atk. and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000)."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise Phys. Atk. limit support skills and equipment effects of Hunters in front row to 50%. While “Evil Eye Unleashed” is active: Also raise Phys. Atk. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant Self the special effect “Evil Eye Unleashed” (turns: 1). “Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type). Additionally, grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack). ---"
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Moonlight Eyepatch”"
+  passive_effect: "100 P.Atk, 40 E.Atk; Raise Phys. Atk. and Bow damage by 15%; At full HP: Grant Damage Limit Up (effect: 50,000); When in front row: Grant automatic HP recovery (amount: 500) and SP recovery (amount: 10)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

@@ -1,0 +1,207 @@
+# Character: Ori
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ori
+display_name: "Ori"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [polearm, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3070
+p_atk: 394
+p_def: 313
+e_atk: 360
+e_def: 250
+speed: 340
+crit: 251
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3970
+p_atk_120: 459
+p_def_120: 363
+e_atk_120: 410
+e_def_120: 300
+speed_120: 375
+crit_120: 286
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Exclusive Interview"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Polearm damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys"
+  - skill_category: active
+    name: "Inside Scoop"
+    sp_cost: 32
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Wind damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys"
+  - skill_category: active
+    name: "First-Hand Finsdings"
+    sp_cost: 26
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**First-Hand Finsdings (1★)** Act faster during turn to show 1-4 weak point(s) of All Foes based on Boost Lv"
+  - skill_category: active
+    name: "Surprise Interview"
+    sp_cost: 87
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Grant Polearm"
+  - skill_category: active
+    name: "Leading Questions"
+    sp_cost: 51
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "If the target has 4 or more revealed weak points (including granted ones) potency increases by 20%"
+  - skill_category: active
+    name: "Special Report"
+    sp_cost: 57
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: single_enemy
+    power: "35"
+    effects:
+      - "**Special Report (3★)** Act faster during turn and deal Phys"
+      - "Attack as many additional times as the number of revealed weak points (including granted ones)"
+      - "up to 5 times (attack count updates during attack/depleted granted weaknesses do not count)"
+  - skill_category: active
+    name: "Off-the-Record"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    power: "2x120/3x95/4x85/5x100"
+    limit_break_upgrade: "Deal Elem. Wind damage to Random Foe. Attack count rises based on Boost Lv. (potency: **3**x120/**4**x95/**5**x85/**6**x100). Have a 20% chance to gain 1 Article Point with every attack."
+  - skill_category: active
+    name: "Breaking News"
+    sp_cost: 88
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Grant Polearm"
+      - "At Max Boost: Grant them Polearm weakness (times: 2)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Elemental Weakness: Regardless of the source"
+  - skill_category: active
+    name: "News Hook"
+    sp_cost: 65
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Potency increases based on the number of revealed weak points (including granted ones)"
+      - "[65 SP] ·5+: Raise potency by 10%"
+      - "·7+: Raise potency by 30%"
+      - "·9+: Raise potency by 50%"
+      - "·14+: Raise potency by 100%"
+  - skill_category: tp
+    name: "Field Report"
+    sp_cost: 32
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Field Report ** Act faster during turn"
+      - "lower Polearm and Wind Res"
+  - skill_category: ex
+    name: "Exposé"
+    skill_type: attack
+    damage_types: [polearm, wind]
+    target: aoe
+    power: "30"
+    effects:
+      - "Polearm damage to All Foes (potency: 30) and grant them every possible weakness (times each: 2)"
+      - "At Max Boost: Grant All Foes Polearm and Wind weaknesses (times each: 2)"
+      - "Granted Weakness: Regardless of the source"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Newsflash"
+    skill_type: mixed
+    damage_types: [polearm, wind]
+    target: aoe
+    hit_count: "5x"
+    effects:
+      - "Grant Self Damage Limit Up (effect: **10,000→50,000→100,000**"
+      - "Polearm damage to All Foes 5 time(s) (potency: 5**x80→5x90→5x100**) and grant them Polearm and Wind weaknesses (times each: 4)"
+      - "Lower Shield Points even when not striking weak points"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Inflict All Foes effects based on own Article Points. ·3+: Lower Wind Res. by 10%. ·6+: Also lower Polearm Res. by 10%. ·9+: Also lower Phys. and Elem. Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally breaks an enemy: Restore BP of All Allies by 3 and grant the broken enemy Polearm and Wind weaknesses (times each: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When enemy with 6 or more revealed weak points (including granted ones) is present, raise Polearm damage of Entire Front Row by 15% and reduce damage taken from some attacks by 15% (Effects of the same type do not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Scrivener’s Notebook"
+  passive_effect: "50 P.Atk, 20 P.Def, 50 E.Atk, 20 E.Def; When breaking an enemy, lower their Polearm and Wind Res. by 10% (turns: 3) and grant Polearm and Wind weaknesses (times each: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

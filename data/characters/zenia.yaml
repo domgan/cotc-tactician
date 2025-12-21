@@ -1,0 +1,179 @@
+# Character: Zenia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: zenia
+display_name: "Zenia"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3090
+p_atk: 295
+p_def: 342
+e_atk: 466
+e_def: 217
+speed: 236
+crit: 213
+sp: 498
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3910
+p_atk_120: 345
+p_def_120: 392
+e_atk_120: 531
+e_def_120: 267
+speed_120: 286
+crit_120: 263
+sp_120: 568
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Whirling Strikes"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Mind Venom III"
+    sp_cost: 30
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Mind Venom III** Impart Single Foe with Elem"
+  - skill_category: active
+    name: "Esoteric Salve"
+    sp_cost: 55
+    skill_type: heal
+    target: front_row
+    power: "45"
+    effects:
+      - "**Esoteric Salve (1★)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Deathwish Tonic"
+    sp_cost: 68
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Deathwish Tonic (2★)** Act faster during turn and impart Single Ally with Deathwish (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Fourfold Cleave"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Black Heart Inhibitor"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "4x"
+    effects:
+      - "**Black Heart Inhibitor (3★)** Act faster during turn"
+      - "Dark damage to Single Foe 4 time(s) and impart with Elem"
+  - skill_category: active
+    name: "Deathwish Reprieve"
+    sp_cost: 38
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Deathwish Reprieve (4★)** Restore HP of Entire Front Row (potency: 65) and cure Deathwish and some status ailments"
+  - skill_category: active
+    name: "Poysenmist"
+    sp_cost: 84
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "impart with Elem"
+  - skill_category: active
+    name: "Anaphylaxis"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "260"
+    limit_break_upgrade: "Deal Elem. Dark damage to Single Foe (potency: 260). **50%** more potent if target is poisoned."
+  - skill_category: tp
+    name: "Overdose"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Ultimate Deathwish"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Ultimate Deathwish** Act faster during the turn and impart All Allies with Deathwish (turns: 2-5 based on Boost Lv.)"
+      - "Deathwish: Raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Black Death"
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "4x"
+    effects:
+      - "Act faster during the turn"
+      - "Dark damage to Single Foe 4 time(s) (potency: **4x95→4x115**) and impart Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Impart Paired Allies with Elem. Atk. Up 30% and raise Dark damage dealt by 30% when poisoned enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Inflict All Foes with poison (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Entire Front Row effects based on amount of allies in Deathwish state. ·With 1+: Grant ability to trigger critical hits with elemental attacks. ·With 4+: Also raise BP recovery amount by 1."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Poysenbalm"
+  passive_effect: "100 E.Atk, 40 SP; When breaking an enemy, lower their Elem. Def. by 15% (turns: 3) and inflict poison (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

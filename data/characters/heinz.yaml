@@ -1,0 +1,169 @@
+# Character: Heinz
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: heinz
+display_name: "Heinz"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2925
+p_atk: 250
+p_def: 296
+e_atk: 349
+e_def: 343
+speed: 273
+crit: 225
+sp: 544
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3585
+p_atk_120: 300
+p_def_120: 346
+e_atk_120: 414
+e_def_120: 393
+speed_120: 323
+crit_120: 275
+sp_120: 634
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Duskfall (Single)"
+    sp_cost: 9
+    skill_type: utility
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Duskfall (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Focus"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Focus (1★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Duskblight (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Duskfall (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Heart and Soul"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Heart and Soul (3★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Heart and Soul"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Heart and Soul (5★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Duskfall (All) II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Duskfall (All) II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "**175**"
+    limit_break_upgrade: "Deal Elem. Dark damage to All Foes **3** time(s) (potency: **3x75**)."
+  - skill_category: tp
+    name: "Raging Duskfall III"
+    sp_cost: 65
+    skill_type: mixed
+    damage_types: [dark]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Dark damage to Random Foes 3 time(s) (potency: 3x85) and lower Dark Res"
+  - skill_category: ex
+    name: "Forbidden Duskfall (Single)"
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "530"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Death Sentence"
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Elem. Atk. Up 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise Dark damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. and Elem. Def. of Self by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crest of House Danfole"
+  passive_effect: "40 E.Atk, 10 E.Def, 20 SP; Start of the battle: Lower Dark Res. of all enemies by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

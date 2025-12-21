@@ -1,0 +1,182 @@
+# Character: Rinyuu EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: rinyuu-ex
+display_name: "Rinyuu EX"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, fire, ice, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2622
+p_atk: 241
+p_def: 322
+e_atk: 370
+e_def: 439
+speed: 286
+crit: 238
+sp: 495
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3442
+p_atk_120: 291
+p_def_120: 372
+e_atk_120: 435
+e_def_120: 489
+speed_120: 336
+crit_120: 288
+sp_120: 565
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Triple Light Powder"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Emergency Panacea (Front/All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Emergency Panacea (Front/All)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.)"
+      - "At Max Boost: Also raise their Phys"
+  - skill_category: active
+    name: "Elemental Serum (Front/All) II"
+    sp_cost: 57
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Elemental Serum (Front/All) II (1★)** Raise Elem"
+  - skill_category: active
+    name: "Crusader’s Serum"
+    sp_cost: 52
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Crusader’s Serum (2★)** Act faster during turn"
+      - "of All Allies by 15% (turns: 2-5 based on Boost Lv.) and grant Damage Limit Up (effect: 20,000, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Quadruple Light Powder"
+    sp_cost: 66
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Light damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Elem"
+  - skill_category: active
+    name: "Sustained Adjuvant (Front/All)"
+    sp_cost: 115
+    skill_type: heal
+    target: front_row
+    power: "205/times: 1-4"
+    effects:
+      - "**Sustained Adjuvant (Front/All) (3★)** Restore HP of Entire Front Row at the end of every turn (potency: 205/times: 1-4)"
+    limit_break_upgrade: "Restore HP of Entire Front Row at the end of every turn (potency: 205/**times: 2-5**). If the user is in front row during the healing, also cure status ailments of targets."
+  - skill_category: active
+    name: "Gracious Serum"
+    sp_cost: 104
+    skill_type: buff
+    target: front_row
+    power: "10%-40% of user’s max HP based on Boost Lv."
+    effects:
+      - "**Gracious Serum (4★)** Act faster during turn"
+      - "grant All Allies HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv.) and raise Phys"
+  - skill_category: active
+    name: "Quadruple Glimmering Plume"
+    sp_cost: 94
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "**Quadruple Glimmering Plume (5★)** Act faster during turn and deal Elem"
+  - skill_category: active
+    name: "Sustained Light Powder"
+    sp_cost: 126
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55, turns: 2-5 based on Boost Lv."
+  - skill_category: tp
+    name: "Guardian of Light’s Powder"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "630"
+  - skill_category: ex
+    name: "Sacred Spirit’s Preservation"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Sacred Spirit’s Preservation** Grant All Allies automatic revival (revived at 25%-100% of max HP based on Boost Lv.)"
+      - "which triggers immediately if incapacitated (does not stack) and restore their BP by 4, but delay actions during turn"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Strengthening Elixir"
+    skill_type: mixed
+    target: single_ally
+    power: "2→3"
+    effects:
+      - "Act faster during turn"
+      - "raise elemental damage of Single Ally by **10%→20%→30%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When an ally switches to front/back rows: Raise Elem. Atk. and Elem. Def. of moving Paired Allies by 15% (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally switches to front/back rows: Restore HP (amount: 20% of target’s max HP) and SP (amount: 10% of target’s max SP) of moving Paired Allies."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally switches to back row: Restore their BP by 1."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Velnorte’s Manuscript"
+  passive_effect: "50 E.Atk, 400 HP, 50 SP; When switching: Raise Elem. Atk. of Paired Allies by 15% and their Damage Limit by 25,000 (turns: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

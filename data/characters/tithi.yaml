@@ -1,0 +1,186 @@
+# Character: Tithi
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tithi
+display_name: "Tithi"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 230
+p_def: 227
+e_atk: 417
+e_def: 337
+speed: 412
+crit: 239
+sp: 494
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 280
+p_def_120: 277
+e_atk_120: 482
+e_def_120: 387
+speed_120: 477
+crit_120: 274
+sp_120: 564
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Ode to Lightning II"
+    sp_cost: 20
+    skill_type: mixed
+    target: single_enemy
+    power: "170"
+    effects:
+      - "and lowers Lightning Res"
+  - skill_category: active
+    name: "Peacock Strut II"
+    sp_cost: 14
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Peacock Strut II** Impart Single Ally with Elem"
+      - "and restore 1 BP at Max Boost"
+  - skill_category: active
+    name: "Heavy Blow"
+    sp_cost: 18
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "and lowers Fan Res"
+  - skill_category: active
+    name: "Donate BP"
+    sp_cost: 60
+    skill_type: heal
+    target: single_ally
+    power: "280"
+    effects:
+      - "**Donate BP (2★)** Restore BP of Single Ally excluding Self (amount: 1-4 based on Boost Lv.)"
+      - "and restore HP at Max Boost (potency: 280)"
+  - skill_category: active
+    name: "Roaring Rhapsody III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "180"
+    effects:
+      - "and restore own SP by 50 at Max Boost"
+  - skill_category: active
+    name: "Divine Blast"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Storm of Lament"
+    sp_cost: 51
+    skill_type: mixed
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "lower Lightning Res"
+  - skill_category: active
+    name: "Thunderbeast’s Verse"
+    sp_cost: 80
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "2x"
+    power: "2x105"
+    effects:
+      - "and lower Phys"
+  - skill_category: active
+    name: "General’s March III"
+    sp_cost: 70
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**General’s March III (5★)** Raise Phys"
+      - "and restore BP by 1 at Max Boost"
+  - skill_category: tp
+    name: "Ode to Lightning III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Dance of Elevation"
+    skill_type: buff
+    target: self
+    effects:
+      - "**Dance of Elevation** Raise BP recovery amount of Self by 3 (turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Thunder God’s Cassation"
+    skill_type: attack
+    damage_types: [lightning]
+    target: front_row
+    power: "440→525→655"
+    effects:
+      - "Lightning damage to Single Foe (potency: **440→525→655**) and restore BP of Entire Front Row by 1"
+      - "Grant Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise BP recover amount of Self by 1 (turns: 2)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(3★)** 25% chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage."
+    trigger: always
+  - passive_category: innate
+    effect: "**(6★) 50%** chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Act faster when consuming 3 BP and grant Self the ability to deal critical hits with elemental attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Silversand Balm"
+  passive_effect: "40 P.Atk, 400 HP, 60 SP; Raise Fan and Lightning damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

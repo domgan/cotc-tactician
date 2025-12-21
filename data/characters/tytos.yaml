@@ -1,0 +1,169 @@
+# Character: Tytos
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tytos
+display_name: "Tytos"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3252
+p_atk: 449
+p_def: 358
+e_atk: 257
+e_def: 231
+speed: 280
+crit: 338
+sp: 306
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4072
+p_atk_120: 514
+p_def_120: 423
+e_atk_120: 307
+e_def_120: 281
+speed_120: 315
+crit_120: 388
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Fourfold Slash"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Daunting Look"
+    sp_cost: 20
+    skill_type: utility
+    target: random
+    hit_count: "2x"
+  - skill_category: active
+    name: "Brutal Sweep"
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180"
+  - skill_category: active
+    name: "Stormwind"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Intimidating Slash"
+    sp_cost: 43
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Completed Scarlet Elixir"
+    sp_cost: 76
+    skill_type: buff
+    target: self
+    effects:
+      - "**Completed Scarlet Elixir (3★)** Raise Critical and damage of Self by 20% (turns: 3-6 based on Boost Lv.)"
+      - "Grant automatic revival once per battle (revived at 100% of max HP/SP)"
+  - skill_category: active
+    name: "Physical Interceptor Stance"
+    sp_cost: 55
+    skill_type: mixed
+    target: self
+    power: "230"
+    effects:
+      - "**Physical Interceptor Stance (4★)** Grant Self the ability to completely block some physical attacks (times: 1-4 based on Boost Lv.) and counter with Sword damage (potency: 230) and intimidation (turns: 2)"
+  - skill_category: active
+    name: "Quick as a Flash"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [lightning]
+    target: random
+    hit_count: "5x"
+    power: "5x35"
+  - skill_category: active
+    name: "Merciless Slash"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Rule by Fear"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: ex
+    name: "Allaying Slash"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "140"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "The Thunderblade’s Brutality"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "500→600→750"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When an intimidated enemy is present, raise own Phys. Atk. by 20% and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks."
+    trigger: always
+    limit_break_upgrade: "When an intimidated enemy is present, raise own Phys. Atk. by 20% and Damage Limit by 70,000 and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks."
+  - passive_category: innate
+    effect: "Raise Sword damage of Self by 15% and critical damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 5% when an intimidated enemy is present."
+    trigger: always
+    limit_break_upgrade: "Grant Self Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Scarlet Wing Commander’s Crest"
+  passive_effect: "120 P.Atk, 20 Crit; Start of battle: Intimidate all enemies (turns: 6). Intimidate: Lower Phys. Def. and Elem. Def. by 5%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

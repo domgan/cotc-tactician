@@ -1,0 +1,173 @@
+# Character: Merrit
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: merrit
+display_name: "Merrit"
+rarity: 4
+
+# Core attributes
+job: apothecary
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3210
+p_atk: 338
+p_def: 382
+e_atk: 310
+e_def: 228
+speed: 276
+crit: 223
+sp: 403
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4030
+p_atk_120: 388
+p_def_120: 432
+e_atk_120: 375
+e_def_120: 278
+speed_120: 326
+crit_120: 273
+sp_120: 473
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Amputation"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Emergency First Aid"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "155"
+    effects:
+      - "**Emergency First Aid** Restore HP of Single Ally (potency: 155)"
+  - skill_category: active
+    name: "Illuminate"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Dark Ward"
+    sp_cost: 19
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Dark Ward (2★)** Raise Dark Res"
+  - skill_category: active
+    name: "Full Swing"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "145"
+    limit_break_upgrade: "Deal Phys. Axe damage to All Foes **2** time(s) (potency: **2x75**)."
+  - skill_category: active
+    name: "Expert First Aid"
+    sp_cost: 38
+    skill_type: heal
+    target: single_ally
+    power: "225"
+    effects:
+      - "**Expert First Aid (3★)** Restore HP of Single Ally (potency: 225)"
+  - skill_category: active
+    name: "Expert First Aid"
+    sp_cost: 30
+    skill_type: heal
+    target: single_ally
+    power: "**295**"
+    effects:
+      - "**Expert First Aid (5★)** Restore HP of Single Ally (potency: **295**)"
+  - skill_category: active
+    name: "Effulgence"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "220"
+  - skill_category: active
+    name: "Effulgence"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "**250**"
+  - skill_category: tp
+    name: "Swift Jab Bath"
+    sp_cost: 71
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**Swift Jab Bath ** Restore HP of Entire Front Row (potency: 205) and cure some status ailments (with some exceptions)"
+      - "Also raise Dark Res"
+  - skill_category: ex
+    name: "I’ll Slice You Up!"
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "I’ll Chop You Up!"
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Axe damage to Single Foe (potency: **440→525→655**) and restore HP of Self (potency: **250→300→350**)"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Absorb 10% of damage dealt as HP when using Attack."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 100)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Raise Dark Res. of Entire Front Row by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Medicinal Herb Garden Plans"
+  passive_effect: "20 P.Def, 30 E.Atk, 20 E.Def; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

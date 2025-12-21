@@ -1,0 +1,196 @@
+# Character: Richard EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: richard-ex
+display_name: "Richard EX"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3750
+p_atk: 549
+p_def: 398
+e_atk: 245
+e_def: 310
+speed: 225
+crit: 416
+sp: 392
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4650
+p_atk_120: 614
+p_def_120: 448
+e_atk_120: 295
+e_def_120: 360
+speed_120: 260
+crit_120: 451
+sp_120: 472
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 23
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+    effects:
+      - "When exploiting a weakness: Also raise Phys"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 23
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+    effects:
+      - "When exploiting a weakness: Also raise Elem"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: buff
+    target: self
+    effects:
+      - "**(1★)** Grant Self automatic SP recovery (amount: 10% of user’s max SP) and raise BP recovery amount by 1 (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [polearm, dagger]
+    target: aoe
+    power: "80"
+    effects:
+      - "When exploiting a weakness: Also lower their Phys"
+  - skill_category: active
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [sword, staff]
+    target: aoe
+    power: "80"
+    effects:
+      - "When exploiting a weakness: Also lower Phys"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: attack
+    damage_types: [dagger, axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x35"
+    effects:
+      - "When exploiting a weakness: Also raise Phys"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [polearm, staff]
+    target: aoe
+    hit_count: "2x"
+    power: "2x35"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [sword, bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x35"
+    effects:
+      - "When exploiting a weakness: Grant Self HP Barrier (potency: 50% of user’s Max HP)"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [sword, polearm]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Raise Damage Limit of this skill by 100,000"
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [polearm, axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Raise Damage Limit of this skill by 300,000"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [polearm, axe, bow]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Raise Damage Limit of this skill by 300,000"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [sword, dagger, staff]
+    target: aoe
+    hit_count: "2x"
+    power: "2x150"
+    effects:
+      - "Also restore 2 BP to Self"
+      - "Raise Damage Limit of this skill by 100,000"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Roar of the Warmaster”"
+    skill_type: attack
+    target: single_enemy
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 50,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "During battle: Your job is also considered to be Warrior, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer."
+    trigger: always
+  - passive_category: innate
+    effect: "When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”."
+    trigger: always
+    limit_break_upgrade: "When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30%, raise Physical damage by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”."
+  - passive_category: innate
+    effect: "When in front row: Grant Self the ability to trigger a follow-up attack when any ally in Entire Front Row except Self exploits a weakness with physical attacks (only activates once per each physical weakness in action). Follow-up attack: Deal Phys. damage to All Foes according to the exploited weakness (potency: 100)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Phys. Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Potency Up effects of Self by 50% (Does not stack). At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type) and grant Damage Limit Up (effect: 100,000)."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Essence of Martial Arts”"
+  passive_effect: "150 P.Atk, -20 E.Atk, 60 SP; When an ally breaks an enemy, raise BP recovery amount by 1 (turns: 2); Start of battle: Raise BP recovery amount by 1 (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

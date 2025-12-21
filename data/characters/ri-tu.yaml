@@ -1,0 +1,178 @@
+# Character: Ri’tu
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ri-tu
+display_name: "Ri’tu"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, lightning]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2782
+p_atk: 403
+p_def: 259
+e_atk: 276
+e_def: 232
+speed: 410
+crit: 333
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3602
+p_atk_120: 468
+p_def_120: 279
+e_atk_120: 326
+e_def_120: 282
+speed_120: 475
+crit_120: 383
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Dual Destruction"
+    sp_cost: 28
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Lightning Storm"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [lightning]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Dual Glint"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Bind Feet"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Bind Feet (2★)** Lower Spd of All Foes by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Formidable"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "110"
+  - skill_category: active
+    name: "Dual Ruin"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Wild Twin Deadly Dance"
+    sp_cost: 44
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Thunder’s Roar"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [lightning]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Lightning damage to Random Foe 3 time(s) (potency: 3x85) and have a moderate chance to impart with Phys"
+  - skill_category: active
+    name: "Unparalleled"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "290"
+  - skill_category: tp
+    name: "Fly"
+    sp_cost: 40
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Fly ** Grant Self the ability to trigger attack abilities 2 times (turns: 2/Cannot extend duration/Additional activations do not consume SP) and raise Phys"
+  - skill_category: ex
+    name: "Needle’s Eye"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "290"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Supremacy"
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "500→600"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "At full HP: Raise dagger damage of Self by 20%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Trigger a follow-up strike when using Attack (*Triggers once even during a Boost)."
+    trigger: always
+    limit_break_upgrade: "Trigger a follow-up strike when using Attack and Dagger damaging skills (*Triggers once even during a Boost)."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Self by 15%. At full HP: Lower SP consumption by 50% (Effects do not stack)."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Double Wing Scabbard"
+  passive_effect: "40 P.Atk, 60 P.Def, 40 Crit; Raise dagger damage dealt by 15%; When using \"Attack\", restore HP equal to 1% of damage dealt; 100 P.Atk, -50 P.Def, -50 E.Def; With Winged Cape equipped: When unleashing some attacks, have a low chance to lower enemies’ Dagger Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

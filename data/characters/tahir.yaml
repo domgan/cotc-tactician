@@ -1,0 +1,171 @@
+# Character: Tahir
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: tahir
+display_name: "Tahir"
+rarity: 4
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3244
+p_atk: 391
+p_def: 338
+e_atk: 237
+e_def: 249
+speed: 278
+crit: 325
+sp: 282
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4064
+p_atk_120: 456
+p_def_120: 403
+e_atk_120: 287
+e_def_120: 299
+speed_120: 313
+crit_120: 375
+sp_120: 352
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slice"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Level Slash"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Sizzle"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Stout Wall"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Stout Wall (2★)** Impart Self with Phys"
+  - skill_category: active
+    name: "Guillotine"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Stunning"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Stunning"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "**175**"
+  - skill_category: active
+    name: "Twofold"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Twofold"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x115**"
+  - skill_category: tp
+    name: "Crimson Sword"
+    sp_cost: 59
+    skill_type: attack
+    damage_types: [sword, fire]
+    target: single_enemy
+    power: "290"
+  - skill_category: ex
+    name: "Blazing Multi-slash"
+    skill_type: attack
+    damage_types: [sword, fire]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x85"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Crimson Strike"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Self with Phys. Def. Up 15% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(3★)** When switching: Raise Sword damage of Paired Allies by 20% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "**(6★)** When switching: Raise Sword damage of Paired Allies by 20% and grant Damage Limit Up (effect: 25,000) (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Phys. Atk. by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crimson Blade’s Turban"
+  passive_effect: "50 P.Atk, 20 Crit; Start of battle: Raise own Phys. Atk. by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

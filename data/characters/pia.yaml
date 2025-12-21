@@ -1,0 +1,169 @@
+# Character: Pia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: pia
+display_name: "Pia"
+rarity: 4
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3450
+p_atk: 349
+p_def: 348
+e_atk: 280
+e_def: 280
+speed: 225
+crit: 241
+sp: 341
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4350
+p_atk_120: 414
+p_def_120: 398
+e_atk_120: 330
+e_def_120: 330
+speed_120: 260
+crit_120: 276
+sp_120: 421
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Lightstrike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Tease"
+    sp_cost: 5
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Full Flourish"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    power: "115"
+    effects:
+      - "Polearm damage to All Foes (potency: 115) and lower Polearm Res"
+    limit_break_upgrade: "Deal Phys. Polearm damage to All Foes **2** time(s) (potency: **2x90**) and lower Polearm Res. by 15% (turns: 2)."
+  - skill_category: active
+    name: "Lightblast"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Take Command"
+    sp_cost: 18
+    skill_type: debuff
+    target: front_row
+    effects:
+      - "**Take Command** **(3★)** Provoke All Foes and impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Take Command"
+    sp_cost: 18
+    skill_type: debuff
+    target: front_row
+    effects:
+      - "**Take Command** **(5★)** Provoke All Foes and impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x115**"
+  - skill_category: tp
+    name: "Triple Thrust"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Triumphant Thrust"
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+    power: "3x95"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "A Knack for Business"
+    skill_type: utility
+    target: front_row
+    power: "2→3"
+    effects:
+      - "Provoke All Foes (turns: **2→3**) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** End of battle: Raise leaves earned by 3%."
+    trigger: always
+  - passive_category: innate
+    effect: "At 50% HP or more: Impart Self with Phys. Def. Up 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% HP or less: Grant automatic HP recovery (potency: 90)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Lamas Company Seal"
+  passive_effect: "10 P.Def, 20 E.Def, 400 HP; When HP is 50% or lower: Grant automatic HP recovery (amount: 500)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

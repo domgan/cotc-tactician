@@ -1,0 +1,179 @@
+# Character: NieR
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nier
+display_name: "NieR"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, polearm, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3270
+p_atk: 444
+p_def: 293
+e_atk: 225
+e_def: 295
+speed: 300
+crit: 276
+sp: 362
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4170
+p_atk_120: 509
+p_def_120: 343
+e_atk_120: 275
+e_def_120: 345
+speed_120: 335
+crit_120: 311
+sp_120: 442
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Thrust"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Sidestep"
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**Sidestep (1★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) [50 SP]"
+  - skill_category: active
+    name: "Peerless Thrust"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Spirited Slash"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "At Max Boost: Guaranteed critical hit"
+  - skill_category: active
+    name: "Thrust Combo"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "**Thrust Combo (3★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Dark Phantasm"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "attacks only once with higher potency and raises its Damage Limit by 50,000"
+  - skill_category: active
+    name: "Dark Execution"
+    sp_cost: 86
+    skill_type: attack
+    damage_types: [polearm, dark]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Dark Hand"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: tp
+    name: "Dark Whirlwind"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [polearm, dark]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Attack Gauge"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260-450 based on Boost Lv."
+    effects:
+      - "**Attack Gauge** Act faster during turn"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Dark Lance"
+    skill_type: attack
+    damage_types: [polearm, dark]
+    target: single_enemy
+    hit_count: "2x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Sword and Polearm damage of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Sword and Polearm damage of Self by 30% and Damage Limit by 25,000."
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 25,000) when a broken enemy is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic SP recovery (amount: 20) and raise BP recovery by 1 when a broken enemy is present."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Geometric Patterned Bracers"
+  passive_effect: "200 P.Atk, -30 P.Def, -30 E.Def; Raise Phys. Atk. by 15% when a broken enemy is present; Additionally, lower Phys. Res. of all enemies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

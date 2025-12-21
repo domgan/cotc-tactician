@@ -1,0 +1,223 @@
+# Character: Viola EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: viola-ex
+display_name: "Viola EX"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: opulence
+origin: "Overworld (Dragon Quest III)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, ice, light, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2896
+p_atk: 221
+p_def: 246
+e_atk: 489
+e_def: 310
+speed: 318
+crit: 201
+sp: 572
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3556
+p_atk_120: 271
+p_def_120: 296
+e_atk_120: 554
+e_def_120: 360
+speed_120: 368
+crit_120: 251
+sp_120: 662
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Light damage to All Foes 3 time(s) (potency: 3x55) and lower Light Res"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Ice damage to All Foes 3 time(s) (potency: 3x55) and lower Ice Res"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Fire damage to All Foes 3 time(s) (potency: 3x55) and lower Fire Res"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    target: front_row
+    power: "205"
+    effects:
+      - "**(2★)** Restore HP of Entire Front Row (potency: 205)"
+      - "raise damage of the same target by 15% (turns: 2)"
+  - skill_category: active
+    sp_cost: 69
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(3★)** Lower Elem"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    power: "180"
+    effects:
+      - "Fire damage to All Foes (potency: 180) and lower Fire Res"
+      - "When consuming 5 BP: Potency is multiplied by 1.4 and grant Self Damage Limit Up when using this skill (effect: 100,000)"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [ice]
+    target: aoe
+    power: "180"
+    effects:
+      - "Ice damage to All Foes (potency: 180) and lower Ice Res"
+      - "When consuming 5 BP: Potency is multiplied by 1.4 and grant Self Damage Limit Up when using this skill (effect: 100,000)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    power: "180"
+    effects:
+      - "Fire damage to All Foes (potency: 180) and lower Fire Res"
+      - "When consuming 5 BP: Potency is multiplied by 1.4 and grant Self Damage Limit Up when using this skill (effect: 100,000)"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Dizzy: Have a small chance of missing the attack (with some exceptions) and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: tp
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: tp
+    name: "Lv. 2"
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(EX)** Raise the Elem"
+      - "limit from battle skills of Self to 50% (turns: 2-7 based on Boost Lv.) and raise own Elem"
+      - "Also raise BP recovery amount of by 5 (turns: 2)"
+      - "raise potency by 200% (turns: 2/Cannot be extended/Does not stack with effects of the same type) and raise Damage Limit of the same target (effect: 100,000, turns: 2)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Puff!”"
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "9x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max). *BP cost is 1, 3 and 5 respectively."
+    trigger: always
+  - passive_category: innate
+    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Elem. Atk. by 30%. When in “Legend” state, raise BP recovery amount by 1."
+    trigger: always
+    limit_break_upgrade: "Raise own Elem. Atk. by 30% and raise elemental damage by 30%. When in “Legend” state, raise BP recovery amount by 1 and grant Self Damage Limit Up (effect: 100,000)."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise the elemental damage limit from battle skills and support and equipment effects of Self to 50%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise the elemental damage limit from battle skills and support and equipment effects of Self to 50%. When consuming 2 gauges to activate the Ultimate Technique, restore 1 use of EX skill."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Mantle of the Sage”"
+  passive_effect: "-60 P.Atk, 200 E.Atk; Grant Damage Limit Up (effect: 100,000); When there’s a broken enemy, lower Fire, Ice and Light Res. of all enemies by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

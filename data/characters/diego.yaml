@@ -1,0 +1,160 @@
+# Character: Diego
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: diego
+display_name: "Diego"
+rarity: 3
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2902
+p_atk: 363
+p_def: 300
+e_atk: 246
+e_def: 253
+speed: 410
+crit: 338
+sp: 317
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3722
+p_atk_120: 428
+p_def_120: 320
+e_atk_120: 296
+e_def_120: 303
+speed_120: 475
+crit_120: 388
+sp_120: 397
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Armor Corrosive"
+    sp_cost: 6
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Armor Corrosive** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Sizzle"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Mass armor Corrosive"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Mass armor Corrosive** **(2★)** Impart All Foes qith Phys"
+  - skill_category: active
+    name: "Armor Corrosive II"
+    sp_cost: 14
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Armor Corrosive II (2★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Jaguar Bite"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "210"
+  - skill_category: active
+    name: "Jaguar Bite"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "**240**"
+  - skill_category: tp
+    name: "Triple Fisherman"
+    sp_cost: 33
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Perfect Swift Blade"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    power: "150"
+    effects:
+      - "Dagger damage to All Foes (potency: 150) and lower Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Red Valley Blade"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Dagger damage to Single Foe (potency: **440→525→655**) and impart Phys"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Start of battle: Raise Spd of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Raise Ice Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Raise Ice Res. of Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. of Paired Allies by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Perfect Flee Route Map"
+  passive_effect: "20 P.Atk, 20 Spd; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Diego: Raise Phys. Atk. and Dagger damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

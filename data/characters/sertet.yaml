@@ -1,0 +1,190 @@
+# Character: Sertet
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sertet
+display_name: "Sertet"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3082
+p_atk: 422
+p_def: 213
+e_atk: 202
+e_def: 243
+speed: 345
+crit: 355
+sp: 456
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3902
+p_atk_120: 487
+p_def_120: 263
+e_atk_120: 252
+e_def_120: 263
+speed_120: 395
+crit_120: 420
+sp_120: 536
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Wild Shot"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Corroding Sandstorm"
+    sp_cost: 36
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Hunter’s Aim"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Hunter’s Aim (2★)** Raise Crit"
+  - skill_category: active
+    name: "Obliterating Arrow"
+    sp_cost: 37
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Lowers Phys"
+  - skill_category: active
+    name: "Sandstorm Tempest"
+    sp_cost: 53
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Corrosion: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Ravaging Shot"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Sandstorm Arrows"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Corrosion: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: active
+    name: "Arrow of Ruin"
+    sp_cost: 300
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "530"
+    effects:
+      - "50% more potent and lowers Phys"
+  - skill_category: tp
+    name: "Gravel Arrow"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: ex
+    name: "Corrosive Arrows"
+    skill_type: mixed
+    damage_types: [bow]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Windbreak Arrow"
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "440→525"
+    effects:
+      - "Act faster during turn and deal Phys"
+      - "100% more potent and lowers Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant Self automatic SP recovery when corroded enemy is present (amount: 10% of max SP)."
+    trigger: always
+    limit_break_upgrade: "Grant Self automatic SP recovery (amount: 10% of max SP) and raise Phys. Atk. and Critical by 10% when corroded enemy is present."
+  - passive_category: innate
+    effect: "Raise Phys. Atk. of Entire Front Row by 15% and Bow damage by 15% when enemy with Phys. Res. Down is present."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Detof’s Clan Quiver"
+  passive_effect: "70 P.Atk, 70 Crit; Raise Bow damage dealt by 15%; Lower SP consumption by 15% (Effects do not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

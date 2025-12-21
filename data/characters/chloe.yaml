@@ -1,0 +1,184 @@
+# Character: Chloe
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: chloe
+display_name: "Chloe"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2982
+p_atk: 362
+p_def: 193
+e_atk: 335
+e_def: 288
+speed: 390
+crit: 295
+sp: 411
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3802
+p_atk_120: 427
+p_def_120: 243
+e_atk_120: 385
+e_def_120: 308
+speed_120: 440
+crit_120: 360
+sp_120: 491
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Stunning Shot"
+    sp_cost: 23
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Emergency First Aid (All)"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Emergency First Aid (All)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Chain Dust Evil"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Triple Sturdy Shot"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Hard Rain"
+    sp_cost: 40
+    skill_type: mixed
+    damage_types: [bow]
+    target: front_row
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Bow damage to All Foes 2 time(s) (potency: 2x80) and impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Charming Allure"
+    sp_cost: 48
+    skill_type: utility
+    target: single_enemy
+    power: "230"
+    effects:
+      - "**Charming Allure (3★)** Act faster during turn"
+      - "restore an ally’s HP (potency: 230) and provoke all enemies to attack an ally (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Solid Rain"
+    sp_cost: 74
+    skill_type: mixed
+    damage_types: [bow]
+    target: front_row
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Bow damage to All Foes 3 time(s) (potency: 3x80) and impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Soaring Feathers"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "WInd damage to Random Foe 4 time(s) (potency: 4x45) and lower Bow Res"
+  - skill_category: active
+    name: "Maneater"
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [bow]
+    target: front_row
+    power: "260"
+    effects:
+      - "Bow damage to Single Foe (potency: 260) and restore HP of Entire Front Row (potency: 150)"
+  - skill_category: tp
+    name: "Charm Arrow"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    target: front_row
+    power: "150, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**(EX)** Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.) and raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Healing Cheer"
+    skill_type: heal
+    target: front_row
+    power: "200→250→300"
+    effects:
+      - "Restore HP of Entire Front Row (potency: **200→250→300**) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Bow damage of Entire Front Row by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Extend duration of augmenting effect granted by Self by 1 turn (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Extend duration of augmenting effect granted by Self by **2 turns** (Does not stack)."
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Lower SP consumption by 20% (Does not stack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Fragance of Nobles"
+  passive_effect: "40 P.Atk, 100 E.Atk; Raise Bow damage dealt by 15%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

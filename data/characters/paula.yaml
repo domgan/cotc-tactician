@@ -1,0 +1,167 @@
+# Character: Paula
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: paula
+display_name: "Paula"
+rarity: 4
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fan]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 245
+p_def: 245
+e_atk: 387
+e_def: 332
+speed: 347
+crit: 277
+sp: 489
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 295
+p_def_120: 295
+e_atk_120: 452
+e_def_120: 382
+speed_120: 412
+crit_120: 312
+sp_120: 559
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Night Ode"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Sprightly White Wolf Waltz"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sprightly White Wolf Waltz** Raise Crit"
+  - skill_category: active
+    name: "Sweep"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Oblivion’s Elegy"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Oblivion’s Elegy (2★)** Lower Dark Res"
+  - skill_category: active
+    name: "Night Ode II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Sprightly White Wolf Waltz II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sprightly White Wolf Waltz II (3★)** Raise Crit"
+  - skill_category: active
+    name: "Sprightly White Wolf Waltz II"
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sprightly White Wolf Waltz II (5★)** Raise Crit"
+  - skill_category: active
+    name: "Night Ode III"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "175"
+  - skill_category: active
+    name: "Night Ode III"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "**205**"
+    limit_break_upgrade: "Deal Elem. Dark damage to All Foes (potency: 205) and lower Dark Res. by 15% (turns: 2)."
+  - skill_category: tp
+    name: "Dark Blossom"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [dark]
+    target: back_row
+    power: "260"
+  - skill_category: ex
+    name: "Night Blossom’s Refrain"
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "180, turns: 2-5 based on Boost Lv."
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Night Dirge"
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    power: "330→395→495"
+    effects:
+      - "Dark damage to All Foes (potency: **330→395→495**) and lower their Dark Res"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching: Grant Entire Front Row automatic HP recovery (potency: 50, turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Grant Paired Ally automatic SP recovery (potency: 5)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Marta’s Flowers"
+  passive_effect: "30 E.Atk, 30 E.Def, 10 Spd; Start of battle: Lower Dark Res. of all enemies by 10% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

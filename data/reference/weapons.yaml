@@ -1,0 +1,102 @@
+# COTC Weapons Reference
+# This file defines the weapon types in the game.
+# Order matches the in-game weakness display order.
+# 
+# SOURCE: [HUMAN-VERIFIED] - From community spreadsheet data
+
+schema_version: "1.0"
+
+weapons:
+  - id: sword
+    display_name: Sword
+    order: 1
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: warrior
+    notes: "Most common physical weapon, many buffs available"
+
+  - id: polearm
+    display_name: Polearm
+    order: 2
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: merchant
+    notes: "Also called 'Spear'. Often paired with Sword in buff skills"
+
+  - id: dagger
+    display_name: Dagger
+    order: 3
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: thief
+    notes: "Fast characters, often multi-hit attacks"
+
+  - id: axe
+    display_name: Axe
+    order: 4
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: apothecary
+    notes: "High power single hits common"
+
+  - id: bow
+    display_name: Bow
+    order: 5
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: hunter
+    notes: "Ranged attacks, often AoE"
+
+  - id: staff
+    display_name: Staff
+    order: 6
+    damage_type: physical
+    stat_scaling: phys_atk
+    primary_job: cleric
+    notes: "Unusual - Clerics use Staff for physical but focus on healing/magic"
+
+  - id: tome
+    display_name: Tome
+    order: 0  # Tomes are not a weakness - just equipment
+    damage_type: null
+    stat_scaling: elem_atk
+    primary_job: scholar
+    notes: "Not a weakness type - Scholars use elemental attacks"
+
+  - id: fan
+    display_name: Fan
+    order: 0  # Fans are not a weakness - just equipment
+    damage_type: null
+    stat_scaling: elem_atk
+    primary_job: dancer
+    notes: "Not a weakness type - Dancers use elemental attacks"
+
+# =============================================================================
+# NOTES ON WEAPON WEAKNESSES
+# =============================================================================
+# - Only Sword, Polearm, Dagger, Axe, Bow, Staff appear as boss weaknesses
+# - Tome and Fan are equipment types but NOT weakness types
+# - Scholars and Dancers attack element weaknesses, not weapon weaknesses
+# - Physical attacks scale with Phys. Atk stat
+# - Elemental attacks scale with Elem. Atk stat
+# - "Polearm" is the official name, "Spear" is sometimes used informally
+#
+# =============================================================================
+# SKILL PATTERNS FROM DATA
+# =============================================================================
+# "2x single-target Sword (2x 90~180 Power)"
+#   - 2 hits
+#   - single-target (one enemy)
+#   - Sword type (can hit Sword weakness)
+#   - Power range 90-180 (varies with boost level)
+#
+# "4x random-target Wind (4x 55~105 Power)"
+#   - 4 hits
+#   - random-target (hits may spread to different enemies)
+#   - Wind type (can hit Wind weakness)
+#
+# "also hits Dark weakness"
+#   - Skill can reduce shield count for both its primary type AND Dark
+#
+# "[Priority] 1x single-target Sword"
+#   - Acts before normal turn order

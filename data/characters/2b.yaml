@@ -1,0 +1,182 @@
+# Character: 2B
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: 2b
+display_name: "2B"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "NieR Universe (NieR series)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, dark, fire, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3242
+p_atk: 434
+p_def: 323
+e_atk: 257
+e_def: 246
+speed: 320
+crit: 288
+sp: 301
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4062
+p_atk_120: 499
+p_def_120: 388
+e_atk_120: 307
+e_def_120: 296
+speed_120: 355
+crit_120: 338
+sp_120: 371
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "E"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Trifold Slash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "A120: Repair (Self)"
+    sp_cost: 42
+    skill_type: heal
+    target: self
+    power: "105"
+    effects:
+      - "**A120: Repair (Self)** Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self"
+  - skill_category: active
+    name: "R070: M Shield"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**R070: M Shield (1★)** Impart Entire Front Row with Elem"
+  - skill_category: active
+    name: "Trifold Cleave"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Perfect Evade"
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**Perfect Evade (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+    limit_break_upgrade: "Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) and activate attack skills twice (turns: 2/Turns cannot be extended/Follow-up attack will not consume SP) ."
+  - skill_category: active
+    name: "Self-Destruct"
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "A140: Gravity"
+    sp_cost: 57
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Dark damage to All Foes 2 time(s) (potency: 2x95) and impart with Phys"
+  - skill_category: active
+    name: "Savage Assault"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: active
+    name: "Crushing Assault"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Guaranteed critical hit at Max Boost"
+  - skill_category: tp
+    name: "Savage Cleave"
+    sp_cost: 59
+    skill_type: attack
+    damage_types: [sword, axe]
+    target: single_enemy
+    power: "290"
+  - skill_category: ex
+    name: "Neutralize: Lethal Slash"
+    skill_type: attack
+    damage_types: [sword, axe]
+    target: aoe
+    hit_count: "5x"
+    power: "5x35"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Neutralize: Lethal Assault"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Guaranteed critical hit"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant Self 15% chance of dodging some attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise critical damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At full HP: Raise Phys. Atk of Self by 15% and grant Damage Limit Up (effect: 50,000)."
+    trigger: hp_condition
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "2B’s Goggles"
+  passive_effect: "100 P.Atk, 40 Spd; Start of battle: Raise Phys. Atk.by 10% (turns: 5); When breaking an enemy, raise BP recovery amount by 1 (turns: 1) (Does not stack with other BP recovery effects)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

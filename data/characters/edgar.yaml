@@ -1,0 +1,194 @@
+# Character: Edgar
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: edgar
+display_name: "Edgar"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "World of Balance (Final Fantasy VI)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, light, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3440
+p_atk: 414
+p_def: 358
+e_atk: 225
+e_def: 290
+speed: 225
+crit: 261
+sp: 382
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4340
+p_atk_120: 479
+p_def_120: 408
+e_atk_120: 275
+e_def_120: 340
+speed_120: 260
+crit_120: 296
+sp_120: 462
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Thrust"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [polearm, light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Weakmaker"
+    sp_cost: 42
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Weakmaker** Lower Polearm and Light Res"
+      - "of All Foes by 15% (turns: 2-5 based on Boost Lv.) and and grant Polearm weakness (times: 6-9 based on Boost Lv.) and Light weakness (times: 6-9 based on Boost Lv.)"
+  - skill_category: active
+    name: "Ether"
+    sp_cost: 1
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Ether (1★)** Restore SP of Single Ally (amount: 50)"
+      - "At Max Boost: Also restore HP (amount: 100% of target’s max HP)"
+  - skill_category: active
+    name: "Auto-Crossbow"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Royal Pressure"
+    sp_cost: 110
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Royal Pressure (2★)** Act faster during turn and raise Phys"
+      - "Down limits from battle skills of All Foes to 50% (turns: 2-5 based on Boost Lv.) and lower Phys"
+  - skill_category: active
+    name: "Sunbeam"
+    sp_cost: 79
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    power: "150"
+    effects:
+      - "Light damage to All Foes (potency: 150) and lower Phys"
+      - "At Max Boost: Also lower Light Res"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Dizzy: Have a small chance of missing the attack (with some exceptions) and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: active
+    name: "Drill"
+    sp_cost: 119
+    skill_type: mixed
+    damage_types: [polearm, light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "**Drill (4★)** Lower Phys"
+    limit_break_upgrade: "Lower Phys. Def. and Polearm Res. of Single Foe by **50%** (turns: 2/Limits from Phys. Def. Down and Polearm Res. Down are normally 30%) and deal Phys. Polearm damage **4** time(s) (potency: **4x85**). Exploits Light weakness (damage calculation based on Phys. Polearm attack). Raise Damage Limit of this skill by 200,000. Ignores Phys. Def. Up, Elem. Def. Up and damage reductions. At Max Boost: 50% more potent. At Max Boost and when target is broken: Additionally, attack count becomes 8."
+  - skill_category: active
+    name: "Alexander"
+    sp_cost: 111
+    skill_type: attack
+    damage_types: [light, polearm]
+    target: aoe
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Raise the potency of received attacks by target by 10% (with some exceptions/Does not stack with effects of the same type)"
+  - skill_category: active
+    name: "Chainsaw"
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Also lower Phys"
+  - skill_category: tp
+    name: "Air Anchor"
+    sp_cost: 93
+    skill_type: debuff
+    target: random
+    effects:
+      - "**Air Anchor ** Reduce Shield Points of Random Foe by 1 regardless of weaknesses and lower Polearm and Light Res"
+  - skill_category: ex
+    name: "Royal Shock"
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "6x"
+    power: "6x30"
+    effects:
+      - "**Royal Shock** Act faster during turn and deal Phys"
+      - "Also lower Phys"
+      - "by 20% and lower Polearm and Light Res"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "“Coin of Destiny”"
+    skill_type: debuff
+    target: aoe
+    power: "2→3"
+    effects:
+      - "Act faster during turn and lower Phys"
+      - "of All Foes by **5%→10%→15%** and lower Polearm and Light Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to front row: Lower Polearm and Light Res. of All Foes by 15% (turns: 2). When switching to back row: Raise Polearm and Light damage of Entire Front Row by 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "At full HP: Raise Polearm Res. Down and Light Res. Down limits from battle skills and support skills and equipment effects of All Foes to 50%."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally breaks an enemy: Grant Entire Front Row the special effect “Chance Maker” (turns: 2) and restore 2 BP."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Two Sides of the Same Coin”"
+  passive_effect: "60 Spd, 100 SP; Extend duration of augmenting and enfeebling effects (excluding status ailments) by 1 turn (Does not stack).; When consuming 3 BP or more, lower Phys. Def. and Elem. Def. of all enemies by 10% (turns: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

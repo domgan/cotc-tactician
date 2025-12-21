@@ -1,0 +1,186 @@
+# Character: Molu
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: molu
+display_name: "Molu"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2831
+p_atk: 241
+p_def: 261
+e_atk: 414
+e_def: 320
+speed: 293
+crit: 246
+sp: 562
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3491
+p_atk_120: 291
+p_def_120: 311
+e_atk_120: 479
+e_def_120: 370
+speed_120: 343
+crit_120: 296
+sp_120: 652
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Random Slam"
+    sp_cost: 25
+    skill_type: attack
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Fire Storm (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Analyze All"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Melting Flare"
+    sp_cost: 34
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Fire damage to Single Foe (potency: 170) and impart Phys"
+  - skill_category: active
+    name: "Fleeting Feline"
+    sp_cost: 50
+    skill_type: buff
+    target: self
+    effects:
+      - "**Fleeting Feline (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Raging Fireball"
+    sp_cost: 38
+    skill_type: mixed
+    damage_types: [fire]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Fire damage to Random Foe 3 time(s) (potency: 3x55) and lower Fire Res"
+  - skill_category: active
+    name: "Ignis Ardere (All) III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Triple Press"
+    sp_cost: 52
+    skill_type: attack
+    target: single_enemy
+    power: "3x85"
+  - skill_category: active
+    name: "Fireball (Single) IV"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "260"
+  - skill_category: tp
+    name: "Forbidden Fireball (Single)"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "530"
+  - skill_category: active
+    name: "火炎魔法(単体) Ⅲ"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "大火炎魔法(単体) Ⅲ"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+  - skill_category: ex
+    name: "Fluffy Flash Flame"
+    skill_type: attack
+    damage_types: [fire]
+    target: random
+    power: "4x45/5x45/6x45/7x45"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Flame of Fluff"
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Raise Fire damage of Self by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Act faster when consuming 3 BP."
+    trigger: always
+    limit_break_upgrade: "Act faster when consuming 3 BP and grant Self automatic SP recovery (amount: 30, turns: 1)."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy, raise BP recovery amount by 1 (turns: 2)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Cait Ecology Records"
+  passive_effect: "30 Attack, 80 Magic, 30 SP; Start of battle: Lower Fire Res. of all enemies by 15% (turns: 3); When breaking an enemy, lower their Fire Res. by 15% (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

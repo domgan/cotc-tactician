@@ -1,0 +1,176 @@
+# Character: Soleil
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: soleil
+display_name: "Soleil"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3215
+p_atk: 332
+p_def: 383
+e_atk: 361
+e_def: 228
+speed: 276
+crit: 218
+sp: 388
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4035
+p_atk_120: 382
+p_def_120: 433
+e_atk_120: 426
+e_def_120: 278
+speed_120: 326
+crit_120: 268
+sp_120: 458
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Cleave"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Mass Rejuvenate"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Mass Rejuvenate** Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Illuminate"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Triple Illuminate"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Rehabilitate"
+    sp_cost: 15
+    skill_type: heal
+    target: single_ally
+    effects:
+      - "**Rehabilitate (2★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sage Panacea II"
+    sp_cost: 52
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Sage Panacea II (3★)** Restore HP of Entire Front Row (potency: 130) and cure some status ailments"
+    limit_break_upgrade: "Restore HP of **All Allies** (potency: 130) and cure some status ailments."
+  - skill_category: active
+    name: "Elemental Recovery III"
+    sp_cost: 43
+    skill_type: buff
+    target: single_ally
+    power: "150, turns: 2-5 based on Boost"
+    effects:
+      - "**Elemental Recovery III (4★)** Grant Single Ally automatic HP recovery (potency: 150, turns: 2-5 based on Boost) and impart Elem"
+  - skill_category: active
+    name: "Triple Bisection"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Dark Restoration"
+    sp_cost: 43
+    skill_type: buff
+    target: front_row
+    power: "150"
+    effects:
+      - "**Dark Restoration (5★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Dark Res"
+  - skill_category: tp
+    name: "Resilient Ward (All) II"
+    sp_cost: 54
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Resilient Ward (All) II ** Raise physical resistance of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Radiance of the Charitable"
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "Light damage to Single Foe (potency: 260) and raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Blazing Conviction"
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "4x"
+    effects:
+      - "Light damage to Single Foe 4 time(s) (potency: **4x95→4x115**) and raise Light damage dealt of Entire Front Row by **5%→10%** (turns: 2)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "While in back row: Raise some status ailments Res. of Front Row by 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Extend duration of augmenting effect granted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 30)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Bitter Remedy"
+  passive_effect: "60 P.Atk, 40 E.Def, 400 HP; Raise Axe damage dealt by 15%; 30% chance of resisting some status ailments"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

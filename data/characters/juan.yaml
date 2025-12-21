@@ -1,0 +1,155 @@
+# Character: Juan
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: juan
+display_name: "Juan"
+rarity: 3
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3470
+p_atk: 359
+p_def: 363
+e_atk: 280
+e_def: 280
+speed: 225
+crit: 251
+sp: 317
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4370
+p_atk_120: 424
+p_def_120: 413
+e_atk_120: 330
+e_def_120: 330
+speed_120: 260
+crit_120: 286
+sp_120: 397
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Tease"
+    sp_cost: 5
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Shadow Strike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Relax"
+    sp_cost: 11
+    skill_type: utility
+    target: single_enemy
+    power: "95"
+    effects:
+      - "**Relax (2★)** Restore own HP (potency: 95)"
+  - skill_category: active
+    name: "Fire Up"
+    sp_cost: 5
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "**170**"
+  - skill_category: tp
+    name: "Rapid Counter"
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "180"
+    effects:
+      - "**Rapid Counter ** Act faster during turn and grant Self counter to elemental attacks (turns: 3-6 based on Boost)"
+  - skill_category: ex
+    name: "Sorrowful Dark Summon"
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    power: "3x85"
+    effects:
+      - "**Sorrowful Dark Summon** Act faster during turn and deal Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Red Valley Spear Thrust"
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart Paired Allies with Elem. Def. Up 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Raise Light Res. of Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "**("
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Well-Organized Procurement Plan"
+  passive_effect: "20 E.Def, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Juan: Raise Elem. Def. and Polearm damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

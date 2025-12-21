@@ -1,0 +1,153 @@
+# Character: Harry
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: harry
+display_name: "Harry"
+rarity: 3
+
+# Core attributes
+job: dancer
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 255
+p_def: 245
+e_atk: 382
+e_def: 342
+speed: 342
+crit: 282
+sp: 484
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 305
+p_def_120: 295
+e_atk_120: 447
+e_def_120: 392
+speed_120: 407
+crit_120: 317
+sp_120: 554
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blow"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "White Wolf Waltz"
+    sp_cost: 6
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**White Wolf Waltz** Raise Crit of Single Ally by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Impassioned Ode"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Sprightly White Wolf Waltz"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Sprightly White Wolf Waltz (2★)** Raise Crit of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "White Wolf Waltz II"
+    sp_cost: 14
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**White Wolf Waltz II (2★)** Raise Crit of Single Ally by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Scorching Song II"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "Scorching Song II"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "**170**"
+  - skill_category: tp
+    name: "Grizzly Parade"
+    sp_cost: 12
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Grizzly Parade ** Raise critical damage of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Great White Wolf Waltz"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Great White Wolf Waltz** Grant Entire Front Row Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Passionate Polka"
+    skill_type: attack
+    damage_types: [fire]
+    target: front_row
+    power: "330→395→495"
+    effects:
+      - "Fire damage to All Foes (potency: **330→395→495**) and raise Critical of Entire Front Row by **5%→10%→15%** (turns: 2)"
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Leaves bonus 3%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Raise Ice Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Ice Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row, raise Critical of Entire Front Row by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dance Step Research Notes"
+  passive_effect: "10 E.Atk, 10 Crit, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Harry: Raise Elem. Atk. and Fire damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

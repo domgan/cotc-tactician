@@ -1,0 +1,180 @@
+# Character: Elrica EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: elrica-ex
+display_name: "Elrica EX"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, bow, dagger, fan, lightning, polearm, staff, sword, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2832
+p_atk: 423
+p_def: 280
+e_atk: 226
+e_def: 273
+speed: 420
+crit: 348
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3652
+p_atk_120: 488
+p_def_120: 300
+e_atk_120: 276
+e_def_120: 323
+speed_120: 485
+crit_120: 398
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Phantom Bite"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Amber Edge"
+    sp_cost: 41
+    skill_type: mixed
+    damage_types: [dagger, lightning]
+    target: back_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Amber Step"
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [dagger, lightning]
+    target: back_row
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Scales of Justice"
+    sp_cost: 26
+    skill_type: debuff
+    target: back_row
+    effects:
+      - "**Scales of Justice (2★)** Lower Phys"
+  - skill_category: active
+    name: "Resolute Faith"
+    sp_cost: 56
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Resolute Faith (2★)** Raise Phys"
+  - skill_category: active
+    name: "Thunder Fang"
+    sp_cost: 43
+    skill_type: attack
+    damage_types: [dagger, lightning]
+    target: back_row
+    power: "260"
+  - skill_category: active
+    name: "Brilliant Phantasm"
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x90, turns: 2-5 based on Boost Lv."
+    limit_break_upgrade: "From the turn after this skill is used, deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x90, turns: 2-5 based on Boost Lv.). Lower Shield Points even when not striking weak points."
+  - skill_category: active
+    name: "Thunderclap Step"
+    sp_cost: 81
+    skill_type: attack
+    damage_types: [dagger, lightning]
+    target: back_row
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "**Thunderclap Step (5★)** Act faster during turn and deal Phys"
+  - skill_category: active
+    name: "Lightning Step"
+    sp_cost: 87
+    skill_type: attack
+    damage_types: [dagger, lightning]
+    target: back_row
+    hit_count: "6x"
+    power: "6x30"
+    effects:
+      - "**Lightning Step (5★)** Act faster during turn and deal Phys"
+  - skill_category: tp
+    name: "Premeditation"
+    sp_cost: 95
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    hit_count: "4x"
+    power: "4x70"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Phantom Fang"
+    skill_type: attack
+    damage_types: [dagger]
+    target: back_row
+    hit_count: "2x"
+    power: "2x135"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Crown of Wrath"
+    skill_type: buff
+    target: back_row
+    power: "2→3"
+    effects:
+      - "Raise potency of Self by **50%→100%→150%** (turns: 2/Turns cannot be extended/Does not stack with effects of the same type)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in back row: Grant Front Row automatic SP recovery (amount: 5% of target’s max SP) and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: innate
+    effect: "When in back row: Grant Self the ability to trigger a follow-up strike when any other ally in Entire Front Row attacks (Excluding counteers and Ultimate Techniques/only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 150). Lower Shield Points even when not striking weak points. *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "El’s Calling Card"
+  passive_effect: "60 P.Atk, 80 Crit; When in back row: Raise Damage Limit of Entire Front Row by 20,000 and lower Dagger Res. of All Foes by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

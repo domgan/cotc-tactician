@@ -1,0 +1,177 @@
+# Character: Peredir
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: peredir
+display_name: "Peredir"
+rarity: 4
+
+# Core attributes
+job: scholar
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, ice, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2886
+p_atk: 241
+p_def: 305
+e_atk: 357
+e_def: 330
+speed: 278
+crit: 231
+sp: 557
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3546
+p_atk_120: 291
+p_def_120: 355
+e_atk_120: 422
+e_def_120: 380
+speed_120: 328
+crit_120: 281
+sp_120: 647
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Fireball (Single)"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Analyze"
+    sp_cost: 1
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Fireball (All)"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "115"
+  - skill_category: active
+    name: "Focus"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Focus (2★)** Impart Self with Elem"
+  - skill_category: active
+    name: "Strike"
+    sp_cost: 30
+    skill_type: attack
+    target: single_enemy
+    power: "145"
+  - skill_category: active
+    name: "Analyze (All)"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Analyze (All)"
+    sp_cost: 10
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Fire Storm (Single)"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    name: "Fire Storm (Single)"
+    sp_cost: 16
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x85**"
+    limit_break_upgrade: "Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x85) and cause them to combust."
+  - skill_category: tp
+    name: "Great Flame Magic (All) III"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: tp
+    name: "Great Flame Magic (All) III Lv.2"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "**4x95**"
+    effects:
+      - "Raise Damage Limit of this skill by 25,000"
+  - skill_category: ex
+    name: "Scorching Magic (Single)"
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "260"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Ancient Flame"
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    power: "375→450→565"
+    effects:
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Show weak points of All Foes one by one."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise Fire Damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Elem. Atk. by 20%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise own Elem. Atk. by **30%** and Fire damage by 10%. When there’s a combusted enemy, grant Self the ability to trigger critical hits with elemental attacks."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of All Allies when using Elem. Fire attacks by 8,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Gasche Ruins Study"
+  passive_effect: "40 E.Atk, 30 SP; When breaking an enemy, lower their Fire Res. by 10% (turns: 2)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

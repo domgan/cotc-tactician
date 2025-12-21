@@ -1,0 +1,177 @@
+# Character: Nona
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: nona
+display_name: "Nona"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fire, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3465
+p_atk: 382
+p_def: 317
+e_atk: 325
+e_def: 291
+speed: 225
+crit: 241
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4365
+p_atk_120: 447
+p_def_120: 367
+e_atk_120: 375
+e_def_120: 341
+speed_120: 260
+crit_120: 276
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Mighty Charge"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Scorch"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Fortify Critical II"
+    sp_cost: 23
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Fortify Critical II (1★)** Raise Crit of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Unyielding Strike"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    power: "230, guaranteed critical hit"
+    effects:
+      - "Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 10% (turns: 2)"
+  - skill_category: active
+    name: "Chain Torch"
+    sp_cost: 37
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Sharpened Spear"
+    sp_cost: 22
+    skill_type: mixed
+    target: self
+    effects:
+      - "**Sharpened Spear (3★)** Impart Self with Phys"
+      - "Up 15% and raise Polearm damage by 15% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Trifold Thrust"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Fourfold Scorch"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+  - skill_category: active
+    name: "Raging Thrust"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    power: "230, guaranteed critical hit"
+    effects:
+      - "**Raging Thrust (5★)** Act faster during turn and deal Phys"
+      - "Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 15% (turns: 2)"
+  - skill_category: tp
+    name: "Joyful Barrage"
+    sp_cost: 79
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Polearm damage to Random Foe 4 time(s) (potency: 4x65) and raise critical damage of Entire Front Row by 15% (turns: 2)"
+  - skill_category: ex
+    name: "I’m Going All Out!"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**I’m Going All Out!** Fill the Ultimate Technique gauge of Single Ally to 100% and raise the potency by 30% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Effects of the same type do not stack)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Immeasurable Might"
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    power: "330→395"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Grant Dead Aim to Self (guaranteed critical hits, turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Raise own Phys. Atk and Polearm damage by 15% and grant Dead Aim to Self (guaranteed critical hits, turns: 3)."
+  - passive_category: innate
+    effect: "Start of battle: Fill the Ultimate Technique gauge of Self to 100%."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise critical damage of Entire Front Row by 15%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Large Merchant’s Pack"
+  passive_effect: "80 P.Atk, 30 P.Def, 300 HP; Raise Polearm damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

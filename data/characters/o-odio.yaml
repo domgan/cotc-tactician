@@ -1,0 +1,176 @@
+# Character: O. Odio
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: o-odio
+display_name: "O. Odio"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: fame
+origin: "Dominion of Hate (Live A Live)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3092
+p_atk: 469
+p_def: 323
+e_atk: 227
+e_def: 236
+speed: 290
+crit: 353
+sp: 331
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3912
+p_atk_120: 534
+p_def_120: 388
+e_atk_120: 277
+e_def_120: 286
+speed_120: 325
+crit_120: 403
+sp_120: 401
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (8.99 - 8.25)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Valorous Dark Slash"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Bold Slash"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Impart Self with Phys"
+  - skill_category: active
+    name: "Fetters of Hate"
+    sp_cost: 42
+    skill_type: heal
+    target: single_enemy
+    power: "105"
+    effects:
+      - "**Fetters of Hate (1★)** Restore HP (potency: 105) and SP (amount: 5% of max SP) and cure some status ailments"
+  - skill_category: active
+    name: "Shardfall"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    limit_break_upgrade: "Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x80) and have a moderate chance to inflict poison, bleeding and blindness (turns: 2). Exploits Dark weakness (damage calculation based on Phys. Sword attack)."
+  - skill_category: active
+    name: "Hatred’s Wild Blade"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: random
+    hit_count: "5x"
+    power: "5x55"
+  - skill_category: active
+    name: "Widespread Hatred"
+    sp_cost: 57
+    skill_type: buff
+    target: front_row
+    effects:
+      - "raise damage by 20%"
+      - "grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.) and recover 1 BP"
+  - skill_category: active
+    name: "Absolute Hatred"
+    sp_cost: 80
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    power: "40"
+  - skill_category: active
+    name: "Stare Daggers"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Hatred’s Fury"
+    sp_cost: 82
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: front_row
+    hit_count: "6x"
+    power: "6x40"
+  - skill_category: tp
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "5x"
+    power: "120"
+    effects:
+      - "Grant Damage Limit Up while using this skill (effect: 100,000)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(EX)** Grant Unsinkable to Entire Front Row (turns: 1-4 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Archon’s Mark"
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    hit_count: "4x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When ally is incapacitated, restore own SP (amount: 100% of max SP), recover 5 BP, restore Ultimate Technique use count by 1, fill Ultimate Technique gauge to 100% and raise Phys. Atk. by 15% and damage by 15% (turns: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "At 75% HP or less: Impart Selfwith Phys. Atk. Up 15%, raise damage by 15% and grant Dead Aim (guaranteed critical hits)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally in front row gets incapacitated: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Crux of Hatred"
+  passive_effect: "70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 50% HP or less: Reduce own damage taken from some attacks by 20%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

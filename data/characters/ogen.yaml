@@ -1,0 +1,177 @@
+# Character: Ogen
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ogen
+display_name: "Ogen"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3210
+p_atk: 345
+p_def: 332
+e_atk: 451
+e_def: 238
+speed: 241
+crit: 203
+sp: 398
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4030
+p_atk_120: 395
+p_def_120: 382
+e_atk_120: 516
+e_def_120: 288
+speed_120: 291
+crit_120: 253
+sp_120: 468
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Repeated Cleave"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Chain Rime"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Rehabilitate"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Rehabilitate (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Grapedust (Excl. Self)"
+    sp_cost: 65
+    skill_type: mixed
+    target: all_allies
+    power: "130"
+    effects:
+      - "Self) (2★)** Deal damage to Self (effect: 75% of max HP) and restore HP of All Allies excluding Self (potency: 130)"
+  - skill_category: active
+    name: "Pomegranate Powder"
+    sp_cost: 100
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Pomegranate Powder (2★)** Deal damage to Self (effect: 75% of max HP) and raise BP recovery amount of Entire Front Row by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Bolsterdust (Excl. Self)"
+    sp_cost: 65
+    skill_type: mixed
+    target: all_allies
+    power: "120, turns: 2-5 based on Boost Lv."
+    effects:
+      - "then grant All Allies excluding Self automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.) and raise Phys"
+  - skill_category: active
+    name: "Last Stand"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+  - skill_category: active
+    name: "Resolute Icetomb"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "The lower your HP"
+      - "Potency doubles at max (when HP is 10% or lower)"
+  - skill_category: active
+    name: "Enduring Iceruin"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: tp
+    name: "Chilling Axe Elixir (All) II"
+    sp_cost: 20
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Chilling Axe Elixir (All) II ** Lower Axe and Ice Res"
+      - "recoil damage first lowers this barrier instead of the HP bar"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    power: "210"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Cure-All"
+    skill_type: heal
+    target: all_allies
+    power: "2→3"
+    effects:
+      - "Restore HP of All Allies (amount: 99,999) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill."
+    trigger: always
+    limit_break_upgrade: "When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill and raise Elem. Res. of Self by 15% (turns: 2)."
+  - passive_category: innate
+    effect: "When near death: Impart Self with Elem. Atk. Up 30% and raise Ice damage dealt by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Secrets of Medicine"
+  passive_effect: "When near death: Reduce own damage taken from some attacks by 50% (Does not stack with effects of the same type)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

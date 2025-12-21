@@ -1,0 +1,182 @@
+# Character: Viola
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: viola
+display_name: "Viola"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, fire]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 373
+p_def: 280
+e_atk: 251
+e_def: 253
+speed: 435
+crit: 338
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 438
+p_def_120: 300
+e_atk_120: 301
+e_def_120: 303
+speed_120: 500
+crit_120: 388
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Sting"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "HP Snatch"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Blazing Dagger"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    power: "120"
+    effects:
+      - "Fire damage to All Foes (potency: 120) and impart Phys"
+  - skill_category: active
+    name: "Anti-attack II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Anti-attack II** **(2★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Triple Edge"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Debilitate II"
+    sp_cost: 35
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Debilitate II** **(3★)** Impart Single Foe with Phys"
+  - skill_category: active
+    name: "Crimson Blast"
+    sp_cost: 42
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x95"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "SP Snatch"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Double Wide Burst"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+    limit_break_upgrade: "Deal Phys. Dagger damage to All Foes **3** time(s) (potency: **3x65**). Lower Shield Points even when not striking weak points."
+  - skill_category: tp
+    name: "Wall Breaker"
+    sp_cost: 58
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: ex
+    name: "Despair Drive"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x120"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Vendetta"
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    power: "440→525→655"
+    effects:
+      - "Dagger damage to Single Foe (potency: **440→525→655**) and lower Phys"
+      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise recovery amount of absorption skills by 50% for Self."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy: Lower Phys. Def. and Elem. Def. by 15% (turns: 3)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Serpentine Cameo"
+  passive_effect: "40 P. Def, 40 E. Def, 60 SP; Raise Dagger damage dealt by 15%; Raise Ice Res. by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

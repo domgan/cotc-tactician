@@ -1,0 +1,190 @@
+# Character: Molrusso
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: molrusso
+display_name: "Molrusso"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [staff, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2772
+p_atk: 261
+p_def: 282
+e_atk: 350
+e_def: 399
+speed: 326
+crit: 278
+sp: 425
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3512
+p_atk_120: 311
+p_def_120: 332
+e_atk_120: 415
+e_def_120: 464
+speed_120: 376
+crit_120: 313
+sp_120: 505
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Heal More (Single)"
+    sp_cost: 24
+    skill_type: heal
+    target: single_ally
+    power: "160"
+    effects:
+      - "**Heal More (Single)** Restore HP of Single Ally (potency: 160)"
+  - skill_category: active
+    name: "Pummel"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    name: "Tornado (Single) II"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Ethereal Healing (All) II"
+    sp_cost: 36
+    skill_type: buff
+    target: single_enemy
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Ethereal Healing (All) II (2★)** Grant automatic HP recovery to Front (potency: 110, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Trifold Bash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Ventus Saltare (Single) II"
+    sp_cost: 43
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Medica (Single) III"
+    sp_cost: 48
+    skill_type: heal
+    target: single_ally
+    power: "230"
+    effects:
+      - "**Medica (Single) III (4★)** Restore HP of Single Ally (potency: 230) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Ethereal Healing (All) III"
+    sp_cost: 53
+    skill_type: buff
+    target: single_enemy
+    power: "140, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Ethereal Healing (All) III (5★)** Grant automatic HP recovery to Front (potency: 140, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Light of Hope"
+    sp_cost: 60
+    skill_type: heal
+    target: single_ally
+    power: "230"
+    effects:
+      - "**Light of Hope (5★)** Restore HP of Single Ally (potency: 230) and raise Phys"
+    limit_break_upgrade: "Restore HP of Single Ally (potency: 230), grant automatic HP recovery (potency: 70, turns: 2) and raise Phys. Def. and Elem. Def. by 15% (turns: 2). Reach Entire Front Row at Max Boost."
+  - skill_category: tp
+    name: "Starwind of Hope"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [wind]
+    target: front_row
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Wind damage to All Foes 3 time(s) (potency: 3x55) and restore HP of Entire Front Row (potency: 90)"
+  - skill_category: active
+    name: "後衛時異常耐性強化(前単)"
+    skill_type: buff
+    target: front_row
+  - skill_category: active
+    name: "風塵魔法(単体) Ⅲ"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    power: "230"
+  - skill_category: ex
+    name: "Blessing of Hope"
+    skill_type: heal
+    target: all_allies
+    power: "140, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Blessing of Hope** Grant All Allies automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.)"
+      - "cure some status ailments of same target and grant immunity to some status ailments (turns: 2)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Wish Upon the Shooting Star"
+    skill_type: heal
+    target: front_row
+    power: "200→250→300"
+    effects:
+      - "Restore HP of Entire Front Row (potency: **200→250→300**) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Extend duration of augmenting effect granted by self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant front and back rows immunity to paralysis."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise physical and elemental Res. of Entire Front Row by 10%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Handmade Picture Book"
+  passive_effect: "60 E.Atk, 40 E.Def, 400 HP; Raise wind damage dealt by 15%; When in back row: Grant front row automatic SP recovery (amount: 20)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

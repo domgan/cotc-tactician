@@ -1,0 +1,161 @@
+# Character: Billy
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: billy
+display_name: "Billy"
+rarity: 3
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dagger, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2892
+p_atk: 358
+p_def: 285
+e_atk: 251
+e_def: 258
+speed: 410
+crit: 348
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3712
+p_atk_120: 423
+p_def_120: 305
+e_atk_120: 301
+e_def_120: 308
+speed_120: 475
+crit_120: 398
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sting"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Doube Sting"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x65"
+  - skill_category: active
+    name: "Lightstrike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Mass Fetter"
+    sp_cost: 12
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Mass Fetter (2★)** Lower Spd of All Foes by 10% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Single Edge"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Double Edge"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x110**"
+  - skill_category: tp
+    name: "Billy’s Feint"
+    sp_cost: 18
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    hit_count: "2x"
+    power: "2x75"
+    effects:
+      - "Lower Shield Points even when not striking a weak point"
+  - skill_category: ex
+    name: "Billy’s Plunder"
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Billy’s Plunder** Lower Phys"
+      - "of Single Foe by 15% and raise Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Billy’s Trap"
+    skill_type: debuff
+    target: aoe
+    power: "2→3"
+    effects:
+      - "Impart All Foes with Phys"
+      - "Down **10%→20%→30%** and lower Spd by **10%→20%→30%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** End of battle: Raise leaves earned by 3%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "**(6★)** Raise Dark Res. of Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When breaking an enemy, lower Phys. Atk. and Phys. Def. by 5% (turns: 3)."
+    trigger: on_break
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Tome of the Noble Thief’s Story"
+  passive_effect: "20 P.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Billy: Raise Phys. Atk. and Dagger damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

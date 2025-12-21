@@ -1,0 +1,187 @@
+# Character: Roland
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: roland
+display_name: "Roland"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Norzelia (TRIANGLE STRATEGY)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3020
+p_atk: 394
+p_def: 328
+e_atk: 275
+e_def: 260
+speed: 365
+crit: 316
+sp: 332
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3920
+p_atk_120: 459
+p_def_120: 378
+e_atk_120: 325
+e_def_120: 310
+speed_120: 400
+crit_120: 351
+sp_120: 412
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Thunderstone"
+    sp_cost: 1
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Defortifying Spice"
+    sp_cost: 1
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Defortifying Spice (1★)** Impart Single Foe with Phys"
+      - "Down 20% and lower Polearm Res"
+  - skill_category: active
+    name: "Rush"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [polearm]
+    target: back_row
+    power: "150"
+    effects:
+      - "Polearm damage to All Foes (potency: 150) and lower Phys"
+      - "[30 SP] With Opportune Attack: Raise attack count by 1"
+  - skill_category: active
+    name: "Energize and Elevate"
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    effects:
+      - "**Energize and Elevate (2★)** Raise BP recovery amount of Self by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Invigorating Spice"
+    sp_cost: 1
+    skill_type: mixed
+    target: single_ally
+    effects:
+      - "**Invigorating Spice (3★)** Impart Single Ally with Phys"
+      - "Up 20% and raise Polearm damage dealt by 20% (turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Pushback"
+    sp_cost: 43
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    power: "180"
+    effects:
+      - "Polearm damage to Single Foe (potency: 180) and impart with Phys"
+      - "[43 SP] With Opportune Attack: Raise attack count by 1"
+  - skill_category: active
+    name: "Lance Hurl"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "260"
+    effects:
+      - "[50 SP] With Opportune Attack: Raise attack count by 1"
+  - skill_category: active
+    name: "Flash of Steel"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "[64 SP] With Opportune Attack: Raise attack count by 1"
+    limit_break_upgrade: "Deal Phys. Polearm damage to All Foes 4 time(s) (potency: 4x65)."
+  - skill_category: tp
+    name: "Fury Rush"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [polearm]
+    target: back_row
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "[48 SP] With Opportune Attack: Raise attack count by 1"
+  - skill_category: ex
+    name: "Triple Quick Attacks"
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x240"
+    effects:
+      - "With Opportune Attack: Raise attack count by 1"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Four Dragons"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "4x"
+    effects:
+      - "Lower Polearm Res"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching to Front Row: Grant Self Phys. Atk. Up 15% (turns: 1) and Opportune Attack (turns: 1). Opportune Attack: Raise damage dealt by 15% and raise attack count of some skills by 1"
+    trigger: always
+  - passive_category: innate
+    effect: "When unleashing some attacks, have a high chance to lower enemies’ Polearm Res. by 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "With Opportune Attack: Grant Dead Aim (guaranteed critical hits) to Self and raise Damage Limit by 30,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Royal Ring of Glenbrook"
+  passive_effect: "100 P.Atk, 40 Spd; When switching to Front Row: Increase Phys. Atk. by 15% and raise Polearm damage dealt by 15% (turns: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

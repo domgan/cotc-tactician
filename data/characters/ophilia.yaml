@@ -1,0 +1,187 @@
+# Character: Ophilia
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: ophilia
+display_name: "Ophilia"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, staff]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2757
+p_atk: 251
+p_def: 292
+e_atk: 380
+e_def: 399
+speed: 291
+crit: 258
+sp: 470
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3497
+p_atk_120: 301
+p_def_120: 342
+e_atk_120: 445
+e_def_120: 464
+speed_120: 341
+crit_120: 293
+sp_120: 550
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "B"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Blinding Light (Single) II"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x 90"
+  - skill_category: active
+    name: "Medica (All) II"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "55"
+    effects:
+      - "**Medica (All) II** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
+  - skill_category: active
+    name: "Trifold Bash"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Luminescence (Single) III"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Purifying Restoration"
+    sp_cost: 43
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Purifying Restoration (2★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys"
+  - skill_category: active
+    name: "Healing Protection II"
+    sp_cost: 82
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Healing Protection II (3★)** Restore HP of Entire Front Row (potency: 130) and raise Phys"
+    limit_break_upgrade: "Restore HP of Entire Front Row (potency: 130) and raise Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.). Reaches All Allies during Max Boost."
+  - skill_category: active
+    name: "Heaven’s Judgement"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x 45"
+  - skill_category: active
+    name: "Veil of Atonement"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [light]
+    target: self
+    power: "200"
+    effects:
+      - "**Veil of Atonement (5★)** Grant Self the ability to completely block some elemental attacks (time(s): 1-4 based on Boost Lv.) and counter with Elem"
+  - skill_category: active
+    name: "Preservation"
+    sp_cost: 60
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Preservation (5★)** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+  - skill_category: tp
+    name: "Sanctification Magic"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Sanctification Magic ** Cure status ailments of Single Ally and grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Sanctification Magic Lv.2"
+    sp_cost: 15
+    skill_type: heal
+    target: front_row
+    effects:
+      - "grant immunity to some status ailments (with some exceptions) and grant the special effect “elemental attacks sealed” (turns: 1-4 based on Boost Lv.)"
+  - skill_category: ex
+    name: "The Flamebringer’s Mercy"
+    skill_type: mixed
+    target: all_allies
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**The Flamebringer’s Mercy** Grant All Allies automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and reduce the damage received for one attack by 100%"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Aelfric’s Affection"
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "Restore HP of All Allies (recovery amount: **15%→50%→100%** of max HP)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Grant automatic revival to Self once per battle (revived at 100% of max HP/SP). (Stacks with battle skills)."
+    trigger: always
+  - passive_category: innate
+    effect: "Extend duration of augmenting effect granted by Self by 1 turn (Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% SP or more: Impart Entire Front Row with Elem. Def. Up 10% and raise Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "At 50% SP or more: Impart Entire Front Row with Elem. Def. Up 10% and raise Dark Res. by 10%. Start of battle: Impart Entire Front Row with SP Stock (amount: 20% of user’s max SP/does not stack)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Light attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Flower Bookmark"
+  passive_effect: "40 E.Atk, 400 HP, 60 SP; Raise Light damage dealt by 15%; 30% chance of resisting some status ailments"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

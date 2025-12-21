@@ -1,0 +1,182 @@
+# Character: Dark Priestess
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: dark-priestess
+display_name: "Dark Priestess"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2676
+p_atk: 225
+p_def: 235
+e_atk: 487
+e_def: 322
+speed: 372
+crit: 292
+sp: 514
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3496
+p_atk_120: 275
+p_def_120: 285
+e_atk_120: 552
+e_def_120: 372
+speed_120: 437
+crit_120: 327
+sp_120: 584
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Paralyzing Wave"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Blinding Wave"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Blademaster’s Duet II"
+    sp_cost: 48
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Blademaster’s Duet II (1★)** Raise Phys"
+  - skill_category: active
+    name: "Warding Minuet"
+    sp_cost: 100
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Warding Minuet (2★)** Grant Entire Front Row the ability to dodge some elemental attacks (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Necromancer’s Nocturne"
+    sp_cost: 72
+    skill_type: mixed
+    target: all_allies
+  - skill_category: active
+    name: "Daunting Cantata (All) II"
+    sp_cost: 42
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Daunting Cantata (All) II (3★)** Lower Phys"
+  - skill_category: active
+    name: "Fell Trinity"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Fell Trinity (4★)** Grant ****Entire Front Row the ability to exploit Fire"
+  - skill_category: active
+    name: "Nyctophobic Nocturne II"
+    sp_cost: 78
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Nyctophobic Nocturne II (5★)** Lower Phys"
+      - "of Single Foe by 15% (turns: 2-5 based on Boost Lv.) and grant them Sword and Dark weaknesses (times each: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Dark Weakness: Regardless of the source"
+  - skill_category: active
+    name: "Malediction (All)"
+    sp_cost: 94
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**Malediction (All) (5★)** Act faster during turn and raise the limits of Phys"
+    limit_break_upgrade: "Act faster during turn and raise the limits of Phys. Def. and Elem. Def. reductions from battle skills on All Foes to 50% (turns: 2-5 based on Boost Lv.) and lower their Phys. Def. and Elem. Def. by 15% (turns: 2)."
+  - skill_category: tp
+    name: "Darkshield"
+    sp_cost: 38
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Darkshield ** Act faster during turn and grant Single Ally the effect Darkshield (turns: 1/Does not stack with effects of the same type)"
+  - skill_category: ex
+    name: "Cursed Burial: Finale"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**Cursed Burial: Finale** Grant every other ally automatic revival at 25%-100% of max HP and max SP based on Boost Lv"
+      - "grant Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation/granted as a support skill)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "From the Far Reaches of Hell"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "Grant All Allies automatic revival at **15%→25%→35%** of max HP"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage with the “Attack” and gain the ability to trigger critical hits with elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "When allies become incapacitated or when using your Ultimate Technique, grant Self Ward of the Black Flame (turns: 4)."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Grant every other ally automatic revival at 100% max HP and max SP (stacks with the revival effects from battle skills/excluding incapacitated allies), Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation), and raise Dark damage of All Allies by 30% (turns: 3)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following: ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Dark Priestess’ Hair Ornament"
+  passive_effect: "60 E.Atk, 80 SP; When in front row: Lower Elem. Res. of All Foes by 10%; When equipped by a Dancer: Gain the ability to exploit Fan weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

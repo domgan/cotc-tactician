@@ -1,0 +1,169 @@
+# Character: Cecily
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: cecily
+display_name: "Cecily"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [axe, light, polearm, tome]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3290
+p_atk: 384
+p_def: 313
+e_atk: 270
+e_def: 270
+speed: 330
+crit: 216
+sp: 397
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4190
+p_atk_120: 449
+p_def_120: 363
+e_atk_120: 320
+e_def_120: 320
+speed_120: 365
+crit_120: 251
+sp_120: 477
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "A (8.24 - 7.00)"
+jp_tier: "C"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Peerless Strike"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Soldier (Axe/Single) III"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Soldier (Tome/Single) III"
+    sp_cost: 32
+    skill_type: attack
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    name: "Donate BP"
+    sp_cost: 60
+    skill_type: utility
+    target: single_ally
+    effects:
+      - "**Donate BP (2★)** Restore BP of Single Ally (amount: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Chain Illuminate"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Chain Lightshower"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Triple Bash Rush"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Soldier (Axe/Trifold/All) III"
+    sp_cost: 68
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Soldier (Tome/Trifold/All) III"
+    sp_cost: 68
+    skill_type: attack
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Tourney’s Dauntless Spirit"
+    sp_cost: 57
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Tourney’s Dauntless Spirit ** Raise Polearm"
+  - skill_category: ex
+    name: "Spread Out Hit and Run"
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lower Polearm"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Sharpened Focus"
+    skill_type: attack
+    target: single_enemy
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Raise BP recover amount of Self by 1 for 2 turns."
+    trigger: battle_start
+    limit_break_upgrade: "Raise BP recover amount of Self by 1."
+  - passive_category: innate
+    effect: "Raise Polearm, Axe and Tome damage of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When using Boost MAX on an ability, that ability is used a second time in a row."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Promoter’s Journal"
+  passive_effect: "40 P.Atk, 40 P.Def, 60 SP; Raise Polearm, Axe and Tome damage dealt by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

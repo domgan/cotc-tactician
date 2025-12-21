@@ -1,0 +1,174 @@
+# Character: Miles
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: miles
+display_name: "Miles"
+rarity: 4
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [light, sword]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3230
+p_atk: 378
+p_def: 352
+e_atk: 241
+e_def: 261
+speed: 274
+crit: 311
+sp: 291
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4050
+p_atk_120: 443
+p_def_120: 417
+e_atk_120: 291
+e_def_120: 311
+speed_120: 309
+crit_120: 361
+sp_120: 361
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "F"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Slice"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "130"
+  - skill_category: active
+    name: "Stout Wall"
+    sp_cost: 12
+    skill_type: buff
+    target: self
+    effects:
+      - "**Stout Wall** Impart Self with Phys"
+  - skill_category: active
+    name: "Illuminate"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "160"
+  - skill_category: active
+    name: "Stunning Strike"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Protective Slash"
+    sp_cost: 34
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x85) and impart Self with Phys"
+  - skill_category: active
+    name: "Rampart"
+    sp_cost: 21
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Rampart** **(3★)** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Rampart"
+    sp_cost: 17
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Rampart** **(5★)** Impart Single Ally with Phys"
+  - skill_category: active
+    name: "Lightblast"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "145"
+  - skill_category: active
+    name: "Lightblast"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "**175**"
+  - skill_category: tp
+    name: "Healing Assault"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
+  - skill_category: ex
+    name: "Fortress"
+    skill_type: buff
+    target: self
+    power: "50%-200% of user’s max HP based on Boost Lv./ Does not stack"
+    effects:
+      - "**Fortress** Grant Self a HP Barrier (potency: 50%-200% of user’s max HP based on Boost Lv./ Does not stack)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Guardian’s Blade"
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    effects:
+      - "Sword damage to Single Foe 3 time(s) (potency: **3x130→3x160→3x195**) and impart Self with Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** While in back row: Impart Paired Ally with Phys. Def. Up 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(6★)** Impart Paired Allies with Phys. Def. Up 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** At full HP: Provoke All Foes."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Def. of Self by 20%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Faded Knights Ardante Medal"
+  passive_effect: "30 P.Def, 300 HP, 10 SP; Raise Elem. Def. of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

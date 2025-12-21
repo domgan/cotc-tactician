@@ -1,0 +1,195 @@
+# Character: Neha
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: neha
+display_name: "Neha"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [dark, fan, ice]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2776
+p_atk: 230
+p_def: 225
+e_atk: 417
+e_def: 337
+speed: 357
+crit: 262
+sp: 569
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3596
+p_atk_120: 280
+p_def_120: 275
+e_atk_120: 482
+e_def_120: 387
+speed_120: 422
+crit_120: 297
+sp_120: 639
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Ode of the Frost Flower"
+    sp_cost: 27
+    skill_type: mixed
+    damage_types: [ice]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "**Ode of the Frost Flower** Deal Elem"
+  - skill_category: active
+    name: "Ode of the Lonely Shadow"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "Gospel of the Guardian Star"
+    sp_cost: 57
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Gospel of the Guardian Star (1★)** Raise Phys"
+  - skill_category: active
+    name: "Ode of Frost"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Ice damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys"
+  - skill_category: active
+    name: "Ode of the Lost Night"
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Dark damage to Single Foe 3 time(s) (potency: 3x65) and lower Elem"
+  - skill_category: active
+    name: "Aster’s Prayer"
+    sp_cost: 50
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Aster’s Prayer (3★)** Grant Aster’s Prayer to All Allies until another action is taken or being unable to act (continuously consume 180-60 SP per turn"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Aster’s Prayer: Raise Critical by 30%"
+      - "raise Fire and Ice damage by 30% and grant the ability to trigger critical hits when using elemental attacks"
+  - skill_category: active
+    name: "Silver’s Prayer"
+    sp_cost: 50
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Silver’s Prayer (4★)** Grant Aster’s Prayer to All Allies until another action is taken or being unable to act (continuously consume 180-60 SP per turn"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Silver’s Prayer: Raise Critical by 30%"
+      - "raise Light and Dark damage by 30% and grant the ability to trigger critical hits when using elemental attacks"
+  - skill_category: active
+    name: "Ode of the White Mage III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: active
+    name: "Ode of Darkness III"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
+  - skill_category: tp
+    name: "Blessing of the Stars"
+    sp_cost: 100
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**Blessing of the Stars ** Restore SP of Entire Front Row except Self (amount: 25-100 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Starshadow’s Blessing"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**Starshadow’s Blessing** Grant All Allies Damage Limit Up (effect: 50,000, turns: 3-6 based on Boost Lv.)"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "Mystic Divination Dance"
+    skill_type: mixed
+    target: front_row
+    power: "2→3"
+    effects:
+      - "increase elemental damage by **10%→15%→20%** and grant guaranteed critical hits when using elemental attacks (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When switching: Restore HP of Entire Front Row (potency: 45)."
+    trigger: always
+  - passive_category: innate
+    effect: "When SP is below 50%: Raise Elem. Atk. and Critical of Entire Front Row by 15% and Damage Limit by 20,000."
+    trigger: always
+    limit_break_upgrade: "When SP is below 50%: Raise Elem. Atk. and Critical of Entire Front Row by **20%** and Damage Limit by **30,000**."
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice and Dark Res. by 10%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience III** Raise own Light Res. by 20%"
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self automatic SP recovery (amount: 10% of max SP) when not using Aster’s Prayer or Silver Prayer."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Starshadow Crystal Ball"
+  passive_effect: "80 Crit, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When in back row: Raise Phys. Def. and Elem. Def. of Paired Ally by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

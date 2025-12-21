@@ -1,0 +1,184 @@
+# Character: Hasumi
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: hasumi
+display_name: "Hasumi"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, light]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2756
+p_atk: 230
+p_def: 265
+e_atk: 417
+e_def: 356
+speed: 317
+crit: 264
+sp: 502
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3576
+p_atk_120: 280
+p_def_120: 315
+e_atk_120: 482
+e_def_120: 406
+speed_120: 382
+crit_120: 299
+sp_120: 572
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Luminous Minuet"
+    sp_cost: 20
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "Double Heavy Blow"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "Respendent Rhapsody"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "Miraculous Dance"
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**Miraculous Dance** **(2★)** Restore HP of Entire Front Row (potency: 130)"
+  - skill_category: active
+    name: "Confounding Step"
+    sp_cost: 20
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    power: "170"
+    effects:
+      - "Fan damage to Single Foe (potency: 170) and impart Elem"
+  - skill_category: active
+    name: "Guardian Bolero"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Guardian Bolero** **(3★)** Impart Entire Front Row with Phys"
+  - skill_category: active
+    name: "Turbulent Blow"
+    sp_cost: 52
+    skill_type: attack
+    damage_types: [fan]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Celestial song"
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: active
+    name: "Blooming Ballad"
+    sp_cost: 70
+    skill_type: buff
+    target: front_row
+    power: "5, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Blooming Ballad** **(5★)** Grant Entire Front Row automatic SP recovery (potency: 5, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Blooming Ballad"
+    sp_cost: 56
+    skill_type: buff
+    target: front_row
+    power: "5, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Blooming Ballad** **(6★)** Grant Entire Front Row automatic SP recovery (potency: 5, turns: 2-5 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Divine Poetry"
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    hit_count: "4x"
+    power: "4x65"
+    effects:
+      - "Light damage to Random Foe 4 time(s) (potency: 4x65) and act faster during next turn"
+  - skill_category: ex
+    name: "Trascendent Litany"
+    skill_type: mixed
+    target: all_allies
+    power: "130"
+    effects:
+      - "**Trascendent Litany** Restore HP of All Allies (potency: 130) and raise Elem"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Divine Dance"
+    skill_type: buff
+    target: front_row
+    power: "2→3"
+    effects:
+      - "of Entire Front Row by **10%→20%→30%** (turns: 2→3) and grant automatic SP recovery (amount: **3%→5%→7%** of max SP"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "**(1★)** Raise potency of HP recovery skills of Self by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**(3★)** 25% chance to raise BP recovery by 1 when hit for 1 turn (Trigger once per enemy turn)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When in back row: Grant Paired Ally automatic HP recovery (potency: 50) and SP recovery (amount: 5% of max SP)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Maiden’s Bell"
+  passive_effect: "60 E.Atk, 40 P.Def, 40 Speed; Raise Light damage dealt by 15%; Extend duration of augmenting effect granted by self by 1 turn (Does not stack)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

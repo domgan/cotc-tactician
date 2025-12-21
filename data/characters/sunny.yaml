@@ -1,0 +1,153 @@
+# Character: Sunny
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: sunny
+display_name: "Sunny"
+rarity: 3
+
+# Core attributes
+job: hunter
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow, dark]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2232
+p_atk: 307
+p_def: 176
+e_atk: 195
+e_def: 248
+speed: 290
+crit: 320
+sp: 296
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3052
+p_atk_120: 372
+p_def_120: 226
+e_atk_120: 245
+e_def_120: 268
+speed_120: 340
+crit_120: 385
+sp_120: 376
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "H"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Quickshot"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Sweeping Shot"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "110"
+  - skill_category: active
+    name: "Shadow Strike"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Target"
+    sp_cost: 5
+    skill_type: buff
+    target: self
+    effects:
+      - "**Target (2★)** Raise Crit of Self by 10% (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    name: "Sturdy Shot"
+    sp_cost: 18
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "150"
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "140"
+  - skill_category: active
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 24
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "**170**"
+  - skill_category: tp
+    name: "Sunny’s Burst"
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "2x90/3x75/4x65/5x80"
+  - skill_category: ex
+    name: "Sunny Storm"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    hit_count: "7x"
+    power: "1-7x40"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "On the Prowl"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    power: "500→600→750"
+    effects:
+      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Raise EXP earned by Paired Allies by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Light Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Critical of Self by 30%."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Rose-Colored Handkerchief"
+  passive_effect: "20 P.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Sunny: Raise Phys. Atk. and Bow damage of Paired Allies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

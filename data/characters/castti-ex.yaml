@@ -1,0 +1,180 @@
+# Character: Castti EX
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: castti-ex
+display_name: "Castti EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [fan, ice, wind]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2976
+p_atk: 220
+p_def: 200
+e_atk: 502
+e_def: 272
+speed: 337
+crit: 297
+sp: 504
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3796
+p_atk_120: 270
+p_def_120: 250
+e_atk_120: 567
+e_def_120: 322
+speed_120: 402
+crit_120: 332
+sp_120: 574
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 56
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(Initial)** Raise Phys"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(1★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 84
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: mixed
+    damage_types: [ice]
+    target: front_row
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "restore HP of Entire Front Row (potency: 90)"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(3★)** Raise Ice damage of Entire Front Row by 30% (turns: 2-7 based on Boost Lv.)"
+      - "raise the Ice damage limit from battle skills of the same target to 50% (turns: 2-7 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "4x"
+    power: "4x65"
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [ice]
+    target: front_row
+    hit_count: "2x"
+    power: "2x95"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [ice]
+    target: single_enemy
+    power: "135"
+    effects:
+      - "When consuming 3 BP or more: Guaranteed critical hit"
+  - skill_category: tp
+    sp_cost: 110
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**** Raise BP recovery amount of Entire Front Row by 1 (turns: 1-6 based on Boost Lv.)"
+      - "cure some status ailments and grant immunity to some status ailments (turns: 1-6 based on Boost Lv.)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [ice]
+    target: random
+    power: "30"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Ice Dragon Dance”"
+    skill_type: attack
+    damage_types: [ice]
+    target: aoe
+    hit_count: "2x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "“Attack” action becomes Elem. Ice damage and grant Self ability to trigger critical hits when using elemental attacks. Raise Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max). *BP cost is 1, 3 and 5 respectively."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Ice damage of Self by 15% and grant Self Damage Limit Up (effect: 100,000). Additionally, raise damage of Entire Front Row by 15%."
+    trigger: always
+    limit_break_upgrade: "When in front row: Raise Ice damage of Self by 15% and grant Self Damage Limit Up (effect: 100,000). Additionally, raise damage of Entire Front Row by 15%."
+  - passive_category: innate
+    effect: "When in front row: Raise Elem. Atk. and Ice damage of Entire Front Row by 20%. Additionally, raise the Elem. Atk. and Ice damage limit from support skills and equipment of All Allies to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 20%"
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%"
+    trigger: always
+  - passive_category: tp
+    effect: "When in front row: Grant Self a follow-up effect when an ally in front row (except Self) exploits an enemy weakness (*Triggers once regardless the number of attacks). Follow-up effect: Deal Elem. Ice damage to All Foes (potency: 100). Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack). Also recover 1 BP."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Beautiful Hair Ornament”"
+  passive_effect: "-60 P.Atk, 200 E.Atk; When consuming 3 BP or more: Raise BP recovery amount by 1 (turns: 1); Grant  the ability to  trigger a follow-up attack when attacking with Ice (*Triggers once even during a Boost)."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

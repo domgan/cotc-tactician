@@ -1,0 +1,157 @@
+# Character: Conny
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: conny
+display_name: "Conny"
+rarity: 3
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [lightning, polearm]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3460
+p_atk: 351
+p_def: 348
+e_atk: 288
+e_def: 285
+speed: 235
+crit: 251
+sp: 322
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4360
+p_atk_120: 416
+p_def_120: 398
+e_atk_120: 338
+e_def_120: 335
+speed_120: 270
+crit_120: 286
+sp_120: 402
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "G"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Pierce"
+    sp_cost: 7
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Fire Up"
+    sp_cost: 5
+    skill_type: utility
+    target: aoe
+  - skill_category: active
+    name: "Electrocute"
+    sp_cost: 9
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    power: "120"
+  - skill_category: active
+    name: "Relax"
+    sp_cost: 11
+    skill_type: utility
+    target: single_enemy
+    power: "95"
+    effects:
+      - "**Relax (2★)** Restore own HP (potency: 95)"
+  - skill_category: active
+    name: "Tease"
+    sp_cost: 5
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 26
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    name: "Repeated Thrust"
+    sp_cost: 21
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "**2x110**"
+  - skill_category: tp
+    name: "Defense"
+    sp_cost: 18
+    skill_type: utility
+    target: self
+  - skill_category: tp
+    name: "Defense Lv.2"
+    sp_cost: 18
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "(with some exceptions) and raise Phys"
+  - skill_category: ex
+    name: "Conny’s Assault"
+    skill_type: attack
+    damage_types: [polearm]
+    target: back_row
+    hit_count: "4x"
+    power: "4x65"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "Count on Conny!"
+    skill_type: heal
+    target: aoe
+    power: "2→3"
+    effects:
+      - "Provoke All Foes (turns: **2→3**) and restore HP of Self (potency: **250→300→350**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "End of battle: Raise leaves earned by 3%."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3)."
+    trigger: battle_start
+    limit_break_upgrade: "Raise Wind Res. of Paired Allies by 10%."
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When switching to front row: Provoke all enemies (turns: 1)."
+    trigger: always
+  - passive_category: tp
+    effect: "When switching to front row: Provoke all enemies (turns: 1) and grant Self automatic HP recovery (potency: 90, turns: 2)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Polearm attacks of All Allies by 6,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21

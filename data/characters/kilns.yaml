@@ -1,0 +1,183 @@
+# Character: Kilns
+# Auto-generated from CSV on 2025-12-21
+# Skills and passives must be added manually
+
+id: kilns
+display_name: "Kilns"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage: [bow]
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3372
+p_atk: 372
+p_def: 268
+e_atk: 210
+e_def: 293
+speed: 365
+crit: 395
+sp: 371
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4192
+p_atk_120: 437
+p_def_120: 318
+e_atk_120: 260
+e_def_120: 313
+speed_120: 415
+crit_120: 460
+sp_120: 451
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.00)"
+jp_tier: "A"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Sweeping Shot"
+    sp_cost: 22
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "120"
+  - skill_category: active
+    name: "Come on, move it!"
+    sp_cost: 28
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "move it!** Raise Phys"
+      - "of an ally by 15% (turns: 2-5 based on Boost Lv.) and raise their Spd"
+  - skill_category: active
+    name: "Detect Weakness"
+    sp_cost: 26
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Detect Weakness (1★)** Lower Phys"
+  - skill_category: active
+    name: "Rampant Arrows"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [bow]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Bow damage to Random Foe 3 time(s) (potency: 3x55) and have a moderate chance to lower Bow Res"
+  - skill_category: active
+    name: "Arrows of Retribution"
+    sp_cost: 48
+    skill_type: mixed
+    damage_types: [bow]
+    target: single_enemy
+    power: "150"
+    effects:
+      - "**Arrows of Retribution (2★)** Raise own Phys"
+      - "Bow damage to a Single Foe (potency: 150) and lower Phys"
+  - skill_category: active
+    name: "Pulverizing Torrent"
+    sp_cost: 52
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Triple Levin Sturdy Shot"
+    sp_cost: 77
+    skill_type: mixed
+    damage_types: [bow, lightning]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    limit_break_upgrade: "Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65). Exploits Lightning weakness (damage calculation based on Phys. Bow attack). Lower Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit., Spd. and Bow Res. by 15% (**turns: 3**)."
+  - skill_category: active
+    name: "Quintuple Levin Mass Shot"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: aoe
+    hit_count: "4x"
+    power: "5x35"
+  - skill_category: active
+    name: "Double Levin Striking Shot"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x135"
+  - skill_category: tp
+    name: "Brutal Instructor’s Motivation"
+    sp_cost: 100
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Brutal Instructor’s Motivation ** Raise BP recovery amount of Entire Front Row by 1 (turns: 2-5 based on Boost Lv.)"
+  - skill_category: ex
+    name: "Beast Claw Bow"
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x30"
+    effects:
+      - "**Beast Claw Bow** Act faster during turn and deal Phys"
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "Cait Hunter’s Command"
+    skill_type: mixed
+    target: all_allies
+    power: "200→250→300"
+    effects:
+      - "Restore HP of All Allies (potency: **200→250→300**) and raise Phys"
+      - "and Critical by **10%→20%→30%** and raise Bow damage by **10%→20%→30%** (turns: **2→3**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When in front row: Raise Phys. Atk. and Crit. of Entire Front Row by 15% and raise Bow damage by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Provoke all enemies and lower Phys. Atk. and Elem. Atk. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Recover 20% of damage taken as HP and 5% as SP when hit (With some exceptions/Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Cait Hunter’s Turban"
+  passive_effect: "60 P.Atk, 800 HP; Raise Phys. Def. and Elem. Def. by 15%; Raise Bow damage dealt by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: 2025-12-21
