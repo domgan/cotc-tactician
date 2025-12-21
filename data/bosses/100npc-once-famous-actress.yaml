@@ -1,0 +1,105 @@
+# 100 NPC Boss: Once-famous Actress (往年の大女優)
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Difficulty: ★★★ - Has shield scaling mechanics
+
+id: 100npc-once-famous-actress
+display_name: "Once-famous Actress"
+display_name_jp: "往年の大女優"
+content_type: npc_battle
+difficulty: hard  # ★★★
+level: 100
+location: "Atlasdam"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 643420
+speed: 340
+p_def: 269
+e_def: 269
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - axe
+
+shield_count: 22  # Increases: 22→24→27→32→34→35
+
+status_immunity: "20%"
+
+# ===========================================================================
+# PHASES / MECHANICS
+# ===========================================================================
+phases:
+  - phase: 1
+    shield_count: 22
+    
+  - phase: 2
+    shield_count: 24
+    
+  - phase: 3
+    shield_count: 27
+    
+  - phase: 4
+    shield_count: 32
+    
+  - phase: 5
+    shield_count: 34
+    
+  - phase: 6
+    shield_count: 35
+    notes: "Maximum shields"
+
+special_mechanics:
+  - name: "Progressive Shield Increase"
+    description: |
+      Shields increase throughout battle: 22→24→27→32→34→35
+      Must break quickly to avoid fighting 35 shield boss
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need fast breaking before shields scale"
+  - role: dps
+    priority: required
+    reason: "Burst during break windows"
+  - role: buffer
+    priority: strongly_recommended
+    reason: "Maximize damage per break"
+
+recommended_weakness_coverage:
+  - axe
+  - ice
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Notable for progressive shield scaling mechanic.
+  
+  Key points:
+  - Shields increase: 22→24→27→32→34→35
+  - Equal P.DEF/E.DEF (269/269)
+  - Axe/ice weakness
+  - 20% status immunity
+  
+  Strategy:
+  1. Break FAST before shields scale
+  2. Aim for one-cycle kill if possible
+  3. Stack buffs/debuffs early
+  4. Axe warriors or ice mages are key
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

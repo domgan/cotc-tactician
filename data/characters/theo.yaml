@@ -164,8 +164,7 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Pollonia’s Medicine Box
-·"
+  name: "Pollonia’s Medicine Box"
   passive_effect: "**40 P.Atk, 60 P. Def., 40 E. Def.; Raise Axe damage dealt by 15%; Raise Wind Res. by 10%"
 
 # Metadata

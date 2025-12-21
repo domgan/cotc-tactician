@@ -1,0 +1,89 @@
+# 100 NPC Boss: Taciturn Housewife (静かなる主婦)
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+
+id: 100npc-taciturn-housewife
+display_name: "Taciturn Housewife"
+display_name_jp: "静かなる主婦"
+content_type: npc_battle
+difficulty: hard  # ★★☆
+level: 100
+location: "Sufratalíah"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 573820
+speed: 401  # Increases to 521
+
+p_def: 210
+e_def: 215
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - lightning
+  weapons:
+    - sword
+
+shield_count: 19  # Increases to 30
+
+status_immunity: "20%"  # 20% immunity to all status
+
+# ===========================================================================
+# PHASES / MECHANICS
+# ===========================================================================
+phases:
+  - phase: 1
+    description: "Initial phase"
+    shield_count: 19
+    speed: 401
+    
+  - phase: 2
+    description: "Enraged phase"
+    shield_count: 30
+    speed: 521
+    notes: "Shield count and speed increase during battle"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Shields increase from 19 to 30"
+  - role: dps
+    priority: required
+    reason: "Need to burst before shield increase"
+  - role: buffer
+    priority: recommended
+    reason: "Maximize damage window"
+
+recommended_weakness_coverage:
+  - sword
+  - lightning
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Medium difficulty 100 NPC with scaling mechanics.
+  
+  Key points:
+  - Shields increase from 19 → 30 during battle
+  - Speed increases from 401 → 521
+  - 20% status immunity
+  - Sword/lightning weakness
+  
+  Strategy:
+  1. Try to break quickly before shields increase
+  2. Stack buffs early
+  3. Be prepared for faster turns in later phases
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

@@ -1,0 +1,171 @@
+# Story Boss: The All-Giver / Master of Everything (全てを授けし者)
+# SOURCE: https://game8.jp/octopathtraveler-sp/357327
+#
+# Side Orsterra Chapter 4 Final Boss - Multi-phase fight
+
+id: story-master-of-everything
+display_name: "The All-Giver (Master of Everything)"
+display_name_jp: "全てを授けし者"
+content_type: story_boss
+difficulty: extreme
+location: "Side Orsterra Chapter 4 - Final"
+
+# ===========================================================================
+# This is a 5-PHASE FIGHT with Ring phases first
+# ===========================================================================
+
+phases:
+  # -------------------------------------------------------------------------
+  # RING PHASE 1: Three rings (cannot attack main boss)
+  # -------------------------------------------------------------------------
+  - phase: 1
+    description: "Ring Phase 1 - Thief/Thunder/Huntress Rings"
+    enemies:
+      - name: "Prince Thief's Ring"
+        shield_count: 17
+        weaknesses:
+          elements: [ice, dark]
+          weapons: [sword, staff, fan]
+          
+      - name: "Thunder Swordmaster's Ring"
+        shield_count: 20
+        weaknesses:
+          elements: [fire, light]
+          weapons: [polearm, bow, fan]
+          
+      - name: "Huntress' Ring"
+        shield_count: 18
+        weaknesses:
+          elements: [lightning, dark]
+          weapons: [dagger, axe, tome]
+          
+    notes: "Main boss cannot be attacked. Destroy all rings."
+
+  # -------------------------------------------------------------------------
+  # RING PHASE 2: Scholar King's Ring (weakness changes on break)
+  # -------------------------------------------------------------------------
+  - phase: 2
+    description: "Ring Phase 2 - Scholar King's Ring"
+    enemies:
+      - name: "Ring of the Scholar King"
+        shield_count: 25
+        weakness_sets:
+          - [sword, dagger, axe, ice, light]
+          - [polearm, bow, fan, lightning, light]
+          - [axe, tome, ice, wind, light]
+          - [staff, fan, fire, lightning, light]
+        weakness_change_trigger: "On break recovery"
+        
+    notes: "Weakness changes when returning from break"
+
+  # -------------------------------------------------------------------------
+  # RING PHASE 3: Three more rings
+  # -------------------------------------------------------------------------
+  - phase: 3
+    description: "Ring Phase 3 - Elixir/Dancer/Gentleman Rings"
+    enemies:
+      - name: "Elixir Lord's Ring"
+        shield_count: 19
+        weaknesses:
+          elements: [fire, wind, dark]
+          weapons: [polearm, bow]
+          
+      - name: "Dancer's Ring"
+        shield_count: 18
+        weaknesses:
+          elements: [ice, lightning]
+          weapons: [sword, polearm, tome]
+          
+      - name: "Gentleman's Ring"
+        shield_count: 22
+        weaknesses:
+          elements: [ice, wind, dark]
+          weapons: [dagger, fan]
+
+  # -------------------------------------------------------------------------
+  # MAIN BOSS PHASE 1: Weakness changes, shield scaling
+  # -------------------------------------------------------------------------
+  - phase: 4
+    description: "Main Boss Phase 1 - Shield scaling"
+    enemies:
+      - name: "The All-Giver"
+        shield_count: 38  # Scales to 99
+        weakness_sets:
+          - [sword, axe, fire, light]
+          - [bow, fan, ice, dark]
+          - [polearm, tome, lightning, light]
+          - [dagger, staff, wind, dark]
+        weakness_change_trigger: "On break recovery"
+        shield_scaling: "38 → 99"
+        
+    notes: "Shields increase massively. Must burst."
+
+  # -------------------------------------------------------------------------
+  # MAIN BOSS PHASE 2: Final form
+  # -------------------------------------------------------------------------
+  - phase: 5
+    description: "Final Phase"
+    enemies:
+      - name: "The All-Giver"
+        shield_count: 24
+        weaknesses:
+          elements: [light, dark]
+          weapons: [sword, polearm, dagger, bow]
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Long multi-phase fight"
+    
+  - role: tank
+    priority: strongly_recommended
+    reason: "Survive through 5 phases"
+    
+  - role: breaker
+    priority: required
+    reason: "Many different weakness sets"
+    
+  - role: buffer
+    priority: required
+    reason: "Need max damage for boss phases"
+    
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs for burst"
+    
+  - role: dps
+    priority: required
+    reason: "Must burst before shield scaling"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Epic multi-phase story finale with 5 distinct phases.
+  
+  Phase strategy:
+  1. Ring Phase 1: Split damage or focus one ring at a time
+  2. Ring Phase 2: Track weakness changes, high shields (25)
+  3. Ring Phase 3: Similar to phase 1
+  4. Boss Phase 1: CRITICAL - Shields scale 38→99
+     - Must break and burst before scaling
+  5. Boss Phase 2: Final burst with 24 shields
+  
+  Key challenges:
+  - Need diverse weakness coverage
+  - Must track weakness changes on break recovery
+  - Cannot let boss shields reach 99
+  
+  Recommended team:
+  - Characters with multi-element or multi-weapon coverage
+  - Strong single-target DPS for boss phases
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/357327"
+last_updated: 2025-12-21

@@ -1,0 +1,183 @@
+# COTC Healing Mechanics Reference
+# Understanding healing vs regen is important for survival planning.
+#
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/damage-mechanics-explained/
+
+schema_version: "1.0"
+
+# =============================================================================
+# HEALING TYPES
+# =============================================================================
+
+healing_types:
+  burst_healing:
+    description: "One-time HP recovery (Healing)"
+    scaling:
+      - "Scales with CASTER's total Elem ATK stat"
+      - "Includes: base + equipment + influence + EATK buffs + passives"
+      - "Scales linearly with skill potency"
+    properties:
+      - "Not affected by target's max HP"
+      - "Affected by healing boost passives (e.g., Millard's 20%)"
+      - "BP increases potency"
+      - "Cannot crit"
+      - "Cannot miss"
+      - "Not affected by Weapon Grade"
+      
+  hp_regen:
+    description: "HP recovery over multiple turns (Regen)"
+    scaling:
+      - "Scales with RECEIVER's max HP"
+      - "AND caster's total displayed Elem ATK"
+      - "Scales linearly with skill potency"
+    properties:
+      - "BP increases DURATION, not potency"
+      - "Exception: Hybrid skills (heal + regen) - BP increases heal potency only"
+      - "Cannot crit"
+      - "Cannot miss"
+      - "Not affected by Weapon Grade"
+      - "NOT affected by healing boost passives"
+      
+# =============================================================================
+# STACKING RULES
+# =============================================================================
+
+stacking_rules:
+  active_regen:
+    description: "Multiple active HP Regen effects"
+    rule: "Highest regen amount remains active, duration stacks additively"
+    example: |
+      Unit A applies 100 potency regen for 3 turns
+      Unit B applies 150 potency regen for 2 turns
+      Result: 150 potency regen for 5 turns
+      
+  passive_regen:
+    description: "Multiple passive HP Regen effects"
+    rule: "Stack additively"
+    example: |
+      Accessory gives 50 HP/turn
+      Passive gives 100 HP/turn
+      Result: 150 HP/turn
+
+# =============================================================================
+# DURATION EXTENSION
+# =============================================================================
+
+duration_extension:
+  methods:
+    - "Use max boost (3 BP) on regen skills"
+    - "Passives that extend 'augmenting effects' duration"
+    
+  characters_with_extension:
+    - "Alfyn"
+    - "Ophilia"
+    - "Molrusso"
+    
+  paired_ally_mechanics:
+    - "Lumis and Merrit: Give paired ally permanent 100 potency HP Regen"
+    - "Lucetta and Mabel: Extend paired ally's HP regen duration by 1 turn"
+
+# =============================================================================
+# STRONGEST HEALERS (from meowdb)
+# =============================================================================
+
+top_healers:
+  burst_healing:
+    - name: "Millard"
+      potency: 205
+      target: "Front Row"
+      bonus: "20% healing passive"
+      
+    - name: "Eliza"
+      potency: 205
+      target: "Front Row"
+      
+    - name: "Hasumi"
+      potency: 130
+      target: "Front Row"
+      bonus: "20% healing passive"
+      
+    - name: "Ophilia"
+      potency: 130
+      target: "Front Row"
+      bonus: "Also buffs PDEF/EDEF"
+      
+    - name: "Lianna"
+      potency: 130
+      target: "Front Row"
+      bonus: "Also buffs EATK/EDEF"
+      
+  hp_regen:
+    - name: "Theo"
+      potency: 150
+      target: "Front Row"
+      bonus: "Elemental resistance"
+      
+    - name: "Alfyn"
+      potency: 150
+      target: "Front Row"
+      bonus: "Elemental resistance + duration extension passive"
+      
+    - name: "Molrusso"
+      potency: 140
+      target: "Front Row"
+      notes: "At max boost"
+      
+    - name: "Agnes"
+      potency: 140
+      target: "Front Row"
+      notes: "At max boost"
+      
+    - name: "Ophilia"
+      potency: 110
+      target: "Front Row"
+      bonus: "Stat debuff cleanse"
+
+# =============================================================================
+# HEALING BOOST METHODS
+# =============================================================================
+
+healing_boost:
+  eatk_buffs:
+    description: "Increase caster's EATK to boost healing"
+    sources:
+      - "Lynette's EATK buff"
+      - "Primrose's EATK buff"
+      - "Lianna's EATK buff"
+      
+  healing_passives:
+    description: "Percentage boost to healing output"
+    examples:
+      - "Millard: +20% healing"
+      - "Hasumi: +20% healing"
+    notes: "Only affects burst healing, NOT regen"
+
+# =============================================================================
+# TACTICAL HEALING NOTES
+# =============================================================================
+
+tactical_notes: |
+  WHEN TO USE BURST HEALING:
+  - After big enemy attacks
+  - Emergency recovery
+  - When target HP is low
+  
+  WHEN TO USE REGEN:
+  - Early in battle (maintains HP over time)
+  - Before expected damage (pre-heal)
+  - For sustained fights
+  
+  HEALER POSITIONING:
+  - Healers that target "Front Row" are most valuable
+  - "All Allies" healers can heal back row too
+  - Consider if you need to swap characters
+  
+  REGEN MAINTENANCE:
+  - Apply regen early
+  - Refresh before it expires (duration stacks)
+  - Use BP for longer duration, not more healing
+  
+  SP MANAGEMENT:
+  - Healing costs SP
+  - SP Regen accessories help sustain healing
+  - Some healers have SP recovery skills

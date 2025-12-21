@@ -1,0 +1,177 @@
+# COTC Break Mechanics Reference
+# Understanding break timing is essential for tactical planning.
+#
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/damage-mechanics-explained/
+
+schema_version: "1.0"
+
+# =============================================================================
+# BREAK STATE
+# =============================================================================
+
+break_state:
+  trigger: "Enemy shield points reach 0"
+  
+  duration:
+    current_turn: true  # Break happens, enemy stunned this turn
+    next_turn: true     # Enemy still broken next turn
+    total_turns: 2      # 2 turns of break window
+    
+  effects_on_enemy:
+    - "Takes 2x damage (break multiplier)"
+    - "Cannot act during break"
+    - "Placed at END of turn order during break"
+    - "Upon leaving break, enemy acts FIRST"
+    
+  shield_recovery:
+    - "After break ends, shields reset (often to different value)"
+    - "Some bosses have multiple break phases with different weaknesses"
+
+# =============================================================================
+# BREAK WINDOW STRATEGY
+# =============================================================================
+
+break_window_strategy:
+  # The 2-turn break window is your primary damage opportunity
+  
+  preparation_phase:
+    description: "Turns before breaking the enemy"
+    goals:
+      - "Apply all buffs (cap at 30%)"
+      - "Apply all debuffs on enemy (cap at 30%)"
+      - "Position DPS units to act during break"
+      - "Ensure buff durations last through break window"
+      - "Reduce enemy shields to 1"
+      
+  break_turn:
+    description: "The turn you break the enemy"
+    sequence:
+      - "1. Fast unit breaks enemy (reduces last shield)"
+      - "2. Enemy is now broken and moves to end of turn order"
+      - "3. All remaining units can attack broken enemy this turn"
+      - "4. Apply any remaining buffs/debuffs if not capped"
+      
+  follow_up_turn:
+    description: "The turn after breaking"
+    notes:
+      - "Enemy still broken, still takes 2x damage"
+      - "Enemy still cannot act"
+      - "This is often where biggest damage happens"
+      - "DPS should be fully boosted and act"
+      
+  recovery_phase:
+    description: "After break ends"
+    warning: "Enemy acts FIRST after break ends - be prepared!"
+    goals:
+      - "Heal/shield before enemy acts"
+      - "Tank should have taunt up"
+      - "Begin next break cycle"
+
+# =============================================================================
+# SHIELD SHAVING
+# =============================================================================
+
+shield_shaving:
+  description: "Reducing enemy shield count to prepare for break"
+  
+  methods:
+    basic_attacks:
+      description: "Each boosted hit reduces shields by 1 if hitting weakness"
+      boost_effect: "More BP = more hits = more shields broken"
+      
+    multi_hit_skills:
+      description: "Skills that hit multiple times"
+      examples:
+        - "4x random target Sword"
+        - "6x single target Dagger"
+      notes: "Each hit that hits weakness removes 1 shield"
+      
+    priority_skills:
+      description: "[Priority] skills act before normal turn order"
+      use_case: "Ensure breaker acts first to break enemy"
+      
+    guaranteed_shield_break:
+      description: "Some skills always reduce shields regardless of weakness"
+      notes: "Rare but valuable for bosses with limited weaknesses"
+      
+    plus_shield_damage:
+      description: "+1 shield damage when hitting weakness"
+      effect: "Each hit removes 2 shields instead of 1"
+      
+    burning_status:
+      description: "Burning enemies lose 1 shield at end of turn"
+      notes: "Passive shield shaving without using actions"
+
+# =============================================================================
+# TURN ORDER MANIPULATION
+# =============================================================================
+
+turn_order:
+  base_order: "Determined by Speed stat"
+  
+  modifiers:
+    priority_skills:
+      description: "[Priority] skills act before normal order"
+      notes: "Multiple priority users still ordered by speed among themselves"
+      
+    speed_buffs:
+      description: "Speed Up increases turn order position"
+      
+    speed_debuffs:
+      description: "Speed Down on enemy delays their action"
+      
+    break_effect:
+      description: "Broken enemy moves to end of turn order"
+      
+    post_break:
+      description: "Enemy acts FIRST after recovering from break"
+      critical: true
+      
+  speed_tuning:
+    description: "Adjusting speed to control action order"
+    goals:
+      - "Buffers act before DPS"
+      - "Debuffers act before DPS"
+      - "Breaker acts before DPS (if breaking this turn)"
+      - "Healer acts when needed"
+    methods:
+      - "Speed accessories (Chomper Vest, etc.)"
+      - "Speed buffs/debuffs"
+      - "Character base speed consideration"
+
+# =============================================================================
+# MULTI-PHASE BOSSES
+# =============================================================================
+
+multi_phase_bosses:
+  description: "Some bosses have multiple break phases"
+  
+  characteristics:
+    - "Weaknesses may change between phases"
+    - "Shield count may change"
+    - "Boss may gain new abilities"
+    - "Some phases have damage thresholds"
+    
+  strategy:
+    - "Plan team to cover multiple weakness sets"
+    - "Save some resources for later phases"
+    - "Know phase transition triggers"
+
+# =============================================================================
+# TACTICAL PLANNING TEMPLATE
+# =============================================================================
+
+break_cycle_template:
+  turn_1: "Apply buffs, shave shields"
+  turn_2: "Apply debuffs, continue shaving"
+  turn_3: "Final preparation, get to 1 shield"
+  turn_4_break: "Break enemy, begin burst damage"
+  turn_5_burst: "Maximum damage output (enemy still broken)"
+  turn_6_recovery: "Enemy recovers and acts FIRST - heal/defend"
+  
+  notes: |
+    This is a general template. Actual turn count varies by:
+    - Enemy shield count
+    - Party breaking efficiency
+    - Buff/debuff duration
+    - Boss mechanics and timers

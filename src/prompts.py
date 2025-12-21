@@ -192,6 +192,14 @@ def format_boss_data(boss) -> str:
     if boss is None:
         return "No boss data provided. Using free-text description."
     
+    # Handle optional weaknesses
+    if boss.weaknesses:
+        weak_elements = [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
+        weak_weapons = [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else []
+    else:
+        weak_elements = []
+        weak_weapons = []
+    
     lines = [
         f"ID: {boss.id}",
         f"Name: {boss.display_name}",
@@ -199,8 +207,8 @@ def format_boss_data(boss) -> str:
         f"Content Type: {boss.content_type.value}",
         "",
         "Weaknesses:",
-        f"  Elements: {[e.value for e in boss.weaknesses.elements]}",
-        f"  Weapons: {[w.value for w in boss.weaknesses.weapons]}",
+        f"  Elements: {weak_elements}",
+        f"  Weapons: {weak_weapons}",
         "",
         f"Shield Count: {boss.shield_count}",
         "",
@@ -254,9 +262,18 @@ def format_similar_bosses(bosses: list) -> str:
     for boss in bosses:
         lines.append(f"### {boss.display_name} ({boss.id})")
         lines.append(f"Difficulty: {boss.difficulty.value}")
-        lines.append(f"Weaknesses: {[e.value for e in boss.weaknesses.elements]}, "
-                    f"{[w.value for w in boss.weaknesses.weapons]}")
-        lines.append(f"Strategy: {boss.general_strategy[:200]}...")
+        
+        # Handle optional weaknesses
+        if boss.weaknesses:
+            weak_elements = [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
+            weak_weapons = [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else []
+        else:
+            weak_elements = []
+            weak_weapons = []
+        lines.append(f"Weaknesses: {weak_elements}, {weak_weapons}")
+        
+        strategy = boss.general_strategy[:200] if boss.general_strategy else "No strategy documented"
+        lines.append(f"Strategy: {strategy}...")
         lines.append("")
     
     return "\n".join(lines)

@@ -2,150 +2,183 @@
 # This file documents how buffs and debuffs stack in COTC.
 # Understanding this is critical for team composition.
 #
-# SOURCE: [HUMAN-REQUIRED] - Specific percentages and caps must come from game data.
-# The structure below is a template; actual values need verification.
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/the-ultimate-guide-to-buffs-and-debuffs/
 
 schema_version: "1.0"
 
 # =============================================================================
-# BUFF STACKING RULES
+# CRITICAL TIMING RULE
 # =============================================================================
-# Buffs in COTC fall into categories. Within a category, effects can stack
-# up to a cap. Different categories stack multiplicatively.
+# Some buffs and debuffs have DELAYED ACTIVATION!
+# They only come into effect at the START of the NEXT unit's turn.
+#
+# This means:
+# - Buffer must act BEFORE the DPS they're buffing
+# - Debuffer must act BEFORE the DPS attacking the debuffed enemy
+# - Speed tuning is essential for maximizing damage
+#
+# See turn_timing.yaml for detailed turn order planning.
 
-buff_categories:
-  # --- ATTACK BUFFS ---
-  - id: phys_atk_up
-    display_name: "Physical Attack Up"
-    affects: phys_atk
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED] e.g., 30%
-    stacking_notes: |
-      Multiple sources of phys ATK up stack additively within category.
-      Cap is typically around 30% but needs verification.
+# =============================================================================
+# CORE STACKING RULES (VERIFIED from meowdb)
+# =============================================================================
+#
+# 1. There are 6 "brackets" of buffs and 6 "brackets" of debuffs
+# 2. Each bracket has a 30% cap
+# 3. Same unit + same skill = extends duration only, NOT potency
+# 4. Different abilities = stack in potency AND extend duration
+# 5. Max buff/debuff duration is 9 turns
+#
+# WHAT BYPASSES THE 30% RULE:
+# - Critical damage cap: separate bracket, 100% max
+# - Break damage cap: separate bracket, 100% max  
+# - Ultimate buffs/debuffs: separate bracket, can stack to 200%
+# - Status ailment resistance: can go up to 100% (immune)
+# - Enemy's buffs/debuffs on YOU: capped at 50%
+#
+# DEF BUFFS = straight damage mitigation
+# - 30% PDEF buff = take 30% less physical damage (not scaled from stats)
 
-  - id: elem_atk_up
-    display_name: "Elemental Attack Up"
-    affects: elem_atk
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: "Same stacking rules as physical attack up."
+# =============================================================================
+# THE 6 BUFF BRACKETS
+# =============================================================================
 
-  # --- DAMAGE TYPE BUFFS ---
+buff_brackets:
+  - id: stats_up
+    display_name: "Stats Up"
+    description: "PATK, EATK, PDEF, EDEF, Speed, Crit Up"
+    cap_percentage: 30
+    includes:
+      - phys_atk_up
+      - elem_atk_up
+      - phys_def_up
+      - elem_def_up
+      - speed_up
+      - crit_up
+
   - id: weapon_damage_up
     display_name: "Weapon Damage Up"
-    affects: specific_weapon  # sword_damage_up, dagger_damage_up, etc.
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: |
-      Each weapon type has its own damage up category.
-      e.g., Sword Damage Up is separate from Dagger Damage Up.
-      Stacks with generic physical damage up.
+    description: "Sword/Polearm/Dagger/Axe/Bow/Staff/Tome/Fan damage up"
+    cap_percentage: 30
+    notes: "Each weapon type is a separate sub-category but shares the bracket cap"
 
   - id: element_damage_up
     display_name: "Element Damage Up"
-    affects: specific_element  # fire_damage_up, ice_damage_up, etc.
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: |
-      Each element has its own damage up category.
-      Stacks with generic elemental damage up.
+    description: "Fire/Ice/Lightning/Wind/Light/Dark damage up"
+    cap_percentage: 30
+    notes: "Each element is a separate sub-category but shares the bracket cap"
 
-  # --- DEFENSE BUFFS ---
-  - id: phys_def_up
-    display_name: "Physical Defense Up"
-    affects: phys_def
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: "Reduces physical damage taken."
+  - id: break_damage_up
+    display_name: "Break Damage Up"
+    description: "Damage dealt during enemy break state"
+    cap_percentage: 100
+    notes: "Stacks separately from weapon/element damage"
 
-  - id: elem_def_up
-    display_name: "Elemental Defense Up"
-    affects: elem_def
-    type: buff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: "Reduces elemental damage taken."
+  - id: crit_damage_up
+    display_name: "Critical Damage Up"
+    description: "Bonus damage on critical hits"
+    cap_percentage: 100
+    notes: "Stacks separately from weapon/element damage"
 
-  # --- DEBUFFS (on enemies) ---
-  - id: phys_def_down
-    display_name: "Physical Defense Down"
-    affects: enemy_phys_def
-    type: debuff
-    cap_percentage: null  # [HUMAN-REQUIRED] e.g., 30%
-    stacking_notes: |
-      Multiple phys def down effects stack additively.
-      Can be applied by multiple characters to reach cap faster.
-      Duration can be extended by reapplying before expiry.
+  - id: ultimate_buffs
+    display_name: "Ultimate Buffs"
+    description: "Buffs from Ultimate skills"
+    cap_percentage: 200
+    notes: |
+      Ultimate buffs belong to their OWN bracket.
+      They stack MULTIPLICATIVELY with regular buffs.
+      They also stack in duration with existing buffs.
 
-  - id: elem_def_down
-    display_name: "Elemental Defense Down"
-    affects: enemy_elem_def
-    type: debuff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: "Same as physical defense down."
+# =============================================================================
+# THE 6 DEBUFF BRACKETS
+# =============================================================================
+
+debuff_brackets:
+  - id: stats_down
+    display_name: "Stats Down"
+    description: "Enemy PATK, EATK, PDEF, EDEF, Speed, Crit Down"
+    cap_percentage: 30
+    includes:
+      - phys_atk_down
+      - elem_atk_down
+      - phys_def_down
+      - elem_def_down
+      - speed_down
 
   - id: weapon_res_down
     display_name: "Weapon Resistance Down"
-    affects: enemy_weapon_res  # sword_res_down, dagger_res_down, etc.
-    type: debuff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: |
-      Weapon-specific resistance down.
-      Stacks with generic physical defense down.
+    description: "Enemy Sword/Polearm/Dagger/etc resistance down"
+    cap_percentage: 30
+    notes: "Each weapon type is a separate sub-category"
 
   - id: element_res_down
     display_name: "Element Resistance Down"
-    affects: enemy_element_res  # fire_res_down, ice_res_down, etc.
-    type: debuff
-    cap_percentage: null  # [HUMAN-REQUIRED]
-    stacking_notes: |
-      Element-specific resistance down.
-      Stacks with generic elemental defense down.
+    description: "Enemy Fire/Ice/Lightning/etc resistance down"
+    cap_percentage: 30
+    notes: "Each element is a separate sub-category"
+
+  - id: break_damage_taken_up
+    display_name: "Break Damage Taken Up"
+    description: "Enemy takes more damage when broken"
+    cap_percentage: 100
+
+  - id: crit_damage_taken_up
+    display_name: "Critical Damage Taken Up"
+    description: "Enemy takes more damage from crits"
+    cap_percentage: 100
+
+  - id: ultimate_debuffs
+    display_name: "Ultimate Debuffs"
+    description: "Debuffs from Ultimate skills"
+    cap_percentage: 200
+    notes: "Stack multiplicatively with regular debuffs"
 
 # =============================================================================
-# DURATION MECHANICS
+# DURATION MECHANICS (VERIFIED)
 # =============================================================================
 
 duration_mechanics:
-  base_unit: turns
+  max_duration: 9  # turns
   
-  extension_methods:
-    - method: "reapply_before_expiry"
-      description: |
-        Applying the same buff/debuff before it expires extends duration.
-        New duration = remaining + new duration (up to a cap).
+  stacking_rules:
+    same_unit_same_skill: "Extends duration only, NOT potency"
+    different_skills: "Stacks both potency AND duration"
     
-    - method: "accessory_extension"
-      description: |
-        Some accessories extend buff/debuff duration.
-        [HUMAN-REQUIRED] - Specific accessories and extension amounts.
-    
-    - method: "max_boost"
-      description: |
-        Using max boost (3 BP) on buff skills often extends duration.
-        [HUMAN-REQUIRED] - Specific skill interactions.
+  examples:
+    - description: "Lynette 20% PATK/EATK buff used twice"
+      result: "Still 20% buff, but lasts 4 turns"
+    - description: "Lynette 20% PATK + Iris 15% PATK"
+      result: "30% PATK for 4 turns, 20% EATK for 2 turns"
 
 # =============================================================================
-# STACKING STRATEGY NOTES
+# MULTI-HIT DEBUFF STACKING (IMPORTANT!)
+# =============================================================================
+# Units like Sofia and Primrose with "hit 3-times to random enemies and 
+# apply 15% resistance debuff for 2 turns" are powerful because:
+# - If they hit a single enemy 3 times, debuff duration = 6 turns
+# - Potency doesn't increase, but duration does
+
+multi_hit_debuff_note: |
+  Random multi-hit attacks that debuff are extremely powerful.
+  Each hit extends the debuff duration.
+  3 hits on same target = 3x the duration.
+
+# =============================================================================
+# STRATEGY NOTES
 # =============================================================================
 
 strategy_notes: |
   BUFF TIMING:
   - Apply buffs in early turns BEFORE breaking the enemy
-  - Ensure buff durations will last through the break window
-  - Buffers should have higher speed than DPS units
+  - Use max boost for longer duration on important buffs
+  - Buffers should act BEFORE DPS units (speed tuning)
   
   DEBUFF TIMING:
   - Apply defense/resistance down before DPS acts
-  - Stack multiple debuffers for faster cap reaching
-  - Some attack skills also apply debuffs (role compression)
+  - Stack multiple sources to reach 30% cap faster
+  - Use multi-hit random attacks for long duration debuffs
   
-  STACKING EXAMPLE:
-  - Character A: 10% sword damage up (2 turns)
-  - Character B: 15% sword damage up (3 turns, max boost)
-  - Result: 25% sword damage up, refreshes to 3 turn duration
-  - Then Character A reapplies: caps at 30% (if cap), extends duration
-  
-  NOTE: Actual percentages and caps are [HUMAN-REQUIRED] data.
-  This file provides the framework; specific numbers need verification.
-
+  ULTIMATE SYNERGY:
+  - Ultimate buffs stack MULTIPLICATIVELY with regular buffs
+  - Example: Lynette's ultimate 20% + Primrose's skill 20% = more than 40%
+  - Ultimate buffs also extend duration of matching regular buffs

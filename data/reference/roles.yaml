@@ -3,7 +3,15 @@
 # These are functional categories, not game-defined classes.
 # A character can fill multiple roles simultaneously (role compression).
 #
-# SOURCE: [SYSTEM-DEFINED] - Abstract categories for reasoning, not game data.
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/tier-list-by-roles/
+#
+# MEOWDB ROLE CATEGORIES:
+# - PDPS: Physical damage (scales from Phys ATK, Crit, weapon skills)
+# - EDPS: Elemental damage (scales from Elem ATK, magic skills)
+# - Tankiness: HP, DEF, self-heals, provoke/taunt
+# - Healer: Party HP/SP healing, revives, status cures
+# - Buffer/Debuffer: Buffs to allies, debuffs to enemies, BP granting
+# - Breaker: Multi-hit skills, shield break efficiency
 
 schema_version: "1.0"
 
@@ -126,6 +134,15 @@ roles:
   - id: dps
     display_name: DPS (Damage Dealer)
     description: "Deals high damage, especially during break windows"
+    sub_roles:
+      - id: pdps
+        display_name: Physical DPS
+        description: "Damage from weapons, scales with Phys ATK and Crit"
+        notes: "Consider Sword, Polearm, Dagger, Axe, Bow, Staff damage"
+      - id: edps
+        display_name: Elemental DPS
+        description: "Damage from elements, scales with Elem ATK"
+        notes: "Consider Fire, Ice, Lightning, Wind, Light, Dark damage"
     key_capabilities:
       - "High power skills (260~450+ Power)"
       - "Weakness exploitation (power multiplier on weakness)"
@@ -148,6 +165,9 @@ roles:
       Damage Cap limits maximum damage per hit; Damage Cap Up raises this.
       Potency Up multiplies final damage (100% = 2x damage).
       Focus on one or two main DPS rather than spreading damage.
+      
+      PDPS scales with Phys ATK, Crit, and weapon-type buffs.
+      EDPS scales with Elem ATK and element-type buffs.
 
 # =============================================================================
 # ROLE COMPRESSION
@@ -156,9 +176,17 @@ roles:
 # A character can be tagged with multiple roles (e.g., [buffer, dps]).
 # This is valuable for limited party slots (4 front, 4 back).
 #
-# Examples from community data:
-# - Richard: Buffer (Frontrow Sword/Spear Dmg Up) + DPS
-# - Eliza: Healer (Frontrow Heal) + DPS (Light damage)
-# - Lionel: Tank (Taunt) + DPS (Sword damage)
-# - Sazantos: Buffer + Healer + DPS
+# The meowdb tier list rates each character across ALL roles:
+# - A unit rated "S" in PDPS and "A" in Breaker excels at both
+# - A unit rated "n/a" in Healer has no healing capabilities
+#
+# When assigning roles to characters, consider their strongest contributions.
+# A character with S-tier ratings in multiple roles is highly valuable
+# for role compression.
 
+# =============================================================================
+# DAMAGE COVERAGE
+# =============================================================================
+# From meowdb: "How many unique damage types in the unit's kit"
+# Example: A character with Sword + Fire + Light has 3 damage coverage
+# Higher coverage = more flexible for different boss weaknesses

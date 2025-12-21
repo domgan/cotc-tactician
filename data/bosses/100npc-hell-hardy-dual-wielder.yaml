@@ -1,0 +1,76 @@
+# 100 NPC Boss: Hardy Dual Wielder
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Hell/Limbo NPC - ★★★★☆
+
+id: 100npc-hell-hardy-dual-wielder
+display_name: "Hardy Dual Wielder"
+content_type: npc_battle
+difficulty: very_hard  # ★★★★☆
+level: 100
+location: "Hell: Cragspear Path"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 1012572
+speed: 275
+p_def: 214
+e_def: 199
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - dark
+  weapons:
+    - polearm
+
+shield_count: 24
+
+status_immunity: "20%"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Polearm/dark for 24 shields"
+  - role: dps
+    priority: required
+    reason: "Need damage for 1M+ HP"
+  - role: buffer
+    priority: required
+    reason: "Buff stacking required"
+  - role: debuffer
+    priority: required
+    reason: "Debuff stacking required"
+  - role: healer
+    priority: strongly_recommended
+    reason: "Hell content hits hard"
+
+recommended_weakness_coverage:
+  - polearm
+  - dark
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Hell/Limbo NPC (★★★★☆).
+  Same stats as Hardy Dagger Wielder but different weaknesses.
+  
+  Key points:
+  - Over 1M HP (1,012,572)
+  - Polearm/dark weakness (note: "spear" in MeowDB = polearm)
+  - 24 shields
+  - Lower E.DEF (199) - dark damage slightly favored
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

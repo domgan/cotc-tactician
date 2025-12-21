@@ -163,7 +163,7 @@ def character_summary(char: Any) -> dict:
 # =============================================================================
 
 @mcp.tool()
-def search_characters(query: str, limit: int = 10) -> list[dict]:
+def search_characters(query: str, limit: int = 8) -> list[dict]:
     """
     Search for characters using semantic search.
     
@@ -175,7 +175,7 @@ def search_characters(query: str, limit: int = 10) -> list[dict]:
     
     Args:
         query: Natural language description of what you're looking for.
-        limit: Maximum number of results to return (default: 10).
+        limit: Maximum number of results to return (default: 8, max party size).
     
     Returns:
         List of matching characters with basic info (id, name, job, weaknesses, roles, tier).
@@ -220,7 +220,7 @@ def get_character(character_id: str) -> dict | str:
 
 
 @mcp.tool()
-def find_by_weakness(weakness_types: list[str], limit: int = 15) -> list[dict]:
+def find_by_weakness(weakness_types: list[str], limit: int = 8) -> list[dict]:
     """
     Find characters that can hit specific enemy weaknesses.
     
@@ -231,7 +231,7 @@ def find_by_weakness(weakness_types: list[str], limit: int = 15) -> list[dict]:
         weakness_types: List of weakness types to search for.
                        Valid values: sword, polearm, dagger, axe, bow, staff,
                                     fire, ice, lightning, wind, light, dark
-        limit: Maximum number of results (default: 15).
+        limit: Maximum number of results (default: 8, max party size).
     
     Returns:
         List of characters that cover at least one of the specified weaknesses.
@@ -303,7 +303,7 @@ def list_by_tier(tier: str = "S", server: str = "jp", limit: int = 20) -> list[d
 def get_team_suggestions(
     weaknesses: list[str],
     roles_needed: list[str] | None = None,
-    limit: int = 10,
+    limit: int = 8,
 ) -> dict:
     """
     Get character suggestions for building a team against a boss.
@@ -311,11 +311,14 @@ def get_team_suggestions(
     Provide the boss's weaknesses and optionally the roles you need,
     and this will suggest characters that fit.
     
+    COTC teams have 8 slots: 4 front row (active) + 4 back row (swap in).
+    
     Args:
         weaknesses: Boss weaknesses to exploit (e.g., ["fire", "sword"]).
         roles_needed: Optional roles you need (e.g., ["healer", "buffer", "dps"]).
                      Valid roles: tank, healer, buffer, debuffer, breaker, dps
-        limit: Max characters per category (default: 10).
+                     From meowdb: PDPS, EDPS, Tankiness, Healer, Buffer, Debuffer, Breaker
+        limit: Max characters per category (default: 8, full party).
     
     Returns:
         Dictionary with character suggestions organized by weakness coverage
@@ -401,6 +404,218 @@ def get_database_stats() -> dict:
     """
     retrieval = get_retrieval()
     return retrieval.vector_store.get_collection_stats()
+
+
+# =============================================================================
+# BOSS & TEAM TOOLS
+# =============================================================================
+
+@mcp.tool()
+def search_bosses(query: str, limit: int = 5) -> list[dict]:
+    """
+    Search for bosses by description or mechanics.
+    
+    Use this to find bosses matching a description like:
+    - "fire weakness"
+    - "high shield count"
+    - "120 NPC"
+    
+    Args:
+        query: Natural language description of boss characteristics.
+        limit: Maximum number of results (default: 5).
+    
+    Returns:
+        List of matching bosses with basic info.
+    """
+    retrieval = get_retrieval()
+    
+    results = retrieval.vector_store.search_bosses(
+        query=query,
+        n_results=limit,
+    )
+    
+    bosses = []
+    for result in results:
+        boss = retrieval.get_boss_by_id(result["id"])
+        if boss:
+            bosses.append({
+                "id": boss.id,
+                "display_name": boss.display_name,
+                "content_type": boss.content_type,
+                "difficulty": boss.difficulty.value if boss.difficulty else None,
+                "shield_count": boss.shield_count,
+                "weaknesses": {
+                    "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
+                    "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
+                },
+                "data_confidence": boss.data_confidence.value,
+            })
+    
+    return bosses
+
+
+@mcp.tool()
+def get_boss(boss_id: str) -> dict | str:
+    """
+    Get full details for a specific boss.
+    
+    Args:
+        boss_id: The boss's unique ID (e.g., "120npc-dignified-tutor").
+    
+    Returns:
+        Full boss details including mechanics and requirements.
+    """
+    retrieval = get_retrieval()
+    
+    boss = retrieval.get_boss_by_id(boss_id)
+    if boss is None:
+        return f"Boss '{boss_id}' not found."
+    
+    result = {
+        "id": boss.id,
+        "display_name": boss.display_name,
+        "content_type": boss.content_type,
+        "difficulty": boss.difficulty.value if boss.difficulty else None,
+        "shield_count": boss.shield_count,
+        "weaknesses": {
+            "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
+            "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
+        },
+        "required_roles": [
+            {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
+            for rr in (boss.required_roles or [])
+        ],
+        "required_capabilities": boss.required_capabilities,
+        "general_strategy": boss.general_strategy,
+        "data_confidence": boss.data_confidence.value,
+    }
+    
+    if boss.mechanics:
+        result["mechanics"] = [
+            {
+                "name": m.name,
+                "type": m.mechanic_type,
+                "target": m.target,
+                "threat_level": m.threat_level,
+                "counter_strategy": m.counter_strategy,
+            }
+            for m in boss.mechanics
+        ]
+    
+    return result
+
+
+@mcp.tool()
+def list_all_boss_ids() -> list[str]:
+    """
+    List all available boss IDs in the database.
+    
+    Returns:
+        List of all boss IDs (sorted alphabetically).
+    """
+    retrieval = get_retrieval()
+    
+    if not retrieval._bosses_cache:
+        retrieval.initialize()
+    
+    return sorted(retrieval._bosses_cache.keys())
+
+
+@mcp.tool()
+def plan_team_for_boss(
+    boss_id: str,
+    available_characters: list[str] | None = None,
+) -> dict:
+    """
+    Get strategic team planning advice for a specific boss.
+    
+    This analyzes boss weaknesses and requirements, then suggests
+    characters from the available roster that match.
+    
+    Args:
+        boss_id: The boss to plan for.
+        available_characters: Optional list of character IDs the user owns.
+                             If not provided, suggests from all characters.
+    
+    Returns:
+        Dictionary with boss analysis and character recommendations.
+    """
+    retrieval = get_retrieval()
+    
+    boss = retrieval.get_boss_by_id(boss_id)
+    if boss is None:
+        return {"error": f"Boss '{boss_id}' not found."}
+    
+    # Build the analysis
+    weaknesses = []
+    if boss.weaknesses.elements:
+        weaknesses.extend([e.value for e in boss.weaknesses.elements])
+    if boss.weaknesses.weapons:
+        weaknesses.extend([w.value for w in boss.weaknesses.weapons])
+    
+    result = {
+        "boss": {
+            "id": boss.id,
+            "display_name": boss.display_name,
+            "shield_count": boss.shield_count,
+            "weaknesses": weaknesses,
+            "difficulty": boss.difficulty.value if boss.difficulty else None,
+        },
+        "required_roles": [
+            {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
+            for rr in (boss.required_roles or [])
+        ],
+        "recommended_characters": {},
+        "tactical_notes": [],
+    }
+    
+    # Add tactical notes based on shield count
+    if boss.shield_count:
+        if boss.shield_count >= 35:
+            result["tactical_notes"].append(
+                f"High shield count ({boss.shield_count}) - prioritize multi-hit breakers"
+            )
+        if boss.shield_count >= 20:
+            result["tactical_notes"].append(
+                "Plan for 2+ break cycles unless very strong team"
+            )
+    
+    # Find recommended characters for each weakness
+    for weakness in weaknesses[:4]:  # Top 4 weaknesses
+        query = f"Character with {weakness} coverage"
+        search_results = retrieval.vector_store.search_characters(
+            query=query,
+            n_results=10,
+        )
+        
+        chars = []
+        for sr in search_results:
+            char_id = sr["id"]
+            
+            # Filter by available if specified
+            if available_characters and char_id not in available_characters:
+                continue
+            
+            char = retrieval.get_character_by_id(char_id)
+            if char and weakness in char.weakness_coverage:
+                chars.append({
+                    "id": char.id,
+                    "display_name": char.display_name,
+                    "job": char.job.value,
+                    "roles": [r.value for r in char.roles] if char.roles else [],
+                    "jp_tier": char.jp_tier,
+                })
+            
+            if len(chars) >= 5:
+                break
+        
+        result["recommended_characters"][weakness] = chars
+    
+    # Add strategy if available
+    if boss.general_strategy:
+        result["general_strategy"] = boss.general_strategy
+    
+    return result
 
 
 # =============================================================================

@@ -1,0 +1,154 @@
+# 100 NPC Boss: Muttering Codger (つぶやく老人)
+# SOURCE: https://game8.jp/octopathtraveler-sp/369573
+#         https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Difficulty: ★☆ (Easiest 100 NPC)
+
+id: 100npc-muttering-codger
+display_name: "Muttering Codger"
+display_name_jp: "つぶやく老人"
+content_type: npc_battle
+difficulty: easy  # ★☆
+level: 100
+location: "Flamesgrace"
+
+# ===========================================================================
+# STATS (from MeowDB)
+# ===========================================================================
+hp: 385660
+speed: 357
+p_def: 197
+e_def: 205
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - dagger
+
+shield_count: 26
+
+status_immunity: none
+
+# ===========================================================================
+# ACTIONS (from Game8)
+# ===========================================================================
+actions:
+  - name: "Hit"
+    name_jp: "殴る"
+    effect: "Physical attack on single target"
+    
+  - name: "Gigant Bash"
+    name_jp: "ギガントバッシュ"
+    effect: "Very powerful physical attack on single target"
+    threat_level: high
+    
+  - name: "Fire Magic II (AoE)"
+    name_jp: "火炎魔法(全体)Ⅱ"
+    effect: "Fire elemental attack on front row"
+    
+  - name: "Ice Magic II (AoE)"
+    name_jp: "氷結魔法(全体)Ⅱ"
+    effect: "Ice elemental attack on front row"
+    
+  - name: "Lightning Magic II (AoE)"
+    name_jp: "雷撃魔法(全体)Ⅱ"
+    effect: "Lightning elemental attack on front row"
+    
+  - name: "Dark Magic II (AoE)"
+    name_jp: "暗黒魔法(全体)Ⅱ"
+    effect: "Dark elemental attack on front row"
+    
+  - name: "Opens Magic Book"
+    name_jp: "つぶやく老人は魔法書を開いた！"
+    effect: "Boss gains 2 actions per turn"
+    trigger: "HP threshold"
+    threat_level: medium
+    
+  - name: "Takes Battle Stance"
+    name_jp: "つぶやく老人は大きく身構えた！"
+    effect: "Next turn uses Ultimate Magic"
+    trigger: "Charge-up"
+    threat_level: high
+    
+  - name: "Ultimate Magic"
+    name_jp: "究極魔法"
+    effect: "Very powerful non-elemental attack on front row"
+    trigger: "After Takes Battle Stance"
+    threat_level: extreme
+    
+  - name: "Gets Serious"
+    name_jp: "つぶやく老人は本気を出した！"
+    effect: "Grants self permanent status immunity, then uses Overkill attack"
+    trigger: "End of turn 14"
+    threat_level: extreme
+    
+  - name: "Strong One's Rage"
+    name_jp: "強者の激昂"
+    effect: "OVERKILL damage to entire front row (instant death)"
+    trigger: "Turn 15+"
+    threat_level: extreme
+
+# ===========================================================================
+# ENRAGE TIMER
+# ===========================================================================
+enrage_turn: 14
+enrage_description: |
+  Turn 14: Boss becomes immune to all status ailments (permanent)
+  Turn 15+: Uses "Strong One's Rage" - OVERKILL damage to front row
+  
+  MUST defeat before turn 14 or have revival/protection ready.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need dagger/wind hits to break 26 shields before turn 14"
+  - role: dps
+    priority: required
+    reason: "Must kill before enrage"
+  - role: buffer
+    priority: strongly_recommended
+    reason: "Stack damage buffs for burst"
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "Stack defense debuffs for burst"
+
+recommended_weakness_coverage:
+  - dagger
+  - wind
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Easiest 100 NPC but has ENRAGE TIMER - must kill before turn 14.
+  
+  Key mechanics:
+  1. Turn ~7: Opens magic book (2 actions/turn)
+  2. "Takes Battle Stance" → next turn = Ultimate Magic (huge damage)
+  3. Turn 14: Gets Serious (permanent status immunity)
+  4. Turn 15+: OVERKILL damage (instant party wipe)
+  
+  Strategy:
+  1. Stack buffs/debuffs turns 1-5
+  2. Break around turn 6-7
+  3. Full burst during break window
+  4. If not dead, second break cycle BEFORE turn 14
+  
+  Counters:
+  - Gigant Bash: Tank with provoke or spread HP
+  - Ultimate Magic: Break before it hits, or heal/shield up
+  - Use dagger/wind multi-hit characters for fast breaking
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP + MeowDB"
+last_updated: 2025-12-21

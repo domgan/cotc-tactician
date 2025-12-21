@@ -1,0 +1,110 @@
+# 120 NPC Boss: Devout Priest (敬虔な神官)
+# SOURCE: https://game8.jp/octopathtraveler-sp/565283
+#
+# This is a Level 120 NPC encounter with multi-phase shield changes.
+
+id: 120npc-devout-priest
+display_name: "Devout Priest"
+display_name_jp: "敬虔な神官"
+content_type: npc_battle
+difficulty: extreme
+level: 120
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements: [fire, dark]
+  weapons: [sword, axe, bow]
+
+# Shield count changes between phases
+shield_count: 22  # Initial
+
+shield_phases:
+  - phase: 1
+    shield_count: 22
+    trigger: "Battle start"
+  - phase: 2
+    shield_count: 38
+    trigger: "After first break or HP threshold"
+
+# ===========================================================================
+# ADD ENEMIES
+# ===========================================================================
+# This boss summons additional enemies
+adds:
+  - name: "Resourceful Priest (機転が利く神官)"
+    shield_count: 20
+    notes: "[HUMAN-REQUIRED] Weaknesses and mechanics"
+    
+  - name: "Perceptive Priest (視野が広い神官)"
+    shield_count: 23
+    notes: "[HUMAN-REQUIRED] Weaknesses and mechanics"
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Shield Increase"
+    mechanic_type: phase_transition
+    trigger: "After first break"
+    target: self
+    threat_level: medium
+    counter_strategy: |
+      Shields increase from 22 to 38 after first break.
+      Plan for longer second break cycle.
+
+  - name: "Summon Adds"
+    mechanic_type: other
+    target: all
+    threat_level: high
+    counter_strategy: |
+      Two additional priests are summoned during the fight.
+      May need to manage multiple enemies.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Multi-target fight requires sustained healing"
+    
+  - role: breaker
+    priority: required
+    reason: "Need to break main boss + potentially adds"
+    
+  - role: buffer
+    priority: strongly_recommended
+    reason: "Damage buffs for break windows"
+    
+  - role: dps
+    priority: required
+    reason: "Need damage for main boss and potentially AoE for adds"
+
+required_capabilities:
+  - "Fire or Dark damage"
+  - "Sword, Axe, or Bow coverage"
+  - "Potentially AoE skills for add management"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Multi-enemy fight with increasing shields.
+  
+  Phase 1:
+  - Focus main boss (22 shields)
+  - Manage adds as needed
+  
+  Phase 2:
+  - Main boss has 38 shields
+  - Longer break cycle required
+  - May need to prioritize adds or ignore them
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/565283"
+last_updated: 2025-12-21

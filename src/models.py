@@ -136,6 +136,7 @@ class MechanicType(str, Enum):
 
 class MechanicTarget(str, Enum):
     """Boss mechanic targeting."""
+    SELF = "self"  # Boss targets itself (buffs)
     SINGLE = "single"
     FRONT_ROW = "front_row"
     BACK_ROW = "back_row"
@@ -159,14 +160,17 @@ class Difficulty(str, Enum):
     EASY = "easy"
     NORMAL = "normal"
     HARD = "hard"
+    VERY_HARD = "very_hard"  # ★★★★☆
     EXPERT = "expert"
-    EXTREME = "extreme"
+    EXTREME = "extreme"  # ★★★★★+
 
 
 class ContentType(str, Enum):
     """Content category."""
     STORY = "story"
+    STORY_BOSS = "story_boss"  # Major story boss
     SIDE_STORY = "side_story"
+    NPC_BATTLE = "npc_battle"  # 100/120 NPC battles
     SUPERBOSS = "superboss"
     TOWER = "tower"
     ARENA = "arena"
@@ -457,12 +461,60 @@ class Mechanic(BaseModel):
     counter_strategy: str
 
 
+class BossAction(BaseModel):
+    """A boss/enemy action/skill."""
+    name: str
+    name_jp: Optional[str] = None
+    effect: str
+    trigger: Optional[str] = None  # When this action is used
+    threat_level: Optional[str] = None  # low, medium, high, extreme
+
+
+class Enemy(BaseModel):
+    """
+    Individual enemy in an encounter.
+    Used for multi-enemy boss fights (up to 4 enemies).
+    """
+    name: str
+    name_jp: Optional[str] = None
+    is_main_target: bool = False  # Is this the primary target?
+    
+    # Stats
+    hp: Optional[int] = None
+    speed: Optional[int] = None
+    p_def: Optional[int] = None
+    e_def: Optional[int] = None
+    
+    # Weaknesses & Shields
+    shield_count: Optional[int] = None
+    weaknesses: Optional[Weaknesses] = None
+    
+    # Actions
+    actions: list[BossAction] = Field(default_factory=list)
+    
+    # Notes
+    notes: Optional[str] = None
+
+
 class Phase(BaseModel):
-    """Boss battle phase."""
-    phase_number: int
-    trigger: str
-    behavior_changes: str
+    """Boss battle phase - flexible structure for various boss types."""
+    # Core identification
+    phase_number: Optional[int] = None  # Phase number (1, 2, 3...)
+    phase: Optional[int] = None  # Alternative name for phase_number
+    
+    # Phase details  
+    description: Optional[str] = None
+    trigger: Optional[str] = None  # What triggers this phase
+    behavior_changes: Optional[str] = None
     priority_actions: Optional[str] = None
+    notes: Optional[str] = None
+    
+    # Phase-specific stats (for bosses that change mid-fight)
+    shield_count: Optional[int] = None
+    speed: Optional[int] = None
+    
+    # For multi-enemy phases
+    enemies: Optional[list[dict]] = None  # List of enemy data
 
 
 class RoleRequirement(BaseModel):
@@ -489,20 +541,42 @@ class Boss(BaseModel):
     # Identity
     id: str
     display_name: str
+    display_name_jp: Optional[str] = None  # Japanese name
     content_type: ContentType
     difficulty: Difficulty
+    location: Optional[str] = None  # Where the boss is found
+    level: Optional[int] = None  # Boss level (100, 120, etc.)
     
-    # Weaknesses & Resistances
-    weaknesses: Weaknesses
+    # Stats (for NPCs with known values)
+    hp: Optional[int] = None
+    speed: Optional[int] = None
+    p_def: Optional[int] = None
+    e_def: Optional[int] = None
+    
+    # Weaknesses & Resistances (optional for multi-phase bosses)
+    weaknesses: Optional[Weaknesses] = None  # Optional for bosses with phase-based weaknesses
     resistances: Optional[Weaknesses] = None
     immunities: Optional[Weaknesses] = None
+    status_immunity: Optional[str] = None  # e.g., "20%", "100%", "none"
     
-    # Shield
-    shield_count: int
+    # Shield (optional for multi-phase bosses)
+    shield_count: Optional[int] = None  # Optional for bosses with variable shields
     shield_phases: list[ShieldPhase] = Field(default_factory=list)
+    shield_scaling: Optional[str] = None  # e.g., "38 → 99"
+    
+    # Weakness cycling (for complex bosses)
+    weakness_sets: Optional[list[dict]] = None  # Multiple weakness sets
+    weakness_change_trigger: Optional[str] = None  # When weaknesses change
+    
+    # Multi-enemy encounters (up to 4 enemies in COTC)
+    enemies: list[Enemy] = Field(default_factory=list)  # All enemies in the encounter
+    
+    # Actions (for single-enemy or simplified encounters)
+    actions: list[BossAction] = Field(default_factory=list)
     
     # Mechanics
     mechanics: list[Mechanic] = Field(default_factory=list)
+    special_mechanics: Optional[list[dict]] = None  # Free-form mechanics
     
     # Phases
     phases: list[Phase] = Field(default_factory=list)
@@ -510,13 +584,16 @@ class Boss(BaseModel):
     # Team Requirements
     required_roles: list[RoleRequirement] = Field(default_factory=list)
     required_capabilities: list[str] = Field(default_factory=list)
+    recommended_weakness_coverage: list[str] = Field(default_factory=list)
     
     # Timing
-    turn_limit: Optional[int] = None
+    turn_limit: Optional[int] = None  # Soft turn limit
+    enrage_turn: Optional[int] = None  # Turn when boss enrages (instant death)
+    enrage_description: Optional[str] = None  # What happens on enrage
     critical_turns: list[CriticalTurn] = Field(default_factory=list)
     
     # Strategy
-    general_strategy: str
+    general_strategy: Optional[str] = None  # Made optional
     common_mistakes: list[str] = Field(default_factory=list)
     
     # Metadata
@@ -526,25 +603,42 @@ class Boss(BaseModel):
 
     def get_embedding_text(self) -> str:
         """Generate text for vector embedding."""
-        parts = [
-            self.display_name,
-            self.general_strategy,
-        ]
+        parts = [self.display_name]
+        
+        if self.general_strategy:
+            parts.append(self.general_strategy)
+        
+        if self.location:
+            parts.append(f"Location: {self.location}")
+        
+        # Add weakness info
+        if self.weaknesses:
+            if self.weaknesses.elements:
+                parts.append(f"Weak to: {', '.join(e.value for e in self.weaknesses.elements)}")
+            if self.weaknesses.weapons:
+                parts.append(f"Weak to: {', '.join(w.value for w in self.weaknesses.weapons)}")
         
         # Add mechanic summaries
         for mech in self.mechanics:
             parts.append(f"{mech.name}: {mech.counter_strategy}")
         
-        return " ".join(parts)
+        return " ".join(p for p in parts if p)
 
     def get_metadata(self) -> dict:
         """Generate metadata for vector store."""
+        # Handle optional weaknesses
+        elements = []
+        weapons = []
+        if self.weaknesses:
+            elements = [e.value for e in self.weaknesses.elements] if self.weaknesses.elements else []
+            weapons = [w.value for w in self.weaknesses.weapons] if self.weaknesses.weapons else []
+        
         return {
             "id": self.id,
             "difficulty": self.difficulty.value,
             "content_type": self.content_type.value,
-            "weaknesses_elements": [e.value for e in self.weaknesses.elements],
-            "weaknesses_weapons": [w.value for w in self.weaknesses.weapons],
+            "weaknesses_elements": elements,
+            "weaknesses_weapons": weapons,
             "required_roles": [rr.role.value for rr in self.required_roles],
             "data_confidence": self.data_confidence.value,
         }

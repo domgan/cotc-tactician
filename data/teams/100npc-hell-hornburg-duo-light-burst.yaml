@@ -1,0 +1,253 @@
+# Proven Team: Hell Hornburg Duo - Light Burst (7T Clear)
+# SOURCE: Reddit Mastery Survey - u/CentralCommand
+# VIDEO: https://youtu.be/OYEtwkGXSfc
+#
+# Boss: Stateless Princess Genna + Wild Eagle
+# Clear Time: 7 turns
+
+id: 100npc-hell-hornburg-duo-light-burst
+name: "Hornburg Duo - Light Burst (7T)"
+boss_id: 100npc-hell-stateless-princess-genna
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: burst
+investment_level: medium
+
+# ===========================================================================
+# BOSS REMINDER
+# ===========================================================================
+# Wild Eagle: 803k HP, 18 shields, polearm/ice weak
+# Genna: 964k HP, 24 shields, tome/light weak
+# Genna is very fast (432 speed)
+# On T5: If no one poisoned, Genna locks whole front row (can't switch)
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: false
+    substitutes: [primrose-ex, ophilia]
+    substitute_notes: |
+      Rinyuu provides passive healing without turns.
+      Ophilia works but is weaker as DPS.
+    key_skills_used:
+      - "Gracious Prayer"
+    accessory_requirements:
+      - "Kurtz Syndicate Badge"
+      - "Brilliant Tactician Medal"
+      - "E.Atk Fortune Staff"
+    awakening_required: 0
+
+  - position: 2
+    character_id: lynette
+    role_in_team: buffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Key buffer for party-wide buffs"
+    key_skills_used:
+      - "Masterful Cheer"
+      - "Bemusing Strut"
+    accessory_requirements:
+      - "Medicinal Herb Garden Plans"
+      - "Innocent Dancing Shoes"
+      - "Brave Fan"
+    awakening_required: 3
+
+  - position: 3
+    character_id: odette
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: [cyrus, varkyn]
+    substitute_notes: |
+      Disable Chance Doublecast passive for consistency.
+      Varkyn is a good alternative.
+    key_skills_used:
+      - "Raging Luminescence"
+      - "Luminescence (Single) IV"
+    accessory_requirements:
+      - "Wiswald Scarf"
+      - "Dalberk's Thesis"
+      - "Thorned Helltome"
+    awakening_required: 1
+
+  - position: 4
+    character_id: ophilia
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: [rondo, eliza]
+    substitute_notes: "If you have Rondo, bench Ophilia - she's weak DPS"
+    key_skills_used:
+      - "Heaven's Judgement"
+    accessory_requirements:
+      - "Maiden's Bell"
+      - "Light Rune III"
+      - "Thorned Hellstaff"
+    awakening_required: 0
+
+# ===========================================================================
+# COMPOSITION - BACK LINE
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: varkyn
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: [odette]
+    substitute_notes: "Key light DPS"
+    key_skills_used:
+      - "Raging Luminescence"
+      - "Lux Congere (Single) II"
+    accessory_requirements:
+      - "Maiden's Pendant"
+      - "Windslicer Bracers"
+      - "Thorned Helltome"
+    awakening_required: 4
+
+  - position: 6
+    character_id: tressa
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: "Swift Trifold Thrust for fast polearm breaks"
+    key_skills_used:
+      - "Swift Trifold Thrust"
+      - "Trifold Thrust"
+    accessory_requirements:
+      - "Heroic Merchant Emblem"
+      - "Crest of House Wolffort"
+      - "Thorned Hellberd"
+    awakening_required: 1
+
+  - position: 7
+    character_id: roland
+    role_in_team: breaker
+    is_required: true
+    substitutes: [krauser]
+    substitute_notes: "Rush for shield shaving, debuffs on break"
+    key_skills_used:
+      - "Flash of Steel"
+      - "Defortifying Spice"
+      - "Rush"
+    accessory_requirements:
+      - "Crest of House Bowen"
+      - "Crimson Blade's Turban"
+      - "Thorned Hellberd"
+    awakening_required: 1
+
+  - position: 8
+    character_id: wludai
+    role_in_team: breaker
+    is_required: false
+    substitutes: [krauser]
+    substitute_notes: "Multi-hit polearm for Wild Eagle"
+    key_skills_used:
+      - "Tetra Spear"
+      - "Javelin Rush"
+      - "Healing Thrust"
+    accessory_requirements:
+      - "Evening Calm Training Kit"
+      - "Foraging Sack"
+      - "Thorned Hellberd"
+    awakening_required: 1
+
+# ===========================================================================
+# ALLIES USED
+# ===========================================================================
+# - Girl Waiting for Her Beloved (Hell Cragspear) - Red
+# - Hornburgian Knight-In-Training (Hornburg) - Blue
+# - Bleeding Man (Hell Valore) - Yellow
+# - Scholar of Ruins (Hell Valore) - Red
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Stack buffs and debuffs"
+      - "Start breaking Wild Eagle with polearm"
+      - "Keep light team ready in back"
+    notes: "Prepare for T5 positioning"
+
+  - turn_range: "5"
+    phase: break_push
+    actions:
+      - "CRITICAL: Light team + Lynette MUST be in front"
+      - "If no one is poisoned, Genna locks front row"
+      - "Someone being poisoned delays the execution phase"
+    notes: "This is the key timing - wrong positioning = fail"
+
+  - turn_range: "6-7"
+    phase: burst
+    actions:
+      - "Break Genna"
+      - "Full light burst with Varkyn, Odette, Ophilia"
+    notes: "Should kill in burst window"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Attack Up"
+    sources: [lynette, richard]
+    target_cap: "30%"
+    timing: "Before break"
+
+  - buff_type: "Sword/Polearm Damage"
+    sources: [richard]
+    target_cap: "15%"
+    timing: "Passive from Richard"
+
+  - buff_type: "Regen"
+    sources: [rinyuu, primrose-ex]
+    target_cap: "AoE regen"
+    timing: "Turn 1, maintain"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team uses a split strategy:
+  1. Polearm characters (Tressa, Roland, W'ludai) break Wild Eagle
+  2. Light/tome characters (Odette, Varkyn, Ophilia) burst Genna
+  
+  Key insight from u/CentralCommand:
+  - On T5, if no one is poisoned, Genna locks the whole front row
+  - You MUST have light team + Lynette in front on T5
+  - Someone being poisoned delays this mechanic
+  
+  Agnes A4 on Varkyn is a stat stick that also lets him outspeed
+  Ophilia and Odette for proper turn order.
+
+key_synergies:
+  - "Rinyuu passive healing = no active heal turns"
+  - "Lynette buffs entire party"
+  - "Varkyn + Odette = strong light burst"
+  - "Roland debuffs on break for extra damage"
+
+risks_and_recovery:
+  - "If wrong units in front on T5: Run is likely failed"
+  - "If poison lands on T5: Delays execution phase (good!)"
+  - "After T7, Genna gets multiple actions/turn - very dangerous"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: true
+clear_time: "7 turns"
+success_rate: "High with correct T5 positioning"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/y5ug63/"
+data_confidence: verified
+last_verified: 2023-10-16
+last_updated: 2025-12-21

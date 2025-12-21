@@ -1,0 +1,129 @@
+# COTC Status Ailments Reference
+# Status effects that can be applied to enemies or allies.
+#
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/damage-mechanics-explained/
+#         https://meowdb.com/db/octopath-traveler-cotc/status-ailments/
+
+schema_version: "1.0"
+
+# =============================================================================
+# DAMAGE OVER TIME (DoT) AILMENTS
+# =============================================================================
+
+dot_ailments:
+  bleed:
+    description: "Deals minor physical damage over time"
+    damage_type: physical
+    defense: p_def  # Mitigated by target's PDEF
+    duration: "Specified number of turns"
+    notes: |
+      Damage is relatively minor.
+      Some units receive buffs when attacking bleeding enemies.
+      Can be applied by physical attacks.
+      
+  poison:
+    description: "Deals minor elemental damage over time"
+    damage_type: elemental
+    defense: e_def  # Mitigated by target's EDEF
+    duration: "Specified number of turns"
+    notes: |
+      Damage is relatively minor.
+      Some units receive buffs when attacking poisoned enemies.
+      Can be applied by elemental or physical attacks.
+
+# =============================================================================
+# SHIELD-RELATED AILMENTS
+# =============================================================================
+
+shield_ailments:
+  burning:
+    description: "Target loses 1 shield at end of turn"
+    trigger: "End of affected target's turn"
+    notes: |
+      Excellent for passive shield shaving.
+      Does not require hitting weakness.
+      Some fire skills apply burning.
+      Very valuable for high-shield bosses.
+
+# =============================================================================
+# CROWD CONTROL AILMENTS
+# =============================================================================
+# [HUMAN-REQUIRED] - Specific CC effects need verification from status ailments page
+
+crowd_control:
+  note: "Details to be added from https://meowdb.com/db/octopath-traveler-cotc/status-ailments/"
+  
+  # Common CC types (verify specifics)
+  types:
+    - id: sleep
+      description: "Target cannot act"
+      
+    - id: paralysis
+      description: "Target may fail to act"
+      
+    - id: confusion
+      description: "Target may attack allies"
+      
+    - id: blind
+      description: "Target has reduced accuracy"
+      
+    - id: silence
+      description: "Target cannot use skills"
+
+# =============================================================================
+# DEBUFF AILMENTS (stat reductions)
+# =============================================================================
+
+stat_ailments:
+  attack_down:
+    affects: [p_atk, e_atk]
+    description: "Reduces target's attack stats"
+    
+  defense_down:
+    affects: [p_def, e_def]
+    description: "Reduces target's defense stats"
+    
+  speed_down:
+    affects: speed
+    description: "Target acts later in turn order"
+
+# =============================================================================
+# AILMENT RESISTANCE
+# =============================================================================
+
+resistance:
+  description: "Status ailment resistance can reach 100% (immune)"
+  
+  sources:
+    - "Passive abilities"
+    - "Accessories"
+    - "Buff skills"
+    
+  notes: |
+    Some bosses are immune to certain status effects.
+    Check boss data for resistances before planning.
+
+# =============================================================================
+# TACTICAL USE OF STATUS AILMENTS
+# =============================================================================
+
+tactical_notes: |
+  BLEED/POISON SYNERGIES:
+  - Some characters deal bonus damage to bleeding/poisoned enemies
+  - Apply early, let it tick while you set up
+  - Minor damage adds up over long fights
+  
+  BURNING FOR SHIELD SHAVE:
+  - Burning is essentially free shield damage each turn
+  - Stack with active shield breaking for faster breaks
+  - Especially valuable against high-shield bosses
+  
+  CROWD CONTROL:
+  - Most bosses resist or are immune to hard CC
+  - CC is more useful for trash mobs
+  - Check boss data before relying on CC
+  
+  DEFENSE DOWN:
+  - This is NOT a status ailment, it's a debuff
+  - Debuffs are covered in buff_categories.yaml
+  - Debuffs are core to damage strategy

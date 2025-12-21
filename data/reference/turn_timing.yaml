@@ -1,0 +1,189 @@
+# COTC Turn Timing Reference
+# Understanding buff/debuff timing and turn order is critical for tactics.
+#
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/the-ultimate-guide-to-buffs-and-debuffs/
+#         https://meowdb.com/db/octopath-traveler-cotc/damage-mechanics-explained/
+
+schema_version: "1.0"
+
+# =============================================================================
+# BUFF/DEBUFF ACTIVATION TIMING
+# =============================================================================
+
+buff_debuff_timing:
+  activation: "DELAYED - Only comes into effect at start of NEXT unit's turn"
+  
+  implications:
+    - "Buffer must act BEFORE the DPS they're buffing"
+    - "Debuffer must act BEFORE the DPS attacking the debuffed enemy"
+    - "If DPS acts before buffer, they don't get the buff that turn"
+    - "Turn order is critical for maximizing damage"
+    
+  example: |
+    Turn order: Buffer (Speed 180) → DPS (Speed 150) → Enemy
+    
+    1. Buffer uses 30% ATK Up on Front Row
+    2. Buff activates at start of DPS's turn
+    3. DPS attacks with 30% ATK buff active
+    
+    WRONG order: DPS (Speed 180) → Buffer (Speed 150)
+    1. DPS attacks without buff
+    2. Buffer uses buff (but DPS already acted)
+    3. Buff is wasted for this turn
+
+# =============================================================================
+# TURN ORDER BASICS
+# =============================================================================
+
+turn_order:
+  base: "Determined by Speed stat (higher = acts earlier)"
+  
+  display: "Shown in top-left corner of battle screen"
+  
+  next_turn_preview: "Can see next turn's order to the right"
+  
+  factors:
+    speed_stat: "Base speed + equipment + buffs"
+    priority_skills: "[Priority] acts before normal turn order"
+    break_status: "Broken enemies move to end of order"
+    post_break: "Enemy recovering from break acts FIRST"
+
+# =============================================================================
+# SPEED TUNING
+# =============================================================================
+
+speed_tuning:
+  description: "Adjusting character speeds to optimize turn order"
+  
+  goals:
+    - "Buffers act before DPS"
+    - "Debuffers act before DPS"
+    - "Breaker acts before DPS (when breaking)"
+    - "Healer acts when needed (often flexible)"
+    
+  methods:
+    accessories:
+      - "Speed-boosting accessories"
+      - "Ballen Vest: +Speed for first 3 turns"
+      - "Chomper accessories"
+      
+    equipment:
+      - "Some weapons/armor have speed bonuses"
+      
+    buffs_debuffs:
+      - "Speed Up buff on allies"
+      - "Speed Down debuff on enemies"
+      
+    passives:
+      - "Some characters have speed-boosting passives"
+      
+    formation:
+      - "Front row vs back row doesn't affect speed"
+      - "But affects which skills can target them"
+
+# =============================================================================
+# PRIORITY SKILLS
+# =============================================================================
+
+priority_skills:
+  description: "Skills marked [Priority] act before normal turn order"
+  
+  use_cases:
+    - "Guarantee breaker acts first to break enemy"
+    - "Emergency healing before enemy acts"
+    - "Apply buff before rest of party acts"
+    
+  notes:
+    - "Multiple [Priority] users still ordered by speed among themselves"
+    - "Very valuable for turn order control"
+    - "Some characters specialize in Priority skills"
+
+# =============================================================================
+# TURN DURATION MECHANICS
+# =============================================================================
+
+turn_duration:
+  measurement: "Buffs/debuffs last for X turns"
+  
+  counting:
+    - "Turn count starts from when effect activates"
+    - "NOT from when skill is used"
+    - "Due to delayed activation"
+    
+  example: |
+    Buffer uses 3-turn ATK buff
+    Effect activates at start of next unit's turn
+    Buff lasts for 3 full turns from that point
+    
+  extension:
+    - "Reapplying same buff extends duration"
+    - "Multiple sources add duration (up to 9 turn cap)"
+    - "Some accessories extend buff duration"
+
+# =============================================================================
+# TYPICAL BATTLE PHASES
+# =============================================================================
+
+battle_phases:
+  opening_phase:
+    turns: "1-2"
+    actions:
+      - "Apply long-duration buffs (BP for duration)"
+      - "Apply regen (will maintain HP throughout)"
+      - "Begin shield shaving"
+      - "Establish turn order"
+      
+  build_up_phase:
+    turns: "3-5 (varies by shield count)"
+    actions:
+      - "Continue shield shaving"
+      - "Apply damage buffs closer to break (30% cap)"
+      - "Apply debuffs on enemy (30% cap)"
+      - "Get enemy to 1 shield"
+      
+  break_phase:
+    turns: "Break turn + 1 (2 turns total)"
+    actions:
+      - "Break enemy (fast unit or Priority)"
+      - "All DPS burst damage"
+      - "Use strongest skills"
+      - "Pop ultimates if available"
+      
+  recovery_phase:
+    turns: "Post-break"
+    warning: "Enemy acts FIRST after recovering"
+    actions:
+      - "Heal/shield up before enemy acts"
+      - "Tank should have taunt active"
+      - "Begin next break cycle"
+
+# =============================================================================
+# TACTICAL PLANNING NOTES
+# =============================================================================
+
+tactical_notes: |
+  SPEED TUNING PRIORITY:
+  1. Buffer(s) - Must act before DPS
+  2. Debuffer(s) - Must act before DPS  
+  3. Breaker - Acts before DPS on break turn
+  4. DPS - Acts after buffs/debuffs applied
+  5. Healer - Flexible, often slower
+  
+  RICHARD EXAMPLE (from Reddit):
+  - Put Richard with Ballen Vest to act first for 3 turns
+  - Richard buffs front row
+  - Then Primrose goes second with regen
+  - Then Rinyuu with Crusader's Prayer last
+  - For 5-6 turns: PATK capped, sword/pole dmg up, regen active
+  
+  BUFF DURATION PLANNING:
+  - Apply 2-turn buffs when enemy has 2 shields left
+  - Apply 3-turn buffs earlier
+  - Use BP on buffs for longer duration when needed
+  - Refresh buffs before they expire (duration stacks)
+  
+  DEBUFF STACKING EXAMPLE:
+  - Sarisa's dagger debuff (2 turns)
+  - Then Canary's dagger debuff attack to cap (30%) for 7-8 turns
+  - Then stack physical res down separately
+  - Two separate debuff types = more damage

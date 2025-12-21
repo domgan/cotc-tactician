@@ -1,8 +1,8 @@
 # COTC Elements Reference
-# This file defines the fixed element types in the game.
+# This file defines the element types in the game.
 # Order matches the in-game weakness display order.
-# 
-# SOURCE: [HUMAN-VERIFIED] - From community spreadsheet data
+#
+# SOURCE: [HUMAN-VERIFIED] - From community spreadsheet and meowdb
 
 schema_version: "1.0"
 
@@ -11,49 +11,33 @@ elements:
     display_name: Fire
     order: 7
     damage_type: elemental
-    description: "Fire elemental damage"
-    status_ailment: burning
-    notes: "Burning: Take magic damage and lose 1 shield at end of turn"
 
   - id: ice
     display_name: Ice
     order: 8
     damage_type: elemental
-    description: "Ice elemental damage"
-    status_ailment: frostbite
-    notes: "Frostbite: Take magic damage and lose 1 shield when taking an action"
 
   - id: lightning
     display_name: Lightning
     order: 9
     damage_type: elemental
-    description: "Lightning elemental damage"
-    status_ailment: shock
-    notes: "Shock: Lose 1 shield when hit by Lightning attack"
 
   - id: wind
     display_name: Wind
     order: 10
     damage_type: elemental
-    description: "Wind elemental damage"
-    status_ailment: null
-    notes: "No associated status ailment"
 
   - id: light
     display_name: Light
     order: 11
     damage_type: elemental
-    description: "Light elemental damage"
     notes: "Also called 'Holy' in some contexts"
 
   - id: dark
     display_name: Dark
     order: 12
     damage_type: elemental
-    description: "Dark elemental damage"
-    notes: "Often paired with physical attacks in skills"
 
-# Special value for characters with no element affinity
   - id: none
     display_name: None
     order: 0
@@ -64,7 +48,7 @@ elements:
 # WEAKNESS ORDER IN-GAME (from community guide):
 # =============================================================================
 # 1. Sword
-# 2. Spear
+# 2. Polearm (Spear)
 # 3. Dagger
 # 4. Axe
 # 5. Bow
@@ -76,6 +60,15 @@ elements:
 # 11. Light (Holy)
 # 12. Dark
 #
-# This order is consistent - if you know all but one weakness, you can 
+# This order is consistent - if you know all but one weakness, you can
 # determine the missing one by its position in the list.
+#
+# NOTE: The game shows "Spear" but community data uses "Polearm"
 
+# =============================================================================
+# STATUS AILMENTS - SEPARATE SYSTEM
+# =============================================================================
+# Status ailments are NOT tied to elements. They are a separate mechanic.
+# See: https://meowdb.com/db/octopath-traveler-cotc/status-ailments/
+#
+# [HUMAN-REQUIRED] - Create separate status_ailments.yaml if needed

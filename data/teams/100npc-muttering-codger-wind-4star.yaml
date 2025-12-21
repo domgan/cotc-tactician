@@ -1,0 +1,212 @@
+# Proven Team: Muttering Codger - 4★ Only Clear
+# SOURCE: Reddit Mastery Survey - u/Empyrean_Sky
+# VIDEO: (referenced in mastery survey)
+#
+# Boss: Muttering Codger (Flamesgrace)
+# NOTABLE: This is a 4★ ONLY clear - proves powercreep makes this accessible!
+
+id: 100npc-muttering-codger-wind-4star
+name: "Muttering Codger - 4★ Only Wind Clear"
+boss_id: 100npc-muttering-codger
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: burst
+investment_level: low  # 4★ only!
+
+# ===========================================================================
+# BOSS REMINDER
+# ===========================================================================
+# Weaknesses: Dagger, Wind
+# Shields: 26
+# HP: 385,660
+# Enrage: Turn 14 (status immunity), Turn 15+ (Overkill damage)
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (4★ ONLY)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: devin
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Tanks the boost attack and following strikes.
+      Cannot survive without 30% atk down from ally + Kurtz.
+    key_skills_used: []
+    awakening_required: 0
+
+  - position: 2
+    character_id: noelle
+    role_in_team: debuffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Elemental collapse for debuffs"
+    key_skills_used:
+      - "Elemental Collapse"
+    awakening_required: 0
+
+  - position: 3
+    character_id: fabio
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Ultimate level 10 is CRUCIAL for 3-break clear.
+      Ailment resist accessories needed.
+    key_skills_used:
+      - "3-hit wind attack"
+      - "Ultimate"
+    awakening_required: 0
+
+  - position: 4
+    character_id: menno
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Ultimate level 10 is CRUCIAL.
+      Main damage dealer.
+    key_skills_used:
+      - "Wind attacks"
+      - "Ultimate"
+    awakening_required: 0
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (4★ ONLY)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: kurtz
+    role_in_team: debuffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Attack debuff for Devin survival"
+    key_skills_used:
+      - "Attack debuff"
+    awakening_required: 0
+
+  - position: 6
+    character_id: aslyte
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: "Wind multi-hitter"
+    key_skills_used:
+      - "Wind attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: wingate
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      MUST be faster than boss (357 speed).
+      Needs speed accessories.
+    key_skills_used:
+      - "Spider Fang"
+      - "Chain Shadow Reaver"
+    awakening_required: 1
+
+  - position: 8
+    character_id: cless
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Support/utility"
+    key_skills_used: []
+    awakening_required: 0
+
+# ===========================================================================
+# ALLIES USED
+# ===========================================================================
+# - Woman Knowledgeable of Valore (Emberglow) - buff
+# - Patient Cleric (Flamesgrace: Cathedral) - buff  
+# - Hunter Who Watches Over the Town (Cathedral of Tytos) - 4-hit wind
+
+# ===========================================================================
+# EQUIPMENT REQUIREMENTS
+# ===========================================================================
+# - Full elemental gear (level 66+)
+# - Hollow II weapons on damage dealers
+# - Fabio: double terror charms (100% resistance)
+# - Devin: double paralysis charms (100% resistance)
+# - Dragon scarves on Menno and other DPS
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Devin tanks in front"
+      - "Stack debuffs with Noelle and Kurtz"
+      - "Start shield shaving with wind"
+    notes: "Keep Devin alive with atk down"
+
+  - turn_range: "5-7"
+    phase: break_push
+    actions:
+      - "Break on turn 5"
+      - "Burst with Menno and Fabio ultimates"
+    notes: "First break cycle"
+
+  - turn_range: "8-10"
+    phase: break_window
+    actions:
+      - "Second break cycle"
+      - "Continue damage"
+    notes: "May need third break"
+
+  - turn_range: "11-13"
+    phase: recovery
+    actions:
+      - "Third break if needed"
+      - "MUST kill before turn 14!"
+    notes: "Tight race against enrage"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  Quote from u/Empyrean_Sky:
+  "At launch, this boss was unbeatable. And now, we can easily clear him 
+  with 4 stars and some simple accessories! Go collect those 200 rubies!"
+  
+  Key points:
+  1. Equipment powercreep makes this possible
+  2. Menno and Fabio ultimates at level 10 are crucial
+  3. Devin MUST survive with stacked atk down
+  4. Tight race to beat within 3 breaks before turn 14
+  
+  This proves the fight is accessible to F2P players!
+
+key_synergies:
+  - "Kurtz + ally atk down = Devin survival"
+  - "Menno + Fabio ultimates = main damage"
+  - "Wingate faster than boss = safe shield shave"
+
+risks_and_recovery:
+  - "If Devin dies: Tank replacement needed"
+  - "If enrage (turn 14): Instant party wipe"
+  - "Tight DPS check with 4★ only"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: true
+clear_time: "~12-13 turns"
+success_rate: "High with proper setup"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: community
+source_url: "Reddit Mastery Survey"
+data_confidence: verified
+last_verified: null
+last_updated: 2025-12-21

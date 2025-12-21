@@ -1,0 +1,96 @@
+# 100 NPC Boss: Berecain Village Chief (ベルケインの村長)
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Difficulty: ★★★★★ (Hardest in normal world)
+
+id: 100npc-berecain-village-chief
+display_name: "Berecain Village Chief"
+display_name_jp: "ベルケインの村長"
+content_type: npc_battle
+difficulty: extreme  # ★★★★★
+level: 100
+location: "Berecain"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 1071010
+speed: 432
+p_def: 363
+e_def: 368
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - light
+  weapons:
+    - tome
+
+shield_count: 26
+
+status_immunity: "20%"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "High damage output, long fight"
+    
+  - role: tank
+    priority: strongly_recommended
+    reason: "May need taunt for survival"
+    
+  - role: breaker
+    priority: required
+    reason: "Need tome/light multi-hits"
+    
+  - role: buffer
+    priority: required
+    reason: "Need max damage buffs for 1M+ HP"
+    
+  - role: debuffer
+    priority: required
+    reason: "Defense debuffs critical"
+    
+  - role: dps
+    priority: required
+    reason: "High damage for 1M HP pool"
+
+recommended_weakness_coverage:
+  - tome
+  - light
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Hardest 100 NPC in the normal world (★★★★★).
+  
+  Key challenges:
+  - Over 1 MILLION HP (1,071,010)
+  - Very high defenses (363/368)
+  - Fast speed (432)
+  - Only tome/light weakness
+  - 20% status immunity
+  
+  Required approach:
+  1. Full buff/debuff stacking (30% caps)
+  2. Multiple break cycles likely needed
+  3. Strong tome/light DPS essential
+  4. Healing required for sustained fight
+  
+  Character recommendations:
+  - Scholars with tome attacks
+  - Light elemental DPS
+  - Strong buffers/debuffers
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

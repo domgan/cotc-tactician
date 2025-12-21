@@ -1,0 +1,67 @@
+# 100 NPC Boss: Old Storyteller (伝承を語る老人)
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+
+id: 100npc-old-storyteller
+display_name: "Old Storyteller"
+display_name_jp: "伝承を語る老人"
+content_type: npc_battle
+difficulty: normal  # ★★
+level: 100
+location: "Victors Hollow: Old Quarter"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 331800
+speed: 387
+p_def: 205
+e_def: 197
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - light
+  weapons:
+    - fan
+
+shield_count: 23
+
+status_immunity: none
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need fan/light hits for 23 shields"
+  - role: dps
+    priority: required
+    reason: "Damage during break"
+
+recommended_weakness_coverage:
+  - fan
+  - light
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Second easiest 100 NPC (★★).
+  
+  Key points:
+  - 23 shields with fan/light weakness
+  - Highest speed among easy NPCs (387)
+  - Low HP (332k) - easy to burst
+  - No status immunity
+  
+  Good for testing fan/light focused teams.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

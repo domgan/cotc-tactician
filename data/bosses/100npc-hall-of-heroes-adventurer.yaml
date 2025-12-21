@@ -1,0 +1,100 @@
+# 100 NPC Boss: Adventurer (冒険者)
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Hall of Heroes 3F - Special fight with Partner
+
+id: 100npc-hall-of-heroes-adventurer
+display_name: "Adventurer"
+display_name_jp: "冒険者"
+content_type: npc_battle
+difficulty: hard
+level: 100
+location: "Hall of Heroes: 3F"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 530000
+speed: 289
+p_def: 99
+e_def: 99
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - lightning
+    - light
+  weapons:
+    - sword
+    - dagger  # "Knife" in MeowDB = dagger
+
+shield_count: 21
+
+status_immunity: "100%"  # Immune to all status
+
+# ===========================================================================
+# ADDS / COMPANIONS
+# ===========================================================================
+adds:
+  - name: "Partner"
+    hp: 9999
+    speed: 333
+    p_def: 22
+    e_def: 22
+    shield_count: null  # N/A
+    weaknesses: []  # None - cannot be broken
+    status_immunity: "100%"
+    notes: "No weaknesses, immune to status, very low HP"
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Partner"
+    description: |
+      Partner has no weaknesses and cannot be broken.
+      Very low HP (9,999) - can be killed without breaking.
+      Both are immune to all status ailments.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "4 weaknesses available (sword/dagger/lightning/light)"
+  - role: dps
+    priority: required
+    reason: "Must kill Partner through damage, not break"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - lightning
+  - light
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Unique Hall of Heroes fight with 2 enemies.
+  
+  Key points:
+  - Adventurer: 4 weaknesses, 21 shields, 530k HP
+  - Partner: NO weaknesses, can't break, only 9,999 HP
+  - Both are IMMUNE to all status ailments
+  - Very low defenses on both (99/22 respectively)
+  
+  Strategy:
+  1. Kill Partner first with raw damage (9,999 HP)
+  2. Break Adventurer (4 weaknesses makes this easy)
+  3. Burst Adventurer during break
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "MeowDB"
+last_updated: 2025-12-21

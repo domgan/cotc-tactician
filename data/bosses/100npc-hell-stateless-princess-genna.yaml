@@ -1,0 +1,121 @@
+# 100 NPC Boss: Stateless Princess Genna + Wild Eagle
+# SOURCE: https://game8.jp/octopathtraveler-sp/456661
+#         https://meowdb.com/db/octopath-traveler-cotc/all-lv-100-npc-weakness-cheat-sheet-octopath-cotc/
+#
+# Hell/Limbo NPC - ★★★★★☆
+# NOTE: This is a 2-ENEMY ENCOUNTER
+
+id: 100npc-hell-stateless-princess-genna
+display_name: "Stateless Princess Genna & Wild Eagle"
+display_name_jp: "亡国の王女ジェンナ"
+content_type: npc_battle
+difficulty: extreme  # ★★★★★☆
+level: 100
+location: "Hell: Hornburg Pass"
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (2 enemies)
+# ===========================================================================
+enemies:
+  - name: "Wild Eagle"
+    name_jp: "「荒鷲」"
+    is_main_target: false
+    hp: 803400
+    speed: 255
+    p_def: 206
+    e_def: 192
+    shield_count: 18
+    weaknesses:
+      elements:
+        - ice
+      weapons:
+        - polearm
+    notes: |
+      Secondary target.
+      Lower defenses - easier to damage.
+      Kill first or focus main target - depends on strategy.
+      
+  - name: "Stateless Princess Genna"
+    name_jp: "亡国の王女ジェンナ"
+    is_main_target: true
+    hp: 963909
+    speed: 432
+    p_def: 254
+    e_def: 257
+    shield_count: 24
+    weaknesses:
+      elements:
+        - light
+      weapons:
+        - tome
+    notes: |
+      Main target - very fast (432 speed).
+      Higher shields and defenses than Wild Eagle.
+      Tome/light weakness.
+
+status_immunity: "20%"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Different weaknesses: polearm/ice for Eagle, tome/light for Genna"
+  - role: dps
+    priority: required
+    reason: "Combined ~1.8M HP across both enemies"
+  - role: buffer
+    priority: required
+    reason: "High defenses on Genna"
+  - role: debuffer
+    priority: required
+    reason: "Stack defense debuffs"
+  - role: healer
+    priority: required
+    reason: "Genna is very fast (432 speed)"
+
+recommended_weakness_coverage:
+  - polearm  # For Wild Eagle
+  - ice      # For Wild Eagle  
+  - tome     # For Genna
+  - light    # For Genna
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  2-ENEMY Hell NPC encounter (★★★★★☆).
+  
+  Enemy breakdown:
+  1. Wild Eagle: 803k HP, 18 shields, polearm/ice weak
+  2. Genna: 964k HP, 24 shields, tome/light weak
+  
+  Key challenges:
+  - Total ~1.77M HP across both enemies
+  - Different weakness sets
+  - Genna is extremely fast (432 speed)
+  
+  Strategy options:
+  
+  Option A - Focus Genna first:
+  - Bring tome/light coverage
+  - Ignore Wild Eagle until Genna down
+  - Pros: Removes the fast, high-damage threat
+  
+  Option B - Kill Wild Eagle first:
+  - Polearm/ice coverage to break quickly
+  - Easier 18-shield break
+  - Reduces incoming damage
+  
+  Option C - Break both, AoE burst:
+  - Need both weakness types
+  - Coordinate double break
+  - Use AoE damage during break window
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP + MeowDB"
+last_updated: 2025-12-21

@@ -1,0 +1,176 @@
+# 100 NPC Boss: Sacred Flame Soldier (聖火神兵)
+# SOURCE: https://game8.jp/octopathtraveler-sp/491645
+#
+# Difficulty: ★★★★★★ (Hardest 100 NPC - Hell/Divine Realm)
+# Location: 聖火神の祠 -巡礼の試練-
+
+id: 100npc-hell-sacred-flame-soldier
+display_name: "Sacred Flame Soldier"
+display_name_jp: "聖火神兵"
+content_type: npc_battle
+difficulty: extreme  # ★★★★★★
+level: 100
+location: "Sacred Flame Shrine - Pilgrimage Trial (聖火神の祠 -巡礼の試練-)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 24
+
+# Note: Exact HP/speed not in MeowDB cheat sheet - needs verification
+
+# ===========================================================================
+# WEAKNESSES
+# [HUMAN-REQUIRED] - Not in MeowDB image, needs Game8 verification
+# ===========================================================================
+# weaknesses:
+#   elements: []
+#   weapons: []
+
+status_immunity: "100%"  # Permanent from battle start (健全化)
+
+# ===========================================================================
+# ACTIONS (from Game8)
+# ===========================================================================
+actions:
+  - name: "Purification"
+    name_jp: "健全化"
+    effect: "At battle start: Grants permanent status immunity to self"
+    trigger: "Battle start"
+    threat_level: high
+    
+  - name: "Dark Counter Stance"
+    name_jp: "闇属性反撃の構え"
+    effect: |
+      Used turn 1 and on ODD turn break recovery.
+      Grants 3-turn Dark Counter: When hit with dark, counters with 
+      powerful physical attack and recovers 3 BP.
+    trigger: "Turn 1, odd turn break recovery"
+    threat_level: extreme
+    
+  - name: "Dagger Counter Stance"
+    name_jp: "短剣攻撃反撃の構え"
+    effect: |
+      On EVEN turn break recovery.
+      Grants 3-turn Dagger Counter: When hit with dagger, counters with
+      powerful physical attack and recovers 50,000 HP.
+    trigger: "Even turn break recovery"
+    threat_level: extreme
+    
+  - name: "Knock Down"
+    name_jp: "叩き伏せる"
+    effect: |
+      Powerful physical attack on single target.
+      Inflicts "Swap Prohibition" for 2 turns (cannot swap front/back).
+    threat_level: high
+    
+  - name: "Blowing Double Fists"
+    name_jp: "ぶっ飛ばし両拳"
+    effect: |
+      2 powerful physical attacks on random targets.
+      Each hit forces swap with back row (swapped unit cannot act).
+    threat_level: high
+    
+  - name: "Thunder Sword Slash - Bind"
+    name_jp: "雷剣斬り・縛"
+    effect: |
+      Powerful lightning attack on single target.
+      Inflicts "Swap Prohibition" for 2 turns.
+    threat_level: medium
+    
+  - name: "Wild Thunder Sword Slash - Numb"
+    name_jp: "乱れ雷剣斬り・痺"
+    effect: |
+      3 lightning attacks on random targets.
+      Each hit inflicts Paralysis for 2 turns.
+    trigger: "Random usage"
+    threat_level: high
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Counter Rotation"
+    description: |
+      Boss alternates between Dark Counter and Dagger Counter based on
+      break recovery turn:
+      - ODD turn recovery: Dark Counter (3 turns) - DO NOT USE DARK
+      - EVEN turn recovery: Dagger Counter (3 turns) - DO NOT USE DAGGER
+      
+      Counter effects:
+      - Dark Counter: Physical attack + boss gains 3 BP
+      - Dagger Counter: Physical attack + boss heals 50,000 HP
+      
+      STRATEGY: Time your breaks to control which counter is active!
+      
+  - name: "Swap Manipulation"
+    description: |
+      Many attacks force swap or prevent swapping.
+      - "Knock Down" and "Thunder Sword Slash" prevent swapping
+      - "Blowing Double Fists" forces back row swap
+      
+      Prepare for disrupted formations!
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Hardest content, needs constant healing"
+    
+  - role: tank
+    priority: required
+    reason: "Physical attacks are dangerous"
+    
+  - role: breaker
+    priority: required
+    reason: "24 shields, avoid counter types"
+    
+  - role: buffer
+    priority: required
+    reason: "Need maximum buffs"
+    
+  - role: debuffer
+    priority: required
+    reason: "Need maximum debuffs"
+    
+  - role: dps
+    priority: required
+    reason: "High damage output required"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  HARDEST 100 NPC (★★★★★★) - Complex counter mechanics.
+  
+  KEY MECHANIC: Counter Rotation
+  - ODD turn break recovery → Dark Counter (3 turns)
+  - EVEN turn break recovery → Dagger Counter (3 turns)
+  
+  CRITICAL: 
+  - Do NOT use Dark attacks when Dark Counter is active
+  - Do NOT use Dagger attacks when Dagger Counter is active
+  - Counter triggers heal boss 50k HP or give boss 3 BP!
+  
+  Status Effects:
+  - Boss has PERMANENT status immunity from turn 1
+  - Boss can inflict Paralysis and Swap Prohibition
+  
+  Formation Disruption:
+  - Several attacks force swaps or prevent swapping
+  - Plan for chaotic formations
+  
+  Recommended approach:
+  1. Track break timing (odd vs even turn)
+  2. Avoid dark/dagger based on active counter
+  3. Use physical-focused team if possible
+  4. Bring paralysis resistance if available
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/491645"
+last_updated: 2025-12-21

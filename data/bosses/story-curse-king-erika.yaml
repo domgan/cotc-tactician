@@ -1,0 +1,114 @@
+# Story Boss: Curse King Erika (呪王エリカ)
+# SOURCE: https://game8.jp/octopathtraveler-sp/357327
+#
+# Side Orsterra Chapter 4 - Major boss with weakness cycling
+
+id: story-curse-king-erika
+display_name: "Curse King Erika"
+display_name_jp: "呪王エリカ"
+content_type: story_boss
+difficulty: extreme
+location: "Side Orsterra Chapter 4 - Chapter 3"
+
+# ===========================================================================
+# COMPLEX WEAKNESS CYCLING BOSS
+# Shield scaling: 28 → 99 → 40 → 20
+# ===========================================================================
+
+shield_scaling: "28 → 99 → 40 → 20"
+
+weakness_sets:
+  - name: "Set 1"
+    weaknesses:
+      elements: [lightning, light]
+      weapons: [polearm, bow, fan]
+      
+  - name: "Set 2"
+    weaknesses:
+      elements: [ice, wind, light]
+      weapons: [axe, tome]
+      
+  - name: "Set 3"
+    weaknesses:
+      elements: [fire, lightning, light]
+      weapons: [staff, fan]
+      
+  - name: "Set 4"
+    weaknesses:
+      elements: [ice, light]
+      weapons: [sword, dagger, axe]
+
+weakness_change_trigger: "On break recovery"
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Shield Scaling"
+    description: |
+      Shields change dramatically: 28 → 99 → 40 → 20
+      The 99 shield phase is essentially invincible
+      Must survive until shields reduce
+      
+  - name: "Weakness Cycling"
+    description: |
+      Weakness changes on break recovery.
+      Light weakness is constant across all sets.
+      Plan around light-focused teams.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Must survive 99 shield phase"
+    
+  - role: tank
+    priority: required
+    reason: "Critical for survival"
+    
+  - role: breaker
+    priority: required
+    reason: "Need light + varied weapons"
+    
+  - role: buffer
+    priority: required
+    reason: "Maximize damage windows"
+    
+  - role: debuffer
+    priority: required
+    reason: "Stack for burst phases"
+    
+  - role: dps
+    priority: required
+    reason: "Burst during favorable shield counts"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex boss with shield scaling and weakness cycling.
+  
+  Key insight: LIGHT WEAKNESS IS CONSTANT
+  - Build around light DPS
+  - Other weaknesses cycle, but light is always active
+  
+  Shield phases:
+  1. 28 shields - Normal fight
+  2. 99 shields - SURVIVAL MODE (can't break)
+  3. 40 shields - Opportunity to burst
+  4. 20 shields - Best burst window
+  
+  Strategy:
+  1. Stack buffs/debuffs during early phases
+  2. Survive the 99 shield phase
+  3. All-out burst at 40/20 shield phases
+  4. Light-focused team strongly recommended
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-21

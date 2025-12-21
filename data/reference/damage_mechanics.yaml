@@ -1,0 +1,130 @@
+# COTC Damage Mechanics Reference
+# Core damage calculation rules for team composition and tactical planning.
+#
+# SOURCE: https://meowdb.com/db/octopath-traveler-cotc/damage-mechanics-explained/
+
+schema_version: "1.0"
+
+# =============================================================================
+# DAMAGE MULTIPLIERS
+# =============================================================================
+# These are the core multipliers that determine damage output.
+# Understanding these is critical for maximizing DPS during break windows.
+
+damage_multipliers:
+  # Standard PvE content
+  pve:
+    off_weakness: 1.0
+    weakness: 2.5
+    break: 2.0
+    weakness_and_break: 5.0  # 2.5 * 2.0 = 5x damage!
+    
+  # Arena (PvP) - off-weakness is heavily penalized
+  arena:
+    off_weakness: 0.5
+    weakness: 2.5
+    break: 2.0
+    weakness_and_break: 5.0
+
+# =============================================================================
+# CRITICAL HITS
+# =============================================================================
+
+critical_hits:
+  damage_bonus: 1.25  # 25% more damage
+  
+  rules:
+    - "Only PHYSICAL (weapon-type) attacks can crit"
+    - "ELEMENTAL attacks CANNOT crit"
+    - "Guaranteed Crit buffs force all physical hits to crit"
+    - "Crit Rate Up increases chance of critting"
+    
+  implications:
+    - "PDPS benefits from crit, EDPS does not"
+    - "Crit damage buffs only matter for physical attackers"
+    - "When building EDPS, ignore crit stats entirely"
+
+# =============================================================================
+# PHYSICAL DAMAGE FORMULA (from JP data)
+# =============================================================================
+
+physical_damage_formula:
+  formula: "Base P.Atk * (Base P.Atk + P.Atk from Equipment - Enemy P.Def) * Skill Potency * Grade Correction * buffs&debuffs"
+  
+  components:
+    base_p_atk: "Character's base physical attack stat"
+    equipment_p_atk: "Physical attack bonus from weapon and accessories"
+    enemy_p_def: "Enemy's physical defense (reduces damage)"
+    skill_potency: "The skill's power value (e.g., 260~450)"
+    grade_correction: "Weapon grade multiplier"
+    buffs_debuffs: "All active buff/debuff multipliers"
+
+# =============================================================================
+# ELEMENTAL DAMAGE
+# =============================================================================
+
+elemental_damage:
+  notes:
+    - "Scales with Elem ATK stat"
+    - "Cannot crit (no crit bonus)"
+    - "Affected by element-specific buffs/debuffs"
+    - "Uses EDEF for damage reduction"
+
+# =============================================================================
+# DAMAGE TYPES
+# =============================================================================
+
+damage_types:
+  physical:
+    stat: p_atk
+    defense: p_def
+    can_crit: true
+    weapons: [sword, polearm, dagger, axe, bow, staff]
+    notes: "Most weapon attacks are physical"
+    
+  elemental:
+    stat: e_atk
+    defense: e_def
+    can_crit: false
+    elements: [fire, ice, lightning, wind, light, dark]
+    notes: "Magic/spell attacks are elemental"
+
+# =============================================================================
+# DAMAGE CAP
+# =============================================================================
+
+damage_cap:
+  default: 99999  # Standard max damage per hit
+  
+  cap_increases:
+    - "+50,000 Damage Cap (some skills/passives)"
+    - "+100,000 Damage Cap (powerful skills)"
+    - "Soul skills can have very high caps"
+    
+  notes: |
+    Damage Cap limits maximum damage per HIT, not per skill.
+    Multi-hit skills can exceed total cap by hitting multiple times.
+    Damage Cap Up is essential for high-damage strategies.
+
+# =============================================================================
+# TACTICAL IMPLICATIONS
+# =============================================================================
+
+tactical_notes: |
+  MAXIMIZING DAMAGE:
+  1. Always hit weakness when possible (2.5x multiplier)
+  2. Stack damage during break window (additional 2x)
+  3. Weakness + Break = 5x damage - this is THE damage window
+  4. For physical DPS, ensure crit (additional 1.25x)
+  5. Cap all relevant buffs (30%) before break
+  6. Cap all relevant debuffs on enemy (30%) before break
+  
+  ARENA SPECIFIC:
+  - Off-weakness damage is halved (0.5x)
+  - MUST hit weakness or damage is severely reduced
+  - Team composition for Arena requires careful weakness planning
+  
+  DPS TYPE SELECTION:
+  - PDPS: Benefits from crit, use for physical-weak bosses
+  - EDPS: No crit bonus but consistent, use for element-weak bosses
+  - Some characters can do both (hybrid)

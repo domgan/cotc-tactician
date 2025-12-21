@@ -1,0 +1,211 @@
+# Team: Muttering Codger - Dagger Burst
+# SOURCE: Theoretical composition based on weakness analysis
+#
+# Strategy: Fast dagger break + burst before turn 14 enrage
+
+id: 100npc-muttering-codger-dagger-burst
+name: "Muttering Codger - Dagger Burst"
+boss_id: 100npc-muttering-codger
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: burst
+investment_level: medium
+
+# ===========================================================================
+# BOSS REQUIREMENTS REMINDER
+# ===========================================================================
+# Weaknesses: Dagger, Wind
+# Shields: 26
+# Enrage Turn: 14 (must kill before!)
+# No status immunity (until turn 14)
+# Key threat: Ultimate Magic (after "Takes Battle Stance")
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: ""  # [HUMAN-REQUIRED] - Need dagger multi-hit
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Any dagger character with multi-hit skills.
+      Thieves recommended: Therion EX, Viola EX, etc.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+    accessory_requirements:
+      - "Yan Long A4 (for break debuff)"
+    awakening_required: 3
+
+  - position: 2
+    character_id: ""  # [HUMAN-REQUIRED] - Buffer
+    role_in_team: buffer
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Need P.ATK buff + Dagger damage buff.
+      Richard (sword/polearm buff), Lynette, Bargello (dagger/wind buff).
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+  - position: 3
+    character_id: ""  # [HUMAN-REQUIRED] - Debuffer
+    role_in_team: debuffer
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Need P.DEF down + Dagger weakness debuff.
+      Sarisa, Canary, Roland for stacking.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+  - position: 4
+    character_id: ""  # [HUMAN-REQUIRED] - Primary DPS
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      High damage dagger DPS.
+      Viola EX, Therion EX, W'ludai, etc.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: ""  # [HUMAN-REQUIRED] - Healer
+    role_in_team: healer
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      AoE healer recommended.
+      Primrose EX (regen + buff), Rinyuu.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+  - position: 6
+    character_id: ""  # [HUMAN-REQUIRED] - Secondary DPS/Breaker
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Wind or dagger secondary damage.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+  - position: 7
+    character_id: ""  # [HUMAN-REQUIRED] - Utility
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Flex slot - additional buffer/breaker.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+  - position: 8
+    character_id: ""  # [HUMAN-REQUIRED] - Utility/Tank
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Tank if needed for Gigant Bash.
+      Gilderoy, Fiore EX for taunt.
+    key_skills_used: []  # [HUMAN-REQUIRED]
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-2"
+    phase: setup
+    actions:
+      - "Buffer: Apply P.ATK buff (max boost if possible)"
+      - "Healer: AoE regen"
+      - "DPS: Basic attacks or shield shave"
+      - "Breaker: Start dagger hits"
+    notes: "Stack buffs early - they last 5-6 turns with max boost"
+
+  - turn_range: "3-5"
+    phase: break_push
+    actions:
+      - "Debuffer: Stack P.DEF down + dagger weakness debuff"
+      - "Breaker: Multi-hit dagger to shave shields"
+      - "All: Focus on breaking 26 shields"
+    notes: "Target break around turn 5-6"
+
+  - turn_range: "6-7"
+    phase: break_window
+    actions:
+      - "ALL DPS: Maximum boost attacks"
+      - "Debuffer: Ensure debuffs active"
+      - "Buffer: Refresh buffs if needed"
+    notes: "2-turn break window - maximize damage!"
+
+  - turn_range: "8-13"
+    phase: recovery
+    actions:
+      - "If boss alive: Second break cycle"
+      - "Watch for 'Takes Battle Stance' → heal/shield"
+    notes: "MUST kill before turn 14!"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Attack Up"
+    sources: []  # [HUMAN-REQUIRED]
+    target_cap: "30%"
+    timing: "Turn 1-2, maintain through break"
+
+  - buff_type: "Dagger Damage Up"
+    sources: []  # [HUMAN-REQUIRED]
+    target_cap: "30%"
+    timing: "Before break window"
+
+  - buff_type: "Physical Defense Down (on boss)"
+    sources: []  # [HUMAN-REQUIRED]
+    target_cap: "30%"
+    timing: "Before break window"
+
+  - buff_type: "Dagger Resistance Down (on boss)"
+    sources: []  # [HUMAN-REQUIRED]
+    target_cap: "30%"
+    timing: "Before break window"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  Muttering Codger is weak to dagger and wind with 26 shields.
+  Key constraint: MUST kill before turn 14 enrage.
+  
+  This team focuses on:
+  1. Fast dagger-based breaking (26 shields in ~5 turns)
+  2. Full buff/debuff stack before break
+  3. Maximum burst during 2-turn break window
+  4. Should one-cycle or two-cycle before turn 14
+
+key_synergies:
+  - "Dagger breakers + dagger DPS (same weakness focus)"
+  - "Buff stacking for 30% P.ATK + 30% dagger damage"
+  - "Debuff stacking for 30% P.DEF down + 30% dagger resist down"
+
+risks_and_recovery:
+  - "Gigant Bash: High single-target damage - spread HP or use tank"
+  - "Ultimate Magic: After 'Takes Battle Stance' - heal up or break to cancel"
+  - "DPS check: If not one-cycling, ensure second break before turn 14"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "8-12 turns"
+success_rate: ""
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: theorycraft
+source_url: ""
+data_confidence: theoretical
+last_verified: null
+last_updated: 2025-12-21

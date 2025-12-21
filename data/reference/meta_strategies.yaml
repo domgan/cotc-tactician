@@ -1,0 +1,241 @@
+# COTC Meta Strategies Reference
+# Current meta approaches and team building philosophies.
+#
+# SOURCE: Reddit discussions, community knowledge
+# - https://www.reddit.com/r/OctopathCotC/comments/1l6y987/currently_starting_the_game_whats_the_meta/
+# - https://www.reddit.com/r/OctopathCotC/comments/1i38sgb/a_talk_about_meta/
+# - https://www.reddit.com/r/OctopathCotC/comments/1po9mvy/gameplay_showcase_speedclear_meta_vs_turtle_meta/
+
+schema_version: "1.0"
+
+# =============================================================================
+# META ARCHETYPES
+# =============================================================================
+
+meta_archetypes:
+  speedclear_meta:
+    description: "Kill boss as fast as possible, minimal turns"
+    philosophy: |
+      Stack all buffs/debuffs, break fast, kill in 1-2 break cycles.
+      Requires well-built characters with optimal gear.
+      High risk if something goes wrong.
+    key_elements:
+      - "Maximum damage buffs (30% cap)"
+      - "Maximum defense debuffs on enemy (30% cap)"
+      - "Weakness + Break window optimization"
+      - "Multi-hit high-power DPS"
+      - "Priority breakers for controlled break timing"
+    pros:
+      - "Fastest clear times"
+      - "Less resource consumption"
+      - "Feels powerful"
+    cons:
+      - "Requires good roster and gear"
+      - "Punishing if you fail to kill in break window"
+      - "Less forgiving of mistakes"
+      
+  turtle_meta:
+    description: "Slow and steady, survive everything"
+    philosophy: |
+      Prioritize survival, tank damage, heal through attacks.
+      Chip away at boss over many turns.
+      Very safe but time-consuming.
+    key_elements:
+      - "Strong tank with taunt"
+      - "Reliable healing and regen"
+      - "Defense buffs"
+      - "Attack debuffs on enemy"
+      - "Patience"
+    pros:
+      - "Very safe"
+      - "Works with weaker roster"
+      - "Forgiving of mistakes"
+    cons:
+      - "Slow clear times"
+      - "SP management can be issue"
+      - "Some bosses have enrage timers"
+      
+  balanced_meta:
+    description: "Mix of offense and defense"
+    philosophy: |
+      Maintain enough survival to get to break window,
+      then burst during break. Most practical approach.
+    key_elements:
+      - "Regen for passive healing"
+      - "Tank for big attacks"
+      - "Buff/debuff for damage"
+      - "Focused DPS during break"
+    pros:
+      - "Flexible"
+      - "Adapts to different bosses"
+      - "Practical for most content"
+
+# =============================================================================
+# TEAM BUILDING PRINCIPLES
+# =============================================================================
+
+team_building:
+  party_size:
+    front_row: 4
+    back_row: 4
+    total: 8
+    notes: "Back row recovers HP/SP each turn, can swap in"
+    
+  core_roles:
+    required:
+      - "DPS (at least 1-2, focused on boss weakness)"
+      - "Healer/Regen (maintain HP)"
+      - "Buffer (cap relevant damage buffs)"
+      - "Debuffer (cap relevant defense debuffs)"
+    optional:
+      - "Tank (for bosses with big attacks)"
+      - "Breaker (if DPS can't break efficiently)"
+      - "Support (role compression)"
+      
+  role_compression:
+    description: "Characters that fill multiple roles"
+    importance: "Extremely valuable with 4 front slots"
+    examples:
+      - "Richard: Buffer + DPS"
+      - "Primrose EX: Buffer + Healer + Regen"
+      - "Viola: Debuffer + Breaker"
+      
+  weakness_focus:
+    principle: "Focus on 1-2 boss weaknesses, not all"
+    reasoning: |
+      Weakness damage is 2.5x.
+      Stacking damage buffs for one type is more effective
+      than spreading across many types.
+    example: |
+      Boss weak to Sword, Axe, Fire, Wind, Light
+      Team focuses on Sword:
+      - Sword DPS
+      - Sword damage buffer
+      - Sword resistance debuffer
+      Result: Massive sword damage during break
+
+# =============================================================================
+# ACCESSORY STRATEGY
+# =============================================================================
+
+accessory_strategy:
+  damage_focus:
+    description: "Maximize DPS output"
+    accessories:
+      - "Damage type up (Sword Damage +X%)"
+      - "ATK boosting"
+      - "Crit rate/damage (for physical)"
+      - "Break damage up"
+      
+  speed_tuning:
+    description: "Control turn order"
+    accessories:
+      - "Ballen Vest: +Speed for first 3 turns"
+      - "Speed boosting accessories"
+      
+  survival:
+    description: "Stay alive"
+    accessories:
+      - "HP boosting"
+      - "DEF boosting"
+      - "HP Regen per turn"
+      - "SP Regen per turn"
+      
+  a4_accessories:
+    description: "Awakening Stage 4 character-specific accessories"
+    importance: "Often very powerful, unique effects"
+    examples:
+      - "Yan Long A4: Debuff on break"
+      - "Jorn A4: Debuff on break"
+    notes: "Check character's A4 accessory for unique synergies"
+
+# =============================================================================
+# BREAK STRATEGY
+# =============================================================================
+
+break_strategy:
+  preparation:
+    - "Apply buffs early (so duration lasts through break)"
+    - "Apply debuffs (30% cap before breaking)"
+    - "Get enemy to 1 shield"
+    - "Position DPS with full boost ready"
+    
+  execution:
+    - "Fast unit or [Priority] skill breaks enemy"
+    - "Enemy moves to end of turn order"
+    - "All DPS act on broken enemy (5x damage with weakness)"
+    - "Next turn, enemy still broken - continue damage"
+    
+  damage_window:
+    - "Weakness (2.5x) + Break (2x) = 5x damage"
+    - "Add 30% ATK buffs"
+    - "Add 30% DEF debuffs"
+    - "Add 25% crit bonus (physical only)"
+    - "Result: Massive damage"
+
+# =============================================================================
+# COMMON TEAM COMPOSITIONS
+# =============================================================================
+
+common_compositions:
+  sword_team:
+    focus: "Sword weakness bosses"
+    core:
+      - role: "Sword DPS"
+        examples: ["Elrica", "Kouren", "Fiore"]
+      - role: "Sword Buffer"
+        examples: ["Richard"]
+      - role: "Physical Debuffer"
+        examples: ["Viola", "Nephti"]
+      - role: "Healer"
+        examples: ["Primrose EX", "Rinyuu"]
+        
+  polearm_team:
+    focus: "Polearm weakness bosses"
+    core:
+      - role: "Polearm DPS"
+        examples: ["W'ludai", "Tressa EX"]
+      - role: "Polearm Buffer"
+        examples: ["Richard"]
+      - role: "Physical Debuffer"
+        examples: ["Viola", "Roland"]
+      - role: "Healer"
+        examples: ["Primrose EX", "Rinyuu"]
+        
+  elemental_team:
+    focus: "Element weakness bosses"
+    core:
+      - role: "Element DPS"
+        examples: ["Varies by element"]
+      - role: "EATK Buffer"
+        examples: ["Lynette", "Primrose"]
+      - role: "Element Res Debuffer"
+        examples: ["Sofia (ice)", "Cyrus (fire)"]
+      - role: "Healer"
+        examples: ["Primrose EX", "Ophilia"]
+
+# =============================================================================
+# PROGRESSIVE TEAM BUILDING (for newer players)
+# =============================================================================
+
+progression_advice:
+  early_game:
+    priority:
+      - "Get a healer (Rinyuu, Primrose EX if possible)"
+      - "Get any buffer"
+      - "Get DPS that hits multiple weaknesses"
+    notes: "Focus on clearing story, build roster"
+    
+  mid_game:
+    priority:
+      - "Build core teams for each weakness type"
+      - "Awaken key characters to Stage 4"
+      - "Farm A4 accessories"
+    notes: "Start tackling harder content"
+    
+  late_game:
+    priority:
+      - "Optimize specific boss teams"
+      - "Speed tune for fast clears"
+      - "Limit break key characters (6★)"
+    notes: "Min-max for endgame content"

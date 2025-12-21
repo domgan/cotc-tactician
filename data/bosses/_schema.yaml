@@ -24,37 +24,89 @@ fields:
     source: "[HUMAN-REQUIRED]"
     description: "Full display name as shown in game"
 
+  display_name_jp:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Japanese display name"
+
   content_type:
     type: string
     required: true
     source: "[HUMAN-REQUIRED]"
-    allowed_values: [story, side_story, superboss, tower, arena, event, other]
-    description: "What content this boss appears in"
+    allowed_values: [story, story_boss, side_story, npc_battle, superboss, tower, arena, event, other]
+    description: "What content this boss appears in (npc_battle for 100/120 NPCs)"
 
   difficulty:
     type: string
     required: true
     source: "[HUMAN-REQUIRED]"
-    allowed_values: [easy, normal, hard, expert, extreme]
+    allowed_values: [easy, normal, hard, very_hard, expert, extreme]
     description: "Relative difficulty rating"
+
+  location:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Where this boss is found"
+
+  level:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Boss level (100, 120, etc.)"
+
+  # ===========================================================================
+  # STATS (for NPCs with known values)
+  # ===========================================================================
+  hp:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Boss HP pool"
+
+  speed:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Boss speed stat"
+
+  p_def:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Physical defense"
+
+  e_def:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Elemental defense"
+
+  status_immunity:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Status ailment immunity (none, 20%, 100%)"
+    examples: ["none", "20%", "100%"]
 
   # ===========================================================================
   # WEAKNESSES & RESISTANCES
   # ===========================================================================
   weaknesses:
     type: object
-    required: true
+    required: false  # Optional for multi-phase bosses
     source: "[HUMAN-REQUIRED]"
-    description: "Elements and weapons the boss is weak to"
+    description: "Elements and weapons the boss is weak to (optional for phase-based bosses)"
     schema:
       elements:
         type: array
         items: string
-        allowed_values: [fire, ice, lightning, wind, holy, dark]
+        allowed_values: [fire, ice, lightning, wind, light, dark]
       weapons:
         type: array
         items: string
-        allowed_values: [sword, spear, dagger, axe, bow, staff]
+        allowed_values: [sword, polearm, dagger, axe, bow, staff, tome, fan]
 
   resistances:
     type: object
@@ -87,9 +139,110 @@ fields:
   # ===========================================================================
   shield_count:
     type: integer
-    required: true
+    required: false  # Optional for multi-enemy encounters
     source: "[HUMAN-REQUIRED]"
-    description: "Initial shield count"
+    description: "Initial shield count (for single-enemy encounters)"
+
+  # ===========================================================================
+  # MULTI-ENEMY ENCOUNTERS
+  # ===========================================================================
+  enemies:
+    type: array
+    items: enemy_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "For multi-enemy encounters (up to 4 enemies in COTC)"
+    
+  enemy_object:
+    name:
+      type: string
+      required: true
+      description: "Enemy display name"
+    name_jp:
+      type: string
+      required: false
+      description: "Japanese name"
+    is_main_target:
+      type: boolean
+      required: false
+      default: false
+      description: "Is this the primary target?"
+    hp:
+      type: integer
+      required: false
+      description: "Enemy HP"
+    speed:
+      type: integer
+      required: false
+      description: "Enemy speed stat"
+    p_def:
+      type: integer
+      required: false
+      description: "Physical defense"
+    e_def:
+      type: integer
+      required: false
+      description: "Elemental defense"
+    shield_count:
+      type: integer
+      required: false
+      description: "Shield count for this enemy"
+    weaknesses:
+      type: object
+      required: false
+      description: "Weaknesses for this enemy"
+    notes:
+      type: string
+      required: false
+      description: "Strategy notes for this enemy"
+
+  # ===========================================================================
+  # ACTIONS
+  # ===========================================================================
+  actions:
+    type: array
+    items: action_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Boss abilities/attacks"
+    
+  action_object:
+    name:
+      type: string
+      required: true
+      description: "Action name"
+    name_jp:
+      type: string
+      required: false
+      description: "Japanese name"
+    effect:
+      type: string
+      required: true
+      description: "What this action does"
+    trigger:
+      type: string
+      required: false
+      description: "When/how this action is used"
+    threat_level:
+      type: string
+      required: false
+      allowed_values: [low, medium, high, extreme]
+      description: "How dangerous this action is"
+
+  # ===========================================================================
+  # ENRAGE TIMER
+  # ===========================================================================
+  enrage_turn:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Turn when boss enrages (instant death mechanics)"
+    
+  enrage_description:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "What happens when boss enrages"
 
   shield_phases:
     type: array
@@ -180,7 +333,7 @@ fields:
       type: string
       required: false
       source: "[HUMAN-REQUIRED]"
-      allowed_values: [fire, ice, lightning, wind, holy, dark]
+      allowed_values: [fire, ice, lightning, wind, light, dark]
       description: "Element of attack (if elemental)"
 
     effects:

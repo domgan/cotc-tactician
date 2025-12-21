@@ -1,0 +1,83 @@
+# Story Boss: Hunting Princess Herminia (狩りの王女ヘルミニア)
+# SOURCE: https://game8.jp/octopathtraveler-sp/357327
+#
+# Side Orsterra Chapter 1 - Wealth Path Final Boss
+
+id: story-hunting-princess-herminia
+display_name: "Hunting Princess Herminia"
+display_name_jp: "狩りの王女ヘルミニア"
+content_type: story_boss
+difficulty: hard
+location: "Side Orsterra Chapter 1 - Wealth Final"
+
+# ===========================================================================
+# TWO-PHASE FIGHT
+# ===========================================================================
+
+phases:
+  - phase: 1
+    description: "Millionaire Herminia + Servant"
+    enemies:
+      - name: "Millionaire Herminia"
+        shield_count: 7  # 6/7/7 depending on difficulty
+        weaknesses:
+          elements: [lightning, dark]
+          weapons: [dagger, axe, tome]
+          
+      - name: "Female Butler"
+        shield_count: 5  # 4/5/5
+        weaknesses:
+          elements: [wind]
+          weapons: [axe, bow, staff, fan]
+
+  - phase: 2
+    description: "Hunting Princess form"
+    enemies:
+      - name: "Hunting Princess Herminia"
+        shield_count: 17  # 15/17/18
+        weaknesses:
+          elements: [lightning, dark]
+          weapons: [dagger, axe, tome]
+        notes: "Same weaknesses, higher shields"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Dagger/axe/tome + lightning/dark"
+  - role: dps
+    priority: required
+    reason: "Phase 2 has higher shields"
+  - role: healer
+    priority: recommended
+    reason: "Two-phase fight"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - lightning
+  - dark
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Two-phase story boss fight.
+  
+  Phase 1:
+  - Kill servant first (lower shields, wind/axe/bow/staff/fan weak)
+  - Then break Herminia (dagger/axe/tome/lightning/dark)
+  
+  Phase 2:
+  - Same weaknesses but higher shields (17)
+  - Save buffs/debuffs for this phase
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-21

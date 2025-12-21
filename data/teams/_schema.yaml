@@ -3,6 +3,11 @@
 # The LLM will NOT invent any values for these fields.
 #
 # Copy _template.yaml to create a new team entry.
+#
+# Teams represent PROVEN compositions for specific boss fights.
+# They include turn-by-turn tactics, buff stacking plans, and speed tuning.
+# 
+# SOURCE: Reddit Mastery Survey Index, community videos, personal testing
 
 schema_version: "1.0"
 

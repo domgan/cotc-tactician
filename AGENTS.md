@@ -6,7 +6,7 @@ This document describes the COTC Tactician architecture for AI coding assistants
 
 **THE LLM KNOWS NOTHING ABOUT COTC**
 
-All game knowledge must come from human-curated data files. The LLM:
+Most game knowledge must come from human-curated data files. The LLM:
 - ❌ CANNOT invent character names, skills, or stats
 - ❌ CANNOT invent boss mechanics or strategies
 - ❌ CANNOT assume meta or balance knowledge
@@ -17,7 +17,7 @@ All game knowledge must come from human-curated data files. The LLM:
 When modifying this codebase:
 - Never add game-specific knowledge to code
 - All game facts must be stored in `data/*.yaml` files
-- Treat all `[HUMAN-REQUIRED]` fields as opaque—don't generate values
+- Treat most `[HUMAN-REQUIRED]` fields as opaque—don't generate values
 
 ## Project Structure
 
@@ -198,6 +198,10 @@ cotc-tactician mcp-serve
 | `get_team_suggestions` | Suggest characters for a boss fight |
 | `list_all_character_ids` | List all available character IDs |
 | `get_database_stats` | Get indexed entity counts |
+| `search_bosses` | Search for bosses by description |
+| `get_boss` | Get full boss details (mechanics, weaknesses, strategy) |
+| `list_all_boss_ids` | List all available boss IDs |
+| `plan_team_for_boss` | Get strategic team planning for a specific boss |
 
 **How it works:**
 1. Claude in Cursor calls these tools to retrieve game data
@@ -381,6 +385,43 @@ Use these exact values (from community spreadsheet):
 - Elements: `fire`, `ice`, `lightning`, `wind`, `light`, `dark`
 
 Note: "Polearm" not "Spear", "Lightning" not "Thunder"
+
+## Reference Files (Game Mechanics)
+
+The `data/reference/` directory contains verified game mechanics knowledge:
+
+| File | Purpose |
+|------|---------|
+| `damage_mechanics.yaml` | Damage formulas, multipliers, crit rules |
+| `break_mechanics.yaml` | Break state, timing, shield shaving, turn order |
+| `buff_categories.yaml` | 6 buff/6 debuff brackets, 30% caps, stacking rules |
+| `turn_timing.yaml` | Buff activation timing, speed tuning, priority skills |
+| `healing_mechanics.yaml` | Healing vs Regen scaling, top healers |
+| `status_ailments.yaml` | Bleed, Poison, Burning effects |
+| `meta_strategies.yaml` | Speedclear vs Turtle meta, team building principles |
+| `roles.yaml` | PDPS, EDPS, Tank, Healer, Buffer, Debuffer, Breaker |
+| `elements.yaml` | Element types and weakness order |
+| `weapons.yaml` | Weapon types and primary jobs |
+| `jobs.yaml` | Job classes and their primary weapons |
+| `progression_systems.yaml` | Awakening, Limit Break, Blessing of Lantern |
+
+### Key Mechanics Summary
+
+**Damage Multipliers:**
+- Weakness: 2.5x
+- Break: 2x
+- Weakness + Break: **5x** (THE damage window)
+- Crit: +25% (physical only)
+
+**Buff/Debuff Rules:**
+- 6 brackets each, 30% cap per bracket
+- **Delayed activation**: Takes effect at START of next unit's turn
+- Max duration: 9 turns
+
+**Break Window:**
+- Lasts 2 turns (break turn + next turn)
+- Enemy cannot act, takes 2x damage
+- After break: enemy acts FIRST
 
 ## Common Pitfalls
 
