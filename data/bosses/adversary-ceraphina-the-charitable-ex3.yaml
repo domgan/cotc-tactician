@@ -1,0 +1,87 @@
+# Adversary Log Boss: Ceraphina the Charitable EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-ceraphina-the-charitable-ex3
+display_name: "Ceraphina the Charitable EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-ceraphina-the-charitable
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 31
+hp: 3649026  # ~12.3x base
+speed: 350
+p_atk: 1681
+p_def: 705
+e_atk: 1974
+e_def: 722
+
+weaknesses:
+  elements:
+    - lightning
+    - wind
+    - dark
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (3,649,026)
+  - Maximum shield count (31)
+  - Very high speed (350)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - lightning
+  - wind
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

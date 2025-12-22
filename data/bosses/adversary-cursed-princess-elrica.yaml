@@ -1,0 +1,69 @@
+# Adversary Log Boss: Cursed Princess Elrica
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+
+id: adversary-cursed-princess-elrica
+display_name: "Cursed Princess Elrica"
+content_type: adversary_log
+difficulty: extreme
+level: 86
+shield_count: 28
+hp: 987450
+speed: 313
+p_def: 447
+e_def: 488
+
+weaknesses:
+  elements:
+    - lightning
+    - light
+  weapons:
+    - polearm
+    - bow
+    - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 28
+    hp: 987450
+    speed: 313
+    level: 86
+  rank2:
+    shield_count: 28
+    hp: 1184940
+    speed: 328
+    level: 86
+  rank3:
+    shield_count: 28
+    hp: 1382430
+    speed: 344
+    level: 86
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

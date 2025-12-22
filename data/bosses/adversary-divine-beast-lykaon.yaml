@@ -1,0 +1,76 @@
+# Adversary Log Boss: Divine Beast Lykaon
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-divine-beast-lykaon
+display_name: "Divine Beast Lykaon"
+content_type: adversary_log
+difficulty: very_hard
+level: 65
+shield_count: 24
+hp: 146625
+speed: 242
+p_def: 115
+e_def: 115
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - bow
+    - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# Goat8 doesn't have any info on this one so I'll try to pick up the slack
+# Attacks:  a range of 1-3x dark rt, i don't think they cause any status ailments but i had some immunnities so couldnt say for sure 3x rt phys, 2t bleeding per hit 1x aoe dark + 2t blindness  aura: doesn't seem to appear above 50% HP but i wouldn't know, i broke too fast to tell. 8x rt phys, might have some status ailment  below 50%: 2x aoe dark + 2t blindness  when returning from break, does an aoe terror as its action. don't know how many turns because i had rinyuu active
+# all attacks are fairly weak, 30 patk/eatk down + 15% passive pdef from tatloch was enough to handle all aoe's. ex h'aanit + hammy + sidestep pet easily handles the rest of it
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 24
+    hp: 146625
+    speed: 242
+    level: 65
+  rank2:
+    shield_count: 26
+    hp: 175950
+    speed: 254
+    level: 65
+  rank3:
+    shield_count: 28
+    hp: 205275
+    speed: 266
+    level: 65
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

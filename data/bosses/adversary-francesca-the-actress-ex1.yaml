@@ -1,0 +1,84 @@
+# Adversary Log Boss: Francesca the Actress EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-francesca-the-actress-ex1
+display_name: "Francesca the Actress EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-francesca-the-actress
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 19
+hp: 2554424
+speed: 487
+p_atk: 2633
+e_atk: 2633
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - bow
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~339x HP from base.
+  
+  Key changes from base:
+  - Higher HP (2,554,424)
+  - Higher shield count (19)
+  - Very high speed (487)
+  - 2 actions per turn
+  
+  DODGE STRATEGY (Recommended):
+  - EX Fiore with sidestep
+  - Ophilia with magic sidestep pet + Cardona/Chloe
+  
+  TANK STRATEGY:
+  - Gilderoy with high bulk can survive
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: tank
+    priority: strongly_recommended
+    reason: "Dodge tank (Fiore EX) or Gilderoy"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fan
+  - fire
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

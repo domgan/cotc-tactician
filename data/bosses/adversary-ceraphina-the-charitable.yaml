@@ -1,0 +1,69 @@
+# Adversary Log Boss: Ceraphina the Charitable
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-ceraphina-the-charitable
+display_name: "Ceraphina the Charitable"
+content_type: adversary_log
+difficulty: very_hard
+level: 74
+shield_count: 24
+hp: 296870
+speed: 259
+p_def: 314
+e_def: 297
+
+weaknesses:
+  elements:
+    - lightning
+    - wind
+    - dark
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 24
+    hp: 296870
+    speed: 259
+    level: 74
+  rank2:
+    shield_count: 26
+    hp: 356244
+    speed: 271
+    level: 74
+  rank3:
+    shield_count: 28
+    hp: 415618
+    speed: 284
+    level: 74
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

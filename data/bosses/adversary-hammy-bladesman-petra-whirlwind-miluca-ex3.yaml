@@ -1,0 +1,124 @@
+# Adversary Log Boss: Hammy  & Bladesman Petra  & Whirlwind Miluca EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-hammy-bladesman-petra-whirlwind-miluca-ex3
+display_name: "Hammy EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-hammy-bladesman-petra-whirlwind-miluca
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 120
+shield_count: 30
+hp: 1503810  # ~3.3x base
+speed: 535
+p_atk: 3130
+p_def: 559
+e_atk: 2425
+e_def: 512
+
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - polearm
+    - fan
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Hammy"
+    is_main_target: true
+    shield_count: 30
+    hp: 1503810
+    speed: 535
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - polearm
+        - fan
+
+  - name: "Bladesman Petra"
+    shield_count: 32
+    hp: 2543050
+    speed: 342
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - axe
+        - fan
+
+  - name: "Whirlwind Miluca"
+    shield_count: 28
+    hp: 2398041
+    speed: 432
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - dagger
+        - bow
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (1,503,810)
+  - Maximum shield count (30)
+  - Very high speed (535)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - fan
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

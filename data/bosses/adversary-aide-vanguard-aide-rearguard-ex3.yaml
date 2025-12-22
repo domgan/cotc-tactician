@@ -1,0 +1,123 @@
+# Adversary Log Boss: Aide (Vanguard) & Aide (Rearguard) EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-aide-vanguard-aide-rearguard-ex3
+display_name: "Aide (Vanguard) EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-aide-vanguard-aide-rearguard
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 27
+hp: 2610510  # ~842.1x base
+speed: 469
+p_atk: 3672
+p_def: 466
+e_atk: 3977
+e_def: 409
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - sword
+    - bow
+    - staff
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Aide (Vanguard)"
+    is_main_target: true
+    shield_count: 27
+    hp: 2610510
+    speed: 469
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - staff
+        - tome
+
+  - name: "Aide (Rearguard)"
+    shield_count: 27
+    hp: 2105250
+    speed: 414
+    weaknesses:
+      elements:
+        - light
+        - dark
+      weapons:
+        - polearm
+        - dagger
+        - axe
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (2,610,510)
+  - Maximum shield count (27)
+  - Very high speed (469)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - bow
+  - staff
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

@@ -1,0 +1,136 @@
+# Adversary Log Boss: Delvecchio  & Minions EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-delvecchio-minions-ex1
+display_name: "Delvecchio EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-delvecchio-minions
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 23
+hp: 1758908  # ~24.5x base
+speed: 391
+p_atk: 2502
+p_def: 430
+e_atk: 2502
+e_def: 380
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Delvecchio"
+    is_main_target: true
+    shield_count: 23
+    hp: 1758908
+    speed: 391
+    weaknesses:
+      elements:
+        - wind
+        - light
+      weapons:
+        - polearm
+        - bow
+        - staff
+
+  - name: "Delvecchio's Lackey (Bow)"
+    shield_count: 14
+    hp: 314736
+    speed: 285
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - dagger
+        - tome
+
+  - name: "Delvecchio's Lackey (Axe)"
+    shield_count: 12
+    hp: 314096
+    speed: 362
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - fan
+
+  - name: "Delvecchio's Lackey (Dagger)"
+    shield_count: 14
+    hp: 313880
+    speed: 474
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - sword
+        - polearm
+        - axe
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~25x HP.
+  
+  Key changes from base:
+  - Higher HP (1,758,908)
+  - Higher shield count (23)
+  - Higher speed (391)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - staff
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

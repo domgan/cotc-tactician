@@ -1,0 +1,69 @@
+# Adversary Log Boss: Sazantos
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-sazantos
+display_name: "Sazantos"
+content_type: adversary_log
+difficulty: very_hard
+level: 65
+shield_count: 10
+hp: 50000
+speed: 213
+p_def: 83
+e_def: 83
+
+weaknesses:
+  elements:
+    - ice
+    - dark
+  weapons:
+    - polearm
+    - axe
+    - staff
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 50000
+    speed: 213
+    level: 65
+  rank2:
+    shield_count: 12
+    hp: 60000
+    speed: 223
+    level: 65
+  rank3:
+    shield_count: 14
+    hp: 70000
+    speed: 234
+    level: 65
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

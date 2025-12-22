@@ -32,6 +32,29 @@ immunities:               # Optional - elements/weapons that deal no damage
 # ===========================================================================
 shield_count: null        # [HUMAN-REQUIRED] Initial shield count
 
+# ===========================================================================
+# RANK VARIANTS (for Adversary Log bosses)
+# ===========================================================================
+# For Adversary Log bosses, include Rank 1-3 stats here.
+# EX variants (ex1/ex2/ex3) must be in SEPARATE files for RAG indexing!
+# DO NOT put EX stats in comments - they won't be searchable!
+rank_variants:
+  rank1:
+    shield_count: null    # [HUMAN-REQUIRED]
+    hp: null              # [HUMAN-REQUIRED]
+    speed: null           # [HUMAN-REQUIRED]
+    level: null           # [HUMAN-REQUIRED]
+  rank2:
+    shield_count: null    # [HUMAN-REQUIRED]
+    hp: null              # [HUMAN-REQUIRED]
+    speed: null           # [HUMAN-REQUIRED]
+    level: null           # [HUMAN-REQUIRED]
+  rank3:
+    shield_count: null    # [HUMAN-REQUIRED]
+    hp: null              # [HUMAN-REQUIRED]
+    speed: null           # [HUMAN-REQUIRED]
+    level: null           # [HUMAN-REQUIRED]
+
 # If shield count changes per phase:
 shield_phases:
   - phase: 1

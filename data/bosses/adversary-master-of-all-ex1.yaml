@@ -1,0 +1,65 @@
+# Adversary Log Boss: Master of All EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-master-of-all-ex1
+display_name: "Master of All EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-master-of-all
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 33
+hp: 2236000  # ~12.1x base
+speed: 342
+p_atk: 2530
+p_def: 367
+e_atk: 2530
+e_def: 367
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~12x HP.
+  
+  Key changes from base:
+  - Higher HP (2,236,000)
+  - Higher shield count (33)
+  - Higher speed (342)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage: []  # No weaknesses parsed
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

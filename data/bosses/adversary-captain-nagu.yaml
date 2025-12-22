@@ -1,0 +1,69 @@
+# Adversary Log Boss: Captain Na'gu
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-captain-nagu
+display_name: "Captain Na'gu"
+content_type: adversary_log
+difficulty: very_hard
+level: 64
+shield_count: 12
+hp: 98781
+speed: 246
+p_def: 82
+e_def: 77
+
+weaknesses:
+  elements:
+    - fire
+    - dark
+  weapons:
+    - sword
+    - bow
+    - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 12
+    hp: 98781
+    speed: 246
+    level: 64
+  rank2:
+    shield_count: 14
+    hp: 118537
+    speed: 258
+    level: 64
+  rank3:
+    shield_count: 16
+    hp: 138293
+    speed: 270
+    level: 64
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

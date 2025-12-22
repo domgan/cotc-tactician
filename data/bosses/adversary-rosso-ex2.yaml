@@ -1,0 +1,89 @@
+# Adversary Log Boss: Rosso EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-rosso-ex2
+display_name: "Rosso EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-rosso
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 31
+hp: 2406067  # ~423.2x base
+speed: 317
+p_atk: 3235
+p_def: 416
+e_atk: 2002
+e_def: 395
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - staff
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~423x HP.
+  
+  Key changes from base:
+  - Much higher HP (2,406,067)
+  - Higher shield count (31)
+  - Much higher speed (317)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+  
+  Fight notes:
+  - Need to break on either turn 1 or 3 to remove All Phys resist for the next break
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - staff
+  - fan
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

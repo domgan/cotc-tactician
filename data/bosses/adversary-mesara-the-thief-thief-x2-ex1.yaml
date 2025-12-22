@@ -1,0 +1,110 @@
+# Adversary Log Boss: Mesara the Thief & Thief x2 EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-mesara-the-thief-thief-x2-ex1
+display_name: "Mesara the Thief EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-mesara-the-thief-thief-x2
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 19
+hp: 2145876  # ~165.1x base
+speed: 366
+p_atk: 1693
+p_def: 300
+e_atk: 1693
+e_def: 251
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - dagger
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Mesara the Thief"
+    is_main_target: true
+    shield_count: 19
+    hp: 2145876
+    speed: 366
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - polearm
+        - dagger
+        - tome
+
+  - name: "Thief"
+    shield_count: 12
+    hp: 517644
+    speed: 372
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - axe
+        - bow
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~165x HP.
+  
+  Key changes from base:
+  - Higher HP (2,145,876)
+  - Higher shield count (19)
+  - Higher speed (366)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - dagger
+  - tome
+  - fire
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

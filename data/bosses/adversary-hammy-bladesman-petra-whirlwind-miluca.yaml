@@ -1,0 +1,101 @@
+# Adversary Log Boss: Hammy  & Bladesman Petra  & Whirlwind Miluca
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+
+id: adversary-hammy-bladesman-petra-whirlwind-miluca
+display_name: "Hammy"
+content_type: adversary_log
+difficulty: extreme
+level: 100
+shield_count: 24
+hp: 462000
+speed: 445
+p_def: 270
+e_def: 270
+
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - polearm
+    - fan
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 24
+    hp: 462000
+    speed: 445
+    level: 100
+  rank2:
+    shield_count: 24
+    hp: 554400
+    speed: 467
+    level: 100
+  rank3:
+    shield_count: 24
+    hp: 646800
+    speed: 489
+    level: 100
+enemies:
+  - name: "Hammy"
+    is_main_target: true
+    shield_count: 24
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - polearm
+        - fan
+
+  - name: "Bladesman Petra"
+    shield_count: 26
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - axe
+        - fan
+
+  - name: "Whirlwind Miluca"
+    shield_count: 22
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - dagger
+        - bow
+        - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

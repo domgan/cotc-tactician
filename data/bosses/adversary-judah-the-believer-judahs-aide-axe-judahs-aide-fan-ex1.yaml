@@ -1,0 +1,123 @@
+# Adversary Log Boss: Judah the Believer & Judah's Aide (Axe) & Judah's Aide (Fan) EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-judah-the-believer-judahs-aide-axe-judahs-aide-fan-ex1
+display_name: "Judah the Believer EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-judah-the-believer-judahs-aide-axe-judahs-aide-fan
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 27
+hp: 2627021  # ~14.0x base
+speed: 332
+p_atk: 1777
+p_def: 359
+e_atk: 1866
+e_def: 384
+
+weaknesses:
+  elements:
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Judah the Believer"
+    is_main_target: true
+    shield_count: 27
+    hp: 2627021
+    speed: 332
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - dagger
+        - bow
+        - staff
+
+  - name: "Judah's Aide (Axe)"
+    shield_count: 13
+    hp: 1224150
+    speed: 296
+    weaknesses:
+      elements:
+        - fire
+        - dark
+      weapons:
+        - sword
+        - staff
+        - fan
+
+  - name: "Judah's Aide (Fan)"
+    shield_count: 11
+    hp: 1183532
+    speed: 315
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - polearm
+        - bow
+        - tome
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~14x HP.
+  
+  Key changes from base:
+  - Higher HP (2,627,021)
+  - Higher shield count (27)
+  - Higher speed (332)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - staff
+  - wind
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

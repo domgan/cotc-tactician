@@ -1,0 +1,89 @@
+# Adversary Log Boss: Ring-sealed Beast EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-ring-sealed-beast-ex3
+display_name: "Ring Sealed Beast EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-ring-sealed-beast
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 42
+hp: 5412000  # ~180.4x base
+speed: 398
+p_atk: 3472
+p_def: 177
+e_atk: 3858
+e_def: 156
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - polearm
+    - axe
+    - staff
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (5,412,000)
+  - Maximum shield count (42)
+  - Very high speed (398)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - axe
+  - staff
+  - fan
+  - ice
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

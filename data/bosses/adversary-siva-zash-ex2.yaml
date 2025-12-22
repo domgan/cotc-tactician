@@ -1,0 +1,118 @@
+# Adversary Log Boss: Siva & Zash EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-siva-zash-ex2
+display_name: "Siva EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-siva-zash
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 44
+hp: 817901  # ~602.7x base
+speed: 299
+p_atk: 2152
+p_def: 287
+e_atk: 749
+e_def: 243
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Siva"
+    is_main_target: true
+    shield_count: 44
+    hp: 817901
+    speed: 299
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - sword
+        - bow
+        - staff
+
+  - name: "Zash"
+    shield_count: 44
+    hp: 817901
+    speed: 504
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - bow
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~603x HP.
+  
+  Key changes from base:
+  - Much higher HP (817,901)
+  - Higher shield count (44)
+  - Much higher speed (299)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - bow
+  - staff
+  - fire
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

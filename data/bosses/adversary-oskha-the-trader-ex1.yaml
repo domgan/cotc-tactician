@@ -1,0 +1,76 @@
+# Adversary Log Boss: Oskha the Trader EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-oskha-the-trader-ex1
+display_name: "Oskha the Trader EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-oskha-the-trader
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 34
+hp: 3914976  # ~8.1x base
+speed: 388
+p_atk: 1869
+p_def: 285
+e_atk: 1859
+e_def: 277
+
+weaknesses:
+  elements:
+    - ice
+    - dark
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~8x HP.
+  
+  Key changes from base:
+  - Higher HP (3,914,976)
+  - Higher shield count (34)
+  - Higher speed (388)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - ice
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

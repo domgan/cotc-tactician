@@ -1,0 +1,107 @@
+# Adversary Log Boss: Judah the Believer & Judah's Aide (Axe) & Judah's Aide (Fan)
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-judah-the-believer-judahs-aide-axe-judahs-aide-fan
+display_name: "Judah the Believer"
+content_type: adversary_log
+difficulty: very_hard
+level: 66
+shield_count: 18
+hp: 187560
+speed: 237
+p_def: 128
+e_def: 137
+
+weaknesses:
+  elements:
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 18
+    hp: 187560
+    speed: 237
+    level: 66
+  rank2:
+    shield_count: 19
+    hp: 225072
+    speed: 248
+    level: 66
+  rank3:
+    shield_count: 20
+    hp: 262584
+    speed: 260
+    level: 66
+enemies:
+  - name: "Judah the Believer"
+    is_main_target: true
+    shield_count: 18
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - dagger
+        - bow
+        - staff
+
+  - name: "Judah's Aide (Axe)"
+    shield_count: 10
+    weaknesses:
+      elements:
+        - fire
+        - dark
+      weapons:
+        - sword
+        - staff
+        - fan
+
+  - name: "Judah's Aide (Fan)"
+    shield_count: 9
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - polearm
+        - bow
+        - tome
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

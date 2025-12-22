@@ -1,0 +1,86 @@
+# Adversary Log Boss: Sazantos EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-sazantos-ex2
+display_name: "Sazantos EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-sazantos
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 20
+hp: 1868828  # ~37.4x base
+speed: 286
+p_atk: 2362
+p_def: 201
+e_atk: 2470
+e_def: 210
+
+weaknesses:
+  elements:
+    - ice
+    - dark
+  weapons:
+    - polearm
+    - axe
+    - staff
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~37x HP.
+  
+  Key changes from base:
+  - Much higher HP (1,868,828)
+  - Higher shield count (20)
+  - Much higher speed (286)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - axe
+  - staff
+  - ice
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

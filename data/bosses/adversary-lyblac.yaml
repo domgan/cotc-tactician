@@ -1,0 +1,68 @@
+# Adversary Log Boss: Lyblac
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+
+id: adversary-lyblac
+display_name: "Lyblac"
+content_type: adversary_log
+difficulty: extreme
+level: 75
+shield_count: 33
+hp: 465020
+speed: 307
+p_def: 300
+e_def: 318
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - sword
+    - dagger
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 33
+    hp: 465020
+    speed: 307
+    level: 75
+  rank2:
+    shield_count: 35
+    hp: 558024
+    speed: 322
+    level: 75
+  rank3:
+    shield_count: 37
+    hp: 651028
+    speed: 337
+    level: 75
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

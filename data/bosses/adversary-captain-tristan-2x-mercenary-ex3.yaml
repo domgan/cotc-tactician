@@ -1,0 +1,123 @@
+# Adversary Log Boss: Captain Tristan & 2x Mercenary EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-captain-tristan-2x-mercenary-ex3
+display_name: "Captain Tristan EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-captain-tristan-2x-mercenary
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 26
+hp: 2405746  # ~859.2x base
+speed: 465
+p_atk: 3672
+p_def: 127
+e_atk: 3977
+e_def: 93
+
+weaknesses:
+  elements:
+    - fire
+    - dark
+  weapons:
+    - polearm
+    - bow
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Captain Tristan"
+    is_main_target: true
+    shield_count: 26
+    hp: 2405746
+    speed: 465
+    weaknesses:
+      elements:
+        - fire
+        - dark
+      weapons:
+        - polearm
+        - bow
+        - tome
+
+  - name: "Mercenary"
+    shield_count: 13
+    hp: 634849
+    speed: 291
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+        - light
+      weapons:
+        - sword
+        - staff
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (2,405,746)
+  - Maximum shield count (26)
+  - Very high speed (465)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+  
+  Fight notes:
+  - Entire fight can be completely dodged with any phys sidestep, but will need to quickly take out at least 1 ad for that to be sustainable
+  - With careful play, Aedelgard + Sidestep Pet + Hammy lets you hold out long enough to nuke down the ads, from which point you can't lose
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - tome
+  - fire
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

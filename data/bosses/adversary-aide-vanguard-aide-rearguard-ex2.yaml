@@ -1,0 +1,122 @@
+# Adversary Log Boss: Aide (Vanguard) & Aide (Rearguard) EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-aide-vanguard-aide-rearguard-ex2
+display_name: "Aide (Vanguard) EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-aide-vanguard-aide-rearguard
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 25
+hp: 2175425  # ~701.8x base
+speed: 430
+p_atk: 3366
+p_def: 427
+e_atk: 3519
+e_def: 362
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - sword
+    - bow
+    - staff
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Aide (Vanguard)"
+    is_main_target: true
+    shield_count: 25
+    hp: 2175425
+    speed: 430
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - staff
+        - tome
+
+  - name: "Aide (Rearguard)"
+    shield_count: 25
+    hp: 1754375
+    speed: 379
+    weaknesses:
+      elements:
+        - light
+        - dark
+      weapons:
+        - polearm
+        - dagger
+        - axe
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~702x HP.
+  
+  Key changes from base:
+  - Much higher HP (2,175,425)
+  - Higher shield count (25)
+  - Much higher speed (430)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - bow
+  - staff
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

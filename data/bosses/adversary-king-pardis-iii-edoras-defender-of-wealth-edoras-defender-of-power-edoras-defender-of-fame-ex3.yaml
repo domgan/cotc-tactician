@@ -1,0 +1,145 @@
+# Adversary Log Boss: King Pardis III & Edoras Defender of Wealth & Edoras Defender of Power & Edoras Defender of Fame EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-king-pardis-iii-edoras-defender-of-wealth-edoras-defender-of-power-edoras-defender-of-fame-ex3
+display_name: "King Pardis III EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-king-pardis-iii-edoras-defender-of-wealth-edoras-defender-of-power-edoras-defender-of-fame
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 31
+hp: 4583890  # ~51.6x base
+speed: 388
+p_atk: 3042
+p_def: 372
+e_atk: 3295
+e_def: 403
+
+weaknesses:
+  elements:
+    - ice
+    - light
+  weapons:
+    - sword
+    - dagger
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "King Pardis III"
+    is_main_target: true
+    shield_count: 31
+    hp: 4583890
+    speed: 388
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - sword
+        - dagger
+        - staff
+
+  - name: "Edoras Defender of Power"
+    shield_count: 14
+    hp: 550000
+    speed: 280
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - axe
+        - bow
+        - staff
+
+  - name: "Edoras Defender of Fame"
+    shield_count: 14
+    hp: 550000
+    speed: 280
+    weaknesses:
+      elements:
+        - ice
+        - wind
+      weapons:
+        - polearm
+        - tome
+        - fan
+
+  - name: "Edoras Defender of Wealth"
+    shield_count: 14
+    hp: 550000
+    speed: 280
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - sword
+        - dagger
+        - axe
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (4,583,890)
+  - Maximum shield count (31)
+  - Very high speed (388)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - staff
+  - ice
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

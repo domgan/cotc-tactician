@@ -33,6 +33,29 @@ immunities:
 # ===========================================================================
 shield_count: 10
 
+# ===========================================================================
+# RANK VARIANTS (for Adversary Log bosses)
+# ===========================================================================
+# For Adversary Log bosses, include Rank 1-3 stats in the base file.
+# EX variants (ex1/ex2/ex3) go in SEPARATE files for RAG indexing!
+# Example: adversary-boss-ex1.yaml, adversary-boss-ex2.yaml, adversary-boss-ex3.yaml
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 100000
+    speed: 250
+    level: 50
+  rank2:
+    shield_count: 12
+    hp: 120000
+    speed: 275
+    level: 50
+  rank3:
+    shield_count: 14
+    hp: 140000
+    speed: 300
+    level: 50
+
 shield_phases:
   - phase: 1
     shield_count: 10

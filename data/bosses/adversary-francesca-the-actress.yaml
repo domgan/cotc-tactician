@@ -1,0 +1,88 @@
+# Adversary Log Boss: Francesca the Actress
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 1+
+# Can be completely dodged with EX Fiore or Ophilia with magic sidestep pet
+# Failing that, sufficiently bulky Gilderoy can tank too
+
+id: adversary-francesca-the-actress
+display_name: "Francesca the Actress"
+content_type: adversary_log
+difficulty: normal
+level: 18
+shield_count: 10
+hp: 7532
+speed: 120
+p_def: 32
+e_def: 25
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - bow
+    - fan
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 7532
+    speed: 120
+    level: 18
+  rank2:
+    shield_count: 12
+    hp: 9038
+    speed: 125
+    level: 18
+  rank3:
+    shield_count: 14
+    hp: 10544
+    speed: 132
+    level: 18
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# Can be completely dodged with EX Fiore or Ophilia with magic sidestep pet + Cardona/Chloe
+# Failing that, sufficiently bulky Gilderoy can tank too
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: recommended
+    reason: "Can tank with Gilderoy if no dodge option"
+
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  Early Adversary Log boss, relatively straightforward.
+  
+  DODGE STRATEGY (Recommended):
+  - EX Fiore with sidestep
+  - Ophilia with magic sidestep pet + Cardona/Chloe
+  
+  TANK STRATEGY:
+  - Gilderoy with high bulk can survive
+  
+  Weaknesses: Polearm, Bow, Fan, Fire, Lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

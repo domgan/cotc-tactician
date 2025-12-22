@@ -1,0 +1,126 @@
+# Adversary Log Boss: Empress Tatloch & Maa'fa
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+# Complex dual-boss fight with HP drain mechanic
+
+id: adversary-empress-tatloch-maafa
+display_name: "Empress Tatloch & Maa'fa"
+content_type: adversary_log
+difficulty: very_hard
+level: 73
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (2 bosses)
+# ===========================================================================
+enemies:
+  - name: "Empress Tatloch"
+    is_main_target: true
+    shield_count: 26
+    hp: 214100
+    speed: 259
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - polearm
+        - axe
+        - staff
+    notes: |
+      Drains 99,999 HP from Maa'fa per turn until 25% HP.
+      Uses aura attack (3x wind AOE) every 4 turns after Turn 4.
+      May charm front row at certain HP threshold.
+
+  - name: "Maa'fa"
+    is_main_target: false
+    shield_count: 22
+    hp: 284780
+    speed: 303
+    weaknesses:
+      elements:
+        - fire
+        - ice
+      weapons:
+        - axe
+        - bow
+        - staff
+    notes: |
+      Has ~5M HP in EX versions - very tanky!
+      Gains HP regen (~40k/turn) at ~50% HP.
+      Enters 2 actions/turn at 25% HP (1,197,893 HP in EX3).
+      
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 26
+    hp: 214100
+    speed: 259
+    level: 73
+  rank2:
+    shield_count: 28
+    hp: 256920
+    speed: 271
+    level: 73
+  rank3:
+    shield_count: 30
+    hp: 299740
+    speed: 284
+    level: 73
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# - Fight is not threatening when it's just Tatloch, but Maa'fa has like 5 mil hp
+# - Maa'fa enters 2 actions/turn at 25% HP (~1.2M HP in EX3)
+# - Maa'fa starts HP regen (~40k/turn) at ~50% HP
+# - Tatloch stops draining 99,999 HP from Maa'fa at 25% HP
+# - After Maa'fa dies, Tatloch summons 2 ads (same as Rank 3 versions)
+# - Tatloch's aura attack timing: Turn 5, 9, 13, etc. (every 4 turns after Turn 4)
+# - Rosters without Leon and/or A2 unlikely to skip Maa'fa's 2-action phase
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Long fight with sustained damage"
+
+  - role: breaker
+    priority: required
+    reason: "Need to break both bosses efficiently"
+
+  - role: dps
+    priority: required
+    reason: "High HP pool on Maa'fa requires strong damage"
+
+general_strategy: |
+  Complex dual-boss fight with HP drain mechanic.
+  
+  PHASE 1: Both bosses alive
+  - Tatloch drains 99,999 HP from Maa'fa each turn
+  - Focus on Maa'fa first - has massive HP (~5M in EX)
+  - Maa'fa gains regen at ~50% HP, 2 actions at 25% HP
+  
+  PHASE 2: Tatloch solo
+  - After Maa'fa dies, Tatloch summons 2 ads
+  - Ads are Rank 3 versions - easy to kill
+  - Tatloch uses charm on front row at certain HP%
+  
+  BOSS WEAKNESSES:
+  - Tatloch: Polearm, Axe, Staff, Lightning
+  - Maa'fa: Axe, Bow, Staff, Fire, Ice
+  - Shared: Axe, Staff (hit both!)
+  
+  AURA TIMING:
+  Tatloch auras on Turn 4, attacks on Turn 5, then every 4 turns.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

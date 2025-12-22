@@ -1,0 +1,145 @@
+# Adversary Log Boss: Delvecchio  & Minions EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-delvecchio-minions-ex3
+display_name: "Delvecchio EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-delvecchio-minions
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 27
+hp: 2638362  # ~36.8x base
+speed: 469
+p_atk: 3002
+p_def: 516
+e_atk: 3252
+e_def: 493
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Delvecchio"
+    is_main_target: true
+    shield_count: 27
+    hp: 2638362
+    speed: 469
+    weaknesses:
+      elements:
+        - wind
+        - light
+      weapons:
+        - polearm
+        - bow
+        - staff
+
+  - name: "Delvecchio's Lackey (Bow)"
+    shield_count: 18
+    hp: 472104
+    speed: 342
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - dagger
+        - tome
+
+  - name: "Delvecchio's Lackey (Axe)"
+    shield_count: 16
+    hp: 471144
+    speed: 434
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - fan
+
+  - name: "Delvecchio's Lackey (Dagger)"
+    shield_count: 14
+    hp: 313880
+    speed: 474
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - sword
+        - polearm
+        - axe
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (2,638,362)
+  - Maximum shield count (27)
+  - Very high speed (469)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - staff
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

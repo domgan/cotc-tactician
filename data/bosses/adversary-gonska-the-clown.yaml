@@ -1,0 +1,69 @@
+# Adversary Log Boss: Gonska the Clown
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-gonska-the-clown
+display_name: "Gonska the Clown"
+content_type: adversary_log
+difficulty: very_hard
+level: 58
+shield_count: 10
+hp: 66666
+speed: 188
+p_def: 71
+e_def: 71
+
+weaknesses:
+  elements:
+    - ice
+    - light
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 66666
+    speed: 188
+    level: 58
+  rank2:
+    shield_count: 12
+    hp: 79999
+    speed: 197
+    level: 58
+  rank3:
+    shield_count: 14
+    hp: 93332
+    speed: 206
+    level: 58
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

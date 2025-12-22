@@ -1,0 +1,132 @@
+# Adversary Log Boss: M'suhi the Viper EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-msuhi-the-viper-ex2
+display_name: "M'suhi the Viper EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-msuhi-the-viper
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# EX2 STATS (Main Boss)
+# ===========================================================================
+level: 100
+shield_count: 52
+hp: 2605912
+speed: 438
+
+# WEAKNESS CYCLING: Swaps between two sets
+weakness_change_trigger: "Swaps between two weakness sets"
+weakness_sets:
+  - set_number: 1
+    elements: [fire, light]
+    weapons: [bow, staff, fan]
+  - set_number: 2
+    elements: [ice, lightning]
+    weapons: [sword, axe, tome]
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - bow
+    - staff
+    - fan
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "M'suhi the Viper"
+    is_main_target: true
+    shield_count: 52
+    hp: 2605912
+    speed: 438
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - bow
+        - staff
+        - fan
+
+  - name: "Thief"
+    shield_count: 13
+    hp: 1294273
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - axe
+        - bow
+        - fan
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~130x HP from base.
+  
+  Key changes from base:
+  - Much higher HP (2,605,912 main, 1,294,273 thieves)
+  - Very high shield count (52 main!)
+  - Higher speed (438)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank for survival
+  
+  M'suhi swaps between two weakness sets:
+  - Set 1: Bow, Staff, Fan, Fire, Light
+  - Set 2: Sword, Axe, Tome, Ice, Lightning
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: breaker
+    priority: required
+    reason: "52 shields requires strong shield shaving"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Dodge tank for survival"
+
+recommended_weakness_coverage:
+  - bow
+  - staff
+  - fan
+  - fire
+  - light
+  - sword
+  - axe
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

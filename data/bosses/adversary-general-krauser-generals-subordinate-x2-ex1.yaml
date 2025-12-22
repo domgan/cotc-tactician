@@ -1,0 +1,110 @@
+# Adversary Log Boss: General Krauser & General's Subordinate x2 EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-general-krauser-generals-subordinate-x2-ex1
+display_name: "General Krauser EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-general-krauser-generals-subordinate-x2
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 16
+hp: 1867197  # ~37.3x base
+speed: 260
+p_atk: 2300
+p_def: 284
+e_atk: 1972
+e_def: 284
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - sword
+    - axe
+    - fan
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "General Krauser"
+    is_main_target: true
+    shield_count: 16
+    hp: 1867197
+    speed: 260
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - sword
+        - axe
+        - fan
+
+  - name: "General's Subordinate"
+    shield_count: 11
+    hp: 278113
+    speed: 238
+    weaknesses:
+      elements:
+        - fire
+        - wind
+      weapons:
+        - polearm
+        - axe
+        - staff
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~37x HP.
+  
+  Key changes from base:
+  - Higher HP (1,867,197)
+  - Higher shield count (16)
+  - Higher speed (260)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - sword
+  - axe
+  - fan
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

@@ -1,0 +1,96 @@
+# Adversary Log Boss: Siva & Zash
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 1+
+
+id: adversary-siva-zash
+display_name: "Siva"
+content_type: adversary_log
+difficulty: normal
+level: 8
+shield_count: 5
+hp: 1357
+speed: 40
+p_def: 16
+e_def: 13
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 5
+    hp: 1357
+    speed: 40
+    level: 8
+  rank2:
+    shield_count: 7
+    hp: 1628
+    speed: 42
+    level: 8
+  rank3:
+    shield_count: 9
+    hp: 1899
+    speed: 44
+    level: 8
+enemies:
+  - name: "Siva"
+    is_main_target: true
+    shield_count: 5
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - sword
+        - bow
+        - staff
+
+  - name: "Zash"
+    shield_count: 5
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - bow
+        - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

@@ -1,0 +1,69 @@
+# Adversary Log Boss: Gonzalez the Ironarm
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 25+
+
+id: adversary-gonzalez-the-ironarm
+display_name: "Gonzalez the Ironarm"
+content_type: adversary_log
+difficulty: hard
+level: 48
+shield_count: 12
+hp: 30000
+speed: 114
+p_def: 30
+e_def: 20
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - sword
+    - dagger
+    - tome
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 12
+    hp: 30000
+    speed: 114
+    level: 48
+  rank2:
+    shield_count: 14
+    hp: 36000
+    speed: 119
+    level: 48
+  rank3:
+    shield_count: 16
+    hp: 42000
+    speed: 125
+    level: 48
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

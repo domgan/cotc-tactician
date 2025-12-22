@@ -1,0 +1,77 @@
+# Adversary Log Boss: Tatloch the Lady of Grace
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-tatloch-the-lady-of-grace
+display_name: "Tatloch the Lady of Grace"
+content_type: adversary_log
+difficulty: very_hard
+level: 74
+shield_count: 28
+hp: 384780
+speed: 314
+p_def: 294
+e_def: 306
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - sword
+    - polearm
+    - tome
+
+# ===========================================================================
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# Continuous ~9696 HP regen when unbroken, probably higher for A3 characters
+# Continuous 10% HP and 3% SP sap on front row
+# Otherwise doesn't seem all that bad once you solve the initial phys dmg reduction problem
+# Ironically EX H'aanit doesn't work as a tank, because she's too likely to dodge the hits that would un charm her. Sucks, because she compresses a lot of useful things for this fight
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 28
+    hp: 384780
+    speed: 314
+    level: 74
+  rank2:
+    shield_count: 30
+    hp: 461736
+    speed: 329
+    level: 74
+  rank3:
+    shield_count: 32
+    hp: 538692
+    speed: 345
+    level: 74
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

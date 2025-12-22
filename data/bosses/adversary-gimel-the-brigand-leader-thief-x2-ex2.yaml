@@ -1,0 +1,118 @@
+# Adversary Log Boss: Gimel the Brigand Leader & Thief x2 EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-gimel-the-brigand-leader-thief-x2-ex2
+display_name: "Gimel the Brigand Leader EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-gimel-the-brigand-leader-thief-x2
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 23
+hp: 2400000  # ~120.0x base
+speed: 401
+p_atk: 1757
+p_def: 380
+e_atk: 1837
+e_def: 346
+
+weaknesses:
+  elements:
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Gimel the Brigand Leader"
+    is_main_target: true
+    shield_count: 23
+    hp: 2400000
+    speed: 401
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - dagger
+        - bow
+        - staff
+
+  - name: "Thief"
+    shield_count: 17
+    hp: 640000
+    speed: 229
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - axe
+        - tome
+
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~120x HP.
+  
+  Key changes from base:
+  - Much higher HP (2,400,000)
+  - Higher shield count (23)
+  - Much higher speed (401)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - staff
+  - wind
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

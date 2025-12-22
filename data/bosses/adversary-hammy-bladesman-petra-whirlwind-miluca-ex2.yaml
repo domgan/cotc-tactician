@@ -1,0 +1,123 @@
+# Adversary Log Boss: Hammy  & Bladesman Petra  & Whirlwind Miluca EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-hammy-bladesman-petra-whirlwind-miluca-ex2
+display_name: "Hammy EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-hammy-bladesman-petra-whirlwind-miluca
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 120
+shield_count: 28
+hp: 1253175  # ~2.7x base
+speed: 525
+p_atk: 2869
+p_def: 512
+e_atk: 2315
+e_def: 489
+
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - polearm
+    - fan
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Hammy"
+    is_main_target: true
+    shield_count: 28
+    hp: 1253175
+    speed: 525
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - polearm
+        - fan
+
+  - name: "Bladesman Petra"
+    shield_count: 30
+    hp: 2119208
+    speed: 335
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - axe
+        - fan
+
+  - name: "Whirlwind Miluca"
+    shield_count: 26
+    hp: 1998367
+    speed: 424
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - dagger
+        - bow
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~3x HP.
+  
+  Key changes from base:
+  - Much higher HP (1,253,175)
+  - Higher shield count (28)
+  - Much higher speed (525)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - fan
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

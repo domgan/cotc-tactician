@@ -1,0 +1,101 @@
+# Adversary Log Boss: Lady Herminia & Lady In Waiting
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 1+
+
+id: adversary-lady-herminia-lady-in-waiting
+display_name: "Lady Herminia"
+content_type: adversary_log
+difficulty: normal
+level: 24
+shield_count: 7
+hp: 4300
+speed: 131
+p_def: 24
+e_def: 22
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 7
+    hp: 4300
+    speed: 131
+    level: 24
+  rank2:
+    shield_count: 9
+    hp: 5160
+    speed: 137
+    level: 24
+  rank3:
+    shield_count: 11
+    hp: 6020
+    speed: 144
+    level: 24
+enemies:
+  - name: "Lady Herminia"
+    is_main_target: true
+    shield_count: 7
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - dagger
+        - axe
+        - tome
+
+  - name: "Lady-in-Waiting"
+    shield_count: 5
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - axe
+        - bow
+        - staff
+        - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# A lot of RNG, but the ad should be 1 breakable with even a mediocre Axe roster if you have Bargello and Sonia. Hayes + Gertrude + Bargello + Sonia can do it.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

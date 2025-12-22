@@ -1,0 +1,76 @@
+# Adversary Log Boss: Fallen Mahrez EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-fallen-mahrez-ex1
+display_name: "Fallen Mahrez EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-fallen-mahrez
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 27
+hp: 2921733  # ~6.2x base
+speed: 311
+p_atk: 1890
+p_def: 477
+e_atk: 1806
+e_def: 477
+
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - dagger
+    - staff
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~6x HP.
+  
+  Key changes from base:
+  - Higher HP (2,921,733)
+  - Higher shield count (27)
+  - Higher speed (311)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - dagger
+  - staff
+  - fan
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

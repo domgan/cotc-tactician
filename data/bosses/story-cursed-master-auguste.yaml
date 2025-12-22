@@ -1,0 +1,522 @@
+# Story Boss: Cursed Master Auguste (呪将アーギュスト)
+# SOURCE: Game8 JP, Wiki, Reddit
+#
+# Chapter 4-6 Part 2 story boss. Fame's Dominion.
+# Complex weakness cycling boss with Fatal Sentence mechanics.
+# Weaknesses change on break recovery - build around shared weaknesses!
+#
+# SHARED WEAKNESSES (appear in most/all phases):
+# - Sword (all phases)
+# - Bow (4 of 5 phases)
+# - Ice (4 of 5 phases)
+# - Wind (3 of 5 phases)
+# - Light (3 of 5 phases)
+
+id: story-cursed-master-auguste
+display_name: "Cursed Master Auguste"
+display_name_jp: "呪将アーギュスト"
+content_type: story_boss
+difficulty: very_hard
+level: 94
+location: "Fame's Dominion (名声の支配地)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 1178550
+speed: 283
+p_def: 394
+e_def: 382
+status_immunity: none  # All status effects work (normal effectiveness)
+
+# ===========================================================================
+# INITIAL WEAKNESSES (Phase 1)
+# ===========================================================================
+# Note: Weaknesses cycle on break recovery. See weakness_phases below.
+weaknesses:
+  elements:
+    - ice
+    - light
+  weapons:
+    - sword
+    - bow
+    - fan
+
+shield_count: 25
+
+# ===========================================================================
+# WEAKNESS PHASES (Changes on Break Recovery)
+# ===========================================================================
+# Phases 4 and 5 loop after 3rd break
+phases:
+  - phase_number: 1
+    trigger: "Battle Start"
+    behavior_changes: |
+      Initial weakness set: Sword, Bow, Fan, Ice, Light
+      Boss has permanent resistance to non-weakness attacks (1 damage).
+
+  - phase_number: 2
+    trigger: "1st Break Recovery"
+    behavior_changes: |
+      Weaknesses: Polearm, Bow, Staff, Fire, Wind
+      Reckless Rage + E.ATK/SPD Up + E.DEF Down (permanent until next break)
+      Creates Abyssal Zone (Fatal Sentence on front row, 5 turns)
+
+  - phase_number: 3
+    trigger: "2nd Break Recovery"
+    behavior_changes: |
+      Weaknesses: Polearm, Fan, Fire, Wind, Light
+      Reckless Rage + P.ATK/CRIT Up + P.DEF Down (permanent until next break)
+      Creates Abyssal Zone
+
+  - phase_number: 4
+    trigger: "3rd+ Break Recovery (odd)"
+    behavior_changes: |
+      Weaknesses: Sword, Bow, Staff, Ice
+      Reckless Rage + E.ATK/SPD Up + E.DEF Down
+      Loops with Phase 5
+
+  - phase_number: 5
+    trigger: "3rd+ Break Recovery (even)"
+    behavior_changes: |
+      Weaknesses: Sword, Ice, Wind, Light
+      Reckless Rage + P.ATK/CRIT Up + P.DEF Down
+      Loops with Phase 4
+
+# ===========================================================================
+# HP THRESHOLDS
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 100
+    event: "Battle Start"
+    behavior_changes: |
+      Permanent resistance to non-weakness attacks (all attacks deal 1 damage).
+      Turn 1: Uses Mass Fatal Sentence (3 turn countdown on front row).
+      Turn 2 End: Fully restores BP.
+    actions_per_turn: 1
+
+  - hp_percent: 20
+    event: "Low HP - Simplified Phase"
+    behavior_changes: |
+      Boss stops changing weaknesses on break recovery.
+      Abyssal Zone no longer created.
+      Fight becomes significantly easier - just survive to this point!
+    actions_per_turn: 1
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "Non-Weakness Resistance"
+    trigger: "Battle start (permanent)"
+    active_indicator: "Resistance buff icons"
+    counter_effect: "All non-weakness attacks deal 1 damage"
+    removal_condition: "Cannot be removed - must hit weaknesses"
+
+  - name: "Abyssal Zone (奈落の結界)"
+    trigger: "Break recovery (1st onwards)"
+    active_indicator: "Zone active message"
+    counter_trigger: "Switching to back row / Coming to front row"
+    counter_effect: |
+      Front row: Fatal Sentence 5 turns (4 turns after 3rd break)
+      Switch to back row: Fatal Sentence countdown -1
+      Switch to front row: Fresh Fatal Sentence applied
+    removal_condition: "Break boss to remove zone; Below 20% HP stops zone creation"
+
+  - name: "Reckless Rage (ペインレイジ)"
+    trigger: "Break recovery"
+    active_indicator: "Rage status"
+    counter_effect: |
+      Alternates between:
+      - E.ATK/SPD Up + E.DEF Down (odd breaks)
+      - P.ATK/CRIT Up + P.DEF Down (even breaks)
+    removal_condition: "Next break"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  # === BATTLE START / PASSIVE ===
+  - name: "Auguste's non-weak point resistances have permanently increased!"
+    name_jp: "アーギュストは弱点以外の耐性を永続的に上げた！"
+    effect: |
+      Battle start passive. Grants permanent resistance to:
+      Polearm, Dagger, Axe, Staff, Tome, Fire, Lightning, Wind, Dark
+      (All non-weakness attacks deal 1 damage)
+      Resistances update when weaknesses change.
+    trigger: "Battle start"
+    threat_level: medium
+
+  # === TURN 1-2 SEQUENCE ===
+  - name: "Mass Fatal Sentence (皆死の宣告)"
+    name_jp: "皆死の宣告"
+    effect: "Inflicts Fatal Sentence on front row for 3 turns"
+    trigger: "Turn 1"
+    threat_level: extreme
+
+  - name: "I should like to behold you in all your beauty..."
+    name_jp: "君の全てを見てみたい……"
+    effect: |
+      End of Turn 2: Fully restores all BP.
+      If not broken before next action: Uses "A gift, from me to you."
+    trigger: "End of Turn 2"
+    threat_level: high
+
+  - name: "A gift, from me to you. (さあ……プレゼントだ)"
+    name_jp: "さあ……プレゼントだ"
+    effect: |
+      At full BP (first time only):
+      Powerful Dark damage to front row + Fatal Sentence (3 turns)
+      Consumes 6 BP after use.
+    trigger: "BP MAX before first Reckless Rage"
+    threat_level: extreme
+
+  # === STANDARD ATTACKS ===
+  - name: "Dramatic Roar (激情の叫奏)"
+    name_jp: "激情の叫奏"
+    effect: "Dark damage to front row"
+    threat_level: medium
+
+  - name: "Muzzling Meter (口封じの韻律)"
+    name_jp: "口封じの韻律"
+    effect: "Strong physical attack to front row + Silence (4 turns)"
+    threat_level: high
+
+  - name: "Rhythm Unto Quietus"
+    name_jp: "終焉の韻律"
+    effect: "Tome damage to random targets 3 times + Poison/Paralysis/Sleep (3 turns each)"
+    threat_level: high
+
+  # === POST-BREAK 1 ===
+  - name: "Auguste's fury spills out with the Accurst Flame!"
+    name_jp: "アーギュストの激情が黒呪炎とともに溢れ出す！"
+    effect: |
+      After 1st break recovery:
+      - Applies Reckless Rage (permanent until next break)
+      - E.ATK/SPD Up + E.DEF Down
+      - Changes weaknesses to: Polearm, Bow, Staff, Fire, Wind
+      - Updates resistances accordingly
+    trigger: "1st break recovery"
+    threat_level: high
+
+  - name: "Auguste creates an abyssal zone!"
+    name_jp: "アーギュストは奈落の結界を生み出した！"
+    effect: |
+      Inflicts Fatal Sentence on front row (5 turns, 4 turns after 3rd break).
+      Switching to back row: Countdown -1
+      Switching to front row: Fresh Fatal Sentence applied
+      Removed on break.
+    trigger: "Break recovery (1st onwards)"
+    threat_level: extreme
+
+  - name: "Cursed Wild Roar (黒呪・叫乱奏)"
+    name_jp: "黒呪・叫乱奏"
+    effect: "Dark damage to random targets 3 times + Restores BP by 3"
+    trigger: "First action after 1st break recovery"
+    threat_level: high
+
+  - name: "Cursed Darkness of the Heart (黒呪・心に巣食う闇)"
+    name_jp: "黒呪・心に巣食う闘"
+    effect: "Weak Dark damage to front row + P.DEF/E.DEF/SPD Down (3 turns)"
+    threat_level: medium
+
+  - name: "Elemental Shackling Meter (属性技封じの韻律)"
+    name_jp: "属性技封じの韻律"
+    effect: "Dark damage to front row + Elem. Atk. Lock (2 turns)"
+    threat_level: high
+
+  - name: "Cursed Ire of the Prince of Thieves (黒呪・盗公子の憎悪)"
+    name_jp: "黒呪・盗公子の憎悪"
+    effect: |
+      At full BP (after Reckless Rage):
+      Strong Dark damage to front row.
+      Random status: Poison/Paralysis/Blindness/Terror/Sleep/Silence (2 turns each)
+      Consumes 6 BP after use.
+    trigger: "BP MAX after Reckless Rage"
+    threat_level: extreme
+
+  # === POST-BREAK 2 ===
+  - name: "Auguste's fury erupts with the Accurst Flame!"
+    name_jp: "アーギュストの激情が黒呪炎とともに噴き出す！"
+    effect: |
+      After 2nd break recovery:
+      - Applies Reckless Rage (permanent until next break)
+      - P.ATK/CRIT Up + P.DEF Down
+      - Changes weaknesses to: Polearm, Fan, Fire, Wind, Light
+      - Creates Abyssal Zone
+    trigger: "2nd break recovery"
+    threat_level: high
+
+  - name: "Cursed Dramatic Roar (黒呪・激情の叫奏)"
+    name_jp: "黒呪・激情の叫奏"
+    effect: "Dark damage to front row + Restores BP by 2"
+    trigger: "First action after 2nd break recovery"
+    threat_level: high
+
+  - name: "Physical Shackling Meter (物理技封じの韻律)"
+    name_jp: "物理技封じの韻律"
+    effect: "Dark damage to front row + Phys. Atk. Lock (2 turns)"
+    threat_level: high
+
+  # === POST-BREAK 3+ (LOOPING) ===
+  - name: "Auguste's fury surges with the Accurst Flame!"
+    name_jp: "アーギュストの激情が黒呪炎とともにほとばしる！"
+    effect: |
+      After 3rd+ break recovery:
+      - Applies Reckless Rage (permanent until next break)
+      - Alternates between two weakness sets:
+        * Sword, Bow, Staff, Ice (odd breaks)
+        * Sword, Ice, Wind, Light (even breaks)
+      - Creates Abyssal Zone (countdown reduced to 4)
+    trigger: "3rd+ break recovery"
+    threat_level: high
+
+  - name: "Cursed Rhythm Unto Quietus (黒呪・終焉への韻律)"
+    name_jp: "黒呪・終焉への韻律"
+    effect: |
+      Tome damage to random targets 4 times.
+      Applies in order: Poison, Paralysis, Sleep, Silence (2 turns each)
+    trigger: "First action after 3rd break recovery"
+    threat_level: high
+
+  - name: "Cursed Roar (黒呪・叫奏)"
+    name_jp: "黒呪・叫奏"
+    effect: "Strong Dark damage to single target + Restores BP by 4"
+    threat_level: high
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Non-Weakness Resistance"
+    mechanic_type: passive
+    trigger: "Battle start (permanent)"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      ALL non-weakness attacks deal 1 damage.
+      MUST hit weaknesses to deal damage.
+      Dagger is never a weakness - dagger shield-break ignores damage still works.
+      Build team around shared weaknesses: Sword, Bow, Ice, Wind, Light.
+
+  - name: "Fatal Sentence (Death Countdown)"
+    mechanic_type: debuff_party
+    trigger: "Turn 1, BP attacks, Abyssal Zone"
+    target: front_row
+    damage_type: none
+    effects: ["fatal_sentence"]
+    threat_level: critical
+    counter_strategy: |
+      Fatal Sentence = instant death when countdown hits 0.
+      MUST break boss to reset/remove.
+      Initial: 3 turns (Turn 1)
+      Abyssal Zone: 5 turns (4 turns after 3rd break)
+      
+      Rehabilitate can remove Fatal Sentence!
+      Paralysis on Turn 1 can block Mass Fatal Sentence (luck-based).
+
+  - name: "Abyssal Zone (Row Swap Penalty)"
+    mechanic_type: passive
+    trigger: "Break recovery (1st onwards)"
+    target: front_row
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      While Abyssal Zone is active:
+      - DO NOT swap to back row unless you can break same turn
+      - Back row swap = countdown -1
+      - Front row swap = fresh Fatal Sentence
+      
+      Zone is removed on break.
+      Zone stops appearing below 20% HP.
+
+  - name: "Weakness Cycling"
+    mechanic_type: phase_transition
+    trigger: "Break recovery"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      Weaknesses change on EVERY break recovery:
+      1. Sword, Bow, Fan, Ice, Light
+      2. Polearm, Bow, Staff, Fire, Wind
+      3. Polearm, Fan, Fire, Wind, Light
+      4. Sword, Bow, Staff, Ice (loops)
+      5. Sword, Ice, Wind, Light (loops)
+      
+      BUILD AROUND SHARED WEAKNESSES:
+      - Sword: All phases except 2-3
+      - Bow: Phases 1, 2, 4
+      - Ice: Phases 1, 4, 5
+      - Wind: Phases 2, 3, 5
+      - Light: Phases 1, 3, 5
+      
+      RECOMMENDED: Sword + Ice OR Fire + Wind teams.
+
+  - name: "BP Attack Cycle"
+    mechanic_type: ultimate
+    trigger: "BP MAX"
+    target: front_row
+    damage_type: elemental
+    element: dark
+    effects: ["fatal_sentence", "poison", "paralysis", "blindness", "terror", "sleep", "silence"]
+    threat_level: critical
+    counter_strategy: |
+      First BP MAX: "A gift, from me to you." - Dark + Fatal Sentence
+      Post-Reckless Rage: "Cursed Ire of Prince of Thieves" - Dark + random ailments
+      
+      Boss recovers BP via:
+      - Turn 2 end: Full BP restore
+      - Cursed Wild Roar: +3 BP
+      - Cursed Dramatic Roar: +2 BP
+      - Cursed Roar: +4 BP
+      
+      COUNTER: 
+      - Break before BP attack
+      - E.DEF buffs / Dark resistance
+      - Status ailment cleanse (Rehabilitate)
+
+  - name: "Status Ailment Spam"
+    mechanic_type: debuff_party
+    trigger: "Various attacks"
+    target: front_row
+    damage_type: none
+    effects: ["poison", "paralysis", "blindness", "terror", "sleep", "silence"]
+    threat_level: high
+    counter_strategy: |
+      Boss inflicts many status ailments:
+      - Silence (Muzzling Meter, Rhythm Unto Quietus)
+      - Paralysis/Sleep (Rhythm attacks)
+      - Random ailments (BP attack post-Reckless Rage)
+      
+      BRING REHABILITATE!
+      Status cleanse is nearly mandatory.
+      Paralysis/Sleep/Silence are especially dangerous.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Sustain through long multi-phase fight + status cleanse (Rehabilitate)"
+
+  - role: breaker
+    priority: required
+    reason: "MUST break to survive Fatal Sentence - high hit counts essential"
+
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "E.ATK down 30% reduces Dark damage significantly"
+
+  - role: buffer
+    priority: recommended
+    reason: "E.DEF up helps survive Dark attacks"
+
+  - role: dps
+    priority: required
+    reason: "Must deal enough damage to progress before mechanics overwhelm"
+
+required_capabilities:
+  - "Rehabilitate (status cleanse) - nearly mandatory"
+  - "Multi-hit breaking (fast shield shaving)"
+  - "Shared weakness coverage (Sword + Polearm, or Ice + Fire, or Wind + Ice)"
+  - "Dark resistance (optional but helpful)"
+  - "E.ATK debuff 30%"
+  - "E.DEF buff 30%"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Cursed Master Auguste (呪将アーギュスト) is a complex story boss with:
+  - Weakness cycling on every break recovery
+  - Fatal Sentence mechanics that require constant breaking
+  - Non-weakness attacks deal 1 damage (MUST hit weaknesses)
+  
+  === WEAKNESS CYCLE ===
+  1. Sword, Bow, Fan, Ice, Light
+  2. Polearm, Bow, Staff, Fire, Wind
+  3. Polearm, Fan, Fire, Wind, Light
+  4. Sword, Bow, Staff, Ice (loops with 5)
+  5. Sword, Ice, Wind, Light (loops with 4)
+  
+  === KEY SHARED WEAKNESSES ===
+  - SWORD appears in phases 1, 4, 5 (3 of 5)
+  - POLEARM appears in phases 2, 3 (2 of 5)
+  - Build a team that covers Sword/Polearm OR multiple elements!
+  
+  === RECOMMENDED TEAM CORES ===
+  Option 1: Sword + Polearm physical team
+  - Covers all weakness phases
+  - Olberic, Aedelgard good options
+  
+  Option 2: Ice + Fire elemental team
+  - Ice: Phases 1, 4, 5
+  - Fire: Phases 2, 3
+  - Cyrus excellent for this
+  
+  Option 3: Wind + Ice elemental team
+  - Wind: Phases 2, 3, 5
+  - Ice: Phases 1, 4, 5
+  
+  === TURN 1-2 CRITICAL ===
+  Turn 1: Boss uses Mass Fatal Sentence (3 turn countdown)
+  Turn 2 End: Boss restores all BP
+  Turn 3: If not broken, uses powerful BP attack
+  
+  → BREAK BEFORE TURN 3 OR FACE MASSIVE DAMAGE!
+  
+  === ABYSSAL ZONE (POST-BREAK 1) ===
+  After first break, zone applies:
+  - Front row gets Fatal Sentence
+  - Swap to back = countdown -1
+  - Swap to front = new Fatal Sentence
+  
+  → AVOID ROW SWAPS during zone unless you can break same turn!
+  
+  === BELOW 20% HP ===
+  Boss stops changing weaknesses and creating Abyssal Zone.
+  Once you reach 20%, the fight becomes MUCH easier.
+  Push through the early phases!
+  
+  === STATUS AILMENT MANAGEMENT ===
+  Boss spams: Poison, Paralysis, Blindness, Terror, Sleep, Silence
+  BRING REHABILITATE! Soleil is particularly good here.
+  
+  === RECOMMENDED CHARACTERS (General Pool) ===
+  Best: Olberic, Aedelgard, Cyrus
+  Good: Sofia + Molu, Kouren, W'ludai
+  Support: Soleil (Dark resist + status cleanse + Light weakness)
+  
+  === SUPPORT RECOMMENDATIONS ===
+  - E.ATK Down 30% (reduces Dark damage)
+  - E.DEF Up 30% (survive Dark attacks)
+  - Rehabilitate (status cleanse)
+
+common_mistakes:
+  - "Building team that can't hit all weakness phases"
+  - "Not breaking before Turn 3 (BP attack wipes)"
+  - "Swapping rows during Abyssal Zone (accelerates Fatal Sentence)"
+  - "Not bringing status cleanse (Rehabilitate)"
+  - "Using dagger-only characters (dagger is never a weakness)"
+  - "Ignoring the 20% HP threshold (fight becomes easy below this)"
+  - "Not debuffing E.ATK (Dark attacks hit hard)"
+
+# ===========================================================================
+# ADVERSARY LOG VARIANTS
+# ===========================================================================
+# This boss also appears in 宿敵の写記 (Adversary Log) with EX versions:
+# - Rank 1: Shield 25
+# - Rank 2: Shield 27
+# - Rank 3: Shield 29
+# - EX1: Shield 32
+# Same weakness cycling mechanics, higher stats.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP, Wiki, Reddit"
+last_updated: 2025-12-22

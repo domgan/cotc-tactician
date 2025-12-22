@@ -1,0 +1,69 @@
+# Adversary Log Boss: Auguste the Playwright
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 1+
+
+id: adversary-auguste-the-playwright
+display_name: "Auguste the Playwright"
+content_type: adversary_log
+difficulty: normal
+level: 24
+shield_count: 10
+hp: 7500
+speed: 136
+p_def: 24
+e_def: 20
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - sword
+    - polearm
+    - bow
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 7500
+    speed: 136
+    level: 24
+  rank2:
+    shield_count: 12
+    hp: 9000
+    speed: 142
+    level: 24
+  rank3:
+    shield_count: 14
+    hp: 10500
+    speed: 149
+    level: 24
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

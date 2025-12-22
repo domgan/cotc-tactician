@@ -1,0 +1,91 @@
+# Adversary Log Boss: Divine Beast Lykaon EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-divine-beast-lykaon-ex2
+display_name: "Divine Beast Lykaon EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-divine-beast-lykaon
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 37
+hp: 3791041  # ~25.9x base
+speed: 430
+p_atk: 3032
+p_def: 245
+e_atk: 2738
+e_def: 256
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - bow
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~26x HP.
+  
+  Key changes from base:
+  - Much higher HP (3,791,041)
+  - Higher shield count (37)
+  - Much higher speed (430)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+  
+  Fight notes:
+  - Goat8 doesn't have any info on this one so I'll try to pick up the slack
+  - Attacks:  a range of 1-3x dark rt, i don't think they cause any status ailments but i had some immunnities so couldnt say for sure 3x rt phys, 2t bleeding per hit 1x aoe dark + 2t blindness  aura: doesn't seem to appear above 50% HP but i wouldn't know, i broke too fast to tell. 8x rt phys, might have some status ailment  below 50%: 2x aoe dark + 2t blindness  when returning from break, does an aoe terror as its action. don't know how many turns because i had rinyuu active
+  - all attacks are fairly weak, 30 patk/eatk down + 15% passive pdef from tatloch was enough to handle all aoe's. ex h'aanit + hammy + sidestep pet easily handles the rest of it
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - bow
+  - fan
+  - fire
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

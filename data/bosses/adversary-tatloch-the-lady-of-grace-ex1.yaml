@@ -1,0 +1,82 @@
+# Adversary Log Boss: Tatloch the Lady of Grace EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-tatloch-the-lady-of-grace-ex1
+display_name: "Tatloch the Lady of Grace EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-tatloch-the-lady-of-grace
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 30
+hp: 4016377  # ~10.4x base
+speed: 344
+p_atk: 1384
+p_def: 229
+e_atk: 1481
+e_def: 246
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - polearm
+    - tome
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~10x HP.
+  
+  Key changes from base:
+  - Higher HP (4,016,377)
+  - Higher shield count (30)
+  - Higher speed (344)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+  
+  Fight notes:
+  - Continuous ~9696 HP regen when unbroken, probably higher for A3 characters
+  - Continuous 10% HP and 3% SP sap on front row
+  - Otherwise doesn't seem all that bad once you solve the initial phys dmg reduction problem
+  - Ironically EX H'aanit doesn't work as a tank, because she's too likely to dodge the hits that would un charm her. Sucks, because she compresses a lot of useful things for this fight
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

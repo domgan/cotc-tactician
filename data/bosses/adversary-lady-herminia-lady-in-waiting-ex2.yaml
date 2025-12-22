@@ -1,0 +1,121 @@
+# Adversary Log Boss: Lady Herminia & Lady In Waiting EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-lady-herminia-lady-in-waiting-ex2
+display_name: "Lady Herminia EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-lady-herminia-lady-in-waiting
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 38
+hp: 3145600  # ~731.5x base
+speed: 425
+p_atk: 2891
+p_def: 106
+e_atk: 3037
+e_def: 103
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Lady Herminia"
+    is_main_target: true
+    shield_count: 38
+    hp: 3145600
+    speed: 425
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - dagger
+        - axe
+        - tome
+
+  - name: "Lady-in-Waiting"
+    shield_count: 19
+    hp: 1240000
+    speed: 379
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - axe
+        - bow
+        - staff
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~732x HP.
+  
+  Key changes from base:
+  - Much higher HP (3,145,600)
+  - Higher shield count (38)
+  - Much higher speed (425)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+  
+  Fight notes:
+  - A lot of RNG, but the ad should be 1 breakable with even a mediocre Axe roster if you have Bargello and Sonia. Hayes + Gertrude + Bargello + Sonia can do it.
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

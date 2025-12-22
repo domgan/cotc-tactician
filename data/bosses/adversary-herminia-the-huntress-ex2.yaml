@@ -1,0 +1,92 @@
+# Adversary Log Boss: Herminia the Huntress EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX2 variant with increased stats and difficulty.
+
+id: adversary-herminia-the-huntress-ex2
+display_name: "Herminia the Huntress EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-herminia-the-huntress
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 31
+hp: 5713000  # ~394.0x base
+speed: 501
+p_atk: 3982
+p_def: 138
+e_atk: 4310
+e_def: 134
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~394x HP.
+  
+  Key changes from base:
+  - Much higher HP (5,713,000)
+  - Higher shield count (31)
+  - Much higher speed (501)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank (H'aanit EX, Canary)
+  
+  Recommended HP per character: 3500+
+  
+  Fight notes:
+  - A4 serenoa hitting about 6000 HP with 15% active edef up, 30% active edef up, and 20% e atk down on herminia can probably tank the first 4x light and then from there more damage mitigation = always takes it
+  - very annoying fight if you can't 2 break, but otherwise easy
+  - SP sap per turn is 25% of max SP
+  - i'm sure someone could figure out exactly how many turns you have in between each break, but with sonia it's not that bad anyway
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

@@ -1,0 +1,81 @@
+# Adversary Log Boss: Rosso EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-rosso-ex1
+display_name: "Rosso EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-rosso
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 29
+hp: 1924854  # ~338.6x base
+speed: 289
+p_atk: 2941
+p_def: 379
+e_atk: 1741
+e_def: 344
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - staff
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~339x HP.
+  
+  Key changes from base:
+  - Higher HP (1,924,854)
+  - Higher shield count (29)
+  - Higher speed (289)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+  
+  Fight notes:
+  - Need to break on either turn 1 or 3 to remove All Phys resist for the next break
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - staff
+  - fan
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

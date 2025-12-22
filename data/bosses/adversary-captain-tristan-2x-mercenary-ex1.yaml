@@ -1,0 +1,114 @@
+# Adversary Log Boss: Captain Tristan & 2x Mercenary EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-captain-tristan-2x-mercenary-ex1
+display_name: "Captain Tristan EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-captain-tristan-2x-mercenary
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 22
+hp: 1603831  # ~572.8x base
+speed: 388
+p_atk: 3060
+p_def: 106
+e_atk: 3060
+e_def: 72
+
+weaknesses:
+  elements:
+    - fire
+    - dark
+  weapons:
+    - polearm
+    - bow
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Captain Tristan"
+    is_main_target: true
+    shield_count: 22
+    hp: 1603831
+    speed: 388
+    weaknesses:
+      elements:
+        - fire
+        - dark
+      weapons:
+        - polearm
+        - bow
+        - tome
+
+  - name: "Mercenary"
+    shield_count: 9
+    hp: 423233
+    speed: 243
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+        - light
+      weapons:
+        - sword
+        - staff
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~573x HP.
+  
+  Key changes from base:
+  - Higher HP (1,603,831)
+  - Higher shield count (22)
+  - Higher speed (388)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+  
+  Fight notes:
+  - Entire fight can be completely dodged with any phys sidestep, but will need to quickly take out at least 1 ad for that to be sustainable
+  - With careful play, Aedelgard + Sidestep Pet + Hammy lets you hold out long enough to nuke down the ads, from which point you can't lose
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - tome
+  - fire
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

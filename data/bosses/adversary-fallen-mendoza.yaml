@@ -1,0 +1,69 @@
+# Adversary Log Boss: Fallen Mendoza
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+
+id: adversary-fallen-mendoza
+display_name: "Fallen Mendoza"
+content_type: adversary_log
+difficulty: extreme
+level: 90
+shield_count: 26
+hp: 932535
+speed: 397
+p_def: 662
+e_def: 545
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - axe
+    - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 26
+    hp: 932535
+    speed: 397
+    level: 90
+  rank2:
+    shield_count: 26
+    hp: 1212295
+    speed: 416
+    level: 90
+  rank3:
+    shield_count: 26
+    hp: 1492056
+    speed: 436
+    level: 90
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

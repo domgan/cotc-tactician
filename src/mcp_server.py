@@ -609,10 +609,19 @@ def plan_team_for_boss(
     
     # Build the analysis
     weaknesses = []
-    if boss.weaknesses.elements:
-        weaknesses.extend([e.value for e in boss.weaknesses.elements])
-    if boss.weaknesses.weapons:
-        weaknesses.extend([w.value for w in boss.weaknesses.weapons])
+    if boss.weaknesses:
+        if boss.weaknesses.elements:
+            weaknesses.extend([e.value for e in boss.weaknesses.elements])
+        if boss.weaknesses.weapons:
+            weaknesses.extend([w.value for w in boss.weaknesses.weapons])
+    elif boss.enemies:
+        # For multi-enemy encounters, get weaknesses from main target
+        main_enemy = next((e for e in boss.enemies if e.is_main_target), boss.enemies[0] if boss.enemies else None)
+        if main_enemy and main_enemy.weaknesses:
+            if main_enemy.weaknesses.elements:
+                weaknesses.extend([e.value for e in main_enemy.weaknesses.elements])
+            if main_enemy.weaknesses.weapons:
+                weaknesses.extend([w.value for w in main_enemy.weaknesses.weapons])
     
     result = {
         "boss": {

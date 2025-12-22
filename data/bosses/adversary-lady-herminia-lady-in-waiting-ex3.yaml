@@ -1,0 +1,122 @@
+# Adversary Log Boss: Lady Herminia & Lady In Waiting EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-lady-herminia-lady-in-waiting-ex3
+display_name: "Lady Herminia EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-lady-herminia-lady-in-waiting
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 40
+hp: 3774720  # ~877.8x base
+speed: 464
+p_atk: 3154
+p_def: 116
+e_atk: 3433
+e_def: 116
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Lady Herminia"
+    is_main_target: true
+    shield_count: 40
+    hp: 3774720
+    speed: 464
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - dagger
+        - axe
+        - tome
+
+  - name: "Lady-in-Waiting"
+    shield_count: 21
+    hp: 1488000
+    speed: 414
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - axe
+        - bow
+        - staff
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (3,774,720)
+  - Maximum shield count (40)
+  - Very high speed (464)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+  
+  Fight notes:
+  - A lot of RNG, but the ad should be 1 breakable with even a mediocre Axe roster if you have Bargello and Sonia. Hayes + Gertrude + Bargello + Sonia can do it.
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

@@ -1,0 +1,87 @@
+# Adversary Log Boss: Francesca the Actress EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-francesca-the-actress-ex3
+display_name: "Francesca the Actress EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-francesca-the-actress
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 23
+hp: 3831636
+speed: 584
+p_atk: 3159
+e_atk: 3422
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - bow
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (3,831,636)
+  - Maximum shield count (23)
+  - Very high speed (584)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or H'aanit EX dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  DODGE STRATEGY (Essential):
+  - EX Fiore with sidestep + Cover
+  - Ophilia with magic sidestep pet
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Fiore EX Cover or dodge tank essential"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fan
+  - fire
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

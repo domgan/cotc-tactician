@@ -1,0 +1,118 @@
+# Adversary Log Boss: Delvecchio  & Minions
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-delvecchio-minions
+display_name: "Delvecchio"
+content_type: adversary_log
+difficulty: very_hard
+level: 63
+shield_count: 7
+hp: 71792
+speed: 202
+p_def: 78
+e_def: 69
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 7
+    hp: 71792
+    speed: 202
+    level: 63
+  rank2:
+    shield_count: 9
+    hp: 86150
+    speed: 212
+    level: 63
+  rank3:
+    shield_count: 11
+    hp: 100508
+    speed: 222
+    level: 63
+enemies:
+  - name: "Delvecchio"
+    is_main_target: true
+    shield_count: 7
+    weaknesses:
+      elements:
+        - wind
+        - light
+      weapons:
+        - polearm
+        - bow
+        - staff
+
+  - name: "Delvecchio's Lackey (Bow)"
+    shield_count: 7
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - dagger
+        - tome
+
+  - name: "Delvecchio's Lackey (Axe)"
+    shield_count: 6
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - fan
+
+  - name: "Delvecchio's Lackey (Dagger)"
+    shield_count: 7
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - sword
+        - polearm
+        - axe
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

@@ -94,6 +94,44 @@ fields:
     description: "Boss level (100, 120, etc.)"
 
   # ===========================================================================
+  # RANK VARIANTS (Adversary Log progression)
+  # ===========================================================================
+  rank_variants:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Stats for each rank tier (Rank 1-3). EX variants go in SEPARATE files."
+    notes: |
+      For Adversary Log bosses, the base file contains Rank 1-3 data.
+      EX variants (ex1, ex2, ex3) must be in their own files for RAG indexing.
+      DO NOT put EX stats in comments - they won't be searchable!
+    schema:
+      rank1:
+        type: object
+        description: "Rank 1 stats (lowest difficulty)"
+        schema:
+          shield_count: {type: integer}
+          hp: {type: integer}
+          speed: {type: integer}
+          level: {type: integer}
+      rank2:
+        type: object
+        description: "Rank 2 stats (medium difficulty)"
+        schema:
+          shield_count: {type: integer}
+          hp: {type: integer}
+          speed: {type: integer}
+          level: {type: integer}
+      rank3:
+        type: object
+        description: "Rank 3 stats (high difficulty, before EX)"
+        schema:
+          shield_count: {type: integer}
+          hp: {type: integer}
+          speed: {type: integer}
+          level: {type: integer}
+
+  # ===========================================================================
   # STATS (for NPCs with known values)
   # ===========================================================================
   hp:

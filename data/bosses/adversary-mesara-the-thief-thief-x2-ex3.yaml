@@ -1,0 +1,119 @@
+# Adversary Log Boss: Mesara the Thief & Thief x2 EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-mesara-the-thief-thief-x2-ex3
+display_name: "Mesara the Thief EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-mesara-the-thief-thief-x2
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 23
+hp: 3218814  # ~247.6x base
+speed: 439
+p_atk: 2031
+p_def: 360
+e_atk: 2200
+e_def: 326
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - dagger
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Mesara the Thief"
+    is_main_target: true
+    shield_count: 23
+    hp: 3218814
+    speed: 439
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - polearm
+        - dagger
+        - tome
+
+  - name: "Thief"
+    shield_count: 16
+    hp: 776466
+    speed: 446
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - axe
+        - bow
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (3,218,814)
+  - Maximum shield count (23)
+  - Very high speed (439)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - dagger
+  - tome
+  - fire
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

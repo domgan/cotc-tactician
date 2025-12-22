@@ -1,0 +1,68 @@
+# Adversary Log Boss: Sonia
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 1+
+
+id: adversary-sonia
+display_name: "Sonia"
+content_type: adversary_log
+difficulty: normal
+level: 18
+shield_count: 10
+hp: 7125
+speed: 125
+p_def: 24
+e_def: 18
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - sword
+    - polearm
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 10
+    hp: 7125
+    speed: 125
+    level: 18
+  rank2:
+    shield_count: 12
+    hp: 8550
+    speed: 131
+    level: 18
+  rank3:
+    shield_count: 14
+    hp: 9975
+    speed: 137
+    level: 18
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

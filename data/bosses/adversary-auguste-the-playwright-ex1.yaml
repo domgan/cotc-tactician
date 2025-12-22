@@ -1,0 +1,78 @@
+# Adversary Log Boss: Auguste the Playwright EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-auguste-the-playwright-ex1
+display_name: "Auguste the Playwright EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-auguste-the-playwright
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 24
+hp: 2067630  # ~275.7x base
+speed: 376
+p_atk: 1850
+p_def: 221
+e_atk: 1905
+e_def: 185
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - sword
+    - polearm
+    - bow
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~276x HP.
+  
+  Key changes from base:
+  - Higher HP (2,067,630)
+  - Higher shield count (24)
+  - Higher speed (376)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - sword
+  - polearm
+  - bow
+  - ice
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

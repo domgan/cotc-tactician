@@ -1,0 +1,96 @@
+# Adversary Log Boss: Gimel the Brigand Leader & Thief x2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 25+
+
+id: adversary-gimel-the-brigand-leader-thief-x2
+display_name: "Gimel the Brigand Leader"
+content_type: adversary_log
+difficulty: hard
+level: 40
+shield_count: 7
+hp: 20000
+speed: 163
+p_def: 54
+e_def: 47
+
+weaknesses:
+  elements:
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 7
+    hp: 20000
+    speed: 163
+    level: 40
+  rank2:
+    shield_count: 9
+    hp: 24000
+    speed: 171
+    level: 40
+  rank3:
+    shield_count: 11
+    hp: 28000
+    speed: 179
+    level: 40
+enemies:
+  - name: "Gimel the Brigand Leader"
+    is_main_target: true
+    shield_count: 7
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - dagger
+        - bow
+        - staff
+
+  - name: "Thief"
+    shield_count: 5
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - axe
+        - tome
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

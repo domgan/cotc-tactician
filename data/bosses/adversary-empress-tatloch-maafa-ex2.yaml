@@ -1,0 +1,130 @@
+# Adversary Log Boss: Empress Tatloch & Maa'fa EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-empress-tatloch-maafa-ex2
+display_name: "Empress Tatloch & Maa'fa EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-empress-tatloch-maafa
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Empress Tatloch"
+    is_main_target: true
+    shield_count: 30
+    hp: 3254667
+    speed: 330
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - polearm
+        - axe
+        - staff
+    notes: |
+      Drains 99,999 HP from Maa'fa per turn until 25% HP.
+      Uses aura attack (3x wind AOE) every 4 turns after Turn 4.
+
+  - name: "Maa'fa"
+    is_main_target: false
+    shield_count: 26
+    hp: 3992977
+    speed: 386
+    weaknesses:
+      elements:
+        - fire
+        - ice
+      weapons:
+        - axe
+        - bow
+        - staff
+    notes: |
+      Massive HP pool (~4M) - focus first!
+      Gains HP regen (~40k/turn) at ~50% HP.
+      Enters 2 actions/turn at 25% HP.
+
+# Top-level stats (main target)
+level: 100
+shield_count: 30
+hp: 3254667
+speed: 330
+
+weaknesses:
+  elements:
+    - lightning
+  weapons:
+    - polearm
+    - axe
+    - staff
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~15x HP from base.
+  
+  DUAL BOSS FIGHT:
+  - Tatloch: 3,254,667 HP, 30 shields
+  - Maa'fa: 3,992,977 HP, 26 shields (~4M HP!)
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank for survival
+  
+  PHASE 1: Both bosses alive
+  - Tatloch drains 99,999 HP from Maa'fa each turn
+  - Focus on Maa'fa first - has ~4M HP!
+  - Maa'fa gains regen at ~50% HP, 2 actions at 25% HP
+  
+  BOSS WEAKNESSES:
+  - Tatloch: Polearm, Axe, Staff, Lightning
+  - Maa'fa: Axe, Bow, Staff, Fire, Ice
+  - Shared: Axe, Staff (hit both!)
+  
+  Rosters without Leon and/or A2 unlikely to skip Maa'fa's 2-action phase.
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Long fight with sustained damage"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: breaker
+    priority: required
+    reason: "Need to break both bosses efficiently"
+  - role: dps
+    priority: required
+    reason: "~4M HP on Maa'fa requires strong damage"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Dodge tank for survival"
+
+recommended_weakness_coverage:
+  - axe
+  - staff
+  - polearm
+  - bow
+  - lightning
+  - fire
+  - ice
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

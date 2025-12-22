@@ -1,0 +1,86 @@
+# Adversary Log Boss: Francesca the Actress EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-francesca-the-actress-ex2
+display_name: "Francesca the Actress EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-francesca-the-actress
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# EX2 STATS
+# ===========================================================================
+level: 100
+shield_count: 21
+hp: 3193030
+speed: 535
+p_atk: 2896
+e_atk: 3027
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - bow
+    - fan
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~424x HP from base.
+  
+  Key changes from base:
+  - Much higher HP (3,193,030)
+  - Higher shield count (21)
+  - Extreme speed (535)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Dodge tank essential (Fiore EX or H'aanit EX)
+  
+  DODGE STRATEGY:
+  - EX Fiore with sidestep
+  - Ophilia with magic sidestep pet
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Dodge tank essential at this level"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fan
+  - fire
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

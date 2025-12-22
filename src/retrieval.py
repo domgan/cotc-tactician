@@ -203,12 +203,12 @@ class RetrievalService:
         query_parts = []
         
         # Add weakness elements
-        if boss.weaknesses.elements:
+        if boss.weaknesses and boss.weaknesses.elements:
             elements = [e.value for e in boss.weaknesses.elements]
             query_parts.append(f"Element: {', '.join(elements)}")
         
         # Add weakness weapons
-        if boss.weaknesses.weapons:
+        if boss.weaknesses and boss.weaknesses.weapons:
             weapons = [w.value for w in boss.weaknesses.weapons]
             query_parts.append(f"Weapons: {', '.join(weapons)}")
         

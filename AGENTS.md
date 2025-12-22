@@ -109,6 +109,68 @@ python scripts/import_skills_from_markdown.py --character "Richard"
 **Note**: The markdown files must be in `resources/Character List/` as Notion exports.
 Roles still need manual assignment based on skill analysis.
 
+### 2d. Adversary Log Import Script (`scripts/import_adversary_log_from_csv.py`)
+
+Imports boss data from community spreadsheet CSV exports:
+
+```bash
+# Dry run to see what would be created
+python scripts/import_adversary_log_from_csv.py --dry-run
+
+# Import all bosses
+python scripts/import_adversary_log_from_csv.py
+
+# Overwrite existing files
+python scripts/import_adversary_log_from_csv.py --overwrite
+```
+
+**Source files** (in `resources/Adversary Log/`):
+- `EN OT_ COTC _ Adversary Log Enemy Index - Lv. 1~.csv`
+- `EN OT_ COTC _ Adversary Log Enemy Index - Lv. 25~.csv`
+- `EN OT_ COTC _ Adversary Log Enemy Index - Lv. 50~.csv`
+- `EN OT_ COTC _ Adversary Log Enemy Index - Lv. 75~.csv`
+- Corresponding `Fight Notes.csv` files with strategy tips
+
+**CRITICAL: EX Variant File Structure**
+
+Each boss with EX variants requires **SEPARATE YAML FILES** for RAG indexing:
+```
+adversary-francesca-the-actress.yaml      # Base (Rank 1-3)
+adversary-francesca-the-actress-ex1.yaml  # EX1 variant
+adversary-francesca-the-actress-ex2.yaml  # EX2 variant
+adversary-francesca-the-actress-ex3.yaml  # EX3 variant
+```
+
+**DO NOT put EX stats in comments** - they won't be indexed by RAG!
+
+Each EX file must have:
+- `base_boss_id`: References the base boss file
+- `ex_rank`: `ex1`, `ex2`, or `ex3`
+- `shield_count`: The actual shield count for that EX rank
+- `hp`: The actual HP for that EX rank (from CSV)
+- `speed`: The actual speed for that EX rank (from CSV)
+- `actions_per_turn`: Usually 2 for EX1/EX2, 3 for EX3
+- `general_strategy`: EX-specific strategy notes
+
+See `data/bosses/arena-gertrude-ex1.yaml` for the canonical example.
+
+### 2e. Rank Comment Conversion Script (`scripts/convert_rank_comments_to_yaml.py`)
+
+Converts rank/EX comments in boss files to structured `rank_variants` YAML:
+
+```bash
+# Dry run
+python scripts/convert_rank_comments_to_yaml.py --dry-run
+
+# Convert all files
+python scripts/convert_rank_comments_to_yaml.py
+```
+
+This script:
+- Parses rank comments like `# Rank 1: Shield 10, HP 7,532, Speed 120`
+- Converts them to a proper `rank_variants` YAML structure
+- Removes old EX comments (EX data should be in separate files)
+
 ### 3. Vector Store (`src/vector_store.py`)
 
 ChromaDB wrapper with three collections:
@@ -428,20 +490,63 @@ The `data/reference/` directory contains verified game mechanics knowledge:
 
 ### EX Fight (Adversary Log) Schema
 
-EX fights are enhanced rematches of bosses with increased difficulty:
+EX fights are enhanced rematches of bosses with increased difficulty.
 
-**Boss EX Fields:**
-- `base_boss_id`: Links EX variant to base boss (e.g., `arena-gertrude`)
-- `ex_rank`: `base`, `ex1`, `ex2`, or `ex3`
-- `actions_per_turn`: 1, 2, or 3 (EX bosses often have multiple actions)
-- `provoke_immunity`: Most arena/EX bosses are provoke immune
-- `auras`: List of aura/stance mechanics with counter effects
-- `hp_thresholds`: Structured HP-based phase triggers
+**CRITICAL: Each EX variant requires its OWN YAML file for RAG indexing!**
 
-**EX Rank Scaling:**
-- EX1: ~2x HP, moderate speed increase
-- EX2: ~3x HP, high speed, 2-3 actions/turn
-- EX3: ~5x HP, extreme speed, 3 actions/turn, 50-80M HP
+```
+data/bosses/
+  adversary-sazantos.yaml      # Base (Rank 1-3)
+  adversary-sazantos-ex1.yaml  # EX1 variant  
+  adversary-sazantos-ex2.yaml  # EX2 variant
+  adversary-sazantos-ex3.yaml  # EX3 variant
+```
+
+**DO NOT put EX stats in comments** - they won't be indexed by RAG!
+
+**Boss EX File Fields:**
+- `id`: Must include EX suffix (e.g., `adversary-sazantos-ex3`)
+- `display_name`: Include EX rank (e.g., `"Sazantos EX3"`)
+- `base_boss_id`: Links EX variant to base boss (e.g., `adversary-sazantos`)
+- `ex_rank`: `ex1`, `ex2`, or `ex3`
+- `shield_count`: Actual shield count for this EX rank (from CSV)
+- `hp`: Actual HP for this EX rank (from CSV)
+- `speed`: Actual speed for this EX rank (from CSV)
+- `actions_per_turn`: 2 for EX1/EX2, 3 for EX3
+- `provoke_immunity`: `true` for most EX bosses
+- `general_strategy`: EX-specific strategy notes
+
+**EX Rank Scaling (typical):**
+- EX1: ~2x HP, +50 speed, 2 actions/turn
+- EX2: ~3x HP, +100 speed, 2-3 actions/turn  
+- EX3: ~5x HP, +150 speed, 3 actions/turn, extreme difficulty
+
+**Example EX3 file structure:**
+```yaml
+id: adversary-sazantos-ex3
+display_name: "Sazantos EX3"
+content_type: adversary_log
+difficulty: extreme
+
+# EX VARIANT INFO - Critical for get_ex_variants tool!
+base_boss_id: adversary-sazantos
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# Actual stats (indexed by RAG)
+shield_count: 22
+hp: 2242594
+speed: 312
+
+# EX3-specific strategy
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  - Speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  Recommended HP per character: 4000+
+```
 
 **Aura Mechanics:**
 ```yaml

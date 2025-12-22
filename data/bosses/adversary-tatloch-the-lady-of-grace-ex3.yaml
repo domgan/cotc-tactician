@@ -1,0 +1,91 @@
+# Adversary Log Boss: Tatloch the Lady of Grace EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX3 variant with increased stats and difficulty.
+
+id: adversary-tatloch-the-lady-of-grace-ex3
+display_name: "Tatloch the Lady of Grace EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-tatloch-the-lady-of-grace
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX3 STATS
+# ===========================================================================
+level: 100
+shield_count: 34
+hp: 6024565  # ~15.7x base
+speed: 412
+p_atk: 1660
+p_def: 274
+e_atk: 1925
+e_def: 319
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - polearm
+    - tome
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (6,024,565)
+  - Maximum shield count (34)
+  - Very high speed (412)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - May take 50-100+ turns without optimal setup
+  
+  Recommended HP per character: 4000+
+  
+  Fight notes:
+  - Continuous ~9696 HP regen when unbroken, probably higher for A3 characters
+  - Continuous 10% HP and 3% SP sap on front row
+  - Otherwise doesn't seem all that bad once you solve the initial phys dmg reduction problem
+  - Ironically EX H'aanit doesn't work as a tank, because she's too likely to dodge the hits that would un charm her. Sucks, because she compresses a lot of useful things for this fight
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - polearm
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

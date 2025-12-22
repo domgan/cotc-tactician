@@ -1,0 +1,121 @@
+# Adversary Log Boss: Adventurer & Fox EX3
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-adventurer-fox-ex3
+display_name: "Adventurer & Fox EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-adventurer-fox
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX3)
+# ===========================================================================
+enemies:
+  - name: "Adventurer"
+    is_main_target: true
+    shield_count: 26
+    hp: 4530117
+    speed: 370
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - sword
+        - dagger
+    notes: |
+      Main target. Break to deal damage.
+
+  - name: "Fox"
+    is_main_target: false
+    shield_count: 0
+    hp: 82695
+    speed: 517
+    notes: |
+      Has 0 shields - CANNOT BE BROKEN.
+      Uses dispel but does NOT remove "Damage Up" buffs from Richard/Bargello.
+      Does NOT remove Regen effects.
+      Extremely fast (517 speed) - acts first!
+
+# Top-level stats (main target)
+level: 100
+shield_count: 26
+hp: 4530117
+speed: 370
+
+weaknesses:
+  elements:
+    - lightning
+    - light
+  weapons:
+    - sword
+    - dagger
+
+# ===========================================================================
+# STRATEGY (EX3 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX3 variant - MAXIMUM DIFFICULTY.
+  
+  Key changes from base:
+  - Extreme HP (4,530,117 Adventurer, 82,695 Fox)
+  - Very high speed (370 Adventurer, 517 Fox!)
+  - 3 actions per turn from early fight
+  
+  CRITICAL:
+  - Either speedkill (Solon + Primrose EX) or full turtle
+  - Stack all buff/debuff categories to 30%
+  - Fiore EX Cover or dodge tank essential
+  - Fox is EXTREMELY fast (517) and will act first!
+  
+  KEY INSIGHT: Fox's Dispel does NOT remove:
+  - Richard's "Damage Up" buff
+  - Bargello's "Damage Up" buff
+  - Regen effects
+  
+  BEST STRATEGY:
+  One-break kill with full Solon + Primrose EX setup.
+  Use Richard/Bargello for buffs that survive dispel.
+  
+  Recommended HP per character: 4000+
+
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need efficient shield shaving"
+  - role: dps
+    priority: required
+    reason: "Extreme damage for one-break kill"
+  - role: buffer
+    priority: required
+    reason: "Richard/Bargello damage buffs aren't dispelled!"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank for survival"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - lightning
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

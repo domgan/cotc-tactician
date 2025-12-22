@@ -1,0 +1,74 @@
+# Adversary Log Boss: Black-Clad Shadow
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-black-clad-shadow
+display_name: "Black-Clad Shadow"
+content_type: adversary_log
+difficulty: very_hard
+level: 50
+shield_count: 21
+hp: 45718
+speed: 175
+p_def: 60
+e_def: 52
+
+weaknesses:
+  elements:
+    - wind
+    - light
+  weapons:
+    - polearm
+    - axe
+    - staff
+
+# ===========================================================================
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# All physical attacks, aura is AOE 2x physical hit, inflict Blind (possibly silence too, but I had Rinyuu active so I don't know)
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 21
+    hp: 45718
+    speed: 175
+    level: 50
+  rank2:
+    shield_count: 23
+    hp: 54861
+    speed: 183
+    level: 50
+  rank3:
+    shield_count: 25
+    hp: 64005
+    speed: 192
+    level: 50
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

@@ -1,0 +1,113 @@
+# Adversary Log Boss: Lady Herminia & Lady In Waiting EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-lady-herminia-lady-in-waiting-ex1
+display_name: "Lady Herminia EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-lady-herminia-lady-in-waiting
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 36
+hp: 2516480  # ~585.2x base
+speed: 387
+p_atk: 2629
+p_def: 97
+e_atk: 2641
+e_def: 90
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Lady Herminia"
+    is_main_target: true
+    shield_count: 36
+    hp: 2516480
+    speed: 387
+    weaknesses:
+      elements:
+        - lightning
+        - dark
+      weapons:
+        - dagger
+        - axe
+        - tome
+
+  - name: "Lady-in-Waiting"
+    shield_count: 17
+    hp: 992000
+    speed: 345
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - axe
+        - bow
+        - staff
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~585x HP.
+  
+  Key changes from base:
+  - Higher HP (2,516,480)
+  - Higher shield count (36)
+  - Higher speed (387)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+  
+  Fight notes:
+  - A lot of RNG, but the ad should be 1 breakable with even a mediocre Axe roster if you have Bargello and Sonia. Hayes + Gertrude + Bargello + Sonia can do it.
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

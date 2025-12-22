@@ -1,0 +1,116 @@
+# Adversary Log Boss: Adventurer & Fox
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+# Unique fight where Fox provides support and dispels
+
+id: adversary-adventurer-fox
+display_name: "Adventurer & Fox"
+content_type: adversary_log
+difficulty: extreme
+level: 100
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+enemies:
+  - name: "Adventurer"
+    is_main_target: true
+    shield_count: 21
+    hp: 530000
+    speed: 289
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - sword
+        - dagger
+    notes: |
+      Main target. Break to deal damage.
+
+  - name: "Fox"
+    is_main_target: false
+    shield_count: 0  # Cannot be broken
+    hp: 9999
+    speed: 333
+    notes: |
+      Has 0 shields - CANNOT BE BROKEN.
+      Uses dispel but does NOT remove "Damage Up" buffs from Richard/Bargello.
+      Does NOT remove Regen effects.
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 21
+    hp: 530000
+    speed: 289
+    level: 100
+  rank2:
+    shield_count: 21
+    hp: 689000
+    speed: 303
+    level: 100
+  rank3:
+    shield_count: 21
+    hp: 848000
+    speed: 317
+    level: 100
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# Fox's Dispel does NOT remove "Damage Up" buffs from Richard and Bargello or Regen. Very helpful!
+#
+# Most efficient strategies (in order):
+# 1: One-break kill
+# 2: If you have enough shield shaving, continuously break the Adventurer after the first one.
+#    Managing SP is a bit of an issue, but with Sonia, not much of one.
+# 3: Otherwise deal with the RNG of the fox
+#
+# Consider row swapping on key turns to deal with the RNG of the fox
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need efficient shield shaving for continuous breaks"
+
+  - role: dps
+    priority: required
+    reason: "Strong damage for one-break or quick kills"
+
+  - role: buffer
+    priority: recommended
+    reason: "Richard/Bargello damage buffs aren't dispelled!"
+
+general_strategy: |
+  Unique fight with Fox providing RNG-based support to Adventurer.
+  
+  KEY INSIGHT: Fox's Dispel does NOT remove:
+  - Richard's "Damage Up" buff
+  - Bargello's "Damage Up" buff
+  - Regen effects
+  
+  STRATEGIES (best to worst):
+  1. One-break kill - burst down Adventurer in first break
+  2. Continuous breaking - keep Adventurer broken, use Sonia for SP
+  3. Deal with Fox RNG - row swap on key turns
+  
+  WEAKNESSES:
+  - Adventurer: Sword, Dagger, Lightning, Light
+  - Fox: Cannot be broken (0 shields)
+  
+  Fox has very low HP but high speed. Can be ignored or killed for safety.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

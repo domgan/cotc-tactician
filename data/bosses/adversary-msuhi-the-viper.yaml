@@ -1,0 +1,120 @@
+# Adversary Log Boss: M'suhi the Viper & 2x Thief
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 25+
+# Multi-enemy fight with weakness swapping mechanic on boss
+
+id: adversary-msuhi-the-viper
+display_name: "M'suhi the Viper"
+content_type: adversary_log
+difficulty: hard
+level: 35
+shield_count: 12
+hp: 20000
+speed: 153
+p_def: 50
+e_def: 42
+
+# WEAKNESS CYCLING: Swaps between two sets
+# Set 1: Bow, Staff, Fan, Fire, Light
+# Set 2: Sword, Axe, Tome, Ice, Lightning
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - bow
+    - staff
+    - fan
+
+weakness_change_trigger: "Swaps between two weakness sets"
+weakness_sets:
+  - set_number: 1
+    elements: [fire, light]
+    weapons: [bow, staff, fan]
+  - set_number: 2
+    elements: [ice, lightning]
+    weapons: [sword, axe, tome]
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+enemies:
+  - name: "M'suhi the Viper"
+    is_main_target: true
+    shield_count: 12
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - bow
+        - staff
+        - fan
+    notes: |
+      Weakness cycling boss - swaps between two sets.
+      Set 1: Bow, Staff, Fan, Fire, Light
+      Set 2: Sword, Axe, Tome, Ice, Lightning
+
+  - name: "Thief"
+    shield_count: 5
+    weaknesses:
+      elements:
+        - fire
+        - light
+      weapons:
+        - axe
+        - bow
+        - fan
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 12
+    hp: 20000
+    speed: 153
+    level: 35
+  rank2:
+    shield_count: 14
+    hp: 24000
+    speed: 160
+    level: 35
+  rank3:
+    shield_count: 16
+    hp: 28000
+    speed: 168
+    level: 35
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need to hit both weakness sets reliably"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  Multi-enemy fight with weakness cycling on the main boss.
+  
+  M'suhi swaps between two weakness sets:
+  - Set 1: Bow, Staff, Fan, Fire, Light
+  - Set 2: Sword, Axe, Tome, Ice, Lightning
+  
+  Build a team that can hit BOTH sets reliably!
+  
+  Thieves are weak to: Axe, Bow, Fan, Fire, Light
+  (Fire and Light hit both Thieves and M'suhi Set 1)
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

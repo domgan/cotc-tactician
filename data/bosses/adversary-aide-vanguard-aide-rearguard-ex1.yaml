@@ -1,0 +1,114 @@
+# Adversary Log Boss: Aide (Vanguard) & Aide (Rearguard) EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-aide-vanguard-aide-rearguard-ex1
+display_name: "Aide (Vanguard) EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-aide-vanguard-aide-rearguard
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 23
+hp: 1740340  # ~561.4x base
+speed: 391
+p_atk: 3060
+p_def: 389
+e_atk: 3060
+e_def: 315
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+  weapons:
+    - sword
+    - bow
+    - staff
+    - tome
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Aide (Vanguard)"
+    is_main_target: true
+    shield_count: 23
+    hp: 1740340
+    speed: 391
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - staff
+        - tome
+
+  - name: "Aide (Rearguard)"
+    shield_count: 23
+    hp: 1403500
+    speed: 345
+    weaknesses:
+      elements:
+        - light
+        - dark
+      weapons:
+        - polearm
+        - dagger
+        - axe
+        - fan
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~561x HP.
+  
+  Key changes from base:
+  - Higher HP (1,740,340)
+  - Higher shield count (23)
+  - Higher speed (391)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - sword
+  - bow
+  - staff
+  - tome
+  - ice
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

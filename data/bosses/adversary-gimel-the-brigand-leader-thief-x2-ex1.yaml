@@ -1,0 +1,110 @@
+# Adversary Log Boss: Gimel the Brigand Leader & Thief x2 EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# EX1 variant with increased stats and difficulty.
+
+id: adversary-gimel-the-brigand-leader-thief-x2-ex1
+display_name: "Gimel the Brigand Leader EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-gimel-the-brigand-leader-thief-x2
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true  # Most EX bosses are provoke immune
+
+# ===========================================================================
+# EX1 STATS
+# ===========================================================================
+level: 100
+shield_count: 21
+hp: 1920000  # ~96.0x base
+speed: 365
+p_atk: 1598
+p_def: 346
+e_atk: 1598
+e_def: 301
+
+weaknesses:
+  elements:
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - bow
+    - staff
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Gimel the Brigand Leader"
+    is_main_target: true
+    shield_count: 21
+    hp: 1920000
+    speed: 365
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - dagger
+        - bow
+        - staff
+
+  - name: "Thief"
+    shield_count: 15
+    hp: 512000
+    speed: 209
+    weaknesses:
+      elements:
+        - fire
+        - lightning
+      weapons:
+        - sword
+        - axe
+        - tome
+
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~96x HP.
+  
+  Key changes from base:
+  - Higher HP (1,920,000)
+  - Higher shield count (21)
+  - Higher speed (365)
+  - 2 actions per turn
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - staff
+  - wind
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

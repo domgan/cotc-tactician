@@ -1,0 +1,68 @@
+# Adversary Log Boss: Fallen Mahrez
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 75+
+
+id: adversary-fallen-mahrez
+display_name: "Fallen Mahrez"
+content_type: adversary_log
+difficulty: extreme
+level: 80
+shield_count: 24
+hp: 471471
+speed: 287
+p_def: 404
+e_def: 404
+
+weaknesses:
+  elements:
+    - wind
+  weapons:
+    - dagger
+    - staff
+    - fan
+
+# ===========================================================================
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 24
+    hp: 471471
+    speed: 287
+    level: 80
+  rank2:
+    shield_count: 26
+    hp: 565765
+    speed: 301
+    level: 80
+  rank3:
+    shield_count: 28
+    hp: 660059
+    speed: 315
+    level: 80
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22

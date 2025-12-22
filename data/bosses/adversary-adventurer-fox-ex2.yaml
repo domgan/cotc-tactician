@@ -1,0 +1,116 @@
+# Adversary Log Boss: Adventurer & Fox EX2
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-adventurer-fox-ex2
+display_name: "Adventurer & Fox EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-adventurer-fox
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX2)
+# ===========================================================================
+enemies:
+  - name: "Adventurer"
+    is_main_target: true
+    shield_count: 26
+    hp: 3523424
+    speed: 339
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - sword
+        - dagger
+    notes: |
+      Main target. Break to deal damage.
+
+  - name: "Fox"
+    is_main_target: false
+    shield_count: 0
+    hp: 64318
+    speed: 474
+    notes: |
+      Has 0 shields - CANNOT BE BROKEN.
+      Uses dispel but does NOT remove "Damage Up" buffs from Richard/Bargello.
+      Does NOT remove Regen effects.
+
+# Top-level stats (main target)
+level: 100
+shield_count: 26
+hp: 3523424
+speed: 339
+
+weaknesses:
+  elements:
+    - lightning
+    - light
+  weapons:
+    - sword
+    - dagger
+
+# ===========================================================================
+# STRATEGY (EX2 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX2 variant with ~6.6x HP from base.
+  
+  Key changes from base:
+  - Much higher HP (3,523,424 Adventurer, 64,318 Fox)
+  - Higher speed (339 Adventurer, 474 Fox)
+  - 2 actions per turn
+  
+  CRITICAL:
+  - Stack all 5 damage multiplier categories
+  - Speed tuning required for debuffers
+  - Consider dodge tank for survival
+  
+  KEY INSIGHT: Fox's Dispel does NOT remove:
+  - Richard's "Damage Up" buff
+  - Bargello's "Damage Up" buff
+  - Regen effects
+  
+  STRATEGIES:
+  1. One-break kill with full buff stacking
+  2. Continuous breaking with Sonia for SP
+  
+  Recommended HP per character: 3500+
+
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need efficient shield shaving for continuous breaks"
+  - role: dps
+    priority: required
+    reason: "Strong damage for one-break or quick kills"
+  - role: buffer
+    priority: recommended
+    reason: "Richard/Bargello damage buffs aren't dispelled!"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - lightning
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

@@ -1,0 +1,112 @@
+# Adversary Log Boss: Adventurer & Fox EX1
+# SOURCE: Community Spreadsheet (Wigglytuff)
+
+id: adversary-adventurer-fox-ex1
+display_name: "Adventurer & Fox EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-adventurer-fox
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (EX1)
+# ===========================================================================
+enemies:
+  - name: "Adventurer"
+    is_main_target: true
+    shield_count: 26
+    hp: 2516732
+    speed: 309
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - sword
+        - dagger
+    notes: |
+      Main target. Break to deal damage.
+
+  - name: "Fox"
+    is_main_target: false
+    shield_count: 0
+    hp: 45942
+    speed: 431
+    notes: |
+      Has 0 shields - CANNOT BE BROKEN.
+      Uses dispel but does NOT remove "Damage Up" buffs from Richard/Bargello.
+      Does NOT remove Regen effects.
+
+# Top-level stats (main target)
+level: 100
+shield_count: 26
+hp: 2516732
+speed: 309
+
+weaknesses:
+  elements:
+    - lightning
+    - light
+  weapons:
+    - sword
+    - dagger
+
+# ===========================================================================
+# STRATEGY (EX1 SPECIFIC)
+# ===========================================================================
+general_strategy: |
+  EX1 variant with ~4.7x HP from base.
+  
+  Key changes from base:
+  - Higher HP (2,516,732 Adventurer, 45,942 Fox)
+  - Higher shield count (26)
+  - Higher speed (309 Adventurer, 431 Fox)
+  - 2 actions per turn
+  
+  KEY INSIGHT: Fox's Dispel does NOT remove:
+  - Richard's "Damage Up" buff
+  - Bargello's "Damage Up" buff
+  - Regen effects
+  
+  STRATEGIES (best to worst):
+  1. One-break kill - burst down Adventurer in first break
+  2. Continuous breaking - keep Adventurer broken, use Sonia for SP
+  3. Deal with Fox RNG - row swap on key turns
+  
+  Fox has 0 shields - CANNOT BE BROKEN!
+  
+  Recommended HP per character: 3000+
+
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need efficient shield shaving for continuous breaks"
+  - role: dps
+    priority: required
+    reason: "Strong damage for one-break or quick kills"
+  - role: buffer
+    priority: recommended
+    reason: "Richard/Bargello damage buffs aren't dispelled!"
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - lightning
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-23

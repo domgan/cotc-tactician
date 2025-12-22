@@ -1,0 +1,75 @@
+# Adversary Log Boss: Airy
+# SOURCE: Community Spreadsheet (Wigglytuff)
+#
+# Level tier: 50+
+
+id: adversary-airy
+display_name: "Airy"
+content_type: adversary_log
+difficulty: very_hard
+level: 55
+shield_count: 13
+hp: 90000
+speed: 215
+p_def: 100
+e_def: 100
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - tome
+
+# ===========================================================================
+
+# ===========================================================================
+# FIGHT NOTES
+# ===========================================================================
+# Gains permanent 30k hp/turn regen at around 50% health or below
+# Probably won't be doing this until my spear DPS is good enough to 1 break from 50% (2,295,390) HP, no real point in doing this otherwise since relatively easy fight to understand
+# Action pattern and actions don't seem to change based on HP%?
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 13
+    hp: 90000
+    speed: 215
+    level: 55
+  rank2:
+    shield_count: 15
+    hp: 108000
+    speed: 225
+    level: 55
+  rank3:
+    shield_count: 17
+    hp: 126000
+    speed: 236
+    level: 55
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Community Spreadsheet (Wigglytuff)"
+last_updated: 2025-12-22
