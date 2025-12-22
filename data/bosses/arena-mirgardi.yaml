@@ -1,0 +1,245 @@
+# Arena Boss: Mirgardi (ミルガルディ)
+# SOURCE: Game8 JP
+#
+# Fan-wielding arena champion with weakness cycling mechanics
+
+id: arena-mirgardi
+display_name: "Mirgardi"
+display_name_jp: "ミルガルディ"
+content_type: arena
+difficulty: hard
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base
+actions_per_turn: 1
+provoke_immunity: true
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 22
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - axe
+    - tome
+# Note: Weaknesses change at HP thresholds
+# 100-70%: sword, axe, tome, ice
+# 70-40%: polearm, axe, ice, lightning (changes on HP threshold)
+
+# ===========================================================================
+# HP THRESHOLDS
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 70
+    event: "有為転変 (Adaptability)"
+    behavior_changes: "Weakness changes to polearm/axe/ice/lightning"
+    actions_per_turn: 1
+    new_weaknesses: [polearm, axe, ice, lightning]
+    locked_weaknesses: [sword, tome]
+  - hp_percent: 40
+    event: "有為転変 (Adaptability) - Phase 2"
+    behavior_changes: "Weakness changes again, also triggers on break recovery"
+    actions_per_turn: 1
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "龍尾扇・迅 (Dragon Tail Fan - Swift)"
+    trigger: "Battle start"
+    active_indicator: "Passive buff indicator"
+    counter_trigger: "N/A"
+    counter_effect: |
+      Each attack received adds 1 "Dragon Tail pt" (not during break).
+      Each pt increases fan physical attack and attack resistance.
+      After using fan attack ability, consumes all pts and adds 3 pts.
+    removal_condition: "Break (pts stop accumulating)"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "龍尾扇・迅 (Dragon Tail Fan - Swift)"
+    name_jp: "龍尾扇・迅"
+    effect: |
+      Battle start passive. Gains "Dragon Tail pt" when attacked.
+      Each pt increases fan attack and resistance.
+      Fan abilities consume all pts, then add 3.
+    trigger: "Battle start"
+    threat_level: medium
+
+  - name: "龍断扇 (Dragon Slash Fan)"
+    name_jp: "龍断扇"
+    effect: "3 fan physical attacks on single target"
+    threat_level: high
+
+  - name: "攻気旋扇撃 (Assault Spiral Fan)"
+    name_jp: "攻気旋扇撃"
+    effect: "Fan physical attack on front row + P.ATK up (3 turns)"
+    threat_level: medium
+
+  - name: "緩急自在 (Variable Tempo)"
+    name_jp: "緩急自在"
+    effect: "End of turn: Applies speed down to self (permanent, except on break)"
+    trigger: "Every turn end (except break turn)"
+    threat_level: low
+
+  - name: "乱れ払い (Wild Sweep)"
+    name_jp: "乱れ払い"
+    effect: "3 fan physical attacks on random targets"
+    threat_level: high
+
+  - name: "火炎旋符 (Flame Spiral Talisman)"
+    name_jp: "火炎旋符"
+    effect: "Fire attack on front row + P.DEF/E.DEF down (3 turns)"
+    threat_level: medium
+
+  - name: "擬暗斧 (Phantom Dark Axe)"
+    name_jp: "擬暗斧"
+    effect: "3 axe physical attacks on random targets + Blind (3 turns each)"
+    threat_level: high
+
+  - name: "有為転変 (Adaptability)"
+    name_jp: "有為転変"
+    effect: "Changes weaknesses based on HP threshold"
+    trigger: "HP 70%/40% or break recovery (below 40%)"
+    threat_level: medium
+
+  - name: "火炎乱符 (Flame Chaos Talisman)"
+    name_jp: "火炎乱符"
+    effect: "3 fire attacks on random targets + P.ATK/E.ATK down (3 turns each)"
+    threat_level: medium
+
+  - name: "天衣巧守 (Heavenly Garment Defense)"
+    name_jp: "天衣巧守"
+    effect: "P.ATK up + HP regen on self (3 turns)"
+    threat_level: low
+
+  - name: "龍断衝 (Dragon Slash Impact)"
+    name_jp: "龍断衝"
+    effect: "Fan physical attack on single target"
+    threat_level: medium
+
+  - name: "ミルガルディは大きく身構えた！ (Taking Stance)"
+    name_jp: "ミルガルディは大きく身構えた！"
+    effect: "Charging - will use 活龍断衝 next turn"
+    trigger: "Charge-up"
+    threat_level: high
+
+  - name: "活龍断衝 (Living Dragon Slash)"
+    name_jp: "活龍断衝"
+    effect: "Super powerful fan physical attack on single target + HP recovery"
+    trigger: "After Taking Stance"
+    threat_level: extreme
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Weakness Cycling"
+    mechanic_type: phase_transition
+    trigger: "HP 70% and 40%"
+    target: all
+    damage_type: none
+    threat_level: medium
+    counter_strategy: "Bring axe/ice attackers (shared across all phases)"
+
+  - name: "Dragon Tail Point System"
+    mechanic_type: passive
+    trigger: "Every attack received"
+    target: all
+    damage_type: none
+    threat_level: medium
+    counter_strategy: "Break quickly to prevent pt accumulation"
+
+  - name: "Speed Debuff Self"
+    mechanic_type: passive
+    trigger: "End of each turn"
+    target: all
+    damage_type: none
+    threat_level: low
+    counter_strategy: "Boss slows down over time - long fights become easier"
+
+  - name: "Living Dragon Slash"
+    mechanic_type: ultimate
+    trigger: "After charge-up stance"
+    target: single
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: "Break during charge to skip the attack"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need axe/ice multi-hitters for all weakness phases"
+  - role: healer
+    priority: required
+    reason: "Sustained damage from fan attacks"
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "P.ATK debuff reduces fan damage significantly"
+  - role: dps
+    priority: required
+    reason: "Axe/ice DPS works across all phases"
+  - role: tank
+    priority: recommended
+    reason: "Single-target attacks can be absorbed"
+
+recommended_weakness_coverage:
+  - axe   # Works in ALL phases
+  - ice   # Works in ALL phases
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Mirgardi is a fan-wielding champion with weakness cycling mechanics.
+  
+  KEY INSIGHT: Axe and Ice work in ALL weakness phases!
+  
+  WEAKNESS PHASES:
+  - 100-70%: Sword, Axe, Tome, Ice
+  - 70-40%: Polearm, Axe, Ice, Lightning
+  - Below 40%: Weakness changes on break recovery
+  
+  MECHANICS:
+  1. Dragon Tail Point System:
+     - Gains pts when attacked (not during break)
+     - Pts increase fan attack power and resistance
+     - Fan abilities consume pts, then add 3
+     
+  2. Speed Self-Debuff:
+     - Slows down every turn (permanent)
+     - Long fights = slower boss = easier to manage
+     
+  3. Living Dragon Slash:
+     - Telegraphed charge attack
+     - Break during charge to skip it
+  
+  RECOMMENDED APPROACH:
+  1. Build team around Axe/Ice (works all phases)
+  2. Stack P.ATK debuffs to reduce fan damage
+  3. Break during charge-up to skip ultimate
+  4. Boss gets slower over time - sustain is viable
+
+common_mistakes:
+  - "Using sword/tome attackers (locked after 70% HP)"
+  - "Not tracking weakness phase transitions"
+  - "Ignoring the charge-up attack"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP (https://game8.jp/octopathtraveler-sp)"
+last_updated: 2025-12-22

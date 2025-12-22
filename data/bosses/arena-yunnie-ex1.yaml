@@ -1,0 +1,62 @@
+# Arena Boss: Yunnie EX1 (ユーニィ EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-yunnie-ex1
+display_name: "Yunnie EX1"
+display_name_jp: "ユーニィ EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-yunnie
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Hunter Self-Destruct"
+    behavior_changes: "Hunter add self-destructs"
+  - hp_percent: 50
+    event: "Wave 2 Summon"
+    behavior_changes: "Summons Thief + Merchant adds"
+  - hp_percent: 25
+    event: "Wave 3 Summon"
+    behavior_changes: "Summons Swordsman + Apothecary"
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  Key mechanics:
+  - Multi-wave fight (6 possible adds)
+  - Adds self-destruct at HP thresholds
+  - "Getting Serious" buff when all adds dead
+  
+  RECOMMENDATION:
+  - Sword/axe/fan for Yunnie
+  - Lightning for Hunter
+  - 3000+ HP recommended
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "ATK debuffs for add damage"
+  - role: healer
+    priority: required
+    reason: "Long fight with many adds"
+  - role: breaker
+    priority: required
+    reason: "Multi-hit for add control"
+  - role: dps
+    priority: required
+    reason: "Sword/axe/fan damage"
+
+recommended_weakness_coverage:
+  - sword
+  - axe
+  - fan
+  - lightning
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

@@ -1,0 +1,69 @@
+# Arena Boss: Largo EX1 (ラルゴ EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-largo-ex1
+display_name: "Largo EX1"
+display_name_jp: "ラルゴ EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-largo
+ex_rank: ex1
+actions_per_turn: 1  # Gains TRIPLE at HP ≤25%
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Stage 2 Robots"
+    behavior_changes: "Summons Largo-Type II"
+  - hp_percent: 50
+    event: "Stage 3 Robots"
+    behavior_changes: "Summons Red/Blue Robot pair"
+  - hp_percent: 25
+    event: "Stage 4 + TRIPLE ACTIONS"
+    behavior_changes: "Summons Gold/Silver pair, TRIPLE ACTIONS!"
+    actions_per_turn: 3
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  COMPLEX MECHANICS:
+  - 4 stages of robot adds
+  - Robots have Cover, healing, buffs
+  - TRIPLE ACTIONS at HP ≤25%!
+  
+  KEY ROBOTS:
+  - Type I: Cover protects Largo
+  - Red/Blue: Kill triggers triple actions
+  - Gold/Silver: High damage
+  
+  RECOMMENDATION:
+  - 3000+ HP per character
+  - Ice/dagger/bow for Largo
+  - Kill robots strategically
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "ATK debuffs for triple action phase"
+  - role: healer
+    priority: required
+    reason: "Long multi-stage fight"
+  - role: breaker
+    priority: required
+    reason: "Multi-hit for robot control"
+  - role: dps
+    priority: required
+    reason: "Ice/dagger/bow damage"
+
+recommended_weakness_coverage:
+  - ice
+  - dagger
+  - bow
+  - sword
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

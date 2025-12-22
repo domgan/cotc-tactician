@@ -1,0 +1,187 @@
+# Team: Arena Largo - Limited High Power
+# SOURCE: Game8 JP Recommended Team (限定入り高火力編成)
+
+id: arena-largo-limited-high-power
+name: "Largo - Limited High Power"
+boss_id: arena-largo
+
+strategy_type: sustain
+investment_level: high
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: turtle
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: bargello
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Dagger damage for Largo"
+    key_skills_used:
+      - "Dagger attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: therion
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: "Dagger for Largo"
+    key_skills_used:
+      - "Dagger attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: tatloch
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Various weakness coverage"
+    key_skills_used:
+      - "Various attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: h-aanit-ex
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Provoke tank for Thunder Crossbow!
+      Equip Beast summon with elemental evasion.
+    key_skills_used:
+      - "Provoke"
+      - "Tank skills"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: lumis-ex
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Lightning+bow attacks hit most robots AND Largo!
+      Extremely valuable for this fight.
+    key_skills_used:
+      - "Lightning attacks"
+      - "Bow attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sonia
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Ignore-weakness + debuffs"
+    key_skills_used:
+      - "Various attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: true
+    substitutes: [primrose-ex]
+    substitute_notes: "Auto-regen + healing"
+    key_skills_used:
+      - "Healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: alaune-ex
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [viola, sarisa]
+    substitute_notes: |
+      NON-ATTACK debuffs work through Cover!
+      Anti-Attack II type skills essential.
+    key_skills_used:
+      - "Anti-Attack II (non-attack debuff)"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Apply debuffs on Largo (works through Cover!)"
+      - "Kill Type I first (has Cover)"
+      - "Then attack Largo + Type II together"
+    notes: "Non-attack debuffs bypass Cover"
+
+  - turn_range: "HP <85%"
+    phase: break_push
+    actions:
+      - "Type III + IV appear"
+      - "Kill Type IV first (heals enemies)"
+      - "Then Type III"
+    notes: "Lightning/wind weakness on these"
+
+  - turn_range: "HP <65%"
+    phase: sustain
+    actions:
+      - "Type V + VI appear"
+      - "Kill Type VI first (heals ~23000!)"
+      - "Then Type V"
+      - "Provoke + elemental evasion for Thunder Crossbow!"
+    notes: "Thunder Crossbow is instant-kill tier!"
+
+  - turn_range: "HP <45%"
+    phase: burst
+    actions:
+      - "Red + Blue appear"
+      - "Damage BOTH to near-death"
+      - "Kill BOTH in same turn!"
+      - "Otherwise Largo gets triple actions!"
+    notes: "Blue takes over Cover when Red dies!"
+
+why_it_works: |
+  From Game8: Lumis EX is extremely valuable!
+  Lightning + bow attacks hit most robots AND Largo.
+  
+  KEY RULES:
+  1. NON-ATTACK debuffs work through Cover!
+  2. Kill Cover robot first to damage Largo
+  3. Provoke + elemental evasion for Thunder Crossbow
+  4. Kill Red+Blue TOGETHER to avoid early triple actions
+  
+  THUNDER CROSSBOW:
+  Use provoke tank + Beast summon with elemental evasion.
+  Or use Hammy for evasion buff.
+  
+  STAGE 4 TRAP:
+  If you kill only ONE of Red/Blue, the other takes Cover
+  AND Largo gets triple actions immediately!
+
+key_synergies:
+  - "Lumis EX hits robots + Largo"
+  - "Non-attack debuffs through Cover"
+  - "Provoke + elemental evasion tank"
+
+risks_and_recovery:
+  - "Thunder Crossbow: Use elemental evasion!"
+  - "Stage 4: Kill Red+Blue together!"
+  - "Many robots: Track weakness carefully"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

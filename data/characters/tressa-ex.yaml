@@ -14,10 +14,18 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [bow, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank, breaker]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dodge tank with Sidestep stacks and high-hit bow attacks.
+  Can grant dodge to allies, good breaker.
+  Less meta than Canary/H'aanit EX but still useful.
+
+# Tank type
+tank_type: dodge
+
+# EX fight recommendations
+recommended_min_hp: 3500
 
 # Stats (base level)
 hp: 3080

@@ -438,17 +438,34 @@ def search_bosses(query: str, limit: int = 5) -> list[dict]:
     for result in results:
         boss = retrieval.get_boss_by_id(result["id"])
         if boss:
+            # Handle weaknesses - may be None for multi-enemy encounters
+            if boss.weaknesses:
+                weaknesses = {
+                    "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
+                    "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
+                }
+            elif boss.enemies:
+                # Extract from first enemy for multi-enemy encounters
+                first_enemy = boss.enemies[0] if boss.enemies else None
+                if first_enemy and first_enemy.weaknesses:
+                    weaknesses = {
+                        "elements": [e.value for e in first_enemy.weaknesses.elements] if first_enemy.weaknesses.elements else [],
+                        "weapons": [w.value for w in first_enemy.weaknesses.weapons] if first_enemy.weaknesses.weapons else [],
+                    }
+                else:
+                    weaknesses = {"elements": [], "weapons": []}
+            else:
+                weaknesses = {"elements": [], "weapons": []}
+            
             bosses.append({
                 "id": boss.id,
                 "display_name": boss.display_name,
-                "content_type": boss.content_type,
+                "content_type": boss.content_type.value if boss.content_type else None,
                 "difficulty": boss.difficulty.value if boss.difficulty else None,
                 "shield_count": boss.shield_count,
-                "weaknesses": {
-                    "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
-                    "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
-                },
-                "data_confidence": boss.data_confidence.value,
+                "weaknesses": weaknesses,
+                "ex_rank": boss.ex_rank.value if boss.ex_rank else None,
+                "data_confidence": boss.data_confidence.value if boss.data_confidence else None,
             })
     
     return bosses
@@ -477,10 +494,6 @@ def get_boss(boss_id: str) -> dict | str:
         "content_type": boss.content_type,
         "difficulty": boss.difficulty.value if boss.difficulty else None,
         "shield_count": boss.shield_count,
-        "weaknesses": {
-            "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
-            "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
-        },
         "required_roles": [
             {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
             for rr in (boss.required_roles or [])
@@ -489,6 +502,32 @@ def get_boss(boss_id: str) -> dict | str:
         "general_strategy": boss.general_strategy,
         "data_confidence": boss.data_confidence.value,
     }
+    
+    # Handle weaknesses (can be None for multi-enemy bosses)
+    if boss.weaknesses:
+        result["weaknesses"] = {
+            "elements": [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else [],
+            "weapons": [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else [],
+        }
+    else:
+        result["weaknesses"] = None
+    
+    # Handle multi-enemy encounters
+    if boss.enemies:
+        result["enemies"] = [
+            {
+                "name": e.name,
+                "name_jp": e.name_jp,
+                "is_main_target": e.is_main_target,
+                "shield_count": e.shield_count,
+                "weaknesses": {
+                    "elements": [el.value for el in e.weaknesses.elements] if e.weaknesses and e.weaknesses.elements else [],
+                    "weapons": [w.value for w in e.weaknesses.weapons] if e.weaknesses and e.weaknesses.weapons else [],
+                } if e.weaknesses else None,
+                "notes": e.notes,
+            }
+            for e in boss.enemies
+        ]
     
     if boss.mechanics:
         result["mechanics"] = [
@@ -500,6 +539,28 @@ def get_boss(boss_id: str) -> dict | str:
                 "counter_strategy": m.counter_strategy,
             }
             for m in boss.mechanics
+        ]
+    
+    # Include special mechanics if present
+    if boss.special_mechanics:
+        result["special_mechanics"] = [
+            {
+                "name": sm.get("name", ""),
+                "description": sm.get("description", ""),
+            }
+            for sm in boss.special_mechanics
+        ]
+    
+    # Include actions if present
+    if boss.actions:
+        result["actions"] = [
+            {
+                "name": a.name,
+                "name_jp": a.name_jp,
+                "effect": a.effect,
+                "threat_level": a.threat_level,
+            }
+            for a in boss.actions
         ]
     
     return result
@@ -616,6 +677,199 @@ def plan_team_for_boss(
         result["general_strategy"] = boss.general_strategy
     
     return result
+
+
+# =============================================================================
+# EX FIGHT / ADVERSARY LOG TOOLS
+# =============================================================================
+
+@mcp.tool()
+def get_ex_variants(boss_id: str) -> dict | str:
+    """
+    Get all EX variants for a base boss.
+    
+    Use this to find EX1, EX2, EX3 versions of an arena boss.
+    
+    Args:
+        boss_id: The base boss ID (e.g., "arena-gertrude").
+    
+    Returns:
+        Dictionary with base boss info and list of EX variants.
+    """
+    retrieval = get_retrieval()
+    
+    base_boss = retrieval.get_boss_by_id(boss_id)
+    if base_boss is None:
+        return f"Boss '{boss_id}' not found."
+    
+    # Find all bosses with this base_boss_id
+    variants = []
+    for boss in retrieval._bosses_cache.values():
+        if hasattr(boss, 'base_boss_id') and boss.base_boss_id == boss_id:
+            variants.append({
+                "id": boss.id,
+                "display_name": boss.display_name,
+                "ex_rank": boss.ex_rank.value if boss.ex_rank else None,
+                "shield_count": boss.shield_count,
+                "actions_per_turn": boss.actions_per_turn,
+                "provoke_immunity": boss.provoke_immunity,
+                "difficulty": boss.difficulty.value if boss.difficulty else None,
+            })
+    
+    # Sort by EX rank
+    rank_order = {"ex1": 1, "ex2": 2, "ex3": 3}
+    variants.sort(key=lambda v: rank_order.get(v.get("ex_rank", ""), 0))
+    
+    return {
+        "base_boss": {
+            "id": base_boss.id,
+            "display_name": base_boss.display_name,
+            "shield_count": base_boss.shield_count,
+        },
+        "ex_variants": variants,
+        "total_variants": len(variants),
+    }
+
+
+@mcp.tool()
+def find_tanks_by_type(tank_type: str) -> list[dict]:
+    """
+    Find characters by tank type (provoke, dodge, cover, hp_barrier).
+    
+    Use this when building teams for EX fights to find appropriate tanks.
+    
+    Args:
+        tank_type: Type of tank to find.
+                  Valid values: provoke, dodge, cover, hp_barrier
+    
+    Returns:
+        List of characters with the specified tank type.
+    """
+    retrieval = get_retrieval()
+    
+    if not retrieval._characters_cache:
+        retrieval.initialize()
+    
+    matching = []
+    for char in retrieval._characters_cache.values():
+        if hasattr(char, 'tank_type') and char.tank_type:
+            if char.tank_type.value == tank_type:
+                summary = character_summary(char)
+                summary["tank_type"] = char.tank_type.value
+                summary["recommended_min_hp"] = getattr(char, 'recommended_min_hp', None)
+                summary["role_notes"] = char.role_notes
+                matching.append(summary)
+    
+    return matching
+
+
+@mcp.tool()
+def check_buff_coverage(character_ids: list[str]) -> dict:
+    """
+    Analyze which buff/debuff stacking categories a team covers.
+    
+    This helps optimize damage for EX fights by ensuring all 5
+    multiplicative damage categories are covered.
+    
+    Args:
+        character_ids: List of character IDs in the team.
+    
+    Returns:
+        Dictionary showing coverage of each damage stacking category.
+    """
+    retrieval = get_retrieval()
+    
+    coverage = {
+        "active_buffs": [],
+        "active_debuffs": [],
+        "passive_buffs": [],
+        "ultimate_buffs": [],
+        "ultimate_debuffs": [],
+        "summary": {
+            "has_active_atk_buff": False,
+            "has_active_def_debuff": False,
+            "has_passive_damage": False,
+            "has_ultimate_potency": False,
+            "categories_covered": 0,
+        },
+        "missing_categories": [],
+    }
+    
+    for char_id in character_ids:
+        char = retrieval.get_character_by_id(char_id)
+        if not char:
+            continue
+        
+        # Check buff categories
+        if hasattr(char, 'buff_categories') and char.buff_categories:
+            if char.buff_categories.active:
+                for entry in char.buff_categories.active:
+                    coverage["active_buffs"].append({
+                        "character": char_id,
+                        "type": entry.type,
+                        "value": entry.value,
+                    })
+                    if "atk" in entry.type.lower():
+                        coverage["summary"]["has_active_atk_buff"] = True
+            
+            if char.buff_categories.passive:
+                for entry in char.buff_categories.passive:
+                    coverage["passive_buffs"].append({
+                        "character": char_id,
+                        "type": entry.type,
+                        "value": entry.value,
+                    })
+                    coverage["summary"]["has_passive_damage"] = True
+            
+            if char.buff_categories.ultimate:
+                for entry in char.buff_categories.ultimate:
+                    coverage["ultimate_buffs"].append({
+                        "character": char_id,
+                        "type": entry.type,
+                        "value": entry.value,
+                    })
+                    if "potency" in entry.type.lower():
+                        coverage["summary"]["has_ultimate_potency"] = True
+        
+        # Check debuff categories
+        if hasattr(char, 'debuff_categories') and char.debuff_categories:
+            if char.debuff_categories.active:
+                for entry in char.debuff_categories.active:
+                    coverage["active_debuffs"].append({
+                        "character": char_id,
+                        "type": entry.type,
+                        "value": entry.value,
+                    })
+                    if "def" in entry.type.lower():
+                        coverage["summary"]["has_active_def_debuff"] = True
+            
+            if char.debuff_categories.ultimate:
+                for entry in char.debuff_categories.ultimate:
+                    coverage["ultimate_debuffs"].append({
+                        "character": char_id,
+                        "type": entry.type,
+                        "value": entry.value,
+                    })
+    
+    # Count covered categories
+    categories = [
+        ("has_active_atk_buff", "Active ATK buffs (30% cap)"),
+        ("has_active_def_debuff", "Active DEF debuffs (30% cap)"),
+        ("has_passive_damage", "Passive damage bonuses (30% cap)"),
+        ("has_ultimate_potency", "Ultimate potency (Solon = 100%)"),
+    ]
+    
+    for key, desc in categories:
+        if coverage["summary"][key]:
+            coverage["summary"]["categories_covered"] += 1
+        else:
+            coverage["missing_categories"].append(desc)
+    
+    # Add pet/divine beast as note (not tracked in character data)
+    coverage["missing_categories"].append("Pet damage bonus (check manually)")
+    coverage["missing_categories"].append("Divine Beast bonus (check manually)")
+    
+    return coverage
 
 
 # =============================================================================

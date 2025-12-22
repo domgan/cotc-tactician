@@ -1,0 +1,72 @@
+# Arena Boss: Kagemune (カゲムネ)
+# SOURCE: Game8 JP
+#
+# Ninja arena champion - base version (simpler)
+
+id: arena-kagemune
+display_name: "Kagemune"
+display_name_jp: "カゲムネ"
+content_type: arena
+difficulty: hard
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base
+actions_per_turn: 1
+provoke_immunity: true
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 23
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Polearm/bow/fire/light multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Sustained damage healing"
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "P.ATK debuff for damage mitigation"
+  - role: dps
+    priority: required
+    reason: "Single-target DPS preferred"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fire
+  - light
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Base Kagemune is relatively straightforward compared to Ura version.
+  
+  WEAKNESSES: Polearm, Bow, Fire, Light
+  
+  Standard arena fight - break and burst.
+  The Ura version introduces the complex shadow clone mechanics.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

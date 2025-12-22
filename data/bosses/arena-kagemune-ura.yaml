@@ -1,0 +1,367 @@
+# Arena Boss: Kagemune Ura (カゲムネ裏)
+# SOURCE: Game8 JP
+#
+# Ninja arena champion with shadow clone mechanics
+# HP: ~5,000,000
+
+id: arena-kagemune-ura
+display_name: "Kagemune (Ura)"
+display_name_jp: "カゲムネ（裏）"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-kagemune
+ex_rank: base  # Ura version
+actions_per_turn: 2  # Has 2 actions per turn
+provoke_immunity: true
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 5000000  # Approximately 5 million
+shield_count: 36
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# HP THRESHOLDS
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "分身の術 activation eligible"
+    behavior_changes: |
+      Can now summon 2 shadow clones when no clones exist.
+      Gains evasion buffs (random or AoE depending on HP).
+    actions_per_turn: 2
+
+  - hp_percent: 60
+    event: "Enhanced evasion mode"
+    behavior_changes: |
+      Clears debuffs on self.
+      Evasion changes to both random AND AoE attacks.
+      P.ATK/Crit up buff.
+    actions_per_turn: 2
+
+  - hp_percent: 25
+    event: "Maximum clones mode"
+    behavior_changes: "Can summon 3 shadow clones instead of 2"
+    actions_per_turn: 2
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "二躯迎討の術・乱 (Twin Body Counter - Random)"
+    trigger: "Battle start, HP ≥90%"
+    active_indicator: "Speed up buff"
+    counter_trigger: "Random target attacks"
+    counter_effect: "Evades random attacks (8 stacks), counters with 迎討・病刃"
+    removal_condition: "HP drops below 90%"
+
+  - name: "二躯迎討の術・全 (Twin Body Counter - AoE)"
+    trigger: "HP 90-60%"
+    active_indicator: "Speed up buff"
+    counter_trigger: "AoE attacks"
+    counter_effect: "Evades AoE attacks (8 stacks), counters with 迎討・病閃"
+    removal_condition: "HP drops below 60%"
+
+  - name: "二躯迎討の術・乱・全 (Twin Body Counter - Both)"
+    trigger: "HP ≤60%"
+    active_indicator: "P.ATK/Crit up buff"
+    counter_trigger: "Random OR AoE attacks"
+    counter_effect: "Evades both types (8 stacks), debuffs cleared"
+    removal_condition: "Cannot be removed"
+
+  - name: "分身の術 (Shadow Clone Jutsu)"
+    trigger: "End of turn when HP <90% and no clones exist"
+    active_indicator: "Multiple Kagemune on screen"
+    counter_trigger: "N/A"
+    counter_effect: |
+      Summons 2 clones (3 if HP <25%).
+      Clones share evasion buffs.
+      Breaking main body removes ALL clones.
+    removal_condition: "Break main body"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "二躯迎討の術 (Twin Body Counter)"
+    name_jp: "二躯迎討の術"
+    effect: |
+      Battle start + after clones disappear.
+      2 actions per turn.
+      Grants evasion based on HP tier:
+      - ≥90%: Evade random attacks (8 stacks)
+      - 90-60%: Evade AoE attacks (8 stacks)
+      - ≤60%: Evade BOTH + clear debuffs + P.ATK/Crit up
+    trigger: "Battle start, clone death"
+    threat_level: high
+
+  - name: "偽躯迎討の術 (False Body Counter)"
+    name_jp: "偽躯迎討の術"
+    effect: |
+      End of turn: Grants evasion based on HP tier.
+      Same as 二躯迎討の術 but applied every turn end.
+    trigger: "Every turn end"
+    threat_level: medium
+
+  - name: "分身の術 (Shadow Clone Jutsu)"
+    name_jp: "分身の術"
+    effect: |
+      HP <90%: Summons 2 clones at turn end if none exist.
+      HP <25% (red HP bar): Summons 3 clones.
+      Clones share evasion buffs with main body.
+    trigger: "Turn end when no clones, HP <90%"
+    threat_level: extreme
+
+  - name: "縛拘虚躯の術 (Binding Phantom Body)"
+    name_jp: "縛拘虚躯の術"
+    effect: |
+      On break recovery (HP <90%):
+      - Front row: No switching + Physical attacks fail (1 turn)
+      - Back row: Elemental attacks fail (1 turn)
+      - Self: Multi-hit shield lock + Evade random/AoE (8 stacks)
+    trigger: "Break recovery"
+    threat_level: extreme
+
+  - name: "炎焼の術 (Flame Burning)"
+    name_jp: "炎焼の術"
+    effect: "Fire attack on front row + P.DEF down + Burning (3 turns)"
+    threat_level: medium
+
+  - name: "毒連刃 (Poison Chain Blade)"
+    name_jp: "毒連刃"
+    effect: "2 physical attacks on single target + Poison (3 turns)"
+    threat_level: medium
+
+  - name: "霞壊刃 (Haze Destruction Blade)"
+    name_jp: "霞壊刃"
+    effect: "3 physical attacks on random targets + P.ATK/E.ATK down each (3 turns)"
+    threat_level: high
+
+  - name: "細蟹 (Fine Crab)"
+    name_jp: "細蟹"
+    effect: "Physical attack on front row + Speed down (3 turns)"
+    threat_level: medium
+
+  - name: "晦冥 (Darkness)"
+    name_jp: "晦冥"
+    effect: "2 physical attacks on single target"
+    threat_level: medium
+
+  - name: "風蝕の術 (Wind Erosion)"
+    name_jp: "風蝕の術"
+    effect: "3 wind attacks on random targets + Corrosion each (3 turns)"
+    threat_level: high
+
+  - name: "病紫雨 (Plague Purple Rain) - BP ATTACK"
+    name_jp: "病紫雨"
+    effect: |
+      Used at MAX BP!
+      5 dagger attacks on ALL party + Burning/Frostbite/Corrosion (3 turns).
+      Grants self Potency up (3 turns).
+    trigger: "BP MAX"
+    threat_level: extreme
+
+  - name: "迎討・病刃 (Counter - Plague Blade)"
+    name_jp: "迎討・病刃"
+    effect: "Counter on evade: Physical attack on attacker + Burning/Frostbite/Corrosion chance"
+    trigger: "On evading attack"
+    threat_level: high
+
+  - name: "迎討・病閃 (Counter - Plague Flash)"
+    name_jp: "迎討・病閃"
+    effect: "Counter on evade: Physical attack on front row + Burning/Frostbite/Corrosion chance"
+    trigger: "On evading attack"
+    threat_level: high
+
+  - name: "蛇牙薙 (Snake Fang Sweep)"
+    name_jp: "蛇牙薙"
+    effect: "3 physical attacks on ALL party + Poison/Bleed chance (3 turns)"
+    threat_level: high
+
+  - name: "晦冥・分躯 (Darkness - Split Body)"
+    name_jp: "晦冥・分躯"
+    effect: "3 physical attacks on single target"
+    threat_level: high
+
+  - name: "風蝕吸魂の術 (Wind Erosion Soul Drain)"
+    name_jp: "風蝕吸魂の術"
+    effect: "3 wind attacks on random targets + Dagger resist down + Corrosion (3 turns)"
+    threat_level: high
+
+  - name: "炎焼吸魂の術 (Flame Soul Drain)"
+    name_jp: "炎焼吸魂の術"
+    effect: "Fire attack on front row + P.DEF/E.DEF down + Burning (3 turns)"
+    threat_level: high
+
+  - name: "カゲムネは印を結んだ… (Forming Hand Signs)"
+    name_jp: "カゲムネは印を結んだ……"
+    effect: "Clone only. Countdown (2). On countdown end: 病閃刃"
+    trigger: "Clone action"
+    threat_level: high
+
+  - name: "病閃刃 (Plague Flash Blade)"
+    name_jp: "病閃刃"
+    effect: "Physical attack on ALL + Burning/Frostbite/Corrosion (6 turns!)"
+    trigger: "After clone countdown"
+    threat_level: extreme
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Evasion System"
+    mechanic_type: passive
+    trigger: "Battle start and ongoing"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      DO NOT use random/AoE attacks when Kagemune has evasion stacks!
+      Evasion triggers COUNTER attacks that hit hard + apply DoTs.
+      Use SINGLE-TARGET attacks only.
+      
+      Exception: If going for 1-break kill at HP ≥90%, random/AoE work until 90%.
+
+  - name: "Shadow Clone Summoning"
+    mechanic_type: other
+    trigger: "End of turn when HP <90% and no clones"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      Clones share main body's buffs.
+      AoE attacks against clones = ALL counter.
+      
+      CRITICAL: Breaking MAIN BODY instantly removes all clones!
+      Identify main body (left-bottom on first clone use).
+      Clones use countdown attack - main body doesn't.
+
+  - name: "Break Recovery Lock"
+    mechanic_type: debuff_party
+    trigger: "Break recovery (HP <90%)"
+    target: all
+    damage_type: none
+    effects: ["switch_lock", "physical_seal_front", "elemental_seal_back", "multi_hit_shield_lock"]
+    threat_level: critical
+    counter_strategy: |
+      After break recovery:
+      - Front row can't switch, physical attacks fail
+      - Back row elemental attacks fail
+      - Multi-hit shield lock active
+      
+      Plan for 1-2 turns of reduced capability after breaks.
+
+  - name: "追撃/Counterattack on Pursuit"
+    mechanic_type: counter
+    trigger: "Using characters with pursuit abilities"
+    target: all
+    damage_type: physical
+    threat_level: high
+    counter_strategy: |
+      Characters with AoE/random pursuits (Midiya, Erika EX, Hugebrave, Osvald) 
+      trigger counter even from pursuit!
+      DISABLE pursuit support abilities or don't bring these characters.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Need SINGLE-TARGET breakers (polearm/bow/fire/light)"
+  - role: healer
+    priority: required
+    reason: "Heavy DoT damage (Burning/Corrosion/Poison)"
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "P.ATK debuff reduces counter damage"
+  - role: dps
+    priority: required
+    reason: "SINGLE-TARGET DPS only! No AoE/random pursuers!"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Can absorb single/random attacks with status immunity"
+
+recommended_weakness_coverage:
+  - polearm  # Single-target preferred
+  - bow      # Single-target preferred
+  - fire     # Single-target preferred
+  - light    # Single-target preferred
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Kagemune (Ura) is a ninja with shadow clones and deadly counters.
+  
+  ⚠️ CRITICAL RULE: NO RANDOM/AOE ATTACKS!
+  Kagemune evades and COUNTERS random/AoE attacks.
+  Counters apply Burning/Frostbite/Corrosion.
+  This includes PURSUIT ABILITIES from characters like Midiya, Erika EX!
+  
+  RECOMMENDED: 1-BREAK KILL
+  - HP is ~5 million
+  - At HP ≥90%, evasion is only for random attacks
+  - AoE and single-target work fine
+  - Take time to setup buffs/debuffs
+  - Break and burst for 1-break kill
+  
+  If 1-break kill fails, fight becomes very complex:
+  - Clones appear
+  - All 3 (or 4) can counter
+  - Main body left-bottom on first clone
+  - Clones use countdown, main body doesn't
+  - Breaking main removes ALL clones
+  
+  BREAK RECOVERY PENALTY:
+  - Front: Can't switch + Physical fails
+  - Back: Elemental fails
+  - Multi-hit shield lock
+  
+  TANK RECOMMENDATIONS:
+  - Use provoke tank with status immunity
+  - Absorb single/random attacks
+  - Burning/Poison/Corrosion gear essential
+  
+  RECOMMENDED SINGLE-TARGET DPS:
+  - Midiya (disable pursuit!)
+  - Pardis III
+  - Kaine
+  - Ditreina EX (disable pursuit!)
+  - Hugebrave (disable pursuit!)
+  - Oscar
+  - Erika
+  - Sazantos / Sazantos EX
+  - Straybow
+  - Frederica
+  - Sowan
+  
+  BREAK EXTENSION:
+  - Nier (2B) is excellent for extending break for 1-break kill
+
+common_mistakes:
+  - "Using AoE/random attacks (triggers counter)"
+  - "Keeping pursuit abilities enabled"
+  - "Not preparing status immunity for tank"
+  - "Attacking clones instead of main body"
+  - "Not tracking main body position"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP (https://game8.jp/octopathtraveler-sp)"
+last_updated: 2025-12-22

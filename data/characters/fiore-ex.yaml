@@ -14,10 +14,18 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [fan]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  ONLY cover tank in the game! "Physical Return Melody" reflects physical damage.
+  Cover ability intercepts attacks for allies - works even against provoke-immune bosses.
+  Essential for Gertrude, Yan Long, and many EX3 fights.
+
+# Tank type
+tank_type: cover
+
+# EX fight recommendations
+recommended_min_hp: 4000
 
 # Stats (base level)
 hp: 3222

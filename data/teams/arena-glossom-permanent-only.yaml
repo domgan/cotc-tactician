@@ -1,0 +1,170 @@
+# Team: Arena Glossom - Permanent Characters Quick Clear
+# SOURCE: Game8 JP Recommended Team (恒常のみ快速攻略編成)
+
+id: arena-glossom-permanent-only
+name: "Glossom - Permanent Quick Clear"
+boss_id: arena-glossom
+
+strategy_type: burst
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: speedrun
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: nina-lanna
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core dark multi-hit DPS"
+    key_skills_used:
+      - "Dark AoE multi-hits"
+    awakening_required: 0
+
+  - position: 2
+    character_id: primrose
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Dark AoE damage"
+    key_skills_used:
+      - "Dark attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: cecily
+    role_in_team: breaker
+    is_required: false
+    substitutes: [tatloch]
+    substitute_notes: "Axe multi-hit (locked at 25%)"
+    key_skills_used:
+      - "Axe AoE"
+    awakening_required: 0
+
+  - position: 4
+    character_id: tressa
+    role_in_team: tank
+    is_required: true
+    substitutes: [fiore-ex]
+    substitute_notes: |
+      Physical EVASION tank.
+      Equip Beast summon with evasion buff!
+    key_skills_used:
+      - "Sidestep"
+      - "Provoke"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: therion
+    role_in_team: utility
+    is_required: false
+    substitutes: [sonia]
+    substitute_notes: "Ignore-weakness shield shave from adds phase"
+    key_skills_used:
+      - "Ignore weakness attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: viola
+    role_in_team: debuffer
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      CRITICAL: Use Anti-Attack II on Glossom turn 1!
+      Maintain P.ATK debuff 30%.
+    key_skills_used:
+      - "Anti-Attack II"
+      - "Debilitate"
+    awakening_required: 0
+
+  - position: 7
+    character_id: paula
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "4★ support option"
+    key_skills_used: []
+    awakening_required: 0
+
+  - position: 8
+    character_id: lumis
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Wind/light backup damage"
+    key_skills_used:
+      - "Elemental attacks"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1"
+    phase: setup
+    actions:
+      - "Viola: Anti-Attack II on Glossom FIRST!"
+      - "Tressa: Provoke + Sidestep"
+      - "Begin dark AoE shield shave"
+    notes: "Attack debuff is CRITICAL for survival"
+
+  - turn_range: "2-6"
+    phase: break_push
+    actions:
+      - "Kill adds before Glossom 50%"
+      - "Maintain P.ATK debuff"
+      - "Dark multi-hits on all enemies"
+    notes: "Therion/Sonia ignore weakness for shield shave"
+
+  - turn_range: "HP <25%"
+    phase: burst
+    actions:
+      - "Polearm/Axe locked - dark only!"
+      - "Break and burst with Ninarana + Primrose"
+    notes: "Permanent characters can still clear!"
+
+why_it_works: |
+  From Game8: "1ターン目に必ずヴィオラでグロッサムに
+  「アンチアタックⅡ」をかけておきましょう。"
+  
+  Viola's Anti-Attack II turn 1 is MANDATORY for survival.
+  
+  Tressa needs Beast summon with evasion - her own skills
+  don't provide enough evasion stacks for forced swap attacks.
+
+key_synergies:
+  - "Viola debuffs reduce massive damage"
+  - "Tressa evasion + Beast summon for forced swap"
+  - "Therion ignore-weakness for adds phase"
+
+risks_and_recovery:
+  - "Less dark DPS than limited team - fight is longer"
+  - "Must use Beast evasion on Tressa"
+  - "Weakness lock requires dark backup"
+
+# ===========================================================================
+# OTHER RECOMMENDED CHARACTERS
+# ===========================================================================
+# 4★: Kurtz, Theo, Stead
+# 5★: Fiore EX, Eltrix, Lumiere, Erika
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

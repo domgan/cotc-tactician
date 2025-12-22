@@ -1,0 +1,58 @@
+# Arena Boss: Varkyn EX2 (ヴァルカン EX2)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-varkyn-ex2
+display_name: "Varkyn EX2"
+display_name_jp: "ヴァルカン EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-varkyn
+ex_rank: ex2
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Spirit Stone Summon"
+    behavior_changes: "Summons Autonomous Spirit Stone"
+  - hp_percent: 35
+    event: "Musou Munen (無想無念)"
+    behavior_changes: "E.ATK buff + very dangerous attacks"
+
+general_strategy: |
+  EX2 version with ~3x HP.
+  
+  Key challenges:
+  - Higher HP pools
+  - Faster enemies
+  - Spirit Stone healing more impactful
+  
+  CRITICAL:
+  - 3500+ HP per character
+  - E.DEF gear essential
+  - Consider killing Spirit Stone first
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "30% E.ATK debuff"
+  - role: healer
+    priority: required
+    reason: "Sustained magic healing"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Absorb light attacks"
+  - role: dps
+    priority: required
+    reason: "Ice/sword damage"
+
+recommended_weakness_coverage:
+  - sword
+  - ice
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

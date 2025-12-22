@@ -1,0 +1,116 @@
+# Arena Boss: Gertrude EX3 (ガートルード EX3)
+# SOURCE: Game8 JP - Adversary Log
+#
+# Final EX rematch of Gertrude - maximum difficulty
+
+id: arena-gertrude-ex3
+display_name: "Gertrude EX3"
+display_name_jp: "ガートルード EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: arena-gertrude
+ex_rank: ex3
+actions_per_turn: 2  # Double actions, becomes TRIPLE at HP <33%
+provoke_immunity: true  # Immune to provoke
+
+# Scaled stats (EX3 = ~5x HP, estimated 50-80M)
+shield_count: 16  # Increases significantly
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 75
+    event: "Combat Drug (2nd)"
+    behavior_changes: "Shield max increases significantly"
+    actions_per_turn: 2
+  - hp_percent: 50
+    event: "Combat Drug (3rd)"
+    behavior_changes: "Heal Slash spam begins"
+    actions_per_turn: 2
+  - hp_percent: 33
+    event: "Combat Drug (4th)"
+    behavior_changes: "TRIPLE ACTIONS permanent - extremely dangerous"
+    actions_per_turn: 3
+
+# Auras (same mechanic, more punishing)
+auras:
+  - name: "Multi-Hit Shield Lock"
+    trigger: "Battle start / Break recovery"
+    active_indicator: "Shield glow"
+    counter_trigger: "N/A (always active)"
+    counter_effect: "Max 2 shields shaved per character action"
+    removal_condition: "Break (reapplies on recovery)"
+
+weaknesses:
+  elements:
+    - fire
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# STRATEGY NOTES (EX3 specific)
+# ===========================================================================
+general_strategy: |
+  EXTREME difficulty - endgame content requiring meta units.
+  
+  EX3 SPECIFIC CHALLENGES:
+  - HP estimated at 50-80 million
+  - Very high speed (500+ likely)
+  - Triple actions at HP <33% with massive damage
+  - Heal Slash recovers significant HP
+  
+  REQUIRED APPROACH:
+  1. SPEEDKILL (recommended):
+     - Stack ALL 5 damage categories multiplicatively
+     - Solon (100% potency) + Primrose EX (extension)
+     - Must kill before HP <33% or have Fiore EX Cover
+     - Aim for 2-break kill
+     
+  2. TURTLE (slower but safer):
+     - 30% DEF buff + 30% ATK debuff (stack both)
+     - Fiore EX Cover is almost mandatory
+     - 4000+ HP on all characters
+     - 50-100+ turns expected
+  
+  CRITICAL REQUIREMENTS:
+  - Fiore EX for Cover (provoke doesn't work!)
+  - 4000+ HP per character minimum
+  - Instant healing available
+  - Single-hit DPS only (multi-hit useless)
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Fiore EX Cover is essential (provoke immune)"
+  - role: debuffer
+    priority: required
+    reason: "30% P.ATK debuff required for survival"
+  - role: healer
+    priority: required
+    reason: "Instant healing + regen mandatory"
+  - role: buffer
+    priority: required
+    reason: "Stack all buff categories for damage"
+  - role: dps
+    priority: required
+    reason: "Single-hit only - Solon recommended for ultimate"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - fire
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

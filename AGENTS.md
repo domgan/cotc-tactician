@@ -404,6 +404,9 @@ The `data/reference/` directory contains verified game mechanics knowledge:
 | `weapons.yaml` | Weapon types and primary jobs |
 | `jobs.yaml` | Job classes and their primary weapons |
 | `progression_systems.yaml` | Awakening, Limit Break, Blessing of Lantern |
+| `ex_mechanics.yaml` | EX fight mechanics (Adversary Log), HP scaling, auras |
+| `survival_strategies.yaml` | Tank archetypes (provoke, dodge, cover, HP barrier) |
+| `damage_stacking.yaml` | 5 multiplicative damage categories for speedkill |
 
 ### Key Mechanics Summary
 
@@ -422,6 +425,86 @@ The `data/reference/` directory contains verified game mechanics knowledge:
 - Lasts 2 turns (break turn + next turn)
 - Enemy cannot act, takes 2x damage
 - After break: enemy acts FIRST
+
+### EX Fight (Adversary Log) Schema
+
+EX fights are enhanced rematches of bosses with increased difficulty:
+
+**Boss EX Fields:**
+- `base_boss_id`: Links EX variant to base boss (e.g., `arena-gertrude`)
+- `ex_rank`: `base`, `ex1`, `ex2`, or `ex3`
+- `actions_per_turn`: 1, 2, or 3 (EX bosses often have multiple actions)
+- `provoke_immunity`: Most arena/EX bosses are provoke immune
+- `auras`: List of aura/stance mechanics with counter effects
+- `hp_thresholds`: Structured HP-based phase triggers
+
+**EX Rank Scaling:**
+- EX1: ~2x HP, moderate speed increase
+- EX2: ~3x HP, high speed, 2-3 actions/turn
+- EX3: ~5x HP, extreme speed, 3 actions/turn, 50-80M HP
+
+**Aura Mechanics:**
+```yaml
+auras:
+  - name: "Counter Stance"
+    trigger: "Break recovery"
+    active_indicator: "Purple flame"
+    weakness_changes:
+      locked: [sword, polearm]
+      unlocked: [light]
+    counter_trigger: "Hitting locked weakness"
+    counter_effect: "+1 action next turn"
+    removal_condition: "Break"
+```
+
+### Tank Types
+
+Character schema now includes `tank_type` enum:
+
+- `provoke`: Draw single-target attacks (Gilderoy, Serenoa)
+- `dodge`: Evade via Sidestep (H'aanit EX, Canary, Tressa)
+- `cover`: Intercept attacks for allies (Fiore EX only)
+- `hp_barrier`: Create HP shields (Sazantos, Temenos)
+- `none`: Not a tank
+
+### Buff/Debuff Categories for Damage Stacking
+
+Character and Team schemas now track which damage stacking categories are covered:
+
+**5 Multiplicative Categories:**
+1. Active Skills (cap 30%)
+2. Passives/Equipment (cap 30%)
+3. Ultimate (varies, Solon = 100% potency)
+4. Pets (varies)
+5. Divine Beast (varies)
+
+**Character Schema:**
+```yaml
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 30
+      source_skill: "Master's Cheer"
+  passive:
+    - type: sword_damage_up
+      value: 15
+      source_passive: "Sword Affinity"
+  ultimate:
+    - type: potency_up
+      value: 100
+      source_skill: "Ultimate"
+```
+
+**Team Schema:**
+```yaml
+survival_strategy: dodge_tank  # or provoke_tank, cover_tank, turtle, speedrun
+target_ex_rank: ex3
+minimum_hp_recommended: 4000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  ultimate_potency: 100
+```
 
 ## Common Pitfalls
 

@@ -14,10 +14,18 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [fire, polearm, wind]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  AoE magic dodge/barrier for front row.
+  Strong polearm DPS with wind coverage.
+  HP barriers useful for surviving AoE magic attacks.
+
+# Tank type
+tank_type: hp_barrier
+
+# EX fight recommendations
+recommended_min_hp: 4000
 
 # Stats (base level)
 hp: 3220

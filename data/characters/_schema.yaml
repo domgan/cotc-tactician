@@ -95,6 +95,20 @@ fields:
     description: "Functional roles this character can fill"
     llm_usage: "Primary matching criteria for team composition"
 
+  tank_type:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [provoke, dodge, cover, hp_barrier, none]
+    description: "Type of tank mechanics this character uses (if any)"
+    notes: |
+      - provoke: Draws single-target attacks (Gilderoy, Serenoa)
+      - dodge: Evades attacks via Sidestep (H'aanit EX, Canary, Tressa)
+      - cover: Intercepts attacks for allies (Fiore EX only)
+      - hp_barrier: Creates HP shields (Sazantos, Temenos)
+      - none: Not a tank role
+    llm_usage: "Critical for EX fight team building"
+
   role_notes:
     type: string
     required: false
@@ -358,6 +372,113 @@ fields:
     source: "[HUMAN-REQUIRED]"
     description: "Notes on speed tuning (naturally fast/slow, accessory needs)"
     example: "Naturally slow, needs speed accessories to act before DPS"
+
+  # ===========================================================================
+  # BUFF/DEBUFF CATEGORIES (FOR DAMAGE STACKING)
+  # ===========================================================================
+  # See damage_stacking.yaml for full explanation of the 5 categories
+  
+  buff_categories:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Which damage stacking categories this character's buffs belong to"
+    notes: |
+      Categories stack multiplicatively, not additively.
+      Tracking helps build teams that cover all 5 categories.
+    
+  buff_categories.active:
+    type: array
+    items: buff_entry_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Active skill buffs (cap 30%)"
+    
+  buff_categories.passive:
+    type: array
+    items: buff_entry_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Passive/equipment buffs (cap 30%)"
+    
+  buff_categories.ultimate:
+    type: array
+    items: buff_entry_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Ultimate skill buffs (varies)"
+    
+  buff_entry_object:
+    type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What type of buff"
+      examples: ["phys_atk_up", "sword_damage_up", "potency_up"]
+    value:
+      type: integer
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Buff percentage value"
+    source_skill:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Which skill provides this buff"
+      
+  debuff_categories:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Which damage stacking categories this character's debuffs belong to"
+    notes: "Same structure as buff_categories"
+    
+  debuff_categories.active:
+    type: array
+    items: debuff_entry_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Active skill debuffs (cap 30%)"
+    
+  debuff_categories.ultimate:
+    type: array
+    items: debuff_entry_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Ultimate skill debuffs (varies)"
+    
+  debuff_entry_object:
+    type:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What type of debuff"
+      examples: ["phys_def_down", "sword_res_down", "elem_def_down"]
+    value:
+      type: integer
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Debuff percentage value"
+    source_skill:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Which skill provides this debuff"
+
+  # ===========================================================================
+  # EX FIGHT REQUIREMENTS
+  # ===========================================================================
+  recommended_min_hp:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Minimum HP recommended for EX fights (typically 3500-4000)"
+    notes: |
+      EX fights deal massive damage. Characters below this HP threshold
+      may die before healers can react. Achievable via:
+      - Pet HP bonus (+500)
+      - HP accessories (Keeper series)
+      - Awakening Stage III (+50% HP)
 
   # ===========================================================================
   # LIMITATIONS

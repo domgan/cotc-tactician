@@ -1,0 +1,114 @@
+# Arena Boss: Aoi EX3 (アオイ EX3)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX3 variant of Aoi - Adversary Log (Highest difficulty)
+
+id: arena-aoi-ex3
+display_name: "Aoi (EX3)"
+display_name_jp: "アオイ（EX3）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-aoi-ura
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 scaling - highest tier)
+# ===========================================================================
+hp: 50000000  # Estimated ~50 million
+shield_count: 55  # Estimated based on scaling
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# PHASES (Same as EX2 - starts in Ryuten)
+# ===========================================================================
+phases:
+  - phase_number: 1
+    trigger: "Turn 1 (Ryuten immediately)"
+    behavior_changes: "Starts in defensive stance"
+    priority_actions: "Survive to Turn 4"
+  - phase_number: 2
+    trigger: "Turn 4-5 (Shiyou)"
+    behavior_changes: "Offensive stance with deadly counter"
+    priority_actions: "Break at Turn 4!"
+  - phase_number: 3
+    trigger: "Turn 6+ (Cycling)"
+    behavior_changes: "Continues cycling pattern"
+    priority_actions: "Break at each Shiyou start"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "55+ shields requires absolute best breakers"
+  - role: healer
+    priority: required
+    reason: "Extreme sustained damage"
+  - role: buffer
+    priority: required
+    reason: "Full 5-category damage stacking"
+  - role: debuffer
+    priority: required
+    reason: "Max debuffs essential"
+  - role: tank
+    priority: required
+    reason: "Cover tank with maximum survivability"
+  - role: dps
+    priority: required
+    reason: "50M+ HP is extreme DPS check"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Aoi is the ultimate sword master challenge.
+  
+  EX3 CHARACTERISTICS:
+  - HP: ~50+ million
+  - Shield: ~55+
+  - 3 actions per turn
+  - Extremely high speed
+  - Same shifted timing as EX2
+  
+  REQUIREMENTS:
+  - Top-tier hybrid breakers (Morena, Kagemune, Bargello)
+  - Full buff/debuff stacking
+  - Cover tank with status immunity
+  - Break at Turn 4 and each Shiyou cycle
+  - Massive DPS across multiple break windows
+  
+  This is true endgame content requiring:
+  - Maximum character investment
+  - Perfect turn timing
+  - Optimized accessory setup
+  - Knowledge of stance cycling
+  
+  SPECIAL: Morena's shield shave without attacking
+  is extremely valuable for avoiding counter triggers.
+  
+  SPECIAL: Kagemune's evasion-ignoring attacks
+  work during Shiyou stance!
+  
+  REWARD: 言の葉「秘剣」 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: theoretical
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

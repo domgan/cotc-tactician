@@ -1,0 +1,87 @@
+# Arena Boss: Yan Long EX3 (イェンロン EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-yan-long-ex3
+display_name: "Yan Long EX3"
+display_name_jp: "イェンロン EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-yan-long
+ex_rank: ex3
+actions_per_turn: 1
+provoke_immunity: true
+
+hp_thresholds:
+  - hp_percent: 85
+    event: "Crow Summon"
+    behavior_changes: "High HP crows"
+  - hp_percent: 50
+    event: "Enhanced Pattern"
+    behavior_changes: "Extremely dangerous attacks"
+
+auras:
+  - name: "Rotating Weakness Lock"
+    trigger: "Every turn"
+    weakness_changes:
+      locked: ["2 of 3 weaknesses"]
+      unlocked: ["1 weakness each turn"]
+    removal_condition: "Rotates automatically"
+  - name: "Debuff Clear"
+    trigger: "Every turn"
+    counter_effect: "All debuffs cleared"
+    removal_condition: "None (permanent)"
+
+general_strategy: |
+  EXTREME difficulty - one of the hardest EX3 fights.
+  
+  EX3 SPECIFIC:
+  - ~5x HP (50M+ estimated)
+  - Debuff clear every turn
+  - Rotating weakness lock
+  - Very high speed
+  
+  MANDATORY REQUIREMENTS:
+  - Fiore EX Cover (provoke doesn't work!)
+  - 4000+ HP per character
+  - Debuff only during break
+  - Perfect weakness tracking
+  
+  STRATEGY:
+  - Kill crows first or ignore
+  - Stack buffs (not debuffs)
+  - Max damage during break windows
+  - Fiore EX protects team from staff attacks
+  
+  ALTERNATIVE:
+  - Long turtle fight (100+ turns)
+  - Focus on survival over damage
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Fiore EX Cover MANDATORY"
+  - role: debuffer
+    priority: required
+    reason: "Break window debuffs only"
+  - role: healer
+    priority: required
+    reason: "Instant + sustained healing"
+  - role: buffer
+    priority: required
+    reason: "Buffs persist, debuffs don't"
+  - role: dps
+    priority: required
+    reason: "Sword/polearm/light, Solon recommended"
+
+recommended_weakness_coverage:
+  - sword
+  - polearm
+  - light
+  - axe
+  - tome
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

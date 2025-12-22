@@ -1,0 +1,371 @@
+# Arena Boss: Largo (ラルゴ)
+# SOURCE: Game8 JP
+#
+# Complex multi-wave arena fight with 8 possible robot adds (4 stages)
+
+id: arena-largo
+display_name: "Largo"
+display_name_jp: "ラルゴ"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Gains TRIPLE ACTIONS at HP ≤25% or Red/Blue robot dead!
+provoke_immunity: false  # Can use provoke initially
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 75
+    event: "Stage 2 Robots"
+    behavior_changes: "Summons Largo-Type II"
+    actions_per_turn: 1
+  - hp_percent: 50
+    event: "Stage 3 Robots"
+    behavior_changes: "Summons Red/Blue Robot pair"
+    actions_per_turn: 1
+  - hp_percent: 25
+    event: "Stage 4 + TRIPLE ACTIONS"
+    behavior_changes: "Summons Gold/Silver pair, TRIPLE ACTIONS permanent!"
+    actions_per_turn: 3
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (4 stages of robot adds)
+# ===========================================================================
+enemies:
+  - name: "Largo"
+    name_jp: "ラルゴ"
+    is_main_target: true
+    shield_count: 27
+    weaknesses:
+      elements:
+        - ice
+      weapons:
+        - dagger
+        - bow
+    notes: |
+      Main boss. Summons robots at HP thresholds.
+      At HP ≤25% or Red/Blue robot dead: TRIPLE ACTIONS!
+      
+  - name: "Largo-Type I"
+    name_jp: "魔導機(ラルゴ型)Ⅰ"
+    is_main_target: false
+    shield_count: 17
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+        - wind
+      weapons:
+        - sword
+        - staff
+    notes: "Stage 1. Uses COVER to protect Largo."
+      
+  - name: "Largo-Type II"
+    name_jp: "魔導機(ラルゴ型)Ⅱ"
+    is_main_target: false
+    shield_count: 15
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+      weapons:
+        - sword
+        - bow
+        - fan
+    notes: "Stage 1. Fire attacks."
+      
+  - name: "Largo-Type III"
+    name_jp: "魔導機(ラルゴ型)Ⅲ"
+    is_main_target: false
+    shield_count: 17
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - sword
+        - dagger
+        - staff
+    notes: "Stage 2 (HP ≤85%). Uses COVER + P.ATK buff."
+      
+  - name: "Largo-Type IV"
+    name_jp: "魔導機(ラルゴ型)Ⅳ"
+    is_main_target: false
+    shield_count: 16
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - polearm
+        - bow
+        - fan
+    notes: "Stage 2. E.ATK buff + heals enemies (~16000)."
+      
+  - name: "Largo-Type V"
+    name_jp: "魔導機(ラルゴ型)Ⅴ"
+    is_main_target: false
+    shield_count: 18
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - sword
+        - dagger
+    notes: "Stage 3 (HP ≤65%). Uses COVER + P.ATK buff."
+      
+  - name: "Largo-Type VI"
+    name_jp: "魔導機(ラルゴ型)Ⅵ"
+    is_main_target: false
+    shield_count: 16
+    weaknesses:
+      elements:
+        - ice
+        - wind
+      weapons:
+        - polearm
+        - fan
+    notes: "Stage 3. E.ATK buff + heals enemies (~23000)."
+      
+  - name: "Largo-Type Red"
+    name_jp: "魔導機(ラルゴ型)・紅"
+    is_main_target: false
+    shield_count: 18
+    weaknesses:
+      elements:
+        - ice
+        - lightning
+      weapons:
+        - sword
+        - staff
+    notes: |
+      Stage 4 (HP ≤45%). Uses COVER + P.ATK/P.DEF buff.
+      Self-repairs HP and shields!
+      
+  - name: "Largo-Type Blue"
+    name_jp: "魔導機(ラルゴ型)・蒼"
+    is_main_target: false
+    shield_count: 16
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - sword
+        - polearm
+        - bow
+    notes: |
+      Stage 4. E.ATK/E.DEF buff + heals enemies (~26000).
+      Takes over COVER when Red dies!
+
+# ===========================================================================
+# LARGO'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Swing Around"
+    name_jp: "ぶん回し"
+    effect: "2 weak polearm attacks on front row"
+    threat_level: medium
+
+  - name: "Creative Poison Spear"
+    name_jp: "独創的毒槍"
+    effect: "Polearm attack on single target + Poison (3 turns)"
+    threat_level: medium
+
+  - name: "Fire Spirit Stone"
+    name_jp: "火の精霊石"
+    effect: "Fire attack on front row"
+    threat_level: medium
+
+  - name: "Taking Battle Stance (HP >65%)"
+    name_jp: "ラルゴは大きく身構えた！"
+    effect: "Next turn uses Explosive Crossbow"
+    trigger: "Charge-up (HP >65%)"
+    threat_level: high
+
+  - name: "Explosive Crossbow"
+    name_jp: "爆発クロスボウ"
+    effect: "3 fire attacks on random targets + Bleed (3 turns)"
+    trigger: "After Taking Battle Stance"
+    threat_level: high
+
+  - name: "Stage 2 Summon"
+    name_jp: "やるね！次はこれだ！"
+    effect: "At HP ≤85%: Summons Type III + Type IV"
+    trigger: "HP ≤85%"
+    threat_level: high
+
+  - name: "Fire Spirit Stone (Large)"
+    name_jp: "火の精霊石(特大)"
+    effect: "Strong fire attack on front row"
+    threat_level: high
+
+  - name: "Stage 3 Summon"
+    name_jp: "まだまだこれから！今度はこれだ！"
+    effect: "At HP ≤65%: Summons Type V + Type VI"
+    trigger: "HP ≤65%"
+    threat_level: high
+
+  - name: "Big Swing Around"
+    name_jp: "ぶんぶん回し"
+    effect: "2 polearm attacks on front row"
+    threat_level: high
+
+  - name: "Grand Invention Plum Lance"
+    name_jp: "大発明プラムランス"
+    effect: "Extremely powerful polearm attack + SP recovery (10)"
+    threat_level: extreme
+
+  - name: "Taking Battle Stance (HP <65%)"
+    name_jp: "ラルゴは大きく身構えた！"
+    effect: "Next turn uses Thunder Crossbow"
+    trigger: "Charge-up (HP <65%)"
+    threat_level: extreme
+
+  - name: "Thunder Crossbow"
+    name_jp: "サンダークロスボウ"
+    effect: "Extremely powerful lightning attack on single target + Paralysis"
+    trigger: "After Taking Battle Stance"
+    threat_level: extreme
+
+  - name: "Stage 4 Summon"
+    name_jp: "僕の発明品はこんなものじゃない！とっておきを見せてあげる！"
+    effect: "At HP ≤45%: Summons Type Red + Type Blue"
+    trigger: "HP ≤45%"
+    threat_level: extreme
+
+  - name: "Largo-Brand Boost Shoes"
+    name_jp: "ラルゴ印のブーストシューズ"
+    effect: |
+      When Red or Blue dies, OR HP ≤25%:
+      TRIPLE ACTIONS (permanent) + Speed buff (permanent)
+    trigger: "Red/Blue dead OR HP ≤25%"
+    threat_level: extreme
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Robot Cover System"
+    description: |
+      Robots with COVER protect Largo from attacks!
+      While Cover is active, attacks on Largo hit the robot instead.
+      Cover is disabled when the robot is broken.
+      
+      COVER ROBOTS BY STAGE:
+      - Stage 1: Type I
+      - Stage 2: Type III
+      - Stage 3: Type V
+      - Stage 4: Type Red (then Type Blue takes over!)
+      
+  - name: "Thunder Crossbow Aura Attack"
+    description: |
+      Most dangerous attack: "Thunder Crossbow" (single target, instant-kill tier)
+      
+      COUNTER: Use PROVOKE + elemental evasion!
+      - Provoke works on Largo
+      - Use Beast summon with elemental evasion
+      - Or use Hammy to grant evasion
+      
+  - name: "Debuff While Covered"
+    description: |
+      While robots are covering Largo, attacks don't hit him.
+      BUT non-attack debuffs (like "Anti-Attack II") DO work!
+      
+      ESSENTIAL: Keep 30% P.ATK/E.ATK debuffs on Largo at all times!
+      Use 2 different non-attack debuff skills.
+      
+  - name: "Kill Both Stage 4 Robots Together"
+    description: |
+      When you kill ONE of Red/Blue, the other takes over Cover,
+      and Largo gets triple actions!
+      
+      STRATEGY: Damage both Red and Blue to near-death,
+      then kill BOTH in the same turn!
+      
+  - name: "Stage Skip Behavior"
+    description: |
+      If you push Largo through multiple HP thresholds in one break,
+      robots appear one stage at a time, each lasting one turn before
+      being replaced by the next stage.
+      
+      This can cause chaotic situations - plan carefully!
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Provoke + elemental evasion for Thunder Crossbow"
+    
+  - role: debuffer
+    priority: required
+    reason: "Non-attack debuffs work through Cover!"
+    
+  - role: healer
+    priority: required
+    reason: "Heavy damage from multiple sources"
+    
+  - role: breaker
+    priority: required
+    reason: "Multiple weakness types for different robots"
+
+recommended_weakness_coverage:
+  - dagger    # Largo
+  - bow       # Largo + some robots
+  - ice       # Largo + Type I/II/VI/Red
+  - lightning # Multiple robots
+  - wind      # Multiple robots
+  - sword     # Multiple robots
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Very complex arena fight with 4 stages of robot adds.
+  
+  EQUIPMENT: Balanced P.DEF/E.DEF (mixed attack types)
+  
+  KEY RULES:
+  1. Robots with COVER block attacks on Largo!
+  2. Non-attack debuffs (Anti-Attack II) STILL work on Largo!
+  3. Kill Cover robot first to damage Largo
+  4. Use provoke + elemental evasion for Thunder Crossbow
+  5. Kill Red+Blue robots TOGETHER to avoid early triple actions
+  
+  STAGE BY STAGE:
+  Stage 1 (initial): Kill Type I first (Cover), then attack Largo+Type II
+  Stage 2 (HP 85%): Kill Type IV first (heals), then Type III
+  Stage 3 (HP 65%): Kill Type VI first (heals), then Type V
+  Stage 4 (HP 45%): Damage BOTH to near-death, kill together!
+  
+  THUNDER CROSSBOW HANDLING:
+  - Appears at HP <65%
+  - Use provoke tank with elemental evasion Beast summon
+  - Or Hammy to grant evasion
+  
+  HP THRESHOLD NOTES:
+  - HP 85% → Stage 2 robots
+  - HP 65% → Stage 3 robots
+  - HP 45% → Stage 4 robots
+  - HP 25% (or Red/Blue dead) → Largo triple actions!
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Largo: Rank1=27, Rank2=29, Rank3=31, EX1=33
+# (All robots scale similarly by +2 shields per rank)
+#
+# NOTE: Largo Rank3 required for "記された王者たち" side story!
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

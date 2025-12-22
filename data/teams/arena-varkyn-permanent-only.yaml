@@ -1,0 +1,179 @@
+# Team: Arena Varkyn - Permanent/Free Characters
+# SOURCE: Game8 JP Recommended Team (恒常・配布のみ編成)
+
+id: arena-varkyn-permanent-only
+name: "Varkyn - Permanent/Free Characters"
+boss_id: arena-varkyn
+
+strategy_type: sustain
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: provoke_tank
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: aedelgard
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Front line DPS"
+    key_skills_used:
+      - "Attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: fiore
+    role_in_team: tank
+    is_required: false
+    substitutes: []
+    substitute_notes: "Tank option"
+    key_skills_used:
+      - "Provoke"
+      - "Defense"
+    awakening_required: 0
+
+  - position: 3
+    character_id: viola
+    role_in_team: debuffer
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      CRITICAL: Attack debuffs are the ONLY way to reduce damage!
+      Buffs get dispelled by Spirit Stone.
+    key_skills_used:
+      - "Anti-Attack"
+      - "Debilitate"
+    awakening_required: 0
+
+  - position: 4
+    character_id: millard
+    role_in_team: healer
+    is_required: false
+    substitutes: [ophilia]
+    substitute_notes: "Healer"
+    key_skills_used:
+      - "Healing"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: cyrus
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Ice DPS for Varkyn"
+    key_skills_used:
+      - "Ice attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sofia
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Ice backup"
+    key_skills_used:
+      - "Ice attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: lemaire
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Support"
+    key_skills_used: []
+    awakening_required: 0
+
+  - position: 8
+    character_id: ophilia
+    role_in_team: healer
+    is_required: false
+    substitutes: []
+    substitute_notes: "Backup healer"
+    key_skills_used:
+      - "Healing"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-5"
+    phase: setup
+    actions:
+      - "Kill adds one at a time"
+      - "Viola stacks debuffs on Varkyn"
+      - "Healers maintain HP"
+    notes: "Spread attackers front/back for SP drain"
+
+  - turn_range: "After adds dead"
+    phase: sustain
+    actions:
+      - "Spirit Stone dispels buffs!"
+      - "ONLY use debuffs"
+      - "Auto-regen if available"
+    notes: "This is the key mechanic to understand"
+
+  - turn_range: "Varkyn HP ≤50%"
+    phase: break_push
+    actions:
+      - "Spirit Stone weakness counter active!"
+      - "Don't hit its weakness (sword/staff/ice cycle)"
+      - "Use single-target on Varkyn"
+    notes: "Track weakness cycle carefully"
+
+  - turn_range: "HP ~35%"
+    phase: burst
+    actions:
+      - "Burst Varkyn before Musou Munen"
+      - "Use back row if front row SP drained"
+    notes: "Spreading attackers front/back is key"
+
+why_it_works: |
+  From Game8: "アタッカーをできるだけ前後衛に散らして編成"
+  
+  Spread attackers between front and back row!
+  
+  Spirit Stone uses SP drain attacks late fight.
+  If front row runs out of SP, you need back row 
+  attackers ready to finish Varkyn.
+  
+  Remember: NO BUFFS after Spirit Stone appears!
+  Only debuffs and healing work.
+
+key_synergies:
+  - "Viola debuffs for damage reduction"
+  - "Front/back attacker spread for SP drain"
+  - "Dual healer safety"
+
+risks_and_recovery:
+  - "Longer fight without limited characters"
+  - "SP drain: Have back row attackers"
+  - "Buff dispel: Only debuffs after Spirit Stone"
+
+# ===========================================================================
+# OTHER RECOMMENDED CHARACTERS
+# ===========================================================================
+# 4★: Ramona, Siegrit, Trish, Ephren, Brigitte
+# 5★: Yan Long, 2B, Titus, Sarisa, Serenoa, Primrose EX
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

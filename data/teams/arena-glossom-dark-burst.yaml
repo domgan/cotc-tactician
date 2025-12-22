@@ -1,0 +1,169 @@
+# Team: Arena Glossom - Dark Super Damage
+# SOURCE: Game8 JP Recommended Team (限定入り闇超火力編成)
+
+id: arena-glossom-dark-burst
+name: "Glossom - Dark Super Damage (Limited)"
+boss_id: arena-glossom
+
+strategy_type: burst
+investment_level: high
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: speedrun
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 15
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: zenia
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core dark DPS"
+    key_skills_used:
+      - "Dark multi-hit attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: nina-lanna
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core dark DPS"
+    key_skills_used:
+      - "Dark multi-hit attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: tatloch
+    role_in_team: breaker
+    is_required: false
+    substitutes: [cecily]
+    substitute_notes: "Axe multi-hit (works until 25% HP)"
+    key_skills_used:
+      - "Axe AoE attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: h-aanit-ex
+    role_in_team: tank
+    is_required: true
+    substitutes: [tressa, fiore-ex]
+    substitute_notes: |
+      Physical EVASION tank essential for forced swap attacks.
+      Equip Beast summon with evasion buff.
+    key_skills_used:
+      - "Physical evasion"
+      - "Provoke"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: primrose
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Dark AoE damage"
+    key_skills_used:
+      - "Dark attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sonia
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Equip Dark RES down on break accessory.
+      Also provides ignore-weakness shield shave.
+    key_skills_used:
+      - "Dark RES debuff on break"
+      - "Ignore-weakness shield shave"
+    awakening_required: 0
+
+  - position: 7
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: true
+    substitutes: [primrose-ex]
+    substitute_notes: "Auto-regen healer"
+    key_skills_used:
+      - "Passive healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: alaune-ex
+    role_in_team: debuffer
+    is_required: false
+    substitutes: [viola]
+    substitute_notes: "Attack debuffs"
+    key_skills_used:
+      - "P.ATK/E.ATK debuffs"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-5"
+    phase: setup
+    actions:
+      - "Tank activates evasion + provoke"
+      - "Stack attack debuffs on Glossom"
+      - "Start shield shaving with dark AoE"
+      - "Kill adds before Glossom HP 50%"
+    notes: "Use physical evasion Beast summon"
+
+  - turn_range: "After adds dead"
+    phase: break_push
+    actions:
+      - "Continue dark AoE on Glossom"
+      - "Maintain debuffs"
+      - "Watch for charge-up → Destruction Dance"
+    notes: "Glossom gains double actions at 50%"
+
+  - turn_range: "HP <25%"
+    phase: burst
+    actions:
+      - "Polearm/Axe locked - ONLY DARK works!"
+      - "Break with dark attacks"
+      - "Burst with Zenia + Ninarana"
+    notes: "Sonia's dark RES debuff helps here"
+
+why_it_works: |
+  From Game8: "ソニアにブレイク時闇耐性ダウン付与のアクセサリーを持たせ、
+  ゼニアとニーナラーナで薙ぎ倒していきましょう。"
+  
+  Dark is the ONLY consistent weakness throughout the fight.
+  At HP 25%, polearm/axe are locked - dark is mandatory.
+  
+  Physical evasion tank is crucial for forced swap attacks.
+  Equip Beast summon with evasion buff for H'aanit EX.
+
+key_synergies:
+  - "Sonia dark RES debuff + Zenia/Ninarana burst"
+  - "Dark AoE hits all enemies consistently"
+  - "Physical evasion bypasses forced swap"
+
+risks_and_recovery:
+  - "Forced swap: Use evasion, not stat tank"
+  - "Double actions at 50%: Kill adds first"
+  - "Weakness lock at 25%: Must have dark attackers"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

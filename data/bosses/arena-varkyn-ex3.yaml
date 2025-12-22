@@ -1,0 +1,67 @@
+# Arena Boss: Varkyn EX3 (ヴァルカン EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-varkyn-ex3
+display_name: "Varkyn EX3"
+display_name_jp: "ヴァルカン EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-varkyn
+ex_rank: ex3
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Spirit Stone Summon"
+    behavior_changes: "Autonomous Spirit Stone with high HP"
+  - hp_percent: 35
+    event: "Musou Munen (無想無念)"
+    behavior_changes: "E.ATK buff + extremely dangerous"
+
+general_strategy: |
+  EXTREME difficulty - endgame content.
+  
+  EX3 SPECIFIC:
+  - ~5x HP (50M+ estimated)
+  - Very high speed
+  - Spirit Stone healing is massive
+  
+  REQUIRED:
+  - 4000+ HP per character
+  - E.DEF stacking (gear + buffs)
+  - Full damage stacking
+  - May need to kill Spirit Stone repeatedly
+  
+  SPEEDKILL APPROACH:
+  - Ignore adds, burst Varkyn
+  - Stack all 5 damage categories
+  - Solon + ice/sword DPS
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Essential for light damage"
+  - role: debuffer
+    priority: required
+    reason: "30% E.ATK debuff mandatory"
+  - role: healer
+    priority: required
+    reason: "Heavy magic damage healing"
+  - role: buffer
+    priority: required
+    reason: "E.DEF buff + damage stacking"
+  - role: dps
+    priority: required
+    reason: "Ice/sword, Solon recommended"
+
+recommended_weakness_coverage:
+  - sword
+  - ice
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

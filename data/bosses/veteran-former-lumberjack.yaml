@@ -1,0 +1,66 @@
+# Veteran NPC Boss: Former Lumberjack (元木こり)
+# SOURCE: https://game8.jp/octopathtraveler-sp/366082
+#
+# Drops: Veteran Axe (歴戦の斧)
+# Location: Stillsnow (スティルスノウ)
+
+id: veteran-former-lumberjack
+display_name: "Former Lumberjack"
+display_name_jp: "元木こり"
+content_type: npc_battle
+difficulty: hard
+level: 85
+location: "Stillsnow (スティルスノウ)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 14
+
+weaknesses:
+  elements:
+    - dark
+  weapons:
+    - staff
+
+# ===========================================================================
+# ENRAGE TIMER
+# ===========================================================================
+enrage_turn: 15
+enrage_description: "Standard veteran enrage: Turn 15 status immunity, Turn 16+ 99,999 damage"
+
+# ===========================================================================
+# DROPS
+# ===========================================================================
+# Veteran Axe (歴戦の斧)
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Staff/dark for 14 shields"
+  - role: dps
+    priority: required
+    reason: "Kill before turn 15"
+
+recommended_weakness_coverage:
+  - staff
+  - dark
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Veteran NPC for BT Axe farming.
+  
+  Staff and dark weakness - clerics with dark attacks work well.
+  Standard 14 shield, turn 15 enrage pattern.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/366082"
+last_updated: 2025-12-21

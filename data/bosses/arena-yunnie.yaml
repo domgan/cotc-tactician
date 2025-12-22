@@ -1,0 +1,305 @@
+# Arena Boss: Yunnie (ユーニィ)
+# SOURCE: Game8 JP
+#
+# Multi-wave arena fight with 6 possible adds (summoned in phases)
+# Core: Yunnie + Hunter, then Thief+Merchant, then Swordsman+Apothecary
+
+id: arena-yunnie
+display_name: "Yunnie"
+display_name_jp: "ユーニィ"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Standard, but many adds
+provoke_immunity: false  # Can use provoke
+
+# HP-based thresholds (add waves)
+hp_thresholds:
+  - hp_percent: 75
+    event: "Hunter Self-Destruct"
+    behavior_changes: "Hunter add self-destructs if at low HP or Yunnie triggers"
+    actions_per_turn: 1
+  - hp_percent: 50
+    event: "Wave 2 Summon"
+    behavior_changes: "Summons Thief + Merchant adds"
+    actions_per_turn: 1
+  - hp_percent: 25
+    event: "Wave 3 Summon + Serious Mode"
+    behavior_changes: "Summons Swordsman + Apothecary, 'Getting Serious' P.ATK buff if all adds dead"
+    actions_per_turn: 1
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (waves of adds)
+# ===========================================================================
+enemies:
+  - name: "Yunnie"
+    name_jp: "ユーニィ"
+    is_main_target: true
+    shield_count: 24
+    weaknesses:
+      elements: []
+      weapons:
+        - sword
+        - axe
+        - fan
+    notes: |
+      Main boss. Bow-based attacks with status ailments.
+      Summons adds at HP thresholds.
+      "Getting Serious" P.ATK buff when all adds dead.
+      
+  - name: "Dusk Brigade (Hunter)"
+    name_jp: "夕凪の団(狩人)"
+    is_main_target: false
+    shield_count: 16
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - sword
+        - axe
+        - fan
+    notes: |
+      Initial add. Self-destructs with powerful attack when:
+      - Own HP ≤40%, or
+      - Yunnie HP ≤75%
+      
+      STRATEGY: Keep alive as long as possible!
+      
+  - name: "Dusk Brigade (Thief)"
+    name_jp: "夕凪の団(盗賊)"
+    is_main_target: false
+    shield_count: 13
+    weaknesses:
+      elements:
+        - fire
+        - ice
+      weapons:
+        - sword
+        - axe
+    notes: |
+      Phase 2 add. Removes auto-regen + SP drain.
+      Self-destructs at HP ≤40% or Yunnie HP ≤40%.
+      
+  - name: "Dusk Brigade (Merchant)"
+    name_jp: "夕凪の団(商人)"
+    is_main_target: false
+    shield_count: 14
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - dagger
+        - staff
+        - fan
+    notes: |
+      Phase 2 add. AoE COUNTER on AoE attacks!
+      Self-destructs at HP ≤40% or Yunnie HP ≤40%.
+      
+  - name: "Dusk Brigade (Swordsman)"
+    name_jp: "夕凪の団(剣士)"
+    is_main_target: false
+    shield_count: 13
+    weaknesses:
+      elements:
+        - lightning
+      weapons:
+        - axe
+    notes: |
+      Phase 3 add. AoE COUNTER on AoE attacks!
+      Uses charge-up attack "Evil Flash".
+      
+  - name: "Dusk Brigade (Apothecary)"
+    name_jp: "夕凪の団(薬師)"
+    is_main_target: false
+    shield_count: 12
+    weaknesses:
+      elements: []
+      weapons:
+        - sword
+        - fan
+    notes: |
+      Phase 3 add. Removes auto-regen!
+      Heals Yunnie for ~9000 HP + auto-regen (~11000/turn).
+
+# ===========================================================================
+# YUNNIE'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Poison Arrow"
+    name_jp: "毒液矢"
+    effect: "Bow attack on single target + Poison (3 turns)"
+    threat_level: medium
+
+  - name: "Wild Volley"
+    name_jp: "乱れ剛射"
+    effect: "3 bow attacks on random targets"
+    threat_level: high
+
+  - name: "Paralyze Rain"
+    name_jp: "パラライズレイン"
+    effect: "2 bow attacks on front row + PARALYSIS (3 turns)"
+    threat_level: extreme
+
+  - name: "Flame Flash"
+    name_jp: "連炎閃"
+    effect: "2 fire attacks on front row"
+    threat_level: high
+
+  - name: "Summon Phase 1"
+    name_jp: "夕凪の陣、第一陣……集合！"
+    effect: "At HP ≤75% (Hunter dead): Summons Thief + Merchant"
+    trigger: "HP ≤75%, Hunter dead"
+    threat_level: high
+
+  - name: "Dark Arrow"
+    name_jp: "漆黒の矢"
+    effect: "Bow attack on single target + Blind (3 turns)"
+    threat_level: medium
+
+  - name: "Crossfire"
+    name_jp: "クロスファイア"
+    effect: "2 bow attacks + 1 fire attack on front row"
+    threat_level: high
+
+  - name: "Jamming Shot"
+    name_jp: "ジャミングショット"
+    effect: "Bow attack + chance of Poison/Paralysis/Blind (3 turns)"
+    threat_level: high
+
+  - name: "Summon Phase 2"
+    name_jp: "夕凪の陣、第二陣……集合！"
+    effect: "At HP ≤40% (Thief+Merchant dead): Summons Swordsman + Apothecary"
+    trigger: "HP ≤40%, Thief+Merchant dead"
+    threat_level: high
+
+  - name: "Taking Battle Stance"
+    name_jp: "ユーニィは大きく身構えた！"
+    effect: "Next turn uses Dusk Assault"
+    trigger: "Charge-up"
+    threat_level: high
+
+  - name: "Dusk Assault"
+    name_jp: "夕凪の突撃"
+    effect: "1x Sword + 1x Polearm + 1x Axe + 1x Bow on front row"
+    trigger: "After Taking Battle Stance"
+    threat_level: extreme
+
+  - name: "Getting Serious"
+    name_jp: "本気出しちゃうよ！"
+    effect: "When ALL adds dead: P.ATK buff (permanent)"
+    trigger: "All adds dead"
+    threat_level: high
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Keep Hunter Alive Strategy"
+    description: |
+      The OPTIMAL strategy is to keep the Hunter alive as long as possible!
+      
+      1. Shave Hunter's shields to near-break (don't break)
+      2. Attack Yunnie with SINGLE-TARGET attacks only
+      3. When Hunter glows (charge-up), BREAK the Hunter
+      4. During Hunter break, attack Yunnie
+      5. Re-break Hunter within 2 turns of recovery
+      6. Repeat until Yunnie dead
+      7. Let Hunter self-destruct or kill it
+      
+      This prevents ALL other adds from appearing!
+      
+  - name: "Status Ailment Tank"
+    description: |
+      Most status attacks are SINGLE-TARGET.
+      Use a 100% status immunity tank to absorb them!
+      
+      HOW TO MAKE:
+      - Pair with "Pure White Apron" (Shelby A4) in back row
+      - Character with "Status Immunity (Front Single)" passive
+      - Total 100% status immunity
+      
+      Note: "Paralyze Rain" is AoE - need separate cure!
+      
+  - name: "AoE Counter (Merchant/Swordsman)"
+    description: |
+      Merchant and Swordsman have AoE COUNTER stance!
+      Using AoE attacks triggers powerful counter attack.
+      
+      COUNTER: Use single-target attacks, or break them first.
+      
+  - name: "Rinyuu Trivializes Paralysis"
+    description: |
+      Rinyuu's "Gracious Prayer" provides semi-permanent paralysis immunity.
+      If you have Rinyuu, AoE paralysis is not a problem.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "100% status immunity tank for single-target ailments"
+    
+  - role: healer
+    priority: required
+    reason: "Need paralysis cure if no Rinyuu"
+    
+  - role: breaker
+    priority: required
+    reason: "Sword/axe/fan for Yunnie + Hunter"
+    
+  - role: debuffer
+    priority: optional
+    reason: "Ignore-weakness shield shave for Hunter control"
+
+recommended_weakness_coverage:
+  - sword     # Yunnie + multiple adds
+  - axe       # Yunnie + multiple adds
+  - fan       # Yunnie + Hunter + Apothecary
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex wave-based arena fight with status ailments.
+  
+  EQUIPMENT: P.DEF gear (almost all attacks are physical)
+  
+  OPTIMAL STRATEGY - KEEP HUNTER ALIVE:
+  1. Don't kill the Hunter immediately!
+  2. Shave Hunter shields to near-break (2-3 left)
+  3. Attack Yunnie with SINGLE-TARGET attacks
+  4. When Hunter charges up → Break Hunter
+  5. During break, attack Yunnie freely
+  6. Re-break Hunter within 2 turns of recovery
+  7. Repeat until Yunnie dead (avoids all other adds!)
+  
+  STATUS AILMENT HANDLING:
+  - Single-target ailments → 100% immunity tank
+  - "Paralyze Rain" (AoE paralysis) → Rinyuu or status cure
+  
+  IF FIGHTING ALL WAVES:
+  - Kill Merchant before Thief (has AoE counter)
+  - Kill Apothecary quickly (heals Yunnie)
+  - Watch for AoE counters on Merchant/Swordsman
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Yunnie: Rank1=24, Rank2=26, Rank3=28, EX1=30
+# Hunter: Rank1=16, Rank2=18, Rank3=20, EX1=22
+# (Other adds scale similarly)
+#
+# NOTE: Yunnie Rank3 required for "続・記された王者たち" side story!
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

@@ -1,0 +1,80 @@
+# Arena Boss: Tikilen EX2 (ティキレン EX2)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-tikilen-ex2
+display_name: "Tikilen EX2"
+display_name_jp: "ティキレン EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-tikilen
+ex_rank: ex2
+actions_per_turn: 1
+provoke_immunity: false
+
+# Tikilen: 34→16, Skilled: 24, Veteran: 23
+
+hp_thresholds:
+  - hp_percent: 80
+    event: "Pattern change"
+    behavior_changes: "Attack pattern B"
+  - hp_percent: 60
+    event: "Pattern change"
+    behavior_changes: "Attack pattern C"
+  - hp_percent: 40
+    event: "Last Stand (背水の陣)"
+    behavior_changes: "Only CRITS shave shields, shields 34→16"
+
+auras:
+  - name: "Last Stand (背水の陣)"
+    trigger: "HP ≤40%"
+    active_indicator: "Battle stance"
+    counter_effect: "Only CRITICAL hits shave shields"
+    removal_condition: "Break"
+  - name: "Physical Counter Stance"
+    trigger: "Periodic (mercenaries)"
+    counter_trigger: "Physical attack"
+    counter_effect: "Sword counter attack"
+    removal_condition: "Turn end"
+
+general_strategy: |
+  EX2 version with ~3x HP and significantly higher shields.
+  
+  Key changes:
+  - Tikilen shields: 34→16
+  - ~3x HP pool
+  - High speed requires tuning
+  
+  RECOMMENDED:
+  - 3500+ HP per character
+  - Stack all damage categories
+  - Consider killing mercenaries first
+  - Guaranteed crit essential for Last Stand
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Essential for survival"
+  - role: healer
+    priority: required
+    reason: "Sustained healing required"
+  - role: breaker
+    priority: required
+    reason: "High-hit bow/light attacks"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuffs"
+  - role: dps
+    priority: required
+    reason: "Crit DPS for Last Stand"
+
+recommended_weakness_coverage:
+  - bow
+  - light
+  - polearm
+  - lightning
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

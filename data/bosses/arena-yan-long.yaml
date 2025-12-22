@@ -1,0 +1,305 @@
+# Arena Boss: Yan Long (イェンロン)
+# SOURCE: Game8 JP
+#
+# Multi-enemy arena fight with rotating weakness lock and debuff clear
+
+id: arena-yan-long
+display_name: "Yan Long"
+display_name_jp: "イェンロン"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Standard, but complex due to mechanics
+provoke_immunity: true  # PROVOKE IMMUNE!
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 85
+    event: "Crow Summon"
+    behavior_changes: "Summons Wu and Xiu crows"
+    actions_per_turn: 1
+  - hp_percent: 50
+    event: "Enhanced Pattern"
+    behavior_changes: "More dangerous attack pattern"
+    actions_per_turn: 1
+
+# Auras/Stances
+auras:
+  - name: "Rotating Weakness Lock"
+    trigger: "Every turn"
+    active_indicator: "Stance change"
+    weakness_changes:
+      locked: ["2 of 3 weaknesses"]
+      unlocked: ["1 weakness each turn"]
+    counter_trigger: "N/A"
+    counter_effect: "Must track which weakness is open each turn"
+    removal_condition: "Rotates automatically"
+  - name: "Debuff Clear"
+    trigger: "Every turn"
+    active_indicator: "Cleanse animation"
+    counter_trigger: "Any debuff applied"
+    counter_effect: "All debuffs are cleared at end of each turn"
+    removal_condition: "None (permanent mechanic)"
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (crows summoned at HP 85%)
+# ===========================================================================
+enemies:
+  - name: "Yan Long"
+    name_jp: "イェンロン"
+    is_main_target: true
+    shield_count: 24
+    weaknesses:
+      elements:
+        - light
+      weapons:
+        - sword
+        - polearm
+    notes: |
+      Main boss. Staff-based physical attacks.
+      ROTATES weakness lock every turn!
+      CLEARS all debuffs every turn!
+      Provoke IMMUNE.
+      
+  - name: "Crow Servant Wu"
+    name_jp: "使いガラス・ウー"
+    is_main_target: false
+    shield_count: 10
+    weaknesses:
+      elements: []
+      weapons:
+        - axe
+        - tome
+    notes: |
+      Summoned at HP ≤85%. Buffs Yan Long P.ATK/Crit.
+      
+  - name: "Crow Servant Xiu"
+    name_jp: "使いガラス・シゥ"
+    is_main_target: false
+    shield_count: 9
+    weaknesses:
+      elements: []
+      weapons:
+        - axe
+        - tome
+    notes: |
+      Summoned at HP ≤85%. Wind attacks + heals Yan Long.
+
+# ===========================================================================
+# YAN LONG'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Seal Body Technique"
+    name_jp: "封身功"
+    effect: |
+      Turn 1 (and break recovery):
+      - Gains DOUBLE ACTIONS (permanent)
+      - Locks 2 of 3 weaknesses (sword/polearm/light rotation)
+      - Counter effect: Hitting locked weakness = +1 action next turn!
+    trigger: "Turn 1 / Break recovery"
+    threat_level: extreme
+
+  - name: "Evil Purge: Turn"
+    name_jp: "悪祓・転"
+    effect: |
+      End of every turn (HP >50%):
+      - CLEARS all debuffs on self!
+      - Rotates which weaknesses are locked
+    trigger: "End of turn (HP >50%)"
+    threat_level: high
+
+  - name: "Double Staff Strike"
+    name_jp: "双打棍"
+    effect: "2 staff physical attacks on single target"
+    threat_level: medium
+
+  - name: "Heaven Staff Dance"
+    name_jp: "回天棍舞"
+    effect: "Staff physical attack on front row"
+    threat_level: high
+
+  - name: "Flower Ice"
+    name_jp: "華気氷"
+    effect: "2 ice attacks on random targets + Staff RES down (2 turns)"
+    threat_level: high
+
+  - name: "Rock Breaking Dragon Staff"
+    name_jp: "断岩龍棍"
+    effect: "Extremely powerful physical attack on single target"
+    threat_level: extreme
+
+  - name: "Sharp Body Technique"
+    name_jp: "鋭身功"
+    effect: "P.ATK/Speed buff on self (3 turns)"
+    threat_level: medium
+
+  - name: "Crow Summon"
+    name_jp: "カラス呼び"
+    effect: "At HP ≤85%: Summons Wu and Xiu"
+    trigger: "HP ≤85%"
+    threat_level: high
+
+  - name: "Cloud Sky Combo Staff"
+    name_jp: "雲天連棍"
+    effect: "3-5 staff attacks on random targets + P.DEF down (2 turns)"
+    threat_level: extreme
+
+  - name: "Flower Staff Storm"
+    name_jp: "華乱棍"
+    effect: "4 weaker staff attacks on random targets"
+    threat_level: high
+
+  - name: "Grand Staff Flower Ice"
+    name_jp: "大棍華気氷"
+    effect: "Ice attack on front row + Staff RES down (2 turns)"
+    threat_level: high
+
+  - name: "Refine Body Technique"
+    name_jp: "錬身功"
+    effect: "Self HP recovery (~14000) + P.DEF buff (3 turns)"
+    threat_level: high
+
+  - name: "Fighting Body Technique"
+    name_jp: "闘身功"
+    effect: |
+      At HP ≤50%:
+      - Removes weakness lock and counter
+      - Staff damage buff (permanent)
+      - TRIPLE ACTIONS (permanent)
+    trigger: "HP ≤50%"
+    threat_level: extreme
+
+  - name: "Evil Purge"
+    name_jp: "悪祓"
+    effect: "End of every turn (HP <50%): CLEARS all debuffs on self"
+    trigger: "End of turn (HP <50%)"
+    threat_level: high
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Rotating Weakness Lock"
+    description: |
+      Yan Long LOCKS 2 of 3 weaknesses every turn!
+      Rotation: Sword → Polearm → Light → Sword...
+      
+      Turn 1: Only SWORD works
+      Turn 2: Only POLEARM works
+      Turn 3: Only LIGHT works
+      (Repeats)
+      
+      Bring characters with sword, polearm, AND light attacks!
+      Or use ignore-weakness shield shave (thieves).
+      
+  - name: "Weakness Counter"
+    description: |
+      Hitting a LOCKED weakness triggers counter!
+      Counter: Yan Long gets +1 action next turn (3 actions!)
+      
+      Track the rotation carefully!
+      
+  - name: "Debuff Clear Every Turn"
+    description: |
+      "Evil Purge: Turn" clears ALL debuffs at end of every turn!
+      
+      Attack debuffs are USELESS for sustained damage reduction.
+      
+      COUNTER:
+      - Use DEFENSE BUFFS on party instead!
+      - At HP <50%: Speed-tuned debuffer can apply START of turn
+        (debuff applies, then Yan Long acts, then cleared at end)
+      
+  - name: "Triple Actions (HP ≤50%)"
+    description: |
+      At HP ≤50%, "Fighting Body Technique" activates:
+      - Triple actions (permanent)
+      - Staff damage buff (permanent)
+      - BUT weakness lock/counter is removed!
+      
+      Defense buffs + attack debuffs (speed-tuned) needed to survive.
+      
+  - name: "Provoke Immune"
+    description: |
+      Yan Long is IMMUNE to all status ailments including provoke!
+      Normal tanks don't work.
+      
+      EXCEPTION: Fiore EX's "Cover" ability works.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: buffer
+    priority: required
+    reason: "Defense buffs - debuffs get cleared!"
+    
+  - role: healer
+    priority: required
+    reason: "Auto-regen + instant healing for triple action phase"
+    
+  - role: breaker
+    priority: required
+    reason: "Sword/polearm/light for Yan Long, axe/tome for crows"
+    
+  - role: debuffer
+    priority: required
+    reason: "Speed-tuned for HP <50% phase"
+
+recommended_weakness_coverage:
+  - sword     # Yan Long (rotating)
+  - polearm   # Yan Long (rotating)
+  - light     # Yan Long (rotating)
+  - axe       # Crows only
+  - tome      # Crows only
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex arena fight with rotating weakness lock and debuff clear.
+  
+  EQUIPMENT: P.DEF gear (mostly physical attacks)
+  
+  PROVOKE IMMUNE! (Fiore EX Cover works)
+  
+  KEY MECHANICS:
+  1. Weakness rotates every turn: Sword → Polearm → Light
+  2. Debuffs cleared every turn - use DEFENSE BUFFS instead!
+  3. Hitting locked weakness = +1 enemy action!
+  4. At HP ≤50%: Triple actions but no weakness lock
+  
+  CROW HANDLING:
+  - Kill crows FIRST (they buff/heal Yan Long)
+  - Crows weak to AXE/TOME only
+  - Cecily, Tatloch, Zenia for axe AoE
+  
+  ONE-BREAK KILL OPTION:
+  If you can kill Yan Long before HP 85%, crows never spawn!
+  Requires very specific high-damage setup.
+  
+  STANDARD APPROACH:
+  1. Phase 1: Break Yan Long, push HP to trigger crows
+  2. Kill crows with axe/tome attackers
+  3. Continue Yan Long with sword/polearm/light rotation
+  4. At HP <50%: Speed-tune debuffer to apply START of turn
+  5. Keep defense buffs up for triple action phase
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Yan Long: Rank1=24, Rank2=25, Rank3=26, EX1=28
+# Crow Wu: Rank1=10, Rank2=11, Rank3=12, EX1=14
+# Crow Xiu: Rank1=9, Rank2=10, Rank3=11, EX1=13
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

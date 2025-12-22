@@ -1,0 +1,109 @@
+# Arena Boss: Kagemune EX3 (カゲムネ EX3)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX3 variant of Kagemune - Adversary Log (Highest difficulty)
+# HP: ~45,000,000
+
+id: arena-kagemune-ex3
+display_name: "Kagemune (EX3)"
+display_name_jp: "カゲムネ（EX3）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-kagemune-ura
+ex_rank: ex3
+actions_per_turn: 2  # May be 3 at low HP
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 scaling - highest tier)
+# ===========================================================================
+hp: 45000000  # ~45 million
+shield_count: 50  # Massive shield count
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# HP THRESHOLDS
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "Clone summoning enabled"
+    behavior_changes: "Can summon clones"
+    actions_per_turn: 2
+  - hp_percent: 60
+    event: "Enhanced evasion"
+    behavior_changes: "Evades all attack types"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "Maximum threat mode"
+    behavior_changes: "3 clones, possibly 3 actions"
+    actions_per_turn: 3
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "50 shields is extreme - need best multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Extreme sustained damage"
+  - role: buffer
+    priority: required
+    reason: "Full 5-category damage stacking required"
+  - role: debuffer
+    priority: required
+    reason: "Max debuff stacking essential"
+  - role: dps
+    priority: required
+    reason: "45M HP is massive DPS check"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Kagemune is the ultimate ninja challenge.
+  
+  EX3 STATS:
+  - HP: ~45 million
+  - Shield: 50
+  - 2-3 actions per turn
+  - Extremely high speed
+  
+  THIS IS ENDGAME CONTENT:
+  - 45M HP requires top-tier damage optimization
+  - 50 shields requires dedicated breaking team
+  - Clone mechanics at full complexity
+  
+  STRATEGY REQUIREMENTS:
+  - Full 5-category buff stacking (see damage_stacking.yaml)
+  - Solon ultimate for potency boost
+  - Break extension mandatory (Nier)
+  - Single-target polearm/bow/fire/light focus
+  - NO random/AoE attacks ever
+  
+  CLONE MANAGEMENT:
+  - At this HP level, likely seeing multiple clone phases
+  - Track main body carefully
+  - Break main to clear clones
+  
+  REWARD: 言の葉「仮面」 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

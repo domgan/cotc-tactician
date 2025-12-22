@@ -1,0 +1,286 @@
+# Arena Boss: Varkyn (ヴァルカン)
+# SOURCE: Game8 JP
+#
+# Multi-enemy arena fight with Autonomous Spirit Stone mechanics
+# 4 ENEMIES: Varkyn (main) + Military Strategist + Scheming Dancer + Autonomous Spirit Stone
+
+id: arena-varkyn
+display_name: "Varkyn"
+display_name_jp: "ヴァルカン"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Complex due to 4 enemies
+provoke_immunity: false  # Can use provoke
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 50
+    event: "Spirit Stone Summon"
+    behavior_changes: "Summons Autonomous Spirit Stone if adds dead"
+    actions_per_turn: 1
+  - hp_percent: 35
+    event: "Musou Munen (無想無念)"
+    behavior_changes: "E.ATK buff + more dangerous attack pattern"
+    actions_per_turn: 1
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (4 enemies - Spirit Stone summoned mid-fight)
+# ===========================================================================
+enemies:
+  - name: "Varkyn"
+    name_jp: "ヴァルカン"
+    is_main_target: true
+    shield_count: 28
+    weaknesses:
+      elements:
+        - ice
+      weapons:
+        - sword
+        - staff
+    notes: |
+      Main boss. Light-based magical attacker.
+      At HP ≤35%, uses "Musou Munen" (無想無念) for E.ATK buff + dangerous attacks.
+      Summons Autonomous Spirit Stone when adds die or HP ≤50%.
+      
+  - name: "Military Strategist"
+    name_jp: "軍略研究家"
+    is_main_target: false
+    shield_count: 12
+    weaknesses:
+      elements:
+        - light
+      weapons:
+        - sword
+        - polearm
+        - bow
+    notes: |
+      Dark magic attacks.
+      Uses E.DEF debuff on party.
+      Kill to trigger Spirit Stone summon.
+      
+  - name: "Scheming Dancer"
+    name_jp: "策士な踊子"
+    is_main_target: false
+    shield_count: 16
+    weaknesses:
+      elements:
+        - ice
+      weapons:
+        - polearm
+        - bow
+        - tome
+    notes: |
+      E.ATK and Speed buffs on enemies.
+      Light resistance debuff.
+      Kill to trigger Spirit Stone summon.
+      
+  - name: "Autonomous Spirit Stone"
+    name_jp: "自律型精霊石"
+    is_main_target: false
+    shield_count: null  # Infinite shields - cannot be broken!
+    weaknesses:
+      elements:
+        - ice
+      weapons:
+        - sword
+        - staff
+    notes: |
+      INFINITE SHIELDS - Cannot be broken!
+      Weakness cycles: Staff → Sword → Ice → Staff...
+      At Varkyn HP ≤50%: Gains double actions + counter on weakness attacks!
+      DISPELS all party buffs every turn!
+
+# ===========================================================================
+# VARKYN'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Luminescence (Single) II"
+    name_jp: "光明魔法(単体)Ⅱ"
+    effect: "Light attack on single target"
+    threat_level: medium
+
+  - name: "Double Beat"
+    name_jp: "ダブルビート"
+    effect: "2 tome physical attacks on single target"
+    threat_level: medium
+
+  - name: "Element Crush"
+    name_jp: "エレメントクラッシュ"
+    effect: "E.ATK/E.DEF down on single target (3 turns)"
+    threat_level: medium
+
+  - name: "Luminescence (All) II"
+    name_jp: "光明魔法(全体)Ⅱ"
+    effect: "Light attack on front row"
+    threat_level: high
+
+  - name: "Chaotic Luminescence"
+    name_jp: "大乱光明魔法"
+    effect: "3 light attacks on random targets + Light RES down per hit (2 turns)"
+    threat_level: high
+
+  - name: "Summon Spirit Stone"
+    name_jp: "このオレに奥の手を出させるとは！"
+    effect: "Summons Autonomous Spirit Stone when both adds die OR Varkyn HP ≤50%"
+    trigger: "Both adds dead OR HP ≤50%"
+    threat_level: high
+
+  - name: "Light RES Destruction (All) III"
+    name_jp: "光耐性破壊(全体)Ⅲ"
+    effect: "Light RES down on front row (3 turns)"
+    threat_level: high
+
+  - name: "Musou Munen"
+    name_jp: "無想無念"
+    effect: "At HP <35%: E.ATK buff (permanent) + changes attack pattern to dangerous mode"
+    trigger: "HP <35%"
+    threat_level: extreme
+
+  - name: "Luminescence (All) III"
+    name_jp: "光明魔法(全体)Ⅲ"
+    effect: "Powerful light attack on front row"
+    trigger: "After Musou Munen"
+    threat_level: extreme
+
+  - name: "Taking Battle Stance"
+    name_jp: "ヴァルカンは大きく身構えた！"
+    effect: "Next turn uses Super Luminescence (Single)"
+    trigger: "Charge-up"
+    threat_level: high
+
+  - name: "Super Luminescence (Single)"
+    name_jp: "特大光明魔法(単体)"
+    effect: "3 light attacks on single target"
+    trigger: "After Taking Battle Stance"
+    threat_level: extreme
+
+# ===========================================================================
+# AUTONOMOUS SPIRIT STONE ACTIONS
+# ===========================================================================
+# Spirit Stone has INFINITE shields and cycles weakness!
+# - Chaotic Luminescence (3 light random + Light RES down)
+# - Weakness changes every turn: Staff → Sword → Ice → loop
+# - DISPELS all party buffs at end of every turn!
+# - At Varkyn HP ≤50%: Gains double actions + counter on weakness
+# - Counter deals instant-kill level damage!
+# - BP drain and SP drain attacks
+# - Self-destructs when Varkyn dies
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Autonomous Spirit Stone"
+    description: |
+      CANNOT be broken (infinite shields)!
+      Weakness cycles: Staff → Sword → Ice → Staff...
+      
+      KEY ABILITIES:
+      - DISPELS all party buffs every turn!
+      - At Varkyn HP ≤50%: Gains double actions
+      - Weakness Counter: Ultra-high damage when hit on weakness (HP ≤50%)
+      - BP drain and SP drain attacks
+      
+      COUNTERS:
+      - DO NOT USE BUFFS after Spirit Stone appears!
+      - Only use DEBUFFS on enemies for damage/survival
+      - NEVER hit Spirit Stone's current weakness (HP ≤50%)
+      - Track weakness cycle to avoid accidental counter
+      
+  - name: "Buff Dispel"
+    description: |
+      Spirit Stone dispels ALL party buffs at end of every turn.
+      Defensive buffs and attack buffs are useless!
+      
+      COUNTER: Only use DEBUFFS on enemies.
+      Semi-permanent buffs and auto-regen still work.
+      
+  - name: "Musou Munen (HP <35%)"
+    description: |
+      At HP <35%, Varkyn uses "Musou Munen":
+      - Permanent E.ATK buff
+      - Switches to extremely dangerous attack pattern
+      - Uses powerful aura attacks
+      
+      COUNTER: Break Varkyn just before/after 35% and burst down immediately.
+      Spread attackers between front and back row for SP drain backup.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "ONLY debuffs work - buffs get dispelled!"
+    
+  - role: healer
+    priority: required
+    reason: "Auto-regen healer essential; semi-permanent buffs work"
+    
+  - role: breaker
+    priority: required
+    reason: "Ice/sword/staff for Varkyn, varied for adds"
+    
+  - role: dps
+    priority: required
+    reason: "Split between front/back for SP drain backup"
+
+recommended_weakness_coverage:
+  - ice       # Varkyn + Scheming Dancer
+  - sword     # Varkyn + Military Strategist
+  - staff     # Varkyn only
+  - polearm   # Both adds
+  - bow       # Both adds
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex 4-enemy arena fight. Adds trigger Spirit Stone summon.
+  
+  EQUIPMENT: Equip E.DEF gear! Almost all attacks are elemental.
+  
+  PHASE 1 - Kill Adds:
+  - No consistent weakness across all enemies
+  - Kill adds one at a time
+  - Military Strategist: Dark attacks, E.DEF debuff
+  - Scheming Dancer: Buffs enemies, Light RES debuff
+  
+  PHASE 2 - Spirit Stone Active:
+  - Spirit Stone has INFINITE shields, cannot be broken!
+  - DISPELS ALL BUFFS every turn - DO NOT USE BUFFS!
+  - Only use DEBUFFS (attack debuffs on Varkyn)
+  - Track weakness cycle: Staff → Sword → Ice
+  
+  PHASE 3 - Varkyn HP ≤50%:
+  - Spirit Stone gains double actions
+  - Spirit Stone gains WEAKNESS COUNTER (instant kill!)
+  - NEVER hit Spirit Stone's current weakness!
+  - Single target attacks are safe; watch AoE!
+  
+  PHASE 4 - Varkyn HP <35% (Musou Munen):
+  - Varkyn gets permanent E.ATK buff
+  - Extremely dangerous attacks
+  - Break and burst immediately!
+  - Have back row attackers ready if front row SP drained
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Varkyn: Rank1=28, Rank2=30, Rank3=32, EX1=34, EX2=36, EX3=38
+# Military Strategist: Rank1=12, Rank2=14, Rank3=16, EX1=18, EX2=20, EX3=22
+# Scheming Dancer: Rank1=16, Rank2=18, Rank3=20, EX1=22, EX2=24, EX3=26
+# Spirit Stone: Infinite shields, cycles sword/staff/ice
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

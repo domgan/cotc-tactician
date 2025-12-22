@@ -1,0 +1,103 @@
+# Arena Boss: Kagemune EX2 (カゲムネ EX2)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX2 variant of Kagemune - Adversary Log
+# HP: ~20,000,000
+
+id: arena-kagemune-ex2
+display_name: "Kagemune (EX2)"
+display_name_jp: "カゲムネ（EX2）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-kagemune-ura
+ex_rank: ex2
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX2 scaling)
+# ===========================================================================
+hp: 20000000  # ~20 million
+shield_count: 41  # Up from 39
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# HP THRESHOLDS (Same structure)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "Clone summoning enabled"
+    behavior_changes: "Can summon 2 clones"
+    actions_per_turn: 2
+  - hp_percent: 60
+    event: "Enhanced evasion (both types)"
+    behavior_changes: "Evades random AND AoE"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "3 clones mode"
+    behavior_changes: "Summons 3 clones"
+    actions_per_turn: 2
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "41 shields + 20M HP is demanding"
+  - role: healer
+    priority: required
+    reason: "Very high sustained damage"
+  - role: buffer
+    priority: required
+    reason: "Full buff stacking needed for DPS check"
+  - role: debuffer
+    priority: required
+    reason: "30% debuffs essential"
+  - role: dps
+    priority: required
+    reason: "Single-target high DPS required"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX2 Kagemune is a serious DPS check.
+  
+  EX2 STATS:
+  - HP: ~20 million
+  - Shield: 41
+  - 2 actions per turn
+  - Very high speed
+  
+  1-BREAK KILL IS VERY DIFFICULT:
+  - 20M HP in one break window is extremely demanding
+  - May need to manage multiple break cycles
+  - Clone management becomes important
+  
+  CRITICAL:
+  - Still NO random/AoE attacks
+  - Still disable pursuit abilities
+  - Need maximum damage optimization
+  - Break extension (Nier) extremely valuable
+  
+  REWARD: カゲムネの英傑印 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

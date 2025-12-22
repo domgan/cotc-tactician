@@ -14,10 +14,33 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [dagger, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank, debuffer, breaker]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  S+ tier meta character. Auto-dodge via passive at full HP.
+  With Edea A4 = auto-provoke + infinite dodge.
+  7-hit shield shave, debuffs, extremely fast.
+  The gold standard for EX fight tank.
+
+# Tank type
+tank_type: dodge
+
+# EX fight recommendations
+recommended_min_hp: 3500
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 15
+      source_skill: "Dagger Debuff"
+    - type: phys_atk_down
+      value: 15
+      source_skill: "Attack debuff skill"
+  ultimate:
+    - type: weakness_res_down
+      value: 20
+      source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 2872

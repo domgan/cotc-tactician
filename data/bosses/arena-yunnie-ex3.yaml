@@ -1,0 +1,71 @@
+# Arena Boss: Yunnie EX3 (ユーニィ EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-yunnie-ex3
+display_name: "Yunnie EX3"
+display_name_jp: "ユーニィ EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-yunnie
+ex_rank: ex3
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Hunter Self-Destruct"
+    behavior_changes: "Extremely high self-destruct damage"
+  - hp_percent: 50
+    event: "Wave 2 Summon"
+    behavior_changes: "Very high HP adds"
+  - hp_percent: 25
+    event: "Wave 3 Summon + Serious Mode"
+    behavior_changes: "'Getting Serious' buff extremely dangerous"
+
+general_strategy: |
+  EXTREME difficulty - endgame content.
+  
+  EX3 SPECIFIC:
+  - ~5x HP (50M+ estimated for Yunnie)
+  - Adds have massive HP pools
+  - Self-destruct can one-shot
+  
+  REQUIRED:
+  - 4000+ HP per character
+  - 30% DEF buff + 30% ATK debuff
+  - Strong AoE breaking
+  - Consider ignoring adds strategy
+  
+  SPEEDKILL APPROACH:
+  - Ignore adds, burst Yunnie
+  - Stack all 5 damage categories
+  - Must survive self-destructs
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Essential for survival"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuff mandatory"
+  - role: healer
+    priority: required
+    reason: "Instant + sustained healing"
+  - role: buffer
+    priority: required
+    reason: "DEF buff + damage stacking"
+  - role: dps
+    priority: required
+    reason: "Sword/axe/fan, Solon recommended"
+
+recommended_weakness_coverage:
+  - sword
+  - axe
+  - fan
+  - lightning
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

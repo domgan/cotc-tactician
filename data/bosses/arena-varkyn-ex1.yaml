@@ -1,0 +1,58 @@
+# Arena Boss: Varkyn EX1 (ヴァルカン EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-varkyn-ex1
+display_name: "Varkyn EX1"
+display_name_jp: "ヴァルカン EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-varkyn
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Spirit Stone Summon"
+    behavior_changes: "Summons Autonomous Spirit Stone if adds dead"
+  - hp_percent: 35
+    event: "Musou Munen (無想無念)"
+    behavior_changes: "E.ATK buff + dangerous attack pattern"
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  Same mechanics as base:
+  - 4 enemies (Spirit Stone summoned mid-fight)
+  - Light-based magical attacks
+  - Spirit Stone heals and buffs
+  
+  RECOMMENDATION:
+  - Kill adds quickly
+  - 3000+ HP per character
+  - E.DEF gear recommended
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "E.ATK debuffs for survival"
+  - role: healer
+    priority: required
+    reason: "Magic damage healing"
+  - role: breaker
+    priority: required
+    reason: "Sword/ice for coverage"
+  - role: dps
+    priority: required
+    reason: "Ice or sword damage"
+
+recommended_weakness_coverage:
+  - sword
+  - ice
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

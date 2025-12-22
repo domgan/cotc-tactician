@@ -1,0 +1,121 @@
+# Veteran NPC Boss: "Sandcat" Dancer (「砂猫」の踊子)
+# SOURCE: https://game8.jp/octopathtraveler-sp/367950
+#
+# Drops: Veteran Fan (歴戦の扇)
+# Location: Sunshade (サンシェイド)
+
+id: veteran-sandcat-dancer
+display_name: "Sandcat Dancer"
+display_name_jp: "「砂猫」の踊子"
+content_type: npc_battle
+difficulty: hard
+level: 85
+location: "Sunshade (サンシェイド) - Upper left area"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 14
+
+# Weaknesses from Game8 icons (axe, ice shown in image references)
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - axe
+
+# ===========================================================================
+# ACTIONS (from Game8)
+# ===========================================================================
+actions:
+  - name: "Strike"
+    name_jp: "打つ"
+    effect: "Physical attack on single target"
+    threat_level: low
+
+  - name: "Fire Magic (Single) IV"
+    name_jp: "火炎魔法(単体)Ⅳ"
+    effect: "Fire magic attack on single target"
+    threat_level: medium
+
+  - name: "Crimson Dance"
+    name_jp: "紅蓮の演舞"
+    effect: "Fire attack on front row + Fire resistance down (3 turns)"
+    threat_level: high
+
+  - name: "Charming Dance"
+    name_jp: "魅惑の舞"
+    effect: "P.ATK/P.DEF/E.ATK/E.DEF down on front row (4 turns)"
+    threat_level: high
+
+  - name: "Getting Serious"
+    name_jp: "本気を出した"
+    effect: "Grants self status immunity. Next turn uses Veteran Wave."
+    trigger: "Turn 15"
+    threat_level: extreme
+
+  - name: "Veteran Wave"
+    name_jp: "歴戦の波動"
+    effect: "99,999 damage (instant death)"
+    trigger: "Turn 16+"
+    threat_level: extreme
+
+# ===========================================================================
+# ENRAGE TIMER
+# ===========================================================================
+enrage_turn: 15
+enrage_description: |
+  Turn 15: Boss uses "Getting Serious" (status immunity, permanent)
+  Turn 16+: Uses "Veteran Wave" every turn (99,999 damage = death)
+  
+  MUST defeat before turn 15!
+
+# ===========================================================================
+# DROPS
+# ===========================================================================
+# Veteran Fan (歴戦の扇) - 60% steal chance
+# Used as BT (Battle-Tested) weapon base
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "14 shields, break on turn 2 recommended"
+  - role: dps
+    priority: required
+    reason: "Must kill before turn 15"
+  - role: buffer
+    priority: recommended
+    reason: "Counter Charming Dance debuffs"
+
+recommended_weakness_coverage:
+  - axe
+  - ice
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Veteran NPC for Veteran Fan (BT Fan base weapon).
+  
+  Key mechanics:
+  - Charming Dance: AoE stat debuffs - counters your buffs!
+  - Crimson Dance: Fire damage + fire res down
+  - Turn 15: Enrage (99,999 damage per turn)
+  
+  Recommended strategy (from Game8):
+  - Break on turn 2 before enemy acts
+  - Thieves are good even off-weakness for guaranteed shield shave
+  - Ice characters or axe characters for breaking
+  - Apothecaries have low speed, consider using thieves/ice mages
+  
+  This is a farmable boss for BT weapon materials!
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/367950"
+last_updated: 2025-12-21

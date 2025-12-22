@@ -1,0 +1,339 @@
+# Arena Boss: Mirgardi Ura (ミルガルディ裏)
+# SOURCE: Game8 JP
+#
+# Hard mode arena champion with BP mechanic and death sentence
+
+id: arena-mirgardi-ura
+display_name: "Mirgardi (Ura)"
+display_name_jp: "ミルガルディ（裏）"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-mirgardi
+ex_rank: base  # This is the "ura" (裏) version, harder than normal base
+actions_per_turn: 1
+provoke_immunity: true
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 34
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - axe
+# Initial: sword, axe, ice
+# Changes at HP thresholds - see hp_thresholds
+
+# ===========================================================================
+# HP THRESHOLDS (Complex 4-phase system)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "有為転変・怒濤 (Adaptability - Fury)"
+    behavior_changes: |
+      Weakness changes to polearm/tome/ice.
+      Gains Damage Nullification Ignore + Evasion Ignore.
+    actions_per_turn: 1
+    new_weaknesses: [polearm, tome, ice]
+    locked_weaknesses: [sword, axe]
+
+  - hp_percent: 65
+    event: "龍尾扇・天鱗 (Dragon Tail Fan - Heavenly Scale)"
+    behavior_changes: |
+      Enhanced Dragon Tail effect.
+      P.ATK up + Fan damage up (permanent).
+      Weakness changes to axe/lightning/light.
+      Starts using Death Sentence (朧告死).
+    actions_per_turn: 1
+    new_weaknesses: [axe, lightning, light]
+    locked_weaknesses: [polearm, tome, ice]
+
+  - hp_percent: 35
+    event: "夜䕃掩蔽 (Night Shadow Concealment)"
+    behavior_changes: |
+      Changes weakness and HIDES shield/weakness info!
+      P.ATK up + Fan damage up (permanent).
+      Uses super powerful 奸龍断衝 attack.
+    actions_per_turn: 1
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "龍尾扇・迅 (Dragon Tail Fan - Swift)"
+    trigger: "Battle start"
+    active_indicator: "Passive buff indicator"
+    counter_trigger: "N/A"
+    counter_effect: |
+      Each attack received adds 1 "Dragon Tail pt" (not during break).
+      Each pt increases fan physical attack and attack resistance.
+      After using fan attack ability, consumes all pts and adds 3 pts.
+    removal_condition: "Break (pts stop accumulating)"
+
+  - name: "龍尾扇・天鱗 (Dragon Tail Fan - Heavenly Scale)"
+    trigger: "HP ≤65%"
+    active_indicator: "Enhanced aura"
+    counter_trigger: "N/A"
+    counter_effect: "Enhanced Dragon Tail + permanent P.ATK/Fan damage up"
+    removal_condition: "Cannot be removed"
+
+  - name: "夜䕃掩蔽 (Night Shadow Concealment)"
+    trigger: "HP ≤35%"
+    active_indicator: "Shield and weakness hidden"
+    counter_trigger: "N/A"
+    counter_effect: "Hides shield count and weaknesses"
+    removal_condition: "Cannot be removed"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "龍尾扇・迅 (Dragon Tail Fan - Swift)"
+    name_jp: "龍尾扇・迅"
+    effect: "Same as base version - pt accumulation system"
+    trigger: "Battle start"
+    threat_level: medium
+
+  - name: "繚乱払い (Dazzling Sweep)"
+    name_jp: "繚乱払い"
+    effect: "5 fan physical attacks on random targets"
+    threat_level: high
+
+  - name: "攻気旋扇撃 (Assault Spiral Fan)"
+    name_jp: "攻気旋扇撃"
+    effect: "Fan attack on front row + P.ATK up (3 turns)"
+    threat_level: medium
+
+  - name: "緩急自在 (Variable Tempo)"
+    name_jp: "緩急自在"
+    effect: "Speed DOWN or UP (permanent, varies)"
+    trigger: "Every turn end (except break)"
+    threat_level: medium
+
+  - name: "龍断衝 (Dragon Slash Impact)"
+    name_jp: "龍断衝"
+    effect: "Fan physical attack on single target"
+    threat_level: medium
+
+  - name: "火炎旋風符 (Flame Whirlwind Talisman)"
+    name_jp: "火炎旋風符"
+    effect: "2 fire attacks on front row + P.DEF/E.DEF down (3 turns)"
+    threat_level: high
+
+  - name: "濁龍断扇 (Murky Dragon Slash Fan)"
+    name_jp: "濁龍断扇"
+    effect: "3 fan attacks on single target + Fan resist down + Corrosion (3 turns)"
+    threat_level: high
+
+  - name: "火炎乱風符 (Flame Chaos Wind Talisman)"
+    name_jp: "火炎乱風符"
+    effect: "2x3 fire attacks on random targets + P.ATK/E.ATK down (2 turns each)"
+    threat_level: high
+
+  - name: "有為転変・怒濤 (Adaptability - Fury)"
+    name_jp: "有為転変・怒濤"
+    effect: |
+      At HP ≤90%: Changes weakness to polearm/tome/ice.
+      Gains Damage Nullification Ignore + Evasion Ignore.
+    trigger: "HP ≤90%"
+    threat_level: high
+
+  - name: "稲穂崩し (Rice Ear Collapse) - BP ATTACK"
+    name_jp: "稲穂崩し"
+    effect: |
+      Used at MAX BP! 5 powerful fan attacks on front row.
+      Always critical. ~10,000 total damage!
+    trigger: "BP MAX (5)"
+    threat_level: extreme
+
+  - name: "天衣自在 (Heavenly Garment Freedom)"
+    name_jp: "天衣自在"
+    effect: "P.ATK up + Fan damage up + HP regen (3 turns) + 1 Dragon Tail pt"
+    threat_level: medium
+
+  - name: "活龍断衝 (Living Dragon Slash)"
+    name_jp: "活龍断衝"
+    effect: "Powerful fan attack on single target + HP recovery + Shield +2"
+    threat_level: extreme
+
+  - name: "有為転変 (Adaptability)"
+    name_jp: "有為転変"
+    effect: "On break recovery (HP ≤90%): Changes weakness"
+    trigger: "Break recovery"
+    threat_level: medium
+
+  - name: "龍尾扇・天鱗 (Dragon Tail Fan - Heavenly Scale)"
+    name_jp: "龍尾扇・天鱗"
+    effect: |
+      At HP ≤65%: Enhanced Dragon Tail effect.
+      Permanent P.ATK up + Fan damage up.
+      Weakness changes to axe/lightning/light.
+    trigger: "HP ≤65%"
+    threat_level: high
+
+  - name: "朧告死 (Death Sentence)"
+    name_jp: "朧告死"
+    effect: "Front row: Death Sentence (count 3). KO when count reaches 0. Break to remove."
+    trigger: "HP ≤65%"
+    threat_level: extreme
+
+  - name: "龍断扇 (Dragon Slash Fan)"
+    name_jp: "龍断扇"
+    effect: "Super powerful fan attack on single target"
+    threat_level: extreme
+
+  - name: "擬暗斧・封 (Phantom Dark Axe - Seal)"
+    name_jp: "擬暗斧・封"
+    effect: "3 axe attacks on random targets + Silence (2 turns each)"
+    threat_level: high
+
+  - name: "夜䕃掩蔽 (Night Shadow Concealment)"
+    name_jp: "夜䕃掩蔽"
+    effect: |
+      At HP ≤35%: Changes weakness and HIDES shield/weakness.
+      Permanent P.ATK up + Fan damage up.
+    trigger: "HP ≤35%"
+    threat_level: extreme
+
+  - name: "奸龍断衝 (Treacherous Dragon Slash)"
+    name_jp: "奸龍断衝"
+    effect: "Ultra powerful fan attack on single target + BP +1"
+    trigger: "HP ≤35%"
+    threat_level: extreme
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "BP Attack (稲穂崩し)"
+    mechanic_type: ultimate
+    trigger: "BP reaches MAX (5)"
+    target: front_row
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: "MUST break within 3 turns to reduce BP by 3. Cannot survive this attack."
+
+  - name: "Death Sentence (朧告死)"
+    mechanic_type: debuff_party
+    trigger: "HP ≤65%, periodically after"
+    target: front_row
+    damage_type: none
+    effects: ["death_sentence_3"]
+    threat_level: critical
+    counter_strategy: "Must break within 3 turns to remove. Forces 3-turn break cycles."
+
+  - name: "4-Phase Weakness Cycling"
+    mechanic_type: phase_transition
+    trigger: "HP 90%, 65%, 35%"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      Track HP carefully for weakness changes:
+      100-90%: Sword, Axe, Ice
+      90-65%: Polearm, Tome, Ice (cycles on break recovery)
+      65-35%: Axe, Lightning, Light (cycles on break recovery)
+      35-0%: Hidden (cycles between patterns)
+
+  - name: "Shield/Weakness Hidden"
+    mechanic_type: passive
+    trigger: "HP ≤35%"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: "Memorize weakness pattern. Bring flexible team."
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "MUST break every 3 turns for BP and Death Sentence"
+  - role: healer
+    priority: required
+    reason: "Heavy sustained damage, need HP regen"
+  - role: debuffer
+    priority: required
+    reason: "Stack 30% P.ATK down to survive"
+  - role: dps
+    priority: required
+    reason: "Need DPS that covers multiple weakness sets"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Absorb single-target attacks"
+
+recommended_weakness_coverage:
+  - ice       # Works 100-65%
+  - axe       # Works 100-90% and 65-35%
+  - polearm   # Works 90-65%
+  - lightning # Works 65-35%
+  - light     # Works 65-35%
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Mirgardi (Ura) is MUCH harder than base. Key threat: BP attack and Death Sentence.
+  
+  CRITICAL MECHANIC - BP ATTACK:
+  - Mirgardi has BP gauge (max 5)
+  - At MAX BP: Uses 稲穂崩し (~10,000 damage to front row)
+  - Break reduces BP by 3
+  - YOU MUST BREAK EVERY 3 TURNS OR WIPE
+  
+  DEATH SENTENCE (HP ≤65%):
+  - 3-count death timer on front row
+  - Break removes it
+  - Forces 3-turn break cycles
+  
+  WEAKNESS PHASES (complex!):
+  - 100-90%: Sword, Axe, Ice
+  - 90-65%: Polearm, Tome, Ice (also cycles on break recovery)
+  - 65-35%: Axe, Lightning, Light (cycles on break recovery)  
+  - 35-0%: Hidden! Cycles between all patterns
+  
+  HP GAUGE ESTIMATES:
+  - 100-90%: First bar segment
+  - 90-65%: Large green portion
+  - 65-35%: Yellow portion
+  - 35-0%: Red portion
+  
+  RECOMMENDED APPROACH:
+  1. Build team that can break in ALL phases
+  2. Ice works until 65% (longest coverage)
+  3. After 65%: Need axe/lightning/light coverage
+  4. Stack Gloria/Tatloch for sustain OR speed-clear
+  
+  SAMPLE TEAM (Endurance):
+  - Nephti, Sarisa (debuff/break)
+  - Cyrus, Rinyuu (ice damage/healing)
+  - Tatloch, Gloria (sustain tank)
+  - Signa, Viola (debuff/support)
+  
+  SAMPLE TEAM (Speed Clear):
+  - Primrose EX, Richard (buffs)
+  - Solon, Agnea (damage amp)
+  - Odio-O, Viola (debuff/DPS)
+  - Ringabel, Mabel (damage)
+
+common_mistakes:
+  - "Letting BP reach MAX - instant wipe"
+  - "Not breaking within 3 turns of Death Sentence"
+  - "Missing weakness phase transitions"
+  - "Not preparing for hidden phase at 35%"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP (https://game8.jp/octopathtraveler-sp)"
+last_updated: 2025-12-22

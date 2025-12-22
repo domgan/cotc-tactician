@@ -14,10 +14,17 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [lightning, polearm]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Classic provoke tank with HP regen. Used in content where provoke works.
+  Less meta in EX fights due to provoke immunity, but still strong in story/NPCs.
+
+# Tank type
+tank_type: provoke
+
+# EX fight recommendations
+recommended_min_hp: 3500  # With pet HP bonus
 
 # Stats (base level)
 hp: 3528

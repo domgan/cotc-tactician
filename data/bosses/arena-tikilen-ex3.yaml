@@ -1,0 +1,90 @@
+# Arena Boss: Tikilen EX3 (ティキレン EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-tikilen-ex3
+display_name: "Tikilen EX3"
+display_name_jp: "ティキレン EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-tikilen
+ex_rank: ex3
+actions_per_turn: 1
+provoke_immunity: false
+
+# Tikilen: 36→18, Skilled: 26, Veteran: 25
+
+hp_thresholds:
+  - hp_percent: 80
+    event: "Pattern change"
+    behavior_changes: "Attack pattern B"
+  - hp_percent: 60
+    event: "Pattern change"
+    behavior_changes: "Attack pattern C - more dangerous"
+  - hp_percent: 40
+    event: "Last Stand (背水の陣)"
+    behavior_changes: "Only CRITS shave shields, shields 36→18"
+
+auras:
+  - name: "Last Stand (背水の陣)"
+    trigger: "HP ≤40%"
+    active_indicator: "Battle stance"
+    counter_effect: "Only CRITICAL hits shave shields"
+    removal_condition: "Break"
+  - name: "Physical Counter Stance"
+    trigger: "Periodic (mercenaries)"
+    counter_trigger: "Physical attack"
+    counter_effect: "Powerful sword counter"
+    removal_condition: "Turn end"
+
+general_strategy: |
+  EXTREME difficulty - endgame content.
+  
+  EX3 SPECIFIC:
+  - Tikilen shields: 36→18
+  - ~5x HP (estimated 50M+ total)
+  - Very high speed (500+)
+  - Counter stance extremely punishing
+  
+  CRITICAL REQUIREMENTS:
+  - 4000+ HP per character
+  - Guaranteed crit source (Sonia, Haanit, Linde)
+  - Full damage stacking (all 5 categories)
+  - Consider turtle strategy
+  
+  RECOMMENDED APPROACH:
+  1. Stack 30% DEF + 30% ATK debuff
+  2. Dodge tank for single-target attacks
+  3. Guaranteed crit for Last Stand
+  4. Kill mercenaries first if struggling
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Dodge or provoke tank essential"
+  - role: healer
+    priority: required
+    reason: "Sustained + instant healing"
+  - role: breaker
+    priority: required
+    reason: "High-hit bow/light + guaranteed crit"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuff for survival"
+  - role: buffer
+    priority: required
+    reason: "Stack all damage categories"
+  - role: dps
+    priority: required
+    reason: "Crit DPS, preferably Solon"
+
+recommended_weakness_coverage:
+  - bow
+  - light
+  - polearm
+  - lightning
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

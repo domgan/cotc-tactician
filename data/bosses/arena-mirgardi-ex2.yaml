@@ -1,0 +1,95 @@
+# Arena Boss: Mirgardi EX2 (ミルガルディ EX2)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX2 variant of Mirgardi - Adversary Log
+
+id: arena-mirgardi-ex2
+display_name: "Mirgardi (EX2)"
+display_name_jp: "ミルガルディ（EX2）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-mirgardi-ura
+ex_rank: ex2
+actions_per_turn: 2  # Likely gains extra action
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX2 scaling)
+# ===========================================================================
+shield_count: 38  # Up from 36
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - axe
+
+# ===========================================================================
+# HP THRESHOLDS (Same structure as Ura)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "有為転変・怒濤"
+    behavior_changes: "Weakness changes + Damage/Evasion Ignore"
+    new_weaknesses: [polearm, tome, ice]
+  - hp_percent: 65
+    event: "龍尾扇・天鱗 + 朧告死"
+    behavior_changes: "Enhanced power + Death Sentence"
+    new_weaknesses: [axe, lightning, light]
+  - hp_percent: 35
+    event: "夜䕃掩蔽"
+    behavior_changes: "Shield/weakness hidden"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "38 shields - need strong multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Higher damage, may take 2 actions per turn"
+  - role: debuffer
+    priority: required
+    reason: "P.ATK debuff essential"
+  - role: dps
+    priority: required
+    reason: "Higher HP pool requires more damage"
+  - role: tank
+    priority: required
+    reason: "Double actions mean more damage intake"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX2 Mirgardi significantly harder than EX1.
+  
+  EX2 DIFFERENCES:
+  - Shield count 38
+  - Likely 2 actions per turn
+  - Much higher HP
+  - Faster speed
+  
+  CRITICAL: With 2 actions per turn, BP builds faster!
+  May need to break more frequently.
+  
+  Consider using endurance team (Tatloch/Gloria) as noted in
+  Game8 recommendations, though EX2 may need more firepower
+  than the standard endurance comp provides.
+  
+  REWARD: ミルガルディの英傑印 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: tested
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

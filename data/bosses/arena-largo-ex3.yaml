@@ -1,0 +1,77 @@
+# Arena Boss: Largo EX3 (ラルゴ EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-largo-ex3
+display_name: "Largo EX3"
+display_name_jp: "ラルゴ EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-largo
+ex_rank: ex3
+actions_per_turn: 1  # Gains TRIPLE at HP ≤25%
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Stage 2 Robots"
+    behavior_changes: "Massive HP robots"
+  - hp_percent: 50
+    event: "Stage 3 Robots"
+    behavior_changes: "Red/Blue with huge HP"
+  - hp_percent: 25
+    event: "Stage 4 + TRIPLE ACTIONS"
+    behavior_changes: "TRIPLE ACTIONS can wipe team"
+    actions_per_turn: 3
+
+general_strategy: |
+  EXTREME difficulty - complex multi-stage fight.
+  
+  EX3 SPECIFIC:
+  - ~5x HP on Largo (50M+ estimated)
+  - Robots have massive HP pools
+  - Triple action phase extremely dangerous
+  
+  REQUIRED STRATEGY:
+  - 4000+ HP per character
+  - Full defensive stacking for triple phase
+  - Consider ignoring robots and burst Largo
+  
+  ALTERNATIVE:
+  - Kill robots in order to delay triple
+  - Red/Blue death triggers triple - delay this
+  - Long fight (100+ turns with turtle)
+  
+  SPEEDKILL APPROACH:
+  - Ignore robots, burst Largo
+  - Stack all 5 damage categories
+  - Must survive triple action phase
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Essential for triple action phase"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuff mandatory"
+  - role: healer
+    priority: required
+    reason: "Instant + sustained healing"
+  - role: buffer
+    priority: required
+    reason: "DEF buff + damage stacking"
+  - role: dps
+    priority: required
+    reason: "Ice/dagger/bow, Solon recommended"
+
+recommended_weakness_coverage:
+  - ice
+  - dagger
+  - bow
+  - sword
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

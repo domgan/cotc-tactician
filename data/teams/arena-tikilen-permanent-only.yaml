@@ -1,0 +1,225 @@
+# Team: Arena Tikilen - Permanent Characters Only
+# SOURCE: Game8 JP Recommended Team (恒常のみ編成)
+#
+# Uses only permanent (non-limited) characters
+
+id: arena-tikilen-permanent-only
+name: "Tikilen - Permanent Characters Only"
+boss_id: arena-tikilen
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: sustain
+investment_level: medium  # Permanent characters only
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: provoke_tank  # Gilderoy provoke works here
+minimum_hp_recommended: 3000
+
+# Buff/Debuff category coverage
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 0
+  ultimate_potency: 0  # No Solon
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: h-aanit
+    role_in_team: breaker
+    is_required: true
+    substitutes: [jillmeila]
+    substitute_notes: |
+      Guaranteed crit bow attacks essential for Last Stand.
+      High base crit as hunter.
+    key_skills_used:
+      - "Guaranteed crit bow attacks"
+      - "Multi-hit bow"
+    awakening_required: 0
+
+  - position: 2
+    character_id: scarecrow
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: [jillmeila]
+    substitute_notes: "High crit hunter with bow multi-hits"
+    key_skills_used:
+      - "Shower of Arrows"
+      - "Rending Arrow"
+    awakening_required: 0
+
+  - position: 3
+    character_id: eliza
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: [odette]
+    substitute_notes: "Light multi-hit attacks"
+    key_skills_used:
+      - "Triple Effulgence"
+      - "Light attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: gilderoy
+    role_in_team: tank
+    is_required: true
+    substitutes: [devin]
+    substitute_notes: "Tank to absorb random/single attacks"
+    key_skills_used:
+      - "Provoke"
+      - "Defensive buffs"
+    awakening_required: 0
+
+# ===========================================================================
+# COMPOSITION - BACK LINE
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: jillmeila
+    role_in_team: breaker
+    is_required: false
+    substitutes: [herminia]
+    substitute_notes: "High crit hunter, backup breaker"
+    key_skills_used:
+      - "Bow multi-hits"
+    awakening_required: 0
+
+  - position: 6
+    character_id: viola
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [kurtz]
+    substitute_notes: "P.ATK/E.ATK debuffs on Tikilen"
+    key_skills_used:
+      - "Anti-Attack"
+      - "Debilitate"
+    awakening_required: 0
+
+  - position: 7
+    character_id: primrose-ex
+    role_in_team: healer
+    is_required: true
+    substitutes: [ophilia, theo]
+    substitute_notes: "Healer with AoE regen"
+    key_skills_used:
+      - "Regen"
+      - "Healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: false
+    substitutes: [tithi]
+    substitute_notes: "Additional debuffer"
+    key_skills_used:
+      - "Debuffs"
+    awakening_required: 0
+
+# ===========================================================================
+# KEY STRATEGY POINTS
+# ===========================================================================
+# Same core strategy as limited version:
+# 1. Auto-regen healer
+# 2. Tank for random attacks
+# 3. Debuffs on Tikilen (30% P.ATK/E.ATK down)
+# 4. Fill with bow/light multi-hitters
+# 5. High-crit hunters for Last Stand
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-3"
+    phase: setup
+    actions:
+      - "Gilderoy provokes"
+      - "Viola stacks debuffs"
+      - "Primrose EX applies regen"
+      - "Hunters start shield shaving"
+    notes: "Avoid physical during counter turns!"
+
+  - turn_range: "4-10"
+    phase: break_push
+    actions:
+      - "Bow/light AoE to shave all enemies"
+      - "Track Physical Counter turns"
+      - "Use elemental attacks during counter"
+    notes: "Eliza for light, hunters for bow"
+
+  - turn_range: "HP <40%"
+    phase: burst
+    actions:
+      - "Use high-crit hunters (Haanit, Scarecrow, Jilmeila)"
+      - "Break Tikilen with crit hits"
+      - "Burst during break window"
+    notes: "Hunters have naturally high crit!"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "P.ATK Down"
+    sources: [viola]
+    target_cap: "30%"
+    timing: "Maintain on Tikilen"
+
+  - buff_type: "E.ATK Down"
+    sources: [viola]
+    target_cap: "30%"
+    timing: "Maintain on Tikilen"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  From Game8:
+  "恒常キャラのみで編成を組む場合でも、基本的な考え方は変わりません。
+  自動回復ヒーラー・タンク・デバッファーを編成し、
+  残りの枠に弓・光の多段連撃持ちを詰め込めばOKです。"
+  
+  Translation: Even with only permanent characters, the basic approach
+  doesn't change. Include auto-regen healer, tank, and debuffer,
+  then fill with bow/light multi-hitters.
+  
+  Hunters naturally have high CRIT stat, making them effective
+  against Last Stand even without guaranteed crit skills.
+
+key_synergies:
+  - "Viola debuffs reduce incoming damage"
+  - "Hunters have naturally high crit for Last Stand"
+  - "Bow/light AoE efficient vs all 3 enemies"
+  - "Gilderoy tanks random attacks"
+
+risks_and_recovery:
+  - "No guaranteed crit: May need RNG for Last Stand"
+  - "Physical Counter: Switch to Eliza (light) during counter"
+  - "Longer fight without limited DPS characters"
+
+# ===========================================================================
+# OTHER RECOMMENDED CHARACTERS (from Game8)
+# ===========================================================================
+# 4★ options: Ashiran, Devin, Kurtz, Lolo
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: true
+clear_time: "Variable (longer than limited team)"
+success_rate: "Good with proper crit luck"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_verified: null
+last_updated: 2025-12-21

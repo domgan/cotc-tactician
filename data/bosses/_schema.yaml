@@ -34,8 +34,45 @@ fields:
     type: string
     required: true
     source: "[HUMAN-REQUIRED]"
-    allowed_values: [story, story_boss, side_story, npc_battle, superboss, tower, arena, event, other]
-    description: "What content this boss appears in (npc_battle for 100/120 NPCs)"
+    allowed_values: [story, story_boss, side_story, npc_battle, superboss, tower, arena, adversary_log, event, other]
+    description: "What content this boss appears in (arena for base arena fights, adversary_log for EX/宿敵の写記 fights)"
+
+  # ===========================================================================
+  # EX FIGHT / ADVERSARY LOG FIELDS
+  # ===========================================================================
+  base_boss_id:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "For EX variants, references the base boss ID (e.g., 'arena-gertrude')"
+    notes: "Used to link EX1/EX2/EX3 variants back to base boss"
+
+  ex_rank:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [base, ex1, ex2, ex3]
+    description: "EX difficulty rank for Adversary Log bosses"
+    notes: |
+      - base: Standard arena/story version
+      - ex1: First EX rematch (~2x HP, moderate difficulty)
+      - ex2: Second EX rematch (~3x HP, high difficulty)
+      - ex3: Third EX rematch (~5x HP, extreme difficulty)
+
+  actions_per_turn:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [1, 2, 3]
+    description: "How many actions the boss takes per turn"
+    notes: "EX bosses often gain extra actions (2→3) at HP thresholds"
+
+  provoke_immunity:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "If true, boss cannot be provoked (common in arena/EX)"
+    notes: "Most arena champions and EX bosses are provoke immune"
 
   difficulty:
     type: string
@@ -267,6 +304,132 @@ fields:
       description: "What triggers this phase (HP threshold, turn count, etc.)"
 
   # ===========================================================================
+  # AURAS / STANCES (EX FIGHT MECHANICS)
+  # ===========================================================================
+  auras:
+    type: array
+    items: aura_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Special aura/stance mechanics (common in EX fights)"
+    notes: |
+      Auras are visual indicators (purple/blue flames) that signal:
+      - Weakness changes (locking/unlocking vulnerabilities)
+      - Counter attacks when hitting wrong weakness
+      - Special damage modifiers
+      
+  aura_object:
+    name:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Name of the aura/stance"
+      example: "Counter Stance"
+    
+    trigger:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "When this aura activates"
+      examples: ["Battle start", "Break recovery", "HP < 50%"]
+    
+    active_indicator:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Visual indicator when aura is active"
+      examples: ["Purple flame", "Blue aura"]
+    
+    weakness_changes:
+      type: object
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "How weaknesses change during this aura"
+      schema:
+        locked:
+          type: array
+          items: string
+          description: "Weaknesses that become locked (cannot be hit)"
+        unlocked:
+          type: array
+          items: string
+          description: "Weaknesses that remain open"
+    
+    counter_trigger:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "What triggers the counter attack"
+      example: "Hitting locked weakness"
+    
+    counter_effect:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "What happens when counter is triggered"
+      examples: ["+1 action next turn", "Wipe attack"]
+    
+    removal_condition:
+      type: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "How to remove this aura"
+      examples: ["Break", "Turn end", "HP threshold"]
+
+  # ===========================================================================
+  # HP THRESHOLDS (STRUCTURED PHASE TRIGGERS)
+  # ===========================================================================
+  hp_thresholds:
+    type: array
+    items: hp_threshold_object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Structured HP-based phase triggers"
+    notes: "More structured than generic 'phases' for precise planning"
+    
+  hp_threshold_object:
+    hp_percent:
+      type: integer
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "HP percentage that triggers this event"
+      example: 75
+    
+    event:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "What happens at this HP threshold"
+      example: "Phase 2 activation"
+    
+    behavior_changes:
+      type: string
+      required: true
+      source: "[HUMAN-REQUIRED]"
+      description: "Detailed behavior changes"
+      example: "Shield +3, double actions, new attack pattern"
+    
+    actions_per_turn:
+      type: integer
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Actions per turn after this threshold"
+    
+    new_weaknesses:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Weaknesses that open at this threshold"
+    
+    locked_weaknesses:
+      type: array
+      items: string
+      required: false
+      source: "[HUMAN-REQUIRED]"
+      description: "Weaknesses that become locked at this threshold"
+
+  # ===========================================================================
   # MECHANICS
   # ===========================================================================
   mechanics:
@@ -379,7 +542,7 @@ fields:
       required: true
       source: "[HUMAN-REQUIRED]"
       description: "HP threshold or turn count that triggers this phase"
-      example: "HP < 50%", "Turn 10"
+      examples: ["HP < 50%", "Turn 10"]
 
     behavior_changes:
       type: string
@@ -505,4 +668,3 @@ fields:
     required: true
     source: "[HUMAN-REQUIRED]"
     format: "YYYY-MM-DD"
-

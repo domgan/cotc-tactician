@@ -1,0 +1,381 @@
+# 120 NPC Boss: Well-Trained Beastling (鍛錬を重ねた獣人)
+# SOURCE: Game8 JP + Reddit Mastery Survey
+#
+# Level 120 NPC with BP accumulation, counter mechanics, and rage timer.
+# Challenge at NIGHT for +5 BP start and enemy def debuffs!
+
+id: 120npc-well-trained-beastling
+display_name: "Well-Trained Beastling"
+display_name_jp: "鍛錬を重ねた獣人"
+content_type: npc_battle
+difficulty: extreme
+level: 120
+location: "Kenomo Beach - Anchor (ケノモ海岸 碇泊地)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 35
+# HP: High (requires sustained damage or burst after "I won't give up")
+
+# ===========================================================================
+# WEAKNESSES & SHIELDS
+# ===========================================================================
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - lightning
+  weapons: []
+  # Note: Axe and Bow weaknesses ADDED on break only!
+
+# Weakness changes on break
+hp_thresholds:
+  - hp_percent: 100
+    event: "Battle Start"
+    behavior_changes: |
+      Initial weaknesses: Fire, Ice, Lightning only.
+      Physical/Elemental counter active (permanent).
+      Counter: Physical attack + force switch to back row + BP +1.
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "Bring It On (かかってこい)"
+    trigger: "Battle start and first break recovery"
+    active_indicator: "Physical/Elemental counter buff"
+    counter_trigger: "Any attack"
+    counter_effect: |
+      Physical attack on attacker.
+      Force switch attacker to back row (can't act during switch).
+      Recovers 1 BP.
+      On first break recovery: Weakness changes to Fire/Ice/Lightning.
+    removal_condition: "Using Special Dried Meat or I Won't Give Up"
+
+  - name: "I Won't Give Up (負けてたまるか)"
+    trigger: "Around turn 10 (HP-based)"
+    active_indicator: "Powered up stance"
+    counter_effect: |
+      P.ATK up, Crit up, Speed up (permanent).
+      P.DEF down, E.DEF down (permanent).
+      2 actions per turn (permanent, cancelled by break).
+      Counter effects removed.
+      No more Special Dried Meat usage.
+    removal_condition: "Cannot be removed, but enables damage phase"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "Bring It On (かかってこい)"
+    name_jp: "かかってこい"
+    effect: |
+      Battle start + first break recovery.
+      Grants Physical/Elemental counter (permanent).
+      Counter: Physical attack, force back row switch, BP +1.
+      On break recovery: Changes weakness to Fire/Ice/Lightning.
+    trigger: "Battle start, first break recovery"
+    threat_level: high
+
+  - name: "Beat (打擲)"
+    name_jp: "打擲"
+    effect: "3 physical attacks on single target"
+    threat_level: medium
+
+  - name: "Body Strike (体当たり)"
+    name_jp: "体当たり"
+    effect: "3 physical attacks on random targets + P.DEF down (3 turns)"
+    threat_level: medium
+
+  - name: "Pile On (のしかかり)"
+    name_jp: "のしかかり"
+    effect: "5 staff physical attacks on random targets"
+    threat_level: high
+
+  - name: "Horizontal Kick (横蹴り)"
+    name_jp: "横蹴り"
+    effect: "Powerful physical attack on front row"
+    threat_level: high
+
+  - name: "Spinning Kick (回し蹴り)"
+    name_jp: "回し蹴り"
+    effect: "Powerful physical attack on front row + P.ATK down (3 turns)"
+    threat_level: high
+
+  - name: "Turbulent Wind and Silent Waves (乱風静波)"
+    name_jp: "乱風静波"
+    effect: "3 wind attacks on random targets + Silence each (3 turns)"
+    threat_level: high
+
+  - name: "Fighting Spirit Powerful Punch (闘気烈拳)"
+    name_jp: "闘気烈拳"
+    effect: "Powerful physical attack on single target + BP +1"
+    trigger: "After I'm Strong"
+    threat_level: high
+
+  - name: "Fighting Spirit Powerful Kick (闘気烈蹴)"
+    name_jp: "闘気烈蹴"
+    effect: "Powerful physical attack on front row + BP +1"
+    trigger: "After I'm Strong"
+    threat_level: high
+
+  - name: "Fighting Spirit Barrage (闘気連打)"
+    name_jp: "闘気連打"
+    effect: |
+      5 powerful staff attacks on random targets + BP +1.
+      After "I Won't Give Up": BP recovery becomes +2.
+    trigger: "After I'm Strong"
+    threat_level: extreme
+
+  - name: "Fighting Spirit Storm Wave (闘気嵐波)"
+    name_jp: "闘気嵐波"
+    effect: |
+      3 powerful wind attacks on random targets.
+      SP damage per attack (20% of target's max SP) + BP +1.
+      After "I Won't Give Up": BP recovery becomes +3.
+    trigger: "After I'm Strong"
+    threat_level: extreme
+
+  - name: "Special Dried Meat (とっておきの干し肉)"
+    name_jp: "とっておきの干し肉"
+    effect: |
+      If BP ≥5 and before "I Won't Give Up", activates end of turn.
+      HP recovery (~38,000-45,000).
+      Speed up + Status immunity (3 turns).
+      Shield +2.
+      3 actions per turn from next turn (permanent, cancelled by break).
+      Removes counter effects.
+    trigger: "BP ≥5, before I Won't Give Up"
+    threat_level: extreme
+
+  - name: "I'm Strong (オレは強い)"
+    name_jp: "オレは強い"
+    effect: |
+      At MAX BP, activates at turn start (doesn't consume action).
+      P.ATK up, Crit up (2 turns).
+      Consumes 6 BP after use.
+    trigger: "BP MAX, before I Won't Give Up"
+    threat_level: high
+
+  - name: "Oh Don't Do It (あ、やるなよ)"
+    name_jp: "あ、やるなよ"
+    effect: "On break: Adds Axe and Bow weakness to self"
+    trigger: "On break"
+    threat_level: low
+
+  - name: "I Won't Give Up (負けてたまるか)"
+    name_jp: "負けてたまるか"
+    effect: |
+      Activated around turn 10.
+      P.ATK up, Crit up, Speed up (permanent).
+      P.DEF down, E.DEF down (permanent).
+      2 actions per turn (permanent).
+      Counter effects removed.
+      Enables all-out attack phase!
+    trigger: "Around turn 10"
+    threat_level: medium
+
+  - name: "Explosive Kick (闘気爆蹴)"
+    name_jp: "闘気爆蹴"
+    effect: |
+      Powerful physical attack on front row.
+      Force switch with back row (can't act during switch).
+      BP +2.
+    trigger: "After I Won't Give Up"
+    threat_level: extreme
+
+  - name: "Full-Power Kick (闘気爆・全力蹴)"
+    name_jp: "闘気爆・全力蹴"
+    effect: |
+      At MAX BP after "I Won't Give Up".
+      Extremely powerful attack on ALL allies (front and back).
+      Consumes 6 BP after use.
+    trigger: "BP MAX after I Won't Give Up"
+    threat_level: extreme
+
+  - name: "Still To Come (まだまだこれから)"
+    name_jp: "まだまだこれから"
+    effect: "On break recovery after I Won't Give Up: Changes weakness back to Fire/Ice/Lightning"
+    trigger: "Break recovery after I Won't Give Up"
+    threat_level: low
+
+  - name: "The Beastman Is Getting Serious! (鍛錬を重ねた獣人は本気になった！)"
+    name_jp: "鍛錬を重ねた獣人は本気になった！"
+    effect: |
+      End of turn 14 (or after break if conditions met during break).
+      Status immunity.
+      1 action per turn, uses "Master's Fury" only.
+    trigger: "Turn 14 end"
+    threat_level: extreme
+
+  - name: "Master's Fury (達人の怒り)"
+    name_jp: "達人の怒り"
+    effect: "Overkill damage (99,999) on ALL allies (front and back)"
+    trigger: "After Getting Serious"
+    threat_level: extreme
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Break Weakness Addition"
+    mechanic_type: passive
+    trigger: "On break"
+    target: all
+    damage_type: none
+    threat_level: low
+    counter_strategy: |
+      Axe and Bow weakness ONLY exists during break state.
+      Use Axe/Bow DPS to maximize break window damage.
+      Ochette's Arc Shot shaves shields regardless of weakness!
+
+  - name: "Physical/Elemental Counter"
+    mechanic_type: counter
+    trigger: "Any attack before Special Dried Meat or I Won't Give Up"
+    target: single
+    damage_type: physical
+    effects: ["forced_back_switch"]
+    threat_level: high
+    counter_strategy: |
+      Counter forces attacker to back row (can't act during switch).
+      Use dodge tanks or plan around forced switches.
+      Put channelers behind dodge tanks, not attackers.
+
+  - name: "BP Accumulation System"
+    mechanic_type: passive
+    trigger: "Various actions"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      Boss accumulates BP and uses "I'm Strong" at MAX BP.
+      Breaking reduces threat. If broken, returns to start of loop.
+      Early game is difficult due to Special Dried Meat HP recovery.
+
+  - name: "I Won't Give Up Phase"
+    mechanic_type: phase_transition
+    trigger: "Around turn 10"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      WAIT FOR THIS! Defense debuff applied to boss.
+      No more Special Dried Meat HP recovery.
+      This is your damage window!
+
+  - name: "Turn 14 Enrage"
+    mechanic_type: enrage
+    trigger: "Turn 14 end"
+    target: all
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: "Must kill before turn 14 or face 99,999 damage to all."
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: healer
+    priority: required
+    reason: "Sustained healing for long fight, Silence immunity helpful"
+    
+  - role: breaker
+    priority: required
+    reason: "35 shields with Fire/Ice/Lightning weakness"
+    
+  - role: buffer
+    priority: strongly_recommended
+    reason: "Stack damage for burst after I Won't Give Up"
+    
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "Boss gets defense debuff after I Won't Give Up - stack more!"
+    
+  - role: dps
+    priority: required
+    reason: "Axe/Bow DPS for break window, or Fire/Ice/Lightning elemental"
+
+  - role: tank
+    priority: recommended
+    reason: "Dodge tank helps with counter mechanics"
+
+recommended_weakness_coverage:
+  - fire        # Always weak
+  - ice         # Always weak
+  - lightning   # Always weak
+  - axe         # Added on break only
+  - bow         # Added on break only
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Trained Beastman is a Level 120 NPC with BP mechanics and a turn 14 enrage.
+  
+  ⚠️ CHALLENGE AT NIGHT!
+  Night battle gives:
+  - ALL allies start with +5 BP
+  - Boss has P.DEF/E.DEF down (3 turns)
+  - Debuffs stack with battle abilities!
+  
+  PHASE 1 (Turns 1-10): Survival
+  - Counter active: Forces attacker to back row
+  - Special Dried Meat recovers ~40k HP at BP ≥5
+  - Difficult to reduce HP in this phase
+  - Break every 3 turns if possible (like Presidentialguard strategy)
+  
+  PHASE 2 (After "I Won't Give Up"): All-Out Attack!
+  - Around turn 10, boss uses "I Won't Give Up"
+  - Boss gets P.DEF/E.DEF down (permanent)
+  - No more HP recovery from Special Dried Meat
+  - Counter effects removed
+  - THIS IS YOUR DAMAGE WINDOW!
+  
+  ENRAGE: Turn 14
+  - Must defeat before turn 14
+  - Uses "Master's Fury" - 99,999 to all
+  
+  BREAK WEAKNESS:
+  - Normal: Fire, Ice, Lightning only
+  - On Break: Axe and Bow ADDED
+  - Use Ochette's Arc Shot (shaves regardless of weakness)
+  - Canary and Ochette excellent for shield shaving
+  
+  RECOMMENDED TEAMS:
+  
+  Strategy 1: Elemental Focus (Cyrus/Isla/Nivelle)
+  - Cyrus chain-casting with Fire/Ice/Lightning
+  - Isla for Fire+Lightning damage
+  - Nivelle for Lightning/Shock
+  - Support around them for survival
+  
+  Strategy 2: Break Every 3 Turns (Presidentialguard)
+  - Ochette (Arc Shot ignores weakness)
+  - Canary (shield shaving + debuffs)
+  - Signa (debuffs + fire)
+  - Break trivializes damage output
+  
+  Sample Clear Team:
+  Front: Signa, Augen, Sazantos, Fiore EX
+  Back: Bargello, Alaune EX, Mabel, Richard
+
+common_mistakes:
+  - "Not challenging at night (miss +5 BP and def debuffs)"
+  - "Trying to deal damage before I Won't Give Up phase"
+  - "Ignoring counter mechanics (getting forced to back row)"
+  - "Taking too long - turn 14 enrage is fatal"
+  - "Not bringing Silence immunity (Turbulent Wind)"
+
+# ===========================================================================
+# REWARDS
+# ===========================================================================
+# Items: Wisdom Charm accessory
+# Support Skill: Pile On (Staff) - 5 staff physical attacks (power 150) on random, 2 uses
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP + Reddit Mastery Survey"
+last_updated: 2025-12-22

@@ -1,7 +1,8 @@
-# 120 NPC Boss: Dignified Tutor (風格のある家庭教師)
-# SOURCE: https://game8.jp/octopathtraveler-sp/540050
-# 
-# This is a Level 120 NPC encounter, one of the hardest fights in the game.
+# 120 NPC Boss: Dignified Tutor / Noble Tutor (風格のある家庭教師)
+# SOURCE: Game8 JP + Reddit Mastery Survey
+#
+# Level 120 NPC with debuff limit, provoke punishment, and turn 14 enrage.
+# One of the harder 120 NPCs due to debuff management.
 
 id: 120npc-dignified-tutor
 display_name: "Dignified Tutor"
@@ -9,28 +10,230 @@ display_name_jp: "風格のある家庭教師"
 content_type: npc_battle
 difficulty: extreme
 level: 120
+location: "New Delsta (ニューデルスタ)"
 
 # ===========================================================================
-# WEAKNESSES & SHIELDS
+# STATS
+# ===========================================================================
+shield_count: 38
+
+# ===========================================================================
+# WEAKNESSES
 # ===========================================================================
 weaknesses:
-  elements: [fire, ice, lightning]
-  weapons: [sword, polearm, bow]
+  elements:
+    - light
+  weapons:
+    - sword
+    - dagger
 
-shield_count: 38
-# Very high shield count - requires dedicated breaker or multi-hit strategy
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "Consecutive Action Stance (連続行動の構え)"
+    trigger: "Battle start"
+    active_indicator: "2 actions per turn"
+    counter_effect: "Has 2 actions per turn permanently"
+    removal_condition: "Cannot be removed"
+
+  - name: "Provoke Punishment (挑発とは舐められたものですね)"
+    trigger: "End of action phase if provoke is on self"
+    active_indicator: "Damage up buff"
+    counter_effect: "Grants permanent damage up to self. DO NOT USE PROVOKE!"
+    removal_condition: "Cannot be removed"
+
+  - name: "9+ Debuff Punishment (それで弱らせたつもりですか？)"
+    trigger: "Turn end if 9+ status/debuff icons on self"
+    active_indicator: "Defense/Speed buffs"
+    counter_effect: |
+      Grants PERMANENT P.DEF/E.DEF/Speed up.
+      Purges ALL debuffs.
+      FIGHT BECOMES UNWINNABLE if triggered!
+    removal_condition: "Cannot be removed - prevent activation!"
+
+  - name: "On-Break Debuff (仕込まれし反抗)"
+    trigger: "When broken"
+    active_indicator: "Debuff on party + potential 3 actions"
+    counter_effect: |
+      First break: P.ATK/E.ATK down on front row (1 turn).
+      Second break: Gains 3 actions per turn permanently.
+    removal_condition: "N/A"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "Consecutive Action Stance (連続行動の構え)"
+    name_jp: "連続行動の構え"
+    effect: "Battle start: Gains 2 actions per turn (permanent)"
+    trigger: "Battle start"
+    threat_level: medium
+
+  - name: "Can You Dodge This? (これは避けきれますか？)"
+    name_jp: "これは避けきれますか？"
+    effect: |
+      6-8 weak bow physical attacks on random targets.
+      Each attack applies Silence (1 turn).
+      Silence: Disables 1 ability at action phase start.
+    threat_level: high
+
+  - name: "Jaguar Bite (ジャガーバイト)"
+    name_jp: "ジャガーバイト"
+    effect: "Super powerful dagger physical attack on single target"
+    threat_level: extreme
+
+  - name: "Triple Flame Flash (破防三連炎閃)"
+    name_jp: "破防三連炎閃"
+    effect: "3 fire attacks on front row + P.DEF/E.DEF down (3 turns)"
+    threat_level: high
+
+  - name: "Triple Chaos Flame Kill (三連破戦乱炎殺)"
+    name_jp: "三連破戦乱炎殺"
+    effect: "3 powerful fire attacks on random targets + P.ATK/E.ATK down each (3 turns)"
+    threat_level: high
+
+  - name: "Target the Weak First (弱った方から狙いましょう)"
+    name_jp: "弱った方から狙いましょう"
+    effect: |
+      2 powerful physical attacks on LOWEST HP front row member.
+      Also applies Paralysis (3 turns).
+    threat_level: extreme
+
+  - name: "Provoke Punishment (挑発とは舐められたものですね)"
+    name_jp: "挑発とは舐められたものですね"
+    effect: |
+      At end of action phase if provoke effect is on self.
+      Grants permanent damage up to self.
+      DO NOT USE PROVOKE!
+    trigger: "If provoked"
+    threat_level: extreme
+
+  - name: "On-Break Debuff (仕込まれし反抗)"
+    name_jp: "仕込まれし反抗"
+    effect: |
+      When broken:
+      - P.ATK/E.ATK down on front row (1 turn)
+      - 2nd break: Actions become 3 per turn (permanent)
+    trigger: "On break"
+    threat_level: high
+
+  - name: "Don't Let Your Guard Down (余裕があっても油断は禁物です)"
+    name_jp: "余裕があっても油断は禁物です"
+    effect: "Powerful physical attack on single target + Heavy Bleed (3 turns)"
+    threat_level: high
+
+  - name: "9+ Debuff Punishment (それで弱らせたつもりですか？)"
+    name_jp: "それで弱らせたつもりですか？"
+    effect: |
+      At turn end if 9+ debuff/status icons on self.
+      Grants PERMANENT P.DEF/E.DEF/Speed up.
+      Purges ALL debuffs.
+      Only activates once per battle.
+      FIGHT IS UNWINNABLE IF THIS TRIGGERS!
+    trigger: "9+ debuff icons"
+    threat_level: extreme
+
+  - name: "Troublesome One Sleep (厄介な方はお眠りください)"
+    name_jp: "厄介な方はお眠りください"
+    effect: |
+      2 physical attacks on single target.
+      Applies Coma (3 turns) - bypasses physical counter!
+      Coma: Cannot act until effect ends (doesn't wake on damage).
+    threat_level: extreme
+
+  - name: "Fear Dulls Judgment (怖れは判断を鈍らせます)"
+    name_jp: "怖れは判断を鈍らせます"
+    effect: |
+      Super powerful physical attack on single target.
+      Applies Terror (3 turns).
+      Terror: Cannot Boost, BP doesn't recover at turn end.
+    threat_level: extreme
+
+  - name: "Heavy Rain (ヘビーレイン)"
+    name_jp: "ヘビーレイン"
+    effect: "4 bow physical attacks on front row + Weakness (2 turns)"
+    threat_level: high
+
+  - name: "Secret Art: Hive Improved (秘技：蜂ノ巣・改) - BP ATTACK"
+    name_jp: "秘技：蜂ノ巣・改"
+    effect: |
+      At MAX BP:
+      - 4 dagger attacks on single target + Coma (2 turns)
+      - 3 physical attacks on single target + Heavy Bleed (2 turns)
+      - Super powerful physical attack on single target
+      Consumes 5 BP after use.
+    trigger: "BP MAX"
+    threat_level: extreme
+
+  - name: "The Tutor Gets Serious! (風格のある家庭教師は本気を出した！)"
+    name_jp: "風格のある家庭教師は本気を出した！"
+    effect: |
+      End of turn 14 (or after break if conditions met during break).
+      Grants status immunity.
+      1 action per turn, uses "Master's Fury" only.
+    trigger: "Turn 14 end"
+    threat_level: extreme
+
+  - name: "Master's Fury (達人の激憤)"
+    name_jp: "達人の激憤"
+    effect: "Overkill damage (99,999) on ALL allies (front and back)"
+    trigger: "After Getting Serious"
+    threat_level: extreme
 
 # ===========================================================================
 # MECHANICS
 # ===========================================================================
-# [HUMAN-REQUIRED] - Detailed mechanics need to be filled from JP guides
 mechanics:
-  - name: "[HUMAN-REQUIRED] Primary Attack"
+  - name: "Debuff Limit (MAX 8 Icons)"
+    mechanic_type: passive
+    trigger: "Turn end if 9+ icons"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      If boss has 9+ debuff/status icons at turn end:
+      - Gains PERMANENT P.DEF/E.DEF/Speed up
+      - Purges ALL debuffs
+      - Fight becomes UNWINNABLE!
+      
+      COUNT ICONS EVERY TURN! Only apply 8 max.
+      Include: debuffs, status ailments, everything with an icon.
+
+  - name: "No Provoke!"
+    mechanic_type: counter
+    trigger: "If provoke effect applied"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: "DO NOT USE PROVOKE TANKS! Use cover tanks (Fiore EX) instead."
+
+  - name: "Turn 14 Enrage"
+    mechanic_type: enrage
+    trigger: "Turn 14 end"
+    target: all
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: "Must kill before turn 14 or face 99,999 damage to all."
+
+  - name: "Lowest HP Targeting"
     mechanic_type: attack
-    target: front_row
+    trigger: "Regular attack pattern"
+    target: lowest_hp
     damage_type: physical
     threat_level: high
-    counter_strategy: "[HUMAN-REQUIRED]"
+    counter_strategy: |
+      Boss targets lowest HP front row member with powerful attack.
+      Keep Canary as lowest HP if using her (dodge tank).
+      Or ensure your tank has lowest HP.
+
+  - name: "3 Actions After 2nd Break"
+    mechanic_type: phase_transition
+    trigger: "Second break"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: "After 2nd break, boss has 3 actions per turn. Plan accordingly."
 
 # ===========================================================================
 # TEAM REQUIREMENTS
@@ -38,49 +241,98 @@ mechanics:
 required_roles:
   - role: healer
     priority: required
-    reason: "Sustained healing needed for long fight"
+    reason: "Rinyuu preferred - passive healing doesn't need actions"
     
   - role: breaker
     priority: required
-    reason: "38 shields requires efficient breaking"
+    reason: "38 shields with sword/dagger weakness"
     
   - role: buffer
-    priority: strongly_recommended
-    reason: "Need damage buffs for break window"
+    priority: required
+    reason: "Stack damage for break windows - max 8 debuff icons!"
     
   - role: debuffer
-    priority: strongly_recommended
-    reason: "Defense debuffs for damage"
+    priority: required
+    reason: "Carefully count debuffs - MAX 8 ICONS total!"
     
   - role: dps
     priority: required
-    reason: "Need high damage during break window"
+    reason: "Sword or dagger DPS for weakness damage"
 
-required_capabilities:
-  - "High hit-count skills (38 shields)"
-  - "Fire, Ice, or Lightning damage"
-  - "Sword, Polearm, or Bow coverage"
-  - "Sustained healing"
+  - role: tank
+    priority: required
+    reason: "COVER tank only (Fiore EX) - NO PROVOKE!"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - light
 
 # ===========================================================================
 # STRATEGY
 # ===========================================================================
 general_strategy: |
-  This is a 120 NPC fight with very high shields (38).
+  Dignified Tutor (Noble Tutor) is one of the harder 120 NPCs.
+  Shield: 38, Weakness: Sword, Dagger, Light
   
-  Key considerations:
-  1. Focus on ONE weakness type for damage (stack buffs/debuffs)
-  2. Use multi-hit breakers to shave 38 shields efficiently
-  3. Apply all buffs/debuffs before break
-  4. Burst during the 2-turn break window
-  5. May take multiple break cycles
+  ⚠️ CRITICAL RULES:
+  
+  1. MAX 8 DEBUFF ICONS!
+     If boss has 9+ icons at turn end:
+     - Gains permanent P.DEF/E.DEF/Speed up
+     - Purges all debuffs
+     - FIGHT IS UNWINNABLE!
+     Count every icon every turn!
+  
+  2. NO PROVOKE!
+     If provoked: Gains permanent damage up.
+     Use COVER tanks only (Fiore EX, not Gilderoy).
+  
+  3. TURN 14 ENRAGE
+     Must defeat before turn 14 or face 99,999 overkill.
+  
+  RECOMMENDED APPROACH (BannerGs):
+  
+  Break timing: Turns 4, 9, 13, 16
+  - Prevents BP MAX ultimate
+  - After 2nd break: Boss has 3 actions
+  
+  Use Canary's Ultimate to break, then immediately:
+  - Primrose EX Elevating Elixir cleanses P.ATK/E.ATK down
+  
+  2nd break turn: Solon Ultimate on DPS, then Primrose Ultimate
+  - This charges Solon for another ultimate later
+  
+  Post-break: Use Bargello Ultimate for SP and ultimate charging
+  
+  LOWEST HP TARGETING:
+  - Boss targets lowest HP front row member
+  - Set Canary as lowest HP (she can dodge)
+  
+  TEAM EXAMPLE (BannerGs - 17 turn, 4 break):
+  Front: Canary/Falco 6*/Bargello/Primrose EX
+  Back: Solon/Alaune EX/Rinyuu/Sonia
+  
+  TEAM EXAMPLE (Anteo_05 - 10-11 turn, 2 break):
+  Front: Sazantos/Throne/Cecil/Canary
+  Back: Signa/Primrose/Shana/Alaune EX
+
+common_mistakes:
+  - "Applying 9+ debuffs (instant loss)"
+  - "Using provoke tanks (permanent damage up)"
+  - "Taking too long - turn 14 enrage is fatal"
+  - "Not tracking debuff icon count"
+  - "Having wrong character as lowest HP"
+
+# ===========================================================================
+# REWARDS
+# ===========================================================================
+# Items: 撃耐の除符 (Resistance Charm) x1
+# Support Skill: 三連衝滅炎閃 (Fire debuff) - 3 fire attacks (power 120) + 15% P.DEF/E.DEF down, 2 uses
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
-data_confidence: incomplete
-data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/540050"
-last_updated: 2025-12-21
-notes: |
-  [HUMAN-REQUIRED] - Detailed mechanics, attack patterns, and phase 
-  information need to be filled from JP guides or testing.
+data_confidence: verified
+data_source: "Game8 JP + Reddit Mastery Survey"
+last_updated: 2025-12-22

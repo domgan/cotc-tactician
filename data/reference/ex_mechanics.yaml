@@ -1,0 +1,282 @@
+# COTC EX Fight (Adversary Log) Mechanics Reference
+# This file documents the unique mechanics of EX rematches.
+#
+# SOURCE: Community knowledge, Reddit discussions, Game8 JP
+
+schema_version: "1.0"
+
+# =============================================================================
+# OVERVIEW
+# =============================================================================
+# EX Fights (Adversary Log / 宿敵の写記) are enhanced rematches of bosses.
+# They are NOT just "bosses with more HP" - they have mechanical changes.
+#
+# Key differences from base fights:
+# 1. Significantly higher HP (2x-5x)
+# 2. Higher speed stats (speed tuning required)
+# 3. More actions per turn (2-3)
+# 4. Often provoke immune
+# 5. Aura/stance mechanics with counters
+# 6. More dangerous HP threshold triggers
+#
+# Rewards: Rubies, unique accessories, arcana stones
+
+# =============================================================================
+# EX RANK SCALING
+# =============================================================================
+
+ex_ranks:
+  base:
+    display_name: "Base (Arena/Story)"
+    hp_multiplier: 1.0
+    speed_modifier: 0
+    actions_per_turn: 1-2
+    typical_shields: "9-27"
+    difficulty_tier: "Clearable with decent team"
+    
+  ex1:
+    display_name: "EX1 (Adversary Log Rank 1)"
+    hp_multiplier: 2.0
+    speed_modifier: "+50-100"
+    actions_per_turn: 2
+    typical_shields: "+3 from base"
+    difficulty_tier: "Requires good team, buffs/debuffs"
+    notes: |
+      First EX rematch. Most mechanics unchanged from base.
+      HP roughly doubled. Speed moderately higher.
+      Many players can clear with standard meta teams.
+      
+  ex2:
+    display_name: "EX2 (Adversary Log Rank 2)"
+    hp_multiplier: 3.0
+    speed_modifier: "+100-150"
+    actions_per_turn: 2-3
+    typical_shields: "+5-6 from base"
+    difficulty_tier: "Requires strong team, careful planning"
+    notes: |
+      Second EX rematch. Some mechanics enhanced.
+      HP roughly tripled. High speed requires tuning.
+      Most dangerous attacks hit harder.
+      
+  ex3:
+    display_name: "EX3 (Adversary Log Rank 3)"
+    hp_multiplier: 5.0
+    speed_modifier: "+150-250"
+    actions_per_turn: 3
+    typical_shields: "+8-10 from base"
+    difficulty_tier: "Endgame content, meta units often required"
+    notes: |
+      Final EX rematch. Maximum difficulty.
+      HP can reach 80+ million for some bosses.
+      Triple actions from early in fight.
+      Requires either speedkill or full turtle strategy.
+      Many fights take 30-100+ turns without optimal setup.
+
+# =============================================================================
+# SURVIVAL REQUIREMENTS
+# =============================================================================
+
+survival_requirements:
+  minimum_hp:
+    ex1: 3000
+    ex2: 3500
+    ex3: 4000
+    notes: |
+      HP requirements per character. Achievable via:
+      - Pet HP bonuses (+500 typical)
+      - HP accessories (Keeper series)
+      - Awakening Stage III (+50% HP)
+      - Support Passives
+      
+  recommended_defenses:
+    description: "Stack both buffs AND debuffs for safety"
+    party_def_buff: "30% P.DEF/E.DEF up (Tatloch, Ophilia, Rinyuu)"
+    enemy_atk_debuff: "30% P.ATK/E.ATK down (Therion, Canary, Viola)"
+    notes: |
+      30% DEF buff = take 30% less damage (direct mitigation)
+      30% ATK debuff = enemy deals 30% less damage
+      These stack multiplicatively for ~50% damage reduction.
+
+# =============================================================================
+# TANK ARCHETYPES FOR EX FIGHTS
+# =============================================================================
+
+tank_archetypes:
+  - type: provoke_tank
+    description: "Draw single-target attacks via Provoke"
+    effective_against: "Bosses with single-target heavy attacks"
+    limitation: "Many arena/EX bosses are PROVOKE IMMUNE"
+    key_characters: ["gilderoy", "serenoa"]
+    accessories: ["Serenoa A4 (auto-provoke)", "Bewitching Cloak (provoke + evade)"]
+    
+  - type: dodge_tank
+    description: "Evade attacks entirely via sidestep/dodge buffs"
+    effective_against: "Single-target and random-target attacks"
+    limitation: "AoE attacks cannot be dodged"
+    key_characters: ["h-aanit-ex", "canary", "hammy", "tressa"]
+    accessories: ["Edea A4 (auto-provoke at full HP)", "Eleonora A4"]
+    notes: |
+      Most powerful tank type for EX fights.
+      Canary + Edea A4 = auto-provoke + infinite dodge
+      H'aanit EX + Hammy = reliable dodge tank
+      
+  - type: cover_tank
+    description: "Intercept attacks meant for allies (Cover ability)"
+    effective_against: "All attack types (single, random, even some AoE)"
+    limitation: "Only Fiore EX has Cover mechanic"
+    key_characters: ["fiore-ex"]
+    notes: |
+      Fiore EX is the ONLY cover tank in the game.
+      Her "Physical Return Melody" reflects damage.
+      Essential for some EX3 fights (Gertrude, Yan Long).
+      Works even against provoke-immune bosses!
+      
+  - type: hp_barrier
+    description: "Absorb damage with HP shields"
+    effective_against: "Burst AoE attacks"
+    limitation: "Must refresh barriers before they break"
+    key_characters: ["temenos", "millard-ex", "sazantos"]
+    notes: |
+      Sazantos: AoE magic dodge barrier
+      Temenos: HP barriers from skill
+      Useful for surviving charge-up attacks.
+
+# =============================================================================
+# AURA/STANCE MECHANICS
+# =============================================================================
+
+aura_mechanics:
+  description: |
+    Auras are visible effects (flames/glows) indicating special boss states.
+    Common in EX fights and some arena base versions.
+    
+  types:
+    - name: "Weakness Lock Aura"
+      indicator: "Purple/blue flame"
+      effect: "Certain weaknesses become locked"
+      counter: "Hitting locked weakness triggers counter attack"
+      removal: "Usually removed by Break"
+      example: "Yan Long locks 2 of 3 weaknesses, rotates each turn"
+      
+    - name: "Counter Stance"
+      indicator: "Stance animation/aura"
+      effect: "Physical or elemental counter active"
+      counter: "Hitting wrong damage type triggers retaliation"
+      removal: "Usually removed by Break"
+      example: "Tikilen's Physical Counter Stance"
+      
+    - name: "Multi-Hit Shield Lock"
+      indicator: "Visible shield glow"
+      effect: "Can only lose 2 shields max per character action"
+      counter: "Multi-hit attacks become useless for shield shave"
+      removal: "Permanent until break"
+      example: "Gertrude's Strong Guard"
+
+# =============================================================================
+# SPEED TUNING FOR EX
+# =============================================================================
+
+speed_tuning:
+  description: |
+    EX bosses have much higher speed than base versions.
+    Your characters must outspeed them for debuffs to apply before attacks.
+    
+  priority_order:
+    - "Debuffer (must act BEFORE boss hits)"
+    - "Buffer (must act BEFORE DPS)"
+    - "Tank (if using provoke, must act first for provoke)"
+    - "Healer"
+    - "DPS (usually slowest, acts after buffs/debuffs)"
+    
+  speed_accessories:
+    - name: "Chomper Outfit"
+      effect: "+speed"
+      tradeoff: "Lower defenses"
+    - name: "Ballen Vest"
+      effect: "+speed for 3 turns at battle start"
+    - name: "Character A4s"
+      effect: "Various speed bonuses"
+      
+  typical_boss_speeds:
+    base: "250-400"
+    ex1: "350-500"
+    ex2: "400-550"
+    ex3: "450-650"
+
+# =============================================================================
+# DAMAGE STACKING FOR EX
+# =============================================================================
+
+damage_stacking_summary:
+  description: |
+    To kill EX3 bosses with 50-80 million HP, you MUST stack multiple
+    damage categories multiplicatively. See damage_stacking.yaml for details.
+    
+  categories:
+    - category: "Active Skills"
+      cap: "30%"
+      example: "Lynette's ATK buff, Viola's DEF debuff"
+      
+    - category: "Passives/Equipment"
+      cap: "30%"
+      example: "Richard's sword damage passive, A4 accessories"
+      
+    - category: "Ultimate"
+      cap: "Varies (100%+ for Solon)"
+      example: "Solon's 100% potency up, Primrose EX ultimate"
+      
+    - category: "Pets"
+      cap: "Varies"
+      example: "Linde/Hägen damage up"
+      
+    - category: "Divine Beast"
+      cap: "Varies"
+      example: "Simurgh, Fallen Mahrez"
+      
+  note: |
+    All categories stack MULTIPLICATIVELY.
+    30% from active + 30% from passive + 100% from Solon ≠ 160%
+    It's: 1.3 × 1.3 × 2.0 = 3.38x damage (238% increase)
+
+# =============================================================================
+# COMMON EX STRATEGIES
+# =============================================================================
+
+common_strategies:
+  speedkill:
+    description: "Kill before dangerous mechanics activate"
+    approach: |
+      Stack all damage categories, break on turn 6-7,
+      use Solon + Primrose EX to double ultimate damage,
+      kill in 1-2 breaks.
+    pros: "Fast, avoids dangerous HP thresholds"
+    cons: "Requires specific meta units, high investment"
+    key_units: ["solon", "primrose-ex", "canary", "nephti"]
+    
+  turtle:
+    description: "Survive everything, chip away slowly"
+    approach: |
+      Max defense buffs + attack debuffs (30% each),
+      dodge tank for single-target attacks,
+      HP barriers for AoE nukes,
+      slowly break and damage over 50-100+ turns.
+    pros: "Works with less invested units"
+    cons: "Very slow (30-100+ turns), boring"
+    key_units: ["rinyuu", "tatloch", "h-aanit-ex", "fiore-ex"]
+    
+  two_break:
+    description: "Kill in exactly 2 breaks"
+    approach: |
+      Break on turn 6-7 for first damage window,
+      survive post-break attacks,
+      break again and finish.
+    pros: "Balanced approach for most players"
+    cons: "Must survive dangerous post-break phase"
+    key_units: ["canary", "rinyuu", "primrose-ex", "viola"]
+
+# =============================================================================
+# METADATA
+# =============================================================================
+data_confidence: verified
+data_source: "Community knowledge, Reddit, Game8 JP"
+last_updated: 2025-12-22

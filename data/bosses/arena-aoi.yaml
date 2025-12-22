@@ -1,0 +1,71 @@
+# Arena Boss: Aoi (アオイ)
+# SOURCE: Game8 JP
+#
+# Sword master arena champion - base version
+
+id: arena-aoi
+display_name: "Aoi"
+display_name_jp: "アオイ"
+content_type: arena
+difficulty: hard
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base
+actions_per_turn: 1
+provoke_immunity: true  # Uses cover tank instead
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 17
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+    - dark
+  weapons:
+    - dagger
+    - axe
+    - bow
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Dagger/bow/ice/wind multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Sustained healing needed"
+  - role: dps
+    priority: required
+    reason: "Multiple weakness options available"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - ice
+  - wind
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Base Aoi is a swordmaster with simpler mechanics than the Ura version.
+  
+  WEAKNESSES: Dagger, Axe, Bow, Ice, Wind, Dark
+  
+  Standard arena fight. The Ura version introduces the complex
+  stance system (流天の型/止揚の型) with evasion and counter mechanics.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

@@ -1,0 +1,96 @@
+# Arena Boss: Gertrude EX1 (ガートルード EX1)
+# SOURCE: Game8 JP - Adversary Log
+#
+# First EX rematch of Gertrude with increased stats
+
+id: arena-gertrude-ex1
+display_name: "Gertrude EX1"
+display_name_jp: "ガートルード EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: arena-gertrude
+ex_rank: ex1
+actions_per_turn: 2  # Double actions from Turn 1
+provoke_immunity: true  # Immune to provoke
+
+# Scaled stats (EX1 = ~2x HP)
+shield_count: 12  # Increased from base 9, goes to 15 at HP 75%
+
+# HP-based thresholds (same pattern as base, scaled shields)
+hp_thresholds:
+  - hp_percent: 75
+    event: "Combat Drug (2nd)"
+    behavior_changes: "Shield max +3 (12→15)"
+    actions_per_turn: 2
+  - hp_percent: 50
+    event: "Combat Drug (3rd)"
+    behavior_changes: "Pattern change, starts using Heal Slash"
+    actions_per_turn: 2
+  - hp_percent: 33
+    event: "Combat Drug (4th)"
+    behavior_changes: "TRIPLE ACTIONS permanent, spam phase"
+    actions_per_turn: 3
+
+# Auras (same as base)
+auras:
+  - name: "Multi-Hit Shield Lock"
+    trigger: "Battle start / Break recovery"
+    active_indicator: "Shield glow"
+    counter_trigger: "N/A (always active)"
+    counter_effect: "Max 2 shields shaved per character action"
+    removal_condition: "Break (reapplies on recovery)"
+
+weaknesses:
+  elements:
+    - fire
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# STRATEGY NOTES (EX1 specific)
+# ===========================================================================
+general_strategy: |
+  Same mechanics as base Gertrude but with:
+  - Higher HP (~2x)
+  - Higher shield count (12→15 instead of 9→12)
+  - Higher speed (speed tuning needed)
+  
+  Key strategy remains the same:
+  - Multi-hit attacks useless (2 shields max per action)
+  - Use single-hit dagger/bow/fire attacks
+  - Fiore EX Cover works (not provoke)
+  - Stack debuffs on Turn 1 (free turn)
+  
+  RECOMMENDATION: Ensure 3000+ HP on all characters.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs on turn 1"
+  - role: healer
+    priority: required
+    reason: "Instant healing needed at HP <33%"
+  - role: dps
+    priority: required
+    reason: "Single-hit high-power attacks (NOT multi-hit!)"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - fire
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

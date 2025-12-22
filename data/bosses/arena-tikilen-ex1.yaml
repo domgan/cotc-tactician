@@ -1,0 +1,81 @@
+# Arena Boss: Tikilen EX1 (ティキレン EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-tikilen-ex1
+display_name: "Tikilen EX1"
+display_name_jp: "ティキレン EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-tikilen
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: false
+
+# Scaled shields (see comments in base file)
+# Tikilen: 32→14, Skilled Mercenary: 22, Veteran Mercenary: 21
+
+hp_thresholds:
+  - hp_percent: 80
+    event: "Pattern change"
+    behavior_changes: "Attack pattern B"
+  - hp_percent: 60
+    event: "Pattern change"
+    behavior_changes: "Attack pattern C"
+  - hp_percent: 40
+    event: "Last Stand (背水の陣)"
+    behavior_changes: "Only CRITS can shave shields, shields 32→14"
+
+auras:
+  - name: "Last Stand (背水の陣)"
+    trigger: "HP ≤40%"
+    active_indicator: "Battle stance"
+    counter_effect: "Only CRITICAL hits shave shields"
+    removal_condition: "Break"
+  - name: "Physical Counter Stance"
+    trigger: "Periodic (mercenaries)"
+    counter_trigger: "Physical attack"
+    counter_effect: "Sword counter attack"
+    removal_condition: "Turn end"
+
+general_strategy: |
+  EX1 version with ~2x HP and higher shields.
+  
+  Key changes from base:
+  - Tikilen shields: 32→14 (was 25→7)
+  - Higher mercenary shields
+  - Faster enemies (speed tuning needed)
+  
+  Same strategy applies:
+  - Bow/light for AoE weakness coverage
+  - Avoid physical during counter stance
+  - Guaranteed crit for Last Stand phase
+  - 3000+ HP recommended
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Absorb random/single attacks"
+  - role: healer
+    priority: required
+    reason: "Long fight requires sustained healing"
+  - role: breaker
+    priority: required
+    reason: "Bow/light AoE for all 3 enemies"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuffs on Tikilen"
+  - role: dps
+    priority: required
+    reason: "Crit-capable DPS for Last Stand"
+
+recommended_weakness_coverage:
+  - bow
+  - light
+  - polearm
+  - lightning
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

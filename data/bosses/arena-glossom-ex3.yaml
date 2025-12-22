@@ -1,0 +1,77 @@
+# Arena Boss: Glossom EX3 (グロッサム EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-glossom-ex3
+display_name: "Glossom EX3"
+display_name_jp: "グロッサム EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-glossom
+ex_rank: ex3
+actions_per_turn: 1  # Becomes 2 at HP ≤50%
+provoke_immunity: true
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Enhanced Dance"
+    behavior_changes: "DOUBLE ACTIONS permanent - very dangerous"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "Desperation"
+    behavior_changes: "Locks polearm/axe - ONLY DARK works"
+    locked_weaknesses: [polearm, axe]
+
+auras:
+  - name: "Weapon Lock"
+    trigger: "HP ≤25%"
+    weakness_changes:
+      locked: [polearm, axe]
+      unlocked: [dark]
+    removal_condition: "None (permanent)"
+
+general_strategy: |
+  EXTREME difficulty - endgame content.
+  
+  EX3 SPECIFIC:
+  - ~5x HP (50M+ estimated)
+  - Very high speed
+  - Double actions extremely punishing
+  
+  REQUIRED:
+  - Strong DARK DPS (Bargello, dark mages)
+  - 4000+ HP per character
+  - Full damage stacking (all 5 categories)
+  - Dodge tank or turtle strategy
+  
+  SPEEDKILL APPROACH:
+  - Kill before 25% to avoid weapon lock
+  - Stack Solon ultimate
+  - Full buff/debuff coverage
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Dodge tank essential"
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuff for survival"
+  - role: healer
+    priority: required
+    reason: "Instant + sustained healing"
+  - role: buffer
+    priority: required
+    reason: "All damage categories"
+  - role: dps
+    priority: required
+    reason: "DARK damage, Solon recommended"
+
+recommended_weakness_coverage:
+  - dark
+  - polearm
+  - axe
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

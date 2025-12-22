@@ -1,0 +1,168 @@
+# Team: Arena Gertrude - Dagger High Power
+# SOURCE: Game8 JP Recommended Team
+
+id: arena-gertrude-dagger-burst
+name: "Gertrude - Dagger High Power (Limited)"
+boss_id: arena-gertrude
+
+strategy_type: burst
+investment_level: high
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base  # For base arena version
+survival_strategy: cover_tank  # Fiore EX Cover is the only option!
+minimum_hp_recommended: 3000
+
+# Buff/Debuff category coverage
+buff_category_coverage:
+  active_atk_up: 30    # From buffers
+  active_def_down: 30  # From Viola/Sarisa
+  passive_damage_up: 15  # Dagger damage passive
+  ultimate_potency: 0  # No Solon
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: bargello
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Dagger damage"
+    key_skills_used:
+      - "Dagger attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: therion
+    role_in_team: breaker
+    is_required: true
+    substitutes: [sonia]
+    substitute_notes: "Single-hit dagger attacks (NOT multi-hit!)"
+    key_skills_used:
+      - "Single-hit dagger attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: auguste
+    role_in_team: debuffer
+    is_required: false
+    substitutes: [viola, sarisa]
+    substitute_notes: "Attack debuffs"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 4
+    character_id: fiore-ex
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      ONLY tank option! Cover ability works (provoke immune).
+      Can completely block attacks with proper timing.
+    key_skills_used:
+      - "Cover (not provoke)"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [viola]
+    substitute_notes: "Attack debuffs (stack on turn 1!)"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sonia
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Ignore-weakness shield shave"
+    key_skills_used:
+      - "Ignore weakness attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Auto-regen + instant healing for HP <33%"
+    key_skills_used:
+      - "Healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: falco
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Bow/dagger damage"
+    key_skills_used:
+      - "Attacks"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1"
+    phase: setup
+    actions:
+      - "Stack 30% P.ATK debuff (FREE TURN - no attack!)"
+      - "Sarisa + Auguste/Viola debuff"
+    notes: "Gertrude doesn't attack turn 1!"
+
+  - turn_range: "2-6"
+    phase: break_push
+    actions:
+      - "Use SINGLE-HIT attacks only (multi-hit useless!)"
+      - "Maintain debuffs"
+      - "Fiore EX covers dangerous attacks"
+    notes: "Multi-hit shield lock: max 2 shields per action"
+
+  - turn_range: "HP <33%"
+    phase: burst
+    actions:
+      - "TRIPLE ACTIONS + Heal Slash spam"
+      - "Use INSTANT healing, not just auto-regen"
+      - "Burst finish"
+    notes: "Very dangerous phase - finish quickly!"
+
+why_it_works: |
+  From Game8: Dagger is the highest damage option.
+  Thieves have strong single-hit skills + debuff synergy.
+  
+  CRITICAL: Use SINGLE-HIT attacks only!
+  Multi-hit attacks are useless due to shield lock.
+  
+  Fiore EX is the only tank that works (provoke immune).
+  
+  SHIELD SKIP TRICK: Push from >75% to <50% in one break
+  to skip the shield increase (stays at 9 instead of 12).
+
+key_synergies:
+  - "Turn 1 free debuff setup"
+  - "Thieves have single-hit + debuffs"
+  - "Fiore EX Cover bypasses provoke immunity"
+
+risks_and_recovery:
+  - "Multi-hit useless: Use single-hit only!"
+  - "Triple actions at 33%: Need instant healing"
+  - "Provoke immune: Only Fiore EX works as tank"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

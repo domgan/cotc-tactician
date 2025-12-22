@@ -1,0 +1,307 @@
+# COTC Survival Strategies Reference
+# This file documents tank/survival archetypes for team building.
+#
+# SOURCE: Community knowledge, Reddit discussions
+
+schema_version: "1.0"
+
+# =============================================================================
+# OVERVIEW
+# =============================================================================
+# Survival in COTC endgame (EX fights, tower, etc.) requires one or more
+# of these strategies. The best teams often combine multiple approaches.
+#
+# Key insight: "The best defense is a good offense" - killing bosses quickly
+# before dangerous mechanics is often more effective than tanking.
+
+# =============================================================================
+# TANK TYPES
+# =============================================================================
+
+tank_types:
+  provoke:
+    display_name: "Provoke Tank"
+    description: |
+      Draw single-target attacks to a designated tank using Provoke skill.
+      Tank absorbs damage while team attacks freely.
+      
+    how_it_works: |
+      1. Tank uses Provoke skill on boss
+      2. All single-target attacks hit the tank
+      3. Tank survives via high HP/DEF or damage reduction
+      4. Party is free to attack/buff/heal
+      
+    key_characters:
+      - id: gilderoy
+        notes: "Classic provoke tank with HP regen"
+      - id: serenoa
+        notes: "A4 gives auto-provoke, Decisive Resolve for survival"
+      - id: olberic
+        notes: "Cross Slash counter, but less survivable"
+        
+    key_accessories:
+      - name: "Serenoa A4 (Crest of House Wolffort)"
+        effect: "Auto-provoke at battle start (3 turns)"
+      - name: "Bewitching Cloak"
+        effect: "Provoke + chance to dodge"
+        
+    limitations:
+      - "Many arena/EX bosses are PROVOKE IMMUNE"
+      - "Cannot redirect AoE attacks"
+      - "Random-target attacks may bypass provoke"
+      
+    best_for:
+      - "Story bosses"
+      - "NPCs that allow provoke"
+      - "Fights with heavy single-target damage"
+
+  dodge:
+    display_name: "Dodge Tank"
+    description: |
+      Evade attacks entirely via Sidestep stacks or dodge buffs.
+      Most powerful tank type for endgame content.
+      
+    how_it_works: |
+      1. Dodge tank gets Sidestep stacks (physical evasion)
+      2. Combine with Provoke or auto-provoke to draw attacks
+      3. Each attack consumes one Sidestep stack
+      4. Refresh stacks before running out
+      
+    key_characters:
+      - id: h-aanit-ex
+        notes: "Best dodge tank. Turn 1 AoE debuff + self-dodge stacks"
+      - id: canary
+        notes: "Auto-dodge via passive, 7-hit shield shave, debuffs"
+      - id: hammy
+        notes: "Grants dodge to paired ally, not a tank herself"
+      - id: tressa
+        notes: "Sidestep stacks, can grant to others"
+      - id: molu
+        notes: "Self-dodge (Fleeting Feline)"
+        
+    key_accessories:
+      - name: "Edea A4"
+        effect: "Auto-provoke when HP is 100%"
+      - name: "Eleonora A4"
+        effect: "Battle start magic evasion"
+        
+    key_combos:
+      - combo: "Canary + Edea A4"
+        effect: "Auto-provoke + infinite dodge at full HP"
+        notes: "The gold standard for EX fights"
+      - combo: "H'aanit EX + Hammy (back row)"
+        effect: "H'aanit gets dodge from Hammy passive"
+        notes: "Hammy grants dodge to front paired ally"
+        
+    limitations:
+      - "AoE attacks CANNOT be dodged"
+      - "Need to refresh stacks regularly"
+      - "Some attacks pierce dodge"
+      
+    best_for:
+      - "EX fights (provoke immune)"
+      - "Bosses with heavy single/random-target attacks"
+      - "Arena champions"
+
+  cover:
+    display_name: "Cover Tank"
+    description: |
+      Intercept attacks meant for other allies.
+      Only Fiore EX has this mechanic.
+      
+    how_it_works: |
+      1. Fiore EX uses Cover ability
+      2. Attacks targeting allies hit Fiore EX instead
+      3. She can reflect physical damage back
+      4. Works even against provoke-immune bosses!
+      
+    key_characters:
+      - id: fiore-ex
+        notes: "ONLY cover tank in the game"
+        skills:
+          - "Physical Return Melody (reflects physical damage)"
+          - "Cover stance (absorbs attacks for allies)"
+          
+    limitations:
+      - "Only Fiore EX can do this"
+      - "Must choose physical OR magic protection"
+      - "Cannot fully protect against mixed damage types"
+      
+    best_for:
+      - "Provoke-immune bosses (Gertrude, Yan Long)"
+      - "Fights with predictable single-target patterns"
+      - "Cheesing certain mechanics"
+
+  hp_barrier:
+    display_name: "HP Barrier"
+    description: |
+      Create HP shields that absorb damage before HP.
+      Good for surviving burst AoE attacks.
+      
+    how_it_works: |
+      1. Cast HP barrier skill on party/front row
+      2. Barrier absorbs damage up to its value
+      3. Barrier breaks when damage exceeds value
+      4. Recast before big attacks
+      
+    key_characters:
+      - id: sazantos
+        notes: "AoE magic dodge/barrier for front row"
+      - id: temenos
+        notes: "HP barriers from skills"
+      - id: millard-ex
+        notes: "Barrier and healing combined"
+        
+    limitations:
+      - "Barriers break if damage exceeds value"
+      - "Must time refresh correctly"
+      - "Some attacks pierce barriers"
+      
+    best_for:
+      - "Charge-up AoE attacks (boss telegraphs)"
+      - "Supplementing other tank strategies"
+      - "Magic-heavy bosses (Sazantos)"
+
+# =============================================================================
+# DEFENSIVE STRATEGIES
+# =============================================================================
+
+defensive_strategies:
+  turtle:
+    display_name: "Turtle (Full Defense)"
+    description: |
+      Maximize both defense buffs AND attack debuffs.
+      Chip away at boss over many turns.
+      
+    core_principle: |
+      30% DEF buff + 30% ATK debuff = ~50% damage reduction
+      These stack multiplicatively, not additively.
+      
+    required_characters:
+      defense_buffers:
+        - "Tatloch (P.DEF/E.DEF + passive healing)"
+        - "Ophilia (all front row defense)"
+        - "Rinyuu (Crusader's Prayer for defense)"
+      attack_debuffers:
+        - "Therion (P.ATK/E.ATK down)"
+        - "Canary (15% each stack)"
+        - "Viola (Debilitate, Anti-Attack II)"
+        
+    combo_example: |
+      Rinyuu: 30% DEF up + HP regen
+      Tatloch: Passive P.DEF/E.DEF for front
+      Viola: 30% P.ATK/E.ATK down on boss
+      Result: Take ~50% less damage, passive healing
+      
+    turn_count: "30-100+ turns typical for EX3"
+    
+    best_for:
+      - "Players without speedkill units"
+      - "Learning boss patterns"
+      - "Fights with no enrage timer"
+
+  speedrun:
+    display_name: "Speedrun (Kill Before Danger)"
+    description: |
+      Maximize damage to kill boss before dangerous mechanics.
+      Requires high investment and specific units.
+      
+    core_principle: |
+      Stack all 5 damage categories multiplicatively.
+      Break on turn 6-7, deal massive damage, kill in 1-2 breaks.
+      
+    required_setup:
+      buffs:
+        - "30% ATK up (Lynette, Primrose EX)"
+        - "30% weapon damage up (Richard for sword/polearm)"
+        - "Ultimate potency (Solon 100%)"
+      debuffs:
+        - "30% DEF down (Viola, Sarisa)"
+        - "30% weapon RES down (Nephti, Yan Long A4)"
+      multipliers:
+        - "Solon: Double ultimate damage"
+        - "Primrose EX: Extension + damage up"
+        
+    key_units: ["solon", "primrose-ex", "canary", "nephti", "richard"]
+    
+    turn_count: "7-12 turns for 1-2 breaks"
+    
+    best_for:
+      - "Players with meta units invested"
+      - "Bosses with dangerous low-HP mechanics"
+      - "Time-limited challenges"
+
+  two_break:
+    display_name: "Two Break Strategy"
+    description: |
+      Balanced approach: survive to break twice, burst during breaks.
+      Most accessible for mid-game players.
+      
+    approach: |
+      Turn 1-5: Setup (buffs, debuffs, shield shave)
+      Turn 6-7: First break, deal damage
+      Turn 8-10: Survive post-break attacks
+      Turn 11-12: Second break, finish boss
+      
+    required_elements:
+      - "Reliable tank/survival"
+      - "Good shield shaving"
+      - "Moderate damage stacking"
+      - "Healing/recovery"
+      
+    best_for:
+      - "Most EX1 and EX2 fights"
+      - "Players building toward speedkill"
+      - "Fights with reasonable HP pools"
+
+# =============================================================================
+# PET CONTRIBUTIONS
+# =============================================================================
+
+pet_survival:
+  hp_bonus:
+    description: "Pets can add +500 HP to a character (priority stat)"
+    recommendation: "Give ALL pets 50 HP fruit first"
+    
+  dodge_pets:
+    description: "Some pets grant physical or magic evasion"
+    examples:
+      - "Physical evasion pets for dodge tank support"
+      - "Magic evasion for caster-heavy fights"
+      
+  hp_barrier_pets:
+    description: "Some pets grant HP shields at battle start"
+    usage: "Good for surviving turn 1 attacks"
+
+# =============================================================================
+# STATUS IMMUNITY FOR TANKS
+# =============================================================================
+
+status_immunity_tank:
+  description: |
+    Create a tank with 100% status ailment immunity.
+    Useful when boss has heavy status attacks.
+    
+  setup:
+    - step: 1
+      action: "Put tank in front row"
+    - step: 2
+      action: "Put status immunity support in back row (paired position)"
+      characters: ["rita", "shelby", "theo", "morrusso", "soleil"]
+    - step: 3
+      action: "Equip 'Pure White Apron' (Shelby A4) on support"
+      effect: "+50% status resistance to front paired ally"
+    - step: 4
+      action: "Result: 50% passive + 50% apron = 100% immunity"
+      
+  limitations:
+    - "Only protects front paired position"
+    - "AoE status attacks still hit others"
+    - "Requires Shelby A4"
+
+# =============================================================================
+# METADATA
+# =============================================================================
+data_confidence: verified
+data_source: "Community knowledge, Reddit discussions"
+last_updated: 2025-12-22

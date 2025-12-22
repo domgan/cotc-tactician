@@ -1,0 +1,64 @@
+# Arena Boss: Largo EX2 (ラルゴ EX2)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-largo-ex2
+display_name: "Largo EX2"
+display_name_jp: "ラルゴ EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-largo
+ex_rank: ex2
+actions_per_turn: 1  # Gains TRIPLE at HP ≤25%
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Stage 2 Robots"
+    behavior_changes: "Higher HP robots"
+  - hp_percent: 50
+    event: "Stage 3 Robots"
+    behavior_changes: "Stronger Red/Blue pair"
+  - hp_percent: 25
+    event: "Stage 4 + TRIPLE ACTIONS"
+    behavior_changes: "TRIPLE ACTIONS extremely dangerous"
+    actions_per_turn: 3
+
+general_strategy: |
+  EX2 version with ~3x HP.
+  
+  KEY CHALLENGES:
+  - Robots have much higher HP
+  - Triple action phase very dangerous
+  - Long fight with many stages
+  
+  CRITICAL:
+  - 3500+ HP per character
+  - Consider killing Red/Blue last
+  - Triple action phase requires full defense
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "30% ATK debuff for survival"
+  - role: healer
+    priority: required
+    reason: "Sustained + instant healing"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Survive triple action phase"
+  - role: dps
+    priority: required
+    reason: "Ice/dagger/bow damage"
+
+recommended_weakness_coverage:
+  - ice
+  - dagger
+  - bow
+  - sword
+  - staff
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

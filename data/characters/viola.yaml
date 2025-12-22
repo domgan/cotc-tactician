@@ -14,10 +14,32 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [dagger, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [debuffer]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Classic debuffer with "Debilitate" and "Anti-Attack II".
+  Stacks 15%+15% for 30% DEF/ATK debuffs.
+  Essential for all team compositions.
+  Very fast, acts early in turn order.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 15
+      source_skill: "Debilitate"
+    - type: elem_def_down
+      value: 15
+      source_skill: "Debilitate"
+    - type: phys_atk_down
+      value: 15
+      source_skill: "Anti-Attack II"
+    - type: elem_atk_down
+      value: 15
+      source_skill: "Anti-Attack II"
 
 # Stats (base level)
 hp: 2892

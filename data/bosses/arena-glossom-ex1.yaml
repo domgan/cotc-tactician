@@ -1,0 +1,65 @@
+# Arena Boss: Glossom EX1 (グロッサム EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-glossom-ex1
+display_name: "Glossom EX1"
+display_name_jp: "グロッサム EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-glossom
+ex_rank: ex1
+actions_per_turn: 1  # Becomes 2 at HP ≤50%
+provoke_immunity: true
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Enhanced Dance"
+    behavior_changes: "DOUBLE ACTIONS permanent"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "Desperation"
+    behavior_changes: "Locks polearm/axe - ONLY DARK works"
+    locked_weaknesses: [polearm, axe]
+
+auras:
+  - name: "Weapon Lock"
+    trigger: "HP ≤25%"
+    weakness_changes:
+      locked: [polearm, axe]
+      unlocked: [dark]
+    removal_condition: "None (permanent)"
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  Key changes:
+  - Higher HP and shields
+  - Faster enemies
+  - Same weakness lock at 25%
+  
+  IMPORTANT:
+  - Bring DARK damage for final phase
+  - Polearm/axe only work above 25% HP
+  - 3000+ HP recommended
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "ATK debuffs for survival"
+  - role: healer
+    priority: required
+    reason: "Sustained healing needed"
+  - role: dps
+    priority: required
+    reason: "DARK damage for final phase"
+
+recommended_weakness_coverage:
+  - dark
+  - polearm
+  - axe
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

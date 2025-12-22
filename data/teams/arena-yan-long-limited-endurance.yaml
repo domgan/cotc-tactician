@@ -1,0 +1,175 @@
+# Team: Arena Yan Long - Limited High Endurance
+# SOURCE: Game8 JP Recommended Team (限定入り高耐久編成)
+
+id: arena-yan-long-limited-endurance
+name: "Yan Long - Limited High Endurance"
+boss_id: arena-yan-long
+
+strategy_type: sustain
+investment_level: high
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: cover_tank  # Fiore EX or dodge tank (provoke immune!)
+minimum_hp_recommended: 3500
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 0  # Debuffs clear each turn!
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: tytos
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword/light damage for Yan Long"
+    key_skills_used:
+      - "Sword attacks"
+      - "Light attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: cecily
+    role_in_team: breaker
+    is_required: true
+    substitutes: [tatloch, zenia]
+    substitute_notes: "Axe AoE for crows!"
+    key_skills_used:
+      - "Axe AoE attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: tatloch
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: "Axe AoE for crows"
+    key_skills_used:
+      - "Axe attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: fiore-ex
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      ONLY tank option! Provoke immune.
+      Use "Physical Return Melody" repeatedly.
+    key_skills_used:
+      - "Physical Return Melody"
+      - "Cover"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: rondo
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Light damage for Yan Long"
+    key_skills_used:
+      - "Light attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sonia
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Ignore-weakness + debuffs"
+    key_skills_used:
+      - "Various attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: true
+    substitutes: [primrose-ex]
+    substitute_notes: "Auto-regen + instant healing"
+    key_skills_used:
+      - "Healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: alaune-ex
+    role_in_team: debuffer
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Semi-permanent defense buff (works with debuff clear!)
+      Attack debuffs for HP <50% phase (speed-tuned)
+    key_skills_used:
+      - "Defense buffs"
+      - "Attack debuffs"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Fiore EX covers attacks"
+      - "Apply DEFENSE BUFFS (debuffs get cleared!)"
+      - "Push Yan Long to 85% to trigger crows"
+    notes: "Debuffs cleared every turn - use buffs instead!"
+
+  - turn_range: "Crows alive"
+    phase: break_push
+    actions:
+      - "Kill crows FIRST with axe/tome"
+      - "Cecily + Tatloch axe AoE"
+      - "Continue defense buffs"
+    notes: "Crows buff/heal Yan Long"
+
+  - turn_range: "HP <50%"
+    phase: burst
+    actions:
+      - "Triple actions + no weakness lock"
+      - "Speed-tune debuffer for START of turn debuff"
+      - "Keep defense buffs up"
+      - "Burst finish"
+    notes: "Debuff applies → Yan Long acts → Cleared at end"
+
+why_it_works: |
+  From Game8: Fiore EX "Physical Return Melody" spam
+  
+  PROVOKE IMMUNE - only Fiore EX Cover works!
+  
+  KEY RULES:
+  1. Debuffs cleared every turn - use DEFENSE BUFFS!
+  2. Weakness rotates: Sword → Polearm → Light
+  3. Hitting locked weakness = +1 enemy action!
+  4. Kill crows first (axe/tome weakness)
+  5. At HP <50%: Speed-tune debuffer for start-of-turn
+  
+  Titus + Rondo for Yan Long damage.
+  Cecily + Tatloch for crows.
+  Works for Nemesis EX too!
+
+key_synergies:
+  - "Fiore EX Cover + Physical Return"
+  - "Defense buffs survive debuff clear"
+  - "Cecily/Tatloch axe AoE for crows"
+
+risks_and_recovery:
+  - "Debuffs cleared: Use defense buffs!"
+  - "Weakness lock: Track rotation carefully"
+  - "Triple actions at 50%: Speed-tune debuffer"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

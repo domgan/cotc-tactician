@@ -14,10 +14,29 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [axe, staff, tome]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [debuffer]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Elemental RES debuffer. 15% element RES down per skill.
+  Can stack multiple element debuffs.
+  Essential for elemental DPS teams.
+  High DEF makes her tanky.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: fire_res_down
+      value: 15
+      source_skill: "Elemental debuff"
+    - type: ice_res_down
+      value: 15
+      source_skill: "Elemental debuff"
+    - type: elem_def_down
+      value: 15
+      source_skill: "Defense debuff"
 
 # Stats (base level)
 hp: 3200

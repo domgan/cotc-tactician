@@ -1,0 +1,244 @@
+# Arena Boss: Ri'tu (リトゥ)
+# SOURCE: Game8 JP
+#
+# Multi-enemy arena fight with pursuit attack mechanics
+# 3 ENEMIES: Ri'tu (main) + Carefree Dancer + Steadfast Swordsman
+
+id: arena-ritu
+display_name: "Ri'tu"
+display_name_jp: "リトゥ"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # But gains pursuit attacks at HP ≤50%
+provoke_immunity: false  # Can use provoke
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 50
+    event: "Pursuit Mode"
+    behavior_changes: "Gains pursuit attacks (追撃) after every action"
+    actions_per_turn: 1  # Still 1 action but with pursuits
+  - hp_percent: 25
+    event: "Slashing Rock Form"
+    behavior_changes: "Increased pursuit damage + Speed buff"
+    actions_per_turn: 1
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (3 enemies)
+# ===========================================================================
+enemies:
+  - name: "Ri'tu"
+    name_jp: "リトゥ"
+    is_main_target: true
+    shield_count: 26
+    weaknesses:
+      elements:
+        - fire
+        - wind
+        - light
+      weapons: []
+    notes: |
+      Main boss. Dagger-based physical attacker.
+      At HP ≤50%: Gains pursuit attacks (追撃) after every action.
+      At HP ≤25%: "Slashing Rock Form" - increased pursuit damage + speed buff.
+      
+  - name: "Carefree Dancer"
+    name_jp: "奔放な踊子"
+    is_main_target: false
+    shield_count: 13
+    weaknesses:
+      elements:
+        - wind
+        - light
+      weapons:
+        - sword
+        - bow
+        - tome
+    notes: |
+      P.ATK and CRIT buffs on enemies.
+      Fan physical attacks.
+      
+  - name: "Steadfast Swordsman"
+    name_jp: "堅実な剣士"
+    is_main_target: false
+    shield_count: 14
+    weaknesses:
+      elements:
+        - ice
+        - wind
+      weapons: []
+    notes: |
+      Uses "Guardian Stance" to protect Ri'tu (takes damage for Ri'tu).
+      P.ATK debuff on party.
+      Kill this one FIRST!
+
+# ===========================================================================
+# RI'TU'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Double Destruction"
+    name_jp: "双壊衝"
+    effect: "2 dagger physical attacks on single target"
+    threat_level: medium
+
+  - name: "Leg Binding"
+    name_jp: "足縫い"
+    effect: "Speed down on front row (5 turns)"
+    threat_level: medium
+
+  - name: "Double Chaotic Flash"
+    name_jp: "双乱瞬刃"
+    effect: "2-5 dagger physical attacks on random targets"
+    threat_level: high
+
+  - name: "Severing"
+    name_jp: "絶"
+    effect: "Extremely powerful dagger physical attack on single target"
+    threat_level: extreme
+
+  - name: "Dual Blade Stance"
+    name_jp: "二刀の構え"
+    effect: "At HP ≤50%: Gains pursuit attack after every action (permanent)"
+    trigger: "HP ≤50%"
+    threat_level: extreme
+
+  - name: "Roar"
+    name_jp: "轟"
+    effect: "3 lightning attacks on random targets + P.DEF down per hit (2 turns)"
+    threat_level: high
+
+  - name: "Strength"
+    name_jp: "勁"
+    effect: "Powerful dagger physical attack on single target"
+    threat_level: high
+
+  - name: "Double Destruction Flash"
+    name_jp: "双壊閃"
+    effect: "2 dagger physical attacks on front row"
+    threat_level: high
+
+  - name: "Slashing Rock Form"
+    name_jp: "斬岩の型"
+    effect: |
+      At HP ≤25%: Pursuit attack damage UP (permanent).
+      Speed buff (permanent).
+    trigger: "HP ≤25%"
+    threat_level: extreme
+
+  - name: "Thunder God Flash"
+    name_jp: "雷神閃"
+    effect: "Lightning attack on front row + Paralysis (3 turns)"
+    threat_level: extreme
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Guardian Stance (Steadfast Swordsman)"
+    description: |
+      Steadfast Swordsman uses "Guardian Stance" to protect Ri'tu.
+      While active, attacks on Ri'tu are redirected to the Swordsman.
+      
+      COUNTER: Kill Steadfast Swordsman FIRST!
+      
+  - name: "Pursuit Attack (HP ≤50%)"
+    description: |
+      At HP ≤50%, Ri'tu gains "Dual Blade Stance":
+      - After every action, pursues last target with additional attack
+      - AoE pursuit hits random target
+      - Permanent effect
+      
+      COUNTER: Use stat-based tank (not evasion for multi-hit).
+      Auto-regen healing is essential.
+      
+  - name: "Slashing Rock Form (HP ≤25%)"
+    description: |
+      At HP ≤25%, "Slashing Rock Form" activates:
+      - Pursuit attack damage significantly increases
+      - Permanent speed buff
+      - Spams "Severing" (絶) - extremely powerful single attacks
+      
+      COUNTER: Evasion tank CAN work for single-hit "Severing".
+      Burst Ri'tu down during break window.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Stat-based tank for multi-hits; evasion works for Severing spam"
+    
+  - role: healer
+    priority: required
+    reason: "Auto-regen essential for pursuit attacks"
+    
+  - role: breaker
+    priority: required
+    reason: "Wind AoE hits all enemies consistently"
+    
+  - role: debuffer
+    priority: required
+    reason: "P.ATK debuffs reduce dangerous physical attacks"
+
+recommended_weakness_coverage:
+  - wind      # Consistent for all 3 enemies
+  - light     # Ri'tu + Carefree Dancer
+  - fire      # Ri'tu only
+  - ice       # Steadfast Swordsman only
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex 3-enemy arena fight with pursuit attack mechanics.
+  
+  EQUIPMENT: Equip P.DEF gear! Almost all attacks are physical.
+  
+  SHARED WEAKNESS: Wind (hits all 3 enemies)
+  
+  KILL ORDER:
+  1. Steadfast Swordsman FIRST (protects Ri'tu with Guardian Stance)
+  2. Carefree Dancer second (P.ATK/CRIT buffs are dangerous)
+  3. Ri'tu last
+  
+  PHASE 1 (HP 100-50%):
+  - Use wind AoE to shave all shields
+  - Kill adds in order above
+  - Stat-based tank recommended (2-5 hit attacks)
+  
+  PHASE 2 (HP 50-25%):
+  - "Dual Blade Stance" - pursuit attacks after every action
+  - Much more damage incoming
+  - Keep P.ATK debuffs and auto-regen active
+  
+  PHASE 3 (HP 25-0%):
+  - "Slashing Rock Form" - increased pursuit damage + speed
+  - "Severing" spam (single powerful hits) - evasion works here
+  - Burst Ri'tu down during break window
+  
+  TANK RECOMMENDATION:
+  Use stat-based tank for multi-hit phase (H'aanit EX, Gilderoy).
+  Evasion tank can work for "Severing" spam at low HP.
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Ri'tu: Rank1=26, Rank2=28, Rank3=30, EX1=32, EX2=34, EX3=36
+# Carefree Dancer: Rank1=13, Rank2=15, Rank3=17, EX1=19, EX2=21, EX3=23
+# Steadfast Swordsman: Rank1=14, Rank2=16, Rank3=18, EX1=20, EX2=22, EX3=24
+#
+# NOTE: Ri'tu Rank3 is required to clear "記された王者たち" side story!
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

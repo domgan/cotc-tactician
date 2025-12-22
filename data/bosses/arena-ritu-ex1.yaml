@@ -1,0 +1,55 @@
+# Arena Boss: Ri'tu EX1 (リトゥ EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-ritu-ex1
+display_name: "Ri'tu EX1"
+display_name_jp: "リトゥ EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-ritu
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Pursuit Mode"
+    behavior_changes: "Gains pursuit attacks (追撃) after every action"
+  - hp_percent: 25
+    event: "Slashing Rock Form"
+    behavior_changes: "Increased pursuit damage + Speed buff"
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  Key mechanics:
+  - 3 enemies (Ri'tu + 2 adds)
+  - Pursuit attacks from 50% HP
+  - Only ELEMENTAL weaknesses on Ri'tu (fire/wind/light)
+  
+  RECOMMENDATION:
+  - Fire/wind/light for Ri'tu
+  - Kill adds for easier fight
+  - 3000+ HP recommended
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "ATK debuffs for pursuit phase"
+  - role: healer
+    priority: required
+    reason: "Pursuit attacks add up"
+  - role: dps
+    priority: required
+    reason: "Fire/wind/light damage"
+
+recommended_weakness_coverage:
+  - fire
+  - wind
+  - light
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

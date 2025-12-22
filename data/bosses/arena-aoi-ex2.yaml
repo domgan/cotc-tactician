@@ -1,0 +1,138 @@
+# Arena Boss: Aoi EX2 (アオイ EX2)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX2 variant of Aoi - Adversary Log
+# HP: ~30,000,000, Shield: 50
+
+id: arena-aoi-ex2
+display_name: "Aoi (EX2)"
+display_name_jp: "アオイ（EX2）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-aoi-ura
+ex_rank: ex2
+actions_per_turn: 3  # May have 3 actions
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX2 scaling)
+# ===========================================================================
+hp: 30000000  # ~30 million
+shield_count: 50
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# EX2 BEHAVIOR CHANGES (Important!)
+# ===========================================================================
+# EX2 starts in Ryuten stance from Turn 1!
+# Pattern is shifted compared to Ura version.
+
+phases:
+  - phase_number: 1
+    trigger: "Turn 1 (流天の型 starts immediately!)"
+    behavior_changes: |
+      STARTS IN RYUTEN STANCE FROM TURN 1!
+      - Turn 1: Evade elemental, Silence front row
+      - Turn 2: Evade physical
+      - Turn 3: Evade elemental, 星霜閃耀 (6-hit AoE)
+    priority_actions: "Cannot break at Turn 2 like Ura version"
+
+  - phase_number: 2
+    trigger: "Turns 4-5 (止揚の型)"
+    behavior_changes: |
+      Shiyou stance earlier than Ura:
+      - Turn 4: Evade physical + counter
+      - Turn 5: Evade elemental + counter, hits back row too!
+    priority_actions: "Break at Turn 4 start!"
+
+  - phase_number: 3
+    trigger: "Turn 6+ (Cycling)"
+    behavior_changes: |
+      Same cycling as Ura after initial difference:
+      - 2 turns Ryuten
+      - 2 turns Shiyou
+      After break recovery:
+      - HP Green: 4 turns Ryuten → 2 turns Shiyou
+      - HP Yellow: 2 turns Ryuten → 2 turns Shiyou
+    priority_actions: "Break at start of each Shiyou cycle"
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "流天の型 (Ryuten) - STARTS TURN 1 IN EX2"
+    trigger: "Turn 1 (not Turn 3 like Ura!)"
+    counter_effect: "Evasion + multi-hit reduction + debuff clear"
+    removal_condition: "Turn progression"
+  - name: "止揚の型 (Shiyou)"
+    trigger: "Turn 4 (not Turn 6 like Ura!)"
+    counter_trigger: "Evaded attack type"
+    counter_effect: "Deadly counter, Turn 5 hits back row too!"
+    removal_condition: "Break"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "50 shields is massive - best breakers needed"
+  - role: healer
+    priority: required
+    reason: "30M HP fight is long and punishing"
+  - role: buffer
+    priority: required
+    reason: "Full buff stacking for DPS check"
+  - role: tank
+    priority: required
+    reason: "Cover tank mandatory"
+  - role: dps
+    priority: required
+    reason: "30M HP requires optimized damage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX2 Aoi is significantly different from Ura!
+  HP: ~30 million, Shield: 50
+  
+  ⚠️ CRITICAL CHANGE: STARTS IN RYUTEN FROM TURN 1!
+  
+  The Turn 2 break option from Ura version DOESN'T WORK in EX2!
+  Stance timing is shifted forward by 2 turns.
+  
+  EX2 TIMING:
+  - Turn 1-3: Ryuten (defensive) ← Starts immediately!
+  - Turn 4-5: Shiyou (offensive) ← Break at Turn 4!
+  - Turn 6+: Same cycling pattern
+  
+  Turn 5 in EX2 also hits BACK ROW (not just front)!
+  Much more dangerous than Ura version.
+  
+  STRATEGY:
+  1. Cannot do Turn 2 break
+  2. Must survive until Turn 4
+  3. Break at Turn 4 start before Shiyou attacks
+  4. Need to deal 30M damage across break windows
+  
+  REWARD: アオイの英傑印 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

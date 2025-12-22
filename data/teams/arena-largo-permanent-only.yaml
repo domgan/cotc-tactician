@@ -1,0 +1,186 @@
+# Team: Arena Largo - Permanent Only
+# SOURCE: Game8 JP Recommended Team (恒常のみ編成)
+
+id: arena-largo-permanent-only
+name: "Largo - Permanent Only"
+boss_id: arena-largo
+
+strategy_type: sustain
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: provoke_tank
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: therion
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: "Dagger for Largo"
+    key_skills_used:
+      - "Dagger attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: cyrus
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Ice/lightning for robots"
+    key_skills_used:
+      - "Ice attacks"
+      - "Lightning attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: primrose-ex
+    role_in_team: healer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Healing + buffs"
+    key_skills_used:
+      - "Healing"
+      - "Buffs"
+    awakening_required: 0
+
+  - position: 4
+    character_id: h-aanit-ex
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Provoke + elemental evasion for Thunder Crossbow!
+      Essential for survival.
+    key_skills_used:
+      - "Provoke"
+      - "Tank skills"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: lars
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword for robots"
+    key_skills_used:
+      - "Sword attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: jillmeila
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: "Bow for Largo + some robots"
+    key_skills_used:
+      - "Bow attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: falco
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Bow/dagger backup"
+    key_skills_used:
+      - "Bow attacks"
+      - "Dagger attacks"
+    awakening_required: 0
+
+  - position: 8
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [viola]
+    substitute_notes: |
+      NON-ATTACK debuffs essential!
+      Works through Cover.
+    key_skills_used:
+      - "Anti-Attack debuffs"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Apply debuffs on Largo through Cover"
+      - "Kill Type I (Cover robot)"
+      - "Attack Largo + Type II"
+    notes: "Ice weakness shared"
+
+  - turn_range: "HP <85%"
+    phase: break_push
+    actions:
+      - "Kill healing robots first (Type IV, VI)"
+      - "Then Cover robots"
+      - "Track weakness: lightning/wind for most"
+    notes: "Healing robots heal 16000-23000!"
+
+  - turn_range: "HP <65%"
+    phase: sustain
+    actions:
+      - "Thunder Crossbow appears!"
+      - "Provoke tank + elemental evasion"
+      - "Must evade or it's instant kill"
+    notes: "Beast summon with evasion"
+
+  - turn_range: "HP <45%"
+    phase: burst
+    actions:
+      - "Red + Blue appear"
+      - "Damage BOTH carefully"
+      - "Kill BOTH same turn!"
+    notes: "Avoid triggering triple actions!"
+
+why_it_works: |
+  From Game8: "HPは全キャラ3000以上確保したい"
+  All characters need HP 3000+ (preferably 4000+)!
+  
+  KEY RULES:
+  1. Non-attack debuffs work through Cover
+  2. Provoke + elemental evasion for Thunder Crossbow
+  3. Kill healing robots first each stage
+  4. Kill Red+Blue together in stage 4
+  
+  Without Lumis EX, need more varied weakness coverage.
+  Cyrus ice/lightning helps with many robots.
+
+key_synergies:
+  - "Non-attack debuffs through Cover"
+  - "Cyrus ice/lightning coverage"
+  - "Provoke tank for Thunder Crossbow"
+
+risks_and_recovery:
+  - "Thunder Crossbow: Elemental evasion required!"
+  - "Many robots: Need diverse weakness coverage"
+  - "Healing robots: Kill first each stage"
+
+# ===========================================================================
+# OTHER RECOMMENDED
+# ===========================================================================
+# 5★: Viola, Fiore, Sofia, H'aanit, Z'aanta, Adelle, Ri'tu, Tithi,
+#     Chloe, Auguste, Sarisa, Eltrix, Hammy, Canary
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

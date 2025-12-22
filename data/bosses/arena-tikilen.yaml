@@ -1,0 +1,314 @@
+# Arena Boss: Tikilen (ティキレン)
+# SOURCE: Game8 JP
+#
+# Multi-enemy arena fight with complex mechanics
+# 3 ENEMIES: Tikilen (main) + Skilled Mercenary + Veteran Mercenary
+
+id: arena-tikilen
+display_name: "Tikilen"
+display_name_jp: "ティキレン"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Tikilen has 1 action, but fight is complex due to 3 enemies
+provoke_immunity: false  # Can use provoke in this fight
+
+# HP-based thresholds for Tikilen
+hp_thresholds:
+  - hp_percent: 80
+    event: "Pattern A → B"
+    behavior_changes: "Changes attack pattern"
+    actions_per_turn: 1
+  - hp_percent: 60
+    event: "Pattern B → C"
+    behavior_changes: "Changes attack pattern"
+    actions_per_turn: 1
+  - hp_percent: 40
+    event: "Last Stand (背水の陣)"
+    behavior_changes: "Shields 25→7, ONLY CRITS can shave shields!"
+    actions_per_turn: 1
+
+# Auras/Stances
+auras:
+  - name: "Last Stand (背水の陣)"
+    trigger: "HP ≤40%"
+    active_indicator: "Battle stance animation"
+    counter_trigger: "N/A"
+    counter_effect: "Only CRITICAL hits can shave shields"
+    removal_condition: "Break (then shields return to 25)"
+  - name: "Physical Counter Stance"
+    trigger: "Periodic (both mercenaries)"
+    active_indicator: "Counter stance pose"
+    counter_trigger: "Any physical attack"
+    counter_effect: "Powerful sword counter attack"
+    removal_condition: "Turn end"
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (3 enemies)
+# ===========================================================================
+enemies:
+  - name: "Tikilen"
+    name_jp: "ティキレン"
+    is_main_target: true
+    shield_count: 25  # Reduces to 7 at 40% HP (背水の陣)
+    weaknesses:
+      elements:
+        - light
+      weapons:
+        - bow
+        - fan
+    notes: |
+      Main boss. Shield reduces 25→7 at 40% HP (背水の陣).
+      During 背水の陣: Only CRITICAL hits can shave shields!
+      Breaking removes 背水の陣 effect.
+      
+  - name: "Skilled Mercenary"
+    name_jp: "凄腕の傭兵"
+    is_main_target: false
+    shield_count: 15
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - polearm
+        - bow
+    notes: |
+      Heals Tikilen's shields (Shield Repair) when Tikilen is at 1-6 shields.
+      Uses Physical Counter stance - avoid physical attacks that turn!
+      Can cast AoE regen on all enemies.
+      
+  - name: "Veteran Mercenary"
+    name_jp: "手練れの傭兵"
+    is_main_target: false
+    shield_count: 14
+    weaknesses:
+      elements:
+        - lightning
+        - light
+      weapons:
+        - polearm
+        - bow
+    notes: |
+      Buffs all enemies (P.ATK/E.ATK up).
+      Uses Physical Counter stance - avoid physical attacks that turn!
+
+# ===========================================================================
+# TIKILEN'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Gale Blade"
+    name_jp: "連風刃"
+    effect: "2 wind attacks on front row"
+    threat_level: medium
+
+  - name: "Flash"
+    name_jp: "一閃"
+    effect: "Sword physical attack on front row"
+    threat_level: medium
+
+  - name: "Wind Thrust"
+    name_jp: "風衝"
+    effect: "Powerful wind attack on single target"
+    threat_level: high
+
+  - name: "Wild Slash"
+    name_jp: "乱れ斬り"
+    effect: "3 sword physical attacks on random targets"
+    threat_level: high
+
+  - name: "Divine Speed"
+    name_jp: "神速"
+    effect: "Speed buff on self (5 turns)"
+    threat_level: low
+
+  - name: "Wind Fang Storm"
+    name_jp: "風牙乱"
+    effect: "3 wind attacks on random targets"
+    threat_level: high
+
+  - name: "Rest"
+    name_jp: "休憩"
+    effect: "HP recovery on self"
+    threat_level: low
+
+  - name: "Wind Kill"
+    name_jp: "風殺"
+    effect: "Extremely powerful wind attack on single target"
+    threat_level: extreme
+
+  - name: "Taking Battle Stance"
+    name_jp: "ティキレンは大きく身構えた！"
+    effect: "Next turn uses Sword Storm Dance (剣嵐舞闘)"
+    trigger: "Charge-up"
+    threat_level: high
+
+  - name: "Sword Storm Dance"
+    name_jp: "剣嵐舞闘"
+    effect: "4 powerful wind attacks on random targets"
+    trigger: "After Taking Battle Stance"
+    threat_level: extreme
+
+  - name: "Last Stand"
+    name_jp: "背水の陣"
+    effect: |
+      Activates at HP ≤40%.
+      Grants "Critical-Only" effect (permanent until broken).
+      Only CRITICAL hits can shave shields!
+      Shield max reduced by 18 (25→7).
+    trigger: "HP ≤40%"
+    threat_level: extreme
+
+  - name: "Last Stand Effect Ended"
+    name_jp: "背水の陣の効果が切れ、シールドが元に戻った"
+    effect: "On break recovery after Last Stand: Shield max +18 (returns to 25)"
+    trigger: "Break recovery after Last Stand"
+    threat_level: medium
+
+# ===========================================================================
+# SKILLED MERCENARY ACTIONS
+# ===========================================================================
+# actions for skilled_mercenary:
+#   - Darkness Strike (暗闘撃): Dark attack + Blind (3 turns)
+#   - Physical Counter Stance (物理逆襲の構え): 1-turn counter
+#   - Shield Repair (シールドリペア): Heals Tikilen's shields by 3
+#   - Heal All II (治癒(全体)Ⅱ): AoE regen on enemies (3 turns)
+
+# ===========================================================================
+# VETERAN MERCENARY ACTIONS
+# ===========================================================================
+# actions for veteran_mercenary:
+#   - Dark Thrust (闇衝): Dark attack on single target
+#   - Physical Counter Stance (物理逆襲の構え): 1-turn counter
+#   - All-Out Assault (全軍突撃): P.ATK/E.ATK buff on all enemies (3 turns)
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Last Stand (背水の陣)"
+    description: |
+      At HP ≤40%, Tikilen activates "Last Stand":
+      - Shields reduce from 25 to 7
+      - ONLY CRITICAL HITS can shave shields!
+      - Effect is permanent until Tikilen is broken
+      - After break, shields return to 25
+      
+      COUNTER STRATEGIES:
+      1. Bring high-CRIT hunters (Scarecrow, Jilmeira, Herminia)
+      2. Use guaranteed crit skills (Haanit, Zenia)
+      3. Use Sonia's "White Grape" for guaranteed crit buff
+      4. Use Beast summons with crit buff (Linde)
+      
+  - name: "Physical Counter Stance"
+    description: |
+      Both mercenaries use Physical Counter Stance.
+      When active, physical attacks trigger a powerful sword counter!
+      
+      COUNTER: Use elemental attacks when counter is active.
+      Track turn patterns to avoid using physical during counter turns.
+      
+  - name: "Shield Repair"
+    description: |
+      Skilled Mercenary heals Tikilen's shields by 3 when Tikilen is at 1-6 shields.
+      Does NOT activate during Last Stand effect.
+      
+      COUNTER: Kill Skilled Mercenary first, or burst Tikilen during break.
+      
+  - name: "HP-Based Behavior Pattern"
+    description: |
+      Tikilen's action pattern changes based on HP thresholds:
+      - 100-80%: Pattern A
+      - 80-60%: Pattern B  
+      - 60-40%: Pattern C
+      - 40-0%: Pattern D (Last Stand active)
+      
+      Pattern changes mid-turn if HP crosses threshold!
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Most attacks are single/random target - tank can absorb"
+    
+  - role: healer
+    priority: required
+    reason: "Long fight, need sustained healing"
+    
+  - role: breaker
+    priority: required
+    reason: "Bow/light AoE hits for all 3 enemies"
+    
+  - role: debuffer
+    priority: required
+    reason: "Must maintain 30% P.ATK/E.ATK debuffs on Tikilen"
+    
+  - role: dps
+    priority: required
+    reason: "Need crit-capable DPS for Last Stand phase"
+
+recommended_weakness_coverage:
+  - bow      # All 3 weak to bow
+  - light    # All 3 weak to light
+  - polearm  # Mercenaries only
+  - lightning # Mercenaries only
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex 3-enemy arena fight with unique mechanics.
+  
+  SHARED WEAKNESSES: Bow, Light (hit all 3 enemies!)
+  
+  KEY MECHANICS:
+  1. Last Stand (背水の陣) at 40% HP:
+     - Shields 25→7, but ONLY CRITS can shave!
+     - Bring high-crit hunters or guaranteed crit skills
+     
+  2. Physical Counter Stance:
+     - Both mercenaries use this periodically
+     - DO NOT use physical attacks during counter turns!
+     - Use light/lightning magic instead
+     
+  3. Shield Repair:
+     - Skilled Mercenary heals Tikilen's shields when low
+     - Consider killing Skilled Mercenary first
+  
+  RECOMMENDED APPROACH:
+  1. Stack P.ATK/E.ATK debuffs (30%) on Tikilen
+  2. Use bow/light AoE multi-hits to break all enemies
+  3. Avoid physical when counter stance is active
+  4. Prepare guaranteed crit for Last Stand phase
+  5. Tank absorbs random/single attacks
+  
+  TEAM COMP PRIORITIES:
+  - Auto-regen healer (Rinyuu, Primrose EX)
+  - Tank (Gilderoy, Devin)
+  - Debuffer (Viola, Tithi, Sarisa)
+  - Bow/light multi-hitters (Scarecrow, Eliza, Odette, Rondo)
+  - Crit specialists for Last Stand (Haanit, Sonia)
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Rank scaling for Nemesis difficulty:
+# Tikilen shields: Rank1=25→7, Rank2=27→9, Rank3=29→11, EX1=32→14, EX2=34→16, EX3=36→18
+# Skilled Mercenary: Rank1=15, Rank2=17, Rank3=19, EX1=22, EX2=24, EX3=26
+# Veteran Mercenary: Rank1=14, Rank2=16, Rank3=18, EX1=21, EX2=23, EX3=25
+#
+# WARNING: Nemesis version has a bug where shields can increase by 18 unexpectedly!
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-21

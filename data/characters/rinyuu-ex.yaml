@@ -14,10 +14,26 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [axe, fire, ice, light]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [healer, buffer]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Top tier healer. "Gracious Prayer" for DEF buff + healing.
+  "Crusader's Prayer" for sustained regen.
+  Passive healing from back row (pairs well with tanks).
+  Essential for turtle strategies.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 30
+      source_skill: "Gracious Prayer"
+    - type: elem_def_up
+      value: 30
+      source_skill: "Gracious Prayer"
 
 # Stats (base level)
 hp: 2622

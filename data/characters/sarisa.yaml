@@ -14,10 +14,26 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [dagger, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [debuffer, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Key dagger debuffer. Stacks dagger/physical RES down.
+  Pairs with Viola for 30% debuff stacking.
+  Good DPS with dagger attacks.
+  Very fast, excellent for speed tuning.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: dagger_res_down
+      value: 15
+      source_skill: "Dagger debuff skill"
+    - type: phys_def_down
+      value: 15
+      source_skill: "Defense debuff skill"
 
 # Stats (base level)
 hp: 2882

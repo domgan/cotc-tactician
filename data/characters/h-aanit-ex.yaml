@@ -14,10 +14,25 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [fan, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank, debuffer]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Best dodge tank in the game. Turn 1 AoE debuff + self-dodge stacks.
+  Essential for EX fights where provoke doesn't work.
+  Pairs with Hammy for dodge stacks from back row.
+
+# Tank type
+tank_type: dodge
+
+# EX fight recommendations
+recommended_min_hp: 4000
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: phys_atk_down
+      value: 15
+      source_skill: "Turn 1 AoE debuff"
 
 # Stats (base level)
 hp: 3096

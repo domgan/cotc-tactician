@@ -14,10 +14,19 @@ origin: "Solistia"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [light, staff]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [healer, tank]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Cleric from Octopath 2 with HP barrier skills.
+  Light DPS capability alongside healing.
+  HP barriers help survive burst damage.
+  Less meta than Rinyuu but solid healer.
+
+# Tank type
+tank_type: hp_barrier
+
+# EX fight recommendations
+recommended_min_hp: 3500
 
 # Stats (base level)
 hp: 2712

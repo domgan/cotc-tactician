@@ -1,10 +1,10 @@
-# Story Boss: The All-Giver / Master of Everything (全てを授けし者)
+# Story Boss: The All-Giver / Master of All (全てを授けし者)
 # SOURCE: https://game8.jp/octopathtraveler-sp/357327
 #
 # Side Orsterra Chapter 4 Final Boss - Multi-phase fight
 
-id: story-master-of-everything
-display_name: "The All-Giver (Master of Everything)"
+id: story-master-of-all
+display_name: "The All-Giver (Master of All)"
 display_name_jp: "全てを授けし者"
 content_type: story_boss
 difficulty: extreme

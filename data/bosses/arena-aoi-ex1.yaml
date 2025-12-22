@@ -1,0 +1,106 @@
+# Arena Boss: Aoi EX1 (アオイ EX1)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX1 variant of Aoi - Adversary Log
+
+id: arena-aoi-ex1
+display_name: "Aoi (EX1)"
+display_name_jp: "アオイ（EX1）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-aoi-ura
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX1 scaling)
+# ===========================================================================
+shield_count: 44  # Up from 42
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# PHASES (Same turn-based stance cycling as Ura)
+# ===========================================================================
+phases:
+  - phase_number: 1
+    trigger: "Turns 1-2"
+    behavior_changes: "Normal attacks"
+    priority_actions: "Break option at Turn 2"
+  - phase_number: 2
+    trigger: "Turns 3-5 (Ryuten)"
+    behavior_changes: "Defensive stance, evasion, multi-hit reduction"
+    priority_actions: "Don't break here"
+  - phase_number: 3
+    trigger: "Turns 6-7 (Shiyou)"
+    behavior_changes: "Offensive stance, deadly counter"
+    priority_actions: "Break at Turn 6 start!"
+
+# ===========================================================================
+# SPECIAL MECHANICS (Same as Ura)
+# ===========================================================================
+auras:
+  - name: "流天の型 (Ryuten)"
+    trigger: "Turns 3-5, cycling"
+    counter_effect: "Evasion + multi-hit reduction"
+    removal_condition: "Turn progression"
+  - name: "止揚の型 (Shiyou)"
+    trigger: "Turns 6-7, cycling"
+    counter_trigger: "Evaded attack type"
+    counter_effect: "Deadly 6-hit counter ignoring defenses"
+    removal_condition: "Break"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "44 shields - need hybrid physical/elemental breakers"
+  - role: healer
+    priority: required
+    reason: "Heavy sustained damage"
+  - role: tank
+    priority: required
+    reason: "Cover tank mandatory (Cecil, Fiore EX)"
+  - role: dps
+    priority: required
+    reason: "Need both physical and elemental DPS"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX1 Aoi - same stance mechanics as Ura with +2 shields.
+  
+  EX1 DIFFERENCES:
+  - Shield count 44 (vs 42)
+  - Higher HP
+  - Faster speed
+  
+  Same critical timing:
+  - Turns 3-5: Ryuten (don't break)
+  - Turns 6-7: Shiyou (break at Turn 6!)
+  - Track physical/elemental evasion
+  - Use cover tanks, not provoke
+  
+  REWARD: アオイの覚醒石 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

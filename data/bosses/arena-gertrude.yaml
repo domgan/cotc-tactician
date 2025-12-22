@@ -1,0 +1,230 @@
+# Arena Boss: Gertrude (ガートルード)
+# SOURCE: Game8 JP
+#
+# Single enemy with multi-hit shield lock and healing mechanics
+
+id: arena-gertrude
+display_name: "Gertrude"
+display_name_jp: "ガートルード"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 2  # Permanently has double actions from Turn 1
+provoke_immunity: true  # IMMUNE to provoke - must use Cover (Fiore EX)
+
+# HP-based thresholds for behavior changes
+hp_thresholds:
+  - hp_percent: 75
+    event: "Combat Drug (2nd)"
+    behavior_changes: "Shield max +3 (9→12)"
+    actions_per_turn: 2
+  - hp_percent: 50
+    event: "Combat Drug (3rd)"
+    behavior_changes: "Pattern change, starts using Heal Slash"
+    actions_per_turn: 2
+  - hp_percent: 33
+    event: "Combat Drug (4th)"
+    behavior_changes: "TRIPLE ACTIONS permanent, spam phase"
+    actions_per_turn: 3
+
+# Auras/Stances
+auras:
+  - name: "Multi-Hit Shield Lock"
+    trigger: "Battle start / Break recovery"
+    active_indicator: "Shield glow"
+    counter_trigger: "N/A (always active)"
+    counter_effect: "Max 2 shields shaved per character action"
+    removal_condition: "Break (reapplies on recovery)"
+
+# ===========================================================================
+# SINGLE ENEMY BOSS
+# ===========================================================================
+shield_count: 9  # Increases to 12 at HP 75%
+weaknesses:
+  elements:
+    - fire
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# GERTRUDE'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Strong Guard"
+    name_jp: "ストロングガード"
+    effect: |
+      At battle start and break recovery:
+      Grants MULTI-HIT SHIELD LOCK (permanent until break).
+      Can only lose 2 shields max per character action!
+    trigger: "Battle start / Break recovery"
+    threat_level: extreme
+
+  - name: "Combat Drug (1st)"
+    name_jp: "戦闘薬（1回目）"
+    effect: "Turn 1: P.ATK/Speed buff (permanent) + double actions (permanent)"
+    trigger: "Turn 1"
+    threat_level: high
+
+  - name: "Grand Cleave"
+    name_jp: "大切断"
+    effect: "Powerful axe physical attack on single target"
+    threat_level: high
+
+  - name: "Dark Heavy Impact"
+    name_jp: "闇重衝"
+    effect: "Dark attack on single target + Speed down (3 turns)"
+    threat_level: medium
+
+  - name: "Triple Bisection"
+    name_jp: "三叉両断"
+    effect: "3 axe physical attacks on random targets"
+    threat_level: high
+
+  - name: "Ursine Guillotine"
+    name_jp: "ウルスギロチン"
+    effect: "Extremely powerful axe physical attack on single target"
+    threat_level: extreme
+
+  - name: "Combat Drug (2nd)"
+    name_jp: "戦闘薬（2回目）"
+    effect: "At HP ≤75%: Shield max +3 (9→12)"
+    trigger: "HP ≤75%"
+    threat_level: high
+
+  - name: "Can't Let Guard Down"
+    name_jp: "油断できそうにないね……"
+    effect: "Changes attack pattern"
+    trigger: "HP ≤75%"
+    threat_level: medium
+
+  - name: "Rebuild"
+    name_jp: "仕切り直しだよ！"
+    effect: "At HP ≤75% break recovery: Reapplies Multi-Hit Shield Lock"
+    trigger: "Break recovery (HP ≤75%)"
+    threat_level: high
+
+  - name: "Grand Cleave Plus"
+    name_jp: "グランドクリーヴ"
+    effect: "Powerful axe attack on single target + Speed down (3 turns)"
+    threat_level: high
+
+  - name: "Combat Drug (3rd)"
+    name_jp: "戦闘薬（3回目）"
+    effect: "At HP ≤50%: Changes attack pattern"
+    trigger: "HP ≤50%"
+    threat_level: medium
+
+  - name: "Heal Slash"
+    name_jp: "ヒールスラッシュ"
+    effect: "Powerful axe attack on front row + Self HP recovery (~29000)"
+    trigger: "HP ≤50%"
+    threat_level: extreme
+
+  - name: "Combat Drug (4th)"
+    name_jp: "戦闘薬（4回目）"
+    effect: "At HP ≤33%: Changes pattern + TRIPLE ACTIONS (permanent)"
+    trigger: "HP ≤33%"
+    threat_level: extreme
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Multi-Hit Shield Lock"
+    description: |
+      Gertrude ALWAYS has Multi-Hit Shield Lock active!
+      Each character can only shave MAX 2 shields per action.
+      
+      Multi-hit attacks are USELESS for shield shaving!
+      Use single-hit high-power attacks instead.
+      
+      EXCEPTIONS:
+      - Continuous attacks (Herminia, Solon) can add +1 more
+      - Effects that trigger separately from the attack
+      
+  - name: "Shield Increase Skip"
+    description: |
+      If you push Gertrude from >75% HP to <50% HP in one break,
+      the 2nd Combat Drug (shield +3) is SKIPPED!
+      
+      This keeps shields at 9 instead of 12.
+      
+  - name: "Triple Actions (HP ≤33%)"
+    description: |
+      At HP ≤33%, Gertrude gains TRIPLE ACTIONS.
+      Spams "Triple Bisection" and "Heal Slash" repeatedly.
+      
+      COUNTER: Use instant healing, not just auto-regen.
+      
+  - name: "Provoke Immune"
+    description: |
+      Gertrude is IMMUNE to all status ailments including PROVOKE!
+      Normal provoke tanks DO NOT WORK.
+      
+      EXCEPTION: Fiore EX's "Cover" ability works (not provoke).
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs on turn 1 (Gertrude doesn't attack)"
+    
+  - role: healer
+    priority: required
+    reason: "Instant healing needed at HP <33%"
+    
+  - role: dps
+    priority: required
+    reason: "Single-hit high-power attacks (NOT multi-hit!)"
+
+recommended_weakness_coverage:
+  - dagger    # Best damage, debuff synergy with thieves
+  - bow       # Good single-hit options
+  - fire      # Elemental option
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Single enemy with MULTI-HIT SHIELD LOCK - unique mechanic!
+  
+  EQUIPMENT: P.DEF gear (almost all attacks are physical)
+  
+  KEY RULES:
+  1. Multi-hit attacks are USELESS - use single-hit skills!
+  2. Provoke tanks DON'T WORK (provoke immune)
+  3. Stack debuffs on turn 1 (free turn, no attack)
+  4. Use instant healing at HP <33%
+  
+  SHIELD SKIP TRICK:
+  Push from >75% to <50% in one break to skip shield increase!
+  
+  BEST STRATEGY:
+  - Turn 1: Stack 30% P.ATK debuff (free turn!)
+  - Use single-hit dagger/bow/fire attacks
+  - Continuous attackers (Herminia, Solon) get +1 bonus shield shave
+  - At HP <33%: Use instant healing + burst finish
+  
+  FIORE EX OPTION:
+  Fiore EX's "Cover" ability (not provoke) DOES work!
+  Can complete-block attacks with proper timing.
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Gertrude: Rank1=9→12, Rank2=10→13, Rank3=11→14, EX1=12→15, EX2=14→17
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

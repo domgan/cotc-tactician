@@ -1,0 +1,265 @@
+# COTC Damage Stacking Reference
+# This file documents the 5 multiplicative damage categories.
+#
+# SOURCE: Community knowledge, Reddit discussions, Shizukatz guides
+
+schema_version: "1.0"
+
+# =============================================================================
+# OVERVIEW
+# =============================================================================
+# COTC damage is calculated using multiple categories that stack
+# MULTIPLICATIVELY, not additively.
+#
+# This means: 30% + 30% + 30% ≠ 90%
+# It's actually: 1.3 × 1.3 × 1.3 = 2.197 (119.7% increase)
+#
+# Understanding this is CRITICAL for EX3 fights with 50-80 million HP.
+
+# =============================================================================
+# THE 5 DAMAGE CATEGORIES
+# =============================================================================
+
+damage_categories:
+  - id: active_skills
+    display_name: "Active Skills (Buffs/Debuffs)"
+    cap_buff: 30
+    cap_debuff: 30
+    description: |
+      Buffs and debuffs from regular skill usage.
+      This is what most players focus on first.
+      
+    buff_types:
+      - type: phys_atk_up
+        cap: 30
+        sources: ["Lynette (20%)", "Richard (15%)"]
+      - type: elem_atk_up
+        cap: 30
+        sources: ["Lynette (20%)", "Primrose EX (15%)"]
+      - type: weapon_damage_up
+        cap: 30
+        sources: ["Richard (15% sword/polearm)", "Bargello (15% dagger/wind)"]
+      - type: element_damage_up
+        cap: 30
+        sources: ["Various job-specific skills"]
+        
+    debuff_types:
+      - type: phys_def_down
+        cap: 30
+        sources: ["Viola (15%)", "Sarisa (15%)"]
+      - type: elem_def_down
+        cap: 30
+        sources: ["Viola (15%)", "Nephti (15%)"]
+      - type: weapon_res_down
+        cap: 30
+        sources: ["Nephti (15% per element)", "Yan Long A4 (15% on break)"]
+      - type: element_res_down
+        cap: 30
+        sources: ["Nephti (15%)", "Character-specific skills"]
+        
+    stacking_rules: |
+      - Same unit + same skill = duration only (NOT potency)
+      - Different abilities = stack potency AND duration
+      - Max duration is 9 turns
+
+  - id: passives_equipment
+    display_name: "Passives & Equipment"
+    cap: 30
+    description: |
+      Damage bonuses from character passives and accessories.
+      Always active, no action required.
+      
+    sources:
+      - type: character_passives
+        examples:
+          - "Richard: 15% sword/polearm damage to front"
+          - "Bargello: 15% dagger/wind damage to paired"
+          - "Elrica: Warrior Stance buffs"
+      - type: a4_accessories
+        examples:
+          - "Yan Long A4: 15% def down on break"
+          - "Jorn A4: 10% damage to broken enemies"
+          - "Various 10% damage type accessories"
+      - type: fortune_weapons
+        examples:
+          - "Fortune IV weapons with orbs"
+          - "Thorned/Abyssal weapons vs hellfiends"
+          
+    stacking_rules: |
+      Passive bonuses stack within the 30% cap.
+      Equipment bonuses also contribute to this bracket.
+
+  - id: ultimates
+    display_name: "Ultimate Skills"
+    cap: varies
+    description: |
+      Buffs from Ultimate (Special) skills.
+      Stack in their OWN bracket, multiply with others.
+      
+    key_ultimates:
+      - character: solon
+        effect: "100% potency up (DOUBLES damage)"
+        notes: "The single most important damage multiplier"
+      - character: primrose-ex
+        effect: "20% damage up + buff extension"
+        notes: "Combined with Solon for massive damage"
+      - character: canary
+        effect: "20% weakness RES down"
+        notes: "Ultimate debuffs also stack separately"
+      - character: signa
+        effect: "20% DEF/RES down"
+        notes: "AoE debuff from ultimate"
+        
+    stacking_rules: |
+      Ultimate buffs/debuffs are their OWN category.
+      They stack MULTIPLICATIVELY with active skills.
+      Solon's 100% potency = 2x multiplier on TOP of everything else.
+
+  - id: pets
+    display_name: "Pets"
+    cap: varies
+    description: |
+      Damage bonuses from equipped pets.
+      Activated during break or specific conditions.
+      
+    key_pets:
+      - name: "Linde"
+        effect: "Damage up during break"
+        notes: "Top-tier damage pet"
+      - name: "Hägen"
+        effect: "Damage up during break"
+        notes: "Alternative to Linde"
+      - name: "Attack stat pets"
+        effect: "+50 P.ATK or E.ATK"
+        notes: "Flat stat bonus, always useful"
+        
+    usage_notes: |
+      Pets contribute a separate damage multiplier.
+      Prioritize HP pets first (survival), then attack/damage.
+      Damage pets are most valuable on your main DPS.
+
+  - id: divine_beast
+    display_name: "Divine Beast (Guardian)"
+    cap: varies
+    description: |
+      Buffs from guardian summons (arcana stones).
+      Used at key moments for additional multipliers.
+      
+    key_guardians:
+      - name: "Simurgh"
+        effect: "Damage up buff to party"
+        notes: "Offensive guardian choice"
+      - name: "Fallen Mahrez"
+        effect: "3-hit attack with 10% ATK debuff per hit"
+        notes: "Stacks to 30% debuff by itself"
+      - name: "AoE Revive Guardian"
+        effect: "Revives all fallen party members"
+        notes: "Safety net for long fights"
+        
+    usage_notes: |
+      Guardian gauge fills over time.
+      Save for break turns or emergency situations.
+      Fallen Mahrez can fully debuff 30% alone (3 hits × 10%).
+
+# =============================================================================
+# MULTIPLICATIVE STACKING EXAMPLE
+# =============================================================================
+
+stacking_example:
+  scenario: "Optimal damage setup for EX3"
+  
+  buffs_applied:
+    - category: active_skills
+      buff: "30% P.ATK up (Lynette)"
+      multiplier: 1.30
+    - category: active_skills
+      debuff: "30% P.DEF down (Viola + Sarisa)"
+      multiplier: 1.30
+    - category: passive
+      buff: "15% sword damage (Richard passive)"
+      multiplier: 1.15
+    - category: passive
+      debuff: "15% sword RES down (Yan Long A4)"
+      multiplier: 1.15
+    - category: ultimate
+      buff: "100% potency (Solon)"
+      multiplier: 2.00
+    - category: ultimate
+      buff: "20% damage (Primrose EX)"
+      multiplier: 1.20
+    - category: pet
+      buff: "20% damage on break (Linde)"
+      multiplier: 1.20
+    - category: divine_beast
+      buff: "10% damage (Simurgh)"
+      multiplier: 1.10
+      
+  calculation: |
+    1.30 × 1.30 × 1.15 × 1.15 × 2.00 × 1.20 × 1.20 × 1.10
+    = 6.67x damage multiplier (567% increase)
+    
+  note: |
+    This is why meta teams can hit 500k+ on a single attack.
+    Without Solon (2.0x), it would be 3.33x instead.
+    Solon literally DOUBLES your damage.
+
+# =============================================================================
+# PRIORITY ORDER FOR BUILDING
+# =============================================================================
+
+build_priority:
+  - priority: 1
+    category: "Active DEF/RES debuffs"
+    reason: "Easiest to cap at 30%, most accessible"
+    key_units: ["viola", "sarisa", "nephti", "therion"]
+    
+  - priority: 2
+    category: "Active ATK buffs"
+    reason: "Most buffers can contribute"
+    key_units: ["lynette", "primrose-ex", "richard"]
+    
+  - priority: 3
+    category: "Ultimate Potency (Solon)"
+    reason: "Doubles ALL other damage"
+    key_units: ["solon"]
+    notes: "If you have Solon, use him in every team"
+    
+  - priority: 4
+    category: "Passives/Equipment"
+    reason: "Requires specific A4s and awakening"
+    key_items: ["Yan Long A4", "Jorn A4", "Character passives"]
+    
+  - priority: 5
+    category: "Pets/Divine Beast"
+    reason: "Minor multipliers, optimize last"
+    notes: "After everything else is in place"
+
+# =============================================================================
+# DAMAGE CAP
+# =============================================================================
+
+damage_cap:
+  base_cap: 99999
+  increased_cap: 130000
+  max_cap: 200000
+  
+  how_to_increase:
+    - source: "Damage Limit Up accessories"
+      effect: "+30k per accessory typically"
+    - source: "6★ Limit Break passives"
+      effect: "+30k for some characters"
+    - source: "Ultimate skills (some)"
+      effect: "+100k during ultimate"
+      
+  note: |
+    Even with all multipliers, damage is capped.
+    EX3 bosses with 50+ million HP require:
+    - Multiple break turns of max damage
+    - OR many turns of chip damage (turtle)
+
+# =============================================================================
+# METADATA
+# =============================================================================
+data_confidence: verified
+data_source: "Community knowledge, Shizukatz guides, Reddit"
+last_updated: 2025-12-22

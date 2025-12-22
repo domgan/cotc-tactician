@@ -1,0 +1,393 @@
+# Arena Boss: Aoi Ura (アオイ裏)
+# SOURCE: Game8 JP
+#
+# Sword master arena champion with stance mechanics
+# HP: ~10,000,000
+
+id: arena-aoi-ura
+display_name: "Aoi (Ura)"
+display_name_jp: "アオイ（裏）"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-aoi
+ex_rank: base  # Ura version
+actions_per_turn: 2  # Has 2-3 actions per turn depending on stance
+provoke_immunity: true  # Uses "cover" tank instead
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+hp: 10000000  # ~10 million
+shield_count: 42
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# STANCE SYSTEM (Turn-based, not HP-based)
+# ===========================================================================
+# Aoi has TWO main stances that cycle based on turns:
+# 1. 流天の型 (Ryuten - Flowing Heaven): Defensive stance with evasion
+# 2. 止揚の型 (Shiyou - Sublation): Offensive stance with POWERFUL attacks
+
+phases:
+  - phase_number: 1
+    trigger: "Turns 1-2"
+    behavior_changes: |
+      No stance active yet.
+      Normal attacks: Front row attack + P.DEF down, Single attack, Random 3-hit
+    priority_actions: "Break on Turn 2 if going for 1-break kill"
+
+  - phase_number: 2
+    trigger: "Turns 3-5 (流天の型 - Ryuten)"
+    behavior_changes: |
+      DEFENSIVE STANCE with evasion:
+      - Turn 3: Evade ELEMENTAL, multi-hit damage reduction, debuff clear at turn end
+      - Turn 4: Evade PHYSICAL, multi-hit damage reduction, debuff clear at turn end
+      - Turn 5: Evade ELEMENTAL, uses 星霜閃耀 (6-hit AoE + buff halving)
+      
+      Alternates between physical/elemental evasion each turn.
+    priority_actions: |
+      DO NOT break during Ryuten stance (multi-hit damage reduction).
+      Turn 5 has dangerous 6-hit AoE - prepare defenses.
+
+  - phase_number: 3
+    trigger: "Turns 6-7 (止揚の型 - Shiyou)"
+    behavior_changes: |
+      OFFENSIVE STANCE - EXTREMELY DANGEROUS:
+      - Damage up, always crits
+      - Complete evasion of physical OR elemental (counters on evade!)
+      - Counter: 6-hit AoE ignoring P.DEF/E.DEF up and damage reduction!
+      
+      Turn 6: Evade Physical + Counter
+      Turn 7: Evade Elemental + Counter
+    priority_actions: |
+      BREAK ON TURN 6 BEFORE AOI ATTACKS!
+      This is the key break timing - before Shiyou attacks land.
+      DO NOT hit with attack type being evaded!
+
+  - phase_number: 4
+    trigger: "Turn 8+ (Cycling)"
+    behavior_changes: |
+      Pattern repeats:
+      - 2 turns Ryuten (流天の型) with evasion cycling
+      - 2 turns Shiyou (止揚の型) with deadly attacks
+      
+      After break recovery:
+      - HP Green: 4 turns Ryuten → 2 turns Shiyou
+      - HP Yellow: 2 turns Ryuten → 2 turns Shiyou
+    priority_actions: "Break at start of Shiyou stance each cycle"
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "流天の型 (Ryuten - Flowing Heaven)"
+    trigger: "Turns 3-5, then cycling"
+    active_indicator: "Defensive stance visual"
+    weakness_changes:
+      locked: []  # Changes between physical and elemental evasion each turn
+    counter_trigger: "N/A (no counter, just evasion)"
+    counter_effect: |
+      - Multi-hit damage reduction active
+      - Alternates physical/elemental evasion each turn
+      - Debuffs cleared at end of each turn!
+    removal_condition: "Turn ends, transitions to Shiyou"
+
+  - name: "止揚の型 (Shiyou - Sublation)"
+    trigger: "Turns 6-7, then cycling"
+    active_indicator: "Offensive stance visual, red aura"
+    counter_trigger: "Using attack type that is being evaded"
+    counter_effect: |
+      DEADLY COUNTER: 6-hit AoE (physical + elemental)
+      IGNORES: P.DEF up, E.DEF up, damage reduction!
+      
+      Pursuit abilities (Midiya, Erika EX, Aval, Castti EX) also trigger this!
+    removal_condition: "Break"
+
+# ===========================================================================
+# ACTIONS
+# ===========================================================================
+actions:
+  - name: "Front Row Attack + P.DEF Down"
+    effect: "Physical attack on front row + P.DEF down"
+    trigger: "Turn 1"
+    threat_level: medium
+
+  - name: "Single Attack"
+    effect: "Physical attack on single target"
+    threat_level: medium
+
+  - name: "Random 3-Hit"
+    effect: "3 physical attacks on random targets"
+    threat_level: medium
+
+  - name: "Front Row + Silence"
+    effect: "Physical attack on front row + Silence"
+    trigger: "Turn 2"
+    threat_level: medium
+
+  - name: "流天の型 Stance (Ryuten)"
+    name_jp: "流天の型"
+    effect: |
+      Enters defensive stance:
+      - Multi-hit damage reduction
+      - Physical OR Elemental evasion (alternates)
+      - Debuff clear at turn end
+    trigger: "Turn 3, then cycling"
+    threat_level: high
+
+  - name: "静寂付与 (Silence Application)"
+    name_jp: "静寂付与"
+    effect: "Front row: Silence (3 turns) - blocks abilities"
+    trigger: "Turn 3, 7"
+    threat_level: high
+
+  - name: "大きく身構えた (Taking Stance)"
+    name_jp: "大きく身構えた"
+    effect: "Charging for 星霜閃耀"
+    trigger: "Turn 4"
+    threat_level: high
+
+  - name: "星霜閃耀 (Star Frost Flash)"
+    name_jp: "星霜閃耀"
+    effect: |
+      6 physical attacks on front row.
+      Applies "Parameter Enhancement Halving" - all buffs reduced by 50%!
+    trigger: "Turn 5"
+    threat_level: extreme
+
+  - name: "止揚の型 Stance (Shiyou)"
+    name_jp: "止揚の型"
+    effect: |
+      Enters offensive stance:
+      - Damage up, always crits
+      - Complete physical OR elemental evasion
+      - DEADLY COUNTER on evaded attack type
+    trigger: "Turn 6, then cycling"
+    threat_level: extreme
+
+  - name: "Shiyou Turn 6 Attack"
+    effect: |
+      3-hit front row (ignores P.DEF/E.DEF up, damage reduction).
+      Then random 10-hit (physical + lightning).
+    trigger: "Turn 6"
+    threat_level: extreme
+
+  - name: "Shiyou Turn 7 Attack"
+    effect: |
+      6-hit on ALL party (front + back) + buff halving.
+      Then front row Silence (3 turns).
+    trigger: "Turn 7"
+    threat_level: extreme
+
+  - name: "Counter (迎討)"
+    name_jp: "迎討"
+    effect: |
+      On evading attack during Shiyou:
+      6-hit AoE (physical + elemental) ignoring defenses!
+      Pursuit abilities also trigger this!
+    trigger: "On evasion during Shiyou stance"
+    threat_level: extreme
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Stance Cycling System"
+    mechanic_type: phase_transition
+    trigger: "Turn-based automatic cycling"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: |
+      Track turn count carefully!
+      - Turns 1-2: Normal (good break window)
+      - Turns 3-5: Ryuten (defensive, DON'T break)
+      - Turns 6-7: Shiyou (break at Turn 6 START!)
+      - Repeat with cycling pattern
+
+  - name: "Multi-Hit Damage Reduction (Ryuten)"
+    mechanic_type: passive
+    trigger: "During Ryuten stance (流天の型)"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      Multi-hit attacks deal reduced damage during Ryuten.
+      Don't try to burst during this stance.
+      Wait for Shiyou stance for big damage.
+
+  - name: "Deadly Counter (Shiyou)"
+    mechanic_type: counter
+    trigger: "Using evaded attack type during Shiyou stance"
+    target: front_row
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: |
+      During Shiyou stance:
+      - Turn 6: Evades PHYSICAL (use elemental only!)
+      - Turn 7: Evades ELEMENTAL (use physical only!)
+      
+      Counter is 6-hit AoE ignoring all defenses!
+      DISABLE pursuit abilities on characters like Midiya, Erika EX!
+
+  - name: "Parameter Enhancement Halving"
+    mechanic_type: debuff_party
+    trigger: "星霜閃耀 (Turn 5) and later"
+    target: front_row
+    damage_type: none
+    effects: ["buff_halving"]
+    threat_level: high
+    counter_strategy: |
+      Halves all buff effects on front row.
+      Move attackers to back row before Turn 5.
+      Use "Cover" tanks (Cecil) to protect attackers.
+
+  - name: "Debuff Clear at Turn End (Ryuten)"
+    mechanic_type: passive
+    trigger: "End of each Ryuten turn"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      All debuffs on Aoi are cleared at end of Ryuten turns!
+      Must apply debuffs DURING the turn you want to use them.
+      Or apply during Shiyou stance (no auto-clear).
+
+  - name: "Silence/静寂 Application"
+    mechanic_type: debuff_party
+    trigger: "Turn 3, Turn 7, various"
+    target: front_row
+    damage_type: none
+    effects: ["silence"]
+    threat_level: high
+    counter_strategy: |
+      Silence prevents ability use.
+      Use 静寂無効 accessories (Aerial Boots, etc.).
+      Or move affected characters to back row before Turn 3.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "42 shields - need dagger/bow multi-hitters (both physical AND elemental)"
+  - role: healer
+    priority: required
+    reason: "Heavy damage especially during Shiyou stance"
+  - role: tank
+    priority: required
+    reason: "COVER tank (not provoke!) - Cecil, Klick, Fiore EX, Olberic"
+  - role: debuffer
+    priority: strongly_recommended
+    reason: "P.ATK debuff needed but must apply during turn used"
+  - role: dps
+    priority: required
+    reason: "Need both physical AND elemental DPS for stance cycling"
+
+recommended_weakness_coverage:
+  - dagger  # Both physical and elemental options
+  - bow     # Both physical and elemental options
+  - ice     # Elemental
+  - wind    # Elemental
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Aoi (Ura) is a sword master with a complex stance cycling system.
+  HP: ~10 million, Shield: 42
+  
+  ⚠️ PROVOKE DOESN'T WORK - USE COVER TANKS!
+  
+  STANCE SYSTEM:
+  1. 流天の型 (Ryuten - Defensive):
+     - Multi-hit damage reduction
+     - Physical/Elemental evasion alternates
+     - Debuffs cleared at turn end
+     - DON'T BREAK DURING THIS STANCE
+     
+  2. 止揚の型 (Shiyou - Offensive):
+     - Massive damage, always crits
+     - Complete evasion + deadly counter
+     - THIS IS YOUR BREAK WINDOW!
+  
+  KEY BREAK TIMING OPTIONS:
+  Option A: Turn 2 Break (before Ryuten)
+  - Need to break 42 shields in 2 turns
+  - 1-break kill from here if possible
+  - Use bow/hunter teams for fast shield shave
+  
+  Option B: Turn 6 Break (start of Shiyou)
+  - Standard approach
+  - Setup buffs during Ryuten (but they get halved at Turn 5)
+  - Break RIGHT AS Shiyou starts, BEFORE Aoi attacks
+  
+  SHIYOU STANCE WARNINGS:
+  - Turn 6: Evades Physical → USE ELEMENTAL ONLY
+  - Turn 7: Evades Elemental → USE PHYSICAL ONLY
+  - Counter triggers on evaded attacks!
+  - Pursuit abilities (Midiya, Erika EX) trigger counter!
+  
+  SURVIVING 星霜閃耀 (Turn 5):
+  - 6-hit AoE + buff halving on front row
+  - Use P.DEF buffs, P.ATK debuffs, HP barriers
+  - Move attackers to back row
+  - Cecil can cover to protect one character
+  
+  RECOMMENDED TEAMS:
+  
+  Hybrid Physical/Elemental Breakers:
+  - Bargello (dagger + wind)
+  - Morena (staff + tome + wind)
+  - Kagemune (dagger + fire/ice/wind)
+  - Therese EX (staff + lightning/wind)
+  - Sonia (dagger + wind)
+  - Levina (dagger + tome + lightning/wind)
+  - Chloe, Celtette, Scarecrow, Kargess (bow + element)
+  
+  Special: Morena can shave shields WITHOUT attacking!
+  Special: Kagemune ignores evasion!
+  
+  Cover Tanks:
+  - Cecil (can cover one character, protects from 6-hit)
+  - Klick (cover + light)
+  - Fiore EX (physical nullification!)
+  - Olberic (cover + sword)
+  
+  Defense Support:
+  - Therese EX, Hasumi (P.DEF + physical resist)
+  - Lynette, Gloria, Agnea (P.DEF buff)
+  - Black Priestess, Signa, Kilhn (P.ATK debuff)
+  - Kazan (100% HP barrier)
+  - Shana (damage reduction + immortality)
+  - Pardis III (attack nullification)
+  - Aira, Hami (physical evasion)
+
+common_mistakes:
+  - "Trying to break during Ryuten stance (wasted due to damage reduction)"
+  - "Using physical attacks when Shiyou evades physical (Turn 6)"
+  - "Using elemental attacks when Shiyou evades elemental (Turn 7)"
+  - "Having pursuit abilities enabled during Shiyou"
+  - "Not protecting attackers from buff halving at Turn 5"
+  - "Using provoke tank instead of cover tank"
+  - "Applying debuffs too early (cleared at Ryuten turn end)"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP (https://game8.jp/octopathtraveler-sp)"
+last_updated: 2025-12-22

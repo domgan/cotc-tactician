@@ -1,0 +1,103 @@
+# Arena Boss: Mirgardi EX3 (ミルガルディ EX3)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX3 variant of Mirgardi - Adversary Log (Highest difficulty)
+
+id: arena-mirgardi-ex3
+display_name: "Mirgardi (EX3)"
+display_name_jp: "ミルガルディ（EX3）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-mirgardi-ura
+ex_rank: ex3
+actions_per_turn: 2  # Likely 2-3 actions
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 scaling - highest tier)
+# ===========================================================================
+shield_count: 40  # Estimated based on EX scaling pattern
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - axe
+
+# ===========================================================================
+# HP THRESHOLDS (Same structure)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "有為転変・怒濤"
+    behavior_changes: "Weakness changes + Damage/Evasion Ignore"
+    new_weaknesses: [polearm, tome, ice]
+  - hp_percent: 65
+    event: "龍尾扇・天鱗 + 朧告死"
+    behavior_changes: "Enhanced power + Death Sentence"
+    new_weaknesses: [axe, lightning, light]
+  - hp_percent: 35
+    event: "夜䕃掩蔽"
+    behavior_changes: "Shield/weakness hidden"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "40+ shields requires top-tier multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Extreme damage output"
+  - role: buffer
+    priority: required
+    reason: "Need full damage amp stacking for DPS check"
+  - role: debuffer
+    priority: required
+    reason: "30% P.ATK/P.DEF debuffs essential"
+  - role: dps
+    priority: required
+    reason: "Massive HP pool requires optimized DPS"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Mirgardi is the ultimate challenge.
+  
+  EX3 CHARACTERISTICS:
+  - Shield count ~40+
+  - Massive HP pool
+  - 2-3 actions per turn
+  - Very high speed
+  
+  This fight requires:
+  1. Optimized team with full buff/debuff stacking
+  2. Multi-phase weakness coverage
+  3. Ability to break every 3 turns with 40 shields
+  4. High DPS to clear before enrage
+  
+  Game8 notes: Standard endurance comp insufficient.
+  Replace Cyrus/Signa with higher damage dealers.
+  
+  SPEED CLEAR RECOMMENDED:
+  - Use Primrose EX + Richard for buffs
+  - Solon for potency up
+  - Stack damage multipliers
+  - Break and burst before BP attack
+  
+  REWARD: 言の葉「継承者」 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: theoretical
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

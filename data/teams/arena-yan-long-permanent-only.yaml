@@ -1,0 +1,176 @@
+# Team: Arena Yan Long - Permanent Only
+# SOURCE: Game8 JP Recommended Team (恒常のみ編成)
+
+id: arena-yan-long-permanent-only
+name: "Yan Long - Permanent Only (Speed Clear)"
+boss_id: arena-yan-long
+
+strategy_type: burst
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: speedrun  # Yan Long is provoke immune!
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 0  # Debuffs clear each turn!
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: cecily
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: "Axe AoE for crows - essential!"
+    key_skills_used:
+      - "Axe AoE"
+    awakening_required: 0
+
+  - position: 2
+    character_id: aedelgard
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword damage"
+    key_skills_used:
+      - "Sword attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: lars
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword damage"
+    key_skills_used:
+      - "Sword attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: ophilia
+    role_in_team: buffer
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      DEFENSE BUFFS essential!
+      Debuffs get cleared every turn.
+    key_skills_used:
+      - "Defense buffs"
+      - "Healing"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [viola]
+    substitute_notes: |
+      For HP <50% phase: Speed-tune for start of turn
+      Debuff → Yan Long acts → Cleared at end
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 6
+    character_id: viola
+    role_in_team: debuffer
+    is_required: false
+    substitutes: []
+    substitute_notes: "Backup debuffer"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 7
+    character_id: theo
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Axe for crows"
+    key_skills_used:
+      - "Axe attacks"
+    awakening_required: 0
+
+  - position: 8
+    character_id: w-ludai
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Polearm for Yan Long"
+    key_skills_used:
+      - "Polearm attacks"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-3"
+    phase: setup
+    actions:
+      - "Apply defense buffs (Ophilia)"
+      - "Start breaking Yan Long"
+      - "Watch weakness rotation!"
+    notes: "Sword → Polearm → Light rotation"
+
+  - turn_range: "Crows spawn"
+    phase: break_push
+    actions:
+      - "Kill crows with Cecily + Theo axe"
+      - "Maintain defense buffs"
+    notes: "Crows weak to axe/tome only"
+
+  - turn_range: "HP <50%"
+    phase: burst
+    actions:
+      - "Speed-tune Sarisa/Viola for start-of-turn debuff"
+      - "Break and burst quickly"
+    notes: "Triple actions are very dangerous"
+
+why_it_works: |
+  From Game8: Speed clear focus with permanent characters.
+  
+  Cecily is ESSENTIAL for crow handling.
+  Without Cecily, crows are very hard to kill.
+  
+  KEY RULES:
+  1. Use DEFENSE BUFFS (debuffs cleared every turn!)
+  2. Track weakness rotation: Sword → Polearm → Light
+  3. Kill crows ASAP (axe/tome)
+  4. Speed-tune debuffer for HP <50%
+  
+  Some RNG involved due to "Cloud Sky Combo Staff" 
+  targeting randomly and no tank option.
+
+key_synergies:
+  - "Cecily axe AoE for crows"
+  - "Ophilia defense buffs"
+  - "Speed-tuned Sarisa for debuffs"
+
+risks_and_recovery:
+  - "No tank (provoke immune, no Fiore EX)"
+  - "Random targeting: Some RNG"
+  - "Fast break/burst to minimize danger"
+
+# ===========================================================================
+# OTHER RECOMMENDED
+# ===========================================================================
+# 5★: Fiore, Dorothea, Eliza, Varkyn, Idea, Agnes, Soleil, Odette,
+#     Hasumi, Olberic, Therion, Richard, 2B, A2, Alfyn, Alaune,
+#     Krauser, Zenia, Roland, Eltrix, Primrose EX, Leon, Erika, Canary
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

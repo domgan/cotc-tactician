@@ -1,7 +1,9 @@
-# 120 NPC Boss: Devout Priest (敬虔な神官)
-# SOURCE: https://game8.jp/octopathtraveler-sp/565283
+# 120 NPC Boss: Devout Priest / Pious Priest (敬虔な神官)
+# SOURCE: Game8 JP + Reddit Mastery Survey
 #
-# This is a Level 120 NPC encounter with multi-phase shield changes.
+# Level 120 NPC MULTI-ENEMY fight with 3 priests.
+# Challenge at NIGHT for +5 BP start and enemy def debuffs!
+# One of the harder 120 NPCs due to multiple enemies and buff/debuff cleansing.
 
 id: 120npc-devout-priest
 display_name: "Devout Priest"
@@ -9,58 +11,298 @@ display_name_jp: "敬虔な神官"
 content_type: npc_battle
 difficulty: extreme
 level: 120
+location: "Canal Brine (カナルブライン)"
 
 # ===========================================================================
-# WEAKNESSES & SHIELDS
+# MULTI-ENEMY ENCOUNTER (3 enemies)
 # ===========================================================================
-weaknesses:
-  elements: [fire, dark]
-  weapons: [sword, axe, bow]
-
-# Shield count changes between phases
-shield_count: 22  # Initial
-
-shield_phases:
-  - phase: 1
-    shield_count: 22
-    trigger: "Battle start"
-  - phase: 2
-    shield_count: 38
-    trigger: "After first break or HP threshold"
-
-# ===========================================================================
-# ADD ENEMIES
-# ===========================================================================
-# This boss summons additional enemies
-adds:
-  - name: "Resourceful Priest (機転が利く神官)"
+# Note: Top-level weaknesses is null for multi-enemy encounters
+enemies:
+  - name: "Pious Priest"
+    name_jp: "敬虔な神官"
+    is_main_target: true
+    shield_count: 22  # Increases to 38 after "祈りの時間は終わりです"
+    weaknesses:
+      elements:
+        - wind
+      weapons:
+        - polearm
+        - bow
+    notes: |
+      Main boss. Shield increases 22→38 after phase transition.
+      Has powerful BP attack "天罰の流星" (全体超強攻撃 + Silence).
+      Use Temenos "月白のヴェール" to block with "attribute attacks fail".
+      Cleanses debuffs at end of turns after phase 2.
+      
+  - name: "Witty Priest"
+    name_jp: "機転が利く神官"
+    is_main_target: false
     shield_count: 20
-    notes: "[HUMAN-REQUIRED] Weaknesses and mechanics"
-    
-  - name: "Perceptive Priest (視野が広い神官)"
+    weaknesses:
+      elements:
+        - lightning
+        - wind
+      weapons:
+        - bow
+        - staff
+    notes: |
+      Uses ice attacks and physical attacks.
+      Has Multi-Hit Shield Lock (対多段シールドロック).
+      Uses "献身守護" to cover main boss when broken.
+      Uses charge attack "グレイシャーインパクト" (3 physical + ice).
+      
+  - name: "Wide-Field-of-Vision Priest"
+    name_jp: "視野が広い神官"
+    is_main_target: false
     shield_count: 23
-    notes: "[HUMAN-REQUIRED] Weaknesses and mechanics"
+    weaknesses:
+      elements:
+        - ice
+        - light
+      weapons:
+        - polearm
+        - fan
+    notes: |
+      Has AOE COUNTER on Turn 1!
+      Counter: Super powerful physical attack + force back row switch.
+      Uses "献身守護" to cover main boss when broken.
+      Uses lightning and physical attacks.
+
+# ===========================================================================
+# HP THRESHOLDS
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 100
+    event: "Battle Start (では、始めましょうか)"
+    behavior_changes: |
+      Main boss has 2 actions per turn (permanent).
+      Grants Elemental Critical Release to all enemies (permanent).
+    actions_per_turn: 2
+
+  - hp_percent: 50
+    event: "祈りの時間は終わりです (Prayer Time Ends)"
+    behavior_changes: |
+      Main boss gains permanent All Physical/Elemental Damage Up.
+      Main boss gains permanent All Physical/Elemental Resistance Up.
+      Shield max increases by 16 (22→38).
+      Shield recovers by 10.
+    actions_per_turn: 2
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+auras:
+  - name: "AOE Counter (全体攻撃反撃の構え)"
+    trigger: "Turn 1 start (Wide-Field Priest)"
+    active_indicator: "Counter stance"
+    counter_trigger: "ANY AOE attack"
+    counter_effect: "Super powerful physical attack on front row + force back row switch"
+    removal_condition: "Kill Wide-Field Priest first or avoid AOE until dead"
+
+  - name: "Dedication Guard (献身守護)"
+    trigger: "When main boss is broken"
+    active_indicator: "Cover buff on adds"
+    counter_effect: "Both add priests cover the main boss for 2 turns"
+    removal_condition: "Kill adds before breaking main boss, or burst through"
+
+  - name: "Post-Phase-2 Debuff Cleanse"
+    trigger: "End of each turn after phase 2"
+    active_indicator: "Debuffs removed"
+    counter_effect: "Main boss cleanses all debuffs at turn end"
+    removal_condition: "Apply debuffs same turn you use them"
+
+# ===========================================================================
+# MAIN BOSS ACTIONS (敬虔な神官)
+# ===========================================================================
+actions:
+  - name: "Let's Begin (では、始めましょうか)"
+    name_jp: "では、始めましょうか"
+    effect: |
+      Battle start:
+      - 2 actions per turn (permanent)
+      - All enemies gain Elemental Critical Release (permanent)
+    trigger: "Battle start"
+    threat_level: medium
+
+  - name: "Attribute Attack Revelation (属性攻撃の啓示)"
+    name_jp: "属性攻撃の啓示"
+    effect: "Grants All Elemental Damage Up to Witty Priest (3 turns)"
+    threat_level: medium
+
+  - name: "Physical Attack Revelation (物理攻撃の啓示)"
+    name_jp: "物理攻撃の啓示"
+    effect: "Grants All Physical Damage Up to Wide-Field Priest (3 turns)"
+    threat_level: medium
+
+  - name: "Attribute Resistance Revelation (属性耐性の啓示)"
+    name_jp: "属性耐性の啓示"
+    effect: "Grants All Elemental Resistance Up to Witty Priest (3 turns)"
+    threat_level: medium
+
+  - name: "Physical Resistance Revelation (物理耐性の啓示)"
+    name_jp: "物理耐性の啓示"
+    effect: "Grants All Physical Resistance Up to Wide-Field Priest (3 turns)"
+    threat_level: medium
+
+  - name: "Light of Sacred Flame (聖火の輝き)"
+    name_jp: "聖火の輝き"
+    effect: "Removes all buff effects from front row"
+    threat_level: high
+
+  - name: "Blessing of Healing III (癒やしの恩寵Ⅲ)"
+    name_jp: "癒やしの恩寵Ⅲ"
+    effect: "HP recovery (~35,000) to all enemies + P.DEF/E.DEF up (3 turns)"
+    threat_level: high
+
+  - name: "Prayer Time Ends (祈りの時間は終わりです)"
+    name_jp: "祈りの時間は終わりです"
+    effect: |
+      Phase transition:
+      - All Physical/Elemental Damage Up (permanent)
+      - All Physical/Elemental Resistance Up (permanent)
+      - Shield max +16 (22→38)
+      - Shield +10
+    trigger: "HP threshold or first break"
+    threat_level: extreme
+
+  - name: "Divine Punishment Meteor (天罰の流星) - BP ATTACK"
+    name_jp: "天罰の流星"
+    effect: |
+      At MAX BP:
+      - Removes all buffs from front row
+      - Super powerful elemental attack on ALL (front + back)
+      - Always critical
+      - Applies Silence (3 turns)
+    trigger: "BP MAX"
+    threat_level: extreme
+
+  - name: "Shield Restore (シールドリストア)"
+    name_jp: "シールドリストア"
+    effect: "Removes debuffs from single ally + Shield +2"
+    threat_level: medium
+
+  - name: "Blazing Smash (ブレイジングスマッシュ)"
+    name_jp: "ブレイジングスマッシュ"
+    effect: "Powerful physical attack + fire attack on single target"
+    threat_level: high
+
+  - name: "Holy Rush (ホーリーラッシュ)"
+    name_jp: "ホーリーラッシュ"
+    effect: |
+      Alternating physical + light attacks on single target.
+      2 light attacks on random targets.
+      Each light attack applies E.DEF down + Blind (3 turns).
+    threat_level: high
+
+  - name: "Thunder of Attack Break (破攻の戒雷)"
+    name_jp: "破攻の戒雷"
+    effect: "6 lightning attacks on random targets + P.ATK/E.ATK down each (2 turns)"
+    threat_level: high
+
+  - name: "Cyclone Screw (サイクロンスクリュー)"
+    name_jp: "サイクロンスクリュー"
+    effect: "2 weak physical + 3 weak wind attacks on front row + Silence (3 turns)"
+    threat_level: high
+
+  - name: "Blizzard Screw (ブリザードスクリュー)"
+    name_jp: "ブリザードスクリュー"
+    effect: "Physical + ice attack on front row + SP damage (20% max SP)"
+    threat_level: high
+
+  - name: "Pure Treatment (清らかなる治療)"
+    name_jp: "清らかなる治療"
+    effect: "Removes all debuffs and status ailments from self"
+    threat_level: medium
+
+  - name: "Guide Me With Sacred Flame... (聖火の導きを我に……)"
+    name_jp: "聖火の導きを我に……"
+    effect: |
+      Removes all debuffs and status ailments from self.
+      All Physical/Elemental Damage Up + Resistance Up (permanent) to all enemies.
+      Full shield and BP recovery.
+    trigger: "Break recovery after phase 2"
+    threat_level: extreme
 
 # ===========================================================================
 # MECHANICS
 # ===========================================================================
 mechanics:
-  - name: "Shield Increase"
-    mechanic_type: phase_transition
-    trigger: "After first break"
-    target: self
-    threat_level: medium
+  - name: "AOE Counter (Wide-Field Priest)"
+    mechanic_type: counter
+    trigger: "Turn 1 start, any AOE attack"
+    target: front_row
+    damage_type: physical
+    effects: ["forced_back_switch"]
+    threat_level: critical
     counter_strategy: |
-      Shields increase from 22 to 38 after first break.
-      Plan for longer second break cycle.
+      Wide-Field Priest counters ALL AOE attacks with:
+      - Super powerful physical attack on front row
+      - Force switch to back row
+      
+      AVOID AOE until Wide-Field Priest is dead!
+      Exception: Use PDodge accessories on Rinyuu/Lucetta to dodge counter.
 
-  - name: "Summon Adds"
+  - name: "Dedication Guard"
     mechanic_type: other
+    trigger: "Main boss broken"
     target: all
+    damage_type: none
     threat_level: high
     counter_strategy: |
-      Two additional priests are summoned during the fight.
-      May need to manage multiple enemies.
+      Both add priests cover main boss for 2 turns when broken.
+      Either kill adds first, or burst main boss through cover.
+
+  - name: "Shield Increase Phase"
+    mechanic_type: phase_transition
+    trigger: "After first break or HP threshold"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: "Shields increase 22→38. Plan for longer break cycles."
+
+  - name: "Post-Phase-2 Debuff Cleanse"
+    mechanic_type: passive
+    trigger: "End of each turn after phase 2"
+    target: all
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      Main boss cleanses debuffs at turn end after phase 2.
+      Apply debuffs SAME TURN you want to use them.
+      Passive debuffs still work!
+
+  - name: "Buff Removal Turn 10"
+    mechanic_type: debuff_party
+    trigger: "Turn 10"
+    target: front_row
+    damage_type: none
+    threat_level: high
+    counter_strategy: |
+      Turn 10: Boss removes front row buffs.
+      Move DPS (e.g., Magnolia) to back row before Turn 10.
+      Or use passive buffs that can't be removed.
+
+  - name: "BP Attack: Divine Punishment Meteor"
+    mechanic_type: ultimate
+    trigger: "BP MAX"
+    target: all
+    damage_type: elemental
+    effects: ["silence"]
+    threat_level: critical
+    counter_strategy: |
+      Used at BP MAX - hits ALL party with massive elemental damage + Silence.
+      
+      COUNTER: Use Temenos "月白のヴェール" (Moonlight Veil)
+      Applies "Attribute attacks fail" - completely blocks this attack!
+      Use right before break recovery turn 2 (after 聖火の導きを我に).
+
+  - name: "Turn 15 Time Limit"
+    mechanic_type: enrage
+    trigger: "Turn 15"
+    target: all
+    damage_type: none
+    threat_level: critical
+    counter_strategy: "Standard 120 NPC 15-turn limit applies."
 
 # ===========================================================================
 # TEAM REQUIREMENTS
@@ -68,43 +310,112 @@ mechanics:
 required_roles:
   - role: healer
     priority: required
-    reason: "Multi-target fight requires sustained healing"
+    reason: "Sustained healing for long multi-enemy fight"
     
   - role: breaker
     priority: required
-    reason: "Need to break main boss + potentially adds"
+    reason: "Need to break all 3 enemies simultaneously for burst"
     
   - role: buffer
+    priority: required
+    reason: "Stack buffs - passive buffs preferred (can't be cleansed)"
+    
+  - role: debuffer
     priority: strongly_recommended
-    reason: "Damage buffs for break windows"
+    reason: "Apply same turn as damage (cleansed at turn end post-phase-2)"
     
   - role: dps
     priority: required
-    reason: "Need damage for main boss and potentially AoE for adds"
+    reason: "Need high damage for all 3 enemies"
 
-required_capabilities:
-  - "Fire or Dark damage"
-  - "Sword, Axe, or Bow coverage"
-  - "Potentially AoE skills for add management"
+recommended_weakness_coverage:
+  - polearm  # Main boss + Wide-Field
+  - bow      # Main boss + Witty
+  - wind     # Main boss + Witty
+  - ice      # Wide-Field
+  - lightning # Witty
+  - light    # Wide-Field
 
 # ===========================================================================
 # STRATEGY
 # ===========================================================================
 general_strategy: |
-  Multi-enemy fight with increasing shields.
+  Devout Priest (Pious Priest) is a MULTI-ENEMY 120 NPC fight.
   
-  Phase 1:
-  - Focus main boss (22 shields)
-  - Manage adds as needed
+  ⚠️ CHALLENGE AT NIGHT!
+  Night battle gives:
+  - ALL allies start with +5 BP
+  - Enemies have P.DEF/E.DEF down (3 turns)
+  - Debuffs stack with battle abilities!
   
-  Phase 2:
-  - Main boss has 38 shields
-  - Longer break cycle required
-  - May need to prioritize adds or ignore them
+  ENEMIES:
+  1. Pious Priest (敬虔な神官) - MAIN
+     Shield: 22→38, Weak: Polearm, Bow, Wind
+     
+  2. Witty Priest (機転が利く神官)
+     Shield: 20, Weak: Bow, Staff, Lightning, Wind
+     Has Multi-Hit Shield Lock
+     
+  3. Wide-Field Priest (視野が広い神官)
+     Shield: 23, Weak: Polearm, Fan, Ice, Light
+     ⚠️ COUNTERS AOE ATTACKS!
+  
+  ⚠️ CRITICAL: NO AOE UNTIL WIDE-FIELD PRIEST IS DEAD!
+  Counter = super powerful attack + force back row switch.
+  Exception: PDodge accessories on healers can dodge counter.
+  
+  RECOMMENDED APPROACH:
+  
+  1. Break ALL 3 enemies at the SAME time
+     - Use Sonia for multi-target breaking
+     - Break on Turn 4
+     
+  2. First break: Kill Wide-Field Priest + Witty Priest
+     - This removes AOE counter threat
+     - Main boss shields increase to 38 after break
+     
+  3. Use Simurgh Turn 6
+     - Main boss uses "聖火の導きを我に" (full heal/buff)
+     - Then uses BP attack Turn 7
+     
+  4. Block BP Attack with Temenos
+     - "月白のヴェール" applies "Attribute attacks fail"
+     - Completely blocks Divine Punishment Meteor
+     
+  5. Post-Phase-2: Debuffs cleansed at turn end
+     - Apply debuffs SAME TURN you use them
+     - Use passive buffs (can't be cleansed)
+     
+  BREAK TIMING (after adds dead):
+  - Break every 3 turns: Turns 8, 11, 14
+  
+  TURN 10: Boss removes front row buffs
+  - Send DPS to back row before Turn 10
+  
+  TEAM EXAMPLE (Game8):
+  Front: Magnolia, Temenos, Primrose EX, Kilns
+  Back: Lucetta, Agnea, Odette, Solon
+  
+  ALTERNATIVE (StofMilan - SazEX/Oskha):
+  Front: Rinyuu, Kilns, SazEX, Leon
+  Back: Oskha, Tatloch, Shana, Nephti
+
+common_mistakes:
+  - "Using AOE attacks while Wide-Field Priest is alive"
+  - "Not breaking all 3 enemies simultaneously"
+  - "Applying debuffs too early (cleansed at turn end)"
+  - "Not using Temenos to block BP attack"
+  - "Not switching DPS to back row before Turn 10 buff removal"
+
+# ===========================================================================
+# REWARDS
+# ===========================================================================
+# Items: 知敏の除符 (Intellect Charm) x1
+# Support Skill: 聖火の導きを我に (Sacred Flame Guide) - removes debuffs + 100% ultimate gauge, 1 use
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
-data_confidence: incomplete
-data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/565283"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "Game8 JP + Reddit Mastery Survey"
+last_updated: 2025-12-22

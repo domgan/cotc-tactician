@@ -1,0 +1,180 @@
+# Team: Arena Ri'tu - Permanent/Free Characters
+# SOURCE: Game8 JP Recommended Team (恒常・配布のみ編成)
+
+id: arena-ritu-permanent-only
+name: "Ri'tu - Permanent/Free Characters"
+boss_id: arena-ritu
+
+strategy_type: sustain
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: provoke_tank
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: aedelgard
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "DPS option"
+    key_skills_used:
+      - "Attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: harley
+    role_in_team: breaker
+    is_required: true
+    substitutes: []
+    substitute_notes: "Wind multi-hit"
+    key_skills_used:
+      - "Wind attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: ophilia
+    role_in_team: healer
+    is_required: false
+    substitutes: []
+    substitute_notes: "Healer + light damage"
+    key_skills_used:
+      - "Healing"
+      - "Light attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: devin
+    role_in_team: tank
+    is_required: true
+    substitutes: [gilderoy]
+    substitute_notes: |
+      4★ stat-based tank.
+      Good for multi-hit attacks from Ri'tu.
+    key_skills_used:
+      - "Provoke"
+      - "Tank skills"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: false
+    substitutes: [viola]
+    substitute_notes: "Debuffer"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 6
+    character_id: cyrus
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Fire/light backup (Ri'tu weaknesses)"
+    key_skills_used:
+      - "Fire attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: molu
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Support"
+    key_skills_used: []
+    awakening_required: 0
+
+  - position: 8
+    character_id: lumis
+    role_in_team: breaker
+    is_required: false
+    substitutes: []
+    substitute_notes: "Wind backup"
+    key_skills_used:
+      - "Wind attacks"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Devin tanks"
+      - "Wind AoE from Harley"
+      - "Kill Steadfast Swordsman FIRST"
+    notes: "Wind hits all enemies"
+
+  - turn_range: "5-8"
+    phase: break_push
+    actions:
+      - "Kill Carefree Dancer"
+      - "Continue wind attacks on Ri'tu"
+    notes: "Ri'tu alone is more manageable"
+
+  - turn_range: "Ri'tu only"
+    phase: sustain
+    actions:
+      - "Maintain debuffs + healing"
+      - "Watch pursuit attacks at 50%"
+      - "Break and chip down"
+    notes: "Fire and light also work on Ri'tu"
+
+  - turn_range: "HP <25%"
+    phase: burst
+    actions:
+      - "Severing spam phase"
+      - "Burst during break window"
+    notes: "Longer fight without limited DPS"
+
+why_it_works: |
+  From Game8: "火力は火や光で出してもOK"
+  
+  While wind is best for shield shaving (hits all),
+  fire and light also work for damage on Ri'tu.
+  
+  This gives flexibility with permanent characters
+  who may not have strong wind attacks.
+  
+  Kill order remains important:
+  1. Steadfast Swordsman (Guardian Stance)
+  2. Carefree Dancer (buffs)
+  3. Ri'tu
+
+key_synergies:
+  - "Harley wind for shield shaving"
+  - "Fire/light options for Ri'tu damage"
+  - "Devin 4★ tank is accessible"
+
+risks_and_recovery:
+  - "Less wind DPS = longer fight"
+  - "Multi-hit attacks need stat tank"
+  - "Pursuit attacks need healing"
+
+# ===========================================================================
+# OTHER RECOMMENDED CHARACTERS
+# ===========================================================================
+# 4★: Fabio, Noel, Meno, Kurtz
+# 5★: Scarecrow, Tressa, Tikilen, Idea, Agnes, Odette, Chloe, Alaune, Rondo, Lumiere
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

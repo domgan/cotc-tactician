@@ -1,0 +1,104 @@
+# Arena Boss: Mirgardi EX1 (ミルガルディ EX1)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX1 variant of Mirgardi - Adversary Log
+
+id: arena-mirgardi-ex1
+display_name: "Mirgardi (EX1)"
+display_name_jp: "ミルガルディ（EX1）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-mirgardi-ura
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX1 scaling)
+# ===========================================================================
+shield_count: 36  # Up from 34
+
+# Weaknesses cycle same as Ura version
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - axe
+
+# ===========================================================================
+# HP THRESHOLDS (Same as Ura)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "有為転変・怒濤 (Adaptability - Fury)"
+    behavior_changes: "Weakness changes to polearm/tome/ice + Damage/Evasion Ignore"
+    new_weaknesses: [polearm, tome, ice]
+  - hp_percent: 65
+    event: "龍尾扇・天鱗 + 朧告死 (Death Sentence begins)"
+    behavior_changes: "Enhanced power + Death Sentence (3 count)"
+    new_weaknesses: [axe, lightning, light]
+  - hp_percent: 35
+    event: "夜䕃掩蔽 (Hidden weakness phase)"
+    behavior_changes: "Shield/weakness hidden"
+
+# ===========================================================================
+# SPECIAL MECHANICS (Inherited from Ura)
+# ===========================================================================
+auras:
+  - name: "龍尾扇・迅 (Dragon Tail Fan - Swift)"
+    trigger: "Battle start"
+    counter_effect: "Pt accumulation system"
+    removal_condition: "Break"
+  - name: "龍尾扇・天鱗 (Dragon Tail Fan - Heavenly Scale)"
+    trigger: "HP ≤65%"
+    counter_effect: "Enhanced Dragon Tail + permanent buffs"
+    removal_condition: "Cannot be removed"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Must break every 3 turns - higher shield count requires more hits"
+  - role: healer
+    priority: required
+    reason: "Increased damage from EX scaling"
+  - role: debuffer
+    priority: required
+    reason: "P.ATK debuff essential for survival"
+  - role: dps
+    priority: required
+    reason: "Need multi-phase weakness coverage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX1 Mirgardi is similar to Ura but with +2 shields (36 total).
+  
+  Same core mechanics:
+  - BP attack at MAX BP (break every 3 turns!)
+  - Death Sentence at HP ≤65%
+  - 4-phase weakness cycling
+  - Hidden phase at HP ≤35%
+  
+  EX1 DIFFERENCES:
+  - Shield count 36 (vs 34)
+  - Slightly higher HP
+  - Faster speed
+  
+  REWARD: ミルガルディの覚醒石 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22

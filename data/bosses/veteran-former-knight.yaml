@@ -1,0 +1,73 @@
+# Veteran NPC Boss: Former Knight (元騎士)
+# SOURCE: https://game8.jp/octopathtraveler-sp/364158
+#
+# Drops: Veteran Sword (歴戦の剣)
+# Location: S'warkii (スウォーキィ)
+
+id: veteran-former-knight
+display_name: "Former Knight"
+display_name_jp: "元騎士"
+content_type: npc_battle
+difficulty: hard
+level: 85
+location: "S'warkii (スウォーキィ)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 14
+
+weaknesses:
+  elements:
+    - lightning
+  weapons:
+    - polearm
+
+# ===========================================================================
+# ENRAGE TIMER (Standard for Veteran NPCs)
+# ===========================================================================
+enrage_turn: 15
+enrage_description: |
+  Turn 15: Status immunity + prepares Veteran Wave
+  Turn 16+: 99,999 damage per turn
+
+# ===========================================================================
+# DROPS
+# ===========================================================================
+# Veteran Sword (歴戦の剣)
+# Used as BT Sword base weapon
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Polearm/lightning for 14 shields"
+  - role: dps
+    priority: required
+    reason: "Kill before turn 15"
+
+recommended_weakness_coverage:
+  - polearm
+  - lightning
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Veteran NPC for BT Sword farming.
+  
+  Standard veteran NPC pattern:
+  - 14 shields
+  - Turn 15 enrage
+  - Break early, burst during break window
+  
+  Polearm or lightning focused teams work well.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/364158"
+last_updated: 2025-12-21

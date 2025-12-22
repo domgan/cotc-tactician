@@ -1,0 +1,178 @@
+# Team: Arena Varkyn - Limited High Power/Durability
+# SOURCE: Game8 JP Recommended Team (限定入り高火力・高耐久編成)
+
+id: arena-varkyn-limited-high-power
+name: "Varkyn - Limited High Power/Durability"
+boss_id: arena-varkyn
+
+strategy_type: sustain
+investment_level: high
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: turtle
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: rondo
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Light/ice damage dealer"
+    key_skills_used:
+      - "Light attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: cyrus
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Ice multi-hit attacks"
+    key_skills_used:
+      - "Ice attacks"
+    awakening_required: 0
+
+  - position: 3
+    character_id: tatloch
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Multiple weakness coverage"
+    key_skills_used:
+      - "Various attacks"
+    awakening_required: 0
+
+  - position: 4
+    character_id: leon
+    role_in_team: debuffer
+    is_required: false
+    substitutes: []
+    substitute_notes: "Debuff support"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: lianna
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Backup DPS"
+    key_skills_used:
+      - "Elemental attacks"
+    awakening_required: 0
+
+  - position: 6
+    character_id: sonia
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: "Ignore-weakness shield shave"
+    key_skills_used:
+      - "Ignore weakness attacks"
+    awakening_required: 0
+
+  - position: 7
+    character_id: rinyuu
+    role_in_team: healer
+    is_required: true
+    substitutes: [primrose-ex]
+    substitute_notes: "Auto-regen healer (semi-permanent buffs work)"
+    key_skills_used:
+      - "Passive healing"
+    awakening_required: 0
+
+  - position: 8
+    character_id: alaune-ex
+    role_in_team: debuffer
+    is_required: true
+    substitutes: [viola]
+    substitute_notes: |
+      Attack debuffs are ESSENTIAL!
+      Remember: Spirit Stone dispels buffs - only debuffs work!
+    key_skills_used:
+      - "Attack debuffs 30%"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Kill adds one at a time"
+      - "Stack E.ATK debuffs on Varkyn"
+      - "Rinyuu provides auto-regen"
+    notes: "No consistent weakness for all enemies"
+
+  - turn_range: "After adds dead"
+    phase: sustain
+    actions:
+      - "Spirit Stone appears!"
+      - "DO NOT USE BUFFS - they get dispelled!"
+      - "Only use debuffs on Varkyn"
+      - "Maintain 30% attack debuff + auto-regen"
+    notes: "Semi-permanent buffs and auto-regen still work"
+
+  - turn_range: "Varkyn HP ≤50%"
+    phase: break_push
+    actions:
+      - "Spirit Stone gains double actions"
+      - "Spirit Stone gains WEAKNESS COUNTER!"
+      - "NEVER hit Spirit Stone's current weakness!"
+      - "Use single-target attacks carefully"
+    notes: "Track weakness cycle: Staff → Sword → Ice"
+
+  - turn_range: "HP ~35%"
+    phase: burst
+    actions:
+      - "Break Varkyn just before/after 35%"
+      - "Burst immediately to avoid Musou Munen"
+      - "If HP drains, use back row attackers"
+    notes: "Musou Munen = permanent E.ATK buff + dangerous attacks"
+
+why_it_works: |
+  From Game8: "対ヴァルカンにおいては一貫して弱点を突けるキャラが非常に少なく、
+  効率的な編成を作るのが難しくなっています。"
+  
+  Varkyn has no consistent weakness across all enemies.
+  
+  KEY RULE: After Spirit Stone appears, NEVER USE BUFFS!
+  Spirit Stone dispels all buffs every turn.
+  
+  ONLY these work:
+  - DEBUFFS on enemies (attack debuff 30%)
+  - Semi-permanent buffs (certain passives)
+  - Auto-regen healing
+
+key_synergies:
+  - "Auto-regen bypasses buff dispel"
+  - "Debuff-focused survival"
+  - "Back row attackers for SP drain recovery"
+
+risks_and_recovery:
+  - "Buff dispel: ONLY use debuffs after Spirit Stone!"
+  - "Weakness counter: Don't hit Spirit Stone weakness!"
+  - "Musou Munen: Burst before/after 35%"
+  - "SP drain: Spread attackers front/back"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

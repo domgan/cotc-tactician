@@ -1,0 +1,66 @@
+# Veteran NPC Boss: Former Traveling Mage (元旅の魔術師)
+# SOURCE: https://game8.jp/octopathtraveler-sp/367896
+#
+# Drops: Veteran Tome (歴戦の魔導書)
+# Location: Wispermill (ウィスパーミル)
+
+id: veteran-former-traveling-mage
+display_name: "Former Traveling Mage"
+display_name_jp: "元旅の魔術師"
+content_type: npc_battle
+difficulty: hard
+level: 85
+location: "Wispermill (ウィスパーミル)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 14
+
+weaknesses:
+  elements:
+    - fire
+  weapons:
+    - fan
+
+# ===========================================================================
+# ENRAGE TIMER
+# ===========================================================================
+enrage_turn: 15
+enrage_description: "Standard veteran enrage: Turn 15 status immunity, Turn 16+ 99,999 damage"
+
+# ===========================================================================
+# DROPS
+# ===========================================================================
+# Veteran Tome (歴戦の魔導書)
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Fan/fire for 14 shields"
+  - role: dps
+    priority: required
+    reason: "Kill before turn 15"
+
+recommended_weakness_coverage:
+  - fan
+  - fire
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Veteran NPC for BT Tome farming.
+  
+  Fan and fire weakness - dancers and fire mages work well.
+  Standard 14 shield, turn 15 enrage pattern.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/367896"
+last_updated: 2025-12-21

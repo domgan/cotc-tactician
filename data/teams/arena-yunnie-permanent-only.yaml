@@ -1,0 +1,172 @@
+# Team: Arena Yunnie - Permanent Only
+# SOURCE: Game8 JP Recommended Team (恒常・配布のみ編成)
+
+id: arena-yunnie-permanent-only
+name: "Yunnie - Permanent Only"
+boss_id: arena-yunnie
+
+strategy_type: sustain
+investment_level: medium
+
+# ===========================================================================
+# EX FIGHT CLASSIFICATION
+# ===========================================================================
+target_ex_rank: base
+survival_strategy: provoke_tank
+minimum_hp_recommended: 3000
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+
+# ===========================================================================
+# COMPOSITION
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: aedelgard
+    role_in_team: primary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword/axe damage"
+    key_skills_used:
+      - "Attacks"
+    awakening_required: 0
+
+  - position: 2
+    character_id: viola
+    role_in_team: debuffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Attack debuffs"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 3
+    character_id: alfyn
+    role_in_team: healer
+    is_required: false
+    substitutes: [soleil]
+    substitute_notes: "Status ailment cure for Paralysis!"
+    key_skills_used:
+      - "Status cure"
+      - "Healing"
+    awakening_required: 0
+
+  - position: 4
+    character_id: serenoa
+    role_in_team: tank
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      Provoke tank with 100% status immunity.
+      Pair with Shelby (Pure White Apron) in back row.
+      "Attack" + support ability gives sword 2-hit.
+    key_skills_used:
+      - "Provoke"
+      - "Decisive Resolve passive"
+    awakening_required: 0
+
+back_line:
+  - position: 5
+    character_id: sarisa
+    role_in_team: debuffer
+    is_required: false
+    substitutes: []
+    substitute_notes: "Additional debuffs"
+    key_skills_used:
+      - "Attack debuffs"
+    awakening_required: 0
+
+  - position: 6
+    character_id: fiore
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Support"
+    key_skills_used: []
+    awakening_required: 0
+
+  - position: 7
+    character_id: olberic
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: []
+    substitute_notes: "Sword damage"
+    key_skills_used:
+      - "Sword attacks"
+    awakening_required: 0
+
+  - position: 8
+    character_id: soleil
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: |
+      Status immunity support passive!
+      Pair with Shelby for 100% immunity tank.
+    key_skills_used:
+      - "Status immunity passive"
+    awakening_required: 0
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Serenoa provokes (100% status immunity)"
+      - "Stack attack debuffs"
+      - "Apply Hunter control if possible"
+    notes: "Use Pure White Apron for status immunity"
+
+  - turn_range: "5+"
+    phase: break_push
+    actions:
+      - "Focus sword/axe/fan on Yunnie"
+      - "Cure paralysis from Paralyze Rain"
+      - "Maintain debuffs and healing"
+    notes: "Alfyn or Soleil cure status"
+
+why_it_works: |
+  From Game8: "麻痺にだけ注意"
+  
+  Without Rinyuu, Paralyze Rain will cause paralysis.
+  ALWAYS cure paralysis immediately!
+  
+  Serenoa is ideal tank:
+  - Free character (everyone has)
+  - "Decisive Resolve" passive
+  - "Attack" + support ability = 2-hit sword
+  
+  100% STATUS IMMUNITY TANK:
+  - Back row character with status immunity passive
+  - Equip "Pure White Apron" (Shelby A4)
+  - Total 100% immunity to single-target ailments
+
+key_synergies:
+  - "Serenoa free tank"
+  - "Status immunity setup"
+  - "Alfyn/Soleil status cure"
+
+risks_and_recovery:
+  - "No Rinyuu: Must cure Paralysis manually"
+  - "Pure White Apron (Shelby A4) required"
+  - "Longer fight without limited DPS"
+
+# ===========================================================================
+# OTHER RECOMMENDED
+# ===========================================================================
+# 4★: Shelby, Siegrit, Tahir, Kurtz, Cres, Duran
+# 5★: Theo, Viola, Heathcote, Lumis, Adelle, Falco, Cecily, Joshua, 
+#     2B, A2, Zenia, Fiore EX, Nephti, Canary
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+verified: true
+author: community
+source_url: "Game8 JP"
+data_confidence: verified
+last_updated: 2025-12-22

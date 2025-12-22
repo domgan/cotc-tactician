@@ -14,10 +14,19 @@ origin: "Norzelia (TRIANGLE STRATEGY)"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [fire, sword]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [tank, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Provoke tank from Triangle Strategy collab.
+  A4 gives auto-provoke at battle start (3 turns).
+  "Decisive Resolve" for damage reduction.
+  Strong sword DPS when not tanking.
+
+# Tank type
+tank_type: provoke
+
+# EX fight recommendations
+recommended_min_hp: 3500
 
 # Stats (base level)
 hp: 3222

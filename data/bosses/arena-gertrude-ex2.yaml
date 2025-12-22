@@ -1,0 +1,102 @@
+# Arena Boss: Gertrude EX2 (ガートルード EX2)
+# SOURCE: Game8 JP - Adversary Log
+#
+# Second EX rematch of Gertrude with significantly increased stats
+
+id: arena-gertrude-ex2
+display_name: "Gertrude EX2"
+display_name_jp: "ガートルード EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: arena-gertrude
+ex_rank: ex2
+actions_per_turn: 2  # Double actions from Turn 1
+provoke_immunity: true  # Immune to provoke
+
+# Scaled stats (EX2 = ~3x HP)
+shield_count: 14  # Goes to 17 at HP 75%
+
+# HP-based thresholds (same pattern, scaled shields)
+hp_thresholds:
+  - hp_percent: 75
+    event: "Combat Drug (2nd)"
+    behavior_changes: "Shield max +3 (14→17)"
+    actions_per_turn: 2
+  - hp_percent: 50
+    event: "Combat Drug (3rd)"
+    behavior_changes: "Pattern change, starts using Heal Slash"
+    actions_per_turn: 2
+  - hp_percent: 33
+    event: "Combat Drug (4th)"
+    behavior_changes: "TRIPLE ACTIONS permanent, spam phase"
+    actions_per_turn: 3
+
+# Auras (same as base)
+auras:
+  - name: "Multi-Hit Shield Lock"
+    trigger: "Battle start / Break recovery"
+    active_indicator: "Shield glow"
+    counter_trigger: "N/A (always active)"
+    counter_effect: "Max 2 shields shaved per character action"
+    removal_condition: "Break (reapplies on recovery)"
+
+weaknesses:
+  elements:
+    - fire
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# STRATEGY NOTES (EX2 specific)
+# ===========================================================================
+general_strategy: |
+  Same mechanics as base Gertrude but with:
+  - Much higher HP (~3x)
+  - Higher shield count (14→17)
+  - Much higher speed (speed tuning critical)
+  
+  EX2 SPECIFIC:
+  - Need higher damage output (stack all 5 damage categories)
+  - 3500+ HP recommended per character
+  - Fiore EX Cover becomes very important
+  - Consider turtle strategy if lacking DPS
+  
+  SPEEDKILL APPROACH:
+  - Solon + Primrose EX for 2x ultimate damage
+  - Full buff/debuff stacking (30% each category)
+  - Kill in 2 breaks if possible
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Must cap P.ATK debuff (30%)"
+  - role: healer
+    priority: required
+    reason: "Instant healing + regen"
+  - role: dps
+    priority: required
+    reason: "Single-hit high-power (NOT multi-hit)"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover or dodge tank"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - fire
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

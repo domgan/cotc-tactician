@@ -1,0 +1,261 @@
+# Arena Boss: Glossom (グロッサム)
+# SOURCE: Game8 JP
+#
+# Multi-enemy arena fight with dancer mechanics
+# 3 ENEMIES: Glossom (main) + Dazzling Dancer + Passionate Dancer
+
+id: arena-glossom
+display_name: "Glossom"
+display_name_jp: "グロッサム"
+content_type: arena
+difficulty: extreme
+location: "Arena (闘技大会)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+ex_rank: base  # This is the base arena version
+actions_per_turn: 1  # Gains double actions at HP ≤50%
+provoke_immunity: true  # Assumed provoke immune
+
+# HP-based thresholds
+hp_thresholds:
+  - hp_percent: 50
+    event: "Enhanced Dance"
+    behavior_changes: "DOUBLE ACTIONS permanent"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "Desperation"
+    behavior_changes: "Locks polearm/axe weakness - ONLY DARK works!"
+    locked_weaknesses: [polearm, axe]
+
+# Auras/Stances
+auras:
+  - name: "Weapon Lock"
+    trigger: "HP ≤25%"
+    active_indicator: "Aura change"
+    weakness_changes:
+      locked: [polearm, axe]
+      unlocked: [dark]
+    counter_trigger: "N/A"
+    counter_effect: "Weapon weaknesses no longer work"
+    removal_condition: "None (permanent)"
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER (3 enemies)
+# ===========================================================================
+enemies:
+  - name: "Glossom"
+    name_jp: "グロッサム"
+    is_main_target: true
+    shield_count: 26
+    weaknesses:
+      elements:
+        - dark
+      weapons:
+        - polearm
+        - axe
+    notes: |
+      Main boss. At HP ≤25%, locks polearm/axe weakness - only DARK works!
+      At HP ≤50%, gains double actions (永続).
+      Fan-based physical attacker with forced swap mechanics.
+      
+  - name: "Dazzling Dancer"
+    name_jp: "眩い踊子"
+    is_main_target: false
+    shield_count: 14
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - sword
+        - axe
+    notes: |
+      Light-based attacks and E.ATK buffs.
+      Uses light resistance debuff.
+      
+  - name: "Passionate Dancer"
+    name_jp: "情熱的な踊子"
+    is_main_target: false
+    shield_count: 12
+    weaknesses:
+      elements:
+        - wind
+        - dark
+      weapons:
+        - sword
+        - axe
+    notes: |
+      Buffs speed and crit for all enemies.
+      Fan physical attacks.
+
+# ===========================================================================
+# GLOSSOM'S ACTIONS
+# ===========================================================================
+actions:
+  - name: "Wild Dance"
+    name_jp: "乱舞"
+    effect: "3 fan physical attacks on random targets"
+    threat_level: high
+
+  - name: "Warrior's Inspiration II"
+    name_jp: "武人の鼓舞Ⅱ"
+    effect: "P.ATK/P.DEF buff on all enemies (3 turns)"
+    threat_level: medium
+
+  - name: "Impact"
+    name_jp: "衝撃"
+    effect: "Fan physical attack on single target + FORCED SWAP to back row (unable to act)"
+    threat_level: high
+
+  - name: "Thunder Poem"
+    name_jp: "天雷の詩"
+    effect: "3 lightning attacks on random targets"
+    threat_level: high
+
+  - name: "Attack"
+    name_jp: "たたかう"
+    effect: "Physical attack on single target"
+    threat_level: low
+
+  - name: "Descending Guard Dance II"
+    name_jp: "降守の舞踊Ⅱ"
+    effect: "Fan physical attack on front row + P.DEF down (3 turns)"
+    threat_level: high
+
+  - name: "Impact Barrage"
+    name_jp: "衝撃連打"
+    effect: "2 fan physical attacks on single target + FORCED SWAP to back row (unable to act)"
+    threat_level: extreme
+
+  - name: "Rumbling Thunder Poem II"
+    name_jp: "轟雷の詩Ⅱ"
+    effect: "Lightning attack on front row"
+    threat_level: high
+
+  - name: "Getting Serious"
+    name_jp: "ここから本気で行くぞ！"
+    effect: "At HP ≤50%: Gains DOUBLE ACTIONS permanently"
+    trigger: "HP ≤50%"
+    threat_level: extreme
+
+  - name: "Taking Battle Stance"
+    name_jp: "グロッサムは大きく身構えた！"
+    effect: "Next turn uses Destruction Dance"
+    trigger: "Charge-up (1st action only)"
+    threat_level: high
+
+  - name: "Destruction Dance"
+    name_jp: "破壊の乱舞"
+    effect: "4 fan physical attacks on random targets + P.DEF down per hit (2 turns)"
+    trigger: "After Taking Battle Stance"
+    threat_level: extreme
+
+  - name: "Martial God Elegant Stance"
+    name_jp: "武神流麗の構え"
+    effect: |
+      Buffs self P.ATK/E.ATK/Speed/P.DEF (4 turns).
+      LOCKS polearm and axe weakness permanently (until break).
+    trigger: "HP ≤25%"
+    threat_level: extreme
+
+  - name: "Warrior's Inspiration III"
+    name_jp: "武人の鼓舞Ⅲ"
+    effect: "P.ATK/P.DEF buff on all enemies (3 turns)"
+    threat_level: high
+
+# ===========================================================================
+# SPECIAL MECHANICS
+# ===========================================================================
+special_mechanics:
+  - name: "Forced Swap"
+    description: |
+      Glossom's "Impact" and "Impact Barrage" force swap target to back row.
+      Swapped character cannot act on that turn.
+      
+      COUNTER: Use physical evasion tank (Tressa, Fiore EX).
+      Equip Beast summons with physical evasion buff.
+      
+  - name: "Double Actions (HP ≤50%)"
+    description: |
+      At HP ≤50%, Glossom permanently gains double actions.
+      Combined with buffs, attacks become very dangerous.
+      
+      COUNTER: Kill adds before pushing Glossom below 50%.
+      
+  - name: "Weakness Lock (HP ≤25%)"
+    description: |
+      At HP ≤25%, "Martial God Elegant Stance" locks polearm/axe weakness.
+      Only DARK attacks can shave shields until Glossom is broken!
+      
+      COUNTER: Bring dark multi-hit attackers (Primrose, Ninarana, Zenia).
+      Thieves with ignore-weakness shield shave also work.
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Physical EVASION tank for forced swap attacks"
+    
+  - role: healer
+    priority: required
+    reason: "Auto-regen healer to survive double actions"
+    
+  - role: breaker
+    priority: required
+    reason: "Dark AoE hits all enemies consistently"
+    
+  - role: debuffer
+    priority: required
+    reason: "P.ATK/E.ATK debuffs essential for survival"
+
+recommended_weakness_coverage:
+  - dark      # Consistent through all phases
+  - axe       # All 3 weak, but locked at 25%
+  - sword     # Dancers only
+  - wind      # Dancers only
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Complex 3-enemy arena fight with forced swap and weakness lock mechanics.
+  
+  SHARED WEAKNESSES: Dark (consistent!), Axe (locked at 25%)
+  
+  PHASE 1 (HP 100-50%):
+  - Kill adds FIRST before pushing Glossom below 50%
+  - Use dark/axe AoE to damage all enemies
+  - Maintain P.ATK/E.ATK debuffs on Glossom
+  
+  PHASE 2 (HP 50-25%):
+  - Glossom gains DOUBLE ACTIONS
+  - Watch for "Taking Battle Stance" → Destruction Dance
+  - Physical evasion tank is crucial
+  
+  PHASE 3 (HP 25-0%):
+  - "Martial God Elegant Stance" LOCKS polearm/axe weakness
+  - ONLY DARK can shave shields until break!
+  - Burst Glossom down during break window
+  
+  TANK RECOMMENDATION:
+  Use physical EVASION tank (Tressa, Fiore EX) instead of stat tank.
+  Forced swap attacks are physical - evasion bypasses them.
+  Beast summons with evasion buff help (Cat Black, etc.)
+
+# ===========================================================================
+# NEMESIS RANKS (宿敵の写記)
+# ===========================================================================
+# Glossom: Rank1=26, Rank2=28, Rank3=30, EX1=33, EX2=35, EX3=37
+# Dazzling Dancer: Rank1=12, Rank2=14, Rank3=16, EX1=19, EX2=21, EX3=23
+# Passionate Dancer: Rank1=14, Rank2=16, Rank3=18, EX1=21, EX2=23, EX3=25
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP"
+last_updated: 2025-12-22

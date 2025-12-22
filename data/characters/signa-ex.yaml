@@ -14,10 +14,26 @@ origin: "Overworld (Dragon Quest III)"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [axe, polearm, staff, sword]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [buffer, debuffer, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dragon Quest collab character. Very high HP pool.
+  AoE DEF/RES debuff from ultimate.
+  Buff and debuff in one character.
+  Wide weapon coverage (4 weapons).
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+debuff_categories:
+  ultimate:
+    - type: phys_def_down
+      value: 20
+      source_skill: "Ultimate"
+    - type: elem_def_down
+      value: 20
+      source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 3940

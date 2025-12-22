@@ -174,6 +174,7 @@ class ContentType(str, Enum):
     SUPERBOSS = "superboss"
     TOWER = "tower"
     ARENA = "arena"
+    ADVERSARY_LOG = "adversary_log"  # EX fights (宿敵の写記)
     EVENT = "event"
     OTHER = "other"
 
@@ -241,6 +242,34 @@ class BattlePhase(str, Enum):
     RECOVERY = "recovery"
 
 
+class ExRank(str, Enum):
+    """EX difficulty rank for Adversary Log bosses."""
+    BASE = "base"      # Standard arena/story version
+    EX1 = "ex1"        # First EX rematch (~2x HP)
+    EX2 = "ex2"        # Second EX rematch (~3x HP)
+    EX3 = "ex3"        # Third EX rematch (~5x HP)
+
+
+class TankType(str, Enum):
+    """Tank archetype for character classification."""
+    PROVOKE = "provoke"       # Draw attacks via Provoke (Gilderoy, Serenoa)
+    DODGE = "dodge"           # Evade via Sidestep (H'aanit EX, Canary)
+    COVER = "cover"           # Intercept for allies (Fiore EX only)
+    HP_BARRIER = "hp_barrier" # Create HP shields (Sazantos, Temenos)
+    NONE = "none"             # Not a tank
+
+
+class SurvivalStrategy(str, Enum):
+    """Team survival strategy for EX fights."""
+    DODGE_TANK = "dodge_tank"       # Evade attacks (H'aanit EX, Canary)
+    PROVOKE_TANK = "provoke_tank"   # Draw single-target attacks
+    COVER_TANK = "cover_tank"       # Intercept with Fiore EX
+    HP_BARRIER = "hp_barrier"       # HP shields (Sazantos)
+    TURTLE = "turtle"               # Max DEF buffs + ATK debuffs
+    SPEEDRUN = "speedrun"           # Kill before dangerous mechanics
+    NONE = "none"                   # No specific survival strategy
+
+
 # =============================================================================
 # CHARACTER MODELS
 # =============================================================================
@@ -290,6 +319,26 @@ class Synergy(BaseModel):
     description: str
 
 
+class BuffCategoryEntry(BaseModel):
+    """A single buff/debuff contribution to a stacking category."""
+    type: str  # e.g., "phys_atk_up", "sword_damage_up"
+    value: int  # Percentage value
+    source_skill: Optional[str] = None  # Which skill provides this
+
+
+class BuffCategories(BaseModel):
+    """Character's buff contributions organized by stacking category."""
+    active: list[BuffCategoryEntry] = Field(default_factory=list)  # Active skill buffs
+    passive: list[BuffCategoryEntry] = Field(default_factory=list)  # Passive buffs
+    ultimate: list[BuffCategoryEntry] = Field(default_factory=list)  # Ultimate buffs
+
+
+class DebuffCategories(BaseModel):
+    """Character's debuff contributions organized by stacking category."""
+    active: list[BuffCategoryEntry] = Field(default_factory=list)  # Active skill debuffs
+    ultimate: list[BuffCategoryEntry] = Field(default_factory=list)  # Ultimate debuffs
+
+
 class Character(BaseModel):
     """
     COTC Character definition.
@@ -314,6 +363,14 @@ class Character(BaseModel):
     # Roles
     roles: list[Role] = Field(default_factory=list)  # May be empty until manually assigned
     role_notes: Optional[str] = None
+    tank_type: Optional[TankType] = None  # Tank archetype if this character tanks
+    
+    # Buff/Debuff categories for damage stacking
+    buff_categories: Optional[BuffCategories] = None
+    debuff_categories: Optional[DebuffCategories] = None
+    
+    # EX fight recommendations
+    recommended_min_hp: Optional[int] = None  # Minimum HP for EX fights
     
     # Skills
     skills: list[Skill] = Field(default_factory=list)
@@ -517,6 +574,42 @@ class Phase(BaseModel):
     enemies: Optional[list[dict]] = None  # List of enemy data
 
 
+class WeaknessChange(BaseModel):
+    """Weakness changes during an aura."""
+    locked: list[str] = Field(default_factory=list)  # Weaknesses that become locked
+    unlocked: list[str] = Field(default_factory=list)  # Weaknesses that remain open
+
+
+class Aura(BaseModel):
+    """
+    Aura/stance mechanic for EX fights.
+    
+    Auras are visible effects (flames/glows) indicating special boss states.
+    Common in EX fights where they lock weaknesses and trigger counters.
+    """
+    name: str  # e.g., "Counter Stance", "Strong Guard EX"
+    trigger: str  # When this aura activates (e.g., "Break recovery", "HP < 50%")
+    active_indicator: Optional[str] = None  # Visual indicator (e.g., "Purple flame")
+    weakness_changes: Optional[WeaknessChange] = None  # How weaknesses change
+    counter_trigger: Optional[str] = None  # What triggers counter attack
+    counter_effect: Optional[str] = None  # What happens when counter triggers
+    removal_condition: Optional[str] = None  # How to remove this aura
+
+
+class HpThreshold(BaseModel):
+    """
+    HP-based phase trigger for EX fights.
+    
+    More structured than generic Phase for precise planning.
+    """
+    hp_percent: int  # HP percentage that triggers this (e.g., 75)
+    event: str  # What happens at this threshold
+    behavior_changes: str  # Detailed behavior changes
+    actions_per_turn: Optional[int] = None  # New actions per turn
+    new_weaknesses: list[str] = Field(default_factory=list)  # Weaknesses that open
+    locked_weaknesses: list[str] = Field(default_factory=list)  # Weaknesses that lock
+
+
 class RoleRequirement(BaseModel):
     """Required role for a boss."""
     role: Role
@@ -546,6 +639,18 @@ class Boss(BaseModel):
     difficulty: Difficulty
     location: Optional[str] = None  # Where the boss is found
     level: Optional[int] = None  # Boss level (100, 120, etc.)
+    
+    # EX Fight / Adversary Log fields
+    base_boss_id: Optional[str] = None  # For EX variants, references base boss
+    ex_rank: Optional[ExRank] = None  # EX difficulty rank
+    actions_per_turn: int = 1  # How many actions boss takes per turn
+    provoke_immunity: bool = False  # If true, boss cannot be provoked
+    
+    # Auras/Stances (common in EX fights)
+    auras: list[Aura] = Field(default_factory=list)
+    
+    # HP Thresholds (structured phase triggers)
+    hp_thresholds: list[HpThreshold] = Field(default_factory=list)
     
     # Stats (for NPCs with known values)
     hp: Optional[int] = None
@@ -677,6 +782,21 @@ class BuffPlan(BaseModel):
     timing: str
 
 
+class BuffCategoryCoverage(BaseModel):
+    """
+    Which damage stacking categories a team covers.
+    
+    See damage_stacking.yaml for full explanation of the 5 categories.
+    All values are percentages.
+    """
+    active_atk_up: Optional[int] = None  # Cap 30%
+    active_def_down: Optional[int] = None  # Cap 30%
+    passive_damage_up: Optional[int] = None  # Cap 30%
+    ultimate_potency: Optional[int] = None  # Solon = 100%
+    pet_damage_up: Optional[int] = None  # Varies
+    divine_beast: Optional[int] = None  # Varies
+
+
 class Team(BaseModel):
     """
     COTC Team composition.
@@ -692,6 +812,14 @@ class Team(BaseModel):
     # Classification
     strategy_type: StrategyType
     investment_level: InvestmentLevel
+    
+    # EX Fight Classification
+    target_ex_rank: Optional[ExRank] = None  # What EX difficulty this team targets
+    survival_strategy: Optional[SurvivalStrategy] = None  # Primary survival approach
+    minimum_hp_recommended: Optional[int] = None  # Minimum HP per character
+    
+    # Buff/Debuff Category Coverage
+    buff_category_coverage: Optional[BuffCategoryCoverage] = None
     
     # Composition
     front_line: list[TeamSlot]

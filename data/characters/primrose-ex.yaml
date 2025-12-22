@@ -14,10 +14,26 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [axe, lightning]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [healer, buffer]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Top tier support. AoE regen, buff extension, party-wide healing.
+  20% damage up from ultimate stacks with Solon.
+  Essential for speedkill and sustained strategies.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 15
+      source_skill: "Attack buff skill"
+  ultimate:
+    - type: damage_up
+      value: 20
+      source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 2706

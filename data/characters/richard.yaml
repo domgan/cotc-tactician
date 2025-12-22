@@ -14,10 +14,30 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [lightning, sword]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [buffer, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Key sword/polearm buffer. 15% sword/polearm damage up to front row (passive).
+  Also active buffs for physical damage.
+  Essential for sword/polearm team compositions.
+  Ultimate provides strong buff.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+buff_categories:
+  passive:
+    - type: sword_damage_up
+      value: 15
+      source_skill: "Front row passive"
+    - type: polearm_damage_up
+      value: 15
+      source_skill: "Front row passive"
+  active:
+    - type: phys_atk_up
+      value: 15
+      source_skill: "Attack buff skill"
 
 # Stats (base level)
 hp: 3247

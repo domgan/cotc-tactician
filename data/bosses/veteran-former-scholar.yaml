@@ -1,0 +1,66 @@
+# Veteran NPC Boss: Former Scholar (元学者)
+# SOURCE: https://game8.jp/octopathtraveler-sp/364558
+#
+# Drops: Veteran Staff (歴戦の杖)
+# Location: Atlasdam (アトラスダム)
+
+id: veteran-former-scholar
+display_name: "Former Scholar"
+display_name_jp: "元学者"
+content_type: npc_battle
+difficulty: hard
+level: 85
+location: "Atlasdam (アトラスダム)"
+
+# ===========================================================================
+# STATS
+# ===========================================================================
+shield_count: 14
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - axe
+
+# ===========================================================================
+# ENRAGE TIMER
+# ===========================================================================
+enrage_turn: 15
+enrage_description: "Standard veteran enrage: Turn 15 status immunity, Turn 16+ 99,999 damage"
+
+# ===========================================================================
+# DROPS
+# ===========================================================================
+# Veteran Staff (歴戦の杖)
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Axe/ice for 14 shields"
+  - role: dps
+    priority: required
+    reason: "Kill before turn 15"
+
+recommended_weakness_coverage:
+  - axe
+  - ice
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Veteran NPC for BT Staff farming.
+  
+  Axe and ice weakness - apothecaries and ice mages work well.
+  Standard 14 shield, turn 15 enrage pattern.
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Game8 JP - https://game8.jp/octopathtraveler-sp/364558"
+last_updated: 2025-12-21

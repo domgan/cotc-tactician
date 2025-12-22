@@ -14,10 +14,23 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [fire, polearm, tome]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [buffer, dps]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  THE most important damage buffer in the game!
+  Ultimate grants 100% potency up = DOUBLES damage.
+  Essential for all speedkill strategies in EX fights.
+  Also has continuous attack for bonus shield shave.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+buff_categories:
+  ultimate:
+    - type: potency_up
+      value: 100
+      source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 3076

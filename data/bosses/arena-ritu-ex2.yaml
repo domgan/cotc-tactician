@@ -1,0 +1,58 @@
+# Arena Boss: Ri'tu EX2 (リトゥ EX2)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-ritu-ex2
+display_name: "Ri'tu EX2"
+display_name_jp: "リトゥ EX2"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-ritu
+ex_rank: ex2
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Pursuit Mode"
+    behavior_changes: "Pursuit attacks hit harder"
+  - hp_percent: 25
+    event: "Slashing Rock Form"
+    behavior_changes: "Very high pursuit damage + Speed"
+
+general_strategy: |
+  EX2 version with ~3x HP.
+  
+  Key challenges:
+  - Pursuit attacks deal significant damage
+  - Higher speed makes timing harder
+  - Need good elemental coverage
+  
+  CRITICAL:
+  - 3500+ HP per character
+  - P.DEF gear recommended
+  - Fire/wind/light damage essential
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "30% P.ATK debuff"
+  - role: healer
+    priority: required
+    reason: "Sustained healing for pursuits"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Absorb pursuit damage"
+  - role: dps
+    priority: required
+    reason: "Fire/wind/light elements"
+
+recommended_weakness_coverage:
+  - fire
+  - wind
+  - light
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

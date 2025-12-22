@@ -66,6 +66,94 @@ fields:
       - whale: Premium characters, max awakening, perfect gear
 
   # ===========================================================================
+  # EX FIGHT CLASSIFICATION
+  # ===========================================================================
+  target_ex_rank:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [base, ex1, ex2, ex3]
+    description: "What EX difficulty this team targets"
+    notes: |
+      - base: Standard arena/story version
+      - ex1: Adversary Log EX1 (~2x HP, 2 actions/turn)
+      - ex2: Adversary Log EX2 (~3x HP, 2-3 actions/turn)
+      - ex3: Adversary Log EX3 (~5x HP, 3 actions/turn)
+    
+  survival_strategy:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    allowed_values: [dodge_tank, provoke_tank, cover_tank, hp_barrier, turtle, speedrun, none]
+    description: "Primary survival approach for this team"
+    notes: |
+      - dodge_tank: Evade attacks via Sidestep (H'aanit EX, Canary)
+      - provoke_tank: Draw single-target attacks (Gilderoy, Serenoa)
+      - cover_tank: Intercept attacks for allies (Fiore EX)
+      - hp_barrier: Absorb damage with HP shields (Sazantos)
+      - turtle: Max DEF buffs + ATK debuffs (30% each)
+      - speedrun: Kill before dangerous mechanics
+      - none: No specific survival strategy
+    llm_usage: "Guides EX fight team recommendations"
+    
+  minimum_hp_recommended:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Minimum HP per character for this team to work"
+    notes: |
+      For EX fights:
+      - EX1: ~3000 HP
+      - EX2: ~3500 HP
+      - EX3: ~4000 HP
+
+  # ===========================================================================
+  # BUFF/DEBUFF CATEGORY COVERAGE
+  # ===========================================================================
+  buff_category_coverage:
+    type: object
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Which damage stacking categories this team covers"
+    notes: "See damage_stacking.yaml for full explanation"
+    
+  buff_category_coverage.active_atk_up:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Active ATK up percentage covered (cap 30%)"
+    
+  buff_category_coverage.active_def_down:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Active DEF down percentage covered (cap 30%)"
+    
+  buff_category_coverage.passive_damage_up:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Passive damage up percentage covered (cap 30%)"
+    
+  buff_category_coverage.ultimate_potency:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Ultimate potency increase (Solon = 100%)"
+    
+  buff_category_coverage.pet_damage_up:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Pet damage bonus percentage"
+    
+  buff_category_coverage.divine_beast:
+    type: integer
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Divine beast/guardian damage bonus"
+
+  # ===========================================================================
   # COMPOSITION
   # ===========================================================================
   front_line:
@@ -338,4 +426,3 @@ fields:
     required: true
     source: "[HUMAN-REQUIRED]"
     format: "YYYY-MM-DD"
-

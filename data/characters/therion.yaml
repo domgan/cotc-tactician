@@ -14,10 +14,25 @@ origin: "Orsterra"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [dagger, fire]
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles
+roles: [debuffer, breaker]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  P.ATK and E.ATK debuffer. Good speed for early debuff application.
+  Multi-hit dagger attacks for shield shaving.
+  Less meta than Viola but still useful for combined debuffs.
+
+# Tank type
+tank_type: none
+
+# Buff/Debuff categories
+debuff_categories:
+  active:
+    - type: phys_atk_down
+      value: 15
+      source_skill: "Attack debuff skill"
+    - type: elem_atk_down
+      value: 15
+      source_skill: "Attack debuff skill"
 
 # Stats (base level)
 hp: 2892

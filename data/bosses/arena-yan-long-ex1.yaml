@@ -1,0 +1,79 @@
+# Arena Boss: Yan Long EX1 (イェンロン EX1)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-yan-long-ex1
+display_name: "Yan Long EX1"
+display_name_jp: "イェンロン EX1"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-yan-long
+ex_rank: ex1
+actions_per_turn: 1
+provoke_immunity: true  # Provoke immune!
+
+hp_thresholds:
+  - hp_percent: 85
+    event: "Crow Summon"
+    behavior_changes: "Summons Wu and Xiu crows"
+  - hp_percent: 50
+    event: "Enhanced Pattern"
+    behavior_changes: "More dangerous attacks"
+
+auras:
+  - name: "Rotating Weakness Lock"
+    trigger: "Every turn"
+    weakness_changes:
+      locked: ["2 of 3 weaknesses"]
+      unlocked: ["1 weakness each turn"]
+    removal_condition: "Rotates automatically"
+  - name: "Debuff Clear"
+    trigger: "Every turn"
+    counter_effect: "All debuffs cleared"
+    removal_condition: "None (permanent)"
+
+general_strategy: |
+  EX1 version with ~2x HP.
+  
+  UNIQUE MECHANICS (same as base):
+  - PROVOKE IMMUNE
+  - Rotates weakness lock every turn
+  - Clears ALL debuffs every turn!
+  
+  DEBUFF TIMING:
+  - Apply debuffs DURING break only
+  - Debuffs cleared at end of each turn
+  
+  WEAKNESS TRACKING:
+  - Sword/polearm/light rotate
+  - Track which is open each turn
+  
+  RECOMMENDATION:
+  - 3000+ HP per character
+  - Fiore EX Cover recommended
+
+required_roles:
+  - role: tank
+    priority: strongly_recommended
+    reason: "Fiore EX Cover (provoke immune)"
+  - role: healer
+    priority: required
+    reason: "Sustained healing"
+  - role: debuffer
+    priority: required
+    reason: "Debuff during break only"
+  - role: dps
+    priority: required
+    reason: "Sword/polearm/light damage"
+
+recommended_weakness_coverage:
+  - sword
+  - polearm
+  - light
+  - axe
+  - tome
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

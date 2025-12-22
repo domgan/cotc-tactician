@@ -1,0 +1,67 @@
+# Arena Boss: Ri'tu EX3 (リトゥ EX3)
+# SOURCE: Game8 JP - Adversary Log
+
+id: arena-ritu-ex3
+display_name: "Ri'tu EX3"
+display_name_jp: "リトゥ EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+base_boss_id: arena-ritu
+ex_rank: ex3
+actions_per_turn: 1
+provoke_immunity: false
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Pursuit Mode"
+    behavior_changes: "Extremely dangerous pursuit attacks"
+  - hp_percent: 25
+    event: "Slashing Rock Form"
+    behavior_changes: "Pursuit attacks can one-shot low HP characters"
+
+general_strategy: |
+  EXTREME difficulty - endgame content.
+  
+  EX3 SPECIFIC:
+  - ~5x HP (50M+ estimated)
+  - Pursuit attacks extremely dangerous
+  - High speed requires tuning
+  
+  REQUIRED:
+  - 4000+ HP per character
+  - P.DEF stacking essential
+  - 30% ATK debuff mandatory
+  - Consider turtle strategy
+  
+  SPEEDKILL APPROACH:
+  - Kill before 25% HP to avoid worst phase
+  - Stack all 5 damage categories
+  - Fire/wind/light DPS
+
+required_roles:
+  - role: tank
+    priority: required
+    reason: "Dodge tank for pursuits"
+  - role: debuffer
+    priority: required
+    reason: "30% P.ATK debuff mandatory"
+  - role: healer
+    priority: required
+    reason: "Instant + sustained healing"
+  - role: buffer
+    priority: required
+    reason: "P.DEF buff + damage stacking"
+  - role: dps
+    priority: required
+    reason: "Fire/wind/light, Solon recommended"
+
+recommended_weakness_coverage:
+  - fire
+  - wind
+  - light
+
+data_confidence: theoretical
+data_source: "Game8 JP - Adversary Log"
+last_updated: 2025-12-22

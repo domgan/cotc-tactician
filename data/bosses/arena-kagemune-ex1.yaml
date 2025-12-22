@@ -1,0 +1,106 @@
+# Arena Boss: Kagemune EX1 (カゲムネ EX1)
+# SOURCE: Game8 JP - 宿敵の写記
+#
+# EX1 variant of Kagemune - Adversary Log
+
+id: arena-kagemune-ex1
+display_name: "Kagemune (EX1)"
+display_name_jp: "カゲムネ（EX1）"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# EX FIGHT / ADVERSARY LOG INFO
+# ===========================================================================
+base_boss_id: arena-kagemune-ura
+ex_rank: ex1
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX1 scaling)
+# ===========================================================================
+shield_count: 39  # Up from 36
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# HP THRESHOLDS (Same as Ura)
+# ===========================================================================
+hp_thresholds:
+  - hp_percent: 90
+    event: "Clone summoning enabled"
+    behavior_changes: "Can summon 2 clones, evasion changes"
+    actions_per_turn: 2
+  - hp_percent: 60
+    event: "Enhanced evasion"
+    behavior_changes: "Evades both random and AoE"
+    actions_per_turn: 2
+  - hp_percent: 25
+    event: "3 clones mode"
+    behavior_changes: "Summons 3 clones instead of 2"
+    actions_per_turn: 2
+
+# ===========================================================================
+# SPECIAL MECHANICS (Same as Ura)
+# ===========================================================================
+auras:
+  - name: "Evasion + Counter System"
+    trigger: "Ongoing based on HP tier"
+    counter_trigger: "Random/AoE attacks"
+    counter_effect: "Evade and counter with DoT application"
+    removal_condition: "Cannot use random/AoE attacks"
+  - name: "Shadow Clone Jutsu"
+    trigger: "HP <90%, turn end, no clones"
+    counter_effect: "2-3 clones appear with shared buffs"
+    removal_condition: "Break main body"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "39 shields - need strong single-target multi-hitters"
+  - role: healer
+    priority: required
+    reason: "Heavy DoT damage"
+  - role: dps
+    priority: required
+    reason: "Single-target only - NO AoE/random pursuers"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Status immunity essential"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX1 Kagemune - same mechanics as Ura with +3 shields.
+  
+  EX1 DIFFERENCES:
+  - Shield count 39 (vs 36)
+  - Higher HP
+  - Faster speed
+  
+  Same critical rules apply:
+  - NO RANDOM/AOE ATTACKS
+  - Disable pursuit abilities
+  - 1-break kill still recommended if possible
+  - Use single-target DPS only
+  
+  REWARD: カゲムネの覚醒石 x1
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Game8 JP - 宿敵の写記"
+last_updated: 2025-12-22
