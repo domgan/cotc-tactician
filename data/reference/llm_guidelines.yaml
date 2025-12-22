@@ -1,0 +1,209 @@
+# LLM Guidelines for COTC Team Building
+# This file provides essential context for LLMs using the MCP tools.
+# Read this FIRST before making team recommendations.
+
+schema_version: "1.0"
+
+# =============================================================================
+# CRITICAL: WHAT THE LLM MUST UNDERSTAND
+# =============================================================================
+
+core_principles:
+  - name: "Data-Only Reasoning"
+    description: |
+      You have NO inherent knowledge of COTC. ALL game facts come from:
+      - The MCP tools (search_bosses, get_boss, get_character, etc.)
+      - The reference YAML files
+      DO NOT invent boss mechanics, character skills, or strategies.
+      If data is missing, say "data not available" - don't make it up.
+
+  - name: "8-Character Parties"
+    description: |
+      COTC parties have EXACTLY 8 characters:
+      - 4 Front Row (active, take damage, act in battle)
+      - 4 Back Row (swap in, provide support passives)
+      
+      NEVER recommend only 6 characters.
+      ALWAYS specify 4 front + 4 back.
+
+  - name: "Skill Slot Limits"
+    description: |
+      Each character has 3-4 skill slots (depends on Awakening Stage II):
+      - Awakening 0-1: 3 skill slots
+      - Awakening 2+: 4 skill slots
+      
+      Characters cannot use all their skills - recommend which 3-4 to equip!
+
+  - name: "EX Variant Extrapolation"
+    description: |
+      If a boss has base data but no EX variant files, you CAN extrapolate:
+      - EX1: ~2x HP, +50-100 speed, 2 actions/turn, +3-5 shields
+      - EX2: ~3x HP, +100-150 speed, 2-3 actions/turn, +5-7 shields  
+      - EX3: ~5x HP, +150-250 speed, 3 actions/turn, +8-12 shields
+      
+      CLEARLY STATE you are extrapolating: "Based on EX scaling patterns..."
+      DO NOT invent specific HP numbers - say "~5x base HP" instead.
+
+# =============================================================================
+# TEAM BUILDING STRUCTURE
+# =============================================================================
+
+team_recommendation_format:
+  description: "When recommending a team, use this structure"
+  
+  sections:
+    - name: "Boss Summary"
+      content: |
+        - Boss name and difficulty
+        - Key weaknesses (elements + weapons)
+        - Key mechanics to counter
+        - EX-specific notes if applicable
+
+    - name: "Full 8-Character Team"
+      content: |
+        FRONT ROW (4 characters):
+        1. [Character] - [Role] - [Why they're here]
+        2. [Character] - [Role] - [Why they're here]
+        3. [Character] - [Role] - [Why they're here]
+        4. [Character] - [Role] - [Why they're here]
+        
+        BACK ROW (4 characters):
+        5. [Character] - [Role] - [Why they're here]
+        6. [Character] - [Role] - [Why they're here]
+        7. [Character] - [Role] - [Why they're here]
+        8. [Character] - [Role] - [Why they're here]
+
+    - name: "Skill Loadouts"
+      content: |
+        For each key character, recommend 3-4 skills to equip:
+        [Character Name]:
+        - Skill 1: [Name] - [Why]
+        - Skill 2: [Name] - [Why]
+        - Skill 3: [Name] - [Why]
+        - Skill 4: [Name] - [Why] (if A2+)
+
+    - name: "Turn-by-Turn Tactics"
+      content: |
+        Early Game (Turns 1-5):
+        - What to do each turn
+        - When to break
+        - When to swap rows
+        
+        Break Windows:
+        - What buffs/debuffs to stack
+        - Damage rotation
+        - BP management
+        
+        Late Game:
+        - Phase-specific tactics
+        - Emergency recovery
+
+    - name: "Alternative Teams"
+      content: |
+        If user doesn't have recommended characters, provide alternatives:
+        - Budget option (general pool only)
+        - Specific replacements for each key character
+
+# =============================================================================
+# ROLE DEFINITIONS
+# =============================================================================
+
+roles:
+  tank:
+    description: "Absorbs damage to protect the team"
+    subtypes:
+      - name: "Provoke Tank"
+        characters: ["gilderoy", "serenoa"]
+        notes: "MANY EX bosses are provoke immune!"
+      - name: "Dodge Tank"  
+        characters: ["canary", "h-aanit-ex", "tressa-ex"]
+        notes: "Best for EX fights - evade all single-target attacks"
+      - name: "Cover Tank"
+        characters: ["fiore-ex"]
+        notes: "ONLY Fiore EX has Cover - intercepts attacks for allies"
+      - name: "HP Barrier Tank"
+        characters: ["sazantos", "temenos"]
+        notes: "Creates HP shields to absorb burst damage"
+
+  healer:
+    description: "Restores HP and removes ailments"
+    key_skills:
+      - "Rehabilitate: Removes ALL status ailments (essential for debuff-heavy bosses)"
+      - "Instant Healing: Immediate HP restore (vs Regen which heals over time)"
+      - "HP Barriers: Prevents damage before it happens"
+    top_healers: ["rinyuu-ex", "therese-ex", "ophilia-ex", "temenos"]
+
+  buffer:
+    description: "Increases party stats"
+    buff_caps: "30% per category"
+    categories:
+      - "P.ATK Up / E.ATK Up"
+      - "P.DEF Up / E.DEF Up"
+      - "Speed Up"
+      - "Crit Rate Up"
+    top_buffers: ["lynette", "primrose-ex", "richard", "edea"]
+
+  debuffer:
+    description: "Decreases enemy stats"
+    debuff_caps: "30% per category"
+    categories:
+      - "P.ATK Down / E.ATK Down (reduces damage taken)"
+      - "P.DEF Down / E.DEF Down (increases damage dealt)"
+      - "Speed Down"
+    top_debuffers: ["viola", "canary", "therion", "signa-ex"]
+
+  breaker:
+    description: "Shaves shields to trigger Break state"
+    key_stats:
+      - "Hit count: More hits = faster shield shave"
+      - "BP efficiency: Damage per BP spent"
+    notes: |
+      Breaking is the KEY mechanic in COTC.
+      Break state: 2x damage, enemy skips turns.
+      Plan entire team around maximizing break windows.
+    top_breakers: ["canary", "nephti", "primrose-ex", "kouren"]
+
+  dps:
+    description: "Deals damage during break windows"
+    subtypes:
+      - name: "Physical DPS (PDPS)"
+        notes: "Uses P.ATK, can crit (+25% damage)"
+      - name: "Elemental DPS (EDPS)"  
+        notes: "Uses E.ATK, cannot crit but often higher base damage"
+    damage_multipliers:
+      - "Weakness: 2.5x"
+      - "Break: 2x"
+      - "Weakness + Break: 5x (THE damage window)"
+    top_dps: ["solon", "primrose-ex", "richard", "ochette-ex", "leon"]
+
+# =============================================================================
+# COMMON MISTAKES TO AVOID
+# =============================================================================
+
+common_mistakes:
+  - mistake: "Recommending only 6 characters"
+    correct: "Always recommend 8 (4 front + 4 back)"
+    
+  - mistake: "Ignoring skill slot limits"
+    correct: "Recommend specific 3-4 skills per character"
+    
+  - mistake: "Not accounting for provoke immunity"
+    correct: "Check if EX boss is provoke immune - use dodge/cover tank instead"
+    
+  - mistake: "Forgetting about buff/debuff caps"
+    correct: "30% cap per category - don't stack redundant buffs"
+    
+  - mistake: "Not considering weakness coverage"
+    correct: "Every team member should hit at least one boss weakness"
+    
+  - mistake: "Inventing EX data when base exists"
+    correct: "Use EX scaling formulas and clearly state 'extrapolated'"
+    
+  - mistake: "Generic advice without specific turns"
+    correct: "Provide turn-by-turn tactics for critical phases"
+
+# =============================================================================
+# METADATA
+# =============================================================================
+data_confidence: verified
+last_updated: 2025-12-23

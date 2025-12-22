@@ -253,6 +253,7 @@ cotc-tactician mcp-serve
 
 | Tool | Description |
 |------|-------------|
+| `get_team_building_guide` | **CALL FIRST** - Get party structure, role definitions, EX scaling |
 | `search_characters` | Semantic search for characters by query |
 | `get_character` | Get full character details (skills, passives, stats) |
 | `find_by_weakness` | Find characters covering specific weaknesses |
@@ -263,7 +264,7 @@ cotc-tactician mcp-serve
 | `search_bosses` | Search for bosses by description |
 | `get_boss` | Get full boss details (mechanics, weaknesses, strategy) |
 | `list_all_boss_ids` | List all available boss IDs |
-| `plan_team_for_boss` | Get strategic team planning for a specific boss |
+| `plan_team_for_boss` | Get strategic team planning (8 chars: 4 front + 4 back) |
 
 **How it works:**
 1. Claude in Cursor calls these tools to retrieve game data
@@ -469,6 +470,7 @@ The `data/reference/` directory contains verified game mechanics knowledge:
 | `ex_mechanics.yaml` | EX fight mechanics (Adversary Log), HP scaling, auras |
 | `survival_strategies.yaml` | Tank archetypes (provoke, dodge, cover, HP barrier) |
 | `damage_stacking.yaml` | 5 multiplicative damage categories for speedkill |
+| `llm_guidelines.yaml` | **CRITICAL** - Party structure (8 chars), skill slots, EX scaling, common mistakes |
 
 ### Key Mechanics Summary
 

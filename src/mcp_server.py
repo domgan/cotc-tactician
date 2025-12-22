@@ -589,17 +589,22 @@ def plan_team_for_boss(
 ) -> dict:
     """
     Get strategic team planning advice for a specific boss.
-    
+
+    IMPORTANT: COTC parties have 8 characters (4 front + 4 back).
+    Use get_team_building_guide() first for full context.
+
     This analyzes boss weaknesses and requirements, then suggests
     characters from the available roster that match.
-    
+
     Args:
         boss_id: The boss to plan for.
         available_characters: Optional list of character IDs the user owns.
                              If not provided, suggests from all characters.
-    
+
     Returns:
         Dictionary with boss analysis and character recommendations.
+        Note: Recommended characters are grouped by weakness - pick 8 total
+        (4 front row + 4 back row) covering multiple weaknesses.
     """
     retrieval = get_retrieval()
     
@@ -624,12 +629,23 @@ def plan_team_for_boss(
                 weaknesses.extend([w.value for w in main_enemy.weaknesses.weapons])
     
     result = {
+        "party_structure": {
+            "note": "COTC parties have 8 characters: 4 FRONT ROW + 4 BACK ROW",
+            "front_row": 4,
+            "back_row": 4,
+            "instruction": "Pick 8 total from recommended characters below"
+        },
         "boss": {
             "id": boss.id,
             "display_name": boss.display_name,
             "shield_count": boss.shield_count,
+            "hp": boss.hp,
+            "speed": boss.speed,
             "weaknesses": weaknesses,
             "difficulty": boss.difficulty.value if boss.difficulty else None,
+            "ex_rank": boss.ex_rank.value if boss.ex_rank else None,
+            "actions_per_turn": boss.actions_per_turn,
+            "provoke_immunity": boss.provoke_immunity,
         },
         "required_roles": [
             {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
@@ -638,6 +654,16 @@ def plan_team_for_boss(
         "recommended_characters": {},
         "tactical_notes": [],
     }
+    
+    # Add EX-specific notes
+    if boss.ex_rank:
+        result["tactical_notes"].append(
+            f"EX{boss.ex_rank.value[-1]} fight - provoke likely immune, use dodge/cover tank"
+        )
+        if boss.actions_per_turn and boss.actions_per_turn >= 3:
+            result["tactical_notes"].append(
+                "3 actions/turn - very aggressive, prioritize survival and debuffs"
+            )
     
     # Add tactical notes based on shield count
     if boss.shield_count:
@@ -879,6 +905,111 @@ def check_buff_coverage(character_ids: list[str]) -> dict:
     coverage["missing_categories"].append("Divine Beast bonus (check manually)")
     
     return coverage
+
+
+# =============================================================================
+# TEAM BUILDING GUIDE TOOL
+# =============================================================================
+
+@mcp.tool()
+def get_team_building_guide() -> dict:
+    """
+    Get essential COTC team building guidelines.
+    
+    CALL THIS FIRST before making team recommendations!
+    
+    Returns critical information:
+    - Party structure (8 characters: 4 front + 4 back)
+    - Skill slot limits (3-4 per character)
+    - Role definitions with top characters
+    - EX fight scaling patterns for extrapolation
+    - Common mistakes to avoid
+    
+    Returns:
+        Dictionary with team building guidelines.
+    """
+    return {
+        "party_structure": {
+            "total_characters": 8,
+            "front_row": 4,
+            "back_row": 4,
+            "notes": "ALWAYS recommend 8 characters. Front row is active, back row swaps in."
+        },
+        "skill_slots": {
+            "awakening_0_1": 3,
+            "awakening_2_plus": 4,
+            "notes": "Recommend specific skills to equip for each character."
+        },
+        "ex_scaling_patterns": {
+            "ex1": {
+                "hp_multiplier": "~2x base",
+                "speed_bonus": "+50-100",
+                "actions_per_turn": 2,
+                "shield_bonus": "+3-5",
+                "provoke_immunity": True,
+                "recommended_hp": 3000
+            },
+            "ex2": {
+                "hp_multiplier": "~3x base",
+                "speed_bonus": "+100-150",
+                "actions_per_turn": "2-3",
+                "shield_bonus": "+5-7",
+                "provoke_immunity": True,
+                "recommended_hp": 3500
+            },
+            "ex3": {
+                "hp_multiplier": "~5x base",
+                "speed_bonus": "+150-250",
+                "actions_per_turn": 3,
+                "shield_bonus": "+8-12",
+                "provoke_immunity": True,
+                "recommended_hp": 4000,
+                "notes": "Extreme difficulty. Requires speedkill (Solon+Primrose EX) or full turtle strategy."
+            }
+        },
+        "role_priorities": {
+            "tank": {
+                "subtypes": ["provoke", "dodge", "cover", "hp_barrier"],
+                "ex_notes": "Most EX bosses are provoke immune! Use dodge (Canary, H'aanit EX) or cover (Fiore EX only).",
+                "top_picks": ["fiore-ex", "canary", "h-aanit-ex"]
+            },
+            "healer": {
+                "key_skills": ["Rehabilitate (status cleanse)", "Instant healing", "HP barriers"],
+                "top_picks": ["rinyuu-ex", "therese-ex", "temenos", "ophilia-ex"]
+            },
+            "debuffer": {
+                "cap": "30% per category",
+                "priority": "E.ATK Down (reduces enemy damage)",
+                "top_picks": ["viola", "canary", "signa-ex", "therion"]
+            },
+            "breaker": {
+                "notes": "High hit count essential. Breaking is the core mechanic.",
+                "top_picks": ["canary", "nephti", "primrose-ex", "kouren"]
+            },
+            "dps": {
+                "damage_formula": "Weakness (2.5x) + Break (2x) = 5x damage window",
+                "buff_categories": ["Active skills (30%)", "Passives (30%)", "Ultimate (varies)", "Pet", "Divine Beast"],
+                "top_picks": ["solon", "primrose-ex", "richard", "leon"]
+            }
+        },
+        "recommendation_format": {
+            "sections": [
+                "1. Boss Summary (weaknesses, mechanics, EX notes)",
+                "2. Full 8-Character Team (4 front + 4 back with roles)",
+                "3. Skill Loadouts (3-4 skills per key character)",
+                "4. Turn-by-Turn Tactics (early game, break windows, phases)",
+                "5. Alternative Teams (budget options, replacements)"
+            ]
+        },
+        "common_mistakes": [
+            "Recommending only 6 characters (must be 8)",
+            "Ignoring skill slot limits (3-4 per character)",
+            "Using provoke tank on provoke-immune EX boss",
+            "Stacking redundant buffs past 30% cap",
+            "Not covering all boss weaknesses",
+            "Inventing EX stats instead of using scaling patterns"
+        ]
+    }
 
 
 # =============================================================================
