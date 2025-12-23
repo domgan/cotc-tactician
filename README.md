@@ -19,9 +19,11 @@ A local-first prototype combining human-editable game knowledge, vector-based se
 
 ## Features
 
-- **Human-Editable Data**: All game knowledge stored in YAML files (260+ characters imported)
+- **Human-Editable Data**: All game knowledge stored in YAML files (260+ characters, 270+ bosses)
 - **Semantic Search**: Vector database for finding relevant characters/bosses/teams
-- **MCP Server**: Use Claude in Cursor as your reasoning engine (no API costs!)
+- **MCP Server**: Use Claude in Cursor as your reasoning engine (no API costs!) - 15 tools
+- **EX Fight Support**: Full schema for Adversary Log mechanics (EX1/EX2/EX3 variants)
+- **Team Building**: Tank types, buff/debuff stacking categories, survival strategies
 - **LLM Reasoning**: Alternatively use Ollama or OpenAI for team composition
 - **Data-Grounded**: LLM cannot hallucinate game facts—only reasons from provided data
 - **Local-First**: Runs entirely on your machine
@@ -109,6 +111,10 @@ Restart Cursor, then ask Claude things like:
 - "Get details on the character primrose-ex"  
 - "Find characters that hit sword and fire weaknesses"
 - "Suggest a team for a boss weak to ice and dagger"
+- "Get info on arena-tikilen and its EX variants"
+- "Find provoke tanks for my team"
+- "Plan a team for 120npc-dignified-tutor"
+- "Check buff coverage for richard, viola, solon"
 
 ### Option 2: Local LLM (Ollama)
 
@@ -140,41 +146,36 @@ cotc-tactician compose --boss example-boss --llm openai
 
 ### MCP Tools (when using `mcp-serve`)
 
+**Character Tools:**
 | Tool | Description |
 |------|-------------|
 | `search_characters` | Semantic search for characters by description |
 | `get_character` | Get full character details (skills, passives, stats) |
 | `find_by_weakness` | Find characters covering specific weaknesses |
 | `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
-| `get_team_suggestions` | Suggest characters for a boss fight |
 | `list_all_character_ids` | List all available character IDs |
+| `find_tanks_by_type` | Find tanks by type (provoke, dodge, cover, hp_barrier) |
+
+**Boss Tools:**
+| Tool | Description |
+|------|-------------|
+| `search_bosses` | Semantic search for bosses by description/mechanics |
+| `get_boss` | Get full boss details (mechanics, weaknesses, strategy) |
+| `list_all_boss_ids` | List all available boss IDs |
+| `get_ex_variants` | Get EX1/EX2/EX3 variants of an arena boss |
+
+**Team Building Tools:**
+| Tool | Description |
+|------|-------------|
+| `get_team_building_guide` | **CALL FIRST** - Get party structure, role definitions, EX scaling |
+| `get_team_suggestions` | Suggest characters for a boss fight by weaknesses |
+| `plan_team_for_boss` | Get strategic team recommendations for a specific boss |
+| `check_buff_coverage` | Analyze buff/debuff stacking categories for a team |
+
+**Utility:**
+| Tool | Description |
+|------|-------------|
 | `get_database_stats` | Get indexed entity counts |
-
-## Data Directory Structure
-
-```
-data/
-├── characters/
-│   ├── _schema.yaml          # Schema reference
-│   ├── _template.yaml        # Template for new entries
-│   ├── _example-character.yaml  # Example format
-│   └── [your-characters].yaml
-├── bosses/
-│   ├── _schema.yaml
-│   ├── _template.yaml
-│   ├── _example-boss.yaml
-│   └── [your-bosses].yaml
-├── teams/
-│   ├── _schema.yaml
-│   ├── _template.yaml
-│   ├── _example-team.yaml
-│   └── [your-teams].yaml
-└── reference/
-    ├── elements.yaml         # Game elements (fire, ice, etc.)
-    ├── weapons.yaml          # Weapon types
-    ├── roles.yaml            # Role definitions
-    └── buff_categories.yaml  # Buff/debuff stacking rules
-```
 
 ## Data Entry Guidelines
 
@@ -224,7 +225,7 @@ flowchart TB
 
     subgraph interfaces ["🔌 Interfaces"]
         cli[CLI Commands<br/>compose, search, index]
-        mcp[MCP Server<br/>7 tools for Claude]
+        mcp[MCP Server<br/>15 tools for Claude]
     end
 
     subgraph llm ["🤖 LLM Options"]
@@ -306,12 +307,15 @@ ruff format src/
 
 ## Future Roadmap
 
-- [x] MCP Server for Cursor/Claude integration
+- [x] MCP Server for Cursor/Claude integration (15 tools)
 - [x] Import 260+ characters from community spreadsheet
 - [x] Skill/passive data from Notion exports
-- [ ] Manual role assignments for key characters
-- [ ] Boss data population
-- [ ] Proven team compositions
+- [x] EX fight schema (Adversary Log mechanics)
+- [x] Arena boss data (8 bosses + EX variants = 32 files)
+- [x] 120 NPC boss data (Dignified Tutor, Devout Priest, Well-Trained Beastling)
+- [x] Tank types and buff/debuff category tracking
+- [x] Team compositions with survival strategies
+- [ ] More boss data population (100 NPCs, story bosses)
 - [ ] Agent-based multi-step reasoning (LangGraph)
 - [ ] User feedback loops for team ratings
 
