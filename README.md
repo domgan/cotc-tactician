@@ -25,7 +25,7 @@ A local-first prototype combining human-editable game knowledge, vector-based se
 - **EX Fight Support**: Full schema for Adversary Log mechanics (EX1/EX2/EX3 variants)
 - **Team Building**: Tank types, buff/debuff stacking categories, survival strategies
 - **LLM Reasoning**: Alternatively use Ollama or OpenAI for team composition
-- **Data-Grounded**: LLM cannot hallucinate game facts—only reasons from provided data
+- **Data-Grounded**: LLM cannot hallucinate game facts - only reasons from provided data
 - **Local-First**: Runs entirely on your machine
 
 ## Quick Start
@@ -86,7 +86,7 @@ cotc-tactician compose --boss example-boss --chars "char1,char2,char3"
 
 ### Option 1: MCP Server with Cursor (Recommended)
 
-Use Claude in Cursor as your reasoning engine—no API costs!
+Use Claude in Cursor as your reasoning engine - no API costs!
 
 ```bash
 # Start the MCP server
@@ -325,4 +325,4 @@ MIT License. See LICENSE file for details.
 
 ## Acknowledgments
 
-Game data is sourced from the COTC community. This is a fan project and is not affiliated with Square Enix.
+Game data is sourced from the COTC community. This is a fan project and is not affiliated with Square Enix or NetEase.
