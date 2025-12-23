@@ -42,7 +42,6 @@ cotc-tactician/
 │   └── reference/          # Reference data (elements, weapons, etc.)
 ├── resources/              # Source data files
 │   └── Character List all.csv  # Community spreadsheet export
-├── requirements.txt
 ├── pyproject.toml
 ├── README.md
 └── AGENTS.md               # This file
@@ -624,26 +623,4 @@ buff_category_coverage:
 
 ## Environment Setup
 
-```bash
-# Required
-pip install -e ".[all]"
-
-# Index the data first
-cotc-tactician index
-
-# Option 1: Use MCP with Cursor (recommended - no API costs)
-cotc-tactician mcp-serve
-# Then configure ~/.cursor/mcp.json as described above
-
-# Option 2: Use local LLM (Ollama)
-ollama pull llama3.1
-cotc-tactician compose --desc "boss weak to fire"
-
-# Option 3: Use cloud LLM (OpenAI)
-export OPENAI_API_KEY="..."
-cotc-tactician compose --llm openai --desc "boss weak to fire"
-
-# Data directory (optional)
-export COTC_DATA_DIR="./data"
-export COTC_VECTOR_DIR="./.vectordb"
-```
+See [README.md](README.md) for setup instructions.

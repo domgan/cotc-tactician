@@ -7,7 +7,7 @@ name = "cotc-tactician"
 version = "0.1.0"
 description = "AI-powered team composition assistant for Octopath Traveler: Champions of the Continent"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
     {name = "COTC Tactician Contributors"}
@@ -18,8 +18,8 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 
 dependencies = [
@@ -42,7 +42,7 @@ all = [
 dev = [
     "pytest>=7.4.0",
     "pytest-asyncio>=0.21.0",
-    "ruff>=0.1.0",
+    "ruff>=0.9.0",
 ]
 
 [project.scripts]
@@ -57,11 +57,19 @@ where = ["."]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
+extend-exclude = [
+    ".venv",
+    ".vectordb",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP"]
 ignore = ["E501"]
+
+[tool.ruff.format]
+# Keep Ruff defaults; explicitly declare to make formatter usage obvious.
+docstring-code-format = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

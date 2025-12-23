@@ -30,19 +30,31 @@ A local-first prototype combining human-editable game knowledge, vector-based se
 
 ## Quick Start
 
-### 1. Install Dependencies
+### 1. Install `uv` + sync dependencies
+
+This repo uses **uv** as the canonical package/project manager (lockfile-based, fast, and reproducible). See [`astral-sh/uv`](https://github.com/astral-sh/uv).
 
 ```bash
 # Clone the repository
 git clone https://github.com/example/cotc-tactician.git
 cd cotc-tactician
 
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+# Create/update .venv and install dependencies from uv.lock (created/updated automatically)
+uv sync
+```
 
-# Install with pip
-pip install -e ".[all]"
+Optional dependency sets ("extras") are defined in `pyproject.toml` under `[project.optional-dependencies]`:
+
+- **Dev tools** (Ruff + pytest):
+
+```bash
+uv sync --extra dev
+```
+
+- **All optional integrations** (OpenAI + Ollama, plus any other extras):
+
+```bash
+uv sync --all-extras
 ```
 
 ### 2. Add Game Data
@@ -66,20 +78,20 @@ Edit the YAML files with actual game data. See `data/*/_example-*.yaml` for form
 
 ```bash
 # Index game data into vector database
-cotc-tactician index
+uv run cotc-tactician index
 ```
 
 ### 4. Compose Teams
 
 ```bash
 # With a known boss
-cotc-tactician compose --boss example-boss
+uv run cotc-tactician compose --boss example-boss
 
 # With a description of an unknown boss
-cotc-tactician compose --desc "Boss with party-wide nuke every 5 turns, weak to fire"
+uv run cotc-tactician compose --desc "Boss with party-wide nuke every 5 turns, weak to fire"
 
 # With specific available characters
-cotc-tactician compose --boss example-boss --chars "char1,char2,char3"
+uv run cotc-tactician compose --boss example-boss --chars "char1,char2,char3"
 ```
 
 ## Usage Options
@@ -90,7 +102,7 @@ Use Claude in Cursor as your reasoning engine - no API costs!
 
 ```bash
 # Start the MCP server
-cotc-tactician mcp-serve
+uv run cotc-tactician mcp-serve
 ```
 
 Configure Cursor by adding to `~/.cursor/mcp.json`:
@@ -122,14 +134,14 @@ Requires [Ollama](https://ollama.ai/) installed:
 
 ```bash
 ollama pull llama3.1
-cotc-tactician compose --boss example-boss --llm ollama
+uv run cotc-tactician compose --boss example-boss --llm ollama
 ```
 
 ### Option 3: Cloud LLM (OpenAI)
 
 ```bash
 export OPENAI_API_KEY="your-api-key"
-cotc-tactician compose --boss example-boss --llm openai
+uv run cotc-tactician compose --boss example-boss --llm openai
 ```
 
 ## CLI Commands
@@ -295,14 +307,15 @@ sequenceDiagram
 ## Development
 
 ```bash
-# Install dev dependencies
-pip install -e ".[dev]"
+# Sync dev dependencies
+uv sync --extra dev
 
 # Run tests
-pytest
+uv run pytest
 
-# Format code
-ruff format src/
+# Lint (with autofix) + format
+uv run ruff check --fix
+uv run ruff format
 ```
 
 ## Future Roadmap

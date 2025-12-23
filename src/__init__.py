@@ -6,4 +6,3 @@ vector-based semantic retrieval, and LLM-powered team composition reasoning.
 """
 
 __version__ = "0.1.0"
-

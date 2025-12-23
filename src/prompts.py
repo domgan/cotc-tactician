@@ -139,7 +139,7 @@ OUTPUT_SCHEMA = """{
       "confidence": "high | medium | low",
       "confidence_reason": "Why this confidence level",
       "strategy_type": "burst | sustain | safe",
-      
+
       "composition": [
         {
           "position": 1,
@@ -191,15 +191,17 @@ def format_boss_data(boss) -> str:
     """Format boss data for the prompt."""
     if boss is None:
         return "No boss data provided. Using free-text description."
-    
+
     # Handle optional weaknesses
     if boss.weaknesses:
-        weak_elements = [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
+        weak_elements = (
+            [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
+        )
         weak_weapons = [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else []
     else:
         weak_elements = []
         weak_weapons = []
-    
+
     lines = [
         f"ID: {boss.id}",
         f"Name: {boss.display_name}",
@@ -214,7 +216,7 @@ def format_boss_data(boss) -> str:
         "",
         "Mechanics:",
     ]
-    
+
     for mech in boss.mechanics:
         lines.append(f"  - {mech.name}")
         lines.append(f"    Type: {mech.mechanic_type.value}")
@@ -224,7 +226,7 @@ def format_boss_data(boss) -> str:
         lines.append(f"    Threat Level: {mech.threat_level.value}")
         lines.append(f"    Counter Strategy: {mech.counter_strategy}")
         lines.append("")
-    
+
     if boss.phases:
         lines.append("Phases:")
         for phase in boss.phases:
@@ -233,23 +235,23 @@ def format_boss_data(boss) -> str:
             if phase.priority_actions:
                 lines.append(f"    Priority: {phase.priority_actions}")
         lines.append("")
-    
+
     lines.append("Required Roles:")
     for rr in boss.required_roles:
         lines.append(f"  - {rr.role.value} ({rr.priority.value}): {rr.reason}")
-    
+
     lines.append("")
     lines.append(f"General Strategy: {boss.general_strategy}")
-    
+
     if boss.common_mistakes:
         lines.append("")
         lines.append("Common Mistakes:")
         for mistake in boss.common_mistakes:
             lines.append(f"  - {mistake}")
-    
+
     lines.append("")
     lines.append(f"Data Confidence: {boss.data_confidence.value}")
-    
+
     return "\n".join(lines)
 
 
@@ -257,25 +259,31 @@ def format_similar_bosses(bosses: list) -> str:
     """Format similar bosses for the prompt."""
     if not bosses:
         return "No similar bosses found in the database."
-    
+
     lines = []
     for boss in bosses:
         lines.append(f"### {boss.display_name} ({boss.id})")
         lines.append(f"Difficulty: {boss.difficulty.value}")
-        
+
         # Handle optional weaknesses
         if boss.weaknesses:
-            weak_elements = [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
-            weak_weapons = [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else []
+            weak_elements = (
+                [e.value for e in boss.weaknesses.elements] if boss.weaknesses.elements else []
+            )
+            weak_weapons = (
+                [w.value for w in boss.weaknesses.weapons] if boss.weaknesses.weapons else []
+            )
         else:
             weak_elements = []
             weak_weapons = []
         lines.append(f"Weaknesses: {weak_elements}, {weak_weapons}")
-        
-        strategy = boss.general_strategy[:200] if boss.general_strategy else "No strategy documented"
+
+        strategy = (
+            boss.general_strategy[:200] if boss.general_strategy else "No strategy documented"
+        )
         lines.append(f"Strategy: {strategy}...")
         lines.append("")
-    
+
     return "\n".join(lines)
 
 
@@ -283,7 +291,7 @@ def format_proven_teams(teams: list) -> str:
     """Format proven teams for the prompt."""
     if not teams:
         return "No proven teams available for this boss."
-    
+
     lines = []
     for team in teams:
         lines.append(f"### {team.name} ({team.id})")
@@ -292,7 +300,7 @@ def format_proven_teams(teams: list) -> str:
         lines.append(f"Verified: {team.verified}")
         lines.append("")
         lines.append("Composition:")
-        
+
         for slot in team.front_line:
             lines.append(f"  Position {slot.position}: {slot.character_id}")
             lines.append(f"    Role: {slot.role_in_team.value}")
@@ -300,17 +308,17 @@ def format_proven_teams(teams: list) -> str:
             lines.append(f"    Key Skills: {slot.key_skills_used}")
             if slot.substitutes:
                 lines.append(f"    Substitutes: {slot.substitutes}")
-        
+
         lines.append("")
         lines.append(f"Why It Works: {team.why_it_works}")
         lines.append(f"Key Synergies: {team.key_synergies}")
-        
+
         if team.risks_and_recovery:
             lines.append(f"Risks: {team.risks_and_recovery}")
-        
+
         lines.append(f"Data Confidence: {team.data_confidence.value}")
         lines.append("")
-    
+
     return "\n".join(lines)
 
 
@@ -318,28 +326,28 @@ def format_characters(characters: list) -> str:
     """Format available characters for the prompt."""
     if not characters:
         return "No characters provided."
-    
+
     lines = []
     for char in characters:
         lines.append(f"### {char.display_name} ({char.id})")
         lines.append(f"Job: {char.job.value}")
-        
+
         if char.weakness_coverage:
             lines.append(f"Weakness Coverage: {char.weakness_coverage}")
-        
+
         if char.roles:
             lines.append(f"Roles: {[r.value for r in char.roles]}")
-        
+
         if char.role_notes:
             lines.append(f"Role Notes: {char.role_notes}")
-        
+
         # Stats summary
         if char.p_atk or char.e_atk:
             lines.append(f"Stats: P.Atk={char.p_atk}, E.Atk={char.e_atk}, Speed={char.speed}")
-        
+
         if char.gl_tier or char.jp_tier:
             lines.append(f"Tier: GL={char.gl_tier}, JP={char.jp_tier}")
-        
+
         lines.append("")
         lines.append("Skills:")
         for skill in char.skills:
@@ -361,40 +369,40 @@ def format_characters(characters: list) -> str:
                 lines.append(f"    EX Trigger: {skill.ex_trigger}")
             if skill.notes:
                 lines.append(f"    Notes: {skill.notes}")
-        
+
         if char.passives:
             lines.append("")
             lines.append("Key Passives:")
             for passive in char.passives[:5]:  # Limit to 5 most important
                 lines.append(f"  - {passive.effect[:100]}...")
-        
+
         if char.synergies:
             lines.append("")
             lines.append("Synergies:")
             for syn in char.synergies:
                 lines.append(f"  - With {syn.character_id}: {syn.description}")
-        
+
         if char.weaknesses:
             lines.append("")
             lines.append(f"Limitations: {char.weaknesses}")
-        
+
         if char.best_use_cases:
             lines.append(f"Best For: {char.best_use_cases}")
-        
+
         lines.append(f"Data Confidence: {char.data_confidence.value}")
         lines.append("")
-    
+
     return "\n".join(lines)
 
 
 def build_prompt(context: dict) -> str:
     """
     Build the complete user prompt from retrieved context.
-    
+
     Args:
         context: Dictionary with boss, similar_bosses, proven_teams,
                  candidate_characters keys.
-                 
+
     Returns:
         Formatted user prompt string.
     """
@@ -405,4 +413,3 @@ def build_prompt(context: dict) -> str:
         candidate_characters=format_characters(context.get("candidate_characters", [])),
         output_schema=OUTPUT_SCHEMA,
     )
-
