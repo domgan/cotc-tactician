@@ -14,13 +14,26 @@ origin: "Solistia"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [light, staff]
 
-# Roles
-roles: [healer, tank]
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: ["dps"]
 role_notes: |
-  Cleric from Octopath 2 with HP barrier skills.
-  Light DPS capability alongside healing.
-  HP barriers help survive burst damage.
-  Less meta than Rinyuu but solid healer.
+  Cleric who wants to be DPS but fails to do well. Abilities all over the place with support skills that are nothing interesting. Introduces new debuff Miss Elemental Attacks that makes enemy fail to cast elemental attack based on debuff counter.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Temenos is extremely disappointing and falls immediately behind even earlier characters. Developers must have not liked him in OG version because they did him dirty here. If he and Yukes were competing for low tier, Temenos would only be a step ahead. No one in right mind would choose him over Alia who can also hit light weakness with 5-hit attacks.
+
+best_use_cases:
+  - "Light weakness coverage with Miss Elemental Attack infliction"
+  - "Teams needing HP barriers and healing"
+  - "Content where reducing enemy elemental attacks is valuable"
+  - "Players who specifically like Temenos as character"
+
+weaknesses:
+  - "Extremely disappointing kit compared to other characters"
+  - "Can only hit light weakness - outclassed by Alia"
+  - "No impressive nuke attacks with modifiers"
+  - "Already outclassed by Agnea and Cantos"
 
 # Tank type
 tank_type: hp_barrier
@@ -194,12 +207,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Inquisitor’s Cloak"
-  passive_effect: "60 E.Atk, 400 HP, 40 SP; Grant Damage Limit Up (effect: 50,000); Start of battle: Ultimate Technique gauge fills to 100%"
+  name: "Inquisitor's Cloak"
+  passive_effect: "60 Elemental Attack, 400 HP, 40 SP; Grant Damage Limit Up (effect: 50,000); Start of battle: Ultimate Technique gauge fills to 100%"
+  notes: "Really good accessory but pity that Temenos isn't that great as a traveler. Only good thing about him is this A4 accessory and his Miss Elemental attack"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Temenos Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting disappointing kit and low tier status"
+last_updated: 2025-12-25

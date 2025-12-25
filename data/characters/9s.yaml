@@ -15,9 +15,27 @@ origin: "NieR Universe (NieR series)"
 weakness_coverage: [fire, lightning, polearm]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Free merchant unit focused on support, breaking shields, and dealing magic damage. Second merchant with 4-hit polearm attack (non-ultimate) and second unit with AOE 3-hit shield break ability. Has pathetically low physical attack but high magic attack and speed.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  9S is the free unit from the NieR Automata collaboration who functions as a support merchant with shield-breaking capabilities. He has a rare 4-hit polearm attack for shield breaking and AOE 3-hit fire attack that breaks shields regardless. His ultimate shows all weaknesses and provides debuffs. He's more focused on magical damage than physical.
+
+best_use_cases:
+  - "Free unit that everyone should obtain through login campaign"
+  - "Teams needing shield breaking support with magical damage"
+  - "Content requiring lightning and fire coverage"
+  - "Players lacking good merchant units"
+  - "Situations where weakness revelation is valuable"
+
+weaknesses:
+  - "Pathetically low physical attack stat"
+  - "Self-destruct ability reduces HP to 1 and can only be used once per battle"
+  - "More focused on magical damage than traditional merchant physical damage"
+  - "Will be outclassed by future merchants"
+  - "Limited to time-limited collaboration"
 
 # Stats (base level)
 hp: 3240
@@ -180,10 +198,12 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "9S’s Goggles"
+  name: "9S's Goggles"
   passive_effect: "80 E.Atk, 60 Spd; Raise Lightning damage dealt by 30%"
+  notes: "Excellent accessory that enhances his magical lightning damage and speed"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Nier Automata 9S, 2B, and A2 Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on his role as free support merchant with rare 4-hit polearm attack"
+last_updated: 2025-12-25

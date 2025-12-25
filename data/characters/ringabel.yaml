@@ -15,9 +15,25 @@ origin: "Luxendarc (BRAVELY DEFAULT)"
 weakness_coverage: [dark, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Essentially the better Odile if Odile had a better six-star awakening. Takes HP from himself instead of party. Currently top five for all Warriors including JP side, tied with 2B and Oi for highest attack stat (499 at six stars). First traveler to come with Undying status buff.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Ringabel is currently the strongest Warrior as most relevant and current, but like most Warriors (most abundant class), he'll be replaced by next relevant Warrior. He's not capable of hitting multiple weak spots like Agnea or Cantos. Best comparison is Odile - if you already have Odile, Ringabel is just a slight upgrade.
+
+best_use_cases:
+  - "Sword and dark weakness coverage"
+  - "Teams needing self-sufficient DPS with survival"
+  - "Content where Undying status is valuable"
+  - "Players who missed Odile or want slight upgrade"
+
+weaknesses:
+  - "Limited to sword and dark weaknesses only"
+  - "Will be replaced by future relevant Warriors"
+  - "Can't hit multiple weak spots like Agnea or Cantos"
+  - "Needs HP management to fully capitalize on multi-hit abilities"
 
 # Stats (base level)
 hp: 3232
@@ -167,12 +183,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Everlasting Rose"
-  passive_effect: "40 P.Atk, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
+  passive_effect: "40 Physical Attack, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
+  notes: "Basic accessory that provides Dead Aim. Not particularly impressive compared to other A4 accessories but functional for his kit"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Ringabel Overview by Vlad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including Odile comparison and Undying status introduction"
+last_updated: 2025-12-25

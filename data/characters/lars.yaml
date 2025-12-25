@@ -15,9 +15,26 @@ origin: "Orsterra"
 weakness_coverage: [sword, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Wind warrior with amazing breaking capabilities and high damage output. Has rare 5-hit sword attacks and turn order manipulation. Physical DPS version of Tiktala but better, with highest speed among warriors.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Lars is a wind warrior who excels at breaking and dealing high damage. His 5-hit sword attacks are unheard of at this stage of the game, making him extremely valuable. He has the highest speed among warriors and can act faster after using VP, allowing turn order manipulation. His damage is comparable to or even better than Tiktala when used alone.
+
+best_use_cases:
+  - "Content requiring sword and wind coverage"
+  - "Teams needing high-speed breaking capabilities"
+  - "Situations where turn order manipulation is valuable"
+  - "Players lacking other 5-star sword users"
+
+weaknesses:
+  - "High SP consumption on key abilities (68 SP for 3-hit AOE)"
+  - "Arrives on paid banner making him less accessible"
+  - "Not a game-changer compared to characters like Ophilia or Therion"
+  - "More of a convenience character than essential"
+  - "Will eventually be replaced by future sword users with 5-hit attacks"
 
 # Stats (base level)
 hp: 3162
@@ -171,8 +188,10 @@ passives:
 a4_accessory:
   name: "Bracers of Wrath"
   passive_effect: "60 P.Atk, 40 Crit, 40 Spd; Raise Sword and Wind damage dealt by 15%"
+  notes: "Excellent accessory that enhances both his primary damage types and speed"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Lars Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting his rare 5-hit sword attacks and turn order manipulation"
+last_updated: 2025-12-25

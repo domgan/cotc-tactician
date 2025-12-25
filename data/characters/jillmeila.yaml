@@ -15,9 +15,26 @@ origin: "Orsterra"
 weakness_coverage: [bow, dark]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Bow user focused on moderate to high damage augmented through bleed status effects. Has rare 4-hit dark attack and 3-hit AOE bow attacks. Damage comparable to or better than Courseus when enemies are bleeding, but requires setup.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Jillmeila is a dark bow user who excels when enemies are inflicted with bleed. Her 30% damage increase passive when bleeding enemies are present makes her damage output comparable to or even better than Courseus. She has a rare 4-hit dark attack that makes her valuable for dark coverage, but requires setup to reach full potential.
+
+best_use_cases:
+  - "Teams that can consistently inflict bleed status"
+  - "Content requiring dark elemental coverage"
+  - "Situations where high bow damage is needed"
+  - "Players lacking other 5-star bow users"
+
+weaknesses:
+  - "Requires bleed setup to reach maximum damage potential"
+  - "High SP consumption on key abilities (72 SP for Blood Rain)"
+  - "Lowest HP among 5-star characters due to passive design"
+  - "Selfish kit that doesn't provide team support"
+  - "Will be outclassed by future bow users without setup requirements"
 
 # Stats (base level)
 hp: 2902
@@ -176,10 +193,12 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Executioner’s Gloves"
+  name: "Executioner's Gloves"
   passive_effect: "60 P.Atk, 60 E.Atk, 20 SP; When breaking an enemy, have a high chance to inflict bleeding (turns: 6)"
+  notes: "Excellent accessory that synergizes with bleed-based damage mechanics"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Jillmeila Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on bleed mechanics and rare dark attack capabilities"
+last_updated: 2025-12-25

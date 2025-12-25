@@ -15,9 +15,25 @@ origin: "Orsterra"
 weakness_coverage: [fan, fire, light]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["debuffer", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  The best debuffer in the entire game including up to JP. Has four different kinds of debuffs that all stack and is a decent breaker for fan, light, and fire. Access to passive debuffs, active debuffs, countdown ability, and ultimate debuff.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Signa is the prize of the two warriors coming with Cantos. Warriors will always be getting better as COTC loves warriors, but debuffers are a commodity. She has access to passive debuffs with her passive skill, active debuffs with attacking skills, four-turn countdown for resistance debuffs, and ultimate debuff.
+
+best_use_cases:
+  - "Any battle requiring comprehensive debuffing"
+  - "Fan weakness breaking with up to 6-hit attacks"
+  - "Light and fire weakness breaking with AOE 6-hit attacks"
+  - "Teams needing sword, fire, and light resistance reduction"
+
+weaknesses:
+  - "Extremely squishy with only 2600 HP and 255 defense"
+  - "Requires decent accessories to survive"
+  - "Limited to fan, light, and fire damage types"
+  - "Relies on status effects for maximum effectiveness"
 
 # Stats (base level)
 hp: 2676
@@ -159,12 +175,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Little Finger’s Hair Accessory"
-  passive_effect: "60 E.Atk, 400 HP, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5% (turns: 3)"
+  name: "Little Finger's Hair Accessory"
+  passive_effect: "60 Elemental Attack, 400 HP, 40 SP; Raise Elemental Attack by 15%; Start of battle: Lower Physical Attack, Physical Defense, Elemental Attack and Elemental Defense of All Foes by 5% for 3 turns"
+  notes: "Okay accessory but not something to chase after pulling for her and Cantos. Would prioritize her first since she'll be useful for all fights"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Signa Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting best debuffer status and comprehensive utility"
+last_updated: 2025-12-25

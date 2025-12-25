@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [fire, ice, lightning, tome]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Think of Cyrus version 2.0 - abilities are pretty much the same with added goodies. Has highest elemental attack stat as scholar in entire game (tied with latest JP scholar). Better Cyrus if you missed out on him, but limited by three-hit attacks and lack of enemies weak to all three elements simultaneously.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Osvald is essentially a better Cyrus but falls off heavily when focusing on specific team comps. His main flaw is that there's only been one relevant boss weak to fire, ice, and lightning all at once (level 120 NPC). He functions more as sub DPS rather than straight elemental DPS since you want to prioritize one or two weaknesses.
+
+best_use_cases:
+  - "Teams needing fire, ice, or lightning coverage"
+  - "Elemental teams that can utilize his follow-up attack passive"
+  - "Content where enemies are weak to multiple elements"
+  - "Players who missed Cyrus and need elemental scholar"
+
+weaknesses:
+  - "Three-hit attacks aren't great in current meta"
+  - "Very few enemies weak to all three elements simultaneously"
+  - "Low HP and speed - somewhat squishy"
+  - "Elemental attacks still far behind physical attackers"
 
 # Stats (base level)
 hp: 2736
@@ -202,12 +218,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Coded Notebook"
-  passive_effect: "140 E.Atk; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Res. of all enemies by 10%"
+  passive_effect: "140 Elemental Attack; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Resistance of all enemies by 10%"
+  notes: "Nice accessory to have but wouldn't chase after it. High elemental attack stat and free anytime fire/ice/lightning resist down when in front row"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Osvald Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including Cyrus 2.0 comparison and elemental limitations"
+last_updated: 2025-12-25

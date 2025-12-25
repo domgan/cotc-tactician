@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [dark, polearm]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dark merchant with polearm focus and breaking capabilities. Has rare 3-hit dark attack and highest speed among merchants. Only merchant with 4-hit polearm attack and access to blindness status effect.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  W'ludai is an exceptional dark merchant who finally addresses the speed issues of merchants. She has the highest physical attack stat and speed among merchants, outspeeding others by 60-100 points. She's the only merchant with a 4-hit polearm attack and has access to rare 3-hit dark magic attacks with blindness. Her 5-8 hit ultimate is the ultimate tool for breaking polearm weaknesses.
+
+best_use_cases:
+  - "Teams needing fast polearm breaking capabilities"
+  - "Content requiring dark elemental coverage"
+  - "Pairs well with Dorothea for high damage output"
+  - "Situations where blindness status is useful"
+  - "Fast-paced content where merchant speed matters"
+
+weaknesses:
+  - "Suffers in SP, defense, and magic defense stats"
+  - "Time-limited availability initially"
+  - "Requires specific team composition to maximize potential"
+  - "High SP consumption on multi-hit abilities"
+  - "Will eventually be added to permanent pool"
 
 # Stats (base level)
 hp: 3440
@@ -165,8 +183,10 @@ passives:
 a4_accessory:
   name: "W’ludai’s Satchel"
   passive_effect: "80 P.Atk, 60 SP; When breaking an enemy, lower their Polearm Res. by 15% (turns: 3); Grant automatic HP recovery (amount: 500)"
+  notes: "Excellent accessory that enhances polearm damage and provides sustain with resistance debuff"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent W'Ludai Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting her as top-tier merchant with rare dark attacks and exceptional speed"
+last_updated: 2025-12-25

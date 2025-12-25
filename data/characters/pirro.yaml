@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [dagger, dark]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  The better Thief counterpart to Thron. Skills are all about dealing damage with potential double cast from passives. Physical attack stat way above Thron (509 at level 120) allowing massive damage with crazy potencies. Has 50% chance to reactivate skills for one turn.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Pirro is the better Thron - everything Thron does he does better except inflicting miss physical attack debuff. His 50% passive allows double casting abilities and can shave up to 10 shields at any time. While better than Thron, still miles away from upcoming overpowered thieves.
+
+best_use_cases:
+  - "Dagger and dark weakness coverage"
+  - "Teams needing high single-target damage"
+  - "Shield breaking with multi-hit attacks"
+  - "Players who missed Thron and want thief upgrade"
+
+weaknesses:
+  - "Permanent 15% speed down from passive"
+  - "High SP consumption for high potency skills"
+  - "Will be power crept by upcoming stronger thieves"
+  - "Limited to dagger and dark damage types"
 
 # Stats (base level)
 hp: 2932
@@ -167,12 +183,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Old Cigar Box"
-  passive_effect: "60 P.Atk, 40 Crit, 40 SP; Grant automatic HP recovery (amount: 300) and SP recovery (amount 30); At night: Raise Dagger damage dealt by 15%"
+  passive_effect: "60 Physical Attack, 40 Critical, 40 SP; Grant automatic HP recovery (amount: 300) and SP recovery (amount: 30); At night: Raise Dagger damage dealt by 15%"
+  notes: "Functional accessory for his kit but nothing particularly special. Standard stats with some recovery and night-time dagger damage boost"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Pirro Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including Thron comparison and double cast mechanics"
+last_updated: 2025-12-25

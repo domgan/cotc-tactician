@@ -15,9 +15,27 @@ origin: "NieR Universe (NieR series)"
 weakness_coverage: [axe, dagger, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker", "tank"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Thief with sword, dagger, and axe coverage focused on physical DPS. Has highest HP, attack, and physical defense among the trio. Can use physical attack abilities twice in one turn when in Berserk Mode. Has no elemental attacks, purely physical damage dealer.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  A2 is "best girl" thief from the NieR Automata collaboration who functions as a versatile physical DPS. She has access to sword, dagger, and axe attacks with no elemental skills - purely physical damage. Her signature ability is Berserk Mode which allows her to use physical attack abilities twice in one turn, making her game-changing. She can break 6 shields of either sword or axe and nuke accordingly.
+
+best_use_cases:
+  - "Teams needing versatile physical coverage across multiple weapon types"
+  - "Content where breaking multiple shield types is required"
+  - "Situations where double skill activation provides massive damage"
+  - "Players wanting the most versatile physical DPS from the collaboration"
+  - "Content where provoke and tank capabilities are useful"
+
+weaknesses:
+  - "No elemental attacks - purely physical damage dealer"
+  - "Berserk Mode causes 40% max HP damage each turn for 6 turns"
+  - "Limited by skill usage requiring enemy weakness adjustment"
+  - "Low elemental attack stat (80) due to pure physical focus"
+  - "Time-limited collaboration availability"
 
 # Stats (base level)
 hp: 3012
@@ -174,8 +192,10 @@ passives:
 a4_accessory:
   name: "Number 4’s Goggles"
   passive_effect: "70 P.Atk, 700 HP; Raise damage of Self by 10% when exploiting enemy weakness; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+  notes: "Excellent accessory that enhances damage when exploiting weaknesses and extends debuffs"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Nier Automata 9S, 2B, and A2 Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting her as versatile physical DPS with game-changing double skill activation"
+last_updated: 2025-12-25

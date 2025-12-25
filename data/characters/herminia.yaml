@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [bow, fan, light]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Probably the best of the three Champions. Light hunter with access to forehead attacks for bows, fans, and light. Second strongest bow user (only 5 points away from Scarecrow) but faster. Ideal candidate for finding enemy weaknesses with 4-hit attacks.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Herminia is a versatile hunter who can cover bow, fan, and light elements with forehead attacks for each. She has a 30% chance to summon NPCs that inflict bleeding when using damage abilities. Her role is concrete as a breaker - any character that can cover three attack types with 4 hits is amazing for finding weaknesses.
+
+best_use_cases:
+  - "Teams needing versatile breaker with multiple element coverage"
+  - "Content where finding enemy weaknesses quickly is crucial"
+  - "Bow-focused teams needing additional coverage"
+  - "Parties with characters that benefit from bleed effects like Jillmeila and Hayes"
+  - "Situations requiring light, fan, and bow coverage in one unit"
+
+weaknesses:
+  - "Not going to do massive damage compared to dedicated DPS"
+  - "Limited to breaker role rather than primary damage dealer"
+  - "Will eventually be replaced by other Travelers"
+  - "Time-limited availability from Memoirs"
+  - "More of a utility breaker than damage powerhouse"
 
 # Stats (base level)
 hp: 3062
@@ -162,8 +180,10 @@ passives:
 a4_accessory:
   name: "Covetous Witch Mask"
   passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Bow and Fan damage dealt by 10%; Start of battle: High chance to all enemies with bleeding (turns: 3)"
+  notes: "Excellent accessory that enhances her primary damage types and provides bleeding utility"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC All Champion Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting her as the best of the three Champions with versatile breaker capabilities"
+last_updated: 2025-12-25

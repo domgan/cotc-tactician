@@ -1,0 +1,209 @@
+# COTC Team: Devout Priest - Lad's YouTube Guide Team
+# SOURCE: OCTOPATH TRAVELER COTC: Canalbrine: Devout Cleric LVL 120 NPC Guide
+# STRATEGY: Multi-target break with EX Millard ultimate protection
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: "120npc-devout-priest-lad-guide"
+name: "Lad's YouTube Guide Team"
+boss_id: "120npc-devout-priest"
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: "burst"
+investment_level: "high"
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: "ario"
+    role_in_team: "tank"
+    is_required: true
+    substitutes: ["rinyuu", "lucetta"]
+    substitute_notes: "Any dodge tank with taunt capability"
+    key_skills_used: ["Taunt skills", "Dodge mechanics"]
+    accessory_requirements: ["Great Blossom's Crest", "Robert Keeper (elemental dodge)"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: "alani-ex"
+    role_in_team: "healer"
+    is_required: true
+    substitutes: ["shana", "reku"]
+    substitute_notes: "Any healer with invigorating prayer"
+    key_skills_used: ["Invigorating Prayer", "Healing skills"]
+    accessory_requirements: ["HP boosting accessories", "Sunny Sandal (survive with 1 HP)"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: "partitio"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: ["agnes", "therion"]
+    substitute_notes: "Merchant with team buff capabilities"
+    key_skills_used: ["Merchant buffs", "Physical attack buffs"]
+    accessory_requirements: ["Master Apothecary Necklace", "Cuffs of the Family", "Ney's A4"]
+    awakening_required: 4
+
+  - position: 4
+    character_id: "reek"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: ["temenos", "osvald"]
+    substitute_notes: "Support with front row buff capabilities"
+    key_skills_used: ["Strong Trade Wind", "Reckless Charge", "Front row buffs"]
+    accessory_requirements: ["Hogen keeper", "Support buff accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: "millard-ex"
+    role_in_team: "utility"
+    is_required: true
+    substitutes: ["gloria", "temenos"]
+    substitute_notes: "Character with ultimate protection capabilities"
+    key_skills_used: ["Ultimate (HP barrier)", "Support skills"]
+    accessory_requirements: ["Renu's A4", "Orphanage Postcard", "Mioas keeper"]
+    awakening_required: 4
+
+  - position: 6
+    character_id: "magnolia"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: ["sazantos", "thame"]
+    substitute_notes: "High damage polearm DPS"
+    key_skills_used: ["Polearm attacks", "Speed down", "High damage skills"]
+    accessory_requirements: ["120 accessory", "82's A4", "Titus's A4", "Black Cat keeper"]
+    awakening_required: 4
+
+  - position: 7
+    character_id: "agnea"
+    role_in_team: "breaker"
+    is_required: true
+    substitutes: ["ochette", "canary"]
+    substitute_notes: "Fan/wind breaker with high speed"
+    key_skills_used: ["Dance attacks", "Fan/wind attacks", "Breaking skills"]
+    accessory_requirements: ["Monk Gators", "Wind Slicer", "Lunai Satchel", "Ari keeper"]
+    awakening_required: 4
+
+  - position: 8
+    character_id: "solon"
+    role_in_team: "secondary_dps"
+    is_required: true
+    substitutes: ["osvald", "cyrus"]
+    substitute_notes: "Fire/polearm DPS with ultimate"
+    key_skills_used: ["Flying Flame Lance", "Ultimate", "Fire attacks"]
+    accessory_requirements: ["Busu's A4", "Hammy's A4", "Orange Cat keeper"]
+    awakening_required: 4
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: ["agnes", "ario", "alani-ex", "partitio", "reek", "millard-ex", "magnolia", "solon"]
+speed_tuning_notes: "Agnes must be faster than 525 (boss speed). All characters should have 4500+ HP minimum."
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1"
+    phase: "setup"
+    actions:
+      - "Agnes: Use TP skill (3-hit AoE fan/wind + front row buff)"
+      - "Use Rico ally skill (50% attack up to front row)"
+      - "Magnolia: Buff setup"
+      - "Call old man ally (3-hit wind attack)"
+    notes: "Focus on breaking rightmost enemy (Wide-Field Priest) first"
+
+  - turn_range: "2-3"
+    phase: "break_push"
+    actions:
+      - "Magnolia: Attack with speed down"
+      - "Partitio: Merchant buffs"
+      - "Reek: Strong Trade Wind/Reckless Charge at max BP"
+      - "Solon: Polearm buff + attacks"
+      - "Call debuffing ally"
+    notes: "Eliminate Wide-Field Priest first (AOE counter threat)"
+
+  - turn_range: "4-6"
+    phase: "break_window"
+    actions:
+      - "Break remaining two enemies simultaneously"
+      - "Magnolia: Full damage with latent skill"
+      - "Agnes: Dance attacks (6 hits)"
+      - "Partitio: Full merchant buffs active"
+    notes: "Break both remaining priests together"
+
+  - turn_range: "7-9"
+    phase: "burst"
+    actions:
+      - "EX Millard: Ultimate (HP barrier) before boss nuke"
+      - "Alani EX: Use keeper for 10% attack down"
+      - "Activate Divine Beast for insurance"
+      - "Full damage burst on main boss"
+    notes: "Protect against ice ultimate, then burst main boss"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Attack"
+    sources: ["Partitio (merchant passive)", "Reek (front row buffs)", "Rico ally"]
+    target_cap: "50%+"
+    timing: "Turn 2 onwards"
+
+  - buff_type: "Elemental Resistance"
+    sources: ["Latest armor set (5% each)", "Keepers"]
+    target_cap: "20%+"
+    timing: "Battle start"
+
+  - buff_type: "HP"
+    sources: ["HP accessories", "Keeper stats"]
+    target_cap: "4500+ HP per character"
+    timing: "Pre-battle setup"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team prioritizes killing the Wide-Field Priest first to eliminate the dangerous AOE counter.
+  EX Millard's ultimate provides crucial protection against the ice nuke that deals ~7000 damage.
+  High HP requirements (4500+) ensure survival through multiple AoE attacks.
+  Partitio's 4-merchant composition provides 50% attack buff to front row.
+  Reek's support capabilities provide both healing and buffing.
+
+key_synergies:
+  - "Partitio + 3 other merchants = 50% front row attack buff"
+  - "EX Millard ultimate blocks devastating ice attack"
+  - "Agnes high speed ensures actions before 525 speed boss"
+  - "Magnolia speed down helps maintain speed advantage"
+
+risks_and_recovery:
+  - "RNG heavy fight - multiple AoE attacks can cause restart"
+  - "If all 3 enemies use AoE simultaneously, restart required"
+  - "Must maintain 4500+ HP to survive attacks"
+  - "EX Millard ultimate timing critical for ice nuke protection"
+  - "Divine Beast provides insurance if something goes wrong"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "~15 turns"
+success_rate: "60-70% (RNG dependent)"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: "lad-youtube-guide"
+source_url: "https://www.youtube.com/watch?v=28zBvuGaRNQ"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-25"

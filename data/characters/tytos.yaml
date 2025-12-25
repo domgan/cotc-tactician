@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [lightning, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "tank"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Lightning warrior who feels standard compared to top-tier warriors like Richard. Has amazing 5-hit lightning attack (most hits currently) and auto-revive ability. Highest physical attack among warriors but suffers from low speed. Functions as standard warrior with good utility.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Tytos is a lightning warrior with standard warrior capabilities plus some unique features. He has a 5-hit lightning attack that currently has the most hits in the game, making him attractive for breaking. His auto-revive ability gets him back to 100% HP/SP once per battle, and he can counter physical attacks while inflicting intimidation.
+
+best_use_cases:
+  - "Teams needing lightning coverage with high hit count attacks"
+  - "Content where auto-revive provides survival advantage"
+  - "Lightning-focused parties requiring intimidation debuffs"
+  - "Situations where counter-attacks are valuable"
+  - "Players wanting a reliable warrior with survival utility"
+
+weaknesses:
+  - "Feels standard compared to top-tier warriors like Richard"
+  - "Low speed means he goes close to last in turn order"
+  - "Warrior class is oversaturated with 12 five-star warriors"
+  - "Limited time unit when better warriors like Lars and Joshua exist in general pool"
+  - "Won't last long as future warriors will outclass him"
 
 # Stats (base level)
 hp: 3252
@@ -160,10 +178,12 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Scarlet Wing Commander’s Crest"
+  name: "Scarlet Wing Commander's Crest"
   passive_effect: "120 P.Atk, 20 Crit; Start of battle: Intimidate all enemies (turns: 6). Intimidate: Lower Phys. Def. and Elem. Def. by 5%"
+  notes: "Good accessory that provides early battle intimidation and enhances physical attack"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC All Champion Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on his role as standard lightning warrior with auto-revive and high hit count attacks"
+last_updated: 2025-12-25

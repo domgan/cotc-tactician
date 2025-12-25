@@ -1,0 +1,199 @@
+# COTC Team: Mirgardi - Casual Guide Team
+# SOURCE: OCTOPATH TRAVELER COTC: Mirgardi Fight Causal Guide
+# STRATEGY: Weakness cycling with axe/ice focus and shield shaving
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: "arena-mirgardi-casual-guide"
+name: "Casual Guide Team"
+boss_id: "arena-mirgardi"
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: "sustain"
+investment_level: "medium"
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: "canari"
+    role_in_team: "breaker"
+    is_required: true
+    substitutes: ["ochette", "canary"]
+    substitute_notes: "Any character with shield shaving capabilities"
+    key_skills_used: ["Ruby Burst", "Shield shaving skills"]
+    accessory_requirements: ["Double Stone Strap"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: "ney"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: ["agnes", "therion"]
+    substitute_notes: "Character with buff capabilities"
+    key_skills_used: ["Attack buffs", "Support skills"]
+    accessory_requirements: ["Buff accessories"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: "lady-herminia"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: ["elri-rico", "tantos"]
+    substitute_notes: "Sword DPS for first phase"
+    key_skills_used: ["Sword attacks", "Dragon Tail Slash"]
+    accessory_requirements: ["Attack accessories"]
+    awakening_required: 4
+
+  - position: 4
+    character_id: "nefty"
+    role_in_team: "healer"
+    is_required: true
+    substitutes: ["temenos", "ophilia"]
+    substitute_notes: "Healer with support capabilities"
+    key_skills_used: ["Healing skills", "Support buffs"]
+    accessory_requirements: ["Healing accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: "cesley"
+    role_in_team: "secondary_dps"
+    is_required: false
+    substitutes: ["osvald", "cyrus"]
+    substitute_notes: "Tome user for first phase"
+    key_skills_used: ["Tome attacks", "Elemental magic"]
+    accessory_requirements: ["Magic accessories"]
+    awakening_required: 4
+
+  - position: 6
+    character_id: "elri-rico"
+    role_in_team: "secondary_dps"
+    is_required: false
+    substitutes: ["tantos", "thame"]
+    substitute_notes: "Sword DPS for first phase"
+    key_skills_used: ["Sword attacks", "Physical damage"]
+    accessory_requirements: ["Physical attack accessories"]
+    awakening_required: 4
+
+  - position: 7
+    character_id: "tantos"
+    role_in_team: "secondary_dps"
+    is_required: false
+    substitutes: ["thame", "sazantos"]
+    substitute_notes: "Polearm user for second phase"
+    key_skills_used: ["Polearm attacks", "Ice attacks"]
+    accessory_requirements: ["Polearm/ice accessories"]
+    awakening_required: 4
+
+  - position: 8
+    character_id: "ochette"
+    role_in_team: "utility"
+    is_required: false
+    substitutes: ["canary", "h-aanit-ex"]
+    substitute_notes: "Additional shield shaving if needed"
+    key_skills_used: ["Arc Shot", "Beast attacks"]
+    accessory_requirements: ["Beast accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: ["canari", "ney", "lady-herminia", "nefty", "cesley", "elri-rico", "tantos", "ochette"]
+speed_tuning_notes: "Canari should act early for shield shaving. Speed not as critical due to boss self-slowing."
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-3"
+    phase: "setup"
+    actions:
+      - "Canari: Ruby Burst for shield shaving"
+      - "Ney: Apply attack buffs"
+      - "Lady Herminia: Sword attacks (first phase weaknesses)"
+      - "Call Fallen Marz ally (3-hit attack + 15% P.ATK/ATK down per hit)"
+    notes: "First phase: Sword, Axe, Tome, Ice weaknesses"
+
+  - turn_range: "4-7"
+    phase: "break_push"
+    actions:
+      - "Continue shield shaving with Canari"
+      - "Maintain buffs with Ney"
+      - "Switch to polearm users when weakness changes at 70% HP"
+      - "Use ice attacks (available in all phases)"
+    notes: "Weakness changes at 70% HP to Polearm, Axe, Ice, Lightning"
+
+  - turn_range: "8-12"
+    phase: "break_window"
+    actions:
+      - "Break during charge-up to skip Living Dragon Slash"
+      - "Focus on axe/ice damage (works in all phases)"
+      - "Use healing as needed"
+    notes: "Second weakness change at 40% HP, boss slows down over time"
+
+  - turn_range: "13+"
+    phase: "sustain"
+    actions:
+      - "Continue with axe/ice focus"
+      - "Boss gets slower each turn via Variable Tempo"
+      - "Chip away remaining HP"
+    notes: "Long fights become easier as boss slows down"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Attack"
+    sources: ["Ney", "Fallen Marz ally"]
+    target_cap: "30%+"
+    timing: "Turn 1 onwards"
+
+  - buff_type: "Enemy Attack Down"
+    sources: ["FallPress Fallen Mar”; Marz ally (15% per hit, up to 6 turns)"]
+    target_cap: "30%+"
+    timing: "Turn 1"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team focuses on the universal weaknesses (axe and ice) that work in all phases.
+  Canari provides excellent shield shaving with Ruby Burst.
+  Fallen Marz ally gives significant attack debuffs (15% per hit for 6 turns).
+  Boss self-slows with Variable Tempo, making longer fights manageable.
+
+key_synergies:
+  - "Axe and ice work in ALL weakness phases"
+  - "Canari shield shaving + universal weakness coverage"
+  - "Fallen Marz ally provides 6 turns of attack debuffs"
+  - "Boss self-slows over time (Variable Tempo)"
+
+risks_and_recovery:
+  - "Must track weakness phase transitions (70% and 40% HP)"
+  - "Sword/tome users become less effective after 70% HP"
+  - "Living Dragon Slash charge attack must be broken through"
+  - "Dragon Tail points increase boss power if not broken quickly"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "~15-20 turns"
+success_rate: "70-80%"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: "casual-youtube-guide"
+source_url: "https://www.youtube.com/watch?v=9yBgyap_sd4"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-25"

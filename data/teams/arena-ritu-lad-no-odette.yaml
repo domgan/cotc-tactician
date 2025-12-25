@@ -1,0 +1,207 @@
+# COTC Team: Ri'tu - Lad's NO ODETTE Team
+# SOURCE: Octopath Traveler COTC Ri'tu Fight Guide NO Odette. Feat Therion & Alfyn
+# STRATEGY: Wind-focused multi-target with fire/light coverage
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: "arena-ritu-lad-no-odette"
+name: "Lad's NO ODETTE Team"
+boss_id: "arena-ritu"
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: "burst"
+investment_level: "high"
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: "tickling"
+    role_in_team: "breaker"
+    is_required: true
+    substitutes: ["ochette", "canary"]
+    substitute_notes: "Wind user with breaking capabilities"
+    key_skills_used: ["Slicing Winds", "Howling Wind"]
+    accessory_requirements: ["Wind damage accessories"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: "scarecrow"
+    role_in_team: "utility"
+    is_required: true
+    substitutes: ["h-aanit-ex", "canary"]
+    substitute_notes: "Character with running arrow for anti-attack"
+    key_skills_used: ["Running Arrow", "Multi-target attacks"]
+    accessory_requirements: ["Anti-attack accessories"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: "viola"
+    role_in_team: "debuffer"
+    is_required: true
+    substitutes: ["therion", "canary"]
+    substitute_notes: "Character with attack debuff and emergency break"
+    key_skills_used: ["Attack debuff", "Blazing Dagger", "Double Wide Burst"]
+    accessory_requirements: ["Debuff accessories"]
+    awakening_required: 4
+
+  - position: 4
+    character_id: "alfyn"
+    role_in_team: "healer"
+    is_required: true
+    substitutes: ["shana", "nefty"]
+    substitute_notes: "Premium healer with wildfire capabilities"
+    key_skills_used: ["Wildfire", "Healing skills"]
+    accessory_requirements: ["Healing accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: "elfin"
+    role_in_team: "utility"
+    is_required: false
+    substitutes: ["temenos", "ophilia"]
+    substitute_notes: "Premium unit with pomegranate panacea and vivify"
+    key_skills_used: ["Pomegranate Panacea", "Vivify"]
+    accessory_requirements: ["Support accessories"]
+    awakening_required: 4
+
+  - position: 6
+    character_id: "lynette"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: ["osvald", "cyrus"]
+    substitute_notes: "Fire user with incinerating staff"
+    key_skills_used: ["Incinerating Staff (3-hit fire attack)", "Team buffs"]
+    accessory_requirements: ["Fire damage accessories"]
+    awakening_required: 4
+
+  - position: 7
+    character_id: "agnes"
+    role_in_team: "healer"
+    is_required: false
+    substitutes: ["shana", "nefty"]
+    substitute_notes: "Healer with raise capabilities"
+    key_skills_used: ["Healing", "Raise"]
+    accessory_requirements: ["Healing accessories"]
+    awakening_required: 4
+
+  - position: 8
+    character_id: "mina"
+    role_in_team: "buffer"
+    is_required: false
+    substitutes: ["agnes", "therion"]
+    substitute_notes: "4-star character with defense up and light attacks"
+    key_skills_used: ["Defense Up", "Light attacks", "Spirited Mole Dance"]
+    accessory_requirements: ["Light damage accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: ["tickling", "scarecrow", "viola", "alfyn", "elfin", "lynette", "agnes", "mina"]
+speed_tuning_notes: "Ri'tu has 337 speed, dancer 285, warrior 245. Need 285+ speed to outrun dancer."
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-3"
+    phase: "setup"
+    actions:
+      - "Tickling: Slicing Winds (wind hits all enemies)"
+      - "Scarecrow: Running Arrow for anti-attack"
+      - "Mina: Spirited Mole Dance for defense up"
+      - "Viola: Attack debuff on Ri'tu"
+    notes: "Use wind AoE to hit all 3 enemies consistently"
+
+  - turn_range: "4-7"
+    phase: "break_push"
+    actions:
+      - "Focus on Steadfast Swordsman FIRST (protects Ri'tu)"
+      - "Lynette: Incinerating Staff (fire hits Ri'tu weakness)"
+      - "Continue wind attacks for shield shaving"
+      - "Use emergency heals as needed"
+    notes: "Kill swordsman first to remove Guardian Stance protection"
+
+  - turn_range: "8-12"
+    phase: "break_window"
+    actions:
+      - "Target Carefree Dancer second"
+      - "Use light attacks on Ri'tu + dancer"
+      - "Maintain attack debuffs"
+      - "Break and damage during windows"
+    notes: "Dancer provides dangerous P.ATK/CRIT buffs"
+
+  - turn_range: "13-18"
+    phase: "burst"
+    actions:
+      - "Focus on Ri'tu last"
+      - "Watch for pursuit attacks at 50% HP"
+      - "Use evasion for Severing spam at 25% HP"
+      - "Burst Ri'tu down during break windows"
+    notes: "Ri'tu gets pursuit attacks at 50%, Severing spam at 25%"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Defense"
+    sources: ["Mina (Defense Up)", "Mole Dance"]
+    target_cap: "30%+"
+    timing: "Turn 1 onwards"
+
+  - buff_type: "Enemy Attack Down"
+    sources: ["Viola"]
+    target_cap: "30%+"
+    timing: "Turn 1 onwards"
+
+  - buff_type: "Fire Damage"
+    sources: ["Lynette"]
+    target_cap: "Varies"
+    timing: "When targeting Ri'tu"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team uses wind attacks (consistent weakness for all 3 enemies) plus fire/light for specific targets.
+  Lynette's Incinerating Staff is perfect for Ri'tu's fire weakness.
+  Mina provides defense up and light attacks in one package.
+  Team follows proper kill order: Swordsman first, then Dancer, then Ri'tu.
+
+key_synergies:
+  - "Wind attacks hit all 3 enemies consistently"
+  - "Lynette fire damage exploits Ri'tu's fire weakness"
+  - "Mina provides both defense up and light coverage"
+  - "Proper kill order removes dangerous mechanics"
+
+risks_and_recovery:
+  - "Steadfast Swordsman protects Ri'tu with Guardian Stance"
+  - "Carefree Dancer provides P.ATK/CRIT buffs to enemies"
+  - "Ri'tu gains pursuit attacks at 50% HP (extra attacks)"
+  - "Ri'tu uses Severing spam at 25% HP (3000+ damage single hits)"
+  - "Must maintain 1500+ defense to survive attacks"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "~12-15 turns"
+success_rate: "70-80%"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: "lad-youtube-guide"
+source_url: "https://www.youtube.com/watch?v=2CdAJ4BtAJ4"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-25"

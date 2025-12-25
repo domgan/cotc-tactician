@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [bow, polearm]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Newest traveler with 6-star buffs. Mainly deals polearm attacks with other abilities hitting bow weaknesses. Has big nuke attack and latent ability (only original Octopath 2 travelers get this). Strongest merchant currently but will be outshined by future merchants.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Partitio was given strong nuke attack similar to Titus's 6-star EX skill. First character released after major system changes so he's stronger compared to other travelers. Bow abilities will never be used as kit is mainly suited for polearm users. Latent ability is nice but restricted to only merchants.
+
+best_use_cases:
+  - "Polearm weakness coverage with strong nuke potential"
+  - "Teams needing BP restoration and support"
+  - "Merchant-focused team compositions"
+  - "Players wanting strongest current merchant"
+
+weaknesses:
+  - "Will be outshined by future merchants"
+  - "Bow abilities never used - polearm focused kit"
+  - "EX ability locked behind waiting 3 turns"
+  - "Ultimate not worth leveling to 10 if you have EX Agnea"
 
 # Stats (base level)
 hp: 3400
@@ -176,12 +192,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Sanguine Sorcery Striped Tie"
-  passive_effect: "80 P.Atk, 60 Crit; 100% chance to resist some status ailments; When consuming 3 or more BP to use a skill, raise own BP recovery by 1 (turns: 1)"
+  passive_effect: "80 Physical Attack, 60 Critical; 100% chance to resist some status ailments; When consuming 3 or more BP to use a skill, raise own BP recovery by 1 (turns: 1)"
+  notes: "Functional accessory for his kit but nothing particularly special. Standard stats with BP recovery bonus for his high BP consumption skills"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Partitio Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting strong 6-star buffs and future outclassing concerns"
+last_updated: 2025-12-25

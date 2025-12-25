@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [axe, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "healer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Wind damage dealer with Marine Wisdom mechanics that can give Odette a run for her money. Has boatload of SP (562) and abilities that change based on buff count. Marine Wisdom I activates at 8 buffs, Marine Wisdom II at 16 buffs, providing enhanced damage and healing capabilities.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Sofia EX is a summer apothecary focused on wind damage with unique Marine Wisdom mechanics. Her abilities change and become more powerful when she accumulates buffs - Marine Wisdom I at 8 buffs gives SP/BP recovery, while Marine Wisdom II at 16 buffs provides 1.5x damage modifiers and guaranteed critical hits. She has healing capabilities but requires setup to reach full potential.
+
+best_use_cases:
+  - "Wind-focused teams needing high damage output with healing backup"
+  - "Content where her massive SP pool provides sustainability"
+  - "Teams that can help her stack buffs quickly for Marine Wisdom activation"
+  - "Situations requiring both wind damage and healing in one unit"
+  - "Players who want an alternative to Odette for wind coverage"
+
+weaknesses:
+  - "Limited to only wind damage - no multi-axe attacks"
+  - "Requires setup time to stack buffs for Marine Wisdom activation"
+  - "Passive becomes useless against buff-dispelling enemies like Yan Long"
+  - "Physical defense is on lower side for front row positioning"
+  - "Wind is already covered by many characters in current meta"
 
 # Stats (base level)
 hp: 2896
@@ -188,8 +206,10 @@ passives:
 a4_accessory:
   name: "Mermaid Wrap"
   passive_effect: "60 E.Atk, 80 SP; Raise Wind damage dealt by 15%; Start of battle: Raise own Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5% (turns: 3)"
+  notes: "Good accessory that enhances wind damage and provides early battle stat boosts"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: Octopath COTC EX Sofia Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on her Marine Wisdom mechanics and wind damage capabilities"
+last_updated: 2025-12-25

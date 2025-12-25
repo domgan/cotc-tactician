@@ -15,9 +15,25 @@ origin: "Kingdom of Lucrece (Live A Live)"
 weakness_coverage: [dark, fire, ice, lightning, tome, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Scholar with access to five different elemental attacks, mainly proficient in fire, lightning, and wind. Similar to Orad with passive that increases damage the more you use skills in battle. Magic point buildup mechanic like Orad.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Streibough barely cuts it as useful traveler. Against enemy weak to fire he does relatively well with up to 6 shields if he has 6+ magic points. Against lightning/dark he manages with 3 shields. Main problem is buildup mechanic - needs 9 turns for maximum effectiveness.
+
+best_use_cases:
+  - "Fire weakness breaking with up to 6-hit attacks"
+  - "Lightning and wind weakness coverage"
+  - "Teams that can sustain 9+ turn battles for buildup"
+  - "Players wanting nostalgic Live A Live character"
+
+weaknesses:
+  - "Buildup mechanic requires 9 turns for maximum effectiveness"
+  - "Ice and dark attacks are only 1-hit emergency use"
+  - "Nine turns is too long for 15-turn auto-end battles"
+  - "Upcoming fire warrior will make him obsolete"
 
 # Stats (base level)
 hp: 2996
@@ -167,12 +183,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Mage’s Cloak"
-  passive_effect: "70 P.Atk, 700 HP; Start of battle: Provoke All Foes (turns: 3); Start of battle: Fill own Ultimate Technique gauge to 100%"
+  name: "Mage's Cloak"
+  passive_effect: "70 Physical Attack, 700 HP; Start of battle: Provoke All Foes for 3 turns; Start of battle: Fill own Ultimate Technique gauge to 100%"
+  notes: "Combination of Adas A4 and Augustus A4 - great to have as you get both taunt and full ultimate gauge. Main selling point but getting him to A4 requires decision based on resources"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Streibough Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting buildup mechanic limitations and nostalgic value"
+last_updated: 2025-12-25

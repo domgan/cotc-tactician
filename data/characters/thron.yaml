@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [dagger, dark]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Great chill breaker for enemies weak to daggers. Introduces new status element Miss Physical Attack. Second least used character from original eight Octopath 2 characters (just above Temenos). Kit revolves around being fastest to act - speed crucial for her effectiveness.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Throné is good now as a breaker but not great. Can potentially deal up to 12 hits using 6-hit attack + latent ability double cast. Miss Physical Attack status is nice for enemies charging ultimate attacks, but spending 1 turn and 4 BP for one-time infliction is questionable. Most will use her for dagger breaking capabilities.
+
+best_use_cases:
+  - "Dagger weakness breaking with high hit counts"
+  - "Teams needing Miss Physical Attack status infliction"
+  - "Fast-paced teams where she can act first"
+  - "Players needing dedicated dagger breaker"
+
+weaknesses:
+  - "Low HP and physical attack - squishy and won't deal massive damage"
+  - "Will be power crept by future thieves (two coming that will leave current thieves in dust)"
+  - "Limited to dagger/dark damage types"
+  - "Requires high speed investment to be effective"
 
 # Stats (base level)
 hp: 2792
@@ -175,12 +191,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Night Dew Earrings"
-  passive_effect: "60 P.Atk, 80 Spd; Grant Self Phys. Atk. Up 15%; When breaking an enemy, inflict Miss Phys. Attacks (times: 1)"
+  passive_effect: "60 Physical Attack, 80 Speed; Grant Self Physical Attack Up 15%; When breaking an enemy, inflict Miss Physical Attacks (times: 1)"
+  notes: "Niche and nice to have but question if worth using over accessories that give more damage. Miss Physical Attack on break is useful but situational"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Throne Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting breaker role and future power creep concerns"
+last_updated: 2025-12-25

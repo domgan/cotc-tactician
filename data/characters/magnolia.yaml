@@ -15,9 +15,25 @@ origin: "Luxendarc (BRAVELY DEFAULT)"
 weakness_coverage: [lightning, polearm]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  One of the top five strongest polearm users in the game, even still in JP. Second strongest merchant in terms of attack stat (just below future collaboration merchant). Start of the polearm meta until real broken travelers come out. First traveler to get innate 100% potency up added to skill set.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Magnolia is essentially the start of the polearm meta. Her gimmick gives her added effects with speed down, and if you have Sigma, those effects will always proc. She's extremely self-sufficient with 100% potency up when consuming 3+ BP, but somewhat selfish as she doesn't offer noteworthy team support.
+
+best_use_cases:
+  - "Polearm-focused teams needing strong DPS"
+  - "Teams with Sigma for guaranteed speed down procs"
+  - "Content where polearm weakness coverage is essential"
+  - "Players looking to upgrade merchant squad"
+
+weaknesses:
+  - "Can't hit lightning weaknesses with polearm abilities"
+  - "Selfish character - doesn't offer team support"
+  - "Low speed (275 at six stars)"
+  - "Will be replaced by future broken travelers"
 
 # Stats (base level)
 hp: 3360
@@ -175,12 +191,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Moonstone Amulet"
-  passive_effect: "60 P.Atk, 80 SP; Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); Start of battle: Lower Speed of all enemies by 10% (turns: 3)"
+  passive_effect: "60 Physical Attack, 80 SP; Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); Start of battle: Lower Speed of all enemies by 10% for 3 turns"
+  notes: "Okay accessory. 50 SP recovery is nice but requires enemy to have speed down. Not something to chase after but good if you have her"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Magnolia Overview by Vlad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including polearm meta start and 100% potency up mechanics"
+last_updated: 2025-12-25

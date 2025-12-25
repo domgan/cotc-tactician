@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [light, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Memory traveler light warrior with abilities that deal piercing damage to enemies weak to light. Third strongest warrior behind A2 and 2B. Has unique BP recovery mechanics and can cover both swords and light. Better version of Lars that is light-based with more flexibility than Krauser.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Rondo is a memory traveler warrior focused on light damage with piercing mechanics. His abilities deal extra piercing damage to light-weak enemies, and his ultimate provides BP recovery for 4 turns. At max boost, his 3-hit AOE becomes 5 hits, and his nuke always criticals. He's more suited for battles against groups of enemies.
+
+best_use_cases:
+  - "Light-focused teams needing strong warrior damage"
+  - "Content where enemies are weak to light for piercing damage bonus"
+  - "Battles against multiple enemies where his AOE shines"
+  - "Teams needing BP recovery support from his ultimate"
+  - "Players wanting a better version of Lars with light coverage"
+
+weaknesses:
+  - "Limited to swords and light - not much versatility beyond that"
+  - "Warriors are the most abundant job class in the game"
+  - "Better light warriors coming soon (Long Jody mentioned)"
+  - "Stats otherwise not impressive beyond attack power"
+  - "Memory traveler status means limited availability"
 
 # Stats (base level)
 hp: 3212
@@ -167,8 +185,10 @@ passives:
 a4_accessory:
   name: "Crest of Ravus"
   passive_effect: "110 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack); 80 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack)"
+  notes: "Excellent accessory that enhances sword damage and provides BP recovery boost"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: Octopath COTC Rondo Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting his piercing damage to light mechanics and BP recovery capabilities"
+last_updated: 2025-12-25

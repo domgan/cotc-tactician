@@ -22,6 +22,22 @@ role_notes: |
   "Decisive Resolve" for damage reduction.
   Strong sword DPS when not tanking.
 
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Serenoa was a free character in this collaboration. As a provoke tank with strong sword DPS capabilities, he provides solid tanking while contributing damage. His A4 accessory provides auto-provoke at battle start for 3 turns, making him valuable for teams needing immediate tank setup.
+
+best_use_cases:
+  - "Teams needing immediate provoke tank at battle start"
+  - "Content where sword DPS is valuable alongside tanking"
+  - "Players who missed other top-tier provoke tanks"
+  - "Sword-focused teams needing tank coverage"
+
+weaknesses:
+  - "Free character - many players already have him"
+  - "Competition from other provoke tanks in the meta"
+  - "Limited rerun availability outside collaboration periods"
+  - "May not be essential for players with established tank rosters"
+
 # Tank type
 tank_type: provoke
 
@@ -174,6 +190,7 @@ a4_accessory:
   passive_effect: "40 P.Atk, 40 Crit, 300 HP; Start of battle: Provoke All Foes and impart Self with Phys. Def. Up 15% (turns: 3)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Triangle Strategy Rerun Overview by Blad"
+data_notes: "Updated with strategic analysis from YouTube tutorial - noted as free character in collaboration"
+last_updated: 2025-12-25

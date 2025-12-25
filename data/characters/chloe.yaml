@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [bow, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["healer", "buffer", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Mixed bag of goodies hunter who functions as support, healer, DPS, and bow user. Great addition to bow hunter teams. Has fastest speed among hunters at 375 and highest SP. Can reduce bow resistance, heal, and provide unique defense buff through ultimate.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Chloe is a versatile hunter who does everything well - support, healing, DPS, and bow usage. She has a 3-hit AOE bow attack that increases front row physical attack by 10%, and her ultimate provides top-tier AOE healing plus 20% physical attack, defense, and lightning resistance buffs. She's the only 5-star character with AOE defense up from ultimate.
+
+best_use_cases:
+  - "Bow teams needing both damage and support"
+  - "Content where healing and buffing in one unit is valuable"
+  - "Situations requiring taunt capabilities for protection"
+  - "Teams needing bow resistance reduction"
+  - "Players wanting a versatile hunter for hunter tower X5"
+
+weaknesses:
+  - "Lower physical defense compared to other hunters"
+  - "High SP consumption on abilities"
+  - "Added to permanent pool so can be skipped for limited units"
+  - "Competition with Scarecrow who is better physical DPS"
+  - "More of a great all-rounder than specialized"
 
 # Stats (base level)
 hp: 2982
@@ -177,8 +195,10 @@ passives:
 a4_accessory:
   name: "Fragance of Nobles"
   passive_effect: "40 P.Atk, 100 E.Atk; Raise Bow damage dealt by 15%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
+  notes: "Excellent accessory that enhances bow damage and healing potency"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Chloe Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting her as versatile hunter with healing, buffing, and unique defense capabilities"
+last_updated: 2025-12-25

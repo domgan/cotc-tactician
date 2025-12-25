@@ -17,10 +17,25 @@ weakness_coverage: [lightning, sword]
 # Roles
 roles: [buffer, dps]
 role_notes: |
-  Key sword/polearm buffer. 15% sword/polearm damage up to front row (passive).
-  Also active buffs for physical damage.
-  Essential for sword/polearm team compositions.
-  Ultimate provides strong buff.
+  Undoubtedly the best warrior to date. Functions as sub-DPS with amazing sword/polearm buffing abilities. Can buff all sword and polearm users while lowering enemy defenses. Still being used in JP to this day. Essential for sword/polearm team compositions.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Richard is a lightning warrior who functions as both an amazing enabler and solid attacker. His abilities allow him to buff sword and polearm users while debuffing enemies with speed and physical defense reductions. He's the strongest sword user right now with passives that enhance sword/polearm damage by 15% for front row at full HP.
+
+best_use_cases:
+  - "Sword and polearm focused teams needing damage enhancement"
+  - "Content where enemy speed and defense debuffs are valuable"
+  - "Warrior teams requiring both damage and support"
+  - "Players needing the best sword user available"
+  - "Memory traveler priority for long-term investment"
+
+weaknesses:
+  - "Memory traveler with 4500 ruby pity for featured character"
+  - "Most attacks are random target, less effective against groups"
+  - "Time-limited availability requiring strategic ruby management"
+  - "High SP consumption on abilities"
+  - "Requires careful planning for free-to-play players"
 
 # Tank type
 tank_type: none
@@ -198,10 +213,12 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "New King’s Cloak"
+  name: "New King's Cloak"
   passive_effect: "40 P.Atk, 60 Spd, 40 SP; Raise Sword damage dealt by 15%; Grant automatic HP recovery (amount: 500)"
+  notes: "Excellent accessory that enhances sword damage and provides sustain"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC Richard Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting him as best warrior to date with sword/polearm enhancement capabilities"
+last_updated: 2025-12-25

@@ -15,9 +15,26 @@ origin: "Orsterra"
 weakness_coverage: [dagger, ice]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Ice thief support character that amplifies damage for other dagger users. Think of him as a deep version of Dorothea. Has 20% damage increase against broken enemies and 15% dagger damage buff for front row at full HP.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Falco is a dagger support character designed to enable high DPS from other dagger users. His entire kit focuses on amplifying dagger damage through passives and buffs. He has 20% damage increase against broken enemies and provides 15% dagger damage buff to front row at full HP. His ultimate also raises dagger damage for front row by 5-10%.
+
+best_use_cases:
+  - "Dagger parties with multiple dagger users to maximize damage"
+  - "Teams with Therion, Ritu, or Ardell as main DPS"
+  - "Situations requiring consistent shield breaking"
+  - "Content where dagger coverage is needed"
+
+weaknesses:
+  - "Lowest attack among thieves alongside Heathcote"
+  - "Lowest speed among thieves alongside Ritu"
+  - "Requires other dagger users to shine"
+  - "DPS capabilities and breaking abilities are subpar compared to dedicated thieves"
+  - "More of a convenience unit than essential"
 
 # Stats (base level)
 hp: 2902
@@ -197,8 +214,10 @@ passives:
 a4_accessory:
   name: "Memorial Brush"
   passive_effect: "60 P.Atk, 40 P.Def, 40 E.Def; Raise Dagger damage by 15%; Grant Self automatic HP recovery (amount: 500)"
+  notes: "Good accessory that enhances dagger damage and provides sustain"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Falco Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on his role as dagger damage amplifier and support character"
+last_updated: 2025-12-25

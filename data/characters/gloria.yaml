@@ -15,9 +15,25 @@ origin: "Excillant (BRAVELY DEFAULT II)"
 weakness_coverage: [ice, light, staff]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["healer", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Rather underwhelming cleric - almost all skills are things we've seen before, doesn't bring much new to table. Little bit better compared to current supports and healers. Passive gives HP barrier when restoring HP at max HP, and TP passive gives 30% damage reduction after using attack skill.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Gloria is lacking in many areas for future standards. There's going to be a future Apothecary that will replace Renu, EX Lani, and even Gloria. If you currently have Renu, EX Primrose, or Agnea, you don't need to pull for Gloria. Her abilities are nice to have but nothing gamebreaking.
+
+best_use_cases:
+  - "Teams needing ice and light elemental coverage"
+  - "Players without dedicated healer/support characters"
+  - "Content requiring HP barriers and damage reduction"
+  - "Teams that can utilize her elemental attack buffs"
+
+weaknesses:
+  - "Underwhelming skills - nothing new to table"
+  - "Will be replaced by future Apothecary"
+  - "HP barrier passive requires ally at max HP (defeats purpose)"
+  - "TP skill has 3-turn delay - timing issues"
 
 # Stats (base level)
 hp: 2782
@@ -175,12 +191,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Silver Sewing Kit"
-  passive_effect: "80 E.Atk, 60 SP; Start of battle: Grant Entire Front Row a HP barrier (potency: 25% user’s max HP/Does not stack); At full HP: Extend duration of augmenting effects granted by Self by 1 turn (Does not stack)"
+  passive_effect: "80 Elemental Attack, 60 SP; Start of battle: Grant Entire Front Row HP barrier (25% user's max HP); At full HP: Extend duration of augmenting effects granted by Self by 1 turn"
+  notes: "Nice especially the buff extension, but as collaboration traveler not worth chasing. Collab units don't get Awakening Stones in exchange tab. Better to chase Juum's or EX Primrose's A4 accessories"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Gloria Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting underwhelming cleric role and future replacement"
+last_updated: 2025-12-25

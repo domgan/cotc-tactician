@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [dark, fan, ice]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  First general pool unit from Celestia. Skills are kind of all over - wants to do a little bit of everything but main role is heart of elemental team. Enables light/dark/fire/ice elemental attackers to shine with 30% damage cap to those elemental attacks.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Neha is in same tier as EX Hunted and EX Primrose, perhaps just a tier below. The problem: we have the sauce but no meat - allows elemental teams to shine but don't have outstanding elemental travelers. COTC heavily favors physical attackers, making her obsolete until we get more love for elemental travelers.
+
+best_use_cases:
+  - "Elemental teams needing damage cap increases and crit support"
+  - "Light/dark/fire/ice elemental attackers synergy"
+  - "Teams that can maintain her below 50% SP for passive activation"
+  - "Content where elemental damage is primary damage source"
+
+weaknesses:
+  - "No outstanding elemental travelers to fully utilize her support"
+  - "SP must be below 50% for main passive - requires management headache"
+  - "Coming out as 5-star, not 6-star at release"
+  - "Physical attackers heavily favored in current meta"
 
 # Stats (base level)
 hp: 2776
@@ -184,12 +200,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Starshadow Crystal Ball"
-  passive_effect: "80 Crit, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When in back row: Raise Phys. Def. and Elem. Def. of Paired Ally by 15%"
+  passive_effect: "80 Critical, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When in back row: Raise Physical Defense and Elemental Defense of Paired Ally by 15%"
+  notes: "Rather useless A4 accessory. Stats all over place, skill is rather useless, and defense buffs are nice but not worth pulling for"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Neha Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting elemental support role and current meta limitations"
+last_updated: 2025-12-25

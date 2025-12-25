@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [fan, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Wind dancer with good breaking capabilities and buffing skills. Passive is inverse of EX Sophus - when giving allies buffs, also buffs them with Passion passive. Depending on number of characters with Passion, gains level 1 or level 2 passive affecting abilities with extra effects.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Agnea has high potential for fast clears with overcomplicated passive system. With Augustus A4 accessory or Wills, can get ultimate right away and provide strong buffs quickly. Within 3-4 turns can provide very strong buffs meant for quick clears. All abilities flow well together but are buffs/debuffs we've seen before.
+
+best_use_cases:
+  - "Fast clear teams needing quick buff setup"
+  - "Wind and fan weakness breaking with up to 7 hits"
+  - "Teams that can utilize her Passion passive system"
+  - "Content requiring speed and efficiency"
+
+weaknesses:
+  - "Overcomplicated passive system requiring setup"
+  - "Low HP and physical defense - squishy"
+  - "Abilities are things we've seen before"
+  - "Must switch out one traveler from eight to include her"
 
 # Stats (base level)
 hp: 2776
@@ -200,12 +216,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Deceased Mother Hair Ornament"
-  passive_effect: "40 Spd, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
+  passive_effect: "40 Speed, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
+  notes: "Good accessory, not must-have but really nice to have. Same can be said about Agnea - nice to have unit that provides quick buffs to entire team"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Agnea Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting fast clear potential and complicated passive system"
+last_updated: 2025-12-25

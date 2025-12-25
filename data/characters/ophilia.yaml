@@ -15,9 +15,26 @@ origin: "Orsterra"
 weakness_coverage: [light, staff]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["healer", "buffer", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Best cleric in the game with unique revive capabilities. Second character with 3-hit staff attack and 4-hit light attack. Only non-limited character with revive access. Provides AOE healing, buffing, debuff removal, and effective shield breaking.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Ophilia is the best healer in the game for the long term, replacing both Millard and Hikari for most players. Her unique ability to revive with AOE ultimate makes her invaluable. She has high SP (470) compared to other clerics and provides comprehensive support with healing, buffing, debuff removal, and shield breaking capabilities.
+
+best_use_cases:
+  - "Primary healer for any team composition"
+  - "Teams needing AOE revive capabilities"
+  - "Content requiring status ailment removal"
+  - "Shield breaking with staff and light attacks"
+  - "Long-term investment for free-to-play players"
+
+weaknesses:
+  - "Slowest speed among clerics (291, 40 points slower than Anya)"
+  - "High SP consumption on abilities"
+  - "Limited to free-to-play banner availability initially"
+  - "Requires careful SP management due to high costs"
 
 # Stats (base level)
 hp: 2757
@@ -180,8 +197,10 @@ passives:
 a4_accessory:
   name: "Flower Bookmark"
   passive_effect: "40 E.Atk, 400 HP, 60 SP; Raise Light damage dealt by 15%; 30% chance of resisting some status ailments"
+  notes: "Excellent accessory for light damage build with status ailment resistance and SP boost"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Ophilia Overview: The Best Cleric To Date by Lad"
+data_notes: "Updated with strategic analysis highlighting her as best long-term healer investment with unique revive capabilities"
+last_updated: 2025-12-25

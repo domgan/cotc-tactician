@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [fire, light, tome]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["healer", "buffer", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Fire and light scholar who functions as two-in-one package. Can cover both fire and light elements while providing healing, revival, and support. Fifth character in game able to revive. Ultimate increases max HP by 20-25% for entire party - unique and potentially game-changing.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Alaune is a versatile scholar who combines fire and light damage with full cleric capabilities. She can heal, revive, and provide damage output with both elements. Her unique ultimate increases entire party's maximum HP by 20-25% and provides healing, making her valuable for survival scenarios. She represents the new trend of characters covering multiple abilities.
+
+best_use_cases:
+  - "Teams needing both fire and light coverage with healing support"
+  - "Content where max HP increase provides survival advantage"
+  - "Players lacking reviving clerics or fire/light users"
+  - "Situations requiring versatile scholar with healing capabilities"
+  - "Teams that can benefit from her unique max HP enhancement"
+
+weaknesses:
+  - "Memory traveler requiring strategic ruby investment"
+  - "Competition from established fire users like Aryan God and Mulan"
+  - "Limited light users with Ophelia being limited sacred blaze unit"
+  - "Too many good abilities making selection difficult"
+  - "May be below par compared to other memory travelers"
 
 # Stats (base level)
 hp: 2906
@@ -165,10 +183,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Queen of Edoras’ Cape"
+  name: "Queen of Edoras' Cape"
   passive_effect: "40 E.Atk, 60 Spd, 400 HP; At 50% HP or less: Raise Phys. Def. by 30%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC Alaune Overview by Lad"
+data_notes: "Updated with strategic analysis highlighting her as two-in-one fire/light scholar with unique max HP enhancement"
+last_updated: 2025-12-25

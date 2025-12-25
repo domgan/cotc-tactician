@@ -15,9 +15,25 @@ origin: "Dominion of Hate (Live A Live)"
 weakness_coverage: [dark, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dark warrior embodying Dark Knight features - deals damage to self/allies to inflict massive damage. Has 5-6 hit ability at all times and possible 8-hit AOE attack. Savior for dark weakness coverage. Still widely used on JP side.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  O. Odio is good and will be best warrior for a while. Can keep allies HP up and potentially use AOE sword/dark attack every 2 turns. Support skill as warrior is amazing - front row takes 50% max HP damage but gets 20% damage up and dead aim. Straightforward to use.
+
+best_use_cases:
+  - "Dark weakness coverage with high hit counts"
+  - "Teams that can maintain HP above 60% for his abilities"
+  - "Content requiring massive dark damage output"
+  - "Players needing best current dark warrior"
+
+weaknesses:
+  - "Must keep allies HP above 60% to avoid damaging them"
+  - "Requires careful turn order - want him to act last"
+  - "Alia has advantage in usefulness (can also hit light weakness)"
+  - "Self-damaging abilities require HP management"
 
 # Stats (base level)
 hp: 3092
@@ -165,12 +181,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Crux of Hatred"
-  passive_effect: "70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 50% HP or less: Reduce own damage taken from some attacks by 20%"
+  passive_effect: "70 Physical Attack, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 50% HP or less: Reduce own damage taken from some attacks by 20%"
+  notes: "Functional accessory for survivability but nothing particularly special. Standard warrior stats with survival mechanics"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: O. Odio Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting best dark warrior status and HP management requirements"
+last_updated: 2025-12-25

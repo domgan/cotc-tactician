@@ -15,9 +15,25 @@ origin: "Norzelia (TRIANGLE STRATEGY)"
 weakness_coverage: [lightning, polearm]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["debuffer", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Possibly the better character of the Triangle Strategy trio. Main role is inflicting passive polearm resist down - was previously buffed in global version. Still a traveler worth bringing in polearm squads. Global buffs made him the ultimate passive polearm resist down traveler in game. Can cap out polearm resist to 30% using two different skills plus second passive procs. Ultimate gives 15% to 20% polearm resist down that stacks with other debuffs.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Roland is a decent traveler for enemies weak to polearms. His main value comes from being one of the few travelers that can lower polearm resist down as his ultimate, and this ultimate debuff stacks with other debuffs in the game. For free-to-play players, he's worth considering if you need polearm support. For those who spend a little, getting one copy to ultimate level 10 is valuable.
+
+best_use_cases:
+  - "Polearm-focused teams needing resistance down debuffs"
+  - "Teams that can stack multiple resistance down effects"
+  - "Content where polearm weakness coverage is needed"
+  - "Players lacking dedicated polearm debuffers"
+
+weaknesses:
+  - "Limited to polearm damage type"
+  - "Accessory will get replaced as more travelers get passive equipment buffs"
+  - "Not essential if you already have good polearm users"
+  - "Rerun character - can skip if you have adequate polearm support"
 
 # Stats (base level)
 hp: 3020
@@ -176,12 +192,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Royal Ring of Glenbrook"
-  passive_effect: "100 P.Atk, 40 Spd; When switching to Front Row: Increase Phys. Atk. by 15% and raise Polearm damage dealt by 15% (turns: 1)"
+  passive_effect: "102 Physical Attack, 40 Speed; When switching to Front Row: Increase Phys. Atk. by 15% and raise Polearm damage dealt by 15% (turns: 1)"
+  notes: "Nice to have now but will get replaced in the future as more travelers can increase party's passive and equipment buffs"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Triangle Strategy Rerun Overview by Blad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including pull recommendations and role assessment"
+last_updated: 2025-12-25

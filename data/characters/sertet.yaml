@@ -15,9 +15,25 @@ origin: "Orsterra"
 weakness_coverage: [bow, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Wind hunter introducing new status element Erosion (same as combustion - enemy takes damage then loses one shield). Also introduces physical resistance down status effect. Can stack with combustion users to shave off two shields per turn.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Sertet is a safe skip - joining general pool after banner so not worth pulling. Main selling point is physical resistance down but does terrible job maintaining it. Must apply corrosion first, then use ability that applies physical resistance down which removes corrosion - biggest flaw.
+
+best_use_cases:
+  - "Hunter-only squads needing bow damage"
+  - "Teams with other combustion users for shield shaving"
+  - "Content where bow and wind weaknesses are present"
+  - "Players needing corrosion status infliction"
+
+weaknesses:
+  - "Cannot maintain physical resistance down for long duration"
+  - "Must reapply corrosion after using physical resistance down ability"
+  - "Massive nuke attack has 300 SP cost and doesn't hit wind weakness"
+  - "Game caters to multi-weakness characters, she's limited to bow/wind"
 
 # Stats (base level)
 hp: 3082
@@ -179,12 +195,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Detof’s Clan Quiver"
-  passive_effect: "70 P.Atk, 70 Crit; Raise Bow damage dealt by 15%; Lower SP consumption by 15% (Effects do not stack)"
+  name: "Detof's Clan Quiver"
+  passive_effect: "70 Physical Attack, 70 Critical; Raise Bow damage dealt by 15%; Lower SP consumption by 15%"
+  notes: "Functional accessory for bow damage but nothing particularly special. Standard stats with bow damage boost and SP reduction"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Sertet Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting safe skip status and physical resistance down maintenance issues"
+last_updated: 2025-12-25

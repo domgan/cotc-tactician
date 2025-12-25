@@ -15,9 +15,24 @@ origin: "Solistia"
 weakness_coverage: [axe]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  General pool apothecary that inflicts combustion with skills. High physical attack stat (top 4 even in JP at 470) but skills are lackluster. Only second passive (crit inflicts combustion and 15% axe resist down) is somewhat useful. Becomes obsolete if enemy is immune to combustion.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Jane falls under the category of general pool units that are not great. A general rule of thumb is that general pool units are usually not that good, and Jane sadly fits this category. She could be useful with a party filled of axe users, but has no other uses beyond that.
+
+best_use_cases:
+  - "Axe-focused teams needing combustion support"
+  - "Content where enemies are weak to axe and not immune to combustion"
+  - "Players lacking other axe DPS options"
+
+weaknesses:
+  - "Becomes obsolete if enemy is immune to combustion"
+  - "Mediocre skills despite high attack stat"
+  - "Only useful for axe teams, very niche"
+  - "Outclassed by other general pool and limited units"
 
 # Stats (base level)
 hp: 3075
@@ -174,12 +189,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Monster Cooking Recipe Collection"
-  passive_effect: "80 P.Atk, 20 Crit, 40 SP; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3); Start of battle: Cause all enemies to combust (turns: 3)"
+  passive_effect: "80 Physical Attack, 20 Crit, 40 SP; When breaking an enemy, lower their Physical Defense by 10% for 3 turns; Start of battle: Cause all enemies to combust for 3 turns"
+  notes: "Okay accessory but nowhere as good as Canari's. Better to work towards Canari's A4 (15% physical defense down + 15% dagger resist down). Wouldn't prioritize Jane's A4"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Jane Overview by Vlad"
+data_notes: "Updated with strategic analysis from YouTube tutorial - noted as general pool unit with limited viability"
+last_updated: 2025-12-25

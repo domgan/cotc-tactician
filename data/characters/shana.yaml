@@ -15,9 +15,26 @@ origin: "Orsterra"
 weakness_coverage: [axe, lightning, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "healer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  The one who potentially benches all current supports. A little bit of all current best supports put into one. Introduces new SP stock concept - think HP barrier of SP. Can replace multiple support characters at once, freeing up slots for other travelers. Game-changing support for both fast clears and long battles.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Shana is potentially going to be in everyone's team and is still used in JP for future difficult battles. She introduces SP stocks which revolutionizes SP management. Her EX skill after consuming 60% SP gives all allies 20,000 damage cap up, BP recovery of 3 for one turn, and Undying. This can replace EX Millard, EX Primrose, and Renu simultaneously.
+
+best_use_cases:
+  - "Teams needing to replace multiple support slots with one character"
+  - "Long battles where SP management is critical"
+  - "Content requiring damage cap increases and BP recovery"
+  - "Fast clear teams needing comprehensive support"
+  - "Future collaboration content requiring specific support setups"
+
+weaknesses:
+  - "Incredibly SP hungry - EX and support skills consume 60% of SP bar"
+  - "Requires high SP investment (650 at level 120)"
+  - "Need to pull for upcoming thief to complement her perfectly"
+  - "Competition with established supports for limited slots"
 
 # Stats (base level)
 hp: 2930
@@ -173,12 +190,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Traveler’s Cape"
-  passive_effect: "140 SP; 100% chance of resisting some status ailments; Grant Self SP Stock when consuming 3 or more BP (amount: 10% of user’s max SP/does not stack)"
+  name: "Traveler's Cape"
+  passive_effect: "140 SP; 100% chance of resisting some status ailments; Grant Self SP Stock when consuming 3 or more BP (amount: 10% of user's max SP)"
+  notes: "Not must-have but nice to have if you get her. The 100% status immunity is great but won't cover future status elements. Mainly good for her since she provides SP stocks for other travelers anyway"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Shana Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including SP stock mechanics and support replacement capabilities"
+last_updated: 2025-12-25

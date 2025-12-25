@@ -15,9 +15,25 @@ origin: "Orsterra"
 weakness_coverage: [axe, ice]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "healer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  DPS showcase character with Last Stand mechanic that doubles damage at 10% HP. Built around team composition with Viola's debuffs and physical attack buffs to reach damage caps. Can also provide healing support with Pomegranate Panacea.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Alfyn is a DPS character with unique Last Stand mechanic that doubles damage when HP is 10% or lower. Best used in teams built around him with Viola for defense debuffs and physical attack buffers to reach 30% caps. His Crumbling Cut combined with Viola's debilitate allows reaching 30% physical defense down on enemies.
+
+best_use_cases:
+  - "DPS showcase teams built around his Last Stand mechanic"
+  - "Teams with Viola for defense debuffs and physical attack buffers"
+  - "Situations where high single-target damage is needed"
+  - "Teams that can maintain his HP at low levels for maximum damage"
+
+weaknesses:
+  - "Requires specific team composition to reach full potential"
+  - "Last Stand mechanic requires careful HP management"
+  - "Needs support from debuffers and buffers to be effective"
+  - "Relatively low speed compared to other DPS characters"
 
 # Stats (base level)
 hp: 3235
@@ -167,10 +183,12 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dreamer’s Medicine Box"
+  name: "Dreamer's Medicine Box"
   passive_effect: "40 P.Atk, 40 P.Def, 600 HP; Raise axe damage by 15%; At 75% HP or less: Raise P.Atk by 15%"
+  notes: "Functional accessory that enhances axe damage and provides attack boost at low HP, synergizing with Last Stand mechanic"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: Octopath Traveler COTC ALFYN DPS SHOWCASE!!! by Lad"
+data_notes: "Updated with strategic analysis focusing on Last Stand mechanic and team composition requirements"
+last_updated: 2025-12-25

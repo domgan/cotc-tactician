@@ -15,9 +15,25 @@ origin: "Kingdom of Lucrece (Live A Live)"
 weakness_coverage: [dark, fire, polearm, staff, sword, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Wind warrior from Live A Live collaboration, free traveler for everyone. Able to hit multiple weaknesses with damage that increases in battle as passive raises potency. Has 4-hit AOE sword attack and Valor point buildup system.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Oersted is absolutely amazing for new players and free-to-play - will carry them far through story. Outshines all warriors up until Richard and Rondo. Has 4-hit AOE sword attack with high SP cost but amazing for teams against multiple enemies weak to sword.
+
+best_use_cases:
+  - "New player progression and story clearing"
+  - "Sword weakness breaking with 4-hit AOE attacks"
+  - "Teams needing multi-weakness coverage"
+  - "Free-to-play players lacking good warriors"
+
+weaknesses:
+  - "Requires 9 turns to reach maximum 45% potency boost"
+  - "Single-hit attacks for staff/polearm make breaking difficult"
+  - "Gets outshined quickly by players with most warriors"
+  - "Low speed (270) means acts at end of turn order"
 
 # Stats (base level)
 hp: 3232
@@ -168,12 +184,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Hero’s Bracer"
-  passive_effect: "70 P.Atk, 70 P.Def; Reduce SP consumption by 20%"
+  name: "Hero's Bracer"
+  passive_effect: "70 Physical Attack, 70 Physical Defense; Reduce SP consumption by 20%"
+  notes: "Niche accessory with physical attack/defense and SP cost reduction. Not crazy but functional for his high SP cost abilities"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Oersted Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting excellent free unit status and new player value"
+last_updated: 2025-12-25

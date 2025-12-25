@@ -15,9 +15,25 @@ origin: "Norzelia (TRIANGLE STRATEGY)"
 weakness_coverage: [fire, tome]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  For six stars, her TP passive gives her access to double casting upon breaking an enemy, similar to Oshad. This somewhat turns her into a breaker role, but she is still only limited to fire elemental attacks. Has strong fire damage output with combustion mechanics and decent breaking capabilities for fire-weak enemies.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Frederica is severely limited to only enemies weak to fire. Her TP skill does help with shaving shields as it's a five-hitter to fire and inflicts combustion, but the fire limitation is significant. For free-to-play players, it's possibly worth skipping on her unless you specifically need fire coverage and breaking.
+
+best_use_cases:
+  - "Teams needing fire elemental breaker capabilities"
+  - "Content where enemies are weak to fire"
+  - "Players lacking dedicated fire breakers"
+  - "Teams that can utilize combustion mechanics"
+
+weaknesses:
+  - "Severely limited to only fire elemental attacks"
+  - "Limited usefulness against non-fire-weak enemies"
+  - "A4 accessory is more nice-to-have than essential"
+  - "Competition from other fire users in the meta"
 
 # Stats (base level)
 hp: 2976
@@ -175,12 +191,14 @@ passives:
     trigger: on_break
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Orlaea’s Pendant"
-  passive_effect: "100 E.Atk, 40 E.Def; Start of battle: Cause all enemies to combust (turns: 3); Raise Elem. Atk. of Entire Front Row by 15% when a combusted enemy is present; 100 E.Atk, 40 E.Def; Impart Entire Front Row Elem. Atk. Up 10% when a combusted enemy is present; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+  name: "Orlaea's Pendant"
+  passive_effect: "100 Elemental Attack, 40 Defense; Start of battle: Cause all enemies to combust for 3 turns and raise front row attack by 15% when combusted enemy is present"
+  notes: "Decent accessory but not all that great - more of a nice to have rather than a need. Will get replaced as more travelers can passively give physical or elemental attack buffs"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Triangle Strategy Rerun Overview by Blad"
+data_notes: "Updated with strategic analysis from YouTube tutorial including TP passive double casting and fire limitation assessment"
+last_updated: 2025-12-25

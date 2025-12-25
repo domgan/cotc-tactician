@@ -15,9 +15,25 @@ origin: "Orsterra"
 weakness_coverage: [fire, light, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Fire and Light Warrior from the big three in Orsterra (him, Orlick, Alia). Still being used by JP players as one of the best fire attacking travelers. Has blade master passive that enhances boost level by one and blazing spirit that restores BP when breaking enemies.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Sazantos is the top three warriors to pull for on the Orsterra side. Currently we don't have a notable traveler for fire weakness - Cantos does this well with sore damage capability. In terms of usability and breaking multiple enemies, Sazantos is above Alia, but for single target damage Alia has upper hand with 10 hits.
+
+best_use_cases:
+  - "Fire weakness coverage with high damage output"
+  - "Teams needing BP restoration and support"
+  - "Breaking multiple enemies with AOE attacks"
+  - "Content requiring fire and light damage"
+
+weaknesses:
+  - "Low speed compared to other attackers"
+  - "Alia outclasses him for single target damage (10 hits vs 8)"
+  - "Requires BP management for maximum effectiveness"
+  - "Limited to fire and light damage types"
 
 # Stats (base level)
 hp: 3112
@@ -184,12 +200,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
-  name: "Flameguard’s Cloak"
-  passive_effect: "60 P.Atk, 400 HP, 40 SP; Grant Self automatic SP recovery (amount: 40) when broken enemy is present; Start of battle: Raise own BP recovery amount by 1 (turns: 3). (Does not stack with support skills and equipment effects)"
+  name: "Flameguard's Cloak"
+  passive_effect: "60 Physical Attack, 400 HP, 40 SP; Grant Self automatic SP recovery (amount: 40) when broken enemy is present; Start of battle: Raise own BP recovery amount by 1 for 3 turns"
+  notes: "All that grade accessory - wouldn't chase after it. Functional but not essential compared to his core abilities"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Sazantos Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting best fire warrior status and BP management capabilities"
+last_updated: 2025-12-25

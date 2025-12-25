@@ -15,9 +15,25 @@ origin: "Dominion of Hate (Live A Live)"
 weakness_coverage: [dark, fire, staff]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dark and fire cleric wanting to be scholar but also providing healing and reviving. Kid is weird as he wants to be elemental DPS but also wants to heal - sadly does none of that well. Has strong nuke attack but shield breaking abilities barely passable.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  S. Odio feels out of place as elemental attacker - not great. Eternal curse passive feels like actual curse than passive with big nuke requiring 300 SP. Last thing you want is SP sapping every turn. Support abilities decent but nothing to gas over. HP-based buffs almost never proc in battle.
+
+best_use_cases:
+  - "Dark and fire weakness coverage with strong nuke potential"
+  - "Teams needing emergency healing and revival"
+  - "Content where status ailment infliction is valuable"
+  - "Players who accidentally pull him and want to use occasionally"
+
+weaknesses:
+  - "All over the place - doesn't do anything well"
+  - "Eternal curse passive saps SP every turn with 300 SP nuke"
+  - "HP-based buffs almost never proc in real battles"
+  - "Barely passable shield breaking (only 3 hits for fire/dark)"
 
 # Stats (base level)
 hp: 2722
@@ -167,12 +183,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Crux of Despair"
-  passive_effect: "70 E.Atk, 70 SP; Grant automatic SP recovery (amount: 40)"
+  passive_effect: "70 Elemental Attack, 70 SP; Grant automatic SP recovery (amount: 40)"
+  notes: "Functional accessory but nothing particularly special. Standard stats with SP recovery that doesn't compensate for his eternal curse passive"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: S. Odio Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting disappointing all-over-the-place kit and eternal curse issues"
+last_updated: 2025-12-25

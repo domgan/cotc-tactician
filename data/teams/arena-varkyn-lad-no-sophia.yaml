@@ -1,0 +1,193 @@
+# COTC Team: Varkyn - Lad's NO SOPHIA Team
+# SOURCE: Octopath Traveler COTC Varkyn Cup NO SOPHIA. FT FIORE, TRISH, SIGRID
+# STRATEGY: Multi-target focus with debuffs and anti-attack
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: "arena-varkyn-lad-no-sophia"
+name: "Lad's NO SOPHIA Team"
+boss_id: "arena-varkyn"
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: "sustain"
+investment_level: "high"
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: "scarecrow"
+    role_in_team: "breaker"
+    is_required: true
+    substitutes: ["lucetta"]
+    substitute_notes: "Any character that can hit both adds effectively"
+    key_skills_used: ["Multi-target attacks", "Shield shaving"]
+    accessory_requirements: ["Breaking accessories"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: "trish"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: ["fiore"]
+    substitute_notes: "High damage physical attacker"
+    key_skills_used: ["Hermit's Might (3x single target)", "Guillotine"]
+    accessory_requirements: ["Physical attack accessories"]
+    awakening_required: 3
+
+  - position: 3
+    character_id: "sigrid"
+    role_in_team: "secondary_dps"
+    is_required: true
+    substitutes: ["thame", "sazantos"]
+    substitute_notes: "Sword user with multi-hit capabilities"
+    key_skills_used: ["Trifold Slash", "Stunning Strike"]
+    accessory_requirements: ["Sword damage accessories"]
+    awakening_required: 4
+
+  - position: 4
+    character_id: "millard"
+    role_in_team: "healer"
+    is_required: false
+    substitutes: ["temenos", "ophilia"]
+    substitute_notes: "Healer with enhanced healing and protection"
+    key_skills_used: ["Guardian Aura", "Enhanced healing"]
+    accessory_requirements: ["Healing accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: "pia"
+    role_in_team: "utility"
+    is_required: false
+    substitutes: ["serenoa", "gilderoy"]
+    substitute_notes: "Character with taunt and attack buff"
+    key_skills_used: ["Take Command (taunt + 15% attack buff)"]
+    accessory_requirements: ["Taunt accessories"]
+    awakening_required: 4
+
+  - position: 6
+    character_id: "viola"
+    role_in_team: "debuffer"
+    is_required: true
+    substitutes: ["therion", "canary"]
+    substitute_notes: "Character with attack debuff and emergency break"
+    key_skills_used: ["Attack debuff", "Double Wide Burst"]
+    accessory_requirements: ["Debuff accessories"]
+    awakening_required: 4
+
+  - position: 7
+    character_id: "agnes"
+    role_in_team: "healer"
+    is_required: false
+    substitutes: ["shana", "nefty"]
+    substitute_notes: "Healer with raise capabilities"
+    key_skills_used: ["Healing", "Raise"]
+    accessory_requirements: ["Healing accessories"]
+    awakening_required: 4
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: ["scarecrow", "trish", "sigrid", "millard", "pia", "viola", "agnes"]
+speed_tuning_notes: "Speed 285+ needed to outrun researcher. Most characters should be faster than adds."
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-3"
+    phase: "setup"
+    actions:
+      - "Scarecrow: Multi-target attacks on adds"
+      - "Trish: Hermit's Might on researcher"
+      - "Sigrid: Trifold Slash on adds"
+      - "Viola: Attack debuff on Varkyn"
+    notes: "Focus on taking out researcher first, then dancer"
+
+  - turn_range: "4-6"
+    phase: "break_push"
+    actions:
+      - "Continue focusing researcher"
+      - "Get Varkyn down to 50% HP"
+      - "Take out dancer when researcher dies"
+      - "Use Viola anti-attack when needed"
+    notes: "Researcher death triggers Spirit Stone summon"
+
+  - turn_range: "7-10"
+    phase: "sustain"
+    actions:
+      - "DO NOT USE BUFFS (Spirit Stone dispels them)"
+      - "Only use DEBUFFS on enemies"
+      - "Track Spirit Stone weakness cycle: Staff → Sword → Ice"
+      - "Break Varkyn and damage during break windows"
+    notes: "Spirit Stone phase - buffs are useless"
+
+  - turn_range: "11-15"
+    phase: "burst"
+    actions:
+      - "Break Varkyn just before 35% HP"
+      - "Burst damage during break window"
+      - "Spread attackers between front/back for SP drain backup"
+      - "Use emergency heals as needed"
+    notes: "Musou Munen phase at 35% HP - dangerous attacks"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Enemy Attack Down"
+    sources: ["Viola"]
+    target_cap: "30%+"
+    timing: "Turn 1 onwards (only debuffs work!)"
+
+  - buff_type: "Party Attack Up"
+    sources: ["Pia (Take Command)"]
+    target_cap: "15%"
+    timing: "When needed (will be dispelled by Spirit Stone)"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team focuses on eliminating adds first to trigger Spirit Stone, then adapts to buff-dispel mechanics.
+  Trish provides highest damage output with Hermit's Might.
+  Scarecrow effectively hits both adds for shield shaving.
+  Viola's attack debuffs are crucial since buffs get dispelled.
+  Team avoids using buffs after Spirit Stone appears.
+
+key_synergies:
+  - "Trish highest damage dealer with Hermit's Might + Guillotine"
+  - "Scarecrow multi-target coverage for both adds"
+  - "Viola attack debuffs work even when buffs are dispelled"
+  - "Pia's Take Command provides attack buff before dispels start"
+
+risks_and_recovery:
+  - "Spirit Stone dispels ALL buffs every turn"
+  - "Spirit Stone has infinite shields - cannot be broken"
+  - "At Varkyn HP ≤50%: Spirit Stone gains double actions + weakness counter"
+  - "Musou Munen at 35% HP causes extremely dangerous attacks"
+  - "Must track Spirit Stone weakness cycle to avoid counter attacks"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "~15-20 turns"
+success_rate: "60-70%"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: "lad-youtube-guide"
+source_url: "https://www.youtube.com/watch?v=Ozdb7vh_hpo"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-25"

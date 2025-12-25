@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [axe, fire]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Fire apothecary focused on inflicting bleed and dealing more damage with bleed. Kit similar to Jillmeila. Strongest apothecary to date with 420 physical attack. First apothecary to give 15% axe damage to entire party and able to debuff enemy defenses by 20%.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Hayes is a fire apothecary who functions as a basic all-in-one package with bleed mechanics. He has multi-hit attacks that allow him to go first, and his damage output increases when enemies are inflicted with bleed. He's the first apothecary to provide 15% axe damage to the entire party and can debuff enemy physical defense by 20% when breaking enemies.
+
+best_use_cases:
+  - "Teams needing fire and axe coverage with bleed setup"
+  - "Players lacking a good apothecary for upcoming apothecary/scholar towers"
+  - "Situations where high physical damage with bleed is valuable"
+  - "Teams that can benefit from enemy defense debuffs"
+  - "Content where going first with multi-hit attacks is advantageous"
+
+weaknesses:
+  - "No competition with Elfin who is just too good"
+  - "Lowest physical defense and SP among apothecaries"
+  - "Random target axe attack limits reliability"
+  - "Doesn't have multi-hit fire attack"
+  - "More of a nice-to-have unit than essential"
 
 # Stats (base level)
 hp: 3170
@@ -167,8 +185,10 @@ passives:
 a4_accessory:
   name: "Compelling Spirit"
   passive_effect: "70 P.Atk, 70 E.Atk; Raise Axe damage dealt by 15%; When breaking an enemy, have a high chance to inflict bleeding (turns: 3)"
+  notes: "Excellent accessory that enhances axe damage and synergizes with bleed mechanics"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Hayes Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on his role as strongest apothecary with bleed mechanics and party buffs"
+last_updated: 2025-12-25

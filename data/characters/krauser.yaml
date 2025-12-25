@@ -15,9 +15,27 @@ origin: "Orsterra"
 weakness_coverage: [polearm, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Memory traveler wind merchant focused on physical DPS with polearm attacks. Kit revolves around Ultra Tempest Spear and Ultra Stalwart Spear abilities that can only be used once per battle unless ultimate is used. Has highest physical attack (444) and defense (373) but requires setup turns.
+
+# Strategic analysis from YouTube transcript
+usage_strategy: |
+  Krauser is a memory traveler merchant who functions as a physical DPS unit similar to A2. His kit revolves around polearm attacks with unique Ultra Spear mechanics. Ultra Tempest Spear provides 1.5x potency boost to his other spear abilities, while Ultra Stalwart Spear gives 6-hit attacks. These abilities can only be used once per battle unless his ultimate resets them.
+
+best_use_cases:
+  - "Polearm-focused teams needing high physical damage output"
+  - "Content where enemies are weak to polearms"
+  - "Long fights where setup time is available for Ultra Spear activation"
+  - "Memory traveler collections for long-term investment"
+  - "Players wanting the highest physical attack merchant available"
+
+weaknesses:
+  - "Ultra Spear abilities can only be used once or twice per battle"
+  - "Limited to polearm and wind coverage - no versatility"
+  - "Requires setup turns before reaching maximum damage potential"
+  - "Low speed (215) is typical merchant weakness"
+  - "Better to save rubies for Rondo who is the better character"
 
 # Stats (base level)
 hp: 3330
@@ -183,8 +201,10 @@ passives:
 a4_accessory:
   name: "Indomitable Eyepatch"
   passive_effect: "60 P.Atk, 40 Crit, 40 Spd; Raise Polearm damage by 15%; Start of battle: Lower Polearm Res. of all enemies by 15% (turns: 3)"
+  notes: "Good accessory that enhances polearm damage and provides early battle resistance reduction"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: Octopath COTC Krauser Overview by Lad"
+data_notes: "Updated with strategic analysis focusing on his Ultra Spear mechanics and polearm DPS capabilities"
+last_updated: 2025-12-25

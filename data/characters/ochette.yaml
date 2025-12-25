@@ -15,9 +15,25 @@ origin: "Solistia"
 weakness_coverage: [axe, bow, light, lightning, polearm, sword, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Definitely the best hunter as of right now but will get outclassed soon. Has many abilities allowing different attack types (polearm, axe, wind, lightning, light) but doesn't do well getting those weaknesses other than bow. Got buffed compared to JP side. Double cast passive when breaking enemies for 2 turns.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Ochette is in same boat as Partio - best hunter currently but will be outclassed. Her buffs are nice but more like sprinkles on top. Double cast passive only lasts 2 turns and she becomes designated enemy breaker, meaning you need to equip her with accessories that give enemy debuffs upon breaks. Six-hit random target bow attack is highest guaranteed bow attacks we've seen.
+
+best_use_cases:
+  - "Bow weakness breaking with high hit counts"
+  - "Teams needing Leghold Trap to delay enemy turns"
+  - "Bow-only compositions where she shines"
+  - "New players who need good hunter early on"
+
+weaknesses:
+  - "Limited to bow attacks for main effectiveness"
+  - "Will be outclassed by future hunters (like Agnea with 6-star awakening)"
+  - "Animal companion abilities (Akala/Mahina) rather useless for experienced players"
+  - "Ultimate is only 5-hit AOE bow attack - no better than normal skill"
 
 # Stats (base level)
 hp: 2862
@@ -174,12 +190,14 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from markdown
+# A4 Accessory - parsed from YouTube transcript
 a4_accessory:
   name: "Beastling Armlet"
-  passive_effect: "60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. and Bow damage by 15%; 60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. by 15%"
+  passive_effect: "60 Physical Attack, 40 Critical, 40 Speed; When breaking an enemy, lower Bow Resistance by 15% for 3 turns; When there's a broken enemy, raise Physical Attack and Bow damage by 15%"
+  notes: "Great global buff. Before only gave 15% physical attack up on break, now also gives 15% bow damage up. These are passive/equipment debuffs that stack with active skills"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Ochette Overview by Lad"
+data_notes: "Updated with strategic analysis from YouTube tutorial noting best hunter status and future outclassing concerns"
+last_updated: 2025-12-25
