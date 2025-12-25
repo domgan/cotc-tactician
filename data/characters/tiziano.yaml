@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [dagger, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  The ultimate dagger enabler and glove to Kainé. Makes daggers great again with passive skills, ultimate, and TP skills. Functions as sub-DPS or dagger enabler with top 5 speed among thieves. Essential for Kainé users to make all enemies weak to daggers.
 
 # Stats (base level)
 hp: 2912
@@ -186,6 +186,68 @@ a4_accessory:
   passive_effect: "50 P.Atk, 40 Spd, 50 SP; When breaking an enemy, lower Dagger Res. by 10% (turns: 3) and grant Dagger weakness (times: 3)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - The glove to Kainé or Kainé enabler
+  - Makes daggers great again with passives, ultimate, and TP skills
+  - Functions as sub-DPS or dagger enabler
+  - Top 5 speed among thieves (525 at Lv120)
+  - Essential for Kainé users to make all enemies weak to daggers
+  
+  KEY ABILITIES:
+  - 2-hit single target dagger (lowers shield points regardless)
+  - 5-hit AoE dagger (exploits wind, 25 potency)
+  - 2-hit single target dagger (135-150 potency, inflicts dagger weakening)
+  - TP skill: 1-hit dagger (260 potency, inflicts 3-6 dagger weakness)
+  - EX skill: 20% physical attack up + 20% crit damage up + dead aim for thieves
+  
+  ULTIMATE:
+  - AoE 5-10% dagger resist down (2-3 turns, becomes 3 at level 10)
+  - Front row 5-10% dagger damage up
+  - Dead aim for 2-3 turns
+  - Combination of Sonia's and Falos ultimates
+  - Get to level 10 before anything else
+  
+  PASSIVES - DAGGER SQUAD FOCUSED:
+  - Front row break: 15% dagger resist down for 2 turns
+  - Thief squad buffs: 2+ thieves = 15% dagger damage up
+  - 3+ thieves = 15% physical attack + crit up
+  - 4+ thieves = crit damage multiplier 1.25→1.4
+  - Front row: 30,000 damage cap up
+  
+  KAINÉ SYNERGY:
+  - Passive 15% dagger resist down + Canari's A4 = capped 30% resist down + 10% defense down
+  - 4+ thieves increases crit damage to 1.4x (no caps for this category)
+  - Helps Kainé hit damage cap much more easily
+  - 30k damage cap up addresses Kainé's main drawback
+  
+  A4 ACCESSORY:
+  - 50 P.Atk, 40 speed, 50 SP
+  - Break: 10% dagger resist down + 3 dagger weakness implants
+  - Lower tier - flat stats aren't great
+  - Canari's A4 better (15% resist down + 10% defense down)
+  - Leave at ultimate level 10, don't chase A4
+  
+  LONGEVITY:
+  - Future travelers will give allies special buffs to hit multiple weaknesses
+  - This will slowly make Tiziano less relevant
+  - But 4+ thieves passive may still be useful
+  - Currently ultimate dagger enabler
+  - 3.5/5 longevity rating
+  
+  RECOMMENDATION:
+  - If you have Kainé, you should pull for Tiziano
+  - If you don't have Kainé, perhaps skip
+  - Currently in weakness implant meta - Tiziano + Kainé is the name
+  - 3.5/5 overall rating
+  - Get to ultimate level 10 and stop
+  
+  PRIORITY:
+  - Kainé > Tiziano for dagger meta
+  - Physical attacks still the way to go
+  - Kainé still broken and top priority

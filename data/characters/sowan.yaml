@@ -15,9 +15,9 @@ origin: "Solistia"
 weakness_coverage: [axe, dark, light]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "breaker", "healer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Axe DPS support apothecary with daybreak/nightfall mechanic. Opens the way for axe travelers but lacks notable bossers compared to warriors. Global buffs weren't enough to make him stand out. Functions mainly as sub-DPS with healing capabilities.
 
 # Stats (base level)
 hp: 3200
@@ -208,6 +208,62 @@ a4_accessory:
   passive_effect: "50 P.Atk, 90 Crit; Raise Critical by 15%; Raise Axe damage by 20%; When equipped by an apothecary: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25)."
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Light and dark apothecary with daybreak/nightfall mechanic
+  - Good axe DPS support but global buffs weren't enough
+  - Functions mainly as sub-DPS with healing capabilities
+  - Opens the way for axe travelers but lacks notable bossers
+  - Not much love for DPS apothecaries besides Castti and Nefty
+  
+  DAYBREAK/NIGHTFALL MECHANIC:
+  - Similar to Temenos's infinite light/infinite dark passives
+  - Daybreak: Recasts skills, SP restore, additional effects
+  - Nightfall: 40% potency up, additional effects
+  - Both active: Enhanced effects (7-hit attacks, damage cap up, etc.)
+  - Passives are not permanent (unlike Temenos)
+  - Pain to maintain turn duration
+  
+  KEY ABILITIES:
+  - Duskbreaker: 4-hit random axe attack (7-hit with both buffs)
+  - Twofold Dawn Gash: 2-hit single target (recast + potency up)
+  - Dawnbreaker: 2-hit AoE with defense down (enhanced with buffs)
+  - Lane Power: Choose between 3-hit AoE + nightfall or front row buffs + daybreak
+  - EX skill: 4-hit AoE with additional effects when buffs active
+  
+  ULTIMATE:
+  - AoE HP restore (200-300 potency) + 10% SP restore
+  - Restores 1 BP + cures status ailments + immunity
+  - Daybreak: Revives allies 25% HP
+  - Nightfall: 5-10% axe damage up
+  
+  SUPPORT CAPABILITIES:
+  - Front row: 15% attack/axe damage up + 20k damage cap up
+  - Daybreak: 30% SP restore to front row
+  - Nightfall: 50% passive/active axe cap up
+  - Both: 50% active axe damage cap up
+  - HP restoration and status ailment curing
+  
+  A4 ACCESSORY:
+  - 50 P.Atk, 90 crit, 15% crit up, 20% max damage
+  - Apothecary: 1.4x crit damage multiplier
+  - Disgustingly low attack stat, crit rate is waste of time
+  - Straight up garbage
+  
+  LONGEVITY:
+  - Might have use with future strong axe path carrier
+  - But other stronger travelers will also come
+  - Not much love for axe users currently
+  - Everyone has Kainé or at least Kainé
+  
+  RECOMMENDATION:
+  - Skip unless absolutely diehard axe fanatic
+  - Save rubies for other notable strong DPS travelers
+  - Sword meta returning soon
+  - 2.75/5 overall rating
+  - Global buffs were good but not enough

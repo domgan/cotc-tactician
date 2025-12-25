@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [dark]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "debuffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Elite support that enables physical attackers to exploit all elemental weaknesses. Best paired with Dark Knight for maximum synergy. Provides auto-revive, elemental resistance reduction, and unique death sentence mechanics. Top 5 elemental attack stat in game (552 at Lv120).
 
 # Stats (base level)
 hp: 2676
@@ -177,6 +177,39 @@ a4_accessory:
   passive_effect: "60 E.Atk, 80 SP; When in front row: Lower Elem. Res. of All Foes by 10%; When equipped by a Dancer: Gain the ability to exploit Fan weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  PRIMARY ROLE:
+  - Support for physical attackers, especially warriors
+  - Grants all elemental exploits with ultimate technique
+  - Enables old physical travelers to break elemental shields
+  
+  KEY SYNERGIES:
+  - Dark Knight: Death sentence passive triggers DK's Cursed Puppet mechanic
+  - Essential for DK users to maximize damage potential
+  - Works well with any physical DPS team
+  
+  NOTABLE ABILITIES:
+  - Ultimate: 15-35% auto-revive + all allies exploit all elemental weaknesses
+  - EX Skill: Auto-revive 25-100% + Fatal Sentence (3-turn countdown) + Necromancy
+  - Support Skills: Fire/Ice/Lightning exploits, 15% resist reduction, 50% defense reduction cap
+  - First character to lower active defense beyond 30% cap (up to 50%)
+  
+  COMPARISON:
+  - Better than original Signa with improved skills
+  - Makes physical travelers "fantastic or OP"
+  - Will be power crept by future support travelers but currently top-tier
+  
+  BUILD RECOMMENDATIONS:
+  - Ultimate Awakening is sufficient for most players
+  - A4 accessory provides valuable 10% elemental resist down
+  - Best left at Ultimate Awakening for F2P players
+  
+  LONGEVITY:
+  - First traveler with all-element exploit support
+  - Future travelers will do this better but she'll remain relevant
+  - 4.3/5 longevity rating

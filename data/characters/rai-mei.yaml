@@ -15,9 +15,9 @@ origin: "Solistia"
 weakness_coverage: [dark, fire, light, lightning, polearm, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Lightning-focused merchant with mediocre kit despite buffs. Requires other lightning travelers for maximum effectiveness. Best aspect is follow-up passive that grants allies +1 lightning damage and inflicts shock. Six-star passive can provide up to 200% potency boost on broken enemies.
 
 # Stats (base level)
 hp: 3240
@@ -182,6 +182,40 @@ a4_accessory:
   passive_effect: "140 E.Atk; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) and lower their Elem. Def. by 15% (turns: 3); When consuming 1+ BP: Raise potency of All Allies by **30%** (turns: 5/Turns cannot be extended/Does not stack with effects of the same type).; When consuming 2+ BP: Also raise their Damage Limit by **20,000** (turns: 5).; At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2).; **100** E.Atk, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) ~~and lower their Elem. Def. by 15% (turns: 3)~~"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERALL ASSESSMENT:
+  - Disappointment overall, kit too demanding of specific travelers
+  - Mediocre despite global buffs
+  - Skip for most players, especially with Kainé/Tiziano meta
+  
+  STRENGTHS:
+  - Follow-up passive: Allies using lightning attacks get +1 AoE lightning damage + shock infliction
+  - Six-star passive: Up to 200% potency boost on broken enemies with lightning team
+  - Can hit up to 9 times with buffed skills (5 hits + 3 follow-up + 1 passive)
+  - Decently high elemental attack (505 at Lv120)
+  
+  WEAKNESSES:
+  - Average F2P players lack sufficient lightning travelers
+  - Asel and Isla are main lightning users but don't specialize in lightning damage
+  - Lightning weakness implant on A4 is useless as she can't do it herself
+  - Outclassed by physical damage meta
+  
+  TEAM REQUIREMENTS:
+  - Needs 3+ lightning users in front row for maximum potency
+  - Osvald, Isla, and other lightning specialists essential
+  - Not worth building team around for most players
+  
+  COMPARISON:
+  - Lightning elemental attacks still lack spectacular traveler
+  - Shock status ailment interesting but not enough to save her
+  - Physical travelers with lightning exploitation generally better
+  
+  RECOMMENDATION:
+  - Skip unless dedicated lightning enthusiast
+  - Save rubies for better DPS travelers
+  - 2.1/5 overall rating

@@ -15,9 +15,9 @@ origin: "NieR Universe (NieR series)"
 weakness_coverage: [dark, polearm, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Merchant with unique break-extending EX skill. Functions as support DPS with basic skill set. Main selling point is ability to extend enemy break turn by one. A4 accessory is top-tier with 10% physical resistance down. EX skill is one of a kind gimmick.
 
 # Stats (base level)
 hp: 3270
@@ -174,6 +174,61 @@ a4_accessory:
   passive_effect: "200 P.Atk, -30 P.Def, -30 E.Def; Raise Phys. Atk. by 15% when a broken enemy is present; Additionally, lower Phys. Res. of all enemies by 10%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Merchant with bow, sword, dark weakness coverage
+  - Basic skill set but unique EX skill and A4 accessory
+  - Functions as support DPS
+  - Higher than average physical attack stat for merchant
+  
+  EX SKILL - MAIN SELLING POINT:
+  - Extends enemy break turn by one (one of a kind)
+  - Status effect counter decreases by 1 per ally hit
+  - When counter reaches zero, extends break turn
+  - Must ensure team can capitalize on extra break turn
+  - Only traveler in game with this gimmick
+  
+  KEY ABILITIES:
+  - 4-hit AoE sword attack (1 extra hit + 50k damage cap up on broken enemies)
+  - 4-hit AoE polearm attack with paralysis chance
+  - 2-hit AoE polearm/dark attack with defense down
+  - TP skill: 1-6 hit polearm damage (potency varies with BP consumed)
+  - 1-hit polearm damage (260 potency) after turn 6
+  
+  SUPPORT CAPABILITIES:
+  - Self dodge to physical attacks (1-4 turns based on boost)
+  - 30% sword/polearm damage up (25k damage cap up at 6★)
+  - Front row: 15% physical/elemental attack up + 25k damage cap up on break
+  - SP recovery (20) + BP recovery (+1) when enemy broken
+  
+  A4 ACCESSORY - TOP TIER:
+  - 200 P.Atk with -30 defenses
+  - 15% attack up when enemy broken
+  - 10% physical resistance down to all enemies (fantastic for DPS)
+  - Doesn't require traveler to be on break duty
+  - Possibly one of the best accessories in game (next to Hikari's A4)
+  
+  SKILL ASSESSMENT:
+  - Rather basic merchant skill set
+  - 6-hit polearm/dark, 4-hit sword/dark, 2-hit polearm/dark nuke
+  - Passive helps with polearm/sword damage up
+  - Second passive good for front row support on break
+  
+  LONGEVITY:
+  - Could still see use for EX skill (one of a kind)
+  - Future travelers will do significant damage even with shields up
+  - Not bad in party merchants but Kainé already out
+  - 3/5 longevity rating mainly for EX skill
+  
+  RECOMMENDATION:
+  - EX skill is main selling point (break extender)
+  - A4 accessory is top-tier but skills underwhelming
+  - Basic as support DPS, second passive is nice
+  - 3/5 overall rating
+  - F2P: get Kainé first, then consider copy for EX skill
+  - Willing to pull for A4 accessory

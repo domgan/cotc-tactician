@@ -1,0 +1,203 @@
+# COTC Team: Kagemune EX1 Single-Target Burst
+# YouTube tutorial reference: https://www.youtube.com/watch?v=IHfzZ5g6Zb0
+
+# ===========================================================================
+# IDENTITY
+# ===========================================================================
+id: "arena-kagemune-ex1-single-target-burst"
+name: "Kagemune EX1 Single-Target Burst (7-turn clear)"
+boss_id: "arena-kagemune-ex1"
+
+# ===========================================================================
+# CLASSIFICATION
+# ===========================================================================
+strategy_type: "burst"
+investment_level: "high"
+
+# ===========================================================================
+# COMPOSITION - FRONT LINE (positions 1-4)
+# ===========================================================================
+front_line:
+  - position: 1
+    character_id: "pardis-iii"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: ["kaine", "richard-ex"]
+    substitute_notes: "Other high physical DPS can work but Pardis III is optimal"
+    key_skills_used: ["Despotic Megalomania"]
+    accessory_requirements: ["120 accessory (200 attack + 100k damage cap)", "A4 accessory", "Bargello's A4"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: "cecil"
+    role_in_team: "tank"
+    is_required: true
+    substitutes: ["fiore-ex", "canary"]
+    substitute_notes: "Other tanks can work but Cecil provides breaking and debuffing"
+    key_skills_used: ["Shield break", "Bow attacks"]
+    accessory_requirements: ["Level 120 accessory (200 SP + SP regen)", "HP accessories"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: "primrose"
+    role_in_team: "buffer"
+    is_required: false
+    substitutes: ["yomi", "rinyuu", "tatloch"]
+    substitute_notes: "Primrose is outdated, use better buffers if available"
+    key_skills_used: ["Dance buffs"]
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 4
+    character_id: "lucetta"
+    role_in_team: "utility"
+    is_required: false
+    substitutes: ["mabel"]
+    substitute_notes: "Lucetta extends buffs by 1 turn, Mabel provides similar function"
+    key_skills_used: ["Buff extension", "Bow shield breaking"]
+    accessory_requirements: ["White Wolf Emblem (10% dagger damage up)", "Pear White Apron", "Orphanage Postcard"]
+    awakening_required: 4
+
+# ===========================================================================
+# COMPOSITION - BACK LINE (positions 5-8)
+# ===========================================================================
+back_line:
+  - position: 5
+    character_id: "alaune-ex"
+    role_in_team: "buffer"
+    is_required: false
+    substitutes: ["ex-elrica", "morffins"]
+    substitute_notes: "Any support with invigorating prayers or similar buffs"
+    key_skills_used: ["Invigorating Prayers"]
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 6
+    character_id: "billy"
+    role_in_team: "breaker"
+    is_required: true
+    substitutes: ["canary", "h-aanit-ex"]
+    substitute_notes: "Billy is essential for breaking and ultimate debuff"
+    key_skills_used: ["Shield breaking", "Ultimate defense debuff"]
+    accessory_requirements: ["Curts Syndicate Badge", "Yanlong's A4 (free)", "Love Journal (Joshua's A4)"]
+    awakening_required: 4
+
+  - position: 7
+    character_id: "pia"
+    role_in_team: "breaker"
+    is_required: false
+    substitutes: ["osvald", "cyrus-ex"]
+    substitute_notes: "Any character with polearm attacks for shield breaking"
+    key_skills_used: ["Polearm shield breaking", "Ultimate support"]
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 8
+    character_id: "morffins"
+    role_in_team: "healer"
+    is_required: false
+    substitutes: ["temenos", "millard-ex"]
+    substitute_notes: "Morffins provides healing and support, can be replaced"
+    key_skills_used: ["Invigorating Alcohol", "Healing"]
+    accessory_requirements: []
+    awakening_required: 4
+
+# ===========================================================================
+# SPEED ORDER
+# ===========================================================================
+speed_order: ["cecil", "primrose", "alaune-ex", "lucetta", "billy", "pia", "morffins", "pardis-iii"]
+speed_tuning_notes: "Pardis III acts last (low speed), others should be tuned to act before boss"
+
+# ===========================================================================
+# TURN PLAN
+# ===========================================================================
+turn_plan:
+  - turn_range: "1-2"
+    phase: "setup"
+    actions:
+      - "Cecil: Setup tank position and initial debuffs"
+      - "Primrose: Apply dance buffs"
+      - "Alaune EX: Apply invigorating prayers"
+      - "Lucetta: Apply buff extension and dagger damage up"
+      - "Billy: Begin shield breaking"
+      - "Pia: Support with polearm attacks"
+      - "Morffins: Apply support buffs as needed"
+    notes: "Focus on single-target attacks only, NO random/AoE attacks"
+
+  - turn_range: "3-6"
+    phase: "break_push"
+    actions:
+      - "Billy: Continue shield breaking with ultimate debuff"
+      - "Cecil: Break remaining shields with bow attacks"
+      - "Lucetta: Break shields with bow attacks"
+      - "Pia: Break shields with polearm attacks"
+      - "Others: Maintain buffs and debuffs"
+    notes: "Get boss to 2 shields, prepare for break"
+
+  - turn_range: "7"
+    phase: "burst"
+    actions:
+      - "Activate Chomper and Meolis keepers"
+      - "Billy: Ultimate for 30% defense debuff cap"
+      - "Primrose: Ultimate for attack buffs"
+      - "Alaune EX: Ultimate for defense support"
+      - "Pardis III: Full damage burst with Despotic Megalomania"
+    notes: "Kill within first break window"
+
+# ===========================================================================
+# BUFF/DEBUFF PLAN
+# ===========================================================================
+buff_stacking:
+  - buff_type: "Physical Attack"
+    sources: ["Pardis III (passive)", "Primrose", "Lucetta (accessory)", "Chomper", "Meolis"]
+    target_cap: "50%"
+    timing: "Before burst phase"
+
+  - buff_type: "Dagger Damage"
+    sources: ["Lucetta (accessory)", "Cecil (passive)"]
+    target_cap: "30%"
+    timing: "Setup phase"
+
+  - buff_type: "Physical Defense Down"
+    sources: ["Billy (ultimate)"]
+    target_cap: "30%"
+    timing: "Break phase"
+
+# ===========================================================================
+# EXPLANATION
+# ===========================================================================
+why_it_works: |
+  This team focuses on single-target attacks only (Kagemune's main mechanic).
+  Pardis III serves as the main DPS with massive physical damage output.
+  The team breaks shields quickly and kills within the first break window.
+  Buff stacking and debuffs ensure maximum damage during burst phase.
+
+key_synergies:
+  - "Pardis III + Lucetta: Extended buffs for sustained damage"
+  - "Billy + Cecil: Dual shield breaking capabilities"
+  - "Chomper + Meolis: Maximum damage keepers for burst"
+  - "Lucetta's bow attacks exploit boss weakness"
+
+risks_and_recovery:
+  - "Risk: Using random/AoE attacks triggers Kagemune's counter"
+  - "Recovery: Stick to single-target attacks only"
+  - "Risk: Not breaking shields fast enough"
+  - "Recovery: Use multiple breakers (Billy, Cecil, Lucetta, Pia)"
+  - "Risk: Insufficient damage in break window"
+  - "Recovery: Ensure all buffs/debuffs are applied before burst"
+
+# ===========================================================================
+# VERIFICATION
+# ===========================================================================
+verified: false
+clear_time: "7 turns"
+success_rate: "High (with proper investment)"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+author: "community"
+source_url: "https://www.youtube.com/watch?v=IHfzZ5g6Zb0"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-25"

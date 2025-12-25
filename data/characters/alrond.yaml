@@ -14,10 +14,30 @@ origin: "Solistia"
 # Weakness coverage (what enemy weaknesses this character can hit)
 weakness_coverage: [axe, bow, dagger, fan, light, polearm, staff, sword, tome]
 
+# Primary weapon (derived from job)
+primary_weapon: "polearm"
+
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  One of the best all-round breakers who can hit all eight physical weaknesses plus light. Still regarded as one of the best ultimate rechargers for entire party. Great for both new players (breaks all weaknesses) and seasoned players (ultimate battery). Mix between EX Primrose and Bargello with superior breaking capabilities. Global buffs made him amazing - all main attacking skills gained extra hit (5x to 6x) and became AoE. Key ultimate battery for future ultimate system upgrades.
+
+# Strategic analysis from YouTube tutorial
+usage_strategy: |
+  Alrond is a luxury unit between must-have and optional. His main gimmick is supporting the team's ultimate bar with 40% restoration each turn plus immediate fill with his ultimate. For new players, he can break all physical weaknesses and light single-handedly. For seasoned players, he enables quicker ultimate cycling. His skills are similar to EX Primrose (ultimate support) and Bargello (ultimate battery) but with superior breaking capabilities. Consider holding pulls if you have EX Primrose or Bargello, as he's a Side Story memory traveler with future reruns.
+
+best_use_cases:
+  - "New players needing comprehensive weakness coverage"
+  - "Teams requiring ultimate gauge acceleration"
+  - "Long battles where ultimate cycling is crucial"
+  - "Break-focused teams needing all physical weakness coverage"
+  - "Future ultimate system upgrade content"
+
+weaknesses:
+  - "Low physical attack stat (409 at Lv120) - don't expect big damage numbers"
+  - "High SP consumption for abilities"
+  - "Luxury unit - similar abilities exist in EX Primrose and Bargello"
+  - "Memory traveler - limited availability windows"
 
 # Stats (base level)
 hp: 3200
@@ -167,6 +187,6 @@ a4_accessory:
   passive_effect: "60 P.Atk, 80 SP; When consuming 3 BP or more using a battle skill: Raise BP recovery amount by 1 (turns: 1); When switching to back row: Restore own SP (amount: 10% of max SP)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: verified
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25

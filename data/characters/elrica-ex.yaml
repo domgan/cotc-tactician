@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [axe, bow, dagger, fan, lightning, polearm, staff, sword, tome]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Back-row shield breaker that can exploit all physical weaknesses. Main role is breaking shields from back row. Could replace Sarisa for players still using her. Not recommended if you have Kainé/Tiziano combo as she competes for dagger weakness counters.
 
 # Stats (base level)
 hp: 2832
@@ -175,6 +175,57 @@ a4_accessory:
   passive_effect: "60 P.Atk, 80 Crit; When in back row: Raise Damage Limit of Entire Front Row by 20,000 and lower Dagger Res. of All Foes by 10%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Back-row shield breaker with all physical weakness exploitation
+  - "Better Sarisa" but struggles to justify usage with dedicated breakers
+  - Received global buffs but kit was overall worse than EX Ditraina
+  
+  KEY ABILITIES:
+  - Random target attacks: Break dagger/lightning weaknesses
+  - Back-row passive: +1 dagger attack to allies, reduces shields
+  - Third passive: All physical weakness exploitation when enemy broken
+  - Can break 2 shields per turn from back row after activation
+  - Can break 5 shields at max boost
+  
+  USAGE STRATEGY:
+  - Operates from back row for support benefits
+  - SP regen and damage reduction for front row
+  - Follow-up dagger attacks when front row allies attack
+  - Best as offset shield breaker
+  
+  COMPARISONS:
+  vs Sarisa:
+  - Better version with more utility
+  - Still very much a "glorified Sarisa"
+  
+  vs Kainé/Tiziano:
+  - Not needed if you have this combo
+  - Competes for dagger weakness counters that Kainé needs
+  - Better to bring another support
+  
+  vs Dedicated Breakers (Sarisa/others):
+  - Difficult to justify if you already have dedicated breaker
+  - General all-around breakers fall off to power creep
+  
+  A4 ACCESSORY:
+  - 60 P.Atk, 80 Crit, 20k damage cap up for front row
+  - 10% dagger resist down
+  - Not worth it if you already have Hikari's or Neith's A4
+  - Skip unless specifically need dagger resist down
+  
+  LONGEVITY:
+  - General breakers good for new players but fall off quickly
+  - Power creep will make her less relevant
+  - 2.75/5 longevity rating
+  
+  RECOMMENDATION:
+  - Skip for most players
+  - Continue saving rubies for travelers who truly matter
+  - 2.75/5 overall rating
+  - Nice to have waifu but not must-have

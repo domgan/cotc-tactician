@@ -84,6 +84,107 @@ fields:
     notes: "Useful for identifying crossover characters (Final Fantasy, Dragon Quest, etc.)"
 
   # ===========================================================================
+  # CHARACTER STATS
+  # ===========================================================================
+  # Base stats at level 1 (from CSV)
+  hp:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base HP at level 1"
+  
+  p_atk:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base physical attack at level 1"
+  
+  p_def:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base physical defense at level 1"
+  
+  e_atk:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base elemental attack at level 1"
+  
+  e_def:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base elemental defense at level 1"
+  
+  speed:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base speed at level 1"
+  
+  crit:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base critical at level 1"
+  
+  sp:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Base SP at level 1"
+  
+  # Stats at level 120 after Limit Break
+  hp_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "HP at level 120 with Limit Break"
+  
+  p_atk_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Physical attack at level 120 with Limit Break"
+  
+  p_def_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Physical defense at level 120 with Limit Break"
+  
+  e_atk_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Elemental attack at level 120 with Limit Break"
+  
+  e_def_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Elemental defense at level 120 with Limit Break"
+  
+  speed_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Speed at level 120 with Limit Break"
+  
+  crit_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "Critical at level 120 with Limit Break"
+  
+  sp_120:
+    type: integer
+    required: false
+    source: "[CSV]"
+    description: "SP at level 120 with Limit Break"
+
+  # ===========================================================================
   # ROLE CAPABILITIES
   # ===========================================================================
   roles:
@@ -496,6 +597,33 @@ fields:
       - "Skills have high SP cost"
 
   # ===========================================================================
+  # META / TIERS
+  # ===========================================================================
+  gl_tier:
+    type: string
+    required: false
+    source: "[COMMUNITY]"
+    description: "Global tier rating (e.g., 'S', 'Tier 1')"
+    example: "S (9.5)"
+  
+  jp_tier:
+    type: string
+    required: false
+    source: "[COMMUNITY]"
+    description: "Japan tier rating (e.g., 'S', 'Tier 1')"
+    example: "S"
+
+  # ===========================================================================
+  # STRATEGY & ANALYSIS
+  # ===========================================================================
+  usage_strategy:
+    type: string
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Detailed analysis of how to use the character, often from tutorials."
+    llm_usage: "High priority context for 'how to play' or 'is this character good' queries."
+
+  # ===========================================================================
   # BEST USE CASES
   # ===========================================================================
   best_use_cases:
@@ -511,10 +639,24 @@ fields:
       - "Teams needing high shield break"
 
   # ===========================================================================
-  # INVESTMENT / PROGRESSION
+  # PROGRESSION SYSTEMS
   # ===========================================================================
   # See progression_systems.yaml for explanation of each system
   
+  has_blessing_of_lantern:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Has Blessing of the Lantern been unlocked? (TP passive/skill)"
+    default: false
+
+  has_limit_break:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Has 6★ Limit Break been applied? (allows Lv120, skill upgrades)"
+    default: false
+
   awakening_stage:
     type: integer
     required: false
@@ -527,20 +669,6 @@ fields:
       Stage II: 4th skill slot unlocked
       Stage III: HP +50%
       Stage IV: A4 accessory obtained (5★ only)
-
-  has_limit_break:
-    type: boolean
-    required: false
-    source: "[HUMAN-REQUIRED]"
-    description: "Has 6★ Limit Break been applied? (allows Lv120, skill upgrades)"
-    default: false
-
-  has_blessing_of_lantern:
-    type: boolean
-    required: false
-    source: "[HUMAN-REQUIRED]"
-    description: "Has Blessing of the Lantern been unlocked? (TP passive/skill)"
-    default: false
 
   # ===========================================================================
   # A4 ACCESSORY
@@ -600,13 +728,14 @@ fields:
     type: string
     required: true
     source: "[HUMAN-REQUIRED]"
-    allowed_values: [verified, tested, theoretical, incomplete]
+    allowed_values: [verified, tested, theoretical, incomplete, complete]
     description: |
       How reliable is this data?
       - verified: Confirmed from game, wiki, or trusted sources
       - tested: Personally tested but not cross-referenced
       - theoretical: Based on skill descriptions, not tested
       - incomplete: Missing significant information
+      - complete: All information is confirmed and cross-referenced
 
   data_notes:
     type: string

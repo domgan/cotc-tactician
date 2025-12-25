@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [bow, dark, fire, ice, light, lightning, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Physical hunter switched from elemental to physical attacks. Can exploit all elemental weaknesses after accumulating 9 intuition points. Gains intuition points from critical hits. Straightforward kit for hitting all elemental weaknesses with physical attacks.
 
 # Stats (base level)
 hp: 2927
@@ -180,6 +180,54 @@ a4_accessory:
   passive_effect: "70 P.Atk, 70 E.Atk; Raise Bow damage of Entire Front Row by 10%; When equipped by a Hunter: Raise critical damage multiplier (1.25→1.4)"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Switched from elemental to physical attacks (dark/light hunter)
+  - Can exploit all elemental weaknesses with 9+ intuition points
+  - Points easy to accumulate through critical hits and EX skill
+  - Top 10 hunter for physical attack (517 at Lv120)
+  
+  INTUITION POINT SYSTEM:
+  - Gain points from landing critical hits
+  - EX skill provides 6 points when used
+  - 3+ points: Exploit ice/lightning
+  - 6+ points: Exploit fire/wind
+  - 9+ points: Add 50% elemental attack to physical attack
+  
+  KEY ABILITIES:
+  - 5-hit AoE to all weaknesses after 6+ points
+  - 6-hit single target to all weaknesses after 6+ points
+  - TP skill: 4-hit nuke with 3x potency at 9+ points
+  - EX skill: 6-hit attack + "Always Crit" status ailment
+  - Ultimate: 6-hit AoE, 9-hit at 200% + "Always Crit"
+  
+  SUPPORT CAPABILITIES:
+  - Third passive: 10% bow damage up + 50% bow damage cap + 30k damage cap for front row
+  - Great for hunter teams
+  
+  A4 ACCESSORY:
+  - 70 P.Atk, 70 E.Atk
+  - 10% bow damage up for front row
+  - 1.4x critical damage multiplier for hunters
+  - Decent but not game-changing
+  
+  COMPARISON TO KANE/TISIANO:
+  - Difficult to justify using after this combo exists
+  - They're already so great that most DPS are overshadowed
+  - Decent for players missing elemental weaknesses
+  
+  LONGEVITY:
+  - Could remain useful due to all-element exploitation
+  - Power creep will eventually overtake her
+  - 3/5 longevity rating
+  
+  RECOMMENDATION:
+  - Nice to have for players lacking elemental coverage
+  - Skip if you have Kainé/Tiziano combo
+  - 3/5 overall rating
+  - Straightforward but not game-changing

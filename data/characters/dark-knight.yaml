@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [dark, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Primary damage dealer with exceptional setup requirements. Takes 4-5 turns to reach full power but deals nearly 2x damage of Pardis III. Excels in difficult battles where setup time is justified. Requires team coordination for Cursed Puppet state management and BP recovery support.
 
 # Stats (base level)
 hp: 3232
@@ -171,10 +171,46 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dark Knight’s Mask"
+  name: "Dark Knight's Mask"
   passive_effect: "60 P.Atk, 80 SP; Grant Damage Limit Up (effect: 70,000); Raise the limit of Phys. Atk. augments from support skills and equipment effects to 50%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  SETUP REQUIREMENTS:
+  - Takes 4-5 turns to reach full power
+  - Requires Cursed Puppet state on 7 allies for full effectiveness
+  - Needs BP recovery support and team coordination
+  
+  ROTATION (SOLO):
+  - Turn 1: Purge of Avarice Lv1, move front row to back
+  - Turn 2: Purge of Avarice again, activate auto-revives
+  - Turn 3: Ultimate technique (passive fully charged)
+  - Turn 4: EX skill at max BP
+  - Turn 5: Main damage with 100% potency up from EX skill
+  - Turn 6+: Use keepers and additional casts
+  
+  ROTATION (WITH BLACK PRIESTESS):
+  - Turn 1: Kill back row
+  - Turn 2: Ultimate + kill auto-revive ally
+  - Turn 3: EX skill + Black Priestess ultimate
+  - Turn 4: Main damage phase
+  
+  TEAM SYNERGIES:
+  - Black Priestess: Provides all elemental exploits, reduces Cursed Puppet requirement
+  - Nona: Ultimate gauge increase, 30% potency up EX skill, Penguin Keeper
+  - EX Primrose: Ultimate gauge increase, Sheep Keeper
+  - Ciso: Tank with auto-revive pack
+  - Lucetta: Extends buffs by 1 turn
+  
+  WEAPON RECOMMENDATION:
+  - Brilliant weapon is best in slot (additional 100,000 damage cap up)
+  
+  COMPARED TO PARTIS:
+  - Nearly 2x damage potential
+  - Slower setup (4-5 turns vs 3 turns)
+  - Better for difficult battles where setup time is justified

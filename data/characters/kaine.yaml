@@ -2,7 +2,7 @@
 # Auto-generated from CSV on 2025-12-21
 # Skills and passives must be added manually
 
-id: kain
+id: kaine
 display_name: "Kainé"
 rarity: 5
 
@@ -15,9 +15,9 @@ origin: "NieR Universe (NieR series)"
 weakness_coverage: [dagger, light]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  First new generation DPS traveler and current best DPS in game. Has highest physical attack stat (573 at Lv120). Perfect candidate for what we want in DPS with innate 50% active/passive buffs and 120% potency up when consuming 3+ BP. Start of the Kainé meta that makes anything weak to daggers get destroyed.
 
 # Stats (base level)
 hp: 3252
@@ -180,6 +180,83 @@ a4_accessory:
   passive_effect: "200 P.Atk, -30 P.Def, -30 E.Def; Start of battle: Ultimate Technique gauge fills to 100%; When consuming 3 BP or more: Raise Phys. Atk. by 30%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Light thief from NieR collaboration, first new generation DPS traveler
+  - Current best DPS in game with highest physical attack stat (573 at Lv120)
+  - Perfect candidate for what we want in DPS traveler
+  - Start of new meta and baseline for top-tier DPS expectations
+  - Incredibly low speed (395), acts towards end of action order
+  
+  KEY MECHANICS:
+  - Innate 50% active and passive buff cap (30% normal)
+  - 120% potency up when consuming 3+ BP (100% at 6★)
+  - 100k damage cap up when consuming 5 BP
+  - Fighting Spirit buff from ultimate allows BP usage without consumption
+  
+  KEY ABILITIES:
+  - 3-hit AoE dagger (20% attack up for 2-5 turns at 3+ BP, 5 turns at 5+ BP)
+  - 3-8 hit single target dagger/light (potency varies by BP)
+  - 5-hit random target dagger (20% resist down per hit)
+  - 2-hit single target dagger (guaranteed crit at 3+ BP, 50k cap up at 5+ BP)
+  - EX skill: 8-hit random target (guaranteed crit at 3+ BP, 10 hits at 5+ BP)
+  
+  SUPPORT CAPABILITIES:
+  - Taunt skill: Provoke all enemies + counter physical/elemental attacks
+  - Counter attack: 1-hit dagger/light (180 potency) + recovers 1 BP
+  - TP skill: 50% physical attack up + 1 BP recovery (3-8 turns)
+  - Ultimate: 10-15% physical attack up + Fighting Spirit (free BP usage)
+  
+  BUILDING OPTIMAL DAMAGE:
+  - Six categories for damage: active buffs/debuffs, passive buffs/debuffs, ultimate buffs/debuffs, keepers
+  - Each category capped at 30% except keepers
+  - Kainé unique: 50% passive attack buff cap (vs 30% normal)
+  - Want to cap: passive attack (50%), dagger damage (30%), debuffs (30%)
+  - Keepers: Chomper (30% damage up) + Mealis (20% physical attack up)
+  
+  WEAPON RECOMMENDATIONS:
+  - Fortune weapons for multi-hitting attacks (early/mid game)
+  - Stalwart/Brilliant weapons for damage cap up (hits cap easily)
+  - Celestia: build whatever Um weapon available
+  
+  ACCESSORY RECOMMENDATIONS:
+  - Kainé's A4: 200 P.Atk + 30% attack up at 3+ BP + ultimate gauge 100%
+  - Free Tony accessory: 200 attack + 100k damage cap up
+  - Ritu's A4: 15% dagger damage up (capping passive dagger damage)
+  - Kota's right hand: 30% attack up (3 turns at battle start)
+  
+  TEAM BUILDING EXAMPLE (F2P):
+  Front: Kainé (A4) + Fulco (passive dagger attack up) + EX Primrose (buffs/heals)
+  Back: Lucetta (extend buffs) + EX Hunet (debuffs) + Saresa (breaker) + Billy (ultimate debuffs) + Lynette (buffs)
+  
+  A4 ACCESSORY:
+  - 200 P.Atk with -30 defenses
+  - Ultimate gauge 100% at battle start
+  - 30% physical attack up when consuming 3+ BP
+  - Good but not as good as NieR's
+  - Premium accessory (collaboration travelers lack awakening stones in exchange)
+  
+  LONGEVITY:
+  - Still used in JP server despite power creep
+  - So strong developers gave bosses immunity to weakness implants
+  - F2P Kainé at awakening 0 still does crazy damage
+  - Needs Tiziano to enable dagger weaknesses on non-dagger enemies
+  - 4/5 longevity rating
+  
+  RECOMMENDATION:
+  - Pull if you like what she brings, but consider Tiziano too
+  - Future DPS travelers will only get stronger
+  - Don't constantly wait for next DPS traveler
+  - 4.5/5 abilities rating, 10/5 design
+  - Current best DPS, baseline for top-tier expectations
+  
+  PULL STRATEGY:
+  - Prioritize A1 first (functions as straight DPS)
+  - Ultimate to level 10 if possible for Fighting Spirit
+  - Don't put yourself in sticky situation, but great character
+  - "I just really like girls" - wise words for pulling decisions

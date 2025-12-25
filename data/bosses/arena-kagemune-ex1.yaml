@@ -99,6 +99,17 @@ general_strategy: |
   REWARD: カゲムネの覚醒石 x1
 
 # ===========================================================================
+# TEAM REFERENCES
+# ===========================================================================
+team_references:
+  - team_id: "arena-kagemune-ex1-single-target-burst"
+    strategy_type: "burst"
+    investment_level: "high"
+    clear_time: "7 turns"
+    source: "YouTube tutorial"
+    notes: "Single-target focused team that kills in first break window"
+
+# ===========================================================================
 # METADATA
 # ===========================================================================
 data_confidence: verified

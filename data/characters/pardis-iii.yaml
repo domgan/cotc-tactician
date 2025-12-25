@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [bow, dagger, dark, fire, lightning, sword]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Massive physical DPS scholar with highest physical attack stat in game (630 at Lv120). Built to destroy anything weak to swords, fire, lightning, or dark. Entire kit revolves around ultimate for double casting. Potentially stronger than Kainé with 200% potency up passive.
 
 # Stats (base level)
 hp: 3206
@@ -167,6 +167,58 @@ a4_accessory:
   passive_effect: "250 P.Atk, -40 P.Def, -40 E.Def, -30 Spd; Grant Damage Limit Up: (effect: 100,000); When in front row: Lower Sword Res. of all enemies by 10%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Total beast DPS built to destroy anything in his path
+  - Highest physical attack stat in game (630 at Lv120)
+  - Exploits swords, fire, lightning, dark weaknesses
+  - Entire kit revolves around ultimate for double casting
+  - Potentially stronger than Kainé
+  
+  KEY ABILITIES:
+  - 2-hit single target sword attack (250% potency up after consuming BP from allies)
+  - 1-hit AoE sword attack (consumes 50 SP from front row, becomes 3-hit)
+  - Nuke: 1-hit single target (530 potency, 100k/300k damage cap up on broken enemies)
+  - EX skill: Dead aim + dagger/bow exploitation + 100k damage cap up (3-6 turns)
+  
+  ULTIMATE MECHANICS:
+  - Level 1-10: Damages front row 30% max HP, restores 100% HP + 50-100% SP
+  - Level 10+: Double cast for 4 turns
+  - 200% ultimate: Ally behind can act
+  - Get ultimate to level 20, activate, then go ham
+  
+  PASSIVES:
+  - All attacks become sword physical exploiting fire/lightning/dark
+  - Full HP: 30% physical attack/sword damage up + 100k damage cap up
+  - 200% potency up when consuming 3+ BP (goes last)
+  - 50% physical attack cap up from passive/active skills
+  
+  EX SKILL UTILITY:
+  - Useful for hitting dagger/bow weaknesses when Kainé doesn't show up
+  - Can exploit Tiziano's dagger implants
+  - Dead aim + additional damage cap up
+  
+  A4 ACCESSORY:
+  - 250 P.Atk (highest ever seen) with -40 defenses and -30 speed
+  - 100k damage cap up when in front row
+  - AoE 10% sword resist down
+  - Essentially better Barello A4 accessory
+  - Worth getting to A4 for the insane stats
+  
+  LONGEVITY:
+  - Here to stay, lifespan almost as good as Kainé's
+  - Sword meta slowly making its way back
+  - Next huge DPS will be another swordsman
+  - 4.5/5 longevity rating
+  
+  RECOMMENDATION:
+  - If you missed Kainé/Tiziano meta, definitely pull for him
+  - Next DPS meta we're moving into
+  - Swords coming back to the meta
+  - 4.5/5 overall rating
+  - Try to get to A1, possibly A4 if lucky

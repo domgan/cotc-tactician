@@ -220,6 +220,7 @@ class DataConfidence(str, Enum):
     TESTED = "tested"
     THEORETICAL = "theoretical"
     INCOMPLETE = "incomplete"
+    COMPLETE = "complete"
 
 
 class SynergyType(str, Enum):

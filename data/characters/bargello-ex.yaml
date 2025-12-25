@@ -15,9 +15,9 @@ origin: "Orsterra"
 weakness_coverage: [fan]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["breaker", "dps", "buffer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Main character for fan weaknesses who can slap enemies 17 times while exploiting all elements. Luxury dancer with highest physical attack among dancers (485 at Lv120). Requires dancer-only team for maximum effectiveness. Fun unit more than needed unit.
 
 # Stats (base level)
 hp: 2896
@@ -172,6 +172,77 @@ a4_accessory:
   passive_effect: "80 P.Atk, 60 SP; Raise Damage Limit by 100,000; When an ally in front row breaks an enemy: Lower Fan Res. by 20%"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - EX dancer focused on fan damage and all elements exploitation
+  - Highest physical attack among dancers (485 at Lv120)
+  - Incredibly slow speed (387 at Lv120) unlike most dancers
+  - Main character when it comes to fan weaknesses
+  - Luxury/nice-to-have traveler, not essential
+  
+  KEY ABILITIES:
+  - 3-hit AoE fan (65 potency, 15% fan resist down)
+  - 4-hit single target fan (65 potency)
+  - 2-hit single target fan (45-55 potency, consumes 100 SP from each ally for 5x potency up to 1200)
+  - 5-hit random target fan (35 potency, 15% fan resist down per hit)
+  - EX skill: 1-hit single target fan (65 potency, consumes 100 SP from each ally, 9 hits max)
+  
+  ULTIMATE:
+  - Goes first, gives all allies 5-10% phys/ele attack up (2-3 turns)
+  - 100% potency up to dancer skills for 1 turn
+  - Essentially AoE Solon ultimate but only for dancers
+  
+  DANCER SQUAD MECHANICS:
+  - 2 dancers: 15% phys/ele attack up
+  - 3+ dancers: 30% fan damage up
+  - 4+ dancers: 3% SP regen
+  - 6 dancers: 50% HP regen
+  - Follow-up attack: 4-8 hits based on dancer count (4 dancers = 4 hits, 6 dancers = 8 hits)
+  
+  LANE SKILL:
+  - Wait 2 turns, reuse after 6 turns
+  - Exploits all elemental weaknesses with fan damage
+  - Combined with EX skill: 17 hits to fan + all elements
+  
+  BREAKING CAPABILITIES:
+  - Maximum 17 hits with full dancer party + lane skill + EX skill
+  - Requires dancer-only team for maximum effectiveness
+  - Meta for physical fan damage isn't great currently
+  
+  A4 ACCESSORY:
+  - 80 P.Atk + 60 SP + 100k damage cap up
+  - 20% fan resist down when front row breaks enemy
+  - 100k damage cap up is best aspect
+  - Fan resist down is somewhat useless
+  - Would be better with higher physical attack or defense down passive
+  
+  LONGEVITY:
+  - Could see use if COTC adds more fan weakness specialists
+  - Entering new meta with daggers and swords
+  - Might be benched until fan meta returns
+  - 3.25/5 longevity rating
+  
+  RECOMMENDATION:
+  - Luxury unit, not must-have
+  - Requires full dancer team for maximum effectiveness
+  - Most travelers won't benefit from dancer-only ultimate
+  - Fun unit but not great investment
+  - 3.25/5 overall rating
+  
+  PULL STRATEGY:
+  - Summer traveler on separate banner
+  - More fun than needed unit
+  - If he was warrior with these skills, would be amazing
+  - Limited reruns until summer season returns
+  
+  COMPARISON:
+  - Better than OG Tatloch who was previously buffed
+  - Even with buffs, not enough for fan users to nominally shine
+  - 0.5/5 time limited (summer traveler)
+  - 4.5/5 design
+  - 5/5 VA (Gaito Ishiawa)

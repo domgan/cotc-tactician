@@ -15,9 +15,9 @@ origin: "Solistia"
 weakness_coverage: [fire, ice, light, lightning, staff, wind]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["dps", "breaker"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Top-tier elemental DPS cleric with highest elemental attack stat (590 at Lv120). Buffed to potentially be #1 DPS in game. Requires Crick for maximum effectiveness. Switches between normal and Kagura stances, building conjuration points for passive activation.
 
 # Stats (base level)
 hp: 2812
@@ -203,6 +203,58 @@ a4_accessory:
   passive_effect: "140 E.Atk; When an ally breaks an enemy, lower Elem. Def. by 10% (turns: 3); When consuming 3 BP or more: Raise Elem. Atk. by 15% and Damage Limit by 50,000; 3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack).; 6+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: 2x100).; 9+: Raise the limit of Elem. Atk. from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks.; 3+: Gain the ability to exploit Fire, Ice, Lightning and Wind weaknesses with some elemental attacks other than the “Attack” action (damage calculation based on original attack).; **6**+: From the next turn, deal Elem. Light damage to All Foes 2 time(s) before some allies act (potency: **2x150**).; 7+ Gain automatic SP recovery (amount: 10% of max SP).~~; 9+: Raise the limit of Elem. Atk. ~~and Light damage~~ from support and equipment effects to 50%, raise Elem. Atk. by 20% and gain the ability to trigger critical hits with elemental attacks.; 140 E.Atk; When an ally breaks an enemy, lower Elem. Def. by 10% (turns: 3); When consuming 3 BP or more: Raise Elem. Atk. by 15% ~~and Damage Limit by 50,000~~"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
+last_updated: 2025-12-25
+
+# Usage Strategy Notes (from YouTube tutorial)
+usage_strategy: |
+  OVERVIEW:
+  - Possibly the #1 DPS in game after buffs, rivaling Pardis III and Kainé
+  - Starting the staff and element meta with Crick synergy
+  - Requires specific team composition to maximize potential
+  
+  KEY BUFFS RECEIVED:
+  - Skills: Additional hits (3→5, 4→7 hits)
+  - Passive: Innate 75% potency up to all skills
+  - Ultimate: 20% attack/light up to allies, 8→10 hits at 200%
+  
+  ESSENTIAL TEAMMATES:
+  - Crick: Doubles potency for all clerics (100% potency up for EX Hikari)
+  - Midia (future): Physical support for staff weakness exploitation
+  - Relisha (future): Cleric staff weakness exploitation
+  
+  STANCE MECHANICS:
+  - Normal: Build conjuration points
+  - Kagura: 75% potency up + 15% elemental/light up to allies, consumes 25% SP/turn
+  - Switch between stances strategically
+  
+  CONJURATION POINTS SYSTEM:
+  - 3+: Exploit fire, ice, wind, lightning
+  - 5+: 2-hit preemptive light attack (potency 150 at 6★)
+  - 7+: 10% SP regen
+  - 9+: 20% elemental up + 50% attack/light cap up
+  
+  COMPARISON TO TOP DPS:
+  vs Kainé:
+  - Kainé: 120% potency with 5+ BP, limited to light/dagger
+  - EX Hikari: 150% potency with Crick, exploits multiple elements
+  
+  vs Pardis III:
+  - Pardis III: 200% potency with 4+ BP, self-sustainable
+  - EX Hikari: Higher elemental attack, better shield shaving with preemptive attacks
+  
+  BUILD RECOMMENDATIONS:
+  - Ultimate Awakening priority over A1 for better point generation
+  - A1 accessory decent for breaker role
+  - Crick essential for full potential
+  
+  LONGEVITY:
+  - Solid future with light being common weakness
+  - Preemptive and follow-up attacks valuable for shield shaving
+  - 4.5/5 longevity rating
+  
+  RECOMMENDATION:
+  - Pull if you have Crick or plan to get future cleric supports
+  - Skip if saving for next big DPS (warrior, physical meta returning)
+  - 4.3/5 overall rating
