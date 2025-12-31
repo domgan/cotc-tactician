@@ -1,0 +1,153 @@
+# Dark Knight Beginner Team
+# Minimal setup for Dark Knight solo with essential support
+
+schema_version: "1.0"
+
+id: "dark-knight-beginner-team"
+name: "Dark Knight Beginner Solo Setup"
+boss_id: "general-difficult-content"
+
+strategy_type: "sustain"
+investment_level: "low"
+
+target_ex_rank: "ex1"
+survival_strategy: "dodge_tank"
+minimum_hp_recommended: 3000
+
+buff_category_coverage:
+  active_atk_up: 15
+  active_def_down: 15
+  passive_damage_up: 10
+  ultimate_potency: 100
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: "dark-knight"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Dark Knight solo setup"
+    key_skills_used:
+      - "Purge of Avarice"
+      - "Demon Blade Fisteralda"
+      - "Ultimate technique"
+    accessory_requirements: []
+    awakening_required: 1
+
+back_line:
+  - position: 5
+    character_id: "ophilia"
+    role_in_team: "healer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Ophilia for auto-revive support"
+    key_skills_used:
+      - "Auto-revive passive"
+    accessory_requirements: []
+    awakening_required: 2
+
+  - position: 6
+    character_id: "lucetta"
+    role_in_team: "utility"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Lucetta for buff extension"
+    key_skills_used:
+      - "Buff extension skill"
+    accessory_requirements: []
+    awakening_required: 2
+
+turn_plan:
+  - turn_range: "1"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Purge of Avarice (level 1)"
+      - "Ophilia: Prepare auto-revive"
+      - "Move front row to back row"
+    notes: "Start Cursed Puppet buildup with minimal support"
+
+  - turn_range: "2"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Purge of Avarice again"
+      - "Ophilia: Activate auto-revive on Lucetta"
+    notes: "Continue Cursed Puppet, protect key support"
+
+  - turn_range: "3"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Ultimate technique"
+      - "Ophilia: Healing as needed"
+    notes: "Ultimate with partial Cursed Puppet passive"
+
+  - turn_range: "4"
+    phase: "burst"
+    actions:
+      - "Dark Knight: EX skill at max BP"
+      - "Lucetta: Extend buffs if available"
+    notes: "Main damage phase with limited support"
+
+  - turn_range: "5"
+    phase: "burst"
+    actions:
+      - "Dark Knight: Main damage"
+      - "Herminia: Light damage support"
+    notes: "Peak damage with minimal setup"
+
+  - turn_range: "6+"
+    phase: "sustain"
+    actions:
+      - "Ophilia: Healing and support"
+      - "Continue damage if enemy survives"
+    notes: "Extended fight if initial burst insufficient"
+
+speed_order:
+  - "dark-knight"
+  - "ophilia"
+  - "herminia"
+  - "lucetta"
+
+speed_tuning_notes: "DK needs to act early for setup, minimal speed requirements"
+
+buff_stacking:
+  - buff_type: "phys_atk_up"
+    sources: ["dark-knight"]
+    target_cap: "15%"
+    timing: "before break"
+
+  - buff_type: "potency_up"
+    sources: ["dark-knight"]
+    target_cap: "100%"
+    timing: "during break"
+
+why_it_works: |
+  This is a minimal investment team that allows players to use Dark Knight with
+  just essential support. Ophilia provides crucial auto-revive to keep the
+  Cursed Puppet buildup going, Lucetta extends what few buffs are available,
+  and Herminia adds light damage coverage. This setup focuses on getting DK
+  to his damage phase with minimal character investment.
+
+key_synergies:
+  - "Dark Knight + Ophilia: Auto-revive keeps Cursed Puppet chain going"
+  - "Dark Knight + Lucetta: Extended buff duration for longer damage windows"
+  - "Dark Knight + Herminia: Additional light weakness coverage"
+
+risks_and_recovery:
+  - "Risk: Very limited support makes setup fragile"
+  - "Recovery: Ophilia auto-revive provides safety net"
+  - "Risk: Lower damage output without full support"
+  - "Recovery: May need multiple break cycles"
+  - "Risk: Cursed Puppet buildup slower"
+  - "Recovery: Accept longer fight times, focus on survival"
+
+verified: false
+clear_time: "~15-20 minutes"
+success_rate: "Medium - requires careful execution"
+
+author: "community"
+source_url: "https://www.youtube.com/watch?v=Lb8NCitX5TQ"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-28"

@@ -1,0 +1,177 @@
+# Dark Knight + Black Priestess Team
+# Simplified setup with Black Priestess partnership
+
+schema_version: "1.0"
+
+id: "dark-knight-black-priestess-team"
+name: "Dark Knight + Black Priestess Setup"
+boss_id: "general-difficult-content"
+
+strategy_type: "burst"
+investment_level: "medium"
+
+target_ex_rank: "ex3"
+survival_strategy: "dodge_tank"
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 20
+  ultimate_potency: 100
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: "dark-knight"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Dark Knight is core to this strategy"
+    key_skills_used:
+      - "Purge of Avarice"
+      - "Demon Blade Fisteralda"
+      - "Ultimate technique"
+    accessory_requirements:
+      - "Brilliant Weapon (recommended)"
+    awakening_required: 4
+
+  - position: 2
+    character_id: "black-priestess"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Black Priestess gives access to all elemental exploits"
+    key_skills_used:
+      - "Ultimate technique"
+      - "Elemental exploit skills"
+    accessory_requirements: []
+    awakening_required: 4
+
+back_line:
+  - position: 5
+    character_id: "nona"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Nona provides ultimate gauge support"
+    key_skills_used:
+      - "Ultimate gauge increase skill"
+      - "EX skill (30% potency up)"
+      - "Penguin Keeper"
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: "ex-primrose"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "EX Primrose provides ultimate gauge support"
+    key_skills_used:
+      - "Ultimate gauge increase skill"
+      - "Sheep Keeper"
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 7
+    character_id: "lucetta"
+    role_in_team: "utility"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Lucetta extends DK's buffs by one turn"
+    key_skills_used:
+      - "Buff extension skill"
+    accessory_requirements: []
+    awakening_required: 3
+
+turn_plan:
+  - turn_range: "1"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Kill off the back row"
+      - "Black Priestess: Prepare elemental exploits"
+    notes: "Start setup, no need for 7 cursed puppets"
+
+  - turn_range: "2"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Ultimate technique"
+      - "Kill off one member with auto-revive"
+      - "If ultimate at 20%, DK goes to back row and passive doesn't proc"
+    notes: "Ultimate + kill auto-revive ally, gains 2 BP starting turn 3"
+
+  - turn_range: "3"
+    phase: "setup"
+    actions:
+      - "Dark Knight: EX skill at max BP"
+      - "Black Priestess: Ultimate technique"
+    notes: "EX skill + Black Priestess ultimate"
+
+  - turn_range: "4"
+    phase: "burst"
+    actions:
+      - "Dark Knight: Go ham (main damage)"
+      - "Nona: EX skill (30% potency up)"
+      - "Keepers: Activate if available"
+    notes: "Main damage phase with Black Priestess elemental exploits"
+
+  - turn_range: "5+"
+    phase: "sustain"
+    actions:
+      - "Use keepers for additional effects"
+      - "Mafa for BP recovery if needed"
+    notes: "Extended damage if needed"
+
+speed_order:
+  - "nona"
+  - "ex-primrose"
+  - "dark-knight"
+  - "black-priestess"
+  - "lucetta"
+
+speed_tuning_notes: "Black Priestess setup reduces setup time significantly"
+
+buff_stacking:
+  - buff_type: "potency_up"
+    sources: ["nona", "dark-knight"]
+    target_cap: "100%"
+    timing: "during break"
+
+  - buff_type: "elemental_exploits"
+    sources: ["black-priestess"]
+    target_cap: "100%"
+    timing: "during break"
+
+why_it_works: |
+  Black Priestess partnership dramatically simplifies DK setup. Black Priestess
+  gives DK access to all elemental exploits in the game, and 99% of enemies have
+  both elemental and physical weaknesses. This means you don't need to get DK's
+  passive up to 7 cursed puppets - only need 5 members down after turn 3.
+  Setup is much faster: Turn 1 kill back row, Turn 2 ultimate + kill auto-revive,
+  Turn 3 EX skill + Black Priestess ultimate, Turn 4 main damage.
+
+key_synergies:
+  - "Dark Knight + Black Priestess: All elemental exploits, only 5 cursed puppets needed"
+  - "Dark Knight + Nona: 30% potency up for massive damage"
+  - "Black Priestess: Covers all elemental weaknesses (99% of enemies)"
+  - "Faster setup: 4 turns vs 7 turns for full puppet setup"
+
+risks_and_recovery:
+  - "Risk: Black Priestess availability (premium character)"
+  - "Recovery: Can fall back to full 7 puppet setup"
+  - "Risk: Ultimate positioning (20% ultimate moves DK to back row)"
+  - "Recovery: Ensure ultimate gauge management"
+  - "Risk: Still requires 4-5 turn setup"
+  - "Recovery: Same recovery options as standard setup"
+
+verified: false
+clear_time: "~6-8 minutes"
+success_rate: "Very high with Black Priestess"
+
+author: "community"
+source_url: "https://www.youtube.com/watch?v=Lb8NCitX5TQ"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-28"

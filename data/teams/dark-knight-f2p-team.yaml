@@ -1,0 +1,176 @@
+# Dark Knight Free-to-Play Team
+# From YouTube tutorial: https://www.youtube.com/watch?v=Lb8NCitX5TQ
+
+schema_version: "1.0"
+
+id: "dark-knight-f2p-team"
+name: "Dark Knight Free-to-Play Setup"
+boss_id: "general-difficult-content"
+
+strategy_type: "burst"
+investment_level: "medium"
+
+target_ex_rank: "ex3"
+survival_strategy: "dodge_tank"
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 20
+  ultimate_potency: 100
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: "dark-knight"
+    role_in_team: "primary_dps"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Dark Knight is core to this strategy"
+    key_skills_used:
+      - "Purge of Avarice"
+      - "Demon Blade Fisteralda"
+      - "Ultimate technique"
+    accessory_requirements:
+      - "Brilliant Weapon (recommended)"
+      - "Dark Knight's Mask"
+    awakening_required: 4
+
+  - position: 2
+    character_id: "nona"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Nona is essential for ultimate gauge support"
+    key_skills_used:
+      - "Ultimate gauge increase skill"
+      - "EX skill (30% potency up)"
+      - "Penguin Keeper"
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 3
+    character_id: "ex-primrose"
+    role_in_team: "buffer"
+    is_required: true
+    substitutes: []
+    substitute_notes: "EX Primrose provides ultimate gauge support"
+    key_skills_used:
+      - "Ultimate gauge increase skill"
+      - "Sheep Keeper"
+    accessory_requirements: []
+    awakening_required: 4
+
+back_line:
+  - position: 5
+    character_id: "lucetta"
+    role_in_team: "utility"
+    is_required: true
+    substitutes: []
+    substitute_notes: "Lucetta extends DK's buffs by one turn"
+    key_skills_used:
+      - "Buff extension skill"
+    accessory_requirements: []
+    awakening_required: 3
+
+turn_plan:
+  - turn_range: "1"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Purge of Avarice (level 1)"
+      - "Nona: Build ultimate gauge"
+      - "EX Primrose: Build ultimate gauge"
+      - "Move front row to back row"
+    notes: "Start Cursed Puppet buildup, don't need ultimate next turn"
+
+  - turn_range: "2"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Purge of Avarice again"
+      - "Move all characters from front row to back row"
+      - "Activate Ophilia's auto-revive on Lucetta"
+    notes: "Continue Cursed Puppet, Lucetta won't get back up from turn 1"
+
+  - turn_range: "3"
+    phase: "setup"
+    actions:
+      - "Dark Knight: Ultimate technique"
+      - "Passive should be fully up now (7 cursed puppets)"
+    notes: "Ultimate with full Cursed Puppet passive"
+
+  - turn_range: "4"
+    phase: "burst"
+    actions:
+      - "Dark Knight: EX skill at max BP"
+      - "BP gauge should be full"
+    notes: "EX skill activation"
+
+  - turn_range: "5"
+    phase: "burst"
+    actions:
+      - "Dark Knight: Go for damage"
+      - "Has 100% potency up from EX skill this turn"
+      - "Activate keepers"
+      - "Activate Nona's EX skill (30% potency up)"
+    notes: "Main damage phase"
+
+  - turn_range: "6"
+    phase: "burst"
+    actions:
+      - "Keep out keepers (able to use both now)"
+      - "Should use up all BP"
+    notes: "Extended damage phase"
+
+  - turn_range: "7"
+    phase: "sustain"
+    actions:
+      - "Use Mafa to give additional 1 BP for max BP"
+      - "If enemy alive: Use Smur divine beast to revive allies"
+      - "Activate DK's ultimate again"
+    notes: "Recovery and repeat if needed"
+
+speed_order:
+  - "nona"
+  - "ex-primrose"
+  - "dark-knight"
+  - "lucetta"
+
+speed_tuning_notes: "Basic speed order for ultimate support team"
+
+buff_stacking:
+  - buff_type: "potency_up"
+    sources: ["nona", "dark-knight"]
+    target_cap: "100%"
+    timing: "during break"
+
+why_it_works: |
+  This team follows the exact setup shown in the video. Nona and EX Primrose
+  provide ultimate gauge acceleration, allowing DK to reach his 4-5 turn setup
+  faster. Lucetta extends DK's buffs by one turn. The team focuses on getting
+  all 7 cursed puppets for DK's passive to exploit all physical weaknesses.
+
+key_synergies:
+  - "Dark Knight + Nona: 30% potency up dramatically increases damage"
+  - "Dark Knight + EX Primrose: Faster ultimate gauge generation"
+  - "Lucetta: Extends DK's buffs by one turn"
+  - "7 Cursed Puppet passive: Exploits all physical weaknesses"
+
+risks_and_recovery:
+  - "Risk: Long setup time (4-5 turns) leaves team vulnerable"
+  - "Recovery: Auto-revives from Ophilia on Lucetta"
+  - "Risk: BP management issues"
+  - "Recovery: Mafa support, keeper BP recovery"
+  - "Risk: Cursed Puppet not fully charged"
+  - "Recovery: Black Priestess partnership reduces requirement to 5"
+
+verified: false
+clear_time: "~8-12 minutes"
+success_rate: "High with proper execution"
+
+author: "community"
+source_url: "https://www.youtube.com/watch?v=Lb8NCitX5TQ"
+data_confidence: "theoretical"
+last_verified: null
+last_updated: "2025-12-28"

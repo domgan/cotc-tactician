@@ -177,40 +177,65 @@ a4_accessory:
 # Metadata
 data_confidence: complete
 data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+last_updated: 2025-12-28
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
   SETUP REQUIREMENTS:
   - Takes 4-5 turns to reach full power
-  - Requires Cursed Puppet state on 7 allies for full effectiveness
+  - Requires Cursed Puppet state on 7 allies for full effectiveness (unless paired with Black Priestess)
   - Needs BP recovery support and team coordination
+  - Overkill mechanic: Killing allies with certain skills provides buffs
   
-  ROTATION (SOLO):
-  - Turn 1: Purge of Avarice Lv1, move front row to back
-  - Turn 2: Purge of Avarice again, activate auto-revives
-  - Turn 3: Ultimate technique (passive fully charged)
+  ROTATION (SOLO - FULL CURSED PUPPET SETUP):
+  - Turn 1: Purge of Avarice Lv1, move front row to back row
+  - Turn 2: Purge of Avarice again, activate auto-revives (Ophilia, Lucetta)
+  - Turn 3: Ultimate technique (passive fully charged with 7 cursed puppets)
   - Turn 4: EX skill at max BP
-  - Turn 5: Main damage with 100% potency up from EX skill
-  - Turn 6+: Use keepers and additional casts
+  - Turn 5: Main damage with 100% potency up from EX skill + activate keepers
+  - Turn 6+: Use keepers (Nona, Primrose, etc.) and additional casts
+  - Turn 7+: Use Mafa for additional BP if needed, use divine beast (Smur) for revives
   
-  ROTATION (WITH BLACK PRIESTESS):
+  ROTATION (WITH BLACK PRIESTESS - SIMPLIFIED):
+  - Black Priestess gives access to all elemental exploits (99% of enemies have both)
+  - Only need 5 cursed puppets instead of 7
   - Turn 1: Kill back row
-  - Turn 2: Ultimate + kill auto-revive ally
+  - Turn 2: Ultimate + kill auto-revive ally (gains 2 BP starting turn 3)
   - Turn 3: EX skill + Black Priestess ultimate
   - Turn 4: Main damage phase
   
+  CRITICAL MECHANICS:
+  - If ultimate at 20%, DK goes to back row and passive doesn't proc
+  - Cursed Puppet passive allows exploiting ALL physical weaknesses (sword, polearm, dagger, axe, bow, staff, tome, fan)
+  - BP recovery is crucial for sustained damage
+  
   TEAM SYNERGIES:
-  - Black Priestess: Provides all elemental exploits, reduces Cursed Puppet requirement
-  - Nona: Ultimate gauge increase, 30% potency up EX skill, Penguin Keeper
-  - EX Primrose: Ultimate gauge increase, Sheep Keeper
-  - Ciso: Tank with auto-revive pack
+  - Black Priestess: All elemental exploits, reduces Cursed Puppet requirement to 5
+  - Nona: Ultimate gauge increase, 30% potency up EX skill, Penguin Keeper (25% alt increase turn 2)
+  - EX Primrose: Ultimate gauge increase, Sheep Keeper (50% ultimate up turn 3)
+  - Ciso: Tank with Adventurous Pack (auto-revive first 5 turns)
+  - EX Haanit: Debuffs behind Ciso
   - Lucetta: Extends buffs by 1 turn
+  - Ophilia: Ultimate + auto-revive
+  - Billy: Ultimate + dedicated breaker, Chomper keeper
+  
+  KEEPER MANAGEMENT:
+  - Level keepers to 10 for earlier usage (turn 1-2 instead of turn 2-3)
+  - Best keeper leveling: Heavenly Kate (600k exp, 1.3M with pass)
+  - Expert hunts with Crafty Kate currently available
   
   WEAPON RECOMMENDATION:
   - Brilliant weapon is best in slot (additional 100,000 damage cap up)
+  - Fortune weapon is alternative (missing ~150k damage per hit vs brilliant)
   
-  COMPARED TO PARTIS:
-  - Nearly 2x damage potential
+  COMPARISON TO PARTIS:
+  - Nearly 2x damage potential than Partis
   - Slower setup (4-5 turns vs 3 turns)
   - Better for difficult battles where setup time is justified
+  - Partis better for quick fights/historic content
+  
+  BEST USE CASES:
+  - Very difficult battles where setup time is justified
+  - Content where overkill mechanics can be utilized
+  - Teams with strong BP recovery and keeper support
+  - NOT recommended for historic content (overkill)

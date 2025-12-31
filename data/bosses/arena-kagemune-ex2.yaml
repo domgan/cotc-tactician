@@ -19,6 +19,12 @@ ex_rank: ex2
 actions_per_turn: 2
 provoke_immunity: true
 
+# CRITICAL RESTRICTIONS
+attack_restrictions:
+  - "NO random target hit attacks allowed"
+  - "NO AoE attacks recommended (video shows single-target focus)"
+  - "Must focus on single-target attacks only"
+
 # ===========================================================================
 # STATS (EX2 scaling)
 # ===========================================================================
