@@ -15,9 +15,11 @@ origin: "Solistia"
 weakness_coverage: [fire, light, staff]
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ["buffer", "breaker", "healer"]
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Ultimate defensive support and breaker. Provides 20% Phys Atk + 20% Phys Damage to front row via ultimate. 
+  Follow-up attack passive gives staff damage to active characters. 5-hit breaker with TP skill. 
+  Excellent for staff physical attack teams. Still relevant in JP meta.
 
 # Stats (base level)
 hp: 2862
@@ -181,10 +183,48 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Flower and Wing Hair Ornament”"
+  name: "Flower and Wing Hair Ornament"
   passive_effect: "80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a cleric: Grant the ability to trigger critical hits when using elemental attacks and grant Dead Aim (guaranteed critical hits)"
 
+# Usage Strategy (from YouTube video analysis)
+usage_strategy: |
+  CORE MECHANICS:
+  - Follow-up attack passive gives staff damage to active characters when exploiting weaknesses
+  - Follow-up damage uses active character's stats and buffs (inherits Partis/DK potency)
+  - Ultimate provides 20% Phys Atk + 20% Phys Damage to front row (20% gauge adds second buff)
+  - 5-hit breaker with TP skill (2 staff weakness implants per hit = 10 total)
+  
+  BREAKING CAPABILITIES:
+  - TP skill "Blasting Lantern": 4-5 hits + 2 staff weakness per hit
+  - Can break 5 shields while implanting 10 staff weaknesses
+  - Support skill for 6-9 staff weakness implants when needed
+  
+  BUFFING ROLE:
+  - Main selling point is ultimate (as important as early ultimates)
+  - Replaces many staff travelers in current meta
+  - Follow-up attacks benefit from character potency buffs
+  - 50% staff damage cap increase for entire front row
+  
+  VIABILITY:
+  - Still heavily used in JP meta to this day
+  - Fantastic as breaker and support for staff physical attackers
+  - Longevity 4.9/5 - will last until elemental meta dominates
+  - Overall rating 4.95/5 - "ultimate follow-up attacking queen"
+  
+  A4 ACCESSORY NOTES:
+  - Physical stats on elemental cleric (design mismatch)
+  - Skip for many players as elemental meta will provide crit/dead aim
+  - Frees up accessory slot when elemental support becomes common
+
+# Best use cases
+best_use_cases:
+  - "Staff physical attack teams (Partis, Dark Knight, etc.)"
+  - "Teams needing 5-hit breaker with weakness implant"
+  - "Content requiring 20% Phys Atk + 20% Phys Damage buffs"
+  - "Follow-up attack synergy teams"
+  - "Long-term investment (still relevant in JP meta)"
+
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + YouTube video analysis"
+last_updated: "2025-12-28"
