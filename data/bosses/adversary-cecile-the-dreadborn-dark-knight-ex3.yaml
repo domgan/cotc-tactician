@@ -1,0 +1,107 @@
+# Adversary Log Boss: Cecil the Dreadborn Dark Knight EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 25)
+#
+# Physical/Elemental resistance cycling
+
+id: adversary-cecil-the-dreadborn-dark-knight-ex3
+display_name: "Cecil the Dreadborn Dark Knight EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 25"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-cecil-the-dreadborn-dark-knight
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 26
+hp: 4998210
+speed: 457
+p_atk: 2670
+p_def: 480
+e_atk: 3151
+e_def: 572
+
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - light
+  weapons:
+    - sword
+    - staff
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Physical Resistance (Pre-Break)"
+    mechanic_type: buff_self
+    trigger: "Before recovering from first break"
+    target: all
+    effects: ["Physical Resistance Up"]
+    threat_level: medium
+    counter_strategy: "Use elemental attacks before first break"
+  - name: "Elemental Resistance (Post-Break)"
+    mechanic_type: buff_self
+    trigger: "After recovering from first break"
+    target: all
+    effects: ["Elemental Resistance Up (replaces Physical)"]
+    threat_level: medium
+    counter_strategy: "Switch to physical attacks after first break"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Cecil the Dreadborn Dark Knight - Resistance switching.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 4,998,210
+  - Shields: 26
+  - Speed: 457
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - BEFORE first break: Has Physical Resistance
+  - AFTER first break: Switches to Elemental Resistance
+  
+  STRATEGY:
+  1. Phase 1 (before break): Use ELEMENTAL attacks
+  2. Break the boss
+  3. Phase 2 (after break): Switch to PHYSICAL attacks
+  
+  Bring hybrid teams with both damage types!
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Need BOTH physical and elemental damage"
+
+recommended_weakness_coverage:
+  - sword
+  - staff
+  - fire
+  - ice
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

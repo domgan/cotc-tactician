@@ -20,10 +20,15 @@ actions_per_turn: 2  # May be 3 at low HP
 provoke_immunity: true
 
 # ===========================================================================
-# STATS (EX3 scaling - highest tier)
+# STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
-hp: 45000000  # ~45 million
-shield_count: 50  # Massive shield count
+hp: 48953520
+shield_count: 50
+speed: 1002
+p_atk: 3910
+p_def: 3703
+e_atk: 876
+e_def: 1002
 
 weaknesses:
   elements:

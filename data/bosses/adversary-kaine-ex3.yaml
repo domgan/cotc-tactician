@@ -1,0 +1,81 @@
+# Adversary Log Boss: Kainé? (NieR Crossover) EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 50)
+#
+# EX3 variant - NieR crossover boss
+
+id: adversary-kaine-ex3
+display_name: "Kainé? EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 50"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-kaine
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 37
+hp: 5268520
+speed: 374
+p_atk: 2323
+p_def: 463
+e_atk: 2735
+e_def: 471
+
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - wind
+    - light
+  weapons:
+    - sword
+    - dagger
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Kainé? - NieR crossover boss.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 5,268,520
+  - Shields: 37
+  - Speed: 374
+  
+  Standard EX3 fight - apply normal strategies.
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Sword/Dagger/Fire/Ice/Wind/Light coverage"
+
+recommended_weakness_coverage:
+  - sword
+  - dagger
+  - fire
+  - ice
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

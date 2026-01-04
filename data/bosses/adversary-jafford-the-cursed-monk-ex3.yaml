@@ -1,0 +1,167 @@
+# Adversary Log Boss: Jafford the Cursed Monk EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 75)
+#
+# EX3 variant with Ouma mode switching and Priest revival
+
+id: adversary-jafford-the-cursed-monk-ex3
+display_name: "Jafford the Cursed Monk EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-jafford-the-cursed-monk
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter: Jafford + Priest add
+shield_count: 28
+hp: 2311702
+speed: 433
+
+enemies:
+  - name: "Jafford the Cursed Monk"
+    is_main_target: true
+    hp: 2311702
+    shield_count: 28
+  - name: "Priest Add"
+    hp: 99999
+    shield_count: 9999
+    notes: "Revived at 100% HP if killed while Jafford in Ouma Guardian mode"
+
+weaknesses:
+  elements:
+    - fire
+    - lightning
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Weakness Cycling"
+    mechanic_type: other
+    trigger: "Every two turns (if top add alive)"
+    target: all
+    effects: ["Changes weaknesses"]
+    threat_level: medium
+    counter_strategy: "Track weakness rotation"
+  - name: "Ouma Guardian Mode"
+    mechanic_type: buff_self
+    trigger: "Mode activation"
+    target: all
+    effects: ["Physical and Elemental Resistance Up"]
+    threat_level: high
+    counter_strategy: "Wait for Ouma Strike mode for damage"
+  - name: "Ouma Strike Mode"
+    mechanic_type: buff_self
+    trigger: "Mode swap"
+    target: all
+    effects: ["Resistance buffs removed"]
+    threat_level: low
+    counter_strategy: "This is your damage window!"
+  - name: "Priest Revival"
+    mechanic_type: other
+    trigger: "End of turn (if in Ouma Guardian mode)"
+    target: all
+    effects: ["Revives Priest add at 100% HP"]
+    threat_level: critical
+    counter_strategy: "Kill Priest during Ouma Strike mode, or kill Jafford first"
+  - name: "Full BP (Ouma Guardian): Stillness"
+    mechanic_type: ultimate
+    trigger: "Full BP in Ouma Guardian mode"
+    target: front_row
+    effects: ["Inflicts Stillness (disables a skill)"]
+    threat_level: high
+    counter_strategy: "Break before Full BP if in Guardian mode"
+  - name: "Full BP (Ouma Strike): 3x AoE Light + Charm"
+    mechanic_type: ultimate
+    trigger: "Full BP in Ouma Strike mode"
+    target: all
+    damage_type: elemental
+    element: light
+    effects: ["Charm"]
+    threat_level: critical
+    counter_strategy: "Charm immunity essential; break before Full BP"
+
+auras:
+  - name: "Ouma Guardian"
+    trigger: "Mode cycling"
+    active_indicator: "Defensive stance"
+    counter_effect: "Physical/Elemental Resistance Up; Priest revival at end of turn"
+    removal_condition: "Mode swap to Ouma Strike"
+  - name: "Ouma Strike"
+    trigger: "Mode cycling"
+    active_indicator: "Offensive stance"
+    counter_effect: "Resistance removed - damage window"
+    removal_condition: "Mode swap to Ouma Guardian"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with mode switching.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 2,311,702 + Priest add
+  - Shields: 28
+  - Speed: 433
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - If top add alive: Weaknesses change every 2 turns
+  - TWO MODES:
+    1. Ouma Guardian: Phys/Ele Resistance Up, revives Priest at end of turn!
+    2. Ouma Strike: Resistance removed - YOUR DAMAGE WINDOW
+  - Full BP (Guardian): Stillness to frontrow (disables skills)
+  - Full BP (Strike): 3x AoE Light + CHARM
+  
+  STRATEGY:
+  1. Track mode switching (Guardian vs Strike)
+  2. Save damage for Ouma Strike mode (no resistance)
+  3. DON'T kill Priest during Guardian mode - it revives at 100%!
+  4. Kill Priest during Strike mode, OR ignore and kill Jafford
+  5. Charm immunity ESSENTIAL for Strike boost attack
+  6. Break before Full BP in both modes
+  
+  PRIEST MANAGEMENT:
+  - Guardian mode: Priest revives at 100% if killed!
+  - Strike mode: Kill Priest during this window
+  - Alternative: Just focus on Jafford
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Attack debuffs (only effective in Strike mode)"
+  - role: healer
+    priority: required
+    reason: "Survive boost attacks"
+  - role: buffer
+    priority: required
+    reason: "Stack damage for Strike mode windows"
+  - role: dps
+    priority: required
+    reason: "Focus fire during Strike mode"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Handle targeted attacks"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fire
+  - lightning
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

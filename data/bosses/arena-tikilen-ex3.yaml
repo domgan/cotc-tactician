@@ -13,7 +13,28 @@ ex_rank: ex3
 actions_per_turn: 1
 provoke_immunity: false
 
-# Tikilen: 36→18, Skilled: 26, Veteran: 25
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter: Tikilen + 2 Mercenaries
+hp: 4460250          # Tikilen main
+shield_count: 36     # Tikilen shields (reduces to 18 at 40% HP)
+speed: 484           # Estimated from CSV patterns
+
+enemies:
+  - name: "Tikilen"
+    is_main_target: true
+    hp: 4460250
+    shield_count: 36
+    notes: "Shield reduces to 18 at 40% HP, only crits shave shields in Last Stand"
+  - name: "Skilled Mercenary"
+    hp: 2721450
+    shield_count: 26
+    notes: "Watch for counter mode - gains priority when active"
+  - name: "Veteran Mercenary"
+    hp: 2721450
+    shield_count: 25
+    notes: "Watch for counter mode - gains priority when active"
 
 hp_thresholds:
   - hp_percent: 80
@@ -41,23 +62,29 @@ auras:
 general_strategy: |
   EXTREME difficulty - endgame content.
   
-  EX3 SPECIFIC:
-  - Tikilen shields: 36→18
-  - ~5x HP (estimated 50M+ total)
-  - Very high speed (500+)
-  - Counter stance extremely punishing
+  EX3 CHARACTERISTICS (VERIFIED FROM SPREADSHEET):
+  - Tikilen HP: 4,460,250 | Mercenaries: 2,721,450 each
+  - Total HP: ~10M
+  - Tikilen shields: 36→18 at 40% HP
+  - Mercenary shields: 26/25
+  
+  KEY MECHANICS:
+  - Last Stand (40% HP): Only CRITICAL HITS shave shields!
+  - Mercenary Counter Mode: They gain PRIORITY (act first) when active
+  - Watch turn order to detect counter mode activation
   
   CRITICAL REQUIREMENTS:
   - 4000+ HP per character
-  - Guaranteed crit source (Sonia, Haanit, Linde)
+  - Guaranteed crit source (Sonia, Haanit, Linde) for Last Stand
   - Full damage stacking (all 5 categories)
   - Consider turtle strategy
   
   RECOMMENDED APPROACH:
   1. Stack 30% DEF + 30% ATK debuff
   2. Dodge tank for single-target attacks
-  3. Guaranteed crit for Last Stand
-  4. Kill mercenaries first if struggling
+  3. Guaranteed crit for Last Stand phase
+  4. Watch mercenary turn order - if they go first, counter mode is active!
+  5. Kill mercenaries first if struggling with counters
 
 required_roles:
   - role: tank

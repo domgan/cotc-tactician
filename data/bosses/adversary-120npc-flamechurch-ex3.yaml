@@ -1,0 +1,106 @@
+# Adversary Log Boss: Flamechurch (120 NPC) EX3
+# SOURCE: Adversary Log New spreadsheet (120 NPCs)
+#
+# Massive HP 120 NPC encounter
+
+id: adversary-120npc-flamechurch-ex3
+display_name: "Flamechurch 120 NPC EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - 120 NPCs"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter
+shield_count: 38
+hp: 14782185
+speed: 674
+
+enemies:
+  - name: "Main NPC"
+    is_main_target: true
+    hp: 14782185
+    shield_count: 38
+  - name: "Add"
+    hp: 12649465
+    shield_count: 35
+    notes: "Almost as much HP as main!"
+
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - dagger
+    - axe
+    - tome
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent (all 120 NPCs)"
+    target: all
+    effects: ["Multi-hit attacks deal less damage per hit"]
+    threat_level: high
+    counter_strategy: "Use single-hit nukes for damage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  120 NPC Flamechurch - MASSIVE HP encounter.
+  
+  EX3 CHARACTERISTICS:
+  - Main HP: 14,782,185
+  - Add HP: 12,649,465 (almost as much as main!)
+  - Total HP: ~27.4 MILLION
+  - Shields: 38/35
+  - Speed: 674
+  
+  This is an extremely high HP fight.
+  
+  SUCCESSIVE STRIKE RESISTANCE applies!
+  - Single-hit nukes essential
+  - Multi-hit for shields only
+  
+  Limited weakness options (Dagger/Axe/Tome/Ice).
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive 3 actions"
+  - role: buffer
+    priority: required
+    reason: "Maximum damage stacking needed"
+  - role: dps
+    priority: required
+    reason: "Single-hit nukes for 27M+ HP"
+  - role: breaker
+    priority: required
+    reason: "38+ shields"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - tome
+  - ice
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

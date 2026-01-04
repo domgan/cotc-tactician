@@ -39,32 +39,92 @@ weaknesses:
     - bow
 
 # ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Kilns and Signa Cheese"
+    mechanic_type: other
+    trigger: "Passive exploit"
+    target: all
+    effects: ["Ceraphina cannot remove debuffs from Kilns and Signa passives"]
+    threat_level: low
+    counter_strategy: "EXPLOIT: Bring Kilns/Signa for permanent debuffs!"
+  - name: "Mass Status Ailment Attack"
+    mechanic_type: debuff_party
+    trigger: "First action at battle start AND after break recovery"
+    target: front_row
+    effects: ["Poison", "Bleeding", "Silence", "Sleep", "Paralysis", "Terror", "Weakness", "Blindness"]
+    threat_level: critical
+    counter_strategy: "Status immunity essential; she applies EVERYTHING"
+  - name: "2x RT Ice (Comatose)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: random
+    damage_type: elemental
+    element: ice
+    effects: ["Comatose"]
+    threat_level: high
+    counter_strategy: "Comatose cleanse"
+  - name: "Dark/Light (Comatose)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: elemental
+    effects: ["Comatose"]
+    threat_level: high
+    counter_strategy: "Comatose cleanse"
+  - name: "Self Cleanse + Stat Debuff"
+    mechanic_type: buff_self
+    trigger: "Regular action"
+    target: all
+    effects: ["Removes enfeebling effects on self", "Debuffs frontrow stats for 2 turns"]
+    threat_level: high
+    counter_strategy: "Debuffs get cleansed (except Kilns/Signa!)"
+
+# ===========================================================================
 # STRATEGY (EX3 SPECIFIC)
 # ===========================================================================
 general_strategy: |
-  EX3 variant - MAXIMUM DIFFICULTY.
+  EX3 Ceraphina - Status ailment nightmare with an EXPLOIT!
   
-  Key changes from base:
-  - Extreme HP (3,649,026)
-  - Maximum shield count (31)
-  - Very high speed (350)
-  - 3 actions per turn from early fight
+  EX3 CHARACTERISTICS:
+  - HP: 3,649,026
+  - Shields: 31
+  - Speed: 350
   
-  CRITICAL:
-  - Either speedkill (Solon + Primrose EX) or full turtle
-  - Stack all buff/debuff categories to 30%
-  - Fiore EX Cover or dodge tank essential
-  - May take 50-100+ turns without optimal setup
+  EXPLOIT (FROM SPREADSHEET):
+  - Kilns and Signa's passive debuffs CANNOT BE REMOVED!
+  - Ceraphina cannot cleanse these specific debuffs
+  - BRING KILNS AND/OR SIGNA for permanent debuffs!
+  
+  MASS STATUS ATTACK:
+  At battle start and after each break recovery, applies to frontrow:
+  - Poison, Bleeding, Silence, Sleep, Paralysis, Terror, Weakness, Blindness
+  - That's 8 STATUS AILMENTS at once!
+  
+  OTHER ATTACKS:
+  - 2x RT Ice (Comatose)
+  - Dark/Light (Comatose)
+  - Self cleanse + frontrow stat debuff
+  
+  STRATEGY:
+  1. BRING KILNS AND/OR SIGNA (permanent debuffs!)
+  2. Status immunity or instant full cleanse ESSENTIAL
+  3. Prepare for status bomb after each break
+  4. She cleanses other debuffs - don't rely on normal debuffers
   
   Recommended HP per character: 4000+
 
 required_roles:
   - role: debuffer
     priority: required
-    reason: "Stack attack debuffs (30% cap)"
+    reason: "KILNS/SIGNA PASSIVES CANNOT BE CLEANSED - exploit this!"
   - role: healer
     priority: required
-    reason: "Survive multi-action turns"
+    reason: "Full status cleanse ESSENTIAL (8 ailments at once)"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking (she debuffs your stats)"
   - role: dps
     priority: required
     reason: "Deal damage during break windows"
@@ -82,6 +142,6 @@ recommended_weakness_coverage:
 # ===========================================================================
 # METADATA
 # ===========================================================================
-data_confidence: incomplete
-data_source: "Community Spreadsheet (Wigglytuff)"
-last_updated: 2025-12-23
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

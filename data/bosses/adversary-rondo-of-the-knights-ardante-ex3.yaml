@@ -1,0 +1,159 @@
+# Adversary Log Boss: Rondo of the Knights Ardante EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 75)
+#
+# EX3 variant with complex weakness lock and wisp mechanics
+
+id: adversary-rondo-of-the-knights-ardante-ex3
+display_name: "Rondo of the Knights Ardante EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-rondo-of-the-knights-ardante
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter: Rondo (main) + 2 Wisps
+shield_count: 41
+hp: 8959991
+speed: 363
+
+enemies:
+  - name: "Rondo of the Knights Ardante"
+    is_main_target: true
+    hp: 8959991
+    shield_count: 41
+  - name: "Wisp"
+    hp: 58888
+    notes: "Summoned after break when Rondo unlocks sword weakness"
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Initial Weakness Lock"
+    mechanic_type: buff_self
+    trigger: "Battle start"
+    target: all
+    effects: ["Locks Sword, Fan, and Ice weaknesses"]
+    threat_level: medium
+    counter_strategy: "Use Staff/Bow/Lightning/Wind initially"
+  - name: "Turn 2 Unlock"
+    mechanic_type: other
+    trigger: "End of turn 2"
+    target: all
+    effects: ["Rondo unlocks his weaknesses"]
+    threat_level: low
+    counter_strategy: "Wait until turn 2 to use Sword/Fan/Ice"
+  - name: "First Boosted Attack"
+    mechanic_type: attack
+    trigger: "First Full BP (before first break)"
+    target: single
+    damage_type: physical
+    threat_level: medium
+    counter_strategy: "Single target - tank can handle"
+  - name: "Post-Break Weakness Lock + Double Actions"
+    mechanic_type: buff_self
+    trigger: "After recovering from break"
+    target: all
+    effects: ["Locks Sword + one random weakness", "Acts twice per turn", "May use ST Sword (Silence)"]
+    threat_level: high
+    counter_strategy: "Adapt to random weakness lock; 2 actions is dangerous"
+  - name: "Wisp Summon Mode"
+    mechanic_type: other
+    trigger: "Sometimes after break recovery"
+    target: all
+    effects: ["Locks only Sword weakness", "Summons two wisps", "Gains Elemental Counter (restores 2 BP)"]
+    threat_level: critical
+    counter_strategy: "Kill wisps; avoid elemental attacks when counter active"
+  - name: "ST Sword (Silence)"
+    mechanic_type: attack
+    trigger: "Post-break (double action state)"
+    target: single
+    damage_type: physical
+    effects: ["Silence"]
+    threat_level: medium
+    counter_strategy: "Cleanse silence"
+
+auras:
+  - name: "Elemental Counter"
+    trigger: "Wisp summon mode"
+    active_indicator: "Counter stance with wisps"
+    counter_trigger: "Elemental attack"
+    counter_effect: "Restores 2 BP to Rondo"
+    removal_condition: "Kill wisps or break"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with complex phase mechanics.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 8,959,991
+  - Shields: 41
+  - Speed: 363
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Battle start: Locks Sword/Fan/Ice weaknesses
+  - Turn 2: Rondo unlocks weaknesses
+  - First boost attack is single target (before first break)
+  - After break recovery: Locks Sword + random weakness, gains 2 actions
+  - Sometimes after break: Wisp summon mode instead
+    → Only locks Sword
+    → Summons 2 wisps
+    → Gains Elemental Counter (gives 2 BP when hit with elements!)
+  
+  STRATEGY:
+  1. Turns 1-2: Use Staff/Bow/Lightning/Wind (Sword/Fan/Ice locked)
+  2. After turn 2: All weaknesses available
+  3. First boost attack is ST - tank handles it
+  4. After first break: Watch for patterns
+     - If Sword + random locked → 2 actions mode
+     - If wisps spawn → avoid elemental attacks!
+  5. Elemental Counter feeds BP - use physical during wisp phase
+  
+  WISP MANAGEMENT:
+  - Kill wisps quickly
+  - DON'T use elemental attacks when counter active (restores 2 BP!)
+  - Use physical attacks during wisp phase
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive double actions"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: breaker
+    priority: required
+    reason: "41 shields requires dedicated breaking"
+  - role: dps
+    priority: required
+    reason: "Flexible physical/elemental for phase switching"
+
+recommended_weakness_coverage:
+  - staff
+  - bow
+  - lightning
+  - wind
+  - sword
+  - fan
+  - ice
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

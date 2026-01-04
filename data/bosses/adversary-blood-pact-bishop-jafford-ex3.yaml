@@ -1,0 +1,155 @@
+# Adversary Log Boss: Blood Pact Bishop Jafford EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 75)
+#
+# EX3 variant with Terror and HP reduction mechanics
+
+id: adversary-blood-pact-bishop-jafford-ex3
+display_name: "Blood Pact Bishop Jafford EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-blood-pact-bishop-jafford
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter: Jafford + 2 adds
+shield_count: 38
+hp: 2568559
+speed: 452
+
+enemies:
+  - name: "Blood Pact Bishop Jafford"
+    is_main_target: true
+    hp: 2568559
+    shield_count: 38
+  - name: "Add 1"
+    hp: 499222
+  - name: "Add 2"
+    hp: 582313
+
+weaknesses:
+  elements:
+    - fire
+    - light
+  weapons:
+    - dagger
+    - bow
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Initial Terror"
+    mechanic_type: debuff_party
+    trigger: "First action"
+    target: random
+    effects: ["Inflicts Terror to 2 random targets"]
+    threat_level: high
+    counter_strategy: "Terror immunity or cleanse"
+  - name: "Terror HP Reduction"
+    mechanic_type: attack
+    trigger: "When someone has Terror (sometimes)"
+    target: single
+    effects: ["Reduces HP to 1", "Removes Terror ailment"]
+    threat_level: critical
+    counter_strategy: "Cleanse Terror IMMEDIATELY or heal after HP reduction"
+  - name: "Post-Break Zone (First Break)"
+    mechanic_type: other
+    trigger: "First action after first break"
+    target: all
+    effects: ["Creates zone: switching to backrow deals damage", "Inflicts Terror to frontrow"]
+    threat_level: high
+    counter_strategy: "Don't swap rows; cleanse Terror"
+  - name: "Full BP (Pre-Second Break): Sword AoE"
+    mechanic_type: ultimate
+    trigger: "Full BP (before second break)"
+    target: all
+    damage_type: physical
+    effects: ["Removes Terror from targets"]
+    threat_level: medium
+    counter_strategy: "Actually removes Terror - might be helpful"
+  - name: "Full BP (Post-Second Break): AoE Thunder -3 BP"
+    mechanic_type: ultimate
+    trigger: "Full BP (after second break)"
+    target: all
+    damage_type: elemental
+    element: lightning
+    effects: ["Reduces 3 BP"]
+    threat_level: high
+    counter_strategy: "BP preservation essential in later phases"
+
+hp_thresholds:
+  - hp_percent: 100
+    event: "Initial Terror"
+    behavior_changes: "Inflicts Terror to 2 random targets"
+  - hp_percent: 75
+    event: "First Break Zone"
+    behavior_changes: "After first break: backrow swap damage zone + Terror to frontrow"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with Terror mechanics.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 2,568,559 (main) + 2 adds
+  - Shields: 38
+  - Speed: 452
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - First action: Terror to 2 random targets
+  - WHEN TERRORIZED: Sometimes reduces HP to 1 and removes Terror
+  - After first break: Creates zone (backrow swap = damage) + Terror frontrow
+  - Full BP (pre-2nd break): Sword AoE that REMOVES Terror
+  - Full BP (post-2nd break): Thunder AoE with -3 BP
+  
+  TERROR MANAGEMENT:
+  - Cleanse Terror immediately or expect HP reduction to 1
+  - Don't let Terror linger - it triggers HP=1 attack
+  - Ironically, Full BP attack removes Terror (but damages)
+  
+  STRATEGY:
+  1. Bring Terror immunity or instant cleanse
+  2. Be ready to heal from 1 HP
+  3. After first break: DON'T swap rows (zone damage)
+  4. Stay in frontrow after first break
+  5. Manage BP drain in later phases
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "CRITICAL: Must heal from 1 HP instantly"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Fire/Light/Dagger/Bow coverage"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Absorb Terror targeting"
+
+recommended_weakness_coverage:
+  - dagger
+  - bow
+  - fire
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

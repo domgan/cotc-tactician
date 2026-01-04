@@ -1,0 +1,93 @@
+# Adversary Log Boss: New Delsta (120 NPC) EX3
+# SOURCE: Adversary Log New spreadsheet (120 NPCs)
+#
+# 120 NPC with Successive Strike Resistance
+
+id: adversary-120npc-new-delsta-ex3
+display_name: "New Delsta 120 NPC EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - 120 NPCs"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 38
+hp: 3283500
+speed: 416
+p_atk: 1389
+p_def: 430
+e_atk: 1413
+e_def: 383
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - dagger
+    - axe
+    - bow
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent (all 120 NPCs)"
+    target: all
+    effects: ["Multi-hit attacks deal less damage per hit"]
+    threat_level: high
+    counter_strategy: "Use single-hit nukes for damage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  120 NPC fight with Successive Strike Resistance.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 3,283,500
+  - Shields: 38
+  - Speed: 416
+  
+  CRITICAL: SUCCESSIVE STRIKE RESISTANCE
+  - Multi-hit attacks deal less damage per hit
+  - Use single-hit high-potency attacks for damage
+  - Multi-hit still useful for shield shaving
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Single-hit nukes preferred"
+
+recommended_weakness_coverage:
+  - dagger
+  - axe
+  - bow
+  - ice
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

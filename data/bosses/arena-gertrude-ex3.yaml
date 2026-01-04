@@ -18,8 +18,16 @@ ex_rank: ex3
 actions_per_turn: 2  # Double actions, becomes TRIPLE at HP <33%
 provoke_immunity: true  # Immune to provoke
 
-# Scaled stats (EX3 = ~5x HP, estimated 50-80M)
-shield_count: 16  # Increases significantly
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 16
+hp: 9457718
+speed: 819
+p_atk: 4555
+p_def: 4054
+e_atk: 522
+e_def: 679
 
 # HP-based thresholds
 hp_thresholds:

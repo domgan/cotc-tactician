@@ -239,6 +239,40 @@ damage_stacking_summary:
     It's: 1.3 × 1.3 × 2.0 = 3.38x damage (238% increase)
 
 # =============================================================================
+# 120 NPC SPECIAL MECHANICS
+# =============================================================================
+
+npc_120_mechanics:
+  successive_strike_resistance:
+    description: |
+      Starting from 120 NPCs (Divine Beast Lutiya and onwards), all bosses have
+      SUCCESSIVE STRIKE RESISTANCE. This is a game-changing mechanic:
+      
+      - The more times you hit per attack, the LESS damage each hit does
+      - Multi-hit attacks become inefficient for dealing damage
+      - Single-hit, high-potency attacks (nukes) are optimal
+      
+    impact:
+      multi_hit_attacks: "Reduced damage per hit - inefficient"
+      single_hit_nukes: "OPTIMAL for damage"
+      shield_shaving: "Multi-hit still useful for breaking shields"
+      
+    strategy: |
+      For 120 NPCs:
+      1. Use multi-hit attacks ONLY for shield shaving
+      2. For damage, prioritize single-hit nukes (Solon, etc.)
+      3. Stack damage multipliers for the single nuke
+      4. Don't rely on multi-hit spam for DPS
+      
+    affected_bosses:
+      - "Divine Beast Lutiya EX3 onwards"
+      - "All 120 NPCs (New Delsta, Toto'haha, Canalbrine, etc.)"
+      
+    key_dps_units:
+      - "Solon (single-hit ultimate with 100% potency)"
+      - "Any high-potency single-hit attacker"
+
+# =============================================================================
 # COMMON EX STRATEGIES
 # =============================================================================
 
@@ -275,8 +309,25 @@ common_strategies:
     key_units: ["canary", "rinyuu", "primrose-ex", "viola"]
 
 # =============================================================================
+# KNOWN BUGS AND EXPLOITS
+# =============================================================================
+
+bugs_and_exploits:
+  phys_ele_res_down_persist:
+    description: |
+      Yan Long EX3 and similar bosses cleanse debuffs at end of turn.
+      HOWEVER: Physical/Elemental Resistance Down debuffs PERSIST through the cleanse!
+      This is a bug that can be exploited.
+    affected_bosses:
+      - "Yan Long EX3"
+    exploit: |
+      Use Viola/Heathcote for P.Res Down
+      Use E.Res Down debuffers
+      These debuffs persist even when other debuffs are cleansed!
+
+# =============================================================================
 # METADATA
 # =============================================================================
 data_confidence: verified
-data_source: "Community knowledge, Reddit, Game8 JP"
-last_updated: 2025-12-22
+data_source: "Community knowledge, Reddit, Game8 JP, Adversary Log New spreadsheet"
+last_updated: 2026-01-04

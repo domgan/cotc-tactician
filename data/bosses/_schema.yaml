@@ -74,6 +74,18 @@ fields:
     description: "If true, boss cannot be provoked (common in arena/EX)"
     notes: "Most arena champions and EX bosses are provoke immune"
 
+  successive_strike_resistance:
+    type: boolean
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "If true, multi-hit attacks deal reduced damage per hit (120 NPCs onwards)"
+    notes: |
+      Starting from 120 NPCs (Divine Beast Lutiya EX3 onwards):
+      - The more times you hit per attack, the LESS damage each hit does
+      - Multi-hit attacks become inefficient for dealing damage
+      - Single-hit nukes are optimal for DPS
+      - Multi-hit still useful for shield shaving
+
   difficulty:
     type: string
     required: true

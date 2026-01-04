@@ -19,9 +19,15 @@ actions_per_turn: 2  # Likely 2-3 actions
 provoke_immunity: true
 
 # ===========================================================================
-# STATS (EX3 scaling - highest tier)
+# STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
-shield_count: 40  # Estimated based on EX scaling pattern
+shield_count: 40
+hp: 12745941
+speed: 890
+p_atk: 2998
+p_def: 2864
+e_atk: 620
+e_def: 890
 
 weaknesses:
   elements:

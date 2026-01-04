@@ -39,22 +39,92 @@ weaknesses:
     - staff
 
 # ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Battle Start Debuff"
+    mechanic_type: debuff_party
+    trigger: "Battle start"
+    target: all
+    effects: ["Atk/Def/MAtk/MDef/Crit/Speed Down to all allies"]
+    threat_level: high
+    counter_strategy: "Sazantos (ally) removes debuffs at end of turn 3!"
+  - name: "Sazantos Ally Support"
+    mechanic_type: other
+    trigger: "End of turn 3"
+    target: all
+    effects: ["Removes debuffs", "Fully heals HP and SP", "Starts acting at end of following turns"]
+    threat_level: low
+    counter_strategy: "Wait for turn 3 - Sazantos ally saves you!"
+  - name: "Initial Buff"
+    mechanic_type: buff_self
+    trigger: "Battle start"
+    target: all
+    effects: ["Def/MDef Up for 4 turns", "1x ST attack next action"]
+    threat_level: medium
+    counter_strategy: "Survive first few turns with healing"
+  - name: "1x AoE Sword Blindness"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: physical
+    effects: ["Blindness"]
+    threat_level: medium
+    counter_strategy: "Cleanse"
+  - name: "1x AoE Dark Sleep"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: elemental
+    element: dark
+    effects: ["Sleep"]
+    threat_level: high
+    counter_strategy: "Sleep immunity or cleanse"
+  - name: "Weakness Lock (60% HP)"
+    mechanic_type: buff_self
+    trigger: "HP ≤60%"
+    target: all
+    effects: ["Locks ALL weaknesses except one random weakness"]
+    threat_level: critical
+    counter_strategy: "Identify which weakness remains open; may need flexible team"
+
+hp_thresholds:
+  - hp_percent: 60
+    event: "Weakness Lock"
+    behavior_changes: "Locks ALL weaknesses except one random weakness"
+
+# ===========================================================================
 # STRATEGY (EX3 SPECIFIC)
 # ===========================================================================
 general_strategy: |
   EX3 variant - MAXIMUM DIFFICULTY.
   
-  Key changes from base:
-  - Extreme HP (2,242,594)
-  - Maximum shield count (22)
-  - Very high speed (312)
-  - 3 actions per turn from early fight
+  EX3 CHARACTERISTICS:
+  - HP: 2,242,594
+  - Shields: 22
+  - Speed: 312
+  
+  UNIQUE MECHANIC (FROM SPREADSHEET):
+  - Battle start: Boss debuffs ALL your allies (all stats down)
+  - HOWEVER: At end of turn 3, ally Sazantos removes all debuffs, 
+    fully heals HP/SP, and starts acting at end of following turns!
+  - Just survive the first 3 turns!
+  
+  KEY MECHANICS:
+  - Def/MDef Up for 4 turns at battle start
+  - AoE Sword (Blindness), AoE Dark (Sleep)
+  - HP ≤60%: Locks ALL weaknesses except ONE RANDOM weakness
+  
+  STRATEGY:
+  1. Survive turns 1-3 (defensive stance, heal through initial damage)
+  2. Turn 3: Sazantos ally saves you with full heal + debuff cleanse
+  3. After 60% HP: Adapt to random remaining weakness
+  4. Bring flexible weakness coverage or single-element focus
   
   CRITICAL:
   - Either speedkill (Solon + Primrose EX) or full turtle
   - Stack all buff/debuff categories to 30%
   - Fiore EX Cover or dodge tank essential
-  - May take 50-100+ turns without optimal setup
   
   Recommended HP per character: 4000+
 

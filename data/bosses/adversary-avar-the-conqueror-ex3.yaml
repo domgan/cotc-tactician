@@ -1,0 +1,138 @@
+# Adversary Log Boss: Avar the Conqueror EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 75)
+#
+# EX3 variant with unique weakness/counter mechanics
+
+id: adversary-avar-the-conqueror-ex3
+display_name: "Avar the Conqueror EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-avar-the-conqueror
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 32
+hp: 3880440
+speed: 390
+p_atk: 1664
+p_def: 344
+e_atk: 1790
+e_def: 373
+
+weaknesses:
+  elements:
+    - lightning
+    - dark
+  weapons:
+    - staff
+    - fan
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "7x Weakness Grant"
+    mechanic_type: buff_self
+    trigger: "Battle start / Break recovery"
+    target: all
+    effects: ["Grants 7 weakness charges for Staff, Fan, Lightning, Dark"]
+    threat_level: low
+    counter_strategy: "Take advantage - hit weaknesses while available!"
+  - name: "Weakness Counter Removal"
+    mechanic_type: other
+    trigger: "Counter reaches 0"
+    target: all
+    effects: ["Weaknesses removed until next break recovery"]
+    threat_level: medium
+    counter_strategy: "Track weakness counter; reapplied after break"
+  - name: "Physical Counterattack"
+    mechanic_type: counter
+    trigger: "Battle start / Break recovery"
+    target: single
+    damage_type: physical
+    effects: ["Single hit targeting the attacker"]
+    threat_level: high
+    counter_strategy: "Use high-HP characters or dodge tank for physical attacks"
+  - name: "Break Dispel"
+    mechanic_type: debuff_party
+    trigger: "When Avar is broken"
+    target: all
+    effects: ["Dispels attack and defense buffs from entire party"]
+    threat_level: high
+    counter_strategy: "Reapply buffs immediately after break; save buff skills for post-break"
+
+auras:
+  - name: "Physical Counterattack Stance"
+    trigger: "Battle start / Break recovery"
+    active_indicator: "Counter stance"
+    counter_trigger: "Any physical attack"
+    counter_effect: "Single-hit counter targeting the attacker"
+    removal_condition: "Removed when broken (reapplies on recovery)"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 3,880,440
+  - Shields: 32
+  - Speed: 390
+  
+  UNIQUE MECHANICS (FROM SPREADSHEET):
+  - Battle start & break recovery: Gains 7x weakness charges (Staff/Fan/Lightning/Dark)
+  - Weaknesses REMOVED when counter reaches 0 (reapplied after next break)
+  - Physical Counterattack stance - counters with single hit targeting attacker
+  - WHEN BROKEN: Dispels all ATK and DEF buffs from your entire party!
+  
+  STRATEGY:
+  1. Use Staff/Fan/Lightning/Dark to hit weaknesses while counter active
+  2. Track weakness counter (7 hits per break cycle)
+  3. Physical attacks trigger counters - use dodge tank or high-HP units
+  4. CRITICAL: Save buff skills for AFTER break (boss dispels buffs on break)
+  5. Break → Reapply buffs → Damage window
+  
+  BUFF TIMING:
+  - Don't stack buffs before break - they'll be dispelled!
+  - Apply buffs immediately after boss is broken
+  - Damage during break window with fresh buffs
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs (30% cap)"
+  - role: healer
+    priority: required
+    reason: "Survive counterattacks and multi-action turns"
+  - role: buffer
+    priority: required
+    reason: "MUST reapply after break (dispelled on break)"
+  - role: dps
+    priority: required
+    reason: "Elemental preferred to avoid counter; Staff/Fan/Lightning/Dark"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Dodge tank for physical counter stance"
+
+recommended_weakness_coverage:
+  - staff
+  - fan
+  - lightning
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

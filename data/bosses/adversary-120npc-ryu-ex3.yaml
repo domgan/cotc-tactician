@@ -1,0 +1,101 @@
+# Adversary Log Boss: Ryu (120 NPC) EX3
+# SOURCE: Adversary Log New spreadsheet (120 NPCs)
+#
+# 120 NPC - Main boss of NPC Battles line
+
+id: adversary-120npc-ryu-ex3
+display_name: "Ryu 120 NPC EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - 120 NPCs"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 45
+hp: 8036127
+speed: 438
+p_atk: 1858
+p_def: 508
+e_atk: 1506
+e_def: 400
+
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - wind
+    - light
+  weapons:
+    - sword
+    - polearm
+    - staff
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent (all 120 NPCs)"
+    target: all
+    effects: ["Multi-hit attacks deal less damage per hit"]
+    threat_level: high
+    counter_strategy: "Use single-hit nukes for damage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  120 NPC Ryu - High HP encounter with Successive Strike Resistance.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 8,036,127
+  - Shields: 45
+  - Speed: 438
+  
+  SUCCESSIVE STRIKE RESISTANCE applies!
+  - Use single-hit nukes for damage
+  - Multi-hit still useful for shield shave
+  
+  Wide weakness coverage available (7 types).
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Single-hit nukes"
+  - role: breaker
+    priority: required
+    reason: "45 shields"
+
+recommended_weakness_coverage:
+  - sword
+  - polearm
+  - staff
+  - fire
+  - ice
+  - wind
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

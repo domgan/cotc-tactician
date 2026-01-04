@@ -1,0 +1,134 @@
+# Adversary Log Boss: Ignazio of Greed EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 50)
+#
+# EX3 variant with dodge/HP restore mechanics
+
+id: adversary-ignazio-of-greed-ex3
+display_name: "Ignazio of Greed EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 50"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-ignazio-of-greed
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 32
+hp: 3527673
+speed: 494
+p_atk: 1968
+p_def: 325
+e_atk: 2132
+e_def: 332
+
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - light
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Dodge + HP Restore (Non-Weakness)"
+    mechanic_type: counter
+    trigger: "When hit by non-weakness attack"
+    target: single
+    effects: ["Dodges the attack", "Restores HP"]
+    threat_level: high
+    counter_strategy: "ONLY use attacks that hit weaknesses"
+  - name: "Double Action at 3 BP"
+    mechanic_type: buff_self
+    trigger: "When reaching 3 BP"
+    target: all
+    effects: ["Can act twice for one turn"]
+    threat_level: high
+    counter_strategy: "Break before BP reaches 3"
+  - name: "Acedia (Fire Res Down + Dispels)"
+    mechanic_type: debuff_party
+    trigger: "Uses Acedia attack"
+    target: front_row
+    effects: ["Fire Resistance Down", "Dispels enfeebling effects on self", "Removes main augmenting effects from frontrow"]
+    threat_level: high
+    counter_strategy: "Reapply buffs after this attack"
+  - name: "Regen (<50% HP)"
+    mechanic_type: buff_self
+    trigger: "HP <50%"
+    target: all
+    effects: ["Regenerates ~18k HP at end of turn"]
+    threat_level: high
+    counter_strategy: "Need sustained damage to outpace regen"
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Regen Activation"
+    behavior_changes: "~18k HP regen per turn"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Ignazio of Greed - WEAKNESS-ONLY fight with regen.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 3,527,673
+  - Shields: 32
+  - Speed: 494
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Non-weakness attacks: DODGED + HP restored!
+  - At 3 BP: Can act TWICE for one turn
+  - Acedia attack: Fire Res Down + cleanses HIS debuffs + removes YOUR buffs
+  - HP <50%: ~18k regen per turn
+  
+  STRATEGY:
+  1. ONLY use weakness attacks (Polearm/Bow/Fire/Ice/Light)
+  2. Break before BP reaches 3 to prevent double action
+  3. After Acedia: reapply buffs immediately
+  4. Below 50%: need sustained DPS to outpace 18k regen
+  
+  SUSTAINED FIGHT:
+  - Regen at 50% makes this a war of attrition
+  - Don't let fight stall below 50%
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Cleansed by Acedia - reapply during break"
+  - role: healer
+    priority: required
+    reason: "Survive double actions"
+  - role: buffer
+    priority: required
+    reason: "Reapply after Acedia dispel"
+  - role: dps
+    priority: required
+    reason: "MUST hit weaknesses; need sustained damage for regen"
+  - role: breaker
+    priority: required
+    reason: "Break before 3 BP"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - fire
+  - ice
+  - light
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

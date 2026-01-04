@@ -1,0 +1,151 @@
+# Adversary Log Boss: Avar the Bestial Claw EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 75)
+#
+# EX3 variant with massive shields and unique 60%/50% HP mechanics
+
+id: adversary-avar-the-bestial-claw-ex3
+display_name: "Avar the Bestial Claw EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-avar-the-bestial-claw
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 38
+hp: 4749879
+speed: 441
+p_atk: 1903
+p_def: 505
+e_atk: 1662
+e_def: 529
+
+weaknesses:
+  elements:
+    - fire
+    - dark
+  weapons:
+    - sword
+    - polearm
+    - axe
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Priority Attack"
+    mechanic_type: attack
+    trigger: "Has an attack that grants priority"
+    target: single
+    effects: ["Gains priority for next turn"]
+    threat_level: medium
+    counter_strategy: "Be aware of speed changes"
+  - name: "6x RT Attack"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: random
+    damage_type: physical
+    threat_level: high
+    counter_strategy: "High damage spread"
+  - name: "Post-Break Counter"
+    mechanic_type: counter
+    trigger: "After recovering from break (6 turns duration)"
+    target: single
+    effects: ["Counters attacks", "Reduces BP by 2 per counter"]
+    threat_level: critical
+    counter_strategy: "Minimize attacks during counter phase OR break again"
+  - name: "99 Shields (60% HP)"
+    mechanic_type: buff_self
+    trigger: "HP ≤60%"
+    target: all
+    effects: ["Sets shield count to 99"]
+    threat_level: critical
+    counter_strategy: "THIS IS A TRAP - push to 50% HP instead"
+  - name: "Boost Mode (50% HP)"
+    mechanic_type: buff_self
+    trigger: "HP ≤50%"
+    target: all
+    effects: ["Enters Boost Mode", "1x Sword AoE", "Deals 99,999 damage to HIMSELF", "Reduces shields to 9"]
+    threat_level: high
+    counter_strategy: "Push to 50% to reset shields from 99 to 9!"
+
+hp_thresholds:
+  - hp_percent: 60
+    event: "99 Shield Trap"
+    behavior_changes: "Sets shields to 99 - UNBREAKABLE"
+  - hp_percent: 50
+    event: "Boost Mode Self-Damage"
+    behavior_changes: "Sword AoE, 99,999 self-damage, shields reduced to 9"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with shield trap mechanic.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 4,749,879
+  - Shields: 38 (becomes 99 at 60%, then 9 at 50%!)
+  - Speed: 441
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Has priority-granting attack + 6x RT attack
+  - After break recovery: 6-turn COUNTER that reduces BP by 2!
+  - HP ≤60%: Shields become 99 (UNBREAKABLE!)
+  - HP ≤50%: Boost Mode - AoE, deals 99,999 to HIMSELF, shields → 9
+  
+  THE 60% HP TRAP:
+  - If you trigger 60% but not 50%, shields become 99
+  - This is essentially unbreakable
+  - SOLUTION: Push straight from above 60% to below 50%!
+  - Don't let fight stall between 60-50%
+  
+  POST-BREAK COUNTER:
+  - Lasts 6 turns after break recovery
+  - Each counter reduces YOUR BP by 2
+  - Either wait it out or break again
+  
+  STRATEGY:
+  1. First phase: Normal breaking and damage
+  2. When approaching 60% HP: BURST THROUGH to 50%
+  3. At 50%: Boss hurts himself, shields drop to 9
+  4. After break: Be careful of 6-turn counter phase
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive 6x RT and AoE attacks"
+  - role: buffer
+    priority: required
+    reason: "Need burst to push 60%→50%"
+  - role: dps
+    priority: required
+    reason: "CRITICAL burst damage for HP threshold skip"
+  - role: breaker
+    priority: required
+    reason: "38 shields initial, then 9 after 50%"
+
+recommended_weakness_coverage:
+  - sword
+  - polearm
+  - axe
+  - fire
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

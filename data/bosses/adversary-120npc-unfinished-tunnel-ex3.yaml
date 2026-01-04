@@ -1,0 +1,123 @@
+# Adversary Log Boss: Unfinished Tunnel (120 NPC) EX3
+# SOURCE: Adversary Log New spreadsheet (120 NPCs)
+#
+# HIGHEST HP 120 NPC - 36 MILLION HP main boss!
+
+id: adversary-120npc-unfinished-tunnel-ex3
+display_name: "Unfinished Tunnel 120 NPC EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - 120 NPCs"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter - HIGHEST HP IN GAME
+shield_count: 45
+hp: 36000000
+speed: 1000
+
+enemies:
+  - name: "Main NPC"
+    is_main_target: true
+    hp: 36000000
+    shield_count: 45
+    speed: 1000
+  - name: "Add 1"
+    hp: 952450
+  - name: "Add 2"
+    hp: 729300
+  - name: "Add 3"
+    hp: 759000
+  - name: "Add 4"
+    hp: 991150
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+    - wind
+    - light
+    - dark
+  weapons:
+    - dagger
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent (all 120 NPCs)"
+    target: all
+    effects: ["Multi-hit attacks deal less damage per hit"]
+    threat_level: high
+    counter_strategy: "Use single-hit nukes for damage"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  120 NPC Unfinished Tunnel - THE ULTIMATE HP CHECK.
+  
+  EX3 CHARACTERISTICS:
+  - Main HP: 36,000,000 (THIRTY-SIX MILLION!)
+  - 4 adds with ~700k-1M HP each
+  - Total HP: ~39 MILLION
+  - Shields: 45
+  - Speed: 1000 (!!)
+  
+  THIS IS THE HIGHEST HP BOSS IN THE ADVERSARY LOG.
+  
+  Speed 1000 is EXTREME - most characters cannot outspeed.
+  
+  SUCCESSIVE STRIKE RESISTANCE applies!
+  - Single-hit nukes MANDATORY
+  - Must maximize ALL damage categories
+  - Full Solon + Primrose EX + all buffs
+  
+  Wide elemental weakness options (5 elements + Dagger).
+  
+  REQUIREMENTS:
+  - Absolute maximum damage optimization
+  - Speed tuning for 1000+ boss speed
+  - Likely multi-break marathon
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack ALL debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive 3 actions at 1000 speed"
+  - role: buffer
+    priority: required
+    reason: "Every damage category MAXED"
+  - role: dps
+    priority: required
+    reason: "36M HP requires absolute best DPS"
+  - role: breaker
+    priority: required
+    reason: "45 shields"
+
+recommended_weakness_coverage:
+  - dagger
+  - ice
+  - lightning
+  - wind
+  - light
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

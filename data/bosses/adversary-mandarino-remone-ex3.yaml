@@ -1,0 +1,101 @@
+# Adversary Log Boss: Mandarino & Remone EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 50)
+#
+# Duo boss with weakness rotation mechanic
+
+id: adversary-mandarino-remone-ex3
+display_name: "Mandarino & Remone EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 50"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-mandarino
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Duo encounter: Mandarino + Remone
+shield_count: 27
+hp: 4796107
+speed: 358
+
+enemies:
+  - name: "Mandarino"
+    is_main_target: true
+    hp: 4796107
+    shield_count: 27
+  - name: "Remone"
+    hp: 2081788
+    shield_count: 22
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Weakness Rotation"
+    mechanic_type: other
+    trigger: "End of turn OR after 'Syncing breath with...' skill"
+    target: all
+    effects: ["Weaknesses rotate between enemies", "Remone gets Mandarino's weaknesses and vice versa"]
+    threat_level: high
+    counter_strategy: "Track which boss has which weaknesses; they swap!"
+  - name: "Syncing Breath"
+    mechanic_type: buff_self
+    trigger: "Regular action"
+    target: all
+    effects: ["Triggers weakness rotation"]
+    threat_level: medium
+    counter_strategy: "Be ready for weakness swap after this skill"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Mandarino & Remone - Duo with weakness swapping.
+  
+  EX3 CHARACTERISTICS:
+  - Mandarino HP: 4,796,107 | Remone HP: 2,081,788
+  - Total HP: ~6.9M
+  - Shields: 27/22
+  - Speed: 358
+  
+  KEY MECHANIC (FROM SPREADSHEET):
+  - If BOTH are alive, at end of turn OR after "Syncing breath with..."
+  - Weaknesses ROTATE between enemies!
+  - Remone gets Mandarino's weaknesses, Mandarino gets Remone's
+  
+  STRATEGY:
+  1. Track weakness rotation carefully
+  2. Consider killing one quickly to stop rotation
+  3. Remone has lower HP - may be easier first target
+  4. If rotation confuses you, just brute force one down
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive dual boss"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Flexible weakness coverage"
+  - role: breaker
+    priority: required
+    reason: "27+ shields"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

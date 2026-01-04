@@ -1,0 +1,79 @@
+# Adversary Log Boss: 9S? (NieR Crossover) EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 50)
+#
+# EX3 variant - NieR:Automata crossover boss
+
+id: adversary-9s-ex3
+display_name: "9S? EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 50"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-9s
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 37
+hp: 6063525
+speed: 405
+p_atk: 1994
+p_def: 189
+e_atk: 2141
+e_def: 189
+
+weaknesses:
+  elements:
+    - ice
+    - lightning
+    - wind
+  weapons:
+    - polearm
+    - bow
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 9S? - NieR:Automata crossover boss.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 6,063,525
+  - Shields: 37
+  - Speed: 405
+  
+  Standard EX3 fight - apply normal strategies.
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive multi-action turns"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "Polearm/Bow/Ice/Lightning/Wind coverage"
+
+recommended_weakness_coverage:
+  - polearm
+  - bow
+  - ice
+  - lightning
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

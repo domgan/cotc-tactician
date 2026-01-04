@@ -19,10 +19,15 @@ actions_per_turn: 3
 provoke_immunity: true
 
 # ===========================================================================
-# STATS (EX3 scaling - highest tier)
+# STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
-hp: 50000000  # Estimated ~50 million
-shield_count: 55  # Estimated based on scaling
+hp: 66087252
+shield_count: 56
+speed: 1036
+p_atk: 2998
+p_def: 2665
+e_atk: 963
+e_def: 1036
 
 weaknesses:
   elements:
@@ -73,30 +78,86 @@ required_roles:
     reason: "50M+ HP is extreme DPS check"
 
 # ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet)
+# ===========================================================================
+mechanics:
+  - name: "Dual Mode Activation"
+    mechanic_type: buff_self
+    trigger: "Battle start / End of turn"
+    target: all
+    effects: ["Rehabilitate + Shield Regen (3 turns) + Light attacks", "OR Atk/EAtk Up (3 turns) + BP-1 to frontrow + lock random weakness + Dark attacks"]
+    threat_level: high
+    counter_strategy: "Track which mode is active; Dark mode is more dangerous"
+  - name: "3x RT Sword (Dark Mode)"
+    mechanic_type: attack
+    trigger: "Dark mode active"
+    target: random
+    damage_type: physical
+    effects: ["Ult gauge -10% per hit"]
+    threat_level: high
+    counter_strategy: "High ult gauge recovery needed"
+  - name: "6x RT Dark (Dark Mode)"
+    mechanic_type: attack
+    trigger: "Dark mode active"
+    target: random
+    damage_type: elemental
+    element: dark
+    effects: ["BP -1 per hit"]
+    threat_level: critical
+    counter_strategy: "BP preservation essential; can lose 6 BP total"
+  - name: "1x AoE Sword (Dark Mode)"
+    mechanic_type: attack
+    trigger: "Dark mode active"
+    target: all
+    damage_type: physical
+    effects: ["Blindness"]
+    threat_level: medium
+    counter_strategy: "Bring status cleanse"
+  - name: "Full BP Attack - Dual Mode Fusion"
+    mechanic_type: ultimate
+    trigger: "Full BP"
+    target: all
+    effects: ["Uses BOTH modes simultaneously", "Gains 4 actions this turn"]
+    threat_level: critical
+    counter_strategy: "MUST break before Full BP - highest priority"
+  - name: "Weakness Lock + BP Restore"
+    mechanic_type: buff_self
+    trigger: "HP >50% AND hasn't done BP attack yet"
+    target: all
+    effects: ["Locks ALL weaknesses", "Gains Rehabilitate", "Restores ALL BP"]
+    threat_level: critical
+    counter_strategy: "Push HP below 50% before triggering, or prepare for Full BP attack"
+
+# ===========================================================================
 # STRATEGY
 # ===========================================================================
 general_strategy: |
   EX3 Aoi is the ultimate sword master challenge.
   
-  EX3 CHARACTERISTICS:
-  - HP: ~50+ million
-  - Shield: ~55+
+  EX3 CHARACTERISTICS (VERIFIED FROM SPREADSHEET):
+  - HP: 66,087,252 (66M!)
+  - Shield: 56
+  - Speed: 1036
   - 3 actions per turn
-  - Extremely high speed
-  - Same shifted timing as EX2
+  
+  KEY MECHANICS:
+  - Dual mode system (Light vs Dark attacks)
+  - Dark mode: 3x RT Sword (-10% ult per hit), 6x RT Dark (-1 BP per hit), AoE Blind
+  - At Full BP: Uses BOTH modes + 4 ACTIONS - extremely deadly!
+  - If HP >50% and hasn't used BP attack: locks ALL weaknesses + restores ALL BP
+  
+  STRATEGY:
+  1. Push HP below 50% quickly to prevent weakness lock + BP restore
+  2. Break before Full BP at all costs (4-action turn is devastating)
+  3. Bring BP preservation/recovery (6x RT Dark attack removes BP fast)
+  4. Have status cleanse for Blindness
   
   REQUIREMENTS:
   - Top-tier hybrid breakers (Morena, Kagemune, Bargello)
   - Full buff/debuff stacking
   - Cover tank with status immunity
-  - Break at Turn 4 and each Shiyou cycle
+  - BP management (anticipate BP drain)
   - Massive DPS across multiple break windows
-  
-  This is true endgame content requiring:
-  - Maximum character investment
-  - Perfect turn timing
-  - Optimized accessory setup
-  - Knowledge of stance cycling
   
   SPECIAL: Morena's shield shave without attacking
   is extremely valuable for avoiding counter triggers.

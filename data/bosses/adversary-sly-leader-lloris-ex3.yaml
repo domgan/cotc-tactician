@@ -1,0 +1,109 @@
+# Adversary Log Boss: Sly Leader Lloris EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 25)
+#
+# Multi-enemy encounter with weapon resistance and cover mechanics
+
+id: adversary-sly-leader-lloris-ex3
+display_name: "Sly Leader Lloris EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 25"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-sly-leader-lloris
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter
+shield_count: 30
+hp: 1143210
+speed: 481
+
+enemies:
+  - name: "Sly Leader Lloris"
+    is_main_target: true
+    hp: 1143210
+    shield_count: 30
+  - name: "Add"
+    hp: 822762
+    shield_count: 18
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Weapon Resistance Buff"
+    mechanic_type: buff_self
+    trigger: "Battle start (on Sly Leader)"
+    target: all
+    effects: ["Gains Sword, Polearm, Dagger, Axe, Bow, Staff, Fan Resistance"]
+    threat_level: high
+    counter_strategy: "Use ELEMENTAL attacks; physical weapons resisted!"
+  - name: "Break Removes Resistance"
+    mechanic_type: other
+    trigger: "When Sly Leader is broken"
+    target: all
+    effects: ["Weapon resistance buff removed"]
+    threat_level: low
+    counter_strategy: "Break leader to remove weapon resistance"
+  - name: "Add Cover"
+    mechanic_type: buff_self
+    trigger: "When adds alive AND leader is broken"
+    target: all
+    effects: ["Adds impart themselves with Cover"]
+    threat_level: medium
+    counter_strategy: "Kill adds first or ignore cover"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Sly Leader Lloris - Weapon resistance fight.
+  
+  EX3 CHARACTERISTICS:
+  - Leader HP: 1,143,210 + add
+  - Shields: 30
+  - Speed: 481
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Battle start: Leader gains ALL weapon resistance!
+  - Sword, Polearm, Dagger, Axe, Bow, Staff, Fan all resisted
+  - Must use ELEMENTAL attacks for damage (or break first)
+  - Weapon resistance REMOVED when leader is broken
+  
+  ADD BEHAVIOR:
+  - If adds alive when leader is broken, adds gain Cover
+  - Cover protects leader from some attacks
+  
+  STRATEGY:
+  1. Use elemental attacks for initial damage
+  2. Break leader to remove weapon resistance
+  3. Then weapon attacks become effective
+  4. Consider killing adds before breaking leader
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking"
+  - role: dps
+    priority: required
+    reason: "ELEMENTAL attackers essential until first break"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

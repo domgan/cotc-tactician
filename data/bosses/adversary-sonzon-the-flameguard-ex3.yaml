@@ -1,0 +1,154 @@
+# Adversary Log Boss: Sonzon the Flameguard EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 75)
+#
+# EX3 variant with HP recovery on break and Fire Res Down mechanics
+
+id: adversary-sonzon-the-flameguard-ex3
+display_name: "Sonzon the Flameguard EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-sonzon-the-flameguard
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter
+shield_count: 41
+hp: 8959991
+speed: 363
+
+enemies:
+  - name: "Sonzon the Flameguard"
+    is_main_target: true
+    hp: 8959991
+    shield_count: 41
+  - name: "Add"
+    hp: 58888
+
+weaknesses:
+  elements:
+    - ice
+    - wind
+  weapons:
+    - polearm
+    - staff
+    - tome
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Break Recovery (First 3 Breaks)"
+    mechanic_type: buff_self
+    trigger: "Recovering from first 3 breaks"
+    target: all
+    effects: ["AoE attack at start of turn", "Fully recovers HP", "Gains 4 extra shields"]
+    threat_level: critical
+    counter_strategy: "Must overkill or burst through HP recovery"
+  - name: "Regen (50% HP)"
+    mechanic_type: buff_self
+    trigger: "HP ≤50%"
+    target: all
+    effects: ["Regenerates 4-5% of Max HP at end of every turn"]
+    threat_level: high
+    counter_strategy: "Need sustained damage output to overcome regen"
+  - name: "Fire Res Down + Buff Dispel"
+    mechanic_type: debuff_party
+    trigger: "AoE Fire Res Down attack"
+    target: front_row
+    effects: ["Fire Resistance Down", "Removes HER debuffs", "Removes frontrow's buffs"]
+    threat_level: high
+    counter_strategy: "Reapply buffs after this attack"
+  - name: "Fatal Sentence"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    effects: ["Fatal Sentence (death timer)"]
+    threat_level: critical
+    counter_strategy: "Cleanse or heal through; must break before timer expires"
+  - name: "Sleep/Silence/Can't Switch"
+    mechanic_type: attack
+    trigger: "After second break"
+    target: single
+    effects: ["Sleep", "Silence", "Can't Switch"]
+    threat_level: critical
+    counter_strategy: "Multiple status cleanse needed"
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Regen Activation"
+    behavior_changes: "4-5% Max HP regen per turn"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with HP recovery.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 8,959,991 + add
+  - Shields: 41 (+4 per break)
+  - Speed: 363
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - First 3 breaks: AoE + FULL HP RECOVERY + 4 extra shields!
+  - HP ≤50%: Regen 4-5% HP per turn (massive sustain)
+  - Fire Res Down attack: Cleanses HER debuffs AND removes YOUR buffs
+  - Fatal Sentence: ST death timer
+  - After 2nd break: Sleep/Silence/Can't Switch combo!
+  
+  CRITICAL ISSUE:
+  - Boss fully recovers HP on first 3 break recoveries!
+  - Must deal enough damage in break window to push through
+  - After 4th break, normal recovery
+  
+  STRATEGY:
+  1. Stack massive damage for each break window
+  2. Expect HP to fully restore after first 3 breaks
+  3. Keep buffs ready to reapply after Fire Res Down
+  4. Fatal Sentence requires cleanse or fast break
+  5. After 2nd break: bring full status cleanse
+  
+  SUSTAINED FIGHT:
+  - This is a marathon, not a sprint
+  - Regen at 50% means you need constant DPS
+  - Consider whether to speedkill first break or turtle
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Will be cleansed by boss - reapply during break"
+  - role: healer
+    priority: required
+    reason: "Handle Fatal Sentence and status effects"
+  - role: buffer
+    priority: required
+    reason: "Reapply after Fire Res Down dispel"
+  - role: dps
+    priority: required
+    reason: "Need massive burst for break windows"
+  - role: breaker
+    priority: required
+    reason: "41+ shields requires dedicated breaking"
+
+recommended_weakness_coverage:
+  - polearm
+  - staff
+  - tome
+  - ice
+  - wind
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

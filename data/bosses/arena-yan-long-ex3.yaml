@@ -21,36 +21,73 @@ hp_thresholds:
     event: "Enhanced Pattern"
     behavior_changes: "Extremely dangerous attacks"
 
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter: Yan Long + Crows
+hp: 7346082           # Main boss
+shield_count: 30      # From CSV patterns
+speed: 675
+
+enemies:
+  - name: "Yan Long"
+    is_main_target: true
+    hp: 7346082
+    shield_count: 30
+  - name: "Crow (Left)"
+    hp: 1284418
+    notes: "Summoned when HP <90%"
+  - name: "Crow (Right)"
+    hp: null
+    notes: "Summoned when HP <90%"
+
+# ===========================================================================
+# AURAS (from Adversary Log New spreadsheet)
+# ===========================================================================
 auras:
   - name: "Rotating Weakness Lock"
     trigger: "Every turn"
     weakness_changes:
-      locked: ["2 of 3 weaknesses"]
-      unlocked: ["1 weakness each turn"]
+      locked: ["2 of 3 weaknesses each turn"]
+      unlocked: ["1 weakness rotates"]
+    counter_trigger: "Hitting locked weakness"
+    counter_effect: "INCREASES ACTIONS next turn!"
     removal_condition: "Rotates automatically"
   - name: "Debuff Clear"
-    trigger: "Every turn"
-    counter_effect: "All debuffs cleared"
+    trigger: "End of every turn"
+    counter_effect: "All debuffs dispelled"
     removal_condition: "None (permanent)"
+    notes: "BUG: Phys/Ele Res Down debuffs PERSIST through clear!"
 
 general_strategy: |
   EXTREME difficulty - one of the hardest EX3 fights.
   
-  EX3 SPECIFIC:
-  - ~5x HP (50M+ estimated)
-  - Debuff clear every turn
-  - Rotating weakness lock
-  - Very high speed
+  EX3 CHARACTERISTICS (VERIFIED FROM SPREADSHEET):
+  - HP: 7,346,082 (main) + Crows
+  - Shield: 30
+  - Debuff clear every turn (with exception!)
+  
+  KEY MECHANICS:
+  - Rotating Weakness Lock: 2 of 3 weaknesses locked each turn
+  - CRITICAL: Hitting LOCKED weakness = boss gains EXTRA ACTIONS!
+  - Debuff clear at end of every turn
+  
+  EXPLOIT (BUG): Phys/Ele Res Down debuffs PERSIST through clear!
+  - Use Viola/Heathcote for P.Res Down
+  - Use E.Res Down debuffers 
+  - These are your only reliable debuffs!
+  
+  CROW SUMMON: Triggers at HP <90%
   
   MANDATORY REQUIREMENTS:
   - Fiore EX Cover (provoke doesn't work!)
   - 4000+ HP per character
-  - Debuff only during break
-  - Perfect weakness tracking
+  - Track weakness rotation carefully
+  - NEVER hit locked weaknesses!
   
   STRATEGY:
-  - Kill crows first or ignore
-  - Stack buffs (not debuffs)
+  - Use P.Res Down / E.Res Down (they persist!)
+  - Stack buffs heavily (debuffs get cleared)
   - Max damage during break windows
   - Fiore EX protects team from staff attacks
   

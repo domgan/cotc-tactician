@@ -1,0 +1,106 @@
+# Adversary Log Boss: Divine Beast Lutiya EX3
+# SOURCE: Adversary Log New spreadsheet (Lvl 75)
+#
+# NEW EX3 Divine Beast with Hammy mechanics
+
+id: adversary-divine-beast-lutiya-ex3
+display_name: "Divine Beast Lutiya EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-divine-beast-lutiya
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter with Hammy
+shield_count: 30
+hp: 1503810
+speed: 535
+
+enemies:
+  - name: "Divine Beast Lutiya"
+    is_main_target: true
+    hp: 1503810
+    shield_count: 30
+  - name: "Hammy"
+    hp: 2543050
+    shield_count: 32
+    notes: "Higher HP than main boss!"
+  - name: "Another Add"
+    hp: 2398041
+    shield_count: 28
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "120 NPC Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent"
+    target: all
+    effects: ["The more times hit per attack, the less damage taken"]
+    threat_level: high
+    counter_strategy: "Use NUKE attacks (single-hit high damage) instead of multi-hit!"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Divine Beast Lutiya - 120 NPC fight with special resistance.
+  
+  EX3 CHARACTERISTICS:
+  - Lutiya HP: 1,503,810
+  - Hammy HP: 2,543,050 (higher than main boss!)
+  - Third add HP: 2,398,041
+  - Speed: 535
+  
+  CRITICAL MECHANIC (FROM SPREADSHEET):
+  - SUCCESSIVE STRIKE RESISTANCE
+  - The more times you hit per attack, the LESS damage each hit does!
+  - Multi-hit attacks become inefficient
+  - Use NUKE/single-hit attacks for maximum damage!
+  
+  NOTE: From this NPC onwards, all 120 NPCs have this resistance.
+  
+  STRATEGY:
+  1. Prioritize single-hit, high-potency attacks
+  2. Multi-hit breakers still useful for shield shave
+  3. For damage: 1-hit nukes > multi-hit spam
+  4. Hammy has more HP than Lutiya - decide kill order
+  
+  OPTIMAL DPS:
+  - Solon (single-hit ultimate)
+  - High-potency single attacks
+  - Avoid relying on multi-hit for damage
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack attack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive 3-action turns"
+  - role: buffer
+    priority: required
+    reason: "Damage stacking for single-hit nukes"
+  - role: dps
+    priority: required
+    reason: "SINGLE-HIT NUKES preferred over multi-hit"
+  - role: breaker
+    priority: required
+    reason: "Multi-hit still needed for shield shave"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

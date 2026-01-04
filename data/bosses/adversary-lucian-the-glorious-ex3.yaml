@@ -1,0 +1,197 @@
+# Adversary Log Boss: Lucian the Glorious EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 75)
+#
+# EX3 variant with unique weakness cycling mechanics
+
+id: adversary-lucian-the-glorious-ex3
+display_name: "Lucian the Glorious EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 75"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-lucian-the-glorious
+ex_rank: ex3
+actions_per_turn: 3
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 12  # Low shield count but complex mechanics
+hp: 4268484
+speed: 472
+p_atk: 1704
+p_def: 348
+e_atk: 2054
+e_def: 428
+
+weaknesses:
+  elements:
+    - fire
+    - ice
+    - lightning
+    - wind
+    - light
+    - dark
+  weapons: []
+  notes: "Changes weaknesses based on HP threshold"
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Weakness Cycling (>75% HP)"
+    mechanic_type: other
+    trigger: "When broken (HP >75%)"
+    target: all
+    effects: ["Switches between first and second weakness sets"]
+    threat_level: medium
+    counter_strategy: "Track which weakness set is active"
+  - name: "Weakness Cycling (<75% HP)"
+    mechanic_type: other
+    trigger: "When broken (HP <75%)"
+    target: all
+    effects: ["Changes between final two weakness sets only"]
+    threat_level: medium
+    counter_strategy: "Limited weakness rotation - easier to predict"
+  - name: "3 Actions + Enfeeble Cleanse"
+    mechanic_type: buff_self
+    trigger: "HP <50%"
+    target: all
+    effects: ["Gains 3 actions per turn", "Cures enfeebling effects at end of turn", "Inflicts Def/EDef Down to frontrow"]
+    threat_level: critical
+    counter_strategy: "Debuffs only effective during break window"
+  - name: "Permanent Weakness Counter"
+    mechanic_type: debuff_party
+    trigger: "Battle start (permanent)"
+    target: all
+    effects: ["Reduces 5% max SP", "Deals Dark damage"]
+    threat_level: medium
+    counter_strategy: "SP management essential; bring SP recovery"
+  - name: "1x AoE Fire (Silence)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: elemental
+    element: fire
+    effects: ["Silence"]
+    threat_level: high
+    counter_strategy: "Silence immunity or cleanse"
+  - name: "3x RT Charm"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: random
+    damage_type: physical
+    effects: ["Charm"]
+    threat_level: critical
+    counter_strategy: "Charm immunity essential"
+  - name: "1x AoE Physical (BP -3)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: physical
+    effects: ["Reduces 3 BP"]
+    threat_level: high
+    counter_strategy: "BP preservation; massive BP drain"
+  - name: "1x AoE Physical (Row Swap)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: physical
+    effects: ["Switches frontrow to backrow"]
+    threat_level: high
+    counter_strategy: "Tank positioning disrupted"
+  - name: "Boost Attack (>25% HP): SP Drain or Lock"
+    mechanic_type: ultimate
+    trigger: "Full BP, HP >25%"
+    target: all
+    effects: ["100% SP reduction to entire team", "OR 3x Frontrow Light with Elemental Attack Lock"]
+    threat_level: critical
+    counter_strategy: "MUST break before full BP if possible"
+  - name: "Boost Attack (<25% HP): Full Party Physical"
+    mechanic_type: ultimate
+    trigger: "Full BP, HP <25%"
+    target: all
+    damage_type: physical
+    threat_level: critical
+    counter_strategy: "Stack DEF buffs; prepare for massive damage"
+
+hp_thresholds:
+  - hp_percent: 75
+    event: "Weakness Pattern Change"
+    behavior_changes: "Changes to final two weakness sets on break"
+  - hp_percent: 50
+    event: "Triple Actions + Enfeeble Immunity"
+    behavior_changes: "3 actions per turn, cleanses debuffs at end of turn, applies Def/EDef Down"
+    actions_per_turn: 3
+  - hp_percent: 25
+    event: "Boost Attack Change"
+    behavior_changes: "Full BP attack becomes full party physical"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 variant - EXTREME difficulty with complex mechanics.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 4,268,484
+  - Shields: 12 (low but cycling weaknesses)
+  - Speed: 472
+  
+  PERMANENT EFFECT:
+  - Weakness counter reduces 5% SP and deals Dark damage constantly!
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Weakness cycling on break (two sets above 75%, final two below 75%)
+  - HP <50%: 3 ACTIONS + cleanses debuffs + applies Def/EDef Down
+  - NASTY ATTACKS: Silence, Charm, BP -3, Row Swap
+  - Full BP (>25%): 100% SP drain OR 3x Light + Ele Attack Lock
+  - Full BP (<25%): Full party physical nuke
+  
+  STRATEGY:
+  1. SP management is critical (permanent SP drain)
+  2. Charm immunity ESSENTIAL (3x RT Charm)
+  3. Break before Full BP at all costs
+  4. After 50% HP, debuffs only work during break window
+  5. Track weakness rotation pattern
+  
+  CRITICAL STATUS EFFECTS:
+  - Charm (3x RT) - bring immunity
+  - Silence (AoE Fire) 
+  - Elemental Attack Lock (boost attack)
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Only effective during break (cleanses at end of turn below 50%)"
+  - role: healer
+    priority: required
+    reason: "Survive 3 actions per turn + status effects"
+  - role: buffer
+    priority: required
+    reason: "Stack damage for break windows"
+  - role: dps
+    priority: required
+    reason: "Multiple element coverage for weakness cycling"
+  - role: tank
+    priority: strongly_recommended
+    reason: "Handle row swap disruption"
+
+recommended_weakness_coverage:
+  - fire
+  - ice
+  - lightning
+  - wind
+  - light
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

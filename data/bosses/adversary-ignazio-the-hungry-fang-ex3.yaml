@@ -1,0 +1,133 @@
+# Adversary Log Boss: Ignazio the Hungry Fang EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 50)
+#
+# EX3 variant with dodge/HP restore and Fire Res Down mechanics
+
+id: adversary-ignazio-the-hungry-fang-ex3
+display_name: "Ignazio the Hungry Fang EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 50"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-ignazio-the-hungry-fang
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+shield_count: 37
+hp: 3210700
+speed: 470
+p_atk: 1812
+p_def: 343
+e_atk: 1962
+e_def: 351
+
+weaknesses:
+  elements:
+    - fire
+    - wind
+    - dark
+  weapons:
+    - polearm
+    - axe
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Dodge + HP Restore (Non-Weakness)"
+    mechanic_type: counter
+    trigger: "When hit by non-weakness attack"
+    target: single
+    effects: ["Dodges the attack", "Restores HP"]
+    threat_level: high
+    counter_strategy: "ONLY use attacks that hit weaknesses; no neutral damage!"
+  - name: "10x Physical Poison"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: physical
+    effects: ["Poison (per hit)"]
+    threat_level: critical
+    counter_strategy: "10 stacks of poison! Cleanse immediately or bring immunity"
+  - name: "Fire Res Down + Self Cleanse + Buff Removal"
+    mechanic_type: debuff_party
+    trigger: "Uses Fire Res Down attack"
+    target: front_row
+    effects: ["Fire Resistance Down", "Cleanses enfeebling effects on self", "Removes augmenting effects from frontrow"]
+    threat_level: high
+    counter_strategy: "Reapply buffs; debuffs cleansed on boss"
+  - name: "Terror"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: front_row
+    effects: ["Terror for 3 turns"]
+    threat_level: medium
+    counter_strategy: "Terror immunity or cleanse"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Ignazio the Hungry Fang - WEAKNESS-ONLY fight.
+  
+  EX3 CHARACTERISTICS:
+  - HP: 3,210,700
+  - Shields: 37
+  - Speed: 470
+  
+  CRITICAL MECHANIC (FROM SPREADSHEET):
+  - If you attack with NON-WEAKNESS, boss DODGES and RESTORES HP!
+  - ONLY use attacks that hit weaknesses (Polearm/Axe/Fire/Wind/Dark)
+  - Any neutral damage is counterproductive
+  - Effect removed on break
+  
+  OTHER MECHANICS:
+  - 10x Physical attack with POISON PER HIT (10 stacks!)
+  - Fire Res Down: Cleanses HIS debuffs + removes YOUR buffs
+  - Terror to frontrow (3 turns)
+  
+  STRATEGY:
+  1. Build team with ONLY weakness-hitting attacks
+  2. No flexible attackers with wrong elements
+  3. Poison immunity or instant cleanse CRITICAL
+  4. Buff timing: reapply after Fire Res Down strips them
+  
+  TEAM BUILDING:
+  - Polearm/Axe physical attackers
+  - Fire/Wind/Dark elemental attackers
+  - AVOID bringing any non-weakness options
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Will be cleansed - reapply during break"
+  - role: healer
+    priority: required
+    reason: "Poison cleanse ESSENTIAL; Terror handling"
+  - role: buffer
+    priority: required
+    reason: "Reapply after Fire Res Down dispel"
+  - role: dps
+    priority: required
+    reason: "MUST hit weaknesses only"
+
+recommended_weakness_coverage:
+  - polearm
+  - axe
+  - fire
+  - wind
+  - dark
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

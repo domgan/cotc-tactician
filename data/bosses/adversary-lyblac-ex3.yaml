@@ -38,16 +38,104 @@ weaknesses:
     - dagger
 
 # ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "9x Physical Dodge"
+    mechanic_type: buff_self
+    trigger: "Battle start"
+    target: all
+    effects: ["9 physical dodge charges"]
+    threat_level: medium
+    counter_strategy: "Use elemental attacks initially, or strip dodges with multi-hit physical"
+  - name: "1x Sword Sleep"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: physical
+    effects: ["Sleep"]
+    threat_level: medium
+    counter_strategy: "Cleanse or immunity"
+  - name: "2x ST Sword Blindness"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: physical
+    effects: ["Blindness"]
+    threat_level: medium
+    counter_strategy: "Cleanse or immunity"
+  - name: "2x Light Blindness"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: elemental
+    element: light
+    effects: ["Blindness"]
+    threat_level: medium
+    counter_strategy: "Cleanse or immunity"
+  - name: "1x AoE Light Paralysis"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: elemental
+    element: light
+    effects: ["Paralysis"]
+    threat_level: high
+    counter_strategy: "Paralysis immunity or cleanse"
+  - name: "Weakness Lock"
+    mechanic_type: debuff_party
+    trigger: "After recovering from break"
+    target: all
+    effects: ["Locks Lightning and Dark weaknesses"]
+    threat_level: high
+    counter_strategy: "Use Sword/Dagger/Wind/Light for breaking after first break"
+  - name: "All Stat Buff"
+    mechanic_type: buff_self
+    trigger: "HP ≤40%"
+    target: all
+    effects: ["Atk/Def/MAtk/MDef/Crit Up"]
+    threat_level: high
+    counter_strategy: "Push damage fast before buff phase"
+  - name: "5x AoE Light (Boost Mode)"
+    mechanic_type: ultimate
+    trigger: "HP ≤30% (Boost Mode)"
+    target: all
+    damage_type: elemental
+    element: light
+    threat_level: critical
+    counter_strategy: "Break before boost mode if possible; tank or heal through"
+
+hp_thresholds:
+  - hp_percent: 40
+    event: "All Stat Buff"
+    behavior_changes: "Gains Atk/Def/MAtk/MDef/Crit Up"
+  - hp_percent: 30
+    event: "Boost Mode"
+    behavior_changes: "5x AoE Light attack"
+
+# ===========================================================================
 # STRATEGY (EX3 SPECIFIC)
 # ===========================================================================
 general_strategy: |
   EX3 variant - MAXIMUM DIFFICULTY.
   
-  Key changes from base:
-  - Extreme HP (5,467,528)
-  - Maximum shield count (40)
-  - Very high speed (382)
-  - 3 actions per turn from early fight
+  EX3 CHARACTERISTICS:
+  - HP: 5,467,528
+  - Shields: 40
+  - Speed: 382
+  
+  KEY MECHANICS (FROM SPREADSHEET):
+  - Battle start: 9x Physical Dodge buff
+  - Sleep (Sword), Blindness (Sword/Light), Paralysis (AoE Light)
+  - After break recovery: LOCKS Lightning and Dark weaknesses
+  - HP ≤40%: Gains all stat buffs
+  - HP ≤30%: Boost Mode - 5x AoE Light!
+  
+  STRATEGY:
+  1. Use elemental or strip physical dodges early
+  2. After first break, rely on Sword/Dagger/Wind/Light (no Thunder/Dark)
+  3. Push through 40% and 30% quickly or prepare for massive buffs
+  4. Paralysis immunity recommended
   
   CRITICAL:
   - Either speedkill (Solon + Primrose EX) or full turtle

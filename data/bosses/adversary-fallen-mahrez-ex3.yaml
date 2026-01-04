@@ -38,16 +38,71 @@ weaknesses:
     - fan
 
 # ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "1x ST Sleep"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: single
+    damage_type: physical
+    effects: ["Sleep"]
+    threat_level: medium
+    counter_strategy: "Cleanse sleep or use immunity"
+  - name: "1x AoE Sword (Backrow Switch)"
+    mechanic_type: attack
+    trigger: "Regular action"
+    target: all
+    damage_type: physical
+    effects: ["Switches frontrow to backrow"]
+    threat_level: high
+    counter_strategy: "Prepare for forced row swap; may disrupt tank positioning"
+  - name: "Nullify All Phase"
+    mechanic_type: buff_self
+    trigger: "HP between 85% and 45%"
+    target: all
+    effects: ["Complete damage immunity", "Spawns 2 wisps"]
+    threat_level: critical
+    counter_strategy: "Kill 'Vile Memory' wisp, keep 'Beloved Memory' alive to dispel immunity"
+  - name: "Maximum Power Mode"
+    mechanic_type: buff_self
+    trigger: "HP <45%"
+    target: all
+    effects: ["3 actions per turn", "Atk/Def/MAtk/MDef/Crit/Speed Up"]
+    threat_level: critical
+    counter_strategy: "Push through 45% threshold quickly or prepare for extreme damage"
+
+hp_thresholds:
+  - hp_percent: 85
+    event: "Nullify All Phase"
+    behavior_changes: "Becomes immune to all damage, spawns 2 wisps"
+  - hp_percent: 45
+    event: "Maximum Power Mode"
+    behavior_changes: "3 actions per turn + all stat buffs"
+    actions_per_turn: 3
+
+# ===========================================================================
 # STRATEGY (EX3 SPECIFIC)
 # ===========================================================================
 general_strategy: |
   EX3 variant - MAXIMUM DIFFICULTY.
   
-  Key changes from base:
-  - Extreme HP (4,382,599)
-  - Maximum shield count (31)
-  - Very high speed (373)
-  - 3 actions per turn from early fight
+  EX3 CHARACTERISTICS (FROM SPREADSHEET):
+  - HP: 4,382,599
+  - Shields: 31
+  - Speed: 373
+  
+  KEY MECHANICS:
+  - Sleep attack and AoE that swaps frontrow to backrow
+  - HP 85-45%: NULLIFY ALL - becomes completely immune!
+    → Must kill "Vile Memory" wisp, keep "Beloved Memory" alive to dispel
+  - HP <45%: 3 ACTIONS per turn + ALL stat buffs (Atk/Def/MAtk/MDef/Crit/Speed)
+  
+  STRATEGY:
+  1. Push HP from 100% to below 45% as fast as possible
+  2. If stuck in Nullify phase, kill Vile Memory immediately
+  3. After 45%, expect massive damage with 3 actions + full buffs
+  4. Tank positioning may be disrupted by backrow swap attack
   
   CRITICAL:
   - Either speedkill (Solon + Primrose EX) or full turtle

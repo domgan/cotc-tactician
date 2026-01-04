@@ -1,0 +1,95 @@
+# Adversary Log Boss: Dokabro EX3
+# SOURCE: Adversary Log New spreadsheet (Solistia Lvl 1)
+#
+# Multi-enemy encounter with add-based weakness locks
+
+id: adversary-dokabro-ex3
+display_name: "Dokabro EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - Solistia Lvl 1"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+base_boss_id: adversary-dokabro
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter
+shield_count: 27
+hp: 1587792
+speed: 465
+
+enemies:
+  - name: "Dokabro"
+    is_main_target: true
+    hp: 1587792
+    shield_count: 27
+  - name: "Polearm Minion"
+    hp: 380908
+    notes: "Locks Dokabro's Sword weakness"
+  - name: "Dagger Minion"
+    hp: 342817
+    notes: "Locks Dokabro's Light weakness"
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Polearm Minion Weakness Lock"
+    mechanic_type: other
+    trigger: "While Polearm Minion is alive"
+    target: all
+    effects: ["Locks Dokabro's Sword weakness"]
+    threat_level: medium
+    counter_strategy: "Kill Polearm Minion to unlock Sword weakness"
+  - name: "Dagger Minion Weakness Lock"
+    mechanic_type: other
+    trigger: "While Dagger Minion is alive"
+    target: all
+    effects: ["Locks Dokabro's Light weakness"]
+    threat_level: medium
+    counter_strategy: "Kill Dagger Minion to unlock Light weakness"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  EX3 Dokabro - Minions lock main boss weaknesses.
+  
+  EX3 CHARACTERISTICS:
+  - Dokabro HP: 1,587,792 + 2 minions
+  - Shields: 27
+  - Speed: 465
+  
+  WEAKNESS LOCK MECHANICS (FROM SPREADSHEET):
+  - Polearm Minion locks Dokabro's SWORD weakness
+  - Dagger Minion locks Dokabro's LIGHT weakness
+  
+  STRATEGY:
+  1. Kill minions to unlock corresponding weaknesses
+  2. Or use weaknesses not affected by minions
+  3. Minions have low HP - quick to clear
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs"
+  - role: healer
+    priority: required
+    reason: "Survive"
+  - role: dps
+    priority: required
+    reason: "Clear minions and main boss"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04

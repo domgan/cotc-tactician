@@ -1,0 +1,154 @@
+# Adversary Log Boss: Cropdale (120 NPC) EX3
+# SOURCE: Adversary Log New spreadsheet (120 NPCs)
+#
+# Multi-enemy 120 NPC with kill-order mechanics
+# TODO: move to 120npc yamls
+
+id: adversary-120npc-cropdale-ex3
+display_name: "Cropdale 120 NPC EX3"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記) - 120 NPCs"
+
+# ===========================================================================
+# EX VARIANT INFO
+# ===========================================================================
+ex_rank: ex3
+actions_per_turn: 2
+provoke_immunity: true
+
+# ===========================================================================
+# STATS (EX3 - from Adversary Log New spreadsheet)
+# ===========================================================================
+# Multi-enemy encounter
+shield_count: 40
+hp: 12825625
+speed: 567
+
+enemies:
+  - name: "Main NPC"
+    is_main_target: true
+    hp: 12825625
+    shield_count: 40
+  - name: "Add 1"
+    hp: 501360
+  - name: "Add 2"
+    hp: 656140
+
+# ===========================================================================
+# MECHANICS (from Adversary Log New spreadsheet comments)
+# ===========================================================================
+mechanics:
+  - name: "Successive Strike Resistance"
+    mechanic_type: passive
+    trigger: "Permanent (all 120 NPCs)"
+    target: all
+    effects: ["Multi-hit attacks deal less damage per hit"]
+    threat_level: high
+    counter_strategy: "Use single-hit nukes for damage"
+  - name: "100% Damage Reduction"
+    mechanic_type: buff_self
+    trigger: "When one NPC is broken while the other is also broken"
+    target: all
+    effects: ["Reduces damage taken by 100%"]
+    threat_level: critical
+    counter_strategy: "DON'T let both be broken simultaneously at end of action!"
+  - name: "Kill Order Requirement"
+    mechanic_type: other
+    trigger: "Kill phase"
+    target: all
+    effects: ["Must kill one and then the other separately, OR kill both with same move"]
+    threat_level: critical
+    counter_strategy: "Break one, nearly kill it, break other, kill first, then kill second - OR kill both simultaneously"
+  - name: "Top Add: Sword Damage Up + Direct Hit"
+    mechanic_type: buff_self
+    trigger: "Turn 4"
+    target: all
+    effects: ["Sword Damage Up", "Direct Hit (ignores defense)"]
+    threat_level: high
+    counter_strategy: "Consider killing top add first"
+  - name: "Top Add: Full BP Attack"
+    mechanic_type: ultimate
+    trigger: "Full BP (top add)"
+    target: all
+    effects: ["2x AoE Sword attacks", "Fire attack to both frontrow and backrow"]
+    threat_level: critical
+    counter_strategy: "Break before full BP"
+  - name: "Bottom Add: 25% Multi-Hit Damage Reduction"
+    mechanic_type: buff_self
+    trigger: "Turn 4"
+    target: all
+    effects: ["25% Multi-Hit damage reduction"]
+    threat_level: medium
+    counter_strategy: "Single-hit attacks preferred anyway"
+  - name: "Bottom Add: Full BP Attack"
+    mechanic_type: ultimate
+    trigger: "Full BP (bottom add)"
+    target: random
+    effects: ["8x RT Light attack", "Inflicts Read (reveals stats?)"]
+    threat_level: critical
+    counter_strategy: "Break before full BP"
+  - name: "Bottom Add Revival"
+    mechanic_type: other
+    trigger: "Top add killed while bottom not broken"
+    target: all
+    effects: ["Bottom add revives top add"]
+    threat_level: high
+    counter_strategy: "Break bottom before killing top, OR kill both simultaneously"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  120 NPC Cropdale - Complex kill-order mechanics.
+  
+  EX3 CHARACTERISTICS:
+  - Main HP: 12,825,625 + 2 adds
+  - Shields: 40
+  - Speed: 567
+  
+  CRITICAL MECHANIC:
+  - If BOTH NPCs are broken at end of an action, one gains 100% damage reduction!
+  - DON'T break both at the same time if you can't kill!
+  
+  KILL ORDER OPTIONS:
+  1. Break one → nearly kill → break other → kill first → kill second
+  2. Kill both with the same attack (difficult but avoids revive)
+  
+  ADD MECHANICS (Turn 4):
+  - Top add: Sword Damage Up + Direct Hit
+  - Bottom add: 25% Multi-Hit Damage Reduction
+  
+  FULL BP ATTACKS:
+  - Top: 2x AoE Sword + Fire to all rows
+  - Bottom: 8x RT Light + Read
+  
+  REVIVAL MECHANIC:
+  - If top add killed while bottom NOT broken, bottom revives top!
+  - Solution: Break bottom before killing top
+  
+  SUCCESSIVE STRIKE RESISTANCE applies!
+
+required_roles:
+  - role: debuffer
+    priority: required
+    reason: "Stack debuffs carefully around kill order"
+  - role: healer
+    priority: required
+    reason: "Survive full BP attacks"
+  - role: buffer
+    priority: required
+    reason: "Single-hit nuke damage"
+  - role: dps
+    priority: required
+    reason: "Precise damage control for kill order"
+  - role: breaker
+    priority: required
+    reason: "40 shields on main; careful break timing"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: verified
+data_source: "Adversary Log New spreadsheet"
+last_updated: 2026-01-04
