@@ -21,7 +21,7 @@ A local-first prototype combining human-editable game knowledge, vector-based se
 
 - **Human-Editable Data**: All game knowledge stored in YAML files (260+ characters, 270+ bosses)
 - **Semantic Search**: Vector database for finding relevant characters/bosses/teams
-- **MCP Server**: Use Claude in Cursor as your reasoning engine (no API costs!) - 15 tools
+- **MCP Server**: Use Claude in Cursor as your reasoning engine (no API costs!) - 17 tools
 - **EX Fight Support**: Full schema for Adversary Log mechanics (EX1/EX2/EX3 variants)
 - **Team Building**: Tank types, buff/debuff stacking categories, survival strategies
 - **LLM Reasoning**: Alternatively use Ollama or OpenAI for team composition
@@ -100,23 +100,21 @@ uv run cotc-tactician compose --boss example-boss --chars "char1,char2,char3"
 
 Use Claude in Cursor as your reasoning engine - no API costs!
 
-```bash
-# Start the MCP server
-uv run cotc-tactician mcp-serve
-```
-
-Configure Cursor by adding to `~/.cursor/mcp.json`:
+Configure Cursor by adding to `~/.cursor/mcp.json` (use the **full path** to your venv binary — do not rely on `cotc-tactician` on PATH, pyenv shims often fail in Cursor):
 
 ```json
 {
   "mcpServers": {
     "cotc-tactician": {
-      "command": "cotc-tactician",
-      "args": ["mcp-serve"]
+      "command": "/path/to/cotc-tactician/.venv/bin/cotc-tactician",
+      "args": ["mcp-serve"],
+      "cwd": "/path/to/cotc-tactician"
     }
   }
 }
 ```
+
+Restart Cursor (Settings → MCP → reload). Cursor spawns the server itself — you do not need to run `mcp-serve` in a terminal.
 
 Restart Cursor, then ask Claude things like:
 - "Search for fire damage dealers in COTC"
@@ -165,6 +163,7 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 | `get_character` | Get full character details (skills, passives, stats) |
 | `find_by_weakness` | Find characters covering specific weaknesses |
 | `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
+| `list_by_role` | Exact match on character roles (tank, healer, debuffer, etc.) |
 | `list_all_character_ids` | List all available character IDs |
 | `find_tanks_by_type` | Find tanks by type (provoke, dodge, cover, hp_barrier) |
 
@@ -179,9 +178,10 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 **Team Building Tools:**
 | Tool | Description |
 |------|-------------|
-| `get_team_building_guide` | **CALL FIRST** - Get party structure, role definitions, EX scaling |
+| `get_team_building_guide` | **CALL FIRST** - Party structure, roles, EX scaling (from reference YAML) |
 | `get_team_suggestions` | Suggest characters for a boss fight by weaknesses |
-| `plan_team_for_boss` | Get strategic team recommendations for a specific boss |
+| `get_proven_teams` | Human-curated proven team comps for a boss (prefer over inferred) |
+| `plan_team_for_boss` | Team planning with roster filtering, proven_teams, weakness/role gaps |
 | `check_buff_coverage` | Analyze buff/debuff stacking categories for a team |
 
 **Utility:**
@@ -237,7 +237,7 @@ flowchart TB
 
     subgraph interfaces ["🔌 Interfaces"]
         cli[CLI Commands<br/>compose, search, index]
-        mcp[MCP Server<br/>15 tools for Claude]
+        mcp[MCP Server<br/>17 tools for Claude]
     end
 
     subgraph llm ["🤖 LLM Options"]
@@ -320,7 +320,7 @@ uv run ruff format
 
 ## Future Roadmap
 
-- [x] MCP Server for Cursor/Claude integration (15 tools)
+- [x] MCP Server for Cursor/Claude integration (17 tools)
 - [x] Import 260+ characters from community spreadsheet
 - [x] Skill/passive data from Notion exports
 - [x] EX fight schema (Adversary Log mechanics)

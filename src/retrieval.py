@@ -15,6 +15,23 @@ from .vector_store import VectorStore
 logger = logging.getLogger(__name__)
 
 
+def _normalize_weakness(value: str) -> str:
+    return value.lower().strip()
+
+
+def _normalize_role(value: str) -> Role | None:
+    normalized = value.lower().strip()
+    try:
+        return Role(normalized)
+    except ValueError:
+        return None
+
+
+def _character_covers_weakness(character: Character, weakness: str) -> bool:
+    target = _normalize_weakness(weakness)
+    return any(_normalize_weakness(w) == target for w in character.weakness_coverage)
+
+
 class RetrievalService:
     """
     Unified retrieval service for game data.
@@ -280,8 +297,119 @@ class RetrievalService:
     def get_all_characters(self) -> list[Character]:
         """Get all loaded characters."""
         if not self._characters_cache:
-            self.data_loader.load_characters()
+            self.initialize()
         return list(self._characters_cache.values())
+
+    def list_boss_ids(self) -> list[str]:
+        """Return sorted boss IDs from the loaded cache."""
+        if not self._bosses_cache:
+            self.initialize()
+        return sorted(self._bosses_cache.keys())
+
+    def list_character_ids(self) -> list[str]:
+        """Return sorted character IDs from the loaded cache."""
+        if not self._characters_cache:
+            self.initialize()
+        return sorted(self._characters_cache.keys())
+
+    def list_team_ids(self) -> list[str]:
+        """Return sorted team IDs from the loaded cache."""
+        if not self._teams_cache:
+            self.initialize()
+        return sorted(self._teams_cache.keys())
+
+    def get_boss_weaknesses(self, boss: Boss) -> list[str]:
+        """
+        Extract flat weakness list from a boss (boss-level or main-target enemy).
+
+        Returns lowercased element/weapon strings, e.g. ["bow", "light", "fan"].
+        """
+        weaknesses: list[str] = []
+        if boss.weaknesses:
+            if boss.weaknesses.elements:
+                weaknesses.extend(e.value for e in boss.weaknesses.elements)
+            if boss.weaknesses.weapons:
+                weaknesses.extend(w.value for w in boss.weaknesses.weapons)
+        elif boss.enemies:
+            main_enemy = next(
+                (e for e in boss.enemies if e.is_main_target),
+                boss.enemies[0] if boss.enemies else None,
+            )
+            if main_enemy and main_enemy.weaknesses:
+                if main_enemy.weaknesses.elements:
+                    weaknesses.extend(e.value for e in main_enemy.weaknesses.elements)
+                if main_enemy.weaknesses.weapons:
+                    weaknesses.extend(w.value for w in main_enemy.weaknesses.weapons)
+        return [_normalize_weakness(w) for w in weaknesses]
+
+    def find_characters_by_weakness(
+        self,
+        weakness: str,
+        *,
+        character_ids: list[str] | None = None,
+        limit: int = 5,
+    ) -> list[Character]:
+        """
+        Find characters that cover a weakness via exact cache lookup.
+
+        When character_ids is set (roster mode), only those characters are searched.
+        No fallback to the global pool when roster mode yields zero matches.
+        """
+        if not self._characters_cache:
+            self.initialize()
+
+        target = _normalize_weakness(weakness)
+        if character_ids is not None:
+            pool = [
+                self._characters_cache[cid]
+                for cid in character_ids
+                if cid in self._characters_cache
+            ]
+        else:
+            pool = list(self._characters_cache.values())
+
+        matching = [char for char in pool if _character_covers_weakness(char, target)]
+        matching.sort(key=lambda c: c.display_name)
+        return matching[:limit]
+
+    def find_characters_by_role_exact(
+        self,
+        role: str,
+        *,
+        character_ids: list[str] | None = None,
+        limit: int = 8,
+    ) -> list[Character]:
+        """
+        Find characters with a role via exact cache lookup on char.roles.
+
+        When character_ids is set (roster mode), only those characters are searched.
+        No fallback to the global pool when roster mode yields zero matches.
+        """
+        if not self._characters_cache:
+            self.initialize()
+
+        target_role = _normalize_role(role)
+        if target_role is None:
+            return []
+
+        if character_ids is not None:
+            pool = [
+                self._characters_cache[cid]
+                for cid in character_ids
+                if cid in self._characters_cache
+            ]
+        else:
+            pool = list(self._characters_cache.values())
+
+        matching = [char for char in pool if target_role in char.roles]
+
+        def _sort_key(char: Character) -> tuple[int, str]:
+            tier = char.jp_tier or ""
+            s_rank = 0 if "S" in tier.upper() else 1
+            return (s_rank, char.display_name)
+
+        matching.sort(key=_sort_key)
+        return matching[:limit]
 
     # =========================================================================
     # TEAM RETRIEVAL

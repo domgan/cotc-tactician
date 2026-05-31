@@ -252,18 +252,20 @@ cotc-tactician mcp-serve
 
 | Tool | Description |
 |------|-------------|
-| `get_team_building_guide` | **CALL FIRST** - Get party structure, role definitions, EX scaling |
+| `get_team_building_guide` | **CALL FIRST** - Party structure, roles, EX scaling (from `llm_guidelines.yaml`) |
 | `search_characters` | Semantic search for characters by query |
 | `get_character` | Get full character details (skills, passives, stats) |
 | `find_by_weakness` | Find characters covering specific weaknesses |
 | `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
+| `list_by_role` | Exact match on character `roles` field (tank, healer, debuffer, etc.) |
 | `get_team_suggestions` | Suggest characters for a boss fight |
+| `get_proven_teams` | Get human-curated proven team comps for a boss |
 | `list_all_character_ids` | List all available character IDs |
 | `get_database_stats` | Get indexed entity counts |
 | `search_bosses` | Search for bosses by description |
 | `get_boss` | Get full boss details (mechanics, weaknesses, strategy) |
 | `list_all_boss_ids` | List all available boss IDs |
-| `plan_team_for_boss` | Get strategic team planning (8 chars: 4 front + 4 back) |
+| `plan_team_for_boss` | Strategic team planning (8 chars); proven_teams, weakness/role gaps |
 
 **How it works:**
 1. Claude in Cursor calls these tools to retrieve game data

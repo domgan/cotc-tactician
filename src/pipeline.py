@@ -293,18 +293,18 @@ class ReasoningPipeline:
         if not self._initialized:
             self.initialize()
 
-        return list(self.retrieval._bosses_cache.keys())
+        return self.retrieval.list_boss_ids()
 
     def list_characters(self) -> list[str]:
         """List all indexed character IDs."""
         if not self._initialized:
             self.initialize()
 
-        return list(self.retrieval._characters_cache.keys())
+        return self.retrieval.list_character_ids()
 
     def list_teams(self) -> list[str]:
         """List all indexed team IDs."""
         if not self._initialized:
             self.initialize()
 
-        return list(self.retrieval._teams_cache.keys())
+        return self.retrieval.list_team_ids()

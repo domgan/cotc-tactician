@@ -119,8 +119,8 @@ roles:
         characters: ["canary", "h-aanit-ex", "tressa-ex"]
         notes: "Best for EX fights - evade all single-target attacks"
       - name: "Cover Tank"
-        characters: ["fiore-ex"]
-        notes: "ONLY Fiore EX has Cover - intercepts attacks for allies"
+        characters: ["fiore-ex", "cecil"]
+        notes: "Fiore EX and Cecil intercept attacks for allies via Cover"
       - name: "HP Barrier Tank"
         characters: ["sazantos", "temenos"]
         notes: "Creates HP shields to absorb burst damage"
@@ -150,7 +150,7 @@ roles:
       - "P.ATK Down / E.ATK Down (reduces damage taken)"
       - "P.DEF Down / E.DEF Down (increases damage dealt)"
       - "Speed Down"
-    top_debuffers: ["viola", "canary", "therion", "signa-ex"]
+    top_debuffers: ["signa", "viola", "canary", "signa-ex", "therion"]
 
   breaker:
     description: "Shaves shields to trigger Break state"

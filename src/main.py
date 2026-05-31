@@ -19,6 +19,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 from .pipeline import OllamaClient, OpenAIClient, ReasoningPipeline
+from .retrieval import RetrievalService
 from .vector_store import VectorStore
 
 # Setup rich console
@@ -56,6 +57,16 @@ def get_vector_store_dir() -> Path:
         return Path(env_path)
 
     return Path(__file__).parent.parent / ".vectordb"
+
+
+def create_retrieval_service() -> RetrievalService:
+    """Create retrieval service for read-only CLI commands (no LLM required)."""
+    data_dir = get_data_dir()
+    vector_dir = get_vector_store_dir()
+    vector_store = VectorStore(persist_directory=vector_dir)
+    service = RetrievalService(data_dir=data_dir, vector_store=vector_store)
+    service.initialize()
+    return service
 
 
 def create_pipeline(
@@ -253,12 +264,10 @@ def compose(
 @app.command()
 def list_bosses():
     """List all indexed bosses."""
-    pipeline = create_pipeline()
-
     with console.status("Loading data..."):
-        pipeline.initialize()
+        service = create_retrieval_service()
 
-    bosses = pipeline.list_bosses()
+    bosses = service.list_boss_ids()
 
     if not bosses:
         console.print("[yellow]No bosses indexed. Run 'index' command first.[/]")
@@ -272,12 +281,10 @@ def list_bosses():
 @app.command()
 def list_characters():
     """List all indexed characters."""
-    pipeline = create_pipeline()
-
     with console.status("Loading data..."):
-        pipeline.initialize()
+        service = create_retrieval_service()
 
-    characters = pipeline.list_characters()
+    characters = service.list_character_ids()
 
     if not characters:
         console.print("[yellow]No characters indexed. Run 'index' command first.[/]")
@@ -294,15 +301,18 @@ def info(
     entity_id: str = typer.Argument(..., help="Entity ID"),
 ):
     """Get information about a specific entity."""
-    pipeline = create_pipeline()
-
     with console.status("Loading data..."):
-        pipeline.initialize()
+        service = create_retrieval_service()
 
     if entity_type == "boss":
-        data = pipeline.get_boss_info(entity_id)
+        boss = service.get_boss_by_id(entity_id)
+        data = boss.model_dump() if boss else None
     elif entity_type == "character":
-        data = pipeline.get_character_info(entity_id)
+        character = service.get_character_by_id(entity_id)
+        data = character.model_dump() if character else None
+    elif entity_type == "team":
+        team = service.get_team_by_id(entity_id)
+        data = team.model_dump() if team else None
     else:
         console.print(f"[red]Unknown entity type: {entity_type}[/]")
         raise typer.Exit(1)
@@ -323,12 +333,10 @@ def search(
     limit: int = typer.Option(5, "--limit", "-n", help="Max results"),
 ):
     """Semantic search across game data."""
-    pipeline = create_pipeline()
-
     with console.status("Loading data..."):
-        pipeline.initialize()
+        service = create_retrieval_service()
 
-    vs = pipeline.retrieval.vector_store
+    vs = service.vector_store
 
     results = []
 

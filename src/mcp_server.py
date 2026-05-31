@@ -26,7 +26,9 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"  # Suppress transformers logging
 
 from mcp.server.fastmcp import FastMCP
 
-from .retrieval import RetrievalService
+from .models import RolePriority
+from .retrieval import RetrievalService, _normalize_weakness
+from .team_guide import load_team_building_guide
 from .vector_store import VectorStore
 
 # Configure logging to stderr only (stdout is reserved for MCP protocol)
@@ -164,6 +166,57 @@ def character_summary(char: Any) -> dict:
     }
 
 
+def plan_team_character_entry(char: Any) -> dict:
+    """Compact character entry for plan_team_for_boss recommendations."""
+    return {
+        "id": char.id,
+        "display_name": char.display_name,
+        "job": char.job.value,
+        "roles": [r.value for r in char.roles] if char.roles else [],
+        "jp_tier": char.jp_tier,
+    }
+
+
+def team_slot_to_dict(slot: Any) -> dict:
+    """Convert a TeamSlot to a JSON-friendly dict."""
+    return {
+        "position": slot.position,
+        "character_id": slot.character_id,
+        "role_in_team": slot.role_in_team.value,
+        "is_required": slot.is_required,
+        "substitutes": slot.substitutes,
+        "key_skills_used": slot.key_skills_used,
+    }
+
+
+def team_to_dict(team: Any) -> dict:
+    """Convert a Team model to a JSON-friendly dict for MCP output."""
+    result = {
+        "id": team.id,
+        "name": team.name,
+        "boss_id": team.boss_id,
+        "strategy_type": team.strategy_type.value,
+        "investment_level": team.investment_level.value,
+        "front_line": [team_slot_to_dict(s) for s in team.front_line],
+        "back_line": [team_slot_to_dict(s) for s in team.back_line],
+        "why_it_works": team.why_it_works,
+        "key_synergies": team.key_synergies,
+        "verified": team.verified,
+        "data_confidence": team.data_confidence.value,
+    }
+    if team.target_ex_rank:
+        result["target_ex_rank"] = team.target_ex_rank.value
+    if team.survival_strategy:
+        result["survival_strategy"] = team.survival_strategy.value
+    if team.minimum_hp_recommended is not None:
+        result["minimum_hp_recommended"] = team.minimum_hp_recommended
+    if team.buff_category_coverage:
+        result["buff_category_coverage"] = team.buff_category_coverage.model_dump(
+            exclude_none=True
+        )
+    return result
+
+
 # =============================================================================
 # MCP TOOLS
 # =============================================================================
@@ -245,29 +298,24 @@ def find_by_weakness(weakness_types: list[str], limit: int = 8) -> list[dict]:
     """
     retrieval = get_retrieval()
 
-    # Build a query from the weakness types
-    query = f"Character with weakness coverage: {', '.join(weakness_types)}"
-
-    results = retrieval.vector_store.search_characters(
-        query=query,
-        n_results=limit * 2,  # Get extra to filter
-    )
-
-    # Filter to characters that actually cover the weaknesses
+    seen: set[str] = set()
     characters = []
-    for result in results:
-        char = retrieval.get_character_by_id(result["id"])
-        if char:
-            # Check if character covers at least one weakness
-            coverage = set(char.weakness_coverage)
-            requested = set(weakness_types)
-            if coverage & requested:  # Intersection
-                summary = character_summary(char)
-                summary["matching_weaknesses"] = list(coverage & requested)
-                characters.append(summary)
+    requested = {_normalize_weakness(w) for w in weakness_types}
 
-        if len(characters) >= limit:
-            break
+    for weakness in weakness_types:
+        for char in retrieval.find_characters_by_weakness(weakness, limit=limit * 2):
+            if char.id in seen:
+                continue
+            coverage = {_normalize_weakness(w) for w in char.weakness_coverage}
+            matching = requested & coverage
+            if not matching:
+                continue
+            summary = character_summary(char)
+            summary["matching_weaknesses"] = sorted(matching)
+            characters.append(summary)
+            seen.add(char.id)
+            if len(characters) >= limit:
+                return characters
 
     return characters
 
@@ -307,6 +355,37 @@ def list_by_tier(tier: str = "S", server: str = "jp", limit: int = 20) -> list[d
 
 
 @mcp.tool()
+def list_by_role(
+    role: str,
+    available_characters: list[str] | None = None,
+    limit: int = 20,
+) -> list[dict]:
+    """
+    List characters by team role using exact match on the roles field.
+
+    Unlike semantic search, this only returns characters whose YAML data
+    explicitly lists the role. Empty results usually mean incomplete data,
+    not that no such character exists.
+
+    Args:
+        role: Role to filter by. Valid values: tank, healer, buffer,
+              debuffer, breaker, dps (case-insensitive).
+        available_characters: Optional roster filter — only these character IDs.
+        limit: Maximum number of results (default: 20).
+
+    Returns:
+        List of character summaries matching the role.
+    """
+    retrieval = get_retrieval()
+    chars = retrieval.find_characters_by_role_exact(
+        role,
+        character_ids=available_characters,
+        limit=limit,
+    )
+    return [character_summary(c) for c in chars]
+
+
+@mcp.tool()
 def get_team_suggestions(
     weaknesses: list[str],
     roles_needed: list[str] | None = None,
@@ -343,21 +422,8 @@ def get_team_suggestions(
 
     # Find characters for each weakness
     for weakness in weaknesses:
-        query = f"Character with {weakness} coverage"
-        search_results = retrieval.vector_store.search_characters(
-            query=query,
-            n_results=limit * 2,
-        )
-
-        chars_for_weakness = []
-        for sr in search_results:
-            char = retrieval.get_character_by_id(sr["id"])
-            if char and weakness in char.weakness_coverage:
-                chars_for_weakness.append(character_summary(char))
-            if len(chars_for_weakness) >= limit:
-                break
-
-        result["by_weakness"][weakness] = chars_for_weakness
+        chars = retrieval.find_characters_by_weakness(weakness, limit=limit)
+        result["by_weakness"][weakness] = [character_summary(c) for c in chars]
 
     # If roles requested, add role-based suggestions
     if roles_needed:
@@ -611,6 +677,34 @@ def list_all_boss_ids() -> list[str]:
 
 
 @mcp.tool()
+def get_proven_teams(boss_id: str) -> dict | str:
+    """
+    Get human-curated proven team compositions for a specific boss.
+
+    Returns team YAMLs indexed in the database (front/back line, roles,
+    skill loadouts, strategy notes). Prefer these over inferred comps when present.
+
+    Args:
+        boss_id: The boss's unique ID (e.g., "arena-tikilen").
+
+    Returns:
+        Dictionary with boss_id, count, and teams list; or error if boss not found.
+    """
+    retrieval = get_retrieval()
+
+    boss = retrieval.get_boss_by_id(boss_id)
+    if boss is None:
+        return f"Boss '{boss_id}' not found."
+
+    teams = retrieval.get_teams_for_boss(boss_id)
+    return {
+        "boss_id": boss_id,
+        "count": len(teams),
+        "teams": [team_to_dict(t) for t in teams],
+    }
+
+
+@mcp.tool()
 def plan_team_for_boss(
     boss_id: str,
     available_characters: list[str] | None = None,
@@ -621,8 +715,12 @@ def plan_team_for_boss(
     IMPORTANT: COTC parties have 8 characters (4 front + 4 back).
     Use get_team_building_guide() first for full context.
 
-    This analyzes boss weaknesses and requirements, then suggests
-    characters from the available roster that match.
+    Returns recommended_characters (roster-filtered weakness matches),
+    recommended_by_role (roster-filtered role matches from boss required_roles),
+    proven_teams (curated comps if any), coverage_gaps (weaknesses the roster
+    cannot cover), and role_coverage_gaps (required roles with no roster match).
+    Prioritize proven_teams when non-empty.
+    Do not invent characters to fill empty weakness or role slots.
 
     Args:
         boss_id: The boss to plan for.
@@ -630,9 +728,8 @@ def plan_team_for_boss(
                              If not provided, suggests from all characters.
 
     Returns:
-        Dictionary with boss analysis and character recommendations.
-        Note: Recommended characters are grouped by weakness - pick 8 total
-        (4 front row + 4 back row) covering multiple weaknesses.
+        Dictionary with boss analysis, proven teams, character recommendations
+        grouped by weakness and role, plus coverage gaps.
     """
     retrieval = get_retrieval()
 
@@ -640,23 +737,7 @@ def plan_team_for_boss(
     if boss is None:
         return {"error": f"Boss '{boss_id}' not found."}
 
-    # Build the analysis
-    weaknesses = []
-    if boss.weaknesses:
-        if boss.weaknesses.elements:
-            weaknesses.extend([e.value for e in boss.weaknesses.elements])
-        if boss.weaknesses.weapons:
-            weaknesses.extend([w.value for w in boss.weaknesses.weapons])
-    elif boss.enemies:
-        # For multi-enemy encounters, get weaknesses from main target
-        main_enemy = next(
-            (e for e in boss.enemies if e.is_main_target), boss.enemies[0] if boss.enemies else None
-        )
-        if main_enemy and main_enemy.weaknesses:
-            if main_enemy.weaknesses.elements:
-                weaknesses.extend([e.value for e in main_enemy.weaknesses.elements])
-            if main_enemy.weaknesses.weapons:
-                weaknesses.extend([w.value for w in main_enemy.weaknesses.weapons])
+    weaknesses = retrieval.get_boss_weaknesses(boss)
 
     result = {
         "party_structure": {
@@ -681,7 +762,11 @@ def plan_team_for_boss(
             {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
             for rr in (boss.required_roles or [])
         ],
+        "proven_teams": [team_to_dict(t) for t in retrieval.get_teams_for_boss(boss_id)],
         "recommended_characters": {},
+        "recommended_by_role": {},
+        "coverage_gaps": [],
+        "role_coverage_gaps": [],
         "tactical_notes": [],
     }
 
@@ -704,40 +789,38 @@ def plan_team_for_boss(
         if boss.shield_count >= 20:
             result["tactical_notes"].append("Plan for 2+ break cycles unless very strong team")
 
-    # Find recommended characters for each weakness
-    for weakness in weaknesses[:4]:  # Top 4 weaknesses
-        query = f"Character with {weakness} coverage"
-        search_results = retrieval.vector_store.search_characters(
-            query=query,
-            n_results=10,
+    for weakness in weaknesses[:4]:
+        chars = retrieval.find_characters_by_weakness(
+            weakness,
+            character_ids=available_characters,
+            limit=5,
         )
+        result["recommended_characters"][weakness] = [
+            plan_team_character_entry(c) for c in chars
+        ]
 
-        chars = []
-        for sr in search_results:
-            char_id = sr["id"]
+    result["coverage_gaps"] = [
+        w for w in weaknesses[:4] if not result["recommended_characters"].get(w)
+    ]
 
-            # Filter by available if specified
-            if available_characters and char_id not in available_characters:
-                continue
+    for rr in boss.required_roles or []:
+        role = rr.role.value
+        chars = retrieval.find_characters_by_role_exact(
+            role,
+            character_ids=available_characters,
+            limit=5,
+        )
+        result["recommended_by_role"][role] = [
+            plan_team_character_entry(c) for c in chars
+        ]
 
-            char = retrieval.get_character_by_id(char_id)
-            if char and weakness in char.weakness_coverage:
-                chars.append(
-                    {
-                        "id": char.id,
-                        "display_name": char.display_name,
-                        "job": char.job.value,
-                        "roles": [r.value for r in char.roles] if char.roles else [],
-                        "jp_tier": char.jp_tier,
-                    }
-                )
+    result["role_coverage_gaps"] = [
+        rr.role.value
+        for rr in (boss.required_roles or [])
+        if rr.priority == RolePriority.REQUIRED
+        and not result["recommended_by_role"].get(rr.role.value)
+    ]
 
-            if len(chars) >= 5:
-                break
-
-        result["recommended_characters"][weakness] = chars
-
-    # Add strategy if available
     if boss.general_strategy:
         result["general_strategy"] = boss.general_strategy
 
@@ -970,96 +1053,9 @@ def get_team_building_guide() -> dict:
     - Common mistakes to avoid
 
     Returns:
-        Dictionary with team building guidelines.
+        Dictionary with team building guidelines (loaded from reference YAML).
     """
-    return {
-        "party_structure": {
-            "total_characters": 8,
-            "front_row": 4,
-            "back_row": 4,
-            "notes": "ALWAYS recommend 8 characters. Front row is active, back row swaps in.",
-        },
-        "skill_slots": {
-            "awakening_0_1": 3,
-            "awakening_2_plus": 4,
-            "notes": "Recommend specific skills to equip for each character.",
-        },
-        "ex_scaling_patterns": {
-            "ex1": {
-                "hp_multiplier": "~2x base",
-                "speed_bonus": "+50-100",
-                "actions_per_turn": 2,
-                "shield_bonus": "+3-5",
-                "provoke_immunity": True,
-                "recommended_hp": 3000,
-            },
-            "ex2": {
-                "hp_multiplier": "~3x base",
-                "speed_bonus": "+100-150",
-                "actions_per_turn": "2-3",
-                "shield_bonus": "+5-7",
-                "provoke_immunity": True,
-                "recommended_hp": 3500,
-            },
-            "ex3": {
-                "hp_multiplier": "~5x base",
-                "speed_bonus": "+150-250",
-                "actions_per_turn": 3,
-                "shield_bonus": "+8-12",
-                "provoke_immunity": True,
-                "recommended_hp": 4000,
-                "notes": "Extreme difficulty. Requires speedkill (Solon+Primrose EX) or full turtle strategy.",
-            },
-        },
-        "role_priorities": {
-            "tank": {
-                "subtypes": ["provoke", "dodge", "cover", "hp_barrier"],
-                "ex_notes": "Most EX bosses are provoke immune! Use dodge (Canary, H'aanit EX) or cover (Fiore EX only).",
-                "top_picks": ["fiore-ex", "canary", "h-aanit-ex"],
-            },
-            "healer": {
-                "key_skills": ["Rehabilitate (status cleanse)", "Instant healing", "HP barriers"],
-                "top_picks": ["rinyuu-ex", "therese-ex", "temenos", "ophilia-ex"],
-            },
-            "debuffer": {
-                "cap": "30% per category",
-                "priority": "E.ATK Down (reduces enemy damage)",
-                "top_picks": ["viola", "canary", "signa-ex", "therion"],
-            },
-            "breaker": {
-                "notes": "High hit count essential. Breaking is the core mechanic.",
-                "top_picks": ["canary", "nephti", "primrose-ex", "kouren"],
-            },
-            "dps": {
-                "damage_formula": "Weakness (2.5x) + Break (2x) = 5x damage window",
-                "buff_categories": [
-                    "Active skills (30%)",
-                    "Passives (30%)",
-                    "Ultimate (varies)",
-                    "Pet",
-                    "Divine Beast",
-                ],
-                "top_picks": ["solon", "primrose-ex", "richard", "leon"],
-            },
-        },
-        "recommendation_format": {
-            "sections": [
-                "1. Boss Summary (weaknesses, mechanics, EX notes)",
-                "2. Full 8-Character Team (4 front + 4 back with roles)",
-                "3. Skill Loadouts (3-4 skills per key character)",
-                "4. Turn-by-Turn Tactics (early game, break windows, phases)",
-                "5. Alternative Teams (budget options, replacements)",
-            ]
-        },
-        "common_mistakes": [
-            "Recommending only 6 characters (must be 8)",
-            "Ignoring skill slot limits (3-4 per character)",
-            "Using provoke tank on provoke-immune EX boss",
-            "Stacking redundant buffs past 30% cap",
-            "Not covering all boss weaknesses",
-            "Inventing EX stats instead of using scaling patterns",
-        ],
-    }
+    return load_team_building_guide(get_data_dir())
 
 
 # =============================================================================
