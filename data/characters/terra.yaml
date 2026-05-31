@@ -12,7 +12,14 @@ influence: power
 origin: "World of Balance (Final Fantasy VI)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, fire, ice, light, lightning, tome, wind]
+weakness_coverage:
+- dark
+- fire
+- ice
+- light
+- lightning
+- tome
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +52,7 @@ has_limit_break: false
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -142,19 +149,6 @@ skills:
     effects:
       - "**Summon: Seraphim ** Restore HP of All Allies (potency: 65-155 based on Boost Lv.)"
       - "Restore own SP (amount: 25%-100% of max SP based on Boost Lv.)"
-  - skill_category: ex
-    name: "Magitek Laser"
-    skill_type: mixed
-    damage_types: [fire, wind]
-    target: aoe
-    hit_count: "4x"
-    power: "4x60"
-    effects:
-      - "**Magitek Laser** Raise own Elem"
-      - "grant Damage Limit Up (effect: 100,000) (turns: 3-6 based on Boost Lv.) and gain 1-4 “Magitek Point” (based on Boost Lv.)"
-      - "Lower Fire Res"
-      - "by 15% and raise Fire Res"
-    notes: "Uses: 3"
   - skill_category: special
     name: "Ultima"
     skill_type: attack
@@ -173,9 +167,9 @@ passives:
     effect: "With 1 or more “Magitek Points”, when selecting a command, switch between “Magitek Knight” and “Trance” styles."
     trigger: always
   - passive_category: innate
-    effect: "Raise Elem. Atk. of Self by 15%, raise Fire damage by 15% and grant Damage Limit Up (effect: 100,000). Additionally, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
+    effect: "Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
     trigger: always
-    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, raise Fire damage by 15% and grant Damage Limit Up (effect: 100,000). Additionally, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) and automatic SP recovery (amount: 5% of max SP)."
+    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) and automatic SP recovery (amount: 5% of max SP)."
   - passive_category: innate
     effect: "Raise own Ice Res. by 20%"
     trigger: always
@@ -198,4 +192,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -97,6 +97,11 @@ general_strategy: |
   
   Recommended HP per character: 4000+
 
+  COMMUNITY NOTES (Reddit, unverified):
+  - Die if you hit the trap OR fail to kill adds near-simultaneously.
+    Requires coordinated add cleanup, not just raw DPS.
+    Source: https://www.reddit.com/r/OctopathCotC/comments/1nm3zuk/and_all_ex3_is_done/
+
 required_roles:
   - role: debuffer
     priority: required

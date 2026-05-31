@@ -12,7 +12,10 @@ influence: fame
 origin: "Earth (Final Fantasy IV)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, light, sword]
+weakness_coverage:
+- dark
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +48,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "S+"
+gl_tier: "S (9.49 - 8.50)"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -103,7 +106,7 @@ skills:
     effects:
       - "With Paladin: Also lower Sword Res"
   - skill_category: active
-    name: "Holy Flame"
+    name: "Paladin Force"
     sp_cost: 65
     skill_type: attack
     damage_types: [sword, light]
@@ -146,7 +149,7 @@ skills:
     damage_types: [sword, light]
     target: aoe
     hit_count: "3x"
-    power: "3x85"
+    power: "3x65"
   - skill_category: ex
     name: "Soul Shift"
     skill_type: attack
@@ -175,10 +178,10 @@ passives:
     effect: "Impart Self with Phys. Atk. Up 15% and raise Sword damage by 15%."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Dark Res. by 20%"
+    effect: "Raise own Dark Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 20%"
+    effect: "**Resilience III** Raise own Light Res. by 20%."
     trigger: always
   - passive_category: tp
     effect: "When in front row at 50% HP or more: Take damage for single-target attack in place of allies in the front row."
@@ -193,4 +196,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

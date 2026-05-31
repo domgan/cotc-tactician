@@ -1,0 +1,164 @@
+# F2P Crickari Universal EX3 Team
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1qywj0m/ran_out_of_rubies_ex3_logs_not_yet_beaten/
+
+schema_version: "1.0"
+
+id: adversary-ex3-crickari-f2p
+name: "Crickari F2P Universal EX3"
+boss_id: general-difficult-content
+
+strategy_type: low_investment
+investment_level: low
+
+target_ex_rank: ex3
+survival_strategy: dodge_tank
+minimum_hp_recommended: 3000
+
+buff_category_coverage:
+  active_atk_up: 20
+  active_def_down: 30
+  passive_damage_up: 10
+  ultimate_potency: 0
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: hikari-ex
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: ["hikari"]
+    substitute_notes: "Hikari EX is the core DPS — team built around Crick + Hikari EX synergy"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 2
+    character_id: canary
+    role_in_team: tank
+    is_required: true
+    substitutes: ["h-aanit-ex"]
+    substitute_notes: "Dodge tank + breaker + debuffer role compression"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 3
+    character_id: sazantos-ex
+    role_in_team: breaker
+    is_required: true
+    substitutes: ["sazantos"]
+    substitute_notes: "Shield break, HP barrier, BP support"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 4
+    character_id: billy
+    role_in_team: debuffer
+    is_required: false
+    substitutes: ["jose"]
+    substitute_notes: |
+      Billy provides ultimate defense debuff. Community alt: Jose (elem def ult) +
+      4★ Levan A4 (10% light res on break) for higher Hikari EX damage.
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+back_line:
+  - position: 5
+    character_id: shana
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: "SP stock, Unbreakable, BP battery"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: crick
+    role_in_team: buffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core support enabler for Hikari EX — namesake of Crickari comp"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 7
+    character_id: eunice
+    role_in_team: utility
+    is_required: false
+    substitutes: []
+    substitute_notes: "Flex support slot"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 2
+
+  - position: 8
+    character_id: lynette
+    role_in_team: buffer
+    is_required: false
+    substitutes: ["lynette-ex"]
+    substitute_notes: "E.ATK buffer for elemental damage"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+speed_order:
+  - crick
+  - shana
+  - canary
+  - billy
+  - lynette
+  - sazantos-ex
+  - eunice
+  - hikari-ex
+
+speed_tuning_notes: "Buffers and debuffers act before Hikari EX burst windows"
+
+turn_plan:
+  - turn_range: "1-3"
+    phase: setup
+    actions:
+      - "Crick + Shana: Enable Hikari EX damage setup"
+      - "Canary: Dodge tank + begin shield break"
+      - "Billy: Apply ultimate defense debuff"
+      - "Sazantos EX: Break shields + HP barrier"
+    notes: "Standard setup for most EX3 — ~3–4 minute clears reported"
+
+  - turn_range: "4+"
+    phase: break_window
+    actions:
+      - "Hikari EX: Main damage during break"
+      - "Maintain debuffs and healing through cycles"
+    notes: "Works for most EX3 without premium rainbow roster"
+
+why_it_works: |
+  F2P-friendly universal EX3 team for players with Hikari EX + Crick.
+  Sazantos EX handles breaking and HP barriers; Shana provides SP stock and
+  Unbreakable; Canary is dodge tank + breaker + debuffer; Billy caps defense debuff.
+  Community reports T3–4 minute clears on most EX3.
+
+key_synergies:
+  - "Crick + Hikari EX: Core Crickari damage enablement"
+  - "Canary + Billy: Break + debuff role compression"
+  - "Shana + Sazantos EX: SP/BP resource management"
+  - "Sazantos EX: HP barrier absorbs burst windows"
+
+risks_and_recovery:
+  - "Risk: Endgame EX3 with MHR or extreme HP checks"
+  - "Recovery: Upgrade to rainbow or DK burst teams"
+  - "Risk: Bosses requiring specific survival mechanics (Cover, charm immunity)"
+  - "Recovery: Swap to boss-specific team"
+
+verified: false
+clear_time: "3–4 minutes"
+success_rate: "High for standard EX3 with Hikari EX + Crick"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1qywj0m/ran_out_of_rubies_ex3_logs_not_yet_beaten/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

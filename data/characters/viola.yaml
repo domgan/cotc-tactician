@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, fire]
+weakness_coverage:
+- dagger
+- fire
 
 # Roles
 roles: [debuffer]
@@ -28,18 +30,18 @@ tank_type: none
 # Buff/Debuff categories
 debuff_categories:
   active:
-    - type: phys_def_down
-      value: 15
-      source_skill: "Debilitate"
-    - type: elem_def_down
-      value: 15
-      source_skill: "Debilitate"
-    - type: phys_atk_down
-      value: 15
-      source_skill: "Anti-Attack II"
-    - type: elem_atk_down
-      value: 15
-      source_skill: "Anti-Attack II"
+  - type: phys_def_down
+    value: 15
+    source_skill: "Debilitate"
+  - type: elem_def_down
+    value: 15
+    source_skill: "Debilitate"
+  - type: phys_atk_down
+    value: 15
+    source_skill: "Anti-Attack II"
+  - type: elem_atk_down
+    value: 15
+    source_skill: "Anti-Attack II"
 
 # Stats (base level)
 hp: 2892
@@ -68,7 +70,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "B"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -201,4 +203,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

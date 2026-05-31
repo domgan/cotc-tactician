@@ -1,0 +1,192 @@
+# Character: Viola EX2
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: viola-ex2
+display_name: "Viola EX2"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- axe
+- bow
+- dagger
+- fan
+- polearm
+- staff
+- sword
+- tome
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3622
+p_atk: 544
+p_def: 413
+e_atk: 297
+e_def: 326
+speed: 265
+crit: 308
+sp: 396
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4442
+p_atk_120: 609
+p_def_120: 478
+e_atk_120: 347
+e_def_120: 376
+speed_120: 300
+crit_120: 358
+sp_120: 466
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S++ | 10.0"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55/3x65/3x80/3x100"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 80
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(Initial)** Raise Phys"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "180/205/245/300"
+  - skill_category: active
+    sp_cost: 180
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x220/3x240/3x270/3x320"
+    effects:
+      - "Sword damage to All Foes 3 time(s) (potency: 3x220/3x240/3x270/3x320) and restore 2 BP to Self"
+  - skill_category: active
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80/2x95/2x115/2x130"
+    effects:
+      - "Also restore 1 BP to All Allies"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [dagger]
+    target: random
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x80"
+  - skill_category: active
+    sp_cost: 62
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x150/2x165/2x195/2x260"
+    effects:
+      - "Potency and Damage Limit Up increase based on target’s revealed weak points (including granted ones)"
+  - skill_category: active
+    sp_cost: 98
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45/4x55/4x65/4x80"
+    effects:
+      - "**(5★)** Act faster during turn"
+      - "Bow damage to All Foes 4 time(s) (potency: 4x45/4x55/4x65/4x80) and lower their Phys"
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    sp_cost: 61
+    skill_type: attack
+    damage_types: [staff]
+    target: single_enemy
+    power: "290/320/380/500"
+  - skill_category: tp
+    sp_cost: 88
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**** Lower Phys"
+      - "At Max Boost: Also lower their Phys"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 88
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "** Lv.2** Lower Phys"
+      - "of All Foes by 30% and raise the limit of Phys"
+      - "At Max Boost: Also lower their Phys"
+  - skill_category: special
+    name: "“Shield of Obstruction”"
+    skill_type: debuff
+    target: aoe
+    power: "5→6→7"
+    effects:
+      - "Act faster during turn"
+      - "lower Shield Points of All Foes by **5→6→7** regardless of the weakness and grant them a Sword"
+      - "Afterwards grant All Allies an HP Barrier (potency: **30%→40%→50%** of user’s max HP/Does not stack) and the ability not to consume times of granted weaknesses when attacking (turns: **3→4→5**)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "During battle: Your job is also considered to be Merchant, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer."
+    trigger: always
+  - passive_category: innate
+    effect: "Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by 50% (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by 75% (Does not stack with effects of the same type). *Only the higher value is applied."
+    trigger: always
+    limit_break_upgrade: "Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by **100%** (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by **150%** (Does not stack with effects of the same type). ·When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP). *Only the higher value is applied."
+  - passive_category: innate
+    effect: "Raise Phys. Atk. and Physical damage of Self by 30% and raise the limits of Phys. Atk. and Physical damage augments from support skills and equipment effects to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Phys. Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "When there’s a broken enemy, raise Phys. Atk. and Physical damage of Self by 15% and gain Dead Aim (guaranteed critical hits)."
+    trigger: always
+  - passive_category: tp
+    effect: "When there’s a broken enemy, raise BP recovery by 2 and Phys. Atk. and Physical damage of Self by **20%** and gain Dead Aim (guaranteed critical hits)."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Secrets of the Armsmaster”"
+  passive_effect: "300 P.Atk, -30 P.Def, -50 E.Atk, -30 E.Def; When consuming 3 BP or more to use a skill, raise BP recovery by 1 (turns: 2); Start of battle: Gain 5 BP"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

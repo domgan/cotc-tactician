@@ -1,0 +1,194 @@
+# Character: Levina EX2
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: levina-ex2
+display_name: "Levina EX2"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dagger
+- lightning
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3252
+p_atk: 458
+p_def: 255
+e_atk: 271
+e_def: 228
+speed: 490
+crit: 498
+sp: 502
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4072
+p_atk_120: 523
+p_def_120: 275
+e_atk_120: 321
+e_def_120: 278
+speed_120: 555
+crit_120: 548
+sp_120: 582
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+ | 9.9"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 39
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 42
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    sp_cost: 41
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    sp_cost: 40
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(2★)** Lower Phys"
+      - "of All Foes by 10% (turns: 2-5 based on Boost Lv.) and grant Dagger “Fragility” (times: 2)"
+  - skill_category: active
+    sp_cost: 90
+    skill_type: utility
+    target: front_row
+  - skill_category: active
+    sp_cost: 62
+    skill_type: mixed
+    damage_types: [dagger]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x315"
+  - skill_category: active
+    sp_cost: 58
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(5★)** Raise Phys"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [dagger]
+    target: front_row
+    hit_count: "5x"
+    power: "5x30"
+    effects:
+      - "At Max Boost: Restore 1 BP to Entire Front Row and this attack will not consume times of granted weaknesses"
+  - skill_category: tp
+    sp_cost: 98
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also lower Phys"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 98
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also lower Phys"
+      - "At Max Boost: Restore SP of All Allies (amount: 30)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "**(EX)** Act faster during turn and lower 1-4 Shield Points (based on Boost Lv.) regardless of the weak points"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Dolce Vita”"
+    skill_type: mixed
+    target: all_allies
+    power: "2→3"
+    effects:
+      - "Act faster during turn"
+      - "grant Dagger “Fragility” to all enemies (times: 9) and raise Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Grant Dagger “Fragility” to all enemies (times: 9)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Grant Dead Aim (guaranteed critical hits) to allies in Entire Front Row at full HP."
+    trigger: hp_condition
+  - passive_category: innate
+    effect: "Grant Self the ability to trigger a follow-up attack when allies in Entire Front Row exploit a weakness (only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 100). Exploits Lightning and Wind weakness (damage calculation based on Phys. Dagger attack). Also restore 1 BP. When the target is broken, grant them Dagger “Fragility” (times: 4). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: 3/shorter turn counts overwritten)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: **4**/shorter turn counts overwritten)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Camellia Patterned Drawstring Bag”"
+  passive_effect: "50 Spd, 140 SP; Grant automatic SP recovery to All Allies with “Talisman” (amount: 100)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

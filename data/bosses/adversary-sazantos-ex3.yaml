@@ -128,6 +128,15 @@ general_strategy: |
   
   Recommended HP per character: 4000+
 
+  COMMUNITY NOTES (Reddit, unverified):
+  - Hardest EX3 per u/Spare-College — must break in 4 turns, kill within 1 break window
+  - May require 3 Brilliant Bows; possibly impossible without Shana Unbreakable
+  - Rainbow dolphin clear: u/viiciousrobot — 700k+ Xerc ult hits; Shana EX Unsinkable
+    (2 turns, 2 uses/fight) + speed tuning (+400 speed artifact on Shana, Durand A4,
+    DQ accessory -20% enemy speed). Source:
+    https://www.reddit.com/r/OctopathCotC/comments/1r5df51/rainbow_team_setup_guide_for_u/
+    https://www.reddit.com/r/OctopathCotC/comments/1nm3zuk/and_all_ex3_is_done/
+
 required_roles:
   - role: debuffer
     priority: required

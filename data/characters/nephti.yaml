@@ -12,7 +12,10 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, staff, tome]
+weakness_coverage:
+- axe
+- staff
+- tome
 
 # Roles
 roles: [debuffer]
@@ -28,15 +31,15 @@ tank_type: none
 # Buff/Debuff categories
 debuff_categories:
   active:
-    - type: fire_res_down
-      value: 15
-      source_skill: "Elemental debuff"
-    - type: ice_res_down
-      value: 15
-      source_skill: "Elemental debuff"
-    - type: elem_def_down
-      value: 15
-      source_skill: "Defense debuff"
+  - type: fire_res_down
+    value: 15
+    source_skill: "Elemental debuff"
+  - type: ice_res_down
+    value: 15
+    source_skill: "Elemental debuff"
+  - type: elem_def_down
+    value: 15
+    source_skill: "Defense debuff"
 
 # Stats (base level)
 hp: 3200
@@ -64,8 +67,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -146,6 +149,13 @@ skills:
     target: aoe
     hit_count: "3x"
     power: "3x55"
+  - skill_category: tp
+    name: "Scrap and Slash Lv.2"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "**5x55**"
   - skill_category: ex
     name: "Ground Attack"
     skill_type: mixed
@@ -185,6 +195,12 @@ passives:
   - passive_category: tp
     effect: "When switching: Grant Self 1 Cheer On point."
     trigger: always
+  - passive_category: tp
+    effect: "When switching: Grant Self **2** Cheer On point."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Axe, Staff and Tome attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -195,4 +211,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -12,7 +12,10 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, lightning, tome]
+weakness_coverage:
+- fire
+- lightning
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -24,16 +27,16 @@ usage_strategy: |
   Nivelle is currently the best lightning scholar by default since there aren't enough lightning travelers in the game. His buffs are like getting steak ordered medium rare but served rare, then microwaved to medium - performance just as poor. Shock gimmick only good if enemy susceptible to it.
 
 best_use_cases:
-  - "Lightning weakness coverage with Shock status synergy"
-  - "Teams needing lightning elemental damage"
-  - "Content where additional shield lowering is valuable"
-  - "Players without Cyrus or Therese (older lightning scholars)"
+- "Lightning weakness coverage with Shock status synergy"
+- "Teams needing lightning elemental damage"
+- "Content where additional shield lowering is valuable"
+- "Players without Cyrus or Therese (older lightning scholars)"
 
 weaknesses:
-  - "Not enough lightning travelers to justify his usefulness"
-  - "Limited to lightning magic to activate Shock gimmick"
-  - "Counter physical attack ability useless as he's squishy"
-  - "One-hit preemptive attack barely passable compared to others"
+- "Not enough lightning travelers to justify his usefulness"
+- "Limited to lightning magic to activate Shock gimmick"
+- "Counter physical attack ability useless as he's squishy"
+- "One-hit preemptive attack barely passable compared to others"
 
 # Stats (base level)
 hp: 2761
@@ -61,8 +64,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -188,14 +191,13 @@ passives:
     trigger: on_break
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Cherished Tea Brick"
-  passive_effect: "60 Elemental Attack, 40 Speed, 40 SP; When unleashing some attacks, have a low chance to lower enemies' Lightning Resistance by 10% for 2 turns; When there's a broken enemy, grant the ability to trigger critical hits with elemental attacks and grant Dead Aim"
-  notes: "Functional accessory for his kit but nothing particularly special. Standard stats with some lightning resistance reduction and critical hit capabilities"
+  passive_effect: "60 E.Atk, 40 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Lightning Res. by 10% (turns: 2); When there’s a broken enemy, grant the ability to trigger critical hits with elemental attacks and grant Dead Aim (guaranteed critical hits); 60 E.Atk, 40 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Lightning Res. by 10% (turns: 2)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Nivelle Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting best lightning scholar by default but limited meta relevance"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

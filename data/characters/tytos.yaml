@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, sword]
+weakness_coverage:
+- lightning
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "tank"]
@@ -24,18 +26,18 @@ usage_strategy: |
   Tytos is a lightning warrior with standard warrior capabilities plus some unique features. He has a 5-hit lightning attack that currently has the most hits in the game, making him attractive for breaking. His auto-revive ability gets him back to 100% HP/SP once per battle, and he can counter physical attacks while inflicting intimidation.
 
 best_use_cases:
-  - "Teams needing lightning coverage with high hit count attacks"
-  - "Content where auto-revive provides survival advantage"
-  - "Lightning-focused parties requiring intimidation debuffs"
-  - "Situations where counter-attacks are valuable"
-  - "Players wanting a reliable warrior with survival utility"
+- "Teams needing lightning coverage with high hit count attacks"
+- "Content where auto-revive provides survival advantage"
+- "Lightning-focused parties requiring intimidation debuffs"
+- "Situations where counter-attacks are valuable"
+- "Players wanting a reliable warrior with survival utility"
 
 weaknesses:
-  - "Feels standard compared to top-tier warriors like Richard"
-  - "Low speed means he goes close to last in turn order"
-  - "Warrior class is oversaturated with 12 five-star warriors"
-  - "Limited time unit when better warriors like Lars and Joshua exist in general pool"
-  - "Won't last long as future warriors will outclass him"
+- "Feels standard compared to top-tier warriors like Richard"
+- "Low speed means he goes close to last in turn order"
+- "Warrior class is oversaturated with 12 five-star warriors"
+- "Limited time unit when better warriors like Lars and Joshua exist in general pool"
+- "Won't last long as future warriors will outclass him"
 
 # Stats (base level)
 hp: 3252
@@ -64,7 +66,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "C (5.99 - 5.00)"
-jp_tier: "D"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -87,8 +89,9 @@ skills:
     sp_cost: 44
     skill_type: attack
     damage_types: [sword]
-    target: aoe
-    power: "180"
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x55"
   - skill_category: active
     name: "Stormwind"
     sp_cost: 42
@@ -102,15 +105,14 @@ skills:
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
-    power: "230"
+    power: "290"
   - skill_category: active
     name: "Completed Scarlet Elixir"
     sp_cost: 76
-    skill_type: buff
-    target: self
+    skill_type: utility
+    target: aoe
     effects:
-      - "**Completed Scarlet Elixir (3★)** Raise Critical and damage of Self by 20% (turns: 3-6 based on Boost Lv.)"
-      - "Grant automatic revival once per battle (revived at 100% of max HP/SP)"
+      - "**Completed Scarlet Elixir (3★)** Raise Damage Limit of Self by 30,000, damage dealt by 20% and gain Dead Aim (guaranteed critical hits) (turns: 6-9 based on Boost Lv.)"
   - skill_category: active
     name: "Physical Interceptor Stance"
     sp_cost: 55
@@ -124,7 +126,7 @@ skills:
     sp_cost: 58
     skill_type: attack
     damage_types: [lightning]
-    target: random
+    target: aoe
     hit_count: "5x"
     power: "5x35"
   - skill_category: active
@@ -142,13 +144,6 @@ skills:
     target: random
     hit_count: "4x"
     power: "4x65"
-  - skill_category: ex
-    name: "Allaying Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "140"
-    notes: "Uses: 1"
   - skill_category: special
     name: "The Thunderblade’s Brutality"
     skill_type: attack
@@ -172,18 +167,17 @@ passives:
     effect: "Raise own Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 5% when an intimidated enemy is present."
+    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 15% when an intimidated enemy is present."
     trigger: always
     limit_break_upgrade: "Grant Self Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Scarlet Wing Commander's Crest"
+  name: "Scarlet Wing Commander’s Crest"
   passive_effect: "120 P.Atk, 20 Crit; Start of battle: Intimidate all enemies (turns: 6). Intimidate: Lower Phys. Def. and Elem. Def. by 5%"
-  notes: "Good accessory that provides early battle intimidation and enhances physical attack"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC All Champion Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis focusing on his role as standard lightning warrior with auto-revive and high hit count attacks"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

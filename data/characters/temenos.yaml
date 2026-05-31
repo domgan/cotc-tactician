@@ -12,7 +12,9 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, staff]
+weakness_coverage:
+- light
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Temenos is extremely disappointing and falls immediately behind even earlier characters. Developers must have not liked him in OG version because they did him dirty here. If he and Yukes were competing for low tier, Temenos would only be a step ahead. No one in right mind would choose him over Alia who can also hit light weakness with 5-hit attacks.
 
 best_use_cases:
-  - "Light weakness coverage with Miss Elemental Attack infliction"
-  - "Teams needing HP barriers and healing"
-  - "Content where reducing enemy elemental attacks is valuable"
-  - "Players who specifically like Temenos as character"
+- "Light weakness coverage with Miss Elemental Attack infliction"
+- "Teams needing HP barriers and healing"
+- "Content where reducing enemy elemental attacks is valuable"
+- "Players who specifically like Temenos as character"
 
 weaknesses:
-  - "Extremely disappointing kit compared to other characters"
-  - "Can only hit light weakness - outclassed by Alia"
-  - "No impressive nuke attacks with modifiers"
-  - "Already outclassed by Agnea and Cantos"
+- "Extremely disappointing kit compared to other characters"
+- "Can only hit light weakness - outclassed by Alia"
+- "No impressive nuke attacks with modifiers"
+- "Already outclassed by Agnea and Cantos"
 
 # Tank type
 tank_type: hp_barrier
@@ -67,8 +69,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -167,13 +169,6 @@ skills:
     effects:
       - "**Preservation (All) Lv.2** Grant Entire Front Row automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
       - "Triggers immediately if incapacitated (count does not increase when stacked) and grant a HP barrier (amount: 20% of user’s max HP/Does not stack)"
-  - skill_category: ex
-    name: "Heavenly Shine (All)"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "630"
-    notes: "Uses: 3"
   - skill_category: special
     name: "The Flamebringer’s Power"
     skill_type: mixed
@@ -203,18 +198,17 @@ passives:
     effect: "When selecting a command, grant Self the special effect Condemn (turns: 1). Condemn: When selecting an attack other than “Attack” (with some exceptions), can exploit all weaknesses (excluding non-elemental weaknesses/Damage calculation based on original attack) and grant the ability to trigger critical hits with elemental attacks. ---"
     trigger: always
   - passive_category: tp
-    effect: "Raise Damage Limit of All Allies by 15,000 when using Elem. Light skills."
+    effect: "Raise Damage Limit of Elem. Light attacks of All Allies by 15,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Inquisitor's Cloak"
-  passive_effect: "60 Elemental Attack, 400 HP, 40 SP; Grant Damage Limit Up (effect: 50,000); Start of battle: Ultimate Technique gauge fills to 100%"
-  notes: "Really good accessory but pity that Temenos isn't that great as a traveler. Only good thing about him is this A4 accessory and his Miss Elemental attack"
+  name: "Inquisitor’s Cloak"
+  passive_effect: "60 E.Atk, 400 HP, 40 SP; Grant Damage Limit Up (effect: 50,000); Start of battle: Ultimate Technique gauge fills to 100%"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Temenos Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting disappointing kit and low tier status"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

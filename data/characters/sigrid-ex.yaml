@@ -12,7 +12,10 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, polearm, sword]
+weakness_coverage:
+- fire
+- polearm
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +43,17 @@ crit_120: 363
 sp_120: 366
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "D"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Repeated Thrust"
     sp_cost: 26
     skill_type: attack
     damage_types: [polearm]
@@ -58,39 +61,45 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: active
-    name: "(Initial)"
+    name: "Incite"
     sp_cost: 13
     skill_type: utility
     target: single_enemy
   - skill_category: active
+    name: "Slashing Thrust"
     sp_cost: 63
     skill_type: attack
     damage_types: [polearm, sword]
     target: aoe
     power: "180"
     effects:
-      - "**(1★)** Act faster during turn and deal Phys"
+      - "**Slashing Thrust (1★)** Act faster during turn and deal Phys"
   - skill_category: active
+    name: "Blazing Rush"
     sp_cost: 63
     skill_type: attack
     damage_types: [polearm, fire]
     target: aoe
     power: "180"
     effects:
-      - "**(2★)** Act faster during turn and deal Phys"
+      - "**Blazing Rush (2★)** Act faster during turn and deal Phys"
   - skill_category: active
+    name: "Calm Mind"
     sp_cost: 36
     skill_type: buff
     target: self
     effects:
-      - "**(2★)** Grant Self automatic SP recovery (amount: 15% of max SP"
+      - "**Calm Mind (2★)** Grant Self automatic SP recovery (amount: 15% of max SP"
   - skill_category: active
+    name: "Will to Fight"
     sp_cost: 20
     skill_type: utility
     target: single_enemy
     effects:
-      - "**(3★)** Raise own Phys"
+      - "**Will to Fight (3★)** Raise own Phys"
   - skill_category: active
+    name: "Burning Assault"
+    sp_cost: 37
     skill_type: mixed
     damage_types: [fire]
     target: single_enemy
@@ -99,13 +108,15 @@ skills:
     effects:
       - "Fire damage to Single Foe 2 time(s) (potency: 2x120) and lower Phys"
   - skill_category: active
+    name: "Scarlet Bloom"
     sp_cost: 42
     skill_type: attack
     damage_types: [polearm]
     target: single_enemy
     power: "230"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: **260**). Grant Self Damage Limit Up when using this skill (effect: 50,000). **50%** more potent if target is combusted."
+    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: **260**) and absorb 1% of damage dealt as SP. Damage Limit of this skill is increased by 50,000. Potency increases by **1.5x** if target is combusted."
   - skill_category: active
+    name: "Fiery Thrust"
     sp_cost: 52
     skill_type: attack
     damage_types: [polearm]
@@ -119,56 +130,56 @@ skills:
     effects:
       - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
   - skill_category: tp
+    name: "Volatile Thrust"
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [polearm]
+    target: random
+    hit_count: "6x"
+    power: "6x45"
+  - skill_category: tp
+    name: "Volatile Thrust"
     sp_cost: 48
     skill_type: attack
     damage_types: [polearm]
     target: random
     hit_count: "4x"
     power: "4x45"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x150"
-    effects:
-      - "Grant Self Damage Limit Up when using this skill (effect: 50,000)"
-    notes: "Uses: 2"
   - skill_category: special
-    name: "“Red Tail Spear”"
+    name: "Fourfold Tranquility"
     skill_type: attack
     damage_types: [polearm]
     target: single_enemy
     hit_count: "4x"
     effects:
-      - "Polearm damage to Single Foe 4 time(s) (potency: **4x110→4x160**) and restore own SP (amount: 50% of max SP)"
+      - "Polearm damage to Single Foe 4 time(s) (potency: **4x110→4x135→4x160**) and restore own SP (amount: 50% of max SP)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "Start of battle: Lower Polearm Res. by 30% (turns: 1). Additionally grant Self automatic SP recovery (amount: 30, turns: 1)."
+    effect: "Start of battle: Lower Polearm Res. by 30% (turns: 1) and restore SP (amount: 30)."
     trigger: battle_start
   - passive_category: innate
-    effect: "At 50% or more SP: Raise damage of Entire Front Row by 15%."
+    effect: "At 50% SP or more: Raise damage of Entire Front Row by 15%."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Ice Res. by 20%"
+    effect: "Raise own Ice Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%"
+    effect: "**Resilience** Raise own Fire Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Recover 3% of damage received as SP."
+    effect: "When an ally Merchant breaks an enemy, lower the foe’s Polearm Res. by 15% (turns: 2) and cause them to combust (turns: 4)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Eastern Jade Pendant”"
-  passive_effect: "40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise own Phys. Atk. by 10% and lower SP consumption by 30%"
+  name: "Eastern Jade Pendant"
+  passive_effect: "40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by 10% and lower SP consumption by 30%; 40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by **10%** and lower SP consumption by **30%**"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: C (5.99 - 5.00)

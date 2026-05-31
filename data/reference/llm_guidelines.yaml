@@ -203,7 +203,42 @@ common_mistakes:
     correct: "Provide turn-by-turn tactics for critical phases"
 
 # =============================================================================
+# RAINBOW TEAM STRUCTURE (COMMUNITY)
+# =============================================================================
+# Full details: data/reference/community/reddit_rainbow_and_ice_meta.yaml
+# data_confidence: community_unverified
+
+rainbow_team_structure:
+  front_row:
+    count: 4
+    requirement: "Rainbow damage dealers + Osvald EX for FUA follow-ups"
+    osvald_value: "3-element FUA at 260 potency; up to 4×260 from frontrow rainbow attacks"
+  back_row:
+    count: 4
+    slots:
+      - "Weakness exploiter (Setzer if Lynette EX owned)"
+      - "Buffer/support (Alaune EX2, Isla, etc.)"
+      - "2 flex (survival: Shana/Cecil/Aviete; burst: Rondo EX/Signa)"
+  ult_timing:
+    xerc_potency_duration: "Up to 6 turns (EX skill)"
+    osvald_ult_duration: "3 turns (120% potency)"
+    rule: "Apply Osvald ult 1 turn BEFORE burst turn"
+  common_mistakes:
+    - "Running both Dark Priestess AND Molrusso EX (same role)"
+    - "Bursting before Osvald ult potency is active (3T vs Xerc 6T mismatch)"
+
+  canonical_turn_sequence:
+    description: |
+      Community standard (4-7 turn F2P-friendly path):
+      T1: Isla EX; Shana EX (T1 & T3 or T2 & T3 for 4-turn survival)
+      T2: Isla ult + Xerc EX skill; Lynette EX ult
+      T3: Xerc buff/debuff setup
+      T4: Burst — all rainbow dealers fire
+      T1 alt: Xerc EX skill + Osvald ult (2T burst variant with full investment)
+    source: data/reference/community/reddit_rainbow_and_ice_meta.yaml
+
+# =============================================================================
 # METADATA
 # =============================================================================
 data_confidence: verified
-last_updated: 2025-12-23
+last_updated: 2026-05-31

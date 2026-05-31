@@ -12,7 +12,10 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, staff, sword]
+weakness_coverage:
+- light
+- staff
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +48,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -65,13 +68,13 @@ skills:
     effects:
       - "**Guard** Act faster during turn"
   - skill_category: active
-    name: "Godsbalde’s Shield"
+    name: "Godsblade’s Shield"
     sp_cost: 23
     skill_type: buff
     target: self
     power: "10%-40% of max HP based on Boost Lv./Does not stack"
     effects:
-      - "**Godsbalde’s Shield (1★)** Grant Self an HP Barrier (potency: 10%-40% of max HP based on Boost Lv./Does not stack) and raise Phys"
+      - "**Godsblade’s Shield (1★)** Grant Self an HP Barrier (potency: 10%-40% of max HP based on Boost Lv./Does not stack) and raise Phys"
   - skill_category: active
     name: "Wild Radiant Strike"
     sp_cost: 55
@@ -81,7 +84,7 @@ skills:
     hit_count: "3x"
     power: "3x65"
     effects:
-      - "Have a low chance to lower Elem"
+      - "Have a low chance to lower Phys"
   - skill_category: active
     name: "Novice Knight’s Support"
     sp_cost: 70
@@ -130,6 +133,13 @@ skills:
     target: aoe
     effects:
       - "**Sanctifying Oracle (All) II ** Lower Phys"
+  - skill_category: tp
+    name: "Sanctifying Oracle (All) II Lv.2"
+    sp_cost: 72
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Sanctifying Oracle (All) II Lv.2** Lower Phys"
   - skill_category: ex
     name: "Heartfire Slash"
     skill_type: mixed
@@ -170,7 +180,13 @@ passives:
     effect: "**Resilience** Raise own Light Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Raise Sword and Staff damage of Self by 15%. With an HP Barrier: Also raise Damage Limit by 70,000."
+    effect: "Raise Sword and Staff damage of Self by 15%. With an HP Barrier: Raise Damage Limit of Self by 70,000."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Sword and Staff damage and Light damage of Paired Allies by 15%. With an HP Barrier: Raise Damage Limit of Paired Allies by 70,000 and additionally raise Damage Limit of Paired Ally by 20,000."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword and Staff and Elem. Light attacks of All Allies by 15,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
@@ -182,4 +198,5 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: S (9.49 - 8.50)

@@ -12,7 +12,10 @@ influence: power
 origin: "NieR Universe (NieR series)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, dagger, sword]
+weakness_coverage:
+- axe
+- dagger
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker", "tank"]
@@ -24,18 +27,18 @@ usage_strategy: |
   A2 is "best girl" thief from the NieR Automata collaboration who functions as a versatile physical DPS. She has access to sword, dagger, and axe attacks with no elemental skills - purely physical damage. Her signature ability is Berserk Mode which allows her to use physical attack abilities twice in one turn, making her game-changing. She can break 6 shields of either sword or axe and nuke accordingly.
 
 best_use_cases:
-  - "Teams needing versatile physical coverage across multiple weapon types"
-  - "Content where breaking multiple shield types is required"
-  - "Situations where double skill activation provides massive damage"
-  - "Players wanting the most versatile physical DPS from the collaboration"
-  - "Content where provoke and tank capabilities are useful"
+- "Teams needing versatile physical coverage across multiple weapon types"
+- "Content where breaking multiple shield types is required"
+- "Situations where double skill activation provides massive damage"
+- "Players wanting the most versatile physical DPS from the collaboration"
+- "Content where provoke and tank capabilities are useful"
 
 weaknesses:
-  - "No elemental attacks - purely physical damage dealer"
-  - "Berserk Mode causes 40% max HP damage each turn for 6 turns"
-  - "Limited by skill usage requiring enemy weakness adjustment"
-  - "Low elemental attack stat (80) due to pure physical focus"
-  - "Time-limited collaboration availability"
+- "No elemental attacks - purely physical damage dealer"
+- "Berserk Mode causes 40% max HP damage each turn for 6 turns"
+- "Limited by skill usage requiring enemy weakness adjustment"
+- "Low elemental attack stat (80) due to pure physical focus"
+- "Time-limited collaboration availability"
 
 # Stats (base level)
 hp: 3012
@@ -63,8 +66,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "B (6.99 - 6.00)"
-jp_tier: "C"
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -192,10 +195,9 @@ passives:
 a4_accessory:
   name: "Number 4’s Goggles"
   passive_effect: "70 P.Atk, 700 HP; Raise damage of Self by 10% when exploiting enemy weakness; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
-  notes: "Excellent accessory that enhances damage when exploiting weaknesses and extends debuffs"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Nier Automata 9S, 2B, and A2 Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting her as versatile physical DPS with game-changing double skill activation"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

@@ -12,7 +12,11 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, ice, sword]
+weakness_coverage:
+- axe
+- bow
+- ice
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,32 +44,33 @@ crit_120: 350
 sp_120: 466
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Moonlight Arrow"
     sp_cost: 20
     skill_type: attack
     damage_types: [ice, bow]
     target: single_enemy
     power: "140"
     effects:
-      - "Also grant Self HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
+      - "Also grant Self an HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
   - skill_category: active
-    name: "(Initial)"
+    name: "Flower of the Sands"
     sp_cost: 22
     skill_type: debuff
     target: aoe
     effects:
-      - "**(Initial)** Provoke All Foes and lower Phys"
+      - "**Flower of the Sands** Provoke All Foes and lower their Phys"
   - skill_category: active
+    name: "Wave Arrow"
     sp_cost: 31
     skill_type: attack
     damage_types: [ice, bow]
@@ -73,52 +78,54 @@ skills:
     hit_count: "2x"
     power: "2x65"
   - skill_category: active
+    name: "Blue Moon"
     sp_cost: 47
     skill_type: attack
     damage_types: [ice, sword]
     target: single_enemy
     power: "230"
   - skill_category: active
+    name: "Tide of Battle"
     sp_cost: 53
     skill_type: mixed
     target: front_row
     effects:
-      - "**(2★)** Raise Elem"
+      - "**Tide of Battle (2★)** Raise Elem"
   - skill_category: active
-    sp_cost: 38
+    name: "Lunar Torrent"
+    sp_cost: 48
     skill_type: mixed
     damage_types: [ice, bow]
     target: single_enemy
     hit_count: "4x"
     power: "4x35"
     effects:
-      - "Also lower Ice Res"
+      - "Ice damage to Single Foe 4 time(s) (potency: 4x35) and lower their Ice Res"
   - skill_category: active
-    sp_cost: 76
+    name: "Lunar Waves"
+    sp_cost: 95
     skill_type: attack
     damage_types: [ice, sword]
     target: single_enemy
     hit_count: "3x"
     power: "3x110"
-    effects:
-      - "Raise Damage Limit of this skill by 50,000"
   - skill_category: active
     name: "Lv.96 |"
-    skill_type: buff
+    skill_type: utility
     target: single_enemy
-    effects:
-      - "With “Fertediosa”: Attack count becomes 4 and potency raises by 50%"
   - skill_category: active
-    sp_cost: 74
+    name: "Vortex Arrow"
+    sp_cost: 93
     skill_type: attack
     damage_types: [ice, bow]
     target: front_row
     hit_count: "4x"
     power: "4x35"
     effects:
-      - "Also grant Entire Front Row HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
+      - "Ice damage to All Foes 4 time(s) (potency: 4x35) and grant Entire Front Row an HP Barrier (amount: 20% of user’s max HP/Does"
   - skill_category: active
-    sp_cost: 38
+    name: "Tempest Arrow"
+    sp_cost: 47
     skill_type: attack
     damage_types: [ice, bow]
     target: random
@@ -126,46 +133,40 @@ skills:
     power: "3x65"
   - skill_category: active
     name: "Lv.100 |"
-    skill_type: utility
+    skill_type: buff
     target: single_enemy
   - skill_category: tp
+    name: "Ola Brillante"
     sp_cost: 500
     skill_type: attack
     damage_types: [ice, sword]
     target: aoe
     power: "530"
-    effects:
-      - "Also grant Self HP Barrier (potency: 100% of user’s Max HP/Does not stack)"
   - skill_category: ex
-    name: "(EX)"
+    name: "Tidal Wave of Conflict"
     skill_type: attack
     damage_types: [ice]
     target: aoe
     hit_count: "4x"
-    power: "50%-200% of user’s Max HP based on Boost Lv."
-    effects:
-      - "**(EX)** Restore 1 BP to Self"
-      - "grant HP Barrier (potency: 50%-200% of user’s Max HP based on Boost Lv.) and grant the special effect “Fertediosa”"
+    power: "4x35-4x70 based on Boost Lv."
     notes: "Uses: 5"
   - skill_category: special
-    name: "“Grandport’s Flag”"
+    name: "Banner of Grandport"
     skill_type: buff
     target: self
     power: "2→3"
-    effects:
-      - "of Self by **10%→20%→30%** (turns: **2→3**) and grant Self the special effect “Ice Raging Waves” (turns: **2→3**/Turns count cannot be extended)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: ""
-    trigger: always
-    limit_break_upgrade: "“Attack” action becomes Elem. Ice damage and exploits Bow weakness (damage calculation based on Elem. Ice attack). Start of battle: Grant Self HP Barrier (potency: 200% of user’s Max HP/Does not stack) and the special effect “Fertediosa”."
+    effect: "“Attack” action becomes Elem. Ice damage and exploits Bow weakness (damage calculation based on Elem. Ice attack). Start of battle: Gain an HP Barrier (amount: 100% of self max HP/Does not stack) and Fuertediosa."
+    trigger: battle_start
+    limit_break_upgrade: "“Attack” action becomes Elem. Ice damage and exploits Bow weakness (damage calculation based on Elem. Ice attack). Start of battle: Gain an HP Barrier (amount: **200%** of self max HP/Does not stack) and Fuertediosa."
   - passive_category: innate
-    effect: "With “Fertediosa”: Raise the effects of HP Barrier and Potency Up on Self by 50%."
+    effect: "Receive 1.5x greater HP Barrier durabilities and Potency augments while Fuertediosa is active (Does not stack with effects of the same type)."
     trigger: always
   - passive_category: innate
-    effect: "At full HP: Raise Elem. Atk. of Self by 30% and grant Self Damage Limit Up (effect: 10 times Self’s HP Barrier)."
+    effect: "At full HP: Raise Elem. Atk. of Self by 30% and raise Damage Limit by an amount 10 times your HP Barrier’s remaining durability."
     trigger: hp_condition
   - passive_category: innate
     effect: "Raise own Fire Res. by 20%."
@@ -174,16 +175,16 @@ passives:
     effect: "**Resilience** Raise own Ice Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "With HP Barrier: Raise the Elem. Atk. limit from support and equipment effects of Self to 50% and own Elem. Atk. by 20%. Also reduce damage taken from some attacks by 15% (Does not stack with effects of the same type) and lower SP consumption by 50%."
+    effect: "With an HP Barrier: Raise Elem. Atk. of Self by 20%, raise the limit of Elem. Atk. augments from support skills and equipment effects to 50%, reduce damage taken from some attacks by 15% (Does not stack with effects of the same type) and lower SP consumption by 50% (Greatest reductions prioritized)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Tropical Flower Decoration”"
-  passive_effect: "60 E.Atk, 800 HP; Start of battle: Grant the ability to dodge physical attacks (times: 8) and elemental attacks (times: 8) (Stacks with dodge counts from battle skills)"
+  name: "Tropical Floral Ornament"
+  passive_effect: "60 E.Atk, 800 HP; Start of battle: Gain the ability to dodge some physical attacks (times: 8) and some elemental attacks (times: 8) (Stacks with battle skills)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

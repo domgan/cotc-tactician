@@ -12,7 +12,9 @@ influence: power
 origin: "Luxendarc (BRAVELY DEFAULT)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, polearm]
+weakness_coverage:
+- lightning
+- polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Magnolia is essentially the start of the polearm meta. Her gimmick gives her added effects with speed down, and if you have Sigma, those effects will always proc. She's extremely self-sufficient with 100% potency up when consuming 3+ BP, but somewhat selfish as she doesn't offer noteworthy team support.
 
 best_use_cases:
-  - "Polearm-focused teams needing strong DPS"
-  - "Teams with Sigma for guaranteed speed down procs"
-  - "Content where polearm weakness coverage is essential"
-  - "Players looking to upgrade merchant squad"
+- "Polearm-focused teams needing strong DPS"
+- "Teams with Sigma for guaranteed speed down procs"
+- "Content where polearm weakness coverage is essential"
+- "Players looking to upgrade merchant squad"
 
 weaknesses:
-  - "Can't hit lightning weaknesses with polearm abilities"
-  - "Selfish character - doesn't offer team support"
-  - "Low speed (275 at six stars)"
-  - "Will be replaced by future broken travelers"
+- "Can't hit lightning weaknesses with polearm abilities"
+- "Selfish character - doesn't offer team support"
+- "Low speed (275 at six stars)"
+- "Will be replaced by future broken travelers"
 
 # Stats (base level)
 hp: 3360
@@ -61,8 +63,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -72,37 +74,36 @@ skills:
     skill_type: mixed
     damage_types: [polearm]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
-      - "Polearm damage to Single Foe (potency: 170) and lower Speed by 15% (turns: 2)"
+      - "Polearm damage to Single Foe (potency: 170/200/240/350) and lower Speed by 15% (turns: 2)"
   - skill_category: active
     name: "Crescent Moon"
     sp_cost: 38
     skill_type: mixed
     damage_types: [polearm]
     target: aoe
-    power: "150"
+    power: "150/175/215/260"
     effects:
-      - "Polearm damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
+      - "Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2)"
   - skill_category: active
     name: "Floral Moon"
     sp_cost: 48
     skill_type: mixed
     damage_types: [polearm]
     target: aoe
-    power: "150"
+    power: "150/175/215/260"
     effects:
-      - "Polearm damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
+      - "Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2)"
   - skill_category: active
-    name: "Liberation Polearm"
+    name: "Liberez"
     sp_cost: 52
     skill_type: attack
     damage_types: [polearm]
     target: front_row
-    power: "150"
+    power: "120/145/185/220"
     effects:
-      - "Polearm damage to All Foes (potency: 150) and grant Entire Front Row excluding Self HP barrier (potency: 10% of user’s max HP/does not stack)"
-      - "Grant Self counter to physical and elemental attacks (turns: 3)"
+      - "grant Entire Front Row an HP barrier (amount: 10% of user’s max HP/Does not stack) and gain the ability to counter physical and elemental attacks (turns: 3)"
   - skill_category: active
     name: "Lightning Arrow"
     sp_cost: 64
@@ -110,46 +111,46 @@ skills:
     damage_types: [lightning]
     target: single_enemy
     hit_count: "4x"
-    power: "4x65"
+    power: "4x65/4x75/4x85/4x110"
   - skill_category: active
-    name: "Graceful Polearm"
-    sp_cost: 55
+    name: "Grazioso"
+    sp_cost: 44
     skill_type: mixed
     damage_types: [polearm]
     target: front_row
-    power: "230"
+    power: "230/260/300/400"
     effects:
       - "Also impart Entire Front Row with Phys"
   - skill_category: active
-    name: "Camomile Polearm"
+    name: "Chamolile"
     sp_cost: 40
     skill_type: attack
     damage_types: [polearm]
     target: single_enemy
-    power: "260"
+    power: "290/320/380/500"
   - skill_category: active
-    name: "Above and Beyond"
-    sp_cost: 58
+    name: "Overpower"
+    sp_cost: 46
     skill_type: mixed
     damage_types: [polearm]
     target: single_enemy
     hit_count: "5x"
-    power: "5x35"
+    power: "5x35/5x45/5x55/5x80"
   - skill_category: active
     name: "Super Jump"
-    sp_cost: 100
+    sp_cost: 80
     skill_type: attack
     damage_types: [polearm]
     target: aoe
     hit_count: "3x"
-    power: "3x195"
+    power: "3x195/3x225/3x270/3x345"
     effects:
       - "Act faster next turn and deal Phys"
   - skill_category: active
     name: "Lv.100 |"
     skill_type: utility
     target: single_enemy
-    limit_break_upgrade: "Leap high into the air and gain Jumping (count: 2). Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: **3x240**), but these attacks can’t break enemies. Jumping is removed afterwards."
+    limit_break_upgrade: "Leap high into the air and gain Jumping (count: 2). Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: **3x240**/**3x270**/**3x315**/**3x390**), but these attacks can’t break enemies. Damage Limit of this skill is increased by 70,000. Jumping is removed afterwards."
   - skill_category: tp
     name: "Lightning Rain"
     sp_cost: 78
@@ -158,24 +159,17 @@ skills:
     target: aoe
     hit_count: "3x"
     power: "3x80"
-  - skill_category: ex
-    name: "Spirit Hunt"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-    notes: "Uses: 2"
   - skill_category: special
     name: "Starlight Moon"
     skill_type: mixed
     damage_types: [polearm]
     target: aoe
-    hit_count: "6x"
+    hit_count: "8x"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When switching: Lower Speed of All Foes by 30% (turns: 2). *Change reflected on the next turn."
+    effect: "When switching: Lower Speed of All Foes by 30% and their Polearm Res. by 15% (turns: 3). *Change reflected on the next turn."
     trigger: always
   - passive_category: innate
     effect: "When consuming 3 BP, raise potency of Self by 100% (Does not stack with effects of the same type)."
@@ -191,14 +185,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Moonstone Amulet"
-  passive_effect: "60 Physical Attack, 80 SP; Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); Start of battle: Lower Speed of all enemies by 10% for 3 turns"
-  notes: "Okay accessory. 50 SP recovery is nice but requires enemy to have speed down. Not something to chase after but good if you have her"
+  passive_effect: "120 P.Atk, -60 E.Atk, 80 SP; Start of battle: Lower Speed of All Foes by 30% (turns: 6); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); 60 P.Atk, 80 SP; Start of battle: Lower Speed of All Foes by **10%** (turns: **3**); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Magnolia Overview by Vlad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including polearm meta start and 100% potency up mechanics"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

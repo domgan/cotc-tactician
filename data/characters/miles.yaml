@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, sword]
+weakness_coverage:
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "F"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -124,6 +126,15 @@ skills:
     power: "230"
     effects:
       - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
+  - skill_category: tp
+    name: "Healing Assault Lv.2"
+    sp_cost: 40
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "230"
+    effects:
+      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
   - skill_category: ex
     name: "Fortress"
     skill_type: buff
@@ -161,6 +172,12 @@ passives:
   - passive_category: tp
     effect: "Raise Phys. Def. of Self by 20%."
     trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Def. of Self by 20%. At full HP: Raise the limits of Phys. Def. augments from support skills and equipment effects to 40%."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 8,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -171,4 +188,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -1,0 +1,186 @@
+# Character: Mydia EX
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: mydia-ex
+display_name: "Mydia EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: approval
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dark
+- light
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3316
+p_atk: 260
+p_def: 295
+e_atk: 522
+e_def: 342
+speed: 412
+crit: 307
+sp: 554
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4136
+p_atk_120: 310
+p_def_120: 345
+e_atk_120: 587
+e_def_120: 392
+speed_120: 477
+crit_120: 342
+sp_120: 624
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S | 9.8"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 46
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Ethereal Healing"
+    sp_cost: 36
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2-5 based on Boost Lv."
+    effects:
+      - "**Ethereal Healing** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Divination"
+    sp_cost: 68
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Divination (1★)** Grant a Single Ally and Self the ability to deal critical damage with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
+      - "At Max Boost: Also raise critical damage multiplier (1.25→1.4) (turns: 6)"
+  - skill_category: active
+    sp_cost: 76
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**(2★)** Raise BP recovery of Single Ally (except Self) by 1 (turns: 2-5 based on Boost Lv.)"
+      - "At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2"
+  - skill_category: active
+    name: "Moon’s Reflection"
+    sp_cost: 24
+    skill_type: mixed
+    damage_types: [light]
+    target: self
+    power: "150"
+    effects:
+      - "**Moon’s Reflection (2★)** Grant Self counter to elemental attacks dealt to any ally (times: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    name: "Starsong"
+    sp_cost: 105
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Starsong (3★)** Raise Phys"
+      - "and Speed of Entire Front Row by 15% (turns: 3-6 based on Boost Lv.) and grant them the ability to dodge some physical and elemental attacks (times: 1)"
+  - skill_category: active
+    sp_cost: 78
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    hit_count: "5x"
+    power: "5x30"
+    effects:
+      - "Light damage to Random Foe 5 time(s) (potency: 5x30) and lower their Wind"
+      - "At Max Boost: Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Shooting Stars"
+    sp_cost: 77
+    skill_type: attack
+    target: aoe
+    power: "120 each"
+    limit_break_upgrade: "Deal Elem. Wind, Light and Dark damage to All Foes **2 time(s)** each (potency: **2x120 each**). The attacks ignore defense augments and damage nullification. At Max Boost: Activate this skill twice."
+  - skill_category: active
+    sp_cost: 120
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(5★)** Raise Elem"
+      - "At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2"
+  - skill_category: tp
+    sp_cost: 48
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**** Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 48
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "** Lv.2** Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys"
+  - skill_category: special
+    name: "Steorra’s Prophecy"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "4x"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Start of battle: Impart All Allies with 3 BP Stock (max: 3). BP Stock: When boosting, BP Stock is consumed instead of BP."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise BP recovery amount of Self by 1. When using Boost MAX on an ability, impart All Allies with 1 BP Stock (max: 3)."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally consumes BP Stock, raise their final damage during that turn based on the amount of BP consumed (1 BP→5%, 2 BP→10%, 3 BP→20%)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally consumes 3+ BP, raise their Phys. Atk. and Elem. Atk. by 20% and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to 50% (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by 50% (Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally consumes BP Stock, raise their Phys. Atk. and Elem. Atk. by **30%** and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to **60%** (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by **75%** (Does not stack with effects of the same type)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Wind, Light and Dark attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“The Mystery of Stargazing”"
+  passive_effect: "90 E.Atk, 100 SP; Grant immunity to Terror to wearer and Paired Ally; When in front row and selecting a command with 3+ BP: Raise Elem. Atk. and Wind, Light and Dark damage of Entire Front Row by 15%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

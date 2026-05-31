@@ -12,7 +12,10 @@ influence: power
 origin: "Luxendarc (BRAVELY DEFAULT)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, light, sword]
+weakness_coverage:
+- fire
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +48,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "D (4.99 - 4.00)"
-jp_tier: "C"
+gl_tier: "E (3.99 - 0.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -57,7 +60,7 @@ skills:
     damage_types: [sword]
     target: single_enemy
     hit_count: "2x"
-    power: "2x90"
+    power: "2x90/2x105/2x125/2x180"
   - skill_category: active
     name: "Fire (Single)"
     sp_cost: 28
@@ -65,14 +68,14 @@ skills:
     damage_types: [fire]
     target: single_enemy
     hit_count: "2x"
-    power: "2x90"
+    power: "2x90/2x105/2x125/2x180"
   - skill_category: active
     name: "Stunning Strike"
     sp_cost: 30
     skill_type: attack
     damage_types: [sword]
     target: aoe
-    power: "150"
+    power: "150/175/215/260"
   - skill_category: active
     name: "Protective Slash II"
     sp_cost: 48
@@ -80,9 +83,9 @@ skills:
     damage_types: [sword]
     target: single_enemy
     hit_count: "2x"
-    power: "2x120"
+    power: "2x120/2x135/2x155/2x210"
     effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Self with Phys"
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210) and impart Self with Phys"
   - skill_category: active
     name: "Desperate Resolve"
     sp_cost: 22
@@ -92,61 +95,51 @@ skills:
       - "**Desperate Resolve** **(2★)** Provoke All Foes and raise Phys"
   - skill_category: active
     name: "Triple Spirited Slash"
-    sp_cost: 52
+    sp_cost: 42
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
     hit_count: "3x"
-    power: "3x85"
+    power: "3x85/3x95/3x110/3x140"
   - skill_category: active
     name: "Fire (All)"
-    sp_cost: 50
+    sp_cost: 40
     skill_type: attack
     target: aoe
     hit_count: "2x"
-    power: "2x95"
+    power: "2x95/2x110/2x130/2x150"
   - skill_category: active
     name: "Miracle Blade"
-    sp_cost: 40
+    sp_cost: 32
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
     effects:
-      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
+      - "Sword damage to Single Foe (potency: 230/260/300/400) and restore own HP (potency: 180)"
   - skill_category: active
     name: "Heaven’s Gate"
-    sp_cost: 52
+    sp_cost: 42
     skill_type: attack
     damage_types: [light]
     target: random
-    power: "2x150→3x120→4x105→5x120"
+    power: "2x150/3x120/4x105/5x120"
   - skill_category: active
     name: "Heaven’s Gate"
     sp_cost: 42
     skill_type: attack
     damage_types: [light, sword]
     target: random
-    power: "**3x150→4x120→5x105→6x120**"
+    power: "**3x150/4x120/5x105/6x120**"
   - skill_category: tp
-    name: "Downward Swing Slice"
+    name: "Hack and Slice"
     sp_cost: 55
-    skill_type: mixed
+    skill_type: attack
     damage_types: [sword]
     target: single_enemy
-    power: "260"
+    power: "260/290/340/450"
     effects:
-      - "Sword damage to Single Foe (potency: 260) and raise own max HP by 30% (turns: 2)"
-  - skill_category: ex
-    name: "Sword of the Four Kings"
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x100"
-    effects:
-      - "Sword damage to Single Foe 4 time(s) (potency: 4x100) and lower Phys"
-    notes: "Uses: 4"
+      - "Sword damage to Single Foe (potency: 260/290/340/450) and raise max HP of Self by 30% (turns: 2)"
   - skill_category: special
     name: "Evanescence"
     skill_type: buff
@@ -182,4 +175,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

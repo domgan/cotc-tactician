@@ -12,7 +12,11 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, dagger, fan, light]
+weakness_coverage:
+- bow
+- dagger
+- fan
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +50,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "C (5.99 - 5.00)"
-jp_tier: "E"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -144,7 +148,7 @@ skills:
     damage_types: [dagger, bow, fan]
     target: aoe
     hit_count: "2x"
-    power: "140→170"
+    power: "140→170→215"
 
 # Passives - parsed from markdown
 passives:
@@ -174,4 +178,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

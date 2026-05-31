@@ -88,6 +88,9 @@ damage_categories:
     stacking_rules: |
       Passive bonuses stack within the 30% cap.
       Equipment bonuses also contribute to this bracket.
+      COMMUNITY NOTE (unverified): crit damage may compete with weapon-type damage
+      (sword damage, etc.) for this 30% passive bracket — see
+      data/reference/community/reddit_endgame_mechanics.yaml
 
   - id: ultimates
     display_name: "Ultimate Skills"

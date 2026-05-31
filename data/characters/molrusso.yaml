@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [staff, wind]
+weakness_coverage:
+- staff
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "D"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -132,6 +134,16 @@ skills:
     power: "3x55"
     effects:
       - "Wind damage to All Foes 3 time(s) (potency: 3x55) and restore HP of Entire Front Row (potency: 90)"
+  - skill_category: tp
+    name: "Starwind of Hope Lv.2"
+    sp_cost: 70
+    skill_type: mixed
+    damage_types: [wind]
+    target: front_row
+    hit_count: "3x"
+    power: "**4**x55"
+    effects:
+      - "Wind damage to All Foes 3 time(s) (potency: **4**x55) and restore HP of Entire Front Row (potency: **150**)"
   - skill_category: active
     name: "後衛時異常耐性強化(前単)"
     skill_type: buff
@@ -177,6 +189,12 @@ passives:
   - passive_category: tp
     effect: "When in front row: Raise physical and elemental Res. of Entire Front Row by 10%."
     trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise physical and elemental Res. of Entire Front Row by **15%**."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Wind attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -187,4 +205,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

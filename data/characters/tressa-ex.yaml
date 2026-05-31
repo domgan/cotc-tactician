@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, fire]
+weakness_coverage:
+- bow
+- fire
 
 # Roles
 roles: [tank, breaker]
@@ -54,7 +56,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "D (4.99 - 4.00)"
-jp_tier: "E"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -165,23 +167,12 @@ skills:
     sp_cost: 31
     skill_type: utility
     target: aoe
-  - skill_category: ex
-    name: "Swift Five Strikes"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x65"
-    effects:
-      - "Raise own Bow Trap points by 5"
-      - "Bow Trap points: Raise attack count of some skills"
-    notes: "Uses: 2"
   - skill_category: special
     name: "Shower of Arrows Trap"
     skill_type: attack
     damage_types: [bow]
     target: aoe
-    power: "60→70"
+    power: "60→70→90"
 
 # Passives - parsed from markdown
 passives:
@@ -210,4 +201,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

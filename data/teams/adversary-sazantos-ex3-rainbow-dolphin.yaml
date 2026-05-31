@@ -1,0 +1,169 @@
+# Rainbow Team — God Sazantos EX3 (Dolphin Spender)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1r5df51/rainbow_team_setup_guide_for_u/
+# Layout corroborated: https://www.reddit.com/r/OctopathCotC/comments/1r3haen/rainbow_team_is_crazy/
+
+schema_version: "1.0"
+
+id: adversary-sazantos-ex3-rainbow-dolphin
+name: "Rainbow Dolphin — God Sazantos EX3"
+boss_id: adversary-sazantos-ex3
+
+strategy_type: burst
+investment_level: medium
+
+target_ex_rank: ex3
+survival_strategy: dodge_tank
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 20
+  ultimate_potency: 120
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: xerc
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "700k+ ult hits reported without full A4/AU whale roster"
+    key_skills_used: []
+    accessory_requirements: ["Damage cap accessories — do NOT use Blade of eternal flaw on Xerc"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: osvald-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["osvald"]
+    substitute_notes: "Long-term rainbow core; FUA damage scales with E.def build"
+    key_skills_used: []
+    accessory_requirements: ["Lv120 artifact 200 E.def", "Durand A4 (-10% enemy speed on start)"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: signa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: ["signa-ex", "rondo-ex", "viola-ex"]
+    substitute_notes: "Ult def down; Viola EX alt per comments"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 4
+    character_id: lynette-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["setzer", "hikari-ex"]
+    substitute_notes: "Long-term alt: Setzer (per author); Hikari EX partial substitute"
+    key_skills_used: []
+    accessory_requirements: ["Agnea A4 for frontrow cap"]
+    awakening_required: 4
+
+back_line:
+  - position: 5
+    character_id: isla
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["frederica"]
+    substitute_notes: "Must be scholar for Xerc EX skill activation"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: shana
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: |
+      EX skill Unsinkable (2 turns, 2 uses/fight) for burst survival.
+      +400 speed artifact; DQ accessory -20% enemy speed on start.
+    key_skills_used: ["Unsinkable"]
+    accessory_requirements: ["+400 speed artifact"]
+    awakening_required: 3
+
+  - position: 7
+    character_id: lemaire
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["viola-ex", "alaune-ex2"]
+    substitute_notes: "Viola EX or partial rainbow hitter as alt"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 8
+    character_id: molrusso-ex
+    role_in_team: buffer
+    is_required: false
+    substitutes: ["dark-priestess"]
+    substitute_notes: "Author uses Molrusso EX; DP faster setup alternative per comments"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+speed_order:
+  - molrusso-ex
+  - shana
+  - isla
+  - signa
+  - lemaire
+  - lynette-ex
+  - osvald-ex
+  - xerc
+
+speed_tuning_notes: |
+  Long setup but clears God Sazantos EX3 and most Orsterra content.
+  Apply Osvald ult 1 turn before burst; Xerc EX skill T1 typical rainbow setup.
+
+turn_plan:
+  - turn_range: "1-4"
+    phase: setup
+    actions:
+      - "Isla EX + Shana EX: Sustain and gauge setup"
+      - "Molrusso EX/DP: Weakness exploitation + ult gauge"
+      - "Lemaire: ATK buffs"
+      - "Osvald EX ult: 120% potency before burst turn"
+    notes: "Long setup — Shana Unsinkable on T2/T3 and T5/T6 for survival windows"
+
+  - turn_range: "5+"
+    phase: burst
+    actions:
+      - "Xerc ult + Lynette EX rainbow implants"
+      - "Full frontrow rainbow attacks during DP/Molrusso weakness window"
+    notes: "700k+ Xerc ult hits reported; works for most Orsterra EX3"
+
+why_it_works: |
+  Dolphin-spender rainbow comp (~<$500) clearing God Sazantos EX3.
+  Xerc FUA carries damage from own stats — other units don't need full A4.
+  Shana Unsinkable enables surviving multi-action EX3 burst phases.
+  Speed tuning on Shana outruns Kagemune-style speed checks.
+
+key_synergies:
+  - "Xerc + Lynette EX: Full rainbow FUA during weakness window"
+  - "Osvald EX + Xerc: Multi-element FUA chain"
+  - "Shana Unsinkable: 2-turn party-wide survival (2 uses/fight)"
+  - "Isla + Xerc: Scholar EX skill requirement"
+
+risks_and_recovery:
+  - "Risk: Long setup — Shana EX uses exhausted"
+  - "Recovery: Speed tune to break within Unsinkable windows"
+  - "Risk: Missing Lynette EX"
+  - "Recovery: Setzer long-term; Hikari EX partial substitute"
+  - "Risk: Missing Isla"
+  - "Recovery: Frederica or any scholar for Xerc EX"
+
+verified: false
+clear_time: "Long setup; fast burst phase"
+success_rate: "High with dolphin investment"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1r5df51/rainbow_team_setup_guide_for_u/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

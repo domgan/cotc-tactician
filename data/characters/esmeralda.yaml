@@ -12,7 +12,8 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger]
+weakness_coverage:
+- dagger
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +41,17 @@ crit_120: 358
 sp_120: 432
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Hack and Slash"
     sp_cost: 39
     skill_type: attack
     damage_types: [dagger]
@@ -58,19 +59,21 @@ skills:
     hit_count: "3x"
     power: "3x55"
   - skill_category: active
-    name: "(Initial)"
+    name: "Raven’s Claws"
     sp_cost: 30
     skill_type: buff
     target: front_row
     effects:
-      - "**(Initial)** Raise Dagger damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.)"
+      - "**Raven’s Claws** Raise Dagger damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
+    name: "Cruelty"
     sp_cost: 50
     skill_type: attack
     damage_types: [dagger]
     target: aoe
     power: "80"
   - skill_category: active
+    name: "Red Blade"
     sp_cost: 60
     skill_type: attack
     damage_types: [dagger]
@@ -78,6 +81,7 @@ skills:
     hit_count: "3x"
     power: "3x35"
   - skill_category: active
+    name: "Green Blade"
     sp_cost: 60
     skill_type: attack
     damage_types: [dagger]
@@ -85,12 +89,14 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
+    name: "Raven’s Flight"
     sp_cost: 41
     skill_type: debuff
     target: aoe
     effects:
-      - "**(3★)** Lower Phys"
+      - "**Raven’s Flight (3★)** Lower Phys"
   - skill_category: active
+    name: "Grim Carve"
     sp_cost: 56
     skill_type: attack
     damage_types: [dagger]
@@ -98,16 +104,11 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
-    sp_cost: 114
-    skill_type: mixed
-    damage_types: [dagger]
+    name: "Lv.96 |"
+    skill_type: utility
     target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-    effects:
-      - "Dagger damage to Single Foe 2 time(s) (potency: 2x85) and lower Phys"
-      - "At Max Boost: Also lower Phys"
   - skill_category: active
+    name: "Blue Blade"
     sp_cost: 114
     skill_type: mixed
     damage_types: [dagger]
@@ -115,40 +116,70 @@ skills:
     hit_count: "2x"
     power: "2x85"
     effects:
-      - "Dagger damage to Single Foe 2 time(s) (potency: 2x85) and lower Elem"
-      - "At Max Boost: Also lower Elem"
+      - "lower their Phys"
+      - "At Max Boost: Also lower their Phys"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    name: "Violet Blade"
+    sp_cost: 114
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x85"
+    effects:
+      - "lower their Elem"
+      - "At Max Boost: Also lower their Elem"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
   - skill_category: tp
+    name: "Mark of the Crow"
     sp_cost: 28
     skill_type: utility
     target: single_enemy
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "210"
-    notes: "Uses: 2"
+    effects:
+      - "**Mark of the Crow ** Grant Single Foe a Dagger weakness (times: 4-7 based on Boost Lv.)"
+  - skill_category: tp
+    name: "Mark of the Crow Lv.2"
+    sp_cost: 28
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Mark of the Crow Lv.2** Grant Single Foe a Dagger weakness (times: **6-9** based on Boost Lv.) and lower their Dagger Res"
   - skill_category: special
-    name: "“Kakoku”"
+    name: "Blossom Carving"
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
     hit_count: "6x"
+    effects:
+      - "Grant Single Foe a Dagger weakness (times: 6)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When using “Attack”, inflict the target with 1 “Laceration Point”. When there’s an enemy inflicted with “Deep Wound”, raise potency of Self by 30%."
+    effect: "The “Attack” action afflicts targets with 1 Laceration Point. Raise potency by 30% if an enemy with Deep Wound is present (does not stack with effects of the same type)."
     trigger: always
   - passive_category: innate
-    effect: "When an ally breaks an enemy, inflict the target with 1 “Laceration Point”. When the target is inflicted with 9+ “Laceration Points”, inflict “Deep Wound” and reduce “Laceration Points” to 1."
+    effect: "When an ally breaks an enemy, afflict the foe with 1 Laceration. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration."
     trigger: always
-    limit_break_upgrade: "When an ally breaks an enemy, inflict the target with 1 “Laceration Point” and restore 3 BP to Self. When the target is inflicted with 9+ “Laceration Points”, inflict “Deep Wound” and reduce “Laceration Points” to 1."
+    limit_break_upgrade: "When an ally breaks an enemy, afflict the foe with 1 Laceration and restore Esmerlada’s BP by 3. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration."
   - passive_category: innate
-    effect: "When consuming 1 BP or more, cast countdown on Self (count: 1). Once the countdown ends, deal Phys. Dagger damage to All Foes (potency: 100) and inflict 1 “Laceration Point”. However, this attack cannot break enemies."
+    effect: "Cast countdown on Self (count: 1) after consuming 1+ BP to act. Once the countdown ends, deal Phys. Dagger damage to All Foes (potency: 100) and afflict them with 1 Laceration. *This attack cannot break enemies."
     trigger: always
   - passive_category: tp
-    effect: "When there’s an enemy inflicted with “Deep Wound”, activate attacking battle skills twice (additional activations do not consume SP). *Effect is triggered even when defeating the enemy inflicted with “Deep Wound”."
+    effect: "When an enemy with Deep Wound is present, gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated)."
+    trigger: always
+  - passive_category: tp
+    effect: "When an enemy with Deep Wound is present, raise Dagger damage by 30% and gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000."
     trigger: always
   - passive_category: innate
     effect: "Raise own Fire and Ice Res. by 10%."
@@ -163,10 +194,10 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Devilish Jewelry”"
-  passive_effect: "50 P.Atk, -60 P.Def, 100 Crit, 50 Spd; When there’s an enemy inflicted with status ailments, lower Phys. Def. of all enemies by 10% and grant Entire Front Row Damage Limit Up (effect: 30,000)"
+  name: "Malicious Accessory"
+  passive_effect: "50 P.Atk, -60 P.Def, 100 Crit, 50 Spd; When an enemy with certain status ailments is present, lower Phys. Def. of All Foes by 10% and raise Damage Limit of Entire Front Row by 30,000."
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

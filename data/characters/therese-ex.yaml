@@ -12,7 +12,10 @@ influence: approval
 origin: "Overworld (Dragon Quest III)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, staff, wind]
+weakness_coverage:
+- lightning
+- staff
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +43,17 @@ crit_120: 288
 sp_120: 510
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "B"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Woosh"
     sp_cost: 30
     skill_type: attack
     damage_types: [wind]
@@ -58,31 +61,35 @@ skills:
     hit_count: "2x"
     power: "2x70"
   - skill_category: active
-    name: "(Initial)"
+    name: "Heal"
     sp_cost: 30
     skill_type: heal
     target: single_ally
     power: "160"
     effects:
-      - "**(Initial)** Restore HP of Single Ally (potency: 160)"
-      - "Grant effects based on target’s HP"
-      - "[30 SP] ·At 60% or more: Grant HP Barrier (amount: 200/Does not stack)"
-      - "restore SP (amount: 20)"
+      - "**Heal** Restore HP of Single Ally (potency: 160) and grant them further effects based on their HP"
+      - "[30 SP] ·60% or more: Grant an HP Barrier (amount: 200/Does not stack)"
+      - "·At full HP: Also restore SP (amount: 20)"
   - skill_category: active
+    name: "Sap"
     sp_cost: 75
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**(1★)** Lower Phys"
-      - "[75 SP] ·At 60% HP or less: Also lower Elem"
-      - "·At 30% HP or less: Additionally lower Staff and Wind Res"
+      - "**Sap (1★)** Lower Phys"
+      - "[75 SP] ·60% HP or less: Also lower their Elem"
+      - "·30% HP or less: Also lower their Staff and Wind Res"
   - skill_category: active
+    name: "Knuckle Sandwich"
     sp_cost: 49
     skill_type: attack
     damage_types: [staff]
     target: single_enemy
     power: "230"
+    effects:
+      - "[49 SP] ·60% HP or less: Grant a Staff weakness (times: 2) and potency increases by 1.5x"
   - skill_category: active
+    name: "Roundhouse Kick"
     sp_cost: 110
     skill_type: attack
     damage_types: [staff]
@@ -90,16 +97,21 @@ skills:
     hit_count: "3x"
     power: "3x65"
     effects:
-      - "Inflicted weakness count raises based on target’s HP"
+      - "Staff damage to All Foes 3 time(s) (potency: 3x65) and grant Lightning and Wind weaknesses (times each: 2)"
+      - "Staff attack) and grants each target additional weaknesses based on their HP"
+      - "[110 SP] ·60% HP or less: Grant Lightning/Wind weaknesses for 4 times instead"
+      - "·30% HP or less: Grant Lightning/Wind weaknesses for 6 times instead"
   - skill_category: active
+    name: "Magic Barrier"
     sp_cost: 62
     skill_type: mixed
     target: front_row
     effects:
-      - "**(3★)** Raise Elem"
-      - "Grant effects based on target’s HP"
-      - "[62 SP] ·At 60% or more: Also raise Phys"
+      - "**Magic Barrier (3★)** Raise Elem"
+      - "of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.) and grant each target effects based on their HP"
+      - "[62 SP] ·60% or more: Also raise their Phys"
   - skill_category: active
+    name: "Swoosh"
     sp_cost: 42
     skill_type: attack
     damage_types: [wind]
@@ -107,16 +119,17 @@ skills:
     hit_count: "2x"
     power: "2x80"
   - skill_category: active
+    name: "Multiheal"
     sp_cost: 72
     skill_type: heal
     target: front_row
     power: "205"
     effects:
-      - "**(5★)** Restore HP of Entire Front Row (potency: 205)"
-      - "Grant effects based on target’s HP"
-      - "[72 SP] ·At 60% or more: Grant HP Barrier (potency: 10% of user’s max HP/Does not stack)"
-      - "restore SP (amount: 5% of target’s max SP)"
+      - "**Multiheal (5★)** Restore HP of Entire Front Row (potency: 205) and grant each target effects based on their HP"
+      - "[72 SP] ·60% or more: Grant an HP Barrier (amount: 10% of user’s max HP/Does not stack)"
+      - "·At full HP: Also restore SP (amount: 5% of target’s max SP)"
   - skill_category: active
+    name: "Kaswoosh"
     sp_cost: 55
     skill_type: mixed
     damage_types: [wind]
@@ -124,57 +137,52 @@ skills:
     hit_count: "2x"
     power: "2x95"
     effects:
-      - "Wind damage to All Foes 2 time(s) (potency: 2x95) and lower Wind Res"
-    limit_break_upgrade: "Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x95) and lower Wind Res. by 15% (turns: 2). Potency and attack count increase based on target’s HP."
+      - "Wind damage to All Foes 2 time(s) (potency: 2x95) and lower their Wind Res"
+    limit_break_upgrade: "Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x95) and lower their Wind Res. by 15% (turns: 2). Potency and attack count change based on each target’s HP."
   - skill_category: tp
+    name: "Moreheal"
     sp_cost: 41
     skill_type: heal
     target: single_ally
-    power: "20% of user’s max HP/Does not stack"
     effects:
-      - "**** Restore HP of Single Ally (amount: 25%-100% based on Boost Lv.)"
-      - "Grant effects based on target’s HP"
-      - "[41 SP] ·At 60% or more: Grant HP Barrier (potency: 20% of user’s max HP/Does not stack)"
-      - "restore 1 BP"
+      - "**Moreheal ** Restore HP of Single Ally (amount: 25%-100% based on Boost Lv.) and grant effects based on each target’s HP"
+      - "[41 SP] ·60% or more: Grant an HP Barrier (amount: 20% of user’s max HP/Does not stack)"
+      - "·At full HP: Also restore BP by 1"
   - skill_category: tp
-    name: "Lv.2"
+    name: "Moreheal Lv.2"
     sp_cost: 41
     skill_type: heal
     target: single_ally
-    power: "**30%** of user’s max HP/Does not stack"
     effects:
-      - "** Lv.2** Restore HP of Single Ally (amount: **70%-???%** based on Boost Lv.)"
-      - "Grant effects based on target’s HP"
-      - "[41 SP] ·At 60% or more: Grant HP Barrier (potency: **30%** of user’s max HP/Does not stack)"
-      - "restore **2** BP"
+      - "**Moreheal Lv.2** Restore HP of Single Ally (amount: **70%-???%** based on Boost Lv.) and grant effects based on each target’s HP"
+      - "[41 SP] ·60% or more: Grant an HP Barrier (amount: **30%** of user’s max HP/Does not stack)"
+      - "·At full HP: Also restore BP by **2**"
   - skill_category: ex
-    name: "(EX)"
-    skill_type: buff
+    name: "Kazing"
+    skill_type: mixed
     target: front_row
     effects:
-      - "Grant effects based on consumed BP"
-      - "·1 BP or more: Grant automatic HP recovery (amount: 10% of max HP) and SP recovery (amount: 3% of max SP) (turns: 3)"
-      - "restore 2 BP"
-      - "·3 BP: Raise physical and elemental damage of the same target by 30% (turns: 3)"
+      - "**Kazing** Revive a fallen ally (recovery amount: 25%-100% of max HP based on Boost Lv.) and grant them effects based on consumed BP"
+      - "·1+ BP: Grant automatic HP recovery (amount: approximately 10% of the target’s max HP) and automatic SP recovery (amount: 3% of target’s max SP) (turns: 3)"
+      - "·2+ BP: Also restore their BP by 2"
+      - "·At Max Boost: Also raise their Phys"
     notes: "Uses: 3"
   - skill_category: special
-    name: "“Megante”"
+    name: "Kamikazee"
     skill_type: attack
     target: aoe
     power: "1000→1250→1500"
-    effects:
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: **100,000→175,000→350,000**)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When using a battle skill to restore HP, if the recovery effect exceeds the maximum HP of the target, grant “Legend” (turns: 2/Granted as a support skill/Effects of the same type do not stack)."
+    effect: "When using a battle skill to restore HP, grant Entire Front Row Soul Sigil (turns: 2/Granted as a support skill/Does not stack) if the restoration exceeds the max HP of any single target (excluding automatic HP recovery and ongoing effects)."
     trigger: always
   - passive_category: innate
-    effect: "When using a battle skill, grant Entire Front Row effects based on own HP. ·30% HP or more: Grant automatic HP recovery (potency: 30, turns: 4). ·60% HP or more: Additionally, grant Damage Limit Up (effect: 30,000, turns: 2). ·100% HP: Additionally, raise Phys. Atk. and Elem. Atk. by 15% (turns: 2) and grant the special effect “Saint’s Thoughts” (turns: 2/Turns cannot be extended)."
+    effect: "Grant Entire Front Row effects based on own HP when using a skill. ·30% HP or more: Grant automatic HP recovery (potency: 30, turns: 4). ·60% HP or more: Also raise their Damage Limit by 30,000 (turns: 2). ·100% HP: Also raise their Phys. Atk. and Elem. Atk. by 15% (turns: 2) and grant them Saint’s Will (turns: 2/Turns cannot be extended)."
     trigger: always
   - passive_category: innate
-    effect: "Raise Phys. Atk. and Elem. Atk. of Paired Allies by 20%. Grant Self effects based on own HP. ·60% HP or less: Raise Phys. and Elem. Res. by 30%. ·30% HP or less: Reduce damage taken from some attacks by 80%."
+    effect: "Raise Phys. Atk. and Elem. Atk. of Paired Allies by 20%, raise their Damage Limit by 20,000 and gain further effects based on own HP. ·60% HP or less: Raise Phys. and Elem. Res. by 30%. ·30% HP or less: Reduce damage taken from some attacks by 80% (Does not stack with effects of the same type)."
     trigger: always
   - passive_category: innate
     effect: "Raise own Lightning Res. by 20%."
@@ -183,19 +191,19 @@ passives:
     effect: "**Resilience** Raise own Wind Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "At the end of turn: Restore SP of Paired Allies (amount: 10% of max SP) and fill the Ultimate Technique gauge of Paired Allies to 100%."
+    effect: "At end of turn: Restore SP of Paired Allies (amount: 10% of target’s max SP) and fill their Ultimate Technique gauges by 100%."
     trigger: always
   - passive_category: tp
-    effect: "At the end of turn: Restore SP of Paired Allies (amount: 10% of max SP) and fill the Ultimate Technique gauge of Paired Allies to 100%. Also restore SP of Entire Front Row (amount: 5% of max SP) and fill their Ultimate Technique gauge by 50%."
+    effect: "At end of turn: Restore SP of Paired Allies (amount: 10% of target’s max SP) and fill their Ultimate Technique gauges by 100%. Also restore SP of Entire Front Row (amount: 5% of max SP) and fill their Ultimate Technique gauge by 50%."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Monk’s Rosary”"
-  passive_effect: "70 E.Atk, 700 HP; Grant automatic revival (recovery amount: 100% of max HP and 100% of max SP). Triggers immediately if incapacitated (count increases when stacked); Start of battle: Grant All Allies SP Stock (amount: 30% of wearer’s max SP)"
+  name: "Priest’s Rosary"
+  passive_effect: "70 E.Atk, 700 HP; Once per battle, gain automatic revival at 100% of max HP/SP (Stacks with battle skills); Start of battle: Grant Paired Allies SP Stock (amount: 30% of wearer’s max SP/Does not stack)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

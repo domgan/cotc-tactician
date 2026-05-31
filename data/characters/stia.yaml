@@ -1,0 +1,190 @@
+# Character: Stia
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: stia
+display_name: "Stia"
+rarity: 5
+
+# Core attributes
+job: apothecary
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- axe
+- staff
+- tome
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3720
+p_atk: 485
+p_def: 417
+e_atk: 311
+e_def: 298
+speed: 291
+crit: 333
+sp: 408
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4540
+p_atk_120: 535
+p_def_120: 467
+e_atk_120: 376
+e_def_120: 348
+speed_120: 341
+crit_120: 383
+sp_120: 478
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "A | 9.7"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 12
+    skill_type: heal
+    target: single_ally
+    power: "100"
+    effects:
+      - "**(Initial)** Restore HP of Single Ally (potency: 100)"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 18
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**(Initial)** Lower Phys"
+  - skill_category: active
+    sp_cost: 39
+    skill_type: attack
+    damage_types: [axe]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    sp_cost: 79
+    skill_type: utility
+    target: aoe
+    effects:
+      - "**(2★)** Grant All Foes Sword"
+  - skill_category: active
+    sp_cost: 91
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "6x"
+    power: "6x40"
+  - skill_category: active
+    sp_cost: 80
+    skill_type: buff
+    target: front_row
+    power: "150/turns: 2-5 based on Boost Lv."
+    effects:
+      - "**(3★)** Grant Entire Front Row automatic HP recovery (potency: 150/turns: 2-5 based on Boost Lv.) and grant effects based on own Cheer On Points"
+      - "·6+: Also restore their SP (amount: 5% of target’s max SP)"
+      - "·9+: Also restore 1 BP"
+  - skill_category: active
+    sp_cost: 121
+    skill_type: mixed
+    damage_types: [axe]
+    target: aoe
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Axe damage to All Foes 4 time(s) (potency: 4x35) and lower Phys"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    power: "260"
+  - skill_category: active
+    sp_cost: 78
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**(5★)** Act faster during turn and restore HP of Entire Front Row (potency: 205)"
+  - skill_category: tp
+    sp_cost: 200
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x160"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 200
+    skill_type: attack
+    damage_types: [axe]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x160"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "**(EX)** Act faster during turn and raise potency of All Allies by 50% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type)"
+      - "Also grant Self a special effect that makes summoned allies to act twice and not consume summoned ally uses neither ally summons per battle for the next 1-4 times based on Boost Lv"
+    notes: "Uses: 1"
+  - skill_category: special
+    name: "“Wholehearted Support”"
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "Act faster during turn"
+      - "grant All Allies automatic SP recovery (amount: 5% of max SP)"
+      - "raise their BP recovery by 1 and their Axe damage by **5%→10%→15%** (turns: 3)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "After performing an action, restore HP of Entire Front Row (amount: 10% of their max HP) and grant them 1 Cheer On Point."
+    trigger: always
+    limit_break_upgrade: "After performing an action, restore HP of **All Allies** (amount: 10% of their max HP), raise their Damage Limit by 10,000 (turns: 2) and grant them 1 Cheer On Point."
+  - passive_category: innate
+    effect: "Grant All Allies effects based on own Cheer On Points. ·3+: Raise Phys. Atk. by 15%. ·6+: Also raise the limit of Sword, Axe, Bow and Staff damage from support skills and equipment effects to 60%. ·9+: Also raise their Damage Limit by 50,000."
+    trigger: always
+  - passive_category: innate
+    effect: "After a summoned ally uses their skill, cure status ailments of All Allies (including Charm, Comatose and Stillness), grant them immunity to some status ailments (turns: 2) and gain 3 Cheer On Points."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Start of battle: Raise Axe damage of All Allies by 20% (turns: 6)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Start of battle: Raise Sword, Axe, Bow and Staff damage of All Allies by **30%** (turns: 6), raise their Damage Limit by 10,000 (turns: 6) and grant them Fightning Spirit (turns: 2)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword, Axe, Bow and Staff attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Architect’s Toolbox”"
+  passive_effect: "60 P.Atk, 60 P.Def, 700 HP; Start of battle: Raise Damage Limit of All Allies by 50,000 (turns: 3)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

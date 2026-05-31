@@ -12,7 +12,9 @@ influence: fame
 origin: "Norzelia (TRIANGLE STRATEGY)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, polearm]
+weakness_coverage:
+- lightning
+- polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["debuffer", "dps"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Roland is a decent traveler for enemies weak to polearms. His main value comes from being one of the few travelers that can lower polearm resist down as his ultimate, and this ultimate debuff stacks with other debuffs in the game. For free-to-play players, he's worth considering if you need polearm support. For those who spend a little, getting one copy to ultimate level 10 is valuable.
 
 best_use_cases:
-  - "Polearm-focused teams needing resistance down debuffs"
-  - "Teams that can stack multiple resistance down effects"
-  - "Content where polearm weakness coverage is needed"
-  - "Players lacking dedicated polearm debuffers"
+- "Polearm-focused teams needing resistance down debuffs"
+- "Teams that can stack multiple resistance down effects"
+- "Content where polearm weakness coverage is needed"
+- "Players lacking dedicated polearm debuffers"
 
 weaknesses:
-  - "Limited to polearm damage type"
-  - "Accessory will get replaced as more travelers get passive equipment buffs"
-  - "Not essential if you already have good polearm users"
-  - "Rerun character - can skip if you have adequate polearm support"
+- "Limited to polearm damage type"
+- "Accessory will get replaced as more travelers get passive equipment buffs"
+- "Not essential if you already have good polearm users"
+- "Rerun character - can skip if you have adequate polearm support"
 
 # Stats (base level)
 hp: 3020
@@ -61,8 +63,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "D"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -192,14 +194,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Royal Ring of Glenbrook"
-  passive_effect: "102 Physical Attack, 40 Speed; When switching to Front Row: Increase Phys. Atk. by 15% and raise Polearm damage dealt by 15% (turns: 1)"
-  notes: "Nice to have now but will get replaced in the future as more travelers can increase party's passive and equipment buffs"
+  passive_effect: "100 P.Atk, 40 Spd; When switching to Front Row: Increase Phys. Atk. by 15% and raise Polearm damage dealt by 15% (turns: 1)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Triangle Strategy Rerun Overview by Blad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including pull recommendations and role assessment"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

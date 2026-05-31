@@ -1,0 +1,196 @@
+# Character: Tiziano EX
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: tiziano-ex
+display_name: "Tiziano EX"
+rarity: 5
+
+# Core attributes
+job: merchant
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- polearm
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 4030
+p_atk: 484
+p_def: 348
+e_atk: 295
+e_def: 315
+speed: 285
+crit: 341
+sp: 362
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4930
+p_atk_120: 549
+p_def_120: 398
+e_atk_120: 345
+e_def_120: 365
+speed_120: 320
+crit_120: 376
+sp_120: 442
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S | 9.8"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 32
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Also lower Polearm and Dagger Res"
+  - skill_category: active
+    sp_cost: 18
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**(1★)** Act faster during turn and reduce some damage taken by 20%-50% (based on Boost Lv.) and take damage in place of Single Ally (excluding Self/including Group Attacks) (turns: 1/Activates only when in front row)"
+  - skill_category: active
+    sp_cost: 22
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(2★)** Lower Phys"
+  - skill_category: active
+    sp_cost: 46
+    skill_type: mixed
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    sp_cost: 148
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(3★)** Raise Phys"
+      - "Also raise the limit of Phys"
+  - skill_category: active
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Also restore 1 BP to Self"
+  - skill_category: active
+    sp_cost: 152
+    skill_type: attack
+    damage_types: [polearm]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80"
+  - skill_category: active
+    sp_cost: 72
+    skill_type: attack
+    damage_types: [polearm]
+    target: single_enemy
+    power: "110"
+    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: 110). Exploits Dagger and Wind weaknesses (damage calculation based on Phys. Polearm attack). Ignores effects that completely dodge or block attacks. Damage Limit of this skill is increased by **100,000**. The earlier the action order, the more additional times you attack. Additional attack times: 1st place: +3 times/ 2nd place: +2 times/ 3rd place: +1 time/ 4th or later: No additional attacks. At Max Boost: Reactivate the effect (without SP consumption)."
+  - skill_category: tp
+    sp_cost: 110
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also raise Polearm and Dagger damage of Entire Front Row (turns: 2)"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 110
+    skill_type: attack
+    damage_types: [polearm]
+    target: front_row
+    hit_count: "4x"
+    power: "4x35"
+    effects:
+      - "Also raise Phys"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(EX)** Grant All Foes Polearm and Dagger weaknesses (times each: 6-9 based on Boost Lv.)"
+      - "lower Polearm and Dagger Res"
+      - "Also act faster during next turn"
+      - "Granted Polearm Weakness: Regardless of the source"
+    notes: "Uses: 4"
+  - skill_category: special
+    name: "“Capodanno”"
+    skill_type: mixed
+    target: all_allies
+    power: "2→3"
+    effects:
+      - "Also restore SP of All Allies (amount: 50% of target’s max SP) and impart them with SP Stock (amount: 50% of user’s max SP/Does not stack)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "During battle: You are also counted as a Thief."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Raise Phys. Atk. and Polearm and Dagger damage of Entire Front Row by 20% and raise the Damage Limit of their Physical Polearm and Physical Dagger skills by 200,000. Also raise the limit of Phys. Atk. augments and Polearm and Dagger damage augments from support skills and equipment effects to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row at 60% HP or more: Grant Self a 20% multiple-hit damage reduction (with some exceotions/Does not stack) and take damage for single-target attack in place of allies in the front row."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "After using a battle skill, raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and their Damage Limit by 100,000 (turns: 2/Granted as a battle ability)."
+    trigger: always
+  - passive_category: tp
+    effect: "After using a battle skill, raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and their Damage Limit by 100,000 (turns: 2/Granted as a battle ability). Also grant them an HP Barrier (potency: 25% of user’s max HP)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Physical Polearm, Physical Dagger and Elemental Wind skills of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Stylish Collar”"
+  passive_effect: "90 P.Atk, 1000 HP; Recover 20% of damage taken as HP when hit (With some exceptions/Does not stack with effects of the same type).; Grant immunity to “Can’t Switch” status ailment"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

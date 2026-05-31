@@ -12,7 +12,9 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, sword]
+weakness_coverage:
+- fire
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["tank"]
@@ -24,15 +26,15 @@ usage_strategy: |
   This is a hard no - you're better off using free warriors like Orad and Serenoa who are much more useful and provide more for your team. She's joining the general pool and there's no need for another warrior tank like Orlick. Day you pull her is probably the day you'll bench her.
 
 best_use_cases:
-  - "Players who specifically want female version of Orlick"
-  - "Teams needing provoke tank with no other options"
-  - "Content where physical defense stacking is valuable"
+- "Players who specifically want female version of Orlick"
+- "Teams needing provoke tank with no other options"
+- "Content where physical defense stacking is valuable"
 
 weaknesses:
-  - "Far power crept even when compared to older travelers"
-  - "Better options exist (Orad, Serenoa) as free warriors"
-  - "General pool unit - not worth pulling for"
-  - "Limited to tank role with no additional utility"
+- "Far power crept even when compared to older travelers"
+- "Better options exist (Orad, Serenoa) as free warriors"
+- "General pool unit - not worth pulling for"
+- "Limited to tank role with no additional utility"
 
 # Stats (base level)
 hp: 3402
@@ -60,8 +62,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "C (5.99 - 5.00)"
-jp_tier: "C"
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -173,14 +175,13 @@ passives:
     trigger: battle_start
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Gauntlets of the Unbroken"
-  passive_effect: "40 Physical Defense, 40 Elemental Defense, 600 HP; Raise max HP by 15%; Grant Damage Limit Up (effect: 50,000)"
-  notes: "Could be decent for someone like EX Millard since it increases Max HP, but shouldn't chase after it as it's not a must-have accessory"
+  passive_effect: "40 P.Def, 40 E.Def, 600 HP; Raise max HP by 15%; Grant Damage Limit Up (effect: 50,000)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Greig Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting hard pass recommendation and power creep issues"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

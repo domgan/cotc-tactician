@@ -12,7 +12,10 @@ influence: wealth
 origin: "NieR Universe (NieR series)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, staff, tome]
+weakness_coverage:
+- dark
+- staff
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -45,8 +48,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "A"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -171,8 +174,8 @@ a4_accessory:
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -182,7 +185,7 @@ usage_strategy: |
   - Great for taking out enemies weak to dark and tome
   - Pairs very well with EX Thel for dark weakness implantation
   - Limited to dark/tome weaknesses which aren't too common
-  
+
   KEY ABILITIES:
   - 3-hit random target dark attacks (lowers dark resist 15% per hit)
   - 3-hit random target dark (2-5 turn duration based on boost)
@@ -190,35 +193,35 @@ usage_strategy: |
   - 3-hit AoE dark (consumes 15 SP to recast)
   - 1-hit single target dark (consumes 15 SP to recast)
   - EX skill: 1-hit single target (530 potency, consumes 200 SP to recast)
-  
+
   BREAKING CAPABILITIES:
   - 9-hit tome/dark attack makes him one of the best dark/tome breakers
   - Costs 180 SP total for maximum hits
   - 6-hit AoE always available
   - 2-hit nuke attack with 530 potency
-  
+
   SUPPORT CAPABILITIES:
   - Front row: 15% physical/elemental defense up + 30% damage reduction (1 time)
   - Front row: 20% physical/elemental attack up + 20% polearm/dagger/dark up
   - Ultimate: Full SP restore + 10k-50k damage cap up
-  
+
   PASSIVES:
   - 30% dark damage up + 30% crit up + can crit with elemental attacks (6★)
   - 10 SP regen
   - 50% cap to attack from active and passive buffs
   - TP passive extends cap to 50% for active/passive buffs
-  
+
   A4 ACCESSORY:
   - 200 E.Atk with -32 defenses
   - 10 SP regen + 10% max SP restore when under 50% SP
   - Passive is rather useless with Shaana and EX Renu available
   - Wouldn't chase after it, prioritize Kainé first
-  
+
   LONGEVITY:
   - Here to stay with EX Thel now existing to implant dark weakness
   - Decent future as dark elemental attacker
   - 3.75/5 longevity rating
-  
+
   RECOMMENDATION:
   - Solid dark elemental DPS with everything a DPS should have
   - Great breaking skills, debuffs, nuke attack, 50% buff cap

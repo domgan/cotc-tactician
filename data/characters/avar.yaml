@@ -12,7 +12,11 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, dark, fire, sword]
+weakness_coverage:
+- axe
+- dark
+- fire
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +49,7 @@ has_limit_break: false
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -77,6 +81,7 @@ skills:
     effects:
       - "**(2★)** Grant Self Dead Aim (guranteed critical hits) (turns: 3-6 based on Boost Lv.)"
   - skill_category: active
+    name: "Destructive Cleave"
     sp_cost: 49
     skill_type: mixed
     damage_types: [axe]
@@ -84,7 +89,7 @@ skills:
     hit_count: "3x"
     power: "3x65"
     effects:
-      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Phys Def"
+      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower their Phys Def"
   - skill_category: active
     sp_cost: 49
     skill_type: mixed
@@ -95,6 +100,7 @@ skills:
     effects:
       - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Axe Res"
   - skill_category: active
+    name: "Explosive Cleave"
     sp_cost: 54
     skill_type: attack
     damage_types: [axe]
@@ -110,10 +116,11 @@ skills:
   - skill_category: active
     sp_cost: 82
     skill_type: attack
-    damage_types: [polearm]
+    damage_types: [axe]
     target: aoe
     power: "180, turns: 2-5 based on Boost Lv."
   - skill_category: active
+    name: "Savage Whirling Slash"
     sp_cost: 68
     skill_type: attack
     damage_types: [axe]
@@ -126,25 +133,20 @@ skills:
     damage_types: [axe]
     target: single_enemy
     power: "530"
-    effects:
-      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: mixed
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 300
+    skill_type: attack
     damage_types: [axe]
     target: single_enemy
-    power: "260"
-    effects:
-      - "**(EX)** Grant Self the effect of lowering 1 additional Shield Points when using Axe attacks that strike a weakness (turns: 3-6 based on Boost Lv./Effects of the same type do not stack)"
-      - "Grant Self Damage Limit Up (effect: 100,000, turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
+    power: "530"
   - skill_category: special
     name: "“Overflowing Rebellious Intentions”"
     skill_type: buff
     target: self
     power: "3→4"
     effects:
-      - "Raise potency of Self by **50%** (turns: **3→4**/Cannot be extended/Effects of the same type do not stack)"
+      - "Raise potency of Self by 50% (turns: **3→4**/Cannot be extended/Effects of the same type do not stack)"
 
 # Passives - parsed from markdown
 passives:
@@ -159,22 +161,28 @@ passives:
     effect: "Raise own Phys. Atk. and Axe damage of Self by 15% and increase the Axe damage limit from support skills and equipment effects to 50%. When in “Savage” state: Add 50% of P.Def to P.Atk (including equipment stats/Cannot be stacked)"
     trigger: always
   - passive_category: innate
-    effect: "Raise own Ice Res. by 20%"
+    effect: "Raise own Ice Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%"
+    effect: "**Resilience** Raise own Fire Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230)."
+    trigger: always
+  - passive_category: tp
+    effect: "When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230) and lower Axe Res. by 10% (turns: 1)."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
   name: "“Rebel’s Wristband”"
-  passive_effect: "140 P.Atk, 100 P.Def., -60 E.Atk, -40 E.Def; Grant Self Damage Limit Up (effect: 70,000); When equipped by an apothecary: Gain the ability for physical attacks (other than Attack) to exploit Polearm and Bow weakness (damage calculation based on physical attack damage type)."
+  passive_effect: "140 P.Atk, 100 P.Def., -60 E.Atk, -40 E.Def; Grant Self Damage Limit Up (effect: 70,000); When equipped by an Apothecary: Gain the ability for physical attacks (other than Attack) to exploit Polearm and Bow weakness (damage calculation based on physical attack damage type)."
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

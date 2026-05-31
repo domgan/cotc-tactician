@@ -1,0 +1,169 @@
+# Universal EX3 Turtle Team (pre-Lv75 Adversary Log)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1mjy3s6/you_cant_make_one_team_for_all_boss_fights/
+
+schema_version: "1.0"
+
+id: adversary-universal-ex3-turtle
+name: "Universal EX3 Turtle (Budget)"
+boss_id: general-difficult-content
+
+strategy_type: sustain
+investment_level: medium
+
+target_ex_rank: ex3
+survival_strategy: provoke_tank
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 15
+  ultimate_potency: 0
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: hikari
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: ["hikari-ex"]
+    substitute_notes: "Hikari EX is a stronger upgrade when available"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 2
+    character_id: signa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: ["signa-ex", "viola"]
+    substitute_notes: "Signa provides AoE debuff coverage for turtle clears"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 3
+    character_id: viola
+    role_in_team: debuffer
+    is_required: true
+    substitutes: ["viola-ex", "nephti"]
+    substitute_notes: "Viola stacks defense debuffs with Signa"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 4
+    character_id: kilns
+    role_in_team: tank
+    is_required: true
+    substitutes: ["gilderoy", "serenoa"]
+    substitute_notes: "Provoke tank; Resilient Charm accessory helps vs debuff-heavy bosses"
+    key_skills_used: []
+    accessory_requirements: ["Resilient Charm"]
+    awakening_required: 3
+
+back_line:
+  - position: 5
+    character_id: rinyuu-ex
+    role_in_team: healer
+    is_required: true
+    substitutes: ["primrose-ex", "ophilia-ex"]
+    substitute_notes: "Core healer; less effective when bosses force row swaps"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: bargello
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["richard", "lynette"]
+    substitute_notes: "Pairs with front-row dagger/wind DPS"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 7
+    character_id: richard
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["richard-ex"]
+    substitute_notes: "Weapon-type damage buffer for physical DPS"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 8
+    character_id: temenos
+    role_in_team: healer
+    is_required: true
+    substitutes: ["temenos-ex", "millard-ex"]
+    substitute_notes: "Secondary healer / HP barrier support"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+speed_order:
+  - rinyuu-ex
+  - signa
+  - viola
+  - richard
+  - bargello
+  - temenos
+  - kilns
+  - hikari
+
+speed_tuning_notes: |
+  Standard turtle pacing — debuffs and heals before DPS acts.
+  Rinyuu EX healing is disrupted when bosses force front/back row swaps.
+
+turn_plan:
+  - turn_range: "1-5"
+    phase: setup
+    actions:
+      - "Signa + Viola: Stack defense debuffs to 30% cap"
+      - "Richard + Bargello: Apply damage buffs"
+      - "Kilns: Provoke tank big hits"
+      - "Rinyuu EX + Temenos: Maintain HP through AoE patterns"
+    notes: "Slow and steady — survive before pushing break"
+
+  - turn_range: "6+"
+    phase: sustain
+    actions:
+      - "Hikari: Chip damage during break windows"
+      - "Repeat debuff/heal cycle each break cycle"
+    notes: "Average 10–15 turns; ~20 on slow AoE bosses"
+
+why_it_works: |
+  Community-reported universal turtle for nearly all EX3 up to Lv75 Adversary Log.
+  Hikari + Signa/Viola debuff stack + Kilns provoke + Rinyuu EX healing covers most
+  standard EX3 patterns without premium units. Average clear ~10–15 turns.
+
+  FAILS ON: gimmick bosses (arena refights, Lv120 NPC), forced backrow swaps,
+  ignore-taunt mechanics, sub-50% HP enrage requiring 1–2 break kills, Ri'tu
+  (element-only), B'aal Airy (needs big burst). Difficulty spike at Saint/Orsazantos EX3.
+
+key_synergies:
+  - "Signa + Viola: Stack P.DEF/E.DEF debuffs to cap"
+  - "Richard + Hikari: Physical damage buff stacking"
+  - "Rinyuu EX + Temenos: Dual-healer sustain"
+  - "Kilns provoke: Absorbs single-target while team debuffs"
+
+risks_and_recovery:
+  - "Risk: Boss forces row swap — Rinyuu EX can't heal front row"
+  - "Recovery: Swap to Cecil cover team or boss-specific comp"
+  - "Risk: Enrage below 50% HP on gimmick bosses"
+  - "Recovery: Build burst team for those specific fights"
+  - "Risk: Ignore-taunt bosses bypass Kilns"
+  - "Recovery: Switch to dodge/cover tank (Canary, Cecil, Fiore EX)"
+
+verified: false
+clear_time: "10–20 turns average"
+success_rate: "High for standard EX3 up to Lv75"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1mjy3s6/you_cant_make_one_team_for_all_boss_fights/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

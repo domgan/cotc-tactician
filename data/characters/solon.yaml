@@ -12,7 +12,10 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, polearm, tome]
+weakness_coverage:
+- fire
+- polearm
+- tome
 
 # Roles
 roles: [buffer, dps]
@@ -28,9 +31,9 @@ tank_type: none
 # Buff/Debuff categories
 buff_categories:
   ultimate:
-    - type: potency_up
-      value: 100
-      source_skill: "Ultimate"
+  - type: potency_up
+    value: 100
+    source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 3076
@@ -58,8 +61,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "A"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -177,4 +180,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

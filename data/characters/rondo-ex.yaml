@@ -12,7 +12,13 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, dark, ice, light, sword, tome]
+weakness_coverage:
+- dagger
+- dark
+- ice
+- light
+- sword
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +46,17 @@ crit_120: 316
 sp_120: 662
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Trifold Gelid Impact"
     sp_cost: 44
     skill_type: attack
     damage_types: [ice]
@@ -58,7 +64,7 @@ skills:
     hit_count: "3x"
     power: "3x75"
   - skill_category: active
-    name: "(Initial)"
+    name: "Icy Groundswell"
     sp_cost: 41
     skill_type: attack
     damage_types: [ice]
@@ -66,24 +72,30 @@ skills:
     hit_count: "2x"
     power: "2x80"
   - skill_category: active
+    name: "Enduring Bombora"
     sp_cost: 28
     skill_type: buff
     target: front_row
     power: "5%-20% of user’s Max HP based on Boost Lv./Does not stack"
     effects:
-      - "**(1★)** Grant Entire Front Row HP Barrier (potency: 5%-20% of user’s Max HP based on Boost Lv./Does not stack)"
+      - "**Enduring Bombora (1★)** Grant Entire Front Row an HP Barrier (potency: 5%-20% of user’s Max HP based on Boost Lv./Does not stack)"
   - skill_category: active
+    name: "Icy Torrent"
     sp_cost: 32
     skill_type: buff
     target: front_row
     effects:
-      - "**(2★)** Grant Entire Front Row the special effect “Icy Torrent” (turns: 2-5 based on Boost Lv.)"
+      - "**Icy Torrent (2★)** Grant Entire Front Row Icy Torrent (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
+    name: "Frozen Wipeout"
     sp_cost: 32
     skill_type: utility
     target: single_enemy
+    effects:
+      - "**Frozen Wipeout (2★)** Grant an Ice weakness to Single Foe (times: 6-9 based on Boost Lv.)"
   - skill_category: active
-    sp_cost: 61
+    name: "Clean Ripple"
+    sp_cost: 76
     skill_type: attack
     damage_types: [ice]
     target: front_row
@@ -96,47 +108,60 @@ skills:
     skill_type: utility
     target: single_enemy
   - skill_category: active
-    sp_cost: 61
+    name: "Cross Waves"
+    sp_cost: 58
     skill_type: mixed
     damage_types: [ice]
     target: single_enemy
     hit_count: "4x"
     power: "4x45"
     effects:
-      - "Ice damage to Single Foe 4 time(s) (potency: 4x45) and lower Ice Res"
+      - "Ice damage to Single Foe 4 time(s) (potency: 4x45) and lower their Ice Res"
   - skill_category: active
     name: "Lv.96 |"
     skill_type: utility
     target: single_enemy
   - skill_category: active
-    sp_cost: 83
+    name: "Crushing Riptide"
+    sp_cost: 104
     skill_type: attack
     damage_types: [ice]
     target: front_row
     hit_count: "3x"
-    power: "3x145"
+    power: "3x95"
     effects:
-      - "Ice damage to All Foes 3 time(s) (potency: 3x145) and raise damage of Entire Front Row by 15% (turns: 2)"
+      - "Ice damage to All Foes 3 time(s) (potency: 3x95) and raise Ice damage of Entire Front Row by 15% (turns: 2)"
   - skill_category: active
     name: "Lv.99 |"
     skill_type: buff
     target: single_enemy
     effects:
-      - "With “Icy Waves”: Additionally raise Elem"
+      - "With Icy Waves: Also raise their Elem"
   - skill_category: active
-    sp_cost: 84
+    name: "Glacial Inlet"
+    sp_cost: 105
     skill_type: attack
     damage_types: [ice]
     target: front_row
-    hit_count: "5x"
-    power: "5x45"
+    hit_count: "4x"
+    power: "4x45"
     effects:
-      - "Ice damage to All Foes 5 time(s) (potency: 5x45) and grant Entire Front Row HP Barrier (potency: 25% of user’s Max HP/Does not stack)"
+      - "Ice damage to All Foes 4 time(s) (potency: 4x45) and grant Entire Front Row an HP Barrier (potency: 20% of user’s max HP/Does not stack)"
   - skill_category: active
     name: "Lv.100 |"
-    skill_type: utility
+    skill_type: buff
     target: single_enemy
+    effects:
+      - "With Icy Waves: Grant an HP Barrier with a durability of 40% of user’s Max HP instead"
+    limit_break_upgrade: "Deal Elem. Ice damage to All Foes **5** time(s) (potency: **5x45**) and grant Entire Front Row an HP Barrier (potency: **25%** of user’s max HP/Does not stack)."
+  - skill_category: active
+    name: "50%"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With Icy Waves: Grant an HP Barrier with a durability of **50%** of user’s Max HP instead"
   - skill_category: tp
+    name: "Rogue Waves"
     sp_cost: 300
     skill_type: attack
     damage_types: [ice]
@@ -144,36 +169,34 @@ skills:
     hit_count: "2x"
     power: "2x265-450 based on Boost Lv."
     effects:
-      - "**** Act faster during turn"
+      - "**Rogue Waves ** Act faster during turn"
   - skill_category: ex
-    name: "(EX)"
+    name: "Roaring Waves"
     skill_type: mixed
     target: all_allies
     effects:
-      - "**(EX)** Grant All Allies Damage Limit Up (effect: 100,000/turns: 2-5 based on Boost Lv.)"
-      - "Also grant the special effect “Icy Waves” (turns: 3)"
-      - "“Icy Waves”: Raise Damage Limit of Elem"
+      - "**Roaring Waves** Raise Damage Limit of All Allies by 100,000 (turns: 2-5 based on Boost Lv.) and grant them Icy Waves (turns: 3)"
+      - "Icy Waves: Raise Damage Limit of Elem"
     notes: "Uses: 2"
   - skill_category: special
-    name: "“Straight Aerial”"
+    name: "Straight Aerial"
     skill_type: mixed
     damage_types: [ice]
     target: aoe
     hit_count: "2x"
     effects:
       - "Act faster during turn"
-      - "Raise Damage Limit of this Ultimate Technique by **10,000→50,000→100,000**"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "“Attack” action becomes Elem. Ice damage. Start of battle: Grant All Allies the special effect “Icy Waves” (turns: 3)."
+    effect: "“Attack” action becomes Elem. Ice damage. Start of battle: Grant Icy Waves to All Allies (turns: 3/Granted as a battle skill)."
     trigger: battle_start
   - passive_category: innate
-    effect: "Grant allies in front row with HP Barrier the special effect “Ice Raging Waves”."
+    effect: "Grant Raging Waves to any front row ally that has an HP Barrier."
     trigger: always
   - passive_category: innate
-    effect: "When allies in front row exploit enemy weakness: Grant them a follow-up effect (*Triggers once regardless the number of attacks). Follow-up effect: Inflict Ice weakening (times: 2). In addition, if target is affected by “Icy Waves”, deal Elem. Ice damage to All Foes (potency: 100)."
+    effect: "Grant allies in front row who exploit enemy weaknesses the ability to activate a follow-up effect (*Triggers once regardless the number of attacks). Follow-up effect: Grant All Foes an Ice weakness (times: 2) and, if that ally has Icy Waves, subsequently deal Elem. Ice damage to All Foes (potency: 100)."
     trigger: always
   - passive_category: innate
     effect: "Raise own Fire Res. by 20%."
@@ -182,16 +205,16 @@ passives:
     effect: "**Resilience** Raise own Ice Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Increase the damage multiplier of critical hits of Entire Front Row to 1.6 (instead of 1.25). When the target is at full HP additionally grant the ability to trigger critical hits with elemental attacks."
+    effect: "Raise the damage multiplier of critical hits of Entire Front Row’s Elem. Ice attacks (1.25→1.6) and, if they are at full HP, grant them Storm Surge."
     trigger: hp_condition
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Surfboard Shield”"
-  passive_effect: "140 E.Atk; Raise Ice damage by 30% and raise the Ice damage limit from support skills and equipment to 60%"
+  name: "Surfboard Shield"
+  passive_effect: "140 E.Atk; Raise Ice damage by 30%; Raise the limit of Ice damage augments from support skills and equipment effects to 60%"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

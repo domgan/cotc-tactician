@@ -1,0 +1,158 @@
+# Character: Phenn
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: phenn
+display_name: "Phenn"
+rarity: 5
+
+# Core attributes
+job: hunter
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- axe
+- bow
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: -820
+p_atk: -65
+p_def: -50
+e_atk: -50
+e_def: -20
+speed: -50
+crit: -65
+sp: -80
+
+# Stats (Lv 120 after Limit Break)
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "150"
+  - skill_category: active
+    name: "(Initial)"
+    skill_type: heal
+    target: front_row
+    power: "130"
+    effects:
+      - "**(Initial)** Restore HP of Entire Front Row (potency: 130)"
+      - "also grant them an HP Barrier (amount: 25% of user’s max HP/Does not stack)"
+  - skill_category: active
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**(1★)** Lower Phys"
+  - skill_category: active
+    skill_type: attack
+    damage_types: [bow]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x5"
+  - skill_category: active
+    skill_type: attack
+    damage_types: [bow, axe]
+    target: aoe
+    hit_count: "2x"
+    power: "2x240"
+  - skill_category: active
+    skill_type: utility
+    target: front_row
+    effects:
+      - "**(3★)** Grant Single Foe a Bow weakness (times: 6/7/8/9) and raise the limit of Bow damage augments of Entire Front Row to 50% (turns: 2/3/4/5)"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "Granted Bow Weakness: Regardless of the source"
+  - skill_category: active
+    skill_type: utility
+    target: front_row
+    effects:
+      - "**(4★)** Act faster during turn"
+      - "lower received damage by 20%/30%/40%/60% (turns: 1/2/3/4/Turn count overwritten) and take damage for single-target attack in place of allies in the front row"
+  - skill_category: active
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(5★)** Raise Phys"
+      - "Atk of Entire Front Row by 20% and raise their Sword"
+  - skill_category: active
+    skill_type: attack
+    damage_types: [bow, axe]
+    target: single_enemy
+    power: "205"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: buff
+    target: single_enemy
+    effects:
+      - "With 9+ “Heart of Resilience” Points when selecting the command: Also grant a Bow weakness (times: 3)"
+  - skill_category: tp
+    skill_type: mixed
+    damage_types: [bow]
+    target: aoe
+    hit_count: "5x"
+    power: "5x65"
+    effects:
+      - "lower their Bow Res"
+  - skill_category: special
+    name: "“Name”"
+    skill_type: attack
+    damage_types: [bow]
+    target: aoe
+    power: "2→3"
+    effects:
+      - "Act faster during turn"
+      - "raise the potency of all Warriors"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain the ability to trigger a follow-up effect when an ally in Entire Front Row when when using Phys. Sword, Axe, Bow and Staff attacks. Follow-up effect: Gain 3 “Heart of Resilience” Points and an HP Barrier (amount: 20% of user’s max HP/Does not stack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Apply effects on All Foes based on own “Heart of Resilience” Points. ·3+: Lower their Phys. Atk. and Phys. Def. by 20%. ·6+: Also lower their Sword, Axe, Bow and Staff Res. by 20%. ·9+: Raise the limit of their Phys. Def. reductions from support skills and equipment effects to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "With an HP Barrier: Raise Phys. Atk. and Phys. Def. of Entire Front Row by 10%, their Damage Limit by 50,000 and gain the ability to counter physical attacks. Counter: Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x50). Exploits Axe weakness (damage calculation based on Phys. Bow attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own ??? Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own ??? Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "With an HP Barrier: Raise Phys. Atk. and Phys. Def. of Self by 20% and Damage Limit by 100,000 and receive 1.5x greater Potency and Damage Limit augments (Does not stack with effects of the same type)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Name”"
+  passive_effect: "40 P.Atk, 1000 HP; Raise Damage Limit by 50,000; Start of battle: Gain an HP Barrier (amount: 50% of wearer’s max HP)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

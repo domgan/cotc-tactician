@@ -221,6 +221,7 @@ class DataConfidence(str, Enum):
     THEORETICAL = "theoretical"
     INCOMPLETE = "incomplete"
     COMPLETE = "complete"
+    COMMUNITY_UNVERIFIED = "community_unverified"
 
 
 class SynergyType(str, Enum):

@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, lightning]
+weakness_coverage:
+- bow
+- lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,13 +42,13 @@ crit_120: 309
 sp_120: 459
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "D (4.99 - 4.00)"
-jp_tier: "D"
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -132,20 +134,23 @@ skills:
     power: "4x65"
     limit_break_upgrade: "Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x65). Exploits Lightning weakness (damage calculation based on Phys. Bow attack). Attack count becomes **7** at Max Boost."
   - skill_category: tp
-    sp_cost: 101
-    skill_type: mixed
-    damage_types: [bow, lightning]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-    effects:
-      - "Bow damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.) and have a moderate chance to lower Bow and Lightning Res"
-  - skill_category: ex
-    name: "(EX)"
+    name: "Thundering Arrows"
     skill_type: attack
     damage_types: [bow, lightning]
     target: single_enemy
-    hit_count: "3x"
-    power: "3x110"
+    hit_count: "5x"
+    power: "5x30"
+  - skill_category: tp
+    name: "Thundering Arrows Lv.2"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: ex
+    name: "Lightning Flurry"
+    skill_type: attack
+    damage_types: [bow, lightning]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x110"
     effects:
       - "Guaranteed critical hits"
     notes: "Uses: 2"
@@ -162,7 +167,7 @@ passives:
     effect: "When in front row: Grant Entire Front Row automatic HP recovery (potency: 30)."
     trigger: always
   - passive_category: innate
-    effect: "Raise Crit. of Paired Allies by 15% and critical damage by 15%."
+    effect: "Raise Phys. Atk., Critical, Bow damage and critical damage of Paired Allies by 15%."
     trigger: always
   - passive_category: innate
     effect: "Raise own Wind Res. by 20%."
@@ -171,7 +176,10 @@ passives:
     effect: "Raise own Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Raise Phys. Atk. and Bow damage of Self by 15%."
+    effect: "When breaking an enemy, restore 2 BP of All Allies."
+    trigger: on_break
+  - passive_category: tp
+    effect: "(Enhancement is applied on an adjusted skill with respect to JP)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
@@ -183,4 +191,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -19,87 +19,28 @@ role information must still be added manually from other sources.
 
 import argparse
 import csv
-import re
+import sys
 from datetime import date
 from pathlib import Path
 
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
 
-def parse_rarity(class_field: str) -> int:
-    """Parse rarity from star emoji field."""
-    star_count = class_field.count("⭐️")
-    if star_count == 0:
-        # Fallback: count any star-like characters
-        star_count = len(class_field) // 2 if class_field else 5
-    return max(3, min(5, star_count))
-
-
-def parse_weakness_coverage(weakness_str: str) -> list[str]:
-    """Parse 'Weakness to hit' field into normalized list."""
-    if not weakness_str:
-        return []
-
-    # Normalize weapon/element names
-    name_map = {
-        "polearm": "polearm",
-        "spear": "polearm",  # Alias
-        "lightning": "lightning",
-        "thunder": "lightning",  # Alias
-    }
-
-    items = [w.strip().lower() for w in weakness_str.split(",")]
-    normalized = []
-    for item in items:
-        normalized.append(name_map.get(item, item))
-
-    return normalized
-
-
-def parse_influence(influence_str: str) -> str:
-    """Parse influence field."""
-    if not influence_str:
-        return ""
-    return influence_str.strip().lower()
-
-
-def parse_job(job_str: str) -> str:
-    """Parse job field."""
-    if not job_str:
-        return ""
-    return job_str.strip().lower()
-
-
-def create_character_id(name: str) -> str:
-    """Create a safe ID from character name."""
-    # Replace spaces and special chars with hyphens
-    id_str = name.lower()
-    id_str = re.sub(r"[''`]", "", id_str)  # Remove apostrophes
-    id_str = re.sub(r"[^a-z0-9]+", "-", id_str)  # Replace non-alphanumeric
-    id_str = re.sub(r"-+", "-", id_str)  # Collapse multiple hyphens
-    id_str = id_str.strip("-")
-    return id_str
-
-
-def parse_int_or_none(value: str) -> int | None:
-    """Parse integer, returning None for empty/invalid."""
-    if not value:
-        return None
-    try:
-        return int(value)
-    except ValueError:
-        return None
-
-
-def bool_from_availability(value: str) -> bool:
-    """Check if a feature is available in GL from status string."""
-    if not value:
-        return False
-    return "available in gl" in value.lower()
+from _character_ids import find_default_character_csv, resolve_character_id  # noqa: E402
+from _csv_row import (  # noqa: E402
+    bool_from_availability,
+    parse_influence,
+    parse_int_or_none,
+    parse_job,
+    parse_rarity,
+    parse_weakness_coverage,
+)
 
 
 def generate_yaml(row: dict) -> str:
     """Generate YAML content for a character row."""
 
-    char_id = create_character_id(row["Name"])
+    char_id = resolve_character_id(row["Name"])
     display_name = row["Name"]
     rarity = parse_rarity(row.get("Class", ""))
     job = parse_job(row.get("Job", ""))
@@ -256,12 +197,14 @@ def main():
 
     # Paths
     project_root = Path(__file__).parent.parent
-    csv_path = project_root / "resources" / "Character List all.csv"
+    csv_path = find_default_character_csv(project_root)
     output_dir = project_root / "data" / "characters"
 
-    if not csv_path.exists():
+    if csv_path is None or not csv_path.exists():
         print(f"ERROR: CSV file not found: {csv_path}")
         return 1
+
+    print(f"Using CSV: {csv_path}")
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -285,7 +228,7 @@ def main():
         if not name:
             continue
 
-        char_id = create_character_id(name)
+        char_id = resolve_character_id(name)
         output_path = output_dir / f"{char_id}.yaml"
 
         if output_path.exists() and not args.overwrite:

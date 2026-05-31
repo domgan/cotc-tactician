@@ -12,7 +12,16 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, dagger, fan, lightning, polearm, staff, sword, tome]
+weakness_coverage:
+- axe
+- bow
+- dagger
+- fan
+- lightning
+- polearm
+- staff
+- sword
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["breaker", "dps"]
@@ -45,7 +54,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -134,6 +143,15 @@ skills:
     power: "4x70"
     effects:
       - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Premeditation Lv.2"
+    sp_cost: 95
+    skill_type: mixed
+    damage_types: [dagger]
+    target: back_row
+    power: "**5x70**"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
   - skill_category: ex
     name: "Phantom Fang"
     skill_type: attack
@@ -167,6 +185,12 @@ passives:
   - passive_category: tp
     effect: "When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack)."
     trigger: always
+  - passive_category: tp
+    effect: "When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack) and raise Dagger damage of Entire Front Row by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -176,8 +200,8 @@ a4_accessory:
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -185,47 +209,48 @@ usage_strategy: |
   - Back-row shield breaker with all physical weakness exploitation
   - "Better Sarisa" but struggles to justify usage with dedicated breakers
   - Received global buffs but kit was overall worse than EX Ditraina
-  
+
   KEY ABILITIES:
   - Random target attacks: Break dagger/lightning weaknesses
   - Back-row passive: +1 dagger attack to allies, reduces shields
   - Third passive: All physical weakness exploitation when enemy broken
   - Can break 2 shields per turn from back row after activation
   - Can break 5 shields at max boost
-  
+
   USAGE STRATEGY:
   - Operates from back row for support benefits
   - SP regen and damage reduction for front row
   - Follow-up dagger attacks when front row allies attack
   - Best as offset shield breaker
-  
+
   COMPARISONS:
   vs Sarisa:
   - Better version with more utility
   - Still very much a "glorified Sarisa"
-  
+
   vs Kainé/Tiziano:
   - Not needed if you have this combo
   - Competes for dagger weakness counters that Kainé needs
   - Better to bring another support
-  
+
   vs Dedicated Breakers (Sarisa/others):
   - Difficult to justify if you already have dedicated breaker
   - General all-around breakers fall off to power creep
-  
+
   A4 ACCESSORY:
   - 60 P.Atk, 80 Crit, 20k damage cap up for front row
   - 10% dagger resist down
   - Not worth it if you already have Hikari's or Neith's A4
   - Skip unless specifically need dagger resist down
-  
+
   LONGEVITY:
   - General breakers good for new players but fall off quickly
   - Power creep will make her less relevant
   - 2.75/5 longevity rating
-  
+
   RECOMMENDATION:
   - Skip for most players
   - Continue saving rubies for travelers who truly matter
   - 2.75/5 overall rating
   - Nice to have waifu but not must-have
+gl_tier: S (9.49 - 8.50)

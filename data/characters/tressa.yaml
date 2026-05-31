@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [polearm, wind]
+weakness_coverage:
+- polearm
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +47,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "C (5.99 - 5.00)"
-jp_tier: "C"
+gl_tier: "D (4.99 - 4.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -130,6 +132,16 @@ skills:
     power: "4x45"
     effects:
       - "**Summon Tornado ** Act faster during turn and deal Elem"
+  - skill_category: tp
+    name: "Summon Tornado Lv.2"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "**Summon Tornado Lv.2** Act faster during turn and deal Elem"
   - skill_category: ex
     name: "Emergency Evasion Command (EX)"
     skill_type: buff
@@ -160,6 +172,12 @@ passives:
   - passive_category: tp
     effect: "Grant Self a 50% chance of dodging some physical attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
     trigger: always
+  - passive_category: tp
+    effect: "Grant Self a 50% chance of dodging some physical attacks and restore own HP (potency: 90) and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Polearm and Elem. Wind attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -170,4 +188,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

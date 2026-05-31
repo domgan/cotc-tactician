@@ -12,7 +12,13 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, dagger, dark, fire, lightning, sword]
+weakness_coverage:
+- bow
+- dagger
+- dark
+- fire
+- lightning
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps"]
@@ -45,8 +51,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "S+"
+gl_tier: "S+ (10.00 - 9.50)"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -127,6 +133,16 @@ skills:
     power: "230"
     effects:
       - "**Barrier of the Absolute ** Grant Self the ability to completely block some attacks (turns: 2) and counter with Phys"
+  - skill_category: tp
+    name: "Barrier of the Absolute Lv.2"
+    sp_cost: 55
+    skill_type: mixed
+    damage_types: [sword]
+    target: self
+    power: "**290**"
+    effects:
+      - "**Barrier of the Absolute Lv.2** Act faster during turn and grant Self the ability to completely block some attacks (turns: 2) and counter with Phys"
+      - "At Max Boost: Raise BP recovery by 3 (turns: 2)"
   - skill_category: ex
     name: "Tyrant’s Decree"
     skill_type: buff
@@ -159,6 +175,12 @@ passives:
   - passive_category: tp
     effect: "Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%."
     trigger: always
+  - passive_category: tp
+    effect: "Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%. Gain immunity to Terror, Enchant, Dread, Charm and Cannot Switch. With Dead Aim (guaranteed critical hits): Raise Damage Limit by 300,000."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -168,8 +190,8 @@ a4_accessory:
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -179,43 +201,43 @@ usage_strategy: |
   - Exploits swords, fire, lightning, dark weaknesses
   - Entire kit revolves around ultimate for double casting
   - Potentially stronger than Kainé
-  
+
   KEY ABILITIES:
   - 2-hit single target sword attack (250% potency up after consuming BP from allies)
   - 1-hit AoE sword attack (consumes 50 SP from front row, becomes 3-hit)
   - Nuke: 1-hit single target (530 potency, 100k/300k damage cap up on broken enemies)
   - EX skill: Dead aim + dagger/bow exploitation + 100k damage cap up (3-6 turns)
-  
+
   ULTIMATE MECHANICS:
   - Level 1-10: Damages front row 30% max HP, restores 100% HP + 50-100% SP
   - Level 10+: Double cast for 4 turns
   - 200% ultimate: Ally behind can act
   - Get ultimate to level 20, activate, then go ham
-  
+
   PASSIVES:
   - All attacks become sword physical exploiting fire/lightning/dark
   - Full HP: 30% physical attack/sword damage up + 100k damage cap up
   - 200% potency up when consuming 3+ BP (goes last)
   - 50% physical attack cap up from passive/active skills
-  
+
   EX SKILL UTILITY:
   - Useful for hitting dagger/bow weaknesses when Kainé doesn't show up
   - Can exploit Tiziano's dagger implants
   - Dead aim + additional damage cap up
-  
+
   A4 ACCESSORY:
   - 250 P.Atk (highest ever seen) with -40 defenses and -30 speed
   - 100k damage cap up when in front row
   - AoE 10% sword resist down
   - Essentially better Barello A4 accessory
   - Worth getting to A4 for the insane stats
-  
+
   LONGEVITY:
   - Here to stay, lifespan almost as good as Kainé's
   - Sword meta slowly making its way back
   - Next huge DPS will be another swordsman
   - 4.5/5 longevity rating
-  
+
   RECOMMENDATION:
   - If you missed Kainé/Tiziano meta, definitely pull for him
   - Next DPS meta we're moving into

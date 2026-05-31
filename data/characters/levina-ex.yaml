@@ -1,0 +1,175 @@
+# Character: Levina EX
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: levina-ex
+display_name: "Levina EX"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dagger
+- fan
+- lightning
+- tome
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2957
+p_atk: 456
+p_def: 291
+e_atk: 212
+e_def: 261
+speed: 295
+crit: 315
+sp: 492
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3777
+p_atk_120: 506
+p_def_120: 341
+e_atk_120: 277
+e_def_120: 311
+speed_120: 360
+crit_120: 350
+sp_120: 562
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Alluring Dance"
+    sp_cost: 16
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**Alluring Dance** Lower Fan Res"
+  - skill_category: active
+    name: "Deceptive Tactics"
+    sp_cost: 40
+    skill_type: buff
+    damage_types: [dagger]
+    target: self
+    effects:
+      - "**Deceptive Tactics** Raise Damage Limit of Self by 50,000 and gain the ability to exploit Dagger weakness with some physical attacks (turns: 6)"
+  - skill_category: active
+    name: "Summon: Pierro Della"
+    sp_cost: 58
+    skill_type: mixed
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45/4x55/4x65/4x90"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Graceful Serenade"
+    sp_cost: 72
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    hit_count: "3x"
+    power: "3x60/turns: 2/3/4/5 based on Boost Lv."
+    effects:
+      - "gain 1 Seduction Point and have a 50% chance to lower Phys"
+    limit_break_upgrade: "At the end of every turn, deal Phys. Fan damage to All Foes 3 time(s) (potency: 3x60/turns: 2/3/4/5 based on Boost Lv.), gain 1 Seduction Point and lower Phys. Def. of All Foes by 20% (turns: 2)."
+  - skill_category: active
+    name: "Masterful Bondage"
+    sp_cost: 40
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "**Masterful Bondage (2★)** Act faster during turn to place a Single Foe in a Leghold Trap (turns: 2/3/4/5 based on Boost Lv.)"
+  - skill_category: active
+    name: "Dance of Deimse"
+    sp_cost: 56
+    skill_type: mixed
+    damage_types: [fan]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x55/5x65/5x80/5x100"
+    effects:
+      - "With 9 Seduction Points: Consume 3 points to lower their Phys"
+  - skill_category: active
+    name: "Chaotic Dance"
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "35/45/55/70"
+  - skill_category: active
+    name: "Absorptive Step"
+    sp_cost: 55
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    power: "210/235/275/340"
+  - skill_category: active
+    name: "Captivating Charm"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [fan]
+    target: single_enemy
+    power: "630/660/800/1000"
+  - skill_category: tp
+    name: "Chaotic Dance"
+    sp_cost: 78
+    skill_type: attack
+    damage_types: [fan]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45/4x55/4x65/4x90"
+  - skill_category: special
+    name: "Ventaglio Letale"
+    skill_type: mixed
+    damage_types: [fan]
+    target: aoe
+    hit_count: "4x"
+    power: "2→3→4"
+    effects:
+      - "lower their Phys"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain 1 Seduction Point after using a battle skill and have a moderate chance to Enchant a random foe (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "Weaken All Foes according to your current Seduction Points: ·2+: Lower their Fan Res. by 15%. ·4+: Lower their Phys. Def. by 15%. ·6+: Raise their battle skill Phys. Def. reduction limit to 50%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When consuming 3 BP, raise Phys. Atk. by 15%, gain Dead Aim (guaranteed critical hits) and gain 1 additional Seduction Point if using a battle skill."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Eastern Shawl"
+  passive_effect: "70 P.Atk, 70 SP; Extend the duration of enfeebling effects inflicted by the equipping character by 1 turn (Does not stack); Raise BP recovery by 1 after using 3 BP to use a skill (turns: 1)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, sword]
+weakness_coverage:
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps"]
@@ -24,18 +26,18 @@ usage_strategy: |
   Rondo is a memory traveler warrior focused on light damage with piercing mechanics. His abilities deal extra piercing damage to light-weak enemies, and his ultimate provides BP recovery for 4 turns. At max boost, his 3-hit AOE becomes 5 hits, and his nuke always criticals. He's more suited for battles against groups of enemies.
 
 best_use_cases:
-  - "Light-focused teams needing strong warrior damage"
-  - "Content where enemies are weak to light for piercing damage bonus"
-  - "Battles against multiple enemies where his AOE shines"
-  - "Teams needing BP recovery support from his ultimate"
-  - "Players wanting a better version of Lars with light coverage"
+- "Light-focused teams needing strong warrior damage"
+- "Content where enemies are weak to light for piercing damage bonus"
+- "Battles against multiple enemies where his AOE shines"
+- "Teams needing BP recovery support from his ultimate"
+- "Players wanting a better version of Lars with light coverage"
 
 weaknesses:
-  - "Limited to swords and light - not much versatility beyond that"
-  - "Warriors are the most abundant job class in the game"
-  - "Better light warriors coming soon (Long Jody mentioned)"
-  - "Stats otherwise not impressive beyond attack power"
-  - "Memory traveler status means limited availability"
+- "Limited to swords and light - not much versatility beyond that"
+- "Warriors are the most abundant job class in the game"
+- "Better light warriors coming soon (Long Jody mentioned)"
+- "Stats otherwise not impressive beyond attack power"
+- "Memory traveler status means limited availability"
 
 # Stats (base level)
 hp: 3212
@@ -63,8 +65,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "C"
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -159,7 +161,6 @@ skills:
     power: "500→600→750"
     effects:
       - "Grant Self Sacred Flame’s blessing (turns: 4)"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
 
 # Passives - parsed from markdown
 passives:
@@ -184,11 +185,10 @@ passives:
 # A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Crest of Ravus"
-  passive_effect: "110 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack); 80 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack)"
-  notes: "Excellent accessory that enhances sword damage and provides BP recovery boost"
+  passive_effect: "110 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3). (Does not stack); 80 P.Atk, 30 E.Def, 30 SP; Raise Sword damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3) (Does not stack)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: Octopath COTC Rondo Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting his piercing damage to light mechanics and BP recovery capabilities"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

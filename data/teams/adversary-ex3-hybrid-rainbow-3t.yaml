@@ -1,0 +1,168 @@
+# Hybrid Rainbow 3-Turn EX3 Clear
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1sr2w6v/a_hybrid_rainbow_team_to_beat_most_ex3s_in_3t/
+# Specs: https://imgur.com/a/2ub6nJ2
+
+schema_version: "1.0"
+
+id: adversary-ex3-hybrid-rainbow-3t
+name: "Hybrid Rainbow 3T EX3 (Budget-ish)"
+boss_id: general-difficult-content
+
+strategy_type: speed_clear
+investment_level: medium
+
+target_ex_rank: ex3
+survival_strategy: dodge_tank
+minimum_hp_recommended: 3000
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 20
+  ultimate_potency: 120
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: xerc
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Without Xerc use physical fallback DK/Pardis/Odio O/Kaine + Mydia + Molrusso/DP"
+    key_skills_used: []
+    accessory_requirements: ["Lv120 magic orb"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: osvald-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["osvald"]
+    substitute_notes: "FUA 3 elements at 260 potency each"
+    key_skills_used: []
+    accessory_requirements: ["Blade of eternal flaw"]
+    awakening_required: 4
+
+  - position: 3
+    character_id: hikari-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["lemaire"]
+    substitute_notes: "Community alt: Lemaire instead of Hikari EX"
+    key_skills_used: []
+    accessory_requirements: ["Hasumi A4"]
+    awakening_required: 4
+
+  - position: 4
+    character_id: dark-priestess
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["molrusso-ex"]
+    substitute_notes: "Weakness exploitation for rainbow hits; craft weapons per enemy"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+back_line:
+  - position: 5
+    character_id: isla
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["frederica"]
+    substitute_notes: "Scholar for Xerc EX skill; Signa A4 accessory on Isla per guide"
+    key_skills_used: []
+    accessory_requirements: ["Varkyn A4", "Signa A4"]
+    awakening_required: 3
+
+  - position: 6
+    character_id: crick
+    role_in_team: buffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core support enabler for Hikari EX damage"
+    key_skills_used: []
+    accessory_requirements: ["Kertz A4"]
+    awakening_required: 3
+
+  - position: 7
+    character_id: lemaire
+    role_in_team: secondary_dps
+    is_required: false
+    substitutes: ["lynette-ex"]
+    substitute_notes: "Rainbow damage dealer slot"
+    key_skills_used: []
+    accessory_requirements: ["E.atk accessories for DPS"]
+    awakening_required: 3
+
+  - position: 8
+    character_id: shana
+    role_in_team: utility
+    is_required: true
+    substitutes: ["rinyuu-ex"]
+    substitute_notes: "SP/BP + Unsinkable for burst windows; regen between turns"
+    key_skills_used: []
+    accessory_requirements: ["HP/evasion or magic res down on start (Heinz/Paula/Kenneth A4 free)"]
+    awakening_required: 3
+
+speed_order:
+  - crick
+  - shana
+  - isla
+  - dark-priestess
+  - osvald-ex
+  - lemaire
+  - hikari-ex
+  - xerc
+
+speed_tuning_notes: |
+  Shields don't matter — burst on T3. Craft weapons per enemy weakness.
+  Xerc AU + 3BP pet enables 200% ult T1; without AU delay burst 1 turn.
+
+turn_plan:
+  - turn_range: "1-2"
+    phase: setup
+    actions:
+      - "Isla + Crick: Enable Hikari EX / Xerc damage setup"
+      - "Dark Priestess: Weakness exploitation window"
+      - "Osvald EX: Potency ult (apply 1 turn before burst if 3T window)"
+      - "Shana: SP/BP or Unsinkable if needed"
+    notes: "Setup buffs before T3 burst"
+
+  - turn_range: "3"
+    phase: burst
+    actions:
+      - "Xerc + Osvald EX + Hikari EX: Full rainbow burst"
+      - "Lemaire: Rainbow damage contribution"
+    notes: "Clears most EX3 including Saint Sazantos per author"
+
+why_it_works: |
+  Budget-ish hybrid rainbow using Hikari EX + Crick instead of full premium rainbow core.
+  Xerc FUA + Osvald EX FUA carry damage; DP enables weakness hits on crafted weapons.
+  Clears most EX3 in 3 turns when shields are irrelevant to strategy.
+
+  Exceptions: Kagemune EX3 (hard stop), Kaine EX3 and Lutiya EX3 (need tweaks).
+
+key_synergies:
+  - "Crick + Hikari EX: Hybrid damage enablement"
+  - "Xerc + Isla: Scholar EX skill + elem atk passives"
+  - "Dark Priestess + crafted weapons: Weakness coverage"
+  - "Osvald EX + Xerc: Multi-element FUA chain"
+
+risks_and_recovery:
+  - "Risk: Kagemune EX3 clone/dodge mechanics"
+  - "Recovery: Use dedicated Kagemune team (ST only, turtle, or Rondo EX 3T whale)"
+  - "Risk: Missing Xerc"
+  - "Recovery: DK/Pardis/Odio O/Kaine + Mydia + Molrusso/DP physical fallback"
+  - "Risk: Missing Signa A4 on Isla"
+  - "Recovery: Lose one Crick debuff — still enough for most EX3"
+
+verified: false
+clear_time: "3 turns"
+success_rate: "High for most EX3 (not Kagemune)"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1sr2w6v/a_hybrid_rainbow_team_to_beat_most_ex3s_in_3t/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

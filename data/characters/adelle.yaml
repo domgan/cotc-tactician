@@ -12,7 +12,9 @@ influence: wealth
 origin: "Excillant (BRAVELY DEFAULT II)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, light]
+weakness_coverage:
+- dagger
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "D (4.99 - 4.00)"
-jp_tier: "D"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -57,7 +59,7 @@ skills:
     damage_types: [dagger]
     target: single_enemy
     hit_count: "2x"
-    power: "2x90"
+    power: "2x90/2x105/2x125/2x180"
   - skill_category: active
     name: "Banish (Single)"
     sp_cost: 28
@@ -65,14 +67,14 @@ skills:
     damage_types: [light]
     target: single_enemy
     hit_count: "2x"
-    power: "2x90"
+    power: "2x90/2x105/2x125/2x180"
   - skill_category: active
     name: "Shield Burst"
     sp_cost: 24
     skill_type: mixed
     damage_types: [dagger]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
@@ -81,7 +83,7 @@ skills:
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
   - skill_category: active
     name: "Dream Within a Dream"
     sp_cost: 46
@@ -89,38 +91,38 @@ skills:
     damage_types: [dagger]
     target: single_enemy
     hit_count: "3x"
-    power: "3x65"
+    power: "3x65/3x75/3x90/3x120"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
     name: "Utsusemi"
-    sp_cost: 50
+    sp_cost: 40
     skill_type: buff
     target: self
     effects:
-      - "**Utsusemi** **(3★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) [50 SP] **Lv.88 |** SP Saver: 50→40"
+      - "**Utsusemi** **(3★)** Grant Self the ability to dodge physical attacks (times: 1/2/3/4) [40 SP] **Lv.88 |** SP Saver: 50→40"
   - skill_category: active
     name: "Banish (All)"
-    sp_cost: 37
+    sp_cost: 30
     skill_type: attack
     damage_types: [light]
     target: aoe
     hit_count: "2x"
-    power: "2x80"
+    power: "2x80/2x95/2x115/2x130"
   - skill_category: active
     name: "Venomous Pain"
-    sp_cost: 32
+    sp_cost: 26
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
   - skill_category: active
     name: "Afterimage"
-    sp_cost: 48
+    sp_cost: 38
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "260"
+    power: "260/290/340/450"
     effects:
       - "Guaranteed critical hit at Max Boost"
   - skill_category: active
@@ -129,30 +131,23 @@ skills:
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "260"
+    power: "260/290/340/450"
     effects:
       - "Guaranteed critical hit at Max Boost"
   - skill_category: tp
-    name: "Swift Instant Strike"
+    name: "Godspeed Strike"
     sp_cost: 58
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
     hit_count: "5x"
-    power: "5x35"
-  - skill_category: ex
-    name: "Thousand-Handed Sand Lily"
-    skill_type: buff
-    target: self
-    effects:
-      - "**Thousand-Handed Sand Lily** Grant Self an effect that activates attack skills twice (turns: 3/Duration cannot be extended/Additional activations will not consume SP) and raise Dagger damage of Self by 30% (turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 2"
+    power: "5x35/5x45/5x55/5x80"
   - skill_category: special
     name: "Phantasmic Dance"
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "500→600"
+    power: "500→600→750"
     effects:
       - "Guaranteed critical hit"
 
@@ -183,4 +178,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

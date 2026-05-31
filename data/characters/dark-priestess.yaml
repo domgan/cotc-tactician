@@ -12,7 +12,8 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark]
+weakness_coverage:
+- dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer", "debuffer"]
@@ -45,7 +46,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -125,6 +126,13 @@ skills:
     target: single_ally
     effects:
       - "**Darkshield ** Act faster during turn and grant Single Ally the effect Darkshield (turns: 1/Does not stack with effects of the same type)"
+  - skill_category: tp
+    name: "Darkshield Lv.2"
+    sp_cost: 38
+    skill_type: buff
+    target: single_ally
+    effects:
+      - "**Darkshield Lv.2** Act faster during turn and grant Single Ally an HP Barrier (amount: 20% of user’s max HP) and the effect Darkshield (turns: 1/Does not stack with effects of the same type)"
   - skill_category: ex
     name: "Cursed Burial: Finale"
     skill_type: buff
@@ -169,6 +177,24 @@ passives:
   - passive_category: innate
     effect: "Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks."
     trigger: always
+  - passive_category: tp
+    effect: "Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following: ---"
+    trigger: always
+  - passive_category: innate
+    effect: "**3**"
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Dark attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -178,8 +204,8 @@ a4_accessory:
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -187,29 +213,30 @@ usage_strategy: |
   - Support for physical attackers, especially warriors
   - Grants all elemental exploits with ultimate technique
   - Enables old physical travelers to break elemental shields
-  
+
   KEY SYNERGIES:
   - Dark Knight: Death sentence passive triggers DK's Cursed Puppet mechanic
   - Essential for DK users to maximize damage potential
   - Works well with any physical DPS team
-  
+
   NOTABLE ABILITIES:
   - Ultimate: 15-35% auto-revive + all allies exploit all elemental weaknesses
   - EX Skill: Auto-revive 25-100% + Fatal Sentence (3-turn countdown) + Necromancy
   - Support Skills: Fire/Ice/Lightning exploits, 15% resist reduction, 50% defense reduction cap
   - First character to lower active defense beyond 30% cap (up to 50%)
-  
+
   COMPARISON:
   - Better than original Signa with improved skills
   - Makes physical travelers "fantastic or OP"
   - Will be power crept by future support travelers but currently top-tier
-  
+
   BUILD RECOMMENDATIONS:
   - Ultimate Awakening is sufficient for most players
   - A4 accessory provides valuable 10% elemental resist down
   - Best left at Ultimate Awakening for F2P players
-  
+
   LONGEVITY:
   - First traveler with all-element exploit support
   - Future travelers will do this better but she'll remain relevant
   - 4.3/5 longevity rating
+gl_tier: S (9.49 - 8.50)

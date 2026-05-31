@@ -12,7 +12,15 @@ influence: approval
 origin: "World of Balance (Final Fantasy VI)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, dark, fan, fire, ice, light, lightning, wind]
+weakness_coverage:
+- dagger
+- dark
+- fan
+- fire
+- ice
+- light
+- lightning
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +53,7 @@ has_limit_break: false
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
@@ -201,4 +209,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

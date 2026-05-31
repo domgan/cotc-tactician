@@ -12,7 +12,14 @@ influence: opulence
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, light, lightning, polearm, sword, wind]
+weakness_coverage:
+- axe
+- bow
+- light
+- lightning
+- polearm
+- sword
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["breaker", "dps"]
@@ -24,16 +31,16 @@ usage_strategy: |
   Ochette is in same boat as Partio - best hunter currently but will be outclassed. Her buffs are nice but more like sprinkles on top. Double cast passive only lasts 2 turns and she becomes designated enemy breaker, meaning you need to equip her with accessories that give enemy debuffs upon breaks. Six-hit random target bow attack is highest guaranteed bow attacks we've seen.
 
 best_use_cases:
-  - "Bow weakness breaking with high hit counts"
-  - "Teams needing Leghold Trap to delay enemy turns"
-  - "Bow-only compositions where she shines"
-  - "New players who need good hunter early on"
+- "Bow weakness breaking with high hit counts"
+- "Teams needing Leghold Trap to delay enemy turns"
+- "Bow-only compositions where she shines"
+- "New players who need good hunter early on"
 
 weaknesses:
-  - "Limited to bow attacks for main effectiveness"
-  - "Will be outclassed by future hunters (like Agnea with 6-star awakening)"
-  - "Animal companion abilities (Akala/Mahina) rather useless for experienced players"
-  - "Ultimate is only 5-hit AOE bow attack - no better than normal skill"
+- "Limited to bow attacks for main effectiveness"
+- "Will be outclassed by future hunters (like Agnea with 6-star awakening)"
+- "Animal companion abilities (Akala/Mahina) rather useless for experienced players"
+- "Ultimate is only 5-hit AOE bow attack - no better than normal skill"
 
 # Stats (base level)
 hp: 2862
@@ -61,8 +68,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "C"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -147,12 +154,14 @@ skills:
     effects:
       - "**Hunting Capture ** Raise Phys"
   - skill_category: ex
-    name: "(EX)"
+    name: "Rapid Rain of Arrows"
     skill_type: attack
     damage_types: [bow]
     target: aoe
     hit_count: "4x"
     power: "4x45"
+    effects:
+      - "**Rapid Rain of Arrows** Act faster during turn and deal Phys"
     notes: "Uses: 4"
   - skill_category: special
     name: "Thunder Phoenix Flash Bow"
@@ -171,10 +180,10 @@ passives:
     effect: "Raise Phys. Attack and critical damage of Self by 15%. During skill consecutive strikes, raise potency of Self by 80% (Cannot be extended/Does not stack with effects of the same type)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Wind Res. by 20%"
+    effect: "Raise own Wind Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "When selecting a command, grant Self the special effect of Animal Instincts (turns: 1). Animal Instincts: Skill configuration changes to the following. ---"
@@ -190,14 +199,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Beastling Armlet"
-  passive_effect: "60 Physical Attack, 40 Critical, 40 Speed; When breaking an enemy, lower Bow Resistance by 15% for 3 turns; When there's a broken enemy, raise Physical Attack and Bow damage by 15%"
-  notes: "Great global buff. Before only gave 15% physical attack up on break, now also gives 15% bow damage up. These are passive/equipment debuffs that stack with active skills"
+  passive_effect: "60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. and Bow damage by 15%; 60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. by 15%"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Ochette Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting best hunter status and future outclassing concerns"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

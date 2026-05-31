@@ -12,7 +12,10 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, tome, wind]
+weakness_coverage:
+- dagger
+- tome
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +49,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "C (5.99 - 5.00)"
-jp_tier: "C"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -132,13 +135,14 @@ skills:
     effects:
       - "**Alluring Charm ** Impart All Allies with Elem"
       - "Up 15% (turns: 2-5 based on Boost Lv.) and lower Elem"
-  - skill_category: ex
-    name: "Elegant and Charming Wit"
-    skill_type: buff
-    target: self
+  - skill_category: tp
+    name: "Alluring Charm Lv.2"
+    sp_cost: 40
+    skill_type: mixed
+    target: aoe
     effects:
-      - "**Elegant and Charming Wit** Grant Self Dead Aim (guranteed critical hits) and Damage Limit Up (effect 100,000, turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
+      - "**Alluring Charm Lv.2** Raise Elem"
+      - "and Wind damage of All Allies by 15% (turns: 2-5 based on Boost Lv.) and lower Elem"
   - skill_category: special
     name: "Electric Tornado"
     skill_type: attack
@@ -163,6 +167,12 @@ passives:
   - passive_category: tp
     effect: "Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: 70,000) when a broken enemy is present."
     trigger: always
+  - passive_category: tp
+    effect: "Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: **100,000**) when a broken enemy is present. Damage Limit of Forbidden Windbolt is increased by 400,000."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -173,4 +183,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

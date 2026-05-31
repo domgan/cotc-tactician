@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, fire]
+weakness_coverage:
+- dagger
+- fire
 
 # Roles
 roles: [tank, debuffer, breaker]
@@ -31,16 +33,16 @@ recommended_min_hp: 3500
 # Buff/Debuff categories
 debuff_categories:
   active:
-    - type: phys_def_down
-      value: 15
-      source_skill: "Dagger Debuff"
-    - type: phys_atk_down
-      value: 15
-      source_skill: "Attack debuff skill"
+  - type: phys_def_down
+    value: 15
+    source_skill: "Dagger Debuff"
+  - type: phys_atk_down
+    value: 15
+    source_skill: "Attack debuff skill"
   ultimate:
-    - type: weakness_res_down
-      value: 20
-      source_skill: "Ultimate"
+  - type: weakness_res_down
+    value: 20
+    source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 2872
@@ -68,8 +70,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "C"
+gl_tier: "S (9.49 - 8.50)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -220,4 +222,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

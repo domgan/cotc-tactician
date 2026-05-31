@@ -12,7 +12,18 @@ influence: opulence
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, dagger, fan, fire, ice, lightning, polearm, staff, sword, tome]
+weakness_coverage:
+- axe
+- bow
+- dagger
+- fan
+- fire
+- ice
+- lightning
+- polearm
+- staff
+- sword
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +51,17 @@ crit_120: 303
 sp_120: 466
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Throw Wrench"
     sp_cost: 31
     skill_type: attack
     damage_types: [sword]
@@ -58,54 +69,58 @@ skills:
     hit_count: "3x"
     power: "3x55"
   - skill_category: active
-    name: "(Initial)"
+    name: "Critical Scope"
     sp_cost: 52
     skill_type: utility
     target: single_enemy
     effects:
-      - "**(Initial)** Act faster during turn and inflict Single Foe with the effect of always receiving critical damage (turns: 1-4 based on Boost Lv.)"
+      - "**Critical Scope** Act faster during turn and force Single Foe to always receive critical damage (turns: 1-4 based on Boost Lv./shorter turn counts overwritten)"
   - skill_category: active
+    name: "Elemental Bomb Bottle"
     sp_cost: 40
     skill_type: attack
     target: single_enemy
     power: "3x100"
   - skill_category: active
+    name: "Tin Horn"
     sp_cost: 90
     skill_type: utility
     target: front_row
   - skill_category: active
+    name: "Reinforce"
     sp_cost: 57
     skill_type: mixed
     target: front_row
     effects:
-      - "**(2★)** Impart Entire Front Row with Phys"
-      - "Up 15% and raise physical damage by 15% (turns: 2-5 based on Boost Lv.)"
+      - "**Reinforce (2★)** Raise Phys"
   - skill_category: active
+    name: "Changeable Catapult"
     sp_cost: 103
     skill_type: attack
     damage_types: [sword]
     target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
+    power: "180"
   - skill_category: active
+    name: "Junk Toss"
     sp_cost: 74
     skill_type: attack
     damage_types: [sword]
-    target: single_enemy
+    target: random
     power: "30"
   - skill_category: active
+    name: "Hastening Hammer"
     sp_cost: 56
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
     hit_count: "2x"
     power: "2x120"
-    effects:
-      - "Grant Self Damage Limit Up when using this skill (effect: 100,000) and Boost Lv"
   - skill_category: active
     name: "Lv.99 |"
     skill_type: utility
     target: single_enemy
   - skill_category: active
+    name: "Wrench Wallop"
     sp_cost: 68
     skill_type: attack
     damage_types: [sword]
@@ -113,59 +128,75 @@ skills:
     hit_count: "4x"
     power: "4x65"
   - skill_category: tp
+    name: "Arkar’s Coil"
     sp_cost: 129
     skill_type: heal
     target: back_row
     effects:
-      - "**** Restore HP of Single Ally (amount: 40%-100% of max HP based on Boost Lv./Back row allies can be selected) or revive when incapacitated (amount: 40%-100% of max HP based on Boost Lv.)"
-      - "restore SP (amount: 25%-100% of max SP based on Boost Lv.) and restore BP (amount: 1-4 based on Boost Lv.)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    notes: "Uses: 3"
+      - "**Arkar’s Coil ** Restore HP of Single Ally (amount: 40%-100% of max HP based on Boost Lv./Back row allies can be selected) or revive the target if incapacitated (amount: 40%-100% of max HP based on Boost Lv.)"
+      - "restore 25%-100% of their max SP and 1-4 BP based on Boost Lv"
+  - skill_category: tp
+    name: "Arkar’s Coil Lv.2"
+    sp_cost: 129
+    skill_type: heal
+    target: back_row
+    effects:
+      - "**Arkar’s Coil Lv.2** Restore HP of Single Ally (amount: 40%-100% of max HP based on Boost Lv./Back row allies can be selected) or revive the target if incapacitated (amount: 40%-100% of max HP based on Boost Lv.)"
+      - "restore 25%-100% of their max SP and 1-4 BP based on Boost Lv and raise their Damage Limit by 100,000 (turns: 3)"
   - skill_category: special
-    name: "“Great Invention: Super Tasty Jerky”"
-    skill_type: buff
-    target: self
+    name: "Super-Tasty Jerky"
+    skill_type: mixed
+    target: all_allies
     power: "2→3"
     effects:
-      - "Act faster during turn and grant Self Damage Limit Up (effect: **50,000→75,000→100,000**"
-      - "restore **3→4→5** BP of all Warriors"
-      - "Merchants and Apothecaries in party (excluding Self) and grant them Damage Limit Up (effect: **50,000→75,000→100,000**"
+      - "Act faster during turn"
+      - "raise own Damage Limit by **50,000→75,000→100,000** (turns: **2→3**/Turns cannot be extended)"
+      - "restore HP of All Allies (potency: 300)"
+      - "restore BP of all Warriors (excluding Self)"
+      - "raise their Damage Limit by **50,000→75,000→100,000** (turns: **2→3**) and grant them Hoot and Holler (turns: 1/Turns cannot be extended)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When consuming 1 or more BP, gain the same amount of “Inventor Points”."
+    effect: "Gain Spare Parts equal to BP consumed when using a battle skill."
     trigger: always
   - passive_category: innate
-    effect: "Grant Self effects based on own “Inventor Points”. ·With 3 or more: Raise Sword damage by 30%. ·With 6 or more: Additionally increase damage dealt by critical hits (1.25→1.4) ·With 9 or more: Additionally raise Phys. Atk. by 30%."
+    effect: "Grant Self effects based on the number of own Spare Parts. ·3+: Raise Sword damage by 30%. ·6+: Also raise the critical damage multiplier (1.25→1.4). ·9+: Also raise Phys. Atk. by 30%."
     trigger: always
   - passive_category: innate
-    effect: "Add 20% of P.Def to P.Atk (including equipment stats/Cannot be stacked)"
+    effect: "Add 20% of P.Def to P.Atk (including equipment stats/Cannot be stacked). When in front row: Add 20% of Ochette EX’s P.Def attribute to the P.Atk of Self (including equipment attributes/the maximum value for each attribute takes effect)."
     trigger: always
-    limit_break_upgrade: "Add 20% of own P.Def to P.Atk of all Warriors, Merchants and Apothecaries in party (including equipment stats/Cannot be stacked)."
+    limit_break_upgrade: "When in front row: Add 20% of Ochette EX’s P.Def attribute to the P.Atk of all Warriors, Merchants and Apothecaries in the front row (including equipment attributes/the maximum value for each attribute takes effect)."
   - passive_category: innate
-    effect: "Raise own Wind Res. by 20%"
+    effect: "Raise own Wind Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When selecting a command, grant All Allies the special effect “Remodeling” (turns: 1). Remodeling: Raise potency of Sword, Polearm and Axe attacks by 75% (Stacks with effects of the same type). ---"
+    effect: "Upon activation, grant All Allies the special effect Remodelling (turns: 1). Remodeling: Raise the potency of Phys. Sword, Polearm and Axe attacks by 75% (Does not stack with effects of the same type). ---"
+    trigger: always
+  - passive_category: tp
+    effect: "Upon activation, grant All Allies the special effect Remodelling (turns: 1). Remodeling: Raise the potency of Phys. Sword, Polearm and Axe attacks by **100%** (Does not stack with effects of the same type). ---"
+    trigger: always
+  - passive_category: innate
+    effect: ""
+    trigger: always
+  - passive_category: innate
+    effect: ""
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword, Polearm and Axe attacks of All Allies by 15,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Cool Goggles”"
-  passive_effect: "100 P.Atk, 100 P.Def, -60 E.Def; Start of battle: Ultimate Technique gauge fills to 200%"
+  name: "Stylish Goggles"
+  passive_effect: "100 P.Atk, 100 P.Def, -60 E.Def; Start of battle: Fill own Ultimate Technique gauge by 200%"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: A (8.49 - 7.00)

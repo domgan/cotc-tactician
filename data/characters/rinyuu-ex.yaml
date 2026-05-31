@@ -12,7 +12,11 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, fire, ice, light]
+weakness_coverage:
+- axe
+- fire
+- ice
+- light
 
 # Roles
 roles: [healer, buffer]
@@ -28,12 +32,12 @@ tank_type: none
 # Buff/Debuff categories
 buff_categories:
   active:
-    - type: phys_def_up
-      value: 30
-      source_skill: "Gracious Prayer"
-    - type: elem_def_up
-      value: 30
-      source_skill: "Gracious Prayer"
+  - type: phys_def_up
+    value: 30
+    source_skill: "Gracious Prayer"
+  - type: elem_def_up
+    value: 30
+    source_skill: "Gracious Prayer"
 
 # Stats (base level)
 hp: 2622
@@ -61,8 +65,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "S+"
+gl_tier: "S+ (10.00 - 9.50)"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
@@ -151,6 +155,15 @@ skills:
     damage_types: [light]
     target: single_enemy
     power: "630"
+  - skill_category: tp
+    name: "Guardian of Light’s Powder Lv.2"
+    sp_cost: 300
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    power: "630"
+    effects:
+      - "Grant All Allies SP Stock (amount: 100% of user’s max SP/does not stack)"
   - skill_category: ex
     name: "Sacred Spirit’s Preservation"
     skill_type: buff
@@ -177,13 +190,19 @@ passives:
     effect: "When an ally switches to front/back rows: Restore HP (amount: 20% of target’s max HP) and SP (amount: 10% of target’s max SP) of moving Paired Allies."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Dark Res. by 20%"
+    effect: "Raise own Dark Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%"
+    effect: "**Resilience** Raise own Light Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "When an ally switches to back row: Restore their BP by 1."
+    trigger: always
+  - passive_category: tp
+    effect: "When an ally switches to back row: Restore their BP by 1. When an ally switches to front/back rows: Also cure Terror and Death Sentence and raise their Light damage by 15% (turns: 2)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Fire, Ice and Light attacks of All Allies by 15,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
@@ -195,4 +214,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

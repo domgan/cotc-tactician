@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, staff]
+weakness_coverage:
+- light
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["healer", "buffer", "breaker"]
@@ -24,17 +26,17 @@ usage_strategy: |
   Ophilia is the best healer in the game for the long term, replacing both Millard and Hikari for most players. Her unique ability to revive with AOE ultimate makes her invaluable. She has high SP (470) compared to other clerics and provides comprehensive support with healing, buffing, debuff removal, and shield breaking capabilities.
 
 best_use_cases:
-  - "Primary healer for any team composition"
-  - "Teams needing AOE revive capabilities"
-  - "Content requiring status ailment removal"
-  - "Shield breaking with staff and light attacks"
-  - "Long-term investment for free-to-play players"
+- "Primary healer for any team composition"
+- "Teams needing AOE revive capabilities"
+- "Content requiring status ailment removal"
+- "Shield breaking with staff and light attacks"
+- "Long-term investment for free-to-play players"
 
 weaknesses:
-  - "Slowest speed among clerics (291, 40 points slower than Anya)"
-  - "High SP consumption on abilities"
-  - "Limited to free-to-play banner availability initially"
-  - "Requires careful SP management due to high costs"
+- "Slowest speed among clerics (291, 40 points slower than Anya)"
+- "High SP consumption on abilities"
+- "Limited to free-to-play banner availability initially"
+- "Requires careful SP management due to high costs"
 
 # Stats (base level)
 hp: 2757
@@ -62,8 +64,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "C (5.99 - 5.00)"
-jp_tier: "B"
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -197,10 +199,9 @@ passives:
 a4_accessory:
   name: "Flower Bookmark"
   passive_effect: "40 E.Atk, 400 HP, 60 SP; Raise Light damage dealt by 15%; 30% chance of resisting some status ailments"
-  notes: "Excellent accessory for light damage build with status ailment resistance and SP boost"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Ophilia Overview: The Best Cleric To Date by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting her as best long-term healer investment with unique revive capabilities"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

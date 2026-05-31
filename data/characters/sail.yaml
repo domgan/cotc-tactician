@@ -12,7 +12,16 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, lightning, sword]
+weakness_coverage:
+- dark
+- fire
+- ice
+- light
+- lightning
+- staff
+- sword
+- tome
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -20,25 +29,25 @@ role_notes: |
   TODO: Describe role capabilities based on skill analysis
 
 # Stats (base level)
-hp: -820
-p_atk: -65
-p_def: -65
-e_atk: -50
-e_def: -50
-speed: -35
-crit: -50
-sp: -70
+hp: 3232
+p_atk: 421
+p_def: 360
+e_atk: 269
+e_def: 267
+speed: 275
+crit: 323
+sp: 306
 
 # Stats (Lv 120 after Limit Break)
 
 # Progression availability (in GL)
 has_blessing_of_lantern: true
-has_limit_break: false
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "D (4.99 - 4.00)"
-jp_tier: "C"
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -48,15 +57,15 @@ skills:
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
-    power: "140"
+    power: "140/170/210/300"
   - skill_category: active
     name: "Heal Wounds (Single)"
     sp_cost: 12
-    skill_type: utility
-    target: single_enemy
-    power: "100"
+    skill_type: heal
+    target: single_ally
+    power: "100/120/160/220"
     effects:
-      - "**Heal Wounds (Single)** Restore own HP (potency: 100)"
+      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 100/120/160/220)"
   - skill_category: active
     name: "Repeated Slash"
     sp_cost: 18
@@ -72,9 +81,7 @@ skills:
     damage_types: [sword]
     target: single_enemy
     hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x75) and restore 30% of damage dealt as HP"
+    power: "2x75/2x90/2x110/2x150"
   - skill_category: active
     name: "Trifold Wild Slash"
     sp_cost: 38
@@ -84,15 +91,15 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
-    name: "Fang King’s Slash"
+    name: "Beastly Slash"
     sp_cost: 38
     skill_type: attack
     damage_types: [sword]
     target: random
     hit_count: "4x"
-    power: "4x65"
+    power: "4x65/4x75/4x90/4x120"
     effects:
-      - "**Fang King’s Slash (2★)** Act faster during turn and deal Phys"
+      - "**Beastly Slash (2★)** Act faster during turn and deal Phys"
   - skill_category: active
     name: "Level Slash"
     sp_cost: 22
@@ -101,32 +108,30 @@ skills:
     target: aoe
     power: "120"
   - skill_category: active
-    name: "Fighting Spirit Slash"
+    name: "Spirited Flash"
     sp_cost: 22
     skill_type: attack
     damage_types: [sword]
     target: aoe
     hit_count: "2x"
-    power: "2x70"
-    effects:
-      - "Sword damage to All Foes 2 time(s) (potency: 2x70) and restore 1 BP to Self"
+    power: "2x70/2x80/2x100/2x120"
   - skill_category: active
     name: "Rest"
     sp_cost: 42
     skill_type: heal
     target: single_enemy
-    power: "105"
+    power: "105/125/165/225"
     effects:
-      - "**Rest (3★)** Restore own HP (potency: 105)"
-      - "restore own SP (amount: 5% of max SP) and cure certain status ailments"
+      - "**Rest (3★)** Restore own HP (potency: 105/125/165/225)"
+      - "restore own SP (amount: 5%/6%/8%/10% of max SP) and cure certain status ailments"
   - skill_category: active
     name: "Beneficial Break"
     sp_cost: 42
     skill_type: heal
     target: single_enemy
-    power: "105"
+    power: "105/125/165/225"
     effects:
-      - "**Beneficial Break (3★)** Restore own HP (potency: 105) and SP (amount: 5% of max SP)"
+      - "**Beneficial Break (3★)** Restore own HP (potency: 105/125/165/225) and SP (amount: 5%/6%/8%/10% of max SP)"
       - "Cure some status ailments and raise Phys"
   - skill_category: active
     name: "Sword of Protection"
@@ -139,15 +144,15 @@ skills:
     effects:
       - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
   - skill_category: active
-    name: "???"
+    name: "Blessed Blade"
     sp_cost: 42
     skill_type: attack
     damage_types: [sword]
     target: front_row
-    hit_count: "2x"
-    power: "2x90"
+    hit_count: "3x"
+    power: "3x85/3x95/3x110/3x140"
     effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
+      - "Sword damage to Single Foe 3 time(s) (potency: 3x85/3x95/3x110/3x140) and raise Phys"
   - skill_category: active
     name: "Full Body Armor Break"
     sp_cost: 38
@@ -158,24 +163,24 @@ skills:
     effects:
       - "Sword damage to Single Foe (potency: 230) and lower Phys"
   - skill_category: active
-    name: "???"
+    name: "Hachimonjikuzure"
     sp_cost: 38
     skill_type: mixed
     damage_types: [sword]
     target: single_enemy
-    power: "260"
+    power: "260/290/340/450"
     effects:
-      - "Sword damage to Single Foe (potency: 260) and lower Phys"
+      - "Sword damage to Single Foe (potency: 260/290/340/450) and lower Phys"
       - "Guaranteed critical hit at Max Boost"
   - skill_category: active
     name: "Vivify"
     sp_cost: 50
-    skill_type: utility
+    skill_type: buff
     target: single_enemy
   - skill_category: active
-    name: "???"
+    name: "Drum of Life"
     sp_cost: 50
-    skill_type: utility
+    skill_type: buff
     target: single_enemy
   - skill_category: tp
     name: "Wave Slash"
@@ -184,22 +189,23 @@ skills:
     damage_types: [sword]
     target: random
     power: "2x120/3x95/4x85/5x100"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
+  - skill_category: tp
+    name: "Wave Slash Lv.2"
+    sp_cost: 52
+    skill_type: mixed
     damage_types: [sword]
-    target: aoe
-    hit_count: "4x"
-    power: "4x55"
-    notes: "Uses: 2"
+    target: random
+    power: "**3x120/4x95/5x85/6x100**"
+    effects:
+      - "Sword damage to Random Foe and lower Sword Res"
   - skill_category: special
     name: "Black Sword"
     skill_type: attack
     damage_types: [sword]
     target: front_row
-    power: "600→650"
+    power: "600→650→700"
     effects:
-      - "Raise damage to Entire Front Row by 10% (turns: 2) and restore 1 BP to Self"
+      - "Raise damage of Entire Front Row by 10% (turns: 2) and recover 1 BP"
 
 # Passives - parsed from markdown
 passives:
@@ -234,13 +240,28 @@ passives:
   - passive_category: tp
     effect: "Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000)."
     trigger: always
+  - passive_category: tp
+    effect: "Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000). With Black Corrosion: Raise BP recovery by 2, raise potency of Phys. Sword attacks by 50% (Does not stack with effects of the same type) and Damage Limit by 50,000 instead."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "(Currently unavailable):"
-  passive_effect: "??"
+  name: "Traveler’s Cape"
+  passive_effect: "70 P.Atk, 70 E.Atk; When consuming BP to perform “Attack”, raise BP recovery by 1, potency by 100% (Does not stack with effects of the same type) and ignore effects that dodge or nullify damage"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+hp_120: 4052
+p_atk_120: 486
+p_def_120: 425
+e_atk_120: 319
+e_def_120: 317
+speed_120: 310
+crit_120: 373
+sp_120: 376

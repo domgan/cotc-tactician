@@ -12,7 +12,8 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe]
+weakness_coverage:
+- axe
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +46,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "A"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -107,7 +108,7 @@ skills:
       - "**Leopard Gash (4★)** Act faster during turn"
       - "Axe damage to Random Foe 4 time(s) (potency: 4x45) and lower Axe Res"
   - skill_category: active
-    name: "Lion’s Rapid Strikes"
+    name: "Lionheart’s Cleave"
     sp_cost: 48
     skill_type: attack
     damage_types: [axe]
@@ -121,8 +122,8 @@ skills:
     damage_types: [axe]
     target: single_enemy
     hit_count: "5x"
-    power: "5x55"
-    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe **6** time(s) (potency: **6x55**)."
+    power: "5x65"
+    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe **6** time(s) (potency: **6x65**)."
   - skill_category: tp
     name: "Drastic Measures"
     sp_cost: 40
@@ -130,9 +131,6 @@ skills:
     damage_types: [axe]
     target: single_enemy
     power: "260"
-    effects:
-      - "[40 SP] ·6 or more: Raise potency by 50%"
-      - "·12 or more: Raise potency by 100%"
   - skill_category: ex
     name: "Mighty Diffusing Serum"
     skill_type: mixed
@@ -159,13 +157,13 @@ passives:
     effect: "At full HP: Raise Phys. Atk. and Critical of Entire Front Row by 15% and raise Axe damage by 15%."
     trigger: hp_condition
   - passive_category: innate
-    effect: "Grant Entire Front Row the ability to trigger a follow-up attack when dealing Phys. Axe damage (only activates once per action). Follow-up attack: Phys. Axe damage to All Foes (potency: 200)."
+    effect: "Grant Entire Front Row the ability to trigger a follow-up attack when dealing Phys. Axe damage (only activates once per action). Follow-up attack: Phys. Axe damage to All Foes (potency: 220)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Fire Res. by 20%"
+    effect: "Raise own Fire Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Ice Res. by 10%"
+    effect: "**Resilience** Raise own Ice Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "Upon activation, grant Self Every Drop Counts (turns: 1). Every Drop Counts: Skill configuration changes to the following. ---"
@@ -187,9 +185,9 @@ passives:
 # A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Eir’s Apothecaries Amulet"
-  passive_effect: "100 P.Atk, 40 Crit; When breaking an enemy, lower Axe Res. by 30% (turns: 3); Start of battle: Lower Axe Res. of All Foes by 10% (turns: 3)"
+  passive_effect: "140 P.Atk, 40 Crit; When breaking an enemy, lower Axe Res. by 30% (turns: 3); Start of battle: Lower Axe Res. of All Foes by 10% (turns: 3); 6 or more: Potency is increased by 1.5x.; 12 or more: Potency is increased by 2.0x.; **100 P.Atk**, 40 Crit; When breaking an enemy, lower Axe Res. by 30% (turns: 3); Start of battle: Lower Axe Res. of All Foes by 10% (turns: 3)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

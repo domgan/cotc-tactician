@@ -12,7 +12,9 @@ influence: wealth
 origin: "Luxendarc (BRAVELY DEFAULT)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, sword]
+weakness_coverage:
+- dark
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Ringabel is currently the strongest Warrior as most relevant and current, but like most Warriors (most abundant class), he'll be replaced by next relevant Warrior. He's not capable of hitting multiple weak spots like Agnea or Cantos. Best comparison is Odile - if you already have Odile, Ringabel is just a slight upgrade.
 
 best_use_cases:
-  - "Sword and dark weakness coverage"
-  - "Teams needing self-sufficient DPS with survival"
-  - "Content where Undying status is valuable"
-  - "Players who missed Odile or want slight upgrade"
+- "Sword and dark weakness coverage"
+- "Teams needing self-sufficient DPS with survival"
+- "Content where Undying status is valuable"
+- "Players who missed Odile or want slight upgrade"
 
 weaknesses:
-  - "Limited to sword and dark weaknesses only"
-  - "Will be replaced by future relevant Warriors"
-  - "Can't hit multiple weak spots like Agnea or Cantos"
-  - "Needs HP management to fully capitalize on multi-hit abilities"
+- "Limited to sword and dark weaknesses only"
+- "Will be replaced by future relevant Warriors"
+- "Can't hit multiple weak spots like Agnea or Cantos"
+- "Needs HP management to fully capitalize on multi-hit abilities"
 
 # Stats (base level)
 hp: 3232
@@ -61,8 +63,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -73,90 +75,79 @@ skills:
     damage_types: [sword, dark]
     target: aoe
     hit_count: "2x"
-    power: "2x70"
+    power: "2x70/2x80/2x100/2x120"
   - skill_category: active
     name: "Black Rose"
     sp_cost: 31
     skill_type: attack
     damage_types: [sword, dark]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
-      - "Raise the user’s max HP by 20% (turns: 2)"
+      - "Sword damage to Single Foe (potency: 170/200/240/350) and raise max HP of Self by 20% (turns: 2)"
   - skill_category: active
     name: "Dark Bane"
     sp_cost: 55
     skill_type: attack
     damage_types: [sword, dark]
     target: single_enemy
-    power: "290"
+    power: "290/320/380/500"
   - skill_category: active
     name: "Rage"
     sp_cost: 16
     skill_type: attack
     damage_types: [sword, dark]
     target: single_enemy
-    power: "30"
-    effects:
-      - "consume 10% of max HP to raise attack count with each consumption (max: 6)"
+    power: "30/35/40/60"
   - skill_category: active
-    name: "Consume Aether (Dark)"
+    name: "Absorb Magic (Dark)"
     sp_cost: 27
     skill_type: buff
     target: self
     effects:
-      - "**Consume Aether (Dark) (2★)** Impart Self with Phys"
-      - "Up 15% (turns: 3-6 based on Boost Lv.) and grant automatic SP recovery (amount: 10% of max SP"
+      - "**Absorb Magic (Dark) (2★)** Gran Self automatic SP recovery (amount: 10% of max SP/turns: 3/4/5/6) and raise Phys"
   - skill_category: active
     name: "Minus Strike"
+    sp_cost: 53
     skill_type: mixed
     damage_types: [sword, dark]
     target: single_enemy
-    power: "260"
+    power: "290/320/380/500"
     effects:
       - "The lower your HP"
       - "Potency doubles at max (when HP is 10% or lower)"
   - skill_category: active
     name: "Order Break"
-    sp_cost: 71
+    sp_cost: 57
     skill_type: attack
     damage_types: [sword, dark]
     target: aoe
     hit_count: "3x"
-    power: "3x80"
+    power: "3x80/3x90/3x105/3x130"
   - skill_category: active
     name: "Black Bane"
-    sp_cost: 79
+    sp_cost: 63
     skill_type: attack
     damage_types: [sword, dark]
     target: aoe
     hit_count: "4x"
-    power: "4x55"
+    power: "4x55/4x60/4x70/4x85"
   - skill_category: active
-    name: "Dark Calamity"
+    name: "Black Annihilation"
     sp_cost: 66
     skill_type: attack
     damage_types: [sword, dark]
     target: single_enemy
     hit_count: "5x"
-    power: "5x55"
-    limit_break_upgrade: "At more than 50% HP, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: **5x75**). 10% more potent when consuming HP. Exploits Dark weaknesses (damage calculation based on Phys. Sword attack)."
+    power: "5x65/5x75/5x85/5x110"
+    limit_break_upgrade: "If own HP is above 50%, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: **5x75/5x85/5x95/5x120**). Exploits Dark weakness (damage calculation based on Phys. Sword attack). 10% more potent if HP is successfully consumed."
   - skill_category: tp
-    name: "Life from Death"
+    name: "Life or Death"
     sp_cost: 74
     skill_type: buff
-    target: self
-    effects:
-      - "**Life from Death ** Impart Self with Unsinkable (turns: 3-6 based on Boost Lv.) and raise BP recovery amount by 3 (turns: 3-6 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Rampage"
-    skill_type: attack
-    damage_types: [sword, dark]
     target: single_enemy
-    power: "45"
     effects:
-      - "consume 10% of max HP to raise attack count with each consumption (max: 9)"
-    notes: "Uses: 2"
+      - "**Life or Death ** Gain Undying (turns: 3/4/5/6) and raise BP recovery by 3 (turns: 3/4/5/6)"
   - skill_category: special
     name: "Dark Nebula"
     skill_type: attack
@@ -167,30 +158,29 @@ skills:
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "At 60% HP or less: Impart Self with Phys. Atk. Up 30% and raise Sword damage by 30%."
+    effect: "At 60% HP or less: Raise Phys. Atk. and Sword damage of Self by 30%. After using a battle skill, if HP is at 60% or lower, gain an HP Barrier (potency: 50% of user’s max HP/Does not stack)."
     trigger: always
   - passive_category: innate
-    effect: "Grant automatic revival to Self once per battle (revived at 100% of max HP/SP). (Stacks with battle skills)."
+    effect: "Start of battle: Grant Self the ability to automatically revive upon incapacitation (revives with 100% of max HP and SP/Stacks with revival effects granted by battle skills) and gain an HP Barrier (potency: 100% of the user’s max HP/Does not stack)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Light Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%"
+    effect: "**Resilience** Raise own Dark Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Raise max HP of Self by 30%."
-    trigger: always
+    effect: "Raise max HP of Self by 30%. At the start of turn, if Self has an HP Barrier, raise potency by 50% (Does not stack with effects of the same type) and recover 50% of max HP at the end of turn. When the HP Barrier is removed, the Potency Up and HP recovery effects are also removed."
+    trigger: battle_start
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Everlasting Rose"
-  passive_effect: "40 Physical Attack, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
-  notes: "Basic accessory that provides Dead Aim. Not particularly impressive compared to other A4 accessories but functional for his kit"
+  passive_effect: "100 P.Atk, -30 P.Def, -30 E.Def, 1000 HP; Grant Dead Aim (guaranteed critical hits); 40 P.Atk, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Ringabel Overview by Vlad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including Odile comparison and Undying status introduction"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

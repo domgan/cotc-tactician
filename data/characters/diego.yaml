@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, fire]
+weakness_coverage:
+- dagger
+- fire
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "H"
+jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
@@ -108,6 +110,16 @@ skills:
     power: "3x55"
     effects:
       - "Lower Shield Points even when not striking weak points"
+  - skill_category: tp
+    name: "Triple Fisherman Lv.2"
+    sp_cost: 33
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
   - skill_category: ex
     name: "Perfect Swift Blade"
     skill_type: mixed
@@ -147,6 +159,12 @@ passives:
   - passive_category: tp
     effect: "Raise Phys. Atk. of Paired Allies by 10%."
     trigger: always
+  - passive_category: tp
+    effect: "Raise Phys. Atk. and Critical of Paired Allies by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Dagger attacks of All Allies by 6,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -157,4 +175,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -12,7 +12,13 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, fire, light, lightning, polearm, sword]
+weakness_coverage:
+- dark
+- fire
+- light
+- lightning
+- polearm
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -45,7 +51,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "A"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -55,7 +61,7 @@ skills:
     skill_type: utility
     target: single_enemy
     hit_count: "3x"
-    power: "3x65"
+    power: "3x55/3x65/3x80/3x100"
   - skill_category: active
     name: "Oncoming Storm"
     sp_cost: 26
@@ -70,9 +76,9 @@ skills:
     skill_type: attack
     damage_types: [lightning]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
-      - "Lightning damage to Single Foe (potency: 170) and raise own Elem"
+      - "Lightning damage to Single Foe (potency: 170/200/240/350) and raise own Elem"
   - skill_category: active
     name: "Thunderclap"
     sp_cost: 62
@@ -80,9 +86,9 @@ skills:
     damage_types: [lightning]
     target: aoe
     hit_count: "3x"
-    power: "3x55"
+    power: "3x55/3x65/3x75/3x100"
     effects:
-      - "Lightning damage to All Foes 3 time(s) (potency: 3x55) and lower Lightning Res"
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and lower Lightning Res"
   - skill_category: active
     name: "Eye of the Storm"
     sp_cost: 63
@@ -93,35 +99,35 @@ skills:
       - "At Max Boost: Also raise the limit of Lightning damage augments from battle skills effects to 50% (turns: 5)"
   - skill_category: active
     name: "Thousand Levinspears"
-    sp_cost: 67
+    sp_cost: 54
     skill_type: attack
     damage_types: [lightning, light]
     target: random
     hit_count: "5x"
-    power: "5x65"
+    power: "5x65/5x75/5x85/5x110"
   - skill_category: active
     name: "Roaring Skies"
-    sp_cost: 72
+    sp_cost: 58
     skill_type: attack
     damage_types: [lightning]
     target: aoe
     hit_count: "4x"
-    power: "4x35"
+    power: "4x35/4x45/4x55/4x70"
   - skill_category: active
     name: "Earthshaking Levinspear"
     sp_cost: 42
     skill_type: attack
     damage_types: [lightning]
     target: single_enemy
-    power: "260"
+    power: "290/320/380/1000"
   - skill_category: active
     name: "Stygian Levinspear"
-    sp_cost: 69
+    sp_cost: 55
     skill_type: attack
     damage_types: [lightning, dark]
     target: single_enemy
     hit_count: "2x"
-    power: "2x135"
+    power: "2x135/2x150/2x175/2x235"
   - skill_category: tp
     name: "Galvanizing Levinspear"
     sp_cost: 85
@@ -129,21 +135,19 @@ skills:
     damage_types: [lightning, sword]
     target: front_row
     hit_count: "3x"
-    power: "3x65"
+    power: "3x65/3x75/3x90/3x115"
     effects:
       - "Also raise Lightning damage of Entire Front Row by 20% (turns: 2)"
-  - skill_category: ex
-    name: "Thundering Anthem"
+  - skill_category: tp
+    name: "Galvanizing Levinspear Lv.2"
+    sp_cost: 85
     skill_type: attack
+    damage_types: [lightning, sword]
     target: aoe
-    hit_count: "4x"
-    power: "4x45"
+    hit_count: "3x"
+    power: "3x65/3x75/3x90/3x115"
     effects:
-      - "**Thundering Anthem** Act faster during turn and deal Elem"
-      - "·When consuming 1+ BP: Raise potency of All Allies by 50% (turns: 5/Turns cannot be extended/Does not stack with effects of the same type)"
-      - "·When consuming 2+ BP: Also raise their Damage Limit by 30,000 (turns: 5)"
-      - "·At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2)"
-    notes: "Uses: 2"
+      - "Also raise Lightning damage of **All Allies** by 20% (turns: 2)"
   - skill_category: special
     name: "White Lightning"
     skill_type: mixed
@@ -174,17 +178,23 @@ passives:
   - passive_category: tp
     effect: "When in front row: Raise Lightning damage of Entire Front Row by 20% and raise the limit of Lightning damage augments from support and equipment effects to 50%."
     trigger: always
+  - passive_category: tp
+    effect: "When in front row: Raise Lightning damage of Entire Front Row by 20% and raise the limit of Lightning damage augments from support and equipment effects to 50%. At full HP: Raise Damage Limit of Self by 150,000."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Clan of Mei Crest"
-  passive_effect: "140 E.Atk; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) and lower their Elem. Def. by 15% (turns: 3); When consuming 1+ BP: Raise potency of All Allies by **30%** (turns: 5/Turns cannot be extended/Does not stack with effects of the same type).; When consuming 2+ BP: Also raise their Damage Limit by **20,000** (turns: 5).; At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2).; **100** E.Atk, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) ~~and lower their Elem. Def. by 15% (turns: 3)~~"
+  passive_effect: "140 E.Atk; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes Lightning weakness to All Foes (times: 6) and lower their Elem. Def. by 15% (turns: 3); When consuming 1+ BP: Raise potency of All Allies by **30%** (turns: 5/Turns cannot be extended/Does not stack with effects of the same type).; When consuming 2+ BP: Also raise their Damage Limit by **20,000** (turns: 5).; At Max Boost: Also grant them Dead Aim (guaranteed critical hits) (turns: 2).; **100** E.Atk, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Grant All Foes a Lightning weakness to All Foes (times: 6) ~~and lower their Elem. Def. by 15% (turns: 3)~~"
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -192,30 +202,31 @@ usage_strategy: |
   - Disappointment overall, kit too demanding of specific travelers
   - Mediocre despite global buffs
   - Skip for most players, especially with Kainé/Tiziano meta
-  
+
   STRENGTHS:
   - Follow-up passive: Allies using lightning attacks get +1 AoE lightning damage + shock infliction
   - Six-star passive: Up to 200% potency boost on broken enemies with lightning team
   - Can hit up to 9 times with buffed skills (5 hits + 3 follow-up + 1 passive)
   - Decently high elemental attack (505 at Lv120)
-  
+
   WEAKNESSES:
   - Average F2P players lack sufficient lightning travelers
   - Asel and Isla are main lightning users but don't specialize in lightning damage
   - Lightning weakness implant on A4 is useless as she can't do it herself
   - Outclassed by physical damage meta
-  
+
   TEAM REQUIREMENTS:
   - Needs 3+ lightning users in front row for maximum potency
   - Osvald, Isla, and other lightning specialists essential
   - Not worth building team around for most players
-  
+
   COMPARISON:
   - Lightning elemental attacks still lack spectacular traveler
   - Shock status ailment interesting but not enough to save her
   - Physical travelers with lightning exploitation generally better
-  
+
   RECOMMENDATION:
   - Skip unless dedicated lightning enthusiast
   - Save rubies for better DPS travelers
   - 2.1/5 overall rating
+gl_tier: A (8.49 - 7.00)

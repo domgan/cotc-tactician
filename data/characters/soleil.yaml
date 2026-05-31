@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, light]
+weakness_coverage:
+- axe
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["healer", "buffer"]
@@ -24,17 +26,17 @@ usage_strategy: |
   Soleil is a support-focused apothecary with light element coverage. While she has 3-hit axe and light attacks, her main value comes from AOE status ailment removal and 20% dark resistance buff for front row. Her healing capabilities are inferior to dedicated healers like Ophilia or Millard, making her more of a niche support character.
 
 best_use_cases:
-  - "Content requiring AOE status ailment removal"
-  - "Situations with high dark damage that need resistance buffs"
-  - "Teams needing light/axe coverage with some healing"
-  - "Players lacking other apothecaries"
+- "Content requiring AOE status ailment removal"
+- "Situations with high dark damage that need resistance buffs"
+- "Teams needing light/axe coverage with some healing"
+- "Players lacking other apothecaries"
 
 weaknesses:
-  - "Mediocre stats with weakest physical attack among 5-star apothecaries"
-  - "Healing capabilities inferior to dedicated healers"
-  - "Most abilities have limited current usage in game meta"
-  - "Outclassed by other apothecaries for most content"
-  - "Role is too scattered between healing, damage, and support"
+- "Mediocre stats with weakest physical attack among 5-star apothecaries"
+- "Healing capabilities inferior to dedicated healers"
+- "Most abilities have limited current usage in game meta"
+- "Outclassed by other apothecaries for most content"
+- "Role is too scattered between healing, damage, and support"
 
 # Stats (base level)
 hp: 3215
@@ -63,7 +65,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "D (4.99 - 4.00)"
-jp_tier: "C"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -186,10 +188,9 @@ passives:
 a4_accessory:
   name: "Bitter Remedy"
   passive_effect: "60 P.Atk, 40 E.Def, 400 HP; Raise Axe damage dealt by 15%; 30% chance of resisting some status ailments"
-  notes: "Decent accessory for axe builds but doesn't significantly improve her support capabilities"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Soleli Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis noting her as niche support character with limited long-term value"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

@@ -12,7 +12,11 @@ influence: approval
 origin: "Overworld (Dragon Quest III)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, lightning, sword, wind]
+weakness_coverage:
+- fire
+- lightning
+- sword
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +44,17 @@ crit_120: 323
 sp_120: 416
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "A"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Flame Slash"
     sp_cost: 29
     skill_type: attack
     damage_types: [sword, fire]
@@ -58,7 +62,7 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: active
-    name: "(Initial)"
+    name: "Lightning Slash"
     sp_cost: 29
     skill_type: attack
     damage_types: [sword, lightning]
@@ -66,12 +70,14 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: active
+    name: "Dodgy Dance"
     sp_cost: 50
     skill_type: buff
     target: self
     effects:
-      - "**(1★)** Grant Self the ability to dodge some physical attacks (times: 1-4 based on Boost Lv.)"
+      - "**Dodgy Dance (1★)** Grant Self the ability to dodge some physical attacks (times: 1-4 based on Boost Lv.)"
   - skill_category: active
+    name: "Sizzle"
     sp_cost: 83
     skill_type: mixed
     damage_types: [fire]
@@ -79,23 +85,30 @@ skills:
     hit_count: "3x"
     power: "3x55"
     effects:
-      - "Fire damage to All Foes 3 time(s) (potency: 3x55) and lower Fire Res"
+      - "lower their Fire Res"
+      - "by 15% (turns 2) and grant them a Fire weakness (times: 2)"
+      - "At Max Boost: Grant a Fire weakness for 5 times instead"
   - skill_category: active
-    sp_cost: 83
+    name: "Zapple"
+    sp_cost: 77
     skill_type: mixed
     damage_types: [lightning]
-    target: aoe
+    target: single_enemy
     hit_count: "3x"
-    power: "3x55"
+    power: "3x65"
     effects:
-      - "Lightning damage to All Foes 3 time(s) (potency: 3x55) and lower Lightning Res"
+      - "lower their Lightning Res"
+      - "by 15% (turns 2) and grant them a Lightning weakness (times: 2)"
+      - "At Max Boost: Grant a Lightning weakness for 5 times instead"
   - skill_category: active
+    name: "Sage’s Elixir"
     sp_cost: 1
     skill_type: heal
     target: single_ally
     effects:
-      - "**(3★)** Restore SP of Single Ally (amount: 25%-100% of max SP"
+      - "**Sage’s Elixir (3★)** Restore SP of Single Ally (amount: 25%-100% of max SP"
   - skill_category: active
+    name: "Falcon Slash"
     sp_cost: 32
     skill_type: attack
     damage_types: [sword]
@@ -103,6 +116,7 @@ skills:
     hit_count: "2x"
     power: "2x65"
   - skill_category: active
+    name: "Kasizz"
     sp_cost: 83
     skill_type: mixed
     damage_types: [fire]
@@ -110,7 +124,9 @@ skills:
     hit_count: "4x"
     power: "4x45"
     effects:
-      - "Fire damage to All Foes 4 time(s) (potency: 4x45) and lower Fire Res"
+      - "lower their Fire Res"
+      - "by 15% (turns: 2) and grant them a Fire Weakness (times: 2)"
+      - "At Max Boost: Attack count becomes 5 and grant a Fire weakness 5 times instead"
   - skill_category: active
     name: "Lv.99 |"
     skill_type: utility
@@ -118,14 +134,17 @@ skills:
     effects:
       - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
   - skill_category: active
+    name: "Kazap"
     sp_cost: 108
     skill_type: mixed
     damage_types: [lightning]
     target: aoe
-    hit_count: "4x"
-    power: "4x45"
+    hit_count: "3x"
+    power: "3x80"
     effects:
-      - "Lightning damage to All Foes 4 time(s) (potency: 4x45) and lower Lightning Res"
+      - "lower thier Lightning Res"
+      - "by 15% (turns: 2) and grant them a Lightning weakness (times: 2)"
+      - "At Max Boost: Attack count becomes 4 and grant a Lightning weakness 5 times instead"
   - skill_category: active
     name: "Lv.100 |"
     skill_type: attack
@@ -134,6 +153,7 @@ skills:
     effects:
       - "Shock: Lower Shield Points by 1 when taking Elem"
   - skill_category: tp
+    name: "Gust Slash"
     sp_cost: 63
     skill_type: attack
     damage_types: [sword, wind]
@@ -141,9 +161,9 @@ skills:
     hit_count: "3x"
     power: "3x85"
     effects:
-      - "At Max Boost: Guaranteed critical hit"
+      - "At Max Boost: Guaranteed critical hits"
   - skill_category: tp
-    name: "Lv.2"
+    name: "Gust Slash Lv.2"
     sp_cost: 63
     skill_type: attack
     damage_types: [sword, wind]
@@ -152,39 +172,39 @@ skills:
     power: "3x85"
     effects:
       - "Grant Wind weakness to the same target (times: 2)"
-      - "At Max Boost: Guaranteed critical hit"
+      - "At Max Boost: Guaranteed critical hits"
   - skill_category: ex
-    name: "(EX)"
+    name: "Omniheal"
     skill_type: heal
     target: all_allies
     power: "10%-40% of user’s max HP based on Boost Lv./Does not stack"
     effects:
-      - "**(EX)** Restore HP of All Allies (amount: 100% of max HP) and grant HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv./Does not stack)"
-      - "raise Max HP of the same target by 30% (turns: 2-5 based on Boost Lv.)"
+      - "**Omniheal** Restore HP of All Allies (amount: 100% of max HP) and grant them an HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv./Does not stack)"
+      - "also raise Max HP of All Allies by 30% (turns: 2-5 based on Boost Lv.) before restoring their HP"
     notes: "Uses: 1"
   - skill_category: special
-    name: "“Giga Slash”"
+    name: "Gigaslash"
     skill_type: attack
     damage_types: [lightning, sword]
     target: aoe
     power: "375→450→565"
     effects:
-      - "Raise own potency by 100% (turns: 1/Cannot be extended/Effects of the same type do not stack) and deal Elem"
-      - "Also grant them Lightning weakness (times: 6)"
+      - "Raise potency of Self by 100% (turns: 1/Cannot be extended/Does not stack with effects of the same type)"
+      - "Lightning damage to All Foes (potency: **375→450→565**) and grant them a Lightning weakness (times: 6)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack)."
+    effect: "Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support skill/Does not stack)."
     trigger: always
   - passive_category: innate
-    effect: "Add 30% of P.Atk to E.Atk (including equipment stats/Cannot be stacked). Start of battle: Grant Self “SP Stock” (potency: 30% of max SP/does not stack)."
+    effect: "Add 30% of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: 30% of own max SP/Does not stack)."
     trigger: battle_start
   - passive_category: innate
-    effect: "Add **50%** of P.Atk to E.Atk (including equipment stats/Cannot be stacked). Start of battle: Grant Self “SP Stock” (potency: **50%** of max SP/does not stack)."
+    effect: "Add **50%** of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: **50%** of own max SP/Does not stack)."
     trigger: battle_start
   - passive_category: innate
-    effect: "When in front row: Raise Entire Front Row’s Phys. Atk. and Elem. Atk. by 15% and Fire and Lightning damage by 15%. Additionally, grant Self ability to trigger critical hits when using elemental attacks and Damage Limit Up (effect: 100,000)."
+    effect: "When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15%, their Sword damage by 15% and their Fire and Lightning damage by 15%. Gain the ability to trigger critical hits with elemental attacks and raise own Damage Limit by 100,000."
     trigger: always
   - passive_category: innate
     effect: "Raise own Wind Res. by 20%."
@@ -196,10 +216,10 @@ passives:
     effect: "**Resilience** Raise own Fire and Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. When there are 4 or more allies in “Legend” state, grant automatic SP recovery (amount: 10% of max SP)."
+    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP)."
     trigger: always
   - passive_category: tp
-    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. When there are 4 or more allies in “Legend” state, grant automatic SP recovery (amount: 10% of max SP) and the ability to activate attacking elemental skills and Ultimate Technique twice in a row (Follow-up attack will not consume SP)."
+    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP) and the ability to activate attacking elemental skills and Ultimate Technique twice in a row (Follow-up attack will not consume SP)."
     trigger: always
   - passive_category: tp
     effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
@@ -208,10 +228,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Brave’s Circlet”"
-  passive_effect: "140 E.Atk; Grant the ability to  trigger a follow-up attack when using Lightning skills (*Triggers once even during a Boost). *The “When breaking” effects only activate on the starting ally. Follow-up attack: Deal Elem. Lightning damage to All Foes (potency: 100); Start of battle: Grant Entire Front Row the special effect “Legend” (turns: 2/Does not stack)."
+  name: "Hero’s Circlet"
+  passive_effect: "140 E.Atk; Grant the ability to trigger a follow-up attack when dealing Elem. Lightning damage (only activates once per action).; Start of battle: Grant Entire Front Row Soul Sigil (turns: 2/Does not stack)."
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: B (6.99 - 6.00)

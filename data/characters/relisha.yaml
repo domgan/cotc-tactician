@@ -12,7 +12,9 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, staff]
+weakness_coverage:
+- lightning
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,31 +42,32 @@ crit_120: 348
 sp_120: 480
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "B"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Lightning Bash (Single) II"
     sp_cost: 21
     skill_type: attack
     damage_types: [staff, lightning]
     target: single_enemy
     power: "170"
   - skill_category: active
-    name: "(Initial)"
+    name: "Medica (Front/All)"
     sp_cost: 28
     skill_type: heal
     target: front_row
     power: "45"
     effects:
-      - "**(Initial)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 70, turns: 2)"
+      - "**Medica (Front/All)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 70, turns: 2)"
   - skill_category: active
+    name: "Repeated Brutal Bludgeon"
     sp_cost: 35
     skill_type: attack
     damage_types: [staff]
@@ -72,20 +75,22 @@ skills:
     hit_count: "2x"
     power: "2x80"
   - skill_category: active
+    name: "Stormy Countenance"
     sp_cost: 45
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**(2★)** Lower Ice"
+      - "**Stormy Countenance (2★)** Lower Staff"
   - skill_category: active
+    name: "Manifold Ministry"
     sp_cost: 59
-    skill_type: mixed
-    damage_types: [elemental]
+    skill_type: buff
     target: front_row
     effects:
-      - "**(2★)** Impart Entire Front Row with Phys"
-      - "also grant the ability to exploit elemental weakness with physical attacks (with some exceptions) (turns: 2-5 based on Boost Lv./damage calculation based on corresponding physical attack)"
+      - "**Manifold Ministry (2★)** Raise Phys"
+      - "of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and grant any target Clerics the ability to exploit Fire"
   - skill_category: active
+    name: "Raging Lightning Bash II"
     sp_cost: 51
     skill_type: attack
     damage_types: [staff, lightning]
@@ -94,13 +99,15 @@ skills:
     power: "4x45"
     limit_break_upgrade: "Deal Phys. Staff damage to Random Foe **5** time(s) (potency: **5x45**). Exploits Lightning weakness (damage calculation based on Phys. Staff attack)."
   - skill_category: active
+    name: "Miraculous Ministry"
     sp_cost: 59
     skill_type: mixed
     target: front_row
     power: "140, turns: 2-5 based on Boost Lv."
     effects:
-      - "**(4★)** Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
+      - "**Miraculous Ministry (4★)** Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
+    name: "Judgement Rush"
     sp_cost: 71
     skill_type: attack
     damage_types: [staff, lightning]
@@ -108,6 +115,7 @@ skills:
     hit_count: "3x"
     power: "3x80"
   - skill_category: active
+    name: "Comeuppance"
     sp_cost: 36
     skill_type: attack
     damage_types: [staff]
@@ -115,23 +123,22 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: tp
+    name: "Royal Reprimand"
+    sp_cost: 32
     skill_type: utility
     target: single_enemy
   - skill_category: ex
-    name: "(EX)"
+    name: "Forbidden Fulmination"
     skill_type: attack
     damage_types: [staff, lightning]
     target: single_enemy
     power: "530"
     notes: "Uses: 2"
   - skill_category: special
-    name: "“Blessing of the Sacred Flame”"
+    name: "Flamebringer’s Fervency"
     skill_type: mixed
     target: front_row
     power: "2→3"
-    effects:
-      - "Impart Entire Front Row with Phys"
-      - "raise Staff damage by **5%→10%→15%** and grant Damage Limit Up (effect: **10,000→20,000→30,000**) (turns: **2→3**)"
 
 # Passives - parsed from markdown
 passives:
@@ -139,13 +146,13 @@ passives:
     effect: "Act faster when consuming 3 BP."
     trigger: always
   - passive_category: innate
-    effect: "Grant Entire Front Row effects based on the number of clerics in party. ·With 2 or more: Raise Staff damage by 15%. ·With 3 or more: Also raise Elem. Atk. by 15%. ·With 5 or more: Also grant the ability to exploit Staff weakness with elemental attacks"
+    effect: "Grant Entire Front Row effects based on the number of Clerics in the party. ·2+: Raise Staff damage by 15%. ·3+: Also raise Elem. Atk. by 15%. ·5+: Also allow them to exploit Staff weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Wind Res. by 20%"
+    effect: "Raise own Wind Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%"
+    effect: "**Resilience** Raise own Lightning Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack)."
@@ -154,10 +161,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Heroic Tale: ‘The Wandering Saint’ ”"
-  passive_effect: "40 P.Atk, 20 E.Atk, 80 Crit; Raise Staff damage dealt by 15%; Grant Damage Limit Up (effect: 50,000)"
+  name: "“The Wandering Saintess”"
+  passive_effect: "40 P.Atk, 20 E.Atk, 80 Crit; Raise Staff damage by 15% and Damage Limit by 50,000"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: C (5.99 - 5.00)

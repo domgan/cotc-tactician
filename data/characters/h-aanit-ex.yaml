@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, fire]
+weakness_coverage:
+- fan
+- fire
 
 # Roles
 roles: [tank, debuffer]
@@ -30,9 +32,9 @@ recommended_min_hp: 4000
 # Buff/Debuff categories
 debuff_categories:
   active:
-    - type: phys_atk_down
-      value: 15
-      source_skill: "Turn 1 AoE debuff"
+  - type: phys_atk_down
+    value: 15
+    source_skill: "Turn 1 AoE debuff"
 
 # Stats (base level)
 hp: 3096
@@ -56,12 +58,12 @@ sp_120: 439
 
 # Progression availability (in GL)
 has_blessing_of_lantern: true
-has_limit_break: false
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -145,6 +147,7 @@ skills:
     effects:
       - "Fan damage to All Foes (potency: 150) and lower Phys"
   - skill_category: tp
+    name: "Chaotic Gale"
     sp_cost: 59
     skill_type: mixed
     damage_types: [fan]
@@ -196,4 +199,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

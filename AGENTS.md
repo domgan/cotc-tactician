@@ -88,15 +88,27 @@ python scripts/import_characters_from_csv.py --overwrite
 ```
 
 **Note**: CSV import only provides base data (stats, weakness coverage, tier ratings).
-Skills, passives, and roles are added by `import_skills_from_markdown.py`.
+Use `merge_character_stats_from_csv.py` to refresh stats on existing YAML without wiping curated fields.
+Skills and passives are added by `import_skills_from_markdown.py`.
+
+Default CSV path: newest `resources/Character List/*_all.csv` (277 characters).
+
+### 2b2. Stats Merge Script (`scripts/merge_character_stats_from_csv.py`)
+
+Updates stats/tiers/progression flags on existing YAML using **ruamel.yaml** round-trip (preserves comments and key order). Does not touch skills, passives, roles, or manual notes.
+
+```bash
+uv run python scripts/merge_character_stats_from_csv.py --dry-run
+uv run python scripts/merge_character_stats_from_csv.py
+```
 
 ### 2c. Skill Import Script (`scripts/import_skills_from_markdown.py`)
 
-Parses Notion markdown exports to extract skills and passives:
+Parses Notion markdown exports to extract skills and passives (matches `## Support Skills` and `## Passive Skills`):
 
 ```bash
 # Import skills for all characters
-python scripts/import_skills_from_markdown.py
+uv run python scripts/import_skills_from_markdown.py
 
 # Dry run
 python scripts/import_skills_from_markdown.py --dry-run

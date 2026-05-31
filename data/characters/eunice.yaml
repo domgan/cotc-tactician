@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, tome]
+weakness_coverage:
+- light
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "G"
+jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
@@ -109,6 +111,16 @@ skills:
     power: "2x75"
     effects:
       - "Light damage to Random Foe 2 time(s) (potency: 2x75) and lower Light Res"
+  - skill_category: tp
+    name: "Chaotic Light Magic Lv.2"
+    sp_cost: 29
+    skill_type: mixed
+    damage_types: [light]
+    target: random
+    power: "**4**x75"
+    effects:
+      - "Light damage to Random Foe **4** time(s) (potency: **4**x75) and lower Light Res"
+      - "At Max Boost: Restore 1 use of Ultimate Technique"
   - skill_category: ex
     name: "Ancient Light’s Theory (Single)"
     skill_type: mixed
@@ -143,6 +155,12 @@ passives:
   - passive_category: tp
     effect: "Raise Light damage of Paired Allies by 15%."
     trigger: always
+  - passive_category: tp
+    effect: "Raise Elem. Atk. of Paired Allies by 10% and Light damage by **20%**."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Light attacks of All Allies by 6,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -153,4 +171,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -12,7 +12,10 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, ice, wind]
+weakness_coverage:
+- fan
+- ice
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +43,17 @@ crit_120: 332
 sp_120: 574
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Swirling Snow"
     sp_cost: 34
     skill_type: attack
     damage_types: [ice]
@@ -58,26 +61,31 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: active
-    name: "(Initial)"
+    name: "Melancholy Manèges II"
     sp_cost: 56
     skill_type: buff
     target: all_allies
     effects:
-      - "**(Initial)** Raise Phys"
+      - "**Melancholy Manèges II** Raise Phys"
   - skill_category: active
+    name: "Sorrowful Sissonne"
     sp_cost: 56
     skill_type: buff
     target: all_allies
     effects:
-      - "**(1★)** Raise Phys"
+      - "**Sorrowful Sissonne (1★)** Raise Phys"
   - skill_category: active
+    name: "Winter Waltz"
     sp_cost: 84
     skill_type: attack
     damage_types: [ice]
     target: front_row
     hit_count: "3x"
     power: "3x65"
+    effects:
+      - "When consuming 3+ BP: Also raise Elem"
   - skill_category: active
+    name: "Glacial Grace"
     sp_cost: 76
     skill_type: mixed
     damage_types: [ice]
@@ -85,32 +93,39 @@ skills:
     hit_count: "3x"
     power: "3x65"
     effects:
-      - "restore HP of Entire Front Row (potency: 90)"
+      - "Ice damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 90)"
+      - "When consuming 3+ BP: Also raise Elem"
   - skill_category: active
-    sp_cost: 66
+    name: "Arctic Arabesque"
+    sp_cost: 82
     skill_type: buff
     target: front_row
     effects:
-      - "**(3★)** Raise Ice damage of Entire Front Row by 30% (turns: 2-7 based on Boost Lv.)"
-      - "raise the Ice damage limit from battle skills of the same target to 50% (turns: 2-7 based on Boost Lv.)"
+      - "**Arctic Arabesque (3★)** Raise Ice damage of Entire Front Row by 30% and the limits of their Ice damage augments from battle skills to 50% (turns: 2-7 based on Boost Lv.)"
   - skill_category: active
-    sp_cost: 62
+    name: "Flurry’s Kiss"
+    sp_cost: 77
     skill_type: attack
     damage_types: [ice]
     target: front_row
     hit_count: "4x"
     power: "4x65"
+    effects:
+      - "When consuming 3+ BP: Also raise Elem"
   - skill_category: active
     name: "Lv.96 |"
     skill_type: utility
     target: single_enemy
   - skill_category: active
-    sp_cost: 60
+    name: "Frozen Fouetté III"
+    sp_cost: 75
     skill_type: attack
     damage_types: [ice]
     target: front_row
     hit_count: "2x"
     power: "2x95"
+    effects:
+      - "When consuming 3+ BP: Also raise Elem"
   - skill_category: active
     name: "Lv.99 |"
     skill_type: utility
@@ -118,29 +133,32 @@ skills:
     effects:
       - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
   - skill_category: active
-    sp_cost: 50
+    name: "Ice Elegy"
+    sp_cost: 62
     skill_type: attack
     damage_types: [ice]
     target: single_enemy
-    power: "135"
+    hit_count: "2x"
+    power: "2x135"
     effects:
-      - "When consuming 3 BP or more: Guaranteed critical hit"
+      - "When consuming 3+ BP: Guaranteed critical hits"
   - skill_category: tp
+    name: "Concoct: Pomegranate Powder"
     sp_cost: 110
     skill_type: heal
     target: front_row
     effects:
-      - "**** Raise BP recovery amount of Entire Front Row by 1 (turns: 1-6 based on Boost Lv.)"
-      - "cure some status ailments and grant immunity to some status ailments (turns: 1-6 based on Boost Lv.)"
+      - "**Concoct: Pomegranate Powder ** Raise BP recovery of Entire Front Row by 1 (turns: 1-6 based on Boost Lv.)"
+      - "When consuming 3+ BP: Also cure and grant immunity to some status ailments (turns: 1-6 based on Boost Lv.)"
   - skill_category: ex
-    name: "(EX)"
+    name: "Brumal Ensemble"
     skill_type: attack
     damage_types: [ice]
     target: random
     power: "30"
     notes: "Uses: 1"
   - skill_category: special
-    name: "“Ice Dragon Dance”"
+    name: "Mournful Minuet"
     skill_type: attack
     damage_types: [ice]
     target: aoe
@@ -149,32 +167,33 @@ skills:
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "“Attack” action becomes Elem. Ice damage and grant Self ability to trigger critical hits when using elemental attacks. Raise Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max). *BP cost is 1, 3 and 5 respectively."
+    effect: "Deal Elem. Ice damage with the “Attack” action, gain the ability to trigger critical hits with elemental attacks and enhance Boost Levels to Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively."
     trigger: always
   - passive_category: innate
-    effect: "When in front row: Raise Ice damage of Self by 15% and grant Self Damage Limit Up (effect: 100,000). Additionally, raise damage of Entire Front Row by 15%."
+    effect: "When in front row: Raise Damage Limit of Self by 50,000 and raise damage of Entire Front Row by 15%."
     trigger: always
-    limit_break_upgrade: "When in front row: Raise Ice damage of Self by 15% and grant Self Damage Limit Up (effect: 100,000). Additionally, raise damage of Entire Front Row by 15%."
+    limit_break_upgrade: "When in front row: Raise Ice damage of Self by 15%, Damage Limit by **100,000** and damage of Entire Front Row by 15%."
   - passive_category: innate
-    effect: "When in front row: Raise Elem. Atk. and Ice damage of Entire Front Row by 20%. Additionally, raise the Elem. Atk. and Ice damage limit from support skills and equipment of All Allies to 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%"
+    effect: "When in front row: Raise Elem. Atk. and Ice damage of Entire Front Row by 20% and raise the limits of their Elem. Atk. and Ice Damage augments from support skills and equipment effects to 50%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Ice Res. by 10%"
+    effect: "Raise own Fire Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Ice Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When in front row: Grant Self a follow-up effect when an ally in front row (except Self) exploits an enemy weakness (*Triggers once regardless the number of attacks). Follow-up effect: Deal Elem. Ice damage to All Foes (potency: 100). Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack). Also recover 1 BP."
+    effect: "When in front row: Gain the ability to trigger a follow-up attack when any other ally in front row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Ice damage to All Foes (potency: 100) and restore 1 BP to Self. Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Beautiful Hair Ornament”"
+  name: "Elegant Hair Ornament"
   passive_effect: "-60 P.Atk, 200 E.Atk; When consuming 3 BP or more: Raise BP recovery amount by 1 (turns: 1); Grant  the ability to  trigger a follow-up attack when attacking with Ice (*Triggers once even during a Boost)."
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: A (8.49 - 7.00)

@@ -1,0 +1,153 @@
+# Reddit Community Intake — Rainbow & Ice Meta (2026-05-31)
+# Promoted from resources/reddit-intake/ when corroborated by existing reference YAML.
+# All entries: data_confidence community_unverified
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-05-31"
+
+# =============================================================================
+# ICE META — FIXED CORE
+# =============================================================================
+
+ice_meta:
+  description: |
+    Ice meta is a fixed 4-unit core, not an evolving roster like rainbow.
+    Community canonical core: Castti EX + Viola EX + Eltrix EX + Rondo EX.
+  fixed_core:
+    - castti-ex
+    - viola-ex
+    - eltrix-ex
+    - rondo-ex
+  notes:
+    - "Rondo EX crit scope multiplier applies to ice attacks only (not all magic)"
+    - "Edgar (FF6) less critical in rainbow than in ice-focused teams"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1reite4/my_analysis_of_ice_meta/
+      date: 2026-02-25
+      author: u/BrickSuccessful4703
+
+# =============================================================================
+# RAINBOW META — EVOLVING ROSTER
+# =============================================================================
+
+rainbow_meta:
+  description: |
+    Rainbow meta hits all elements/weapons via weakness implant mechanics.
+    Roster evolves as new units release; slot upgrades over time.
+  current_core:
+    front_dealers:
+      - xerc
+      - osvald-ex
+      - lynette-ex
+      - lemaire
+    common_upgrades:
+      - alaune-ex2
+      - setzer
+      - rondo-ex
+      - rocbouquet
+    flex_survival:
+      - shana
+      - sazantos-ex
+      - aviete
+      - cecil
+  ideal_back_row_pairs:
+    - [xerc, isla]
+    - [osvald-ex, signa]
+    - [lemaire, shana]
+    - [lynette-ex, molrusso-ex]
+    - [lynette-ex, dark-priestess]
+  premium_full_roster:
+    characters:
+      - xerc
+      - osvald-ex
+      - setzer
+      - lynette-ex
+      - alaune-ex2
+      - isla
+      - shana
+      - rocbouquet
+    note: "Shana or Sazantos EX3 or Aviete as survival flex; front/back assignment varies"
+    source: https://www.reddit.com/r/OctopathCotC/comments/1tio5kc/how_does_rainbow_team_fare_against_future_meta/
+
+  party_structure:
+    front_row: |
+      4 dealers with rainbow damage + Osvald EX for FUA follow-ups.
+      Osvald EX: 3-element FUA at 260 potency each; up to 4×260 from frontrow rainbow attacks.
+    back_row: |
+      Weakness exploiter (Setzer if Lynette EX owned), buffer/support, 2 flex slots.
+      Do NOT run both Dark Priestess and Molrusso EX (same role).
+    missing_osvald_penalty: |
+      Lose 6-hit DPS turn + up to 4×260 potency FUA from frontrow rainbow attacks.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1t5cwal/my_personal_advice_on_recent_banners_avieteff6ot0/
+        date: 2026-05-06
+        author: u/BrickSuccessful4703
+
+  ult_timing:
+    description: |
+      Burst window requires potency buffs active during damage turn.
+      Xerc EX skill potency lasts up to 6 turns; Osvald EX ult (120% potency) lasts 3 turns.
+      Apply Osvald ult 1 turn BEFORE burst turn so potency is active during damage window.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1tr0o03/rainbow_team_help/
+        date: 2026-05-29
+
+  lynette_setzer_combo:
+    description: |
+      Setzer EX skill (7-hit bow) debuff freezes weakness implants so they aren't consumed on hit.
+      Lynette EX implants weaknesses; combo enables sustained rainbow exploitation.
+      Setzer High Stakes passive counts stacks of a SINGLE element (not pooled across elements).
+      Lynette EX AU + 3BP pet enables 200% ult T1; without AU use ult accessory or delay burst 1 turn.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1t7j9l1/lynette_ex_setzer_combo_guide/
+        date: 2026-05-08
+        author: u/BrickSuccessful4703
+
+  osvald_isla_passive:
+    description: |
+      Osvald EX has 0% passive E.atk — only elemental damage passives for ice/fire/lightning.
+      Swapping Xerc and Isla rows grants Xerc 20% passive elem atk from Isla (up to 50% total).
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1t4jnej/a_new_buff_status_screen_is_great/
+        date: 2026-05-05
+        author: u/Spare-College
+
+  rocbouquet_scaling:
+    description: |
+      Rocbouquet grants ~+1200 flat E.atk aura to all units.
+      Building E.def on Rocbouquet (~2435 vs ~621) made Alaune EX2 ult ~50% more damage same setup.
+      Physical teams stack P.def on her; magic/rainbow teams stack E.def.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1raa2ow/rocbouquet_test_romancing_saga_2_collab/
+        date: 2026-02-20
+
+  alaune_ex2_prerequisites:
+    description: |
+      Pull Alaune EX2 after investing in rainbow, not before. Replaces Lemaire in most setups.
+      Key rainbow prerequisites: Xerc, Lynette EX, Setzer, Osvald EX.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1t01gaj/supports_to_pulluse_for_alaune_ex2/
+        date: 2026-04-30
+
+  cascade_log_survival:
+    description: "Cecil kept in rainbow team for Cascade Log survival; Aviete/Shana alternatives"
+    source: https://www.reddit.com/r/OctopathCotC/comments/1t7wpck/who_to_replace_in_rainbow_team/
+
+  canonical_turn_sequence:
+    description: |
+      Standard T1-T2 rainbow setup (u/BrickSuccessful4703, u/gmalba):
+      T1: Isla EX → Shana EX → Lemaire atk buff → Molrusso EX ult gauge (or DP backsurge)
+      T2: Isla ult + Xerc EX skill; Lynette EX ult typically T2
+      T3: Xerc buff/debuff then burst; Osvald ult 1 turn before burst turn
+      Layout: Xerc/Isla | Osvald/Shana | Signa/Lemaire | Lynette EX/Molrusso EX
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1t6lzeg/how_to_properly_use_and_sequence_rainbow_teams/
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1r3haen/rainbow_team_is_crazy/
+
+  saga_team_meta:
+    description: |
+      Post-Rocbouquet meta: Emperor + Empress DPS, Rocbouquet support, Noel optional.
+      Easier vs multi-hit reduction fights; may surpass rainbow damage ceiling at whale investment.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1tio5kc/how_does_rainbow_team_fare_against_future_meta/

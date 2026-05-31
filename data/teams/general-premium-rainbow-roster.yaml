@@ -1,0 +1,166 @@
+# Premium Rainbow Roster (Future Meta Benchmark)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1tio5kc/how_does_rainbow_team_fare_against_future_meta/
+
+schema_version: "1.0"
+
+id: general-premium-rainbow-roster
+name: "Premium Rainbow Roster (Full Investment)"
+boss_id: general-difficult-content
+
+strategy_type: speed_clear
+investment_level: whale
+
+target_ex_rank: ex3
+survival_strategy: cover_tank
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 30
+  ultimate_potency: 120
+  pet_damage_up: 0
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: xerc
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Rainbow FUA core"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 2
+    character_id: osvald-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "3-element FUA at 260 potency"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 3
+    character_id: setzer
+    role_in_team: utility
+    is_required: true
+    substitutes: ["dark-priestess", "molrusso-ex"]
+    substitute_notes: "Freeze weakness implants with Lynette EX"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 4
+    character_id: lynette-ex
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Implants all elemental weaknesses + full rainbow FUA trigger"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+back_line:
+  - position: 5
+    character_id: alaune-ex2
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["lemaire"]
+    substitute_notes: "Replaces Lemaire in most premium rainbow setups"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 6
+    character_id: isla
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["frederica"]
+    substitute_notes: "Scholar for Xerc EX skill"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 7
+    character_id: rocbouquet
+    role_in_team: buffer
+    is_required: true
+    substitutes: []
+    substitute_notes: "E.def build buffs Alaune EX2 ult ~50%; +1200 flat E.atk aura"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 8
+    character_id: shana
+    role_in_team: utility
+    is_required: false
+    substitutes: ["sazantos-ex", "aviete", "cecil"]
+    substitute_notes: |
+      Flex survival slot — Shana default; Sazantos EX3, Aviete, or Cecil for
+      Cascade Log / cover needs per community discussion.
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+speed_order:
+  - rocbouquet
+  - isla
+  - shana
+  - setzer
+  - alaune-ex2
+  - lynette-ex
+  - osvald-ex
+  - xerc
+
+speed_tuning_notes: |
+  Premium endgame rainbow benchmark roster from May 2026 discussion.
+  Saga team (Emperor/Empress/Rocbouquet) may surpass vs MHR fights.
+
+turn_plan:
+  - turn_range: "1-2"
+    phase: setup
+    actions:
+      - "Setzer + Lynette EX: Implant + freeze weakness window"
+      - "Isla + Rocbouquet: Buff setup; stack E.def on Rocbouquet for Alaune EX2 ult"
+      - "Osvald EX ult: Potency before burst"
+    notes: "Standard premium rainbow T1-T2 setup"
+
+  - turn_range: "3+"
+    phase: burst
+    actions:
+      - "Xerc + Lynette EX + Osvald EX: Full rainbow FUA burst"
+      - "Alaune EX2: Support/damage during window"
+    notes: "Survival flex (Shana/Cecil/Aviete) per content"
+
+why_it_works: |
+  Community-proposed full premium rainbow roster for future meta comparison.
+  Combines weakness implant freeze (Setzer + Lynette EX), Osvald FUA core,
+  Alaune EX2 support upgrade, and Rocbouquet stat-scaling aura.
+
+  May not out-DPS Saga team (Emperor/Empress/Rocbouquet) on MHR content.
+
+key_synergies:
+  - "Setzer + Lynette EX: Frozen weakness implants"
+  - "Rocbouquet E.def + Alaune EX2 ult: Support stat scaling"
+  - "Xerc + Osvald EX: Rainbow FUA core"
+  - "Cecil flex: Cascade Log survival"
+
+risks_and_recovery:
+  - "Risk: Multi-hit damage reduction endgame"
+  - "Recovery: Saga team or single-element Xerc hybrid"
+  - "Risk: High investment bar"
+  - "Recovery: Hybrid 3T or Crickari F2P paths"
+
+verified: false
+clear_time: "2-4 turns (premium setup)"
+success_rate: "Theoretical — benchmark roster"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1tio5kc/how_does_rainbow_team_fare_against_future_meta/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

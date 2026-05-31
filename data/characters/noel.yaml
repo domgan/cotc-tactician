@@ -1,0 +1,205 @@
+# Character: Noel
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: noel
+display_name: "Noel"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Empire of Avalon (Romancing SaGa 2)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- axe
+- bow
+- dagger
+- fan
+- fire
+- ice
+- polearm
+- staff
+- sword
+- tome
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3462
+p_atk: 593
+p_def: 385
+e_atk: 226
+e_def: 348
+speed: 360
+crit: 288
+sp: 402
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4282
+p_atk_120: 658
+p_def_120: 405
+e_atk_120: 276
+e_def_120: 398
+speed_120: 425
+crit_120: 338
+sp_120: 482
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S++ | 10.0"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 80
+    skill_type: mixed
+    target: single_enemy
+    effects:
+      - "**(Initial)** Raise Phys"
+  - skill_category: active
+    sp_cost: 75
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    power: "230-400 based on Boost Lv."
+    effects:
+      - "**(1★)** Grant Self the ability to completely block some physical attacks (turns: 1)"
+  - skill_category: active
+    sp_cost: 48
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    power: "230"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Sword damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys"
+  - skill_category: active
+    sp_cost: 83
+    skill_type: mixed
+    damage_types: [sword, wind]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Sword damage to Single Foe 4 time(s) (potency: 4x45) and lower Phys"
+  - skill_category: active
+    name: "“Salamander Claw”"
+    sp_cost: 45
+    skill_type: attack
+    damage_types: [dagger, fire]
+    target: single_enemy
+    power: "230-400 based on Boost Lv."
+  - skill_category: active
+    sp_cost: 109
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "5x"
+    power: "5x35"
+    effects:
+      - "Sword damage to All Foes 5 time(s) (potency: 5x35) and lower Dagger Res"
+  - skill_category: tp
+    sp_cost: 119
+    skill_type: attack
+    damage_types: [sword, ice]
+    target: aoe
+    hit_count: "6x"
+    power: "6x25"
+    effects:
+      - "**** Act faster during turn and deal Phys"
+      - "Sword damage to All Foes 6 time(s) (potency: 6x25) and raise physical damage of Self by 15% (turns: 3)"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 119
+    skill_type: attack
+    damage_types: [sword, ice]
+    target: aoe
+    power: "**8x25**"
+    effects:
+      - "** Lv.2** Act faster during turn and deal Phys"
+      - "Sword damage to All Foes **8** time(s) (potency: **8x25**) and raise physical damage of Self by **30%** (turns: 3)"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [dagger, wind]
+    target: aoe
+    power: "520-900 based on Boost Lv."
+    effects:
+      - "**(EX)** Grant Self the ability to completely block some physical and elemental attacks (turns: 1)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Red Dragon Wave”"
+    skill_type: attack
+    damage_types: [dagger, fire]
+    target: aoe
+    power: "700→850→1000"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Upon activation, grant Self the special effect “Absorption Method” (turns: 1). “Absorption Method”: Skill configuration changes to the following."
+    trigger: always
+  - passive_category: innate
+    effect: "Inflict the special effect “Impossible to Revive” to an ally (except Self) (turns: 5-2 based on Boost Lv.) and overkill that ally to gain “Absorption Effect” (amount: 10%-50% based on Boost Lv.)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise Phys. Atk. of Self by 30% and Critical damage by 30% and gain Dead Aim (guaranteed critical hits). With “Absorption Method”: Also grant All Allies automatic SP recovery (amount: 5% of their max SP) and raise BP recovery by 1."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%."
+    trigger: always
+    limit_break_upgrade: "Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%. With “Absorption Effect”: Attack count of “Salamander Claw” and “Red Dragon Wave” becomes 2."
+  - passive_category: innate
+    effect: "Raise own Phys. Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by 100% (Effects of the same type do not stack). Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by **150%** (Effects of the same type do not stack) and raise Damage Limit by 750,000. Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by **20%**."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Crest of Red Dragon Corps”"
+  passive_effect: "200 P.Atk, -50 E.Def, 40 SP; After dealing critical damage, grant all enemies a Dagger “Fragility” (times: 5)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

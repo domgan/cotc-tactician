@@ -1,0 +1,251 @@
+# Character: Final Empress
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: final-empress
+display_name: "Final Empress"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: power
+origin: "Empire of Avalon (Romancing SaGa 2)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- fire
+- light
+- tome
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3276
+p_atk: 251
+p_def: 336
+e_atk: 554
+e_def: 385
+speed: 293
+crit: 251
+sp: 662
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3936
+p_atk_120: 301
+p_def_120: 386
+e_atk_120: 619
+e_def_120: 435
+speed_120: 343
+crit_120: 301
+sp_120: 752
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S++ | 10.0"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 28
+    skill_type: attack
+    damage_types: [fire]
+    target: aoe
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    sp_cost: 38
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x70"
+  - skill_category: active
+    sp_cost: 50
+    skill_type: heal
+    target: front_row
+    power: "110/turns: 2-5 based on Boost Lv."
+    effects:
+      - "**(2★)** Grant Entire Front Row automatic HP recovery (potency: 110/turns: 2-5 based on Boost Lv.)"
+      - "cure blindness and grant All Allies “Light Technique”"
+      - "At Max Boost: Also raise BP recovery by 1"
+  - skill_category: active
+    name: "“"
+    skill_type: mixed
+    damage_types: [light]
+    target: single_enemy
+    effects:
+      - "**“**Light Technique”: Raise Elem"
+  - skill_category: active
+    sp_cost: 64
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**(2★)** Raise Phys"
+      - "grant All Allies “Wind Technique” and raise Elem"
+  - skill_category: active
+    name: "“"
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    effects:
+      - "**“**Wind Technique”: Raise Elem"
+  - skill_category: active
+    sp_cost: 77
+    skill_type: attack
+    damage_types: [wind, fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "Also raise Elem"
+      - "damage of Self by 20% (turns: 2) and grant All Allies “Fire Technique”"
+  - skill_category: active
+    name: "“"
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    effects:
+      - "**“**Fire Technique”: Raise Elem"
+  - skill_category: active
+    sp_cost: 56
+    skill_type: attack
+    damage_types: [fire, wind, light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x40"
+  - skill_category: active
+    sp_cost: 154
+    skill_type: attack
+    damage_types: [light, wind]
+    target: aoe
+    hit_count: "2x"
+    power: "2x80-2x130 based on Boost Lv."
+    effects:
+      - "Also grant Self “Wind Technique”"
+  - skill_category: active
+    name: "“"
+    skill_type: mixed
+    damage_types: [wind]
+    target: single_enemy
+    effects:
+      - "**“**Wind Technique”: Raise Elem"
+  - skill_category: active
+    sp_cost: 139
+    skill_type: mixed
+    damage_types: [light, fire]
+    target: aoe
+    hit_count: "4x"
+    power: "4x45"
+    effects:
+      - "Also grant Self “Fire Technique”"
+      - "When the target is broken: Potency increases by 1.5x and lower their Elem"
+  - skill_category: active
+    name: "Lv.100 |"
+    skill_type: utility
+    target: single_enemy
+    effects:
+      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
+  - skill_category: tp
+    sp_cost: 300
+    skill_type: mixed
+    damage_types: [fire]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x180"
+    effects:
+      - "Fire damage to Single Foe 3 time(s) (potency: 3x180) and lower Elem"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 300
+    skill_type: mixed
+    damage_types: [fire]
+    target: aoe
+    hit_count: "3x"
+    power: "3x180"
+    effects:
+      - "raise the limit of Elem"
+      - "reductions from battle skills on All Foes to 50% and lower Elem"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: attack
+    damage_types: [light]
+    target: aoe
+    power: "240-380 based on Boost Lv."
+    notes: "Uses: 3"
+  - skill_category: special
+    name: "“Crimson Flare”"
+    skill_type: mixed
+    damage_types: [light, fire]
+    target: single_enemy
+    hit_count: "2x"
+    power: "4→5→6"
+    effects:
+      - "Light damage to Single Foe 2 time(s) (potency: **2x240→2x285→2x355**) and lower Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When an ally in front row deals Elem. Fire/Wind/Light damage, grant them “Fire Technique”/”Wind Technique”/”Light Technique”.that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200)."
+    trigger: always
+  - passive_category: innate
+    effect: "Fire Technique”: Raise Elem. Atk. by 10% and Fire damage by 20% and gain the ability to exploit Fire weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Wind Technique”: Raise Elem. Atk. by 10% and Wind damage by 20% and gain the ability to exploit Wind weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack)."
+    trigger: always
+  - passive_category: innate
+    effect: "Light Technique”: Raise Elem. Atk. by 10% and Light damage by 20% and gain the ability to exploit Light weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack). *Elem. Atk. Up and Damage Up of these effects do not stack."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row at the end of turn, allow All Allies to act faster during next turn."
+    trigger: always
+  - passive_category: innate
+    effect: "Augment Self based on number of alive allies in party. ·5+: Lower SP consumption by 30%. ·6+: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·7+: Gain the ability to activate attack skills twice. ·8: Raise Damage Limit of Self by 50,000."
+    trigger: always
+    limit_break_upgrade: "Augment Self based on number of alive allies in party. ·**4+**: Lower SP consumption by 30%. ·**5+**: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·**6+**: Gain the ability to activate attack skills twice. ·**7+**: Raise Damage Limit of Self by **100,000**."
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 15%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe (potency: 100). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. Up, Elem. Def. Up and damage reductions."
+    trigger: always
+  - passive_category: tp
+    effect: "Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe **2** time(s) (potency: **2x100**). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. and Elem. Def. augments and damage reductions."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Scarlet Imperial Emblem”"
+  passive_effect: "200 E.Atk, -50 Spd, 40 SP; Gain the ability to trigger critical hits with elemental attacks; Start of battle: When equipped by a Cleric, Scholar or Dancer, gain “Fire Technique”, “Wind Technique” and “Light Technique”"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

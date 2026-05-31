@@ -12,7 +12,11 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, dark, light, wind]
+weakness_coverage:
+- bow
+- dark
+- light
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +49,7 @@ has_limit_break: false
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "A"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -159,10 +163,10 @@ passives:
     effect: "Raise Phys. Atk. limit support skills and equipment effects of Hunters in front row to 50%. While “Evil Eye Unleashed” is active: Also raise Phys. Atk. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Dark Res. by 20%"
+    effect: "Raise own Dark Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%"
+    effect: "**Resilience** Raise own Light Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "Upon activation, grant Self the special effect “Evil Eye Unleashed” (turns: 1). “Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type). Additionally, grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack). ---"
@@ -177,4 +181,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

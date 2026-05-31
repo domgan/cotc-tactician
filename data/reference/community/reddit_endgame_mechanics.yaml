@@ -1,0 +1,119 @@
+# Reddit Community Intake — Endgame Mechanics (2026-05-31)
+# Promoted from resources/reddit-intake/ — corroborates damage_mechanics.yaml patterns.
+# All entries: data_confidence community_unverified
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-05-31"
+
+# =============================================================================
+# MULTI-HIT DAMAGE REDUCTION (MHR)
+# =============================================================================
+
+multi_hit_damage_reduction:
+  description: |
+    Endgame mechanic that reduces damage on successive hits within a single skill.
+    Distinct from multi-hit-damage-CAP-reduction (Side Solistia final boss only).
+  formula_example:
+    per_hit_scaling: "Min[Z,CAP] / Min[0.5Z,CAP] / Min[0.25Z,CAP] for 50% MHR"
+    note: "With proper buffs + high potency nukes, should see CAP/CAP/CAP when Z > 4×CAP"
+  affected_content:
+    - "Lv120 NPCs"
+    - "Side Solistia final boss"
+    - "Aoi EX3"
+    - "Garrison Training boss"
+  bypass:
+    - character: setzer
+      note: "Edgar (FF6) 8-hit skill ignores multi-hit reduction per community report"
+  aoi_ex3_note: |
+    MHR only active turns 3–5 on 5★ refight. Break turn 2 or turn 6; DK can 1-break solo.
+  impact: "Blocks DK spam strategies on high-HP endgame content"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1t1p87i/the_game_has_reached_such_a_frustrating_point/
+      date: 2026-05-02
+
+# =============================================================================
+# BUFF CATEGORY — CRIT vs WEAPON DAMAGE (PASSIVE BRACKET)
+# =============================================================================
+
+passive_damage_cap_note:
+  description: |
+    Community reports crit damage may share the passives_equipment 30% cap bracket
+    with weapon-type damage (sword damage, etc.). Stacking 30% crit damage AND
+    30% sword damage may waste cap if both compete for the same passive bracket.
+    DK passive grants 30% sword damage on kill+resurrect ally during 100k cap setup;
+    heroic warrior emblem may be redundant.
+  corroborates: damage_stacking.yaml passives_equipment bracket
+  contradicts_note: |
+    buff_categories.yaml lists crit_damage_up as separate 100% cap bracket —
+    community claim may refer to damage_stacking 5-category passive bracket instead.
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1tb6931/how_to_improveoptimize_further_my_dk_team_math/
+      date: 2026-05-12
+      author: u/Verzalll
+
+# =============================================================================
+# PET STACKING META SHIFT
+# =============================================================================
+
+pet_stacking_meta:
+  description: |
+    Pet stacking (Akala, Meowguste, Chomper without action) dominated speedclear meta.
+    200% ultimates make team slots more competitive. Content creators moving away
+    from full pet stacking in recent clears.
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1qtkhq6/is_pet_stacking_dethroned/
+      date: 2026-02-02
+      author: u/CreativeResource8025
+
+# =============================================================================
+# DARK KNIGHT — CONTENT FIT
+# =============================================================================
+
+dark_knight_content_fit:
+  excels_on:
+    - "120 NPCs (high HP walls)"
+    - "Adversary Log EX3"
+  poor_fit:
+    - "Cascade Log / dailies (clunky 3T setup, one-time 100% EX potency)"
+  setup_rotation:
+    turn_1: "Charge ult gauge skill + kill 4 backrow allies"
+    turn_2: "Ult + kill another ally"
+    turn_3: "EX skill burst; kill 5th ally with ult for permanent 2BP regen"
+  dp_passive_speed_tuning:
+    description: |
+      Dark Priestess passive grants backrow speed → Signa faster than Tiziano →
+      DK kills Tiziano before Tiziano ults. Mitigation: turn off DP passive,
+      equip 120 Adventurer Pack artifact on Tiziano for HP + revive.
+    sources:
+      - url: https://www.reddit.com/r/OctopathCotC/comments/1prkptv/complete_guide_of_a_perfect_team_that_doesnt_take/
+        date: 2025-12-20
+
+# =============================================================================
+# UNIVERSAL TEAM LIMITATIONS
+# =============================================================================
+
+universal_team_limits:
+  description: |
+    Universal teams fail on gimmick bosses, forced backrow swaps (stops Rinyuu healing),
+    ignore-taunt, sub-50% HP enrage requiring 1–2 break kills.
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1mjy3s6/you_cant_make_one_team_for_all_boss_fights/
+      date: 2025-08-07
+
+# =============================================================================
+# OChette EX ULT TARGET JOBS
+# =============================================================================
+
+ochette_ex_ult_jobs:
+  benefits:
+    - warriors
+    - merchants
+    - apothecaries
+  does_not_benefit:
+    - kaine
+    - pardis-iii
+  note: "Solves DK BP management during setup"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1qcoc6f/my_thoughts_and_tips_for_ochette_ex_and_osvald_ex/
+      date: 2026-01-14

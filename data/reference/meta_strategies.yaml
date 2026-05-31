@@ -215,6 +215,25 @@ common_compositions:
         examples: ["Primrose EX", "Ophilia"]
 
 # =============================================================================
+# META TEAM ARCHETYPES (COMMUNITY)
+# =============================================================================
+# Full details: data/reference/community/reddit_rainbow_and_ice_meta.yaml
+
+meta_team_archetypes:
+  ice_meta:
+    description: "Fixed 4-unit core — Castti EX, Viola EX, Eltrix EX, Rondo EX"
+    evolution: fixed
+    data_confidence: community_unverified
+
+  rainbow_meta:
+    description: |
+      Evolving roster hitting all elements via weakness implants.
+      Core: Xerc, Osvald EX, Lynette EX + flex upgrades (Alaune EX2, Setzer, Rocbouquet).
+      Front: 4 rainbow dealers + Osvald FUA. Back: Setzer exploiter + buffer + 2 flex.
+    evolution: evolving
+    data_confidence: community_unverified
+
+# =============================================================================
 # PROGRESSIVE TEAM BUILDING (for newer players)
 # =============================================================================
 

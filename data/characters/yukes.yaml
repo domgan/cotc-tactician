@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, staff]
+weakness_coverage:
+- fire
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "C"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -135,6 +137,16 @@ skills:
     effects:
       - "**Healing of the Sacred Heart ** Grant Entire Front Row automatic SP recovery (amount: 5% of max SP"
       - "turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2)"
+  - skill_category: tp
+    name: "Healing of the Sacred Heart Lv.2"
+    sp_cost: 74
+    skill_type: buff
+    target: front_row
+    power: "110, turns: 2"
+    effects:
+      - "**Healing of the Sacred Heart Lv.2** Grant Entire Front Row automatic SP recovery (amount: 5% of max SP"
+      - "turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2)"
+      - "impart Warriors in party with SP Stock (amount: 10% of user’s max SP)"
   - skill_category: ex
     name: "Fumbled Fireball III"
     skill_type: mixed
@@ -168,6 +180,12 @@ passives:
   - passive_category: tp
     effect: "During action selection, grant each member of Entire Front Row one of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2)."
     trigger: always
+  - passive_category: tp
+    effect: "During action selection, grant each member of Entire Front Row **two** of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2). Also lower each foe of All Foes one of these effects: a 5% Down in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed or Critical."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword and Staff and Elem. Fire attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -178,4 +196,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

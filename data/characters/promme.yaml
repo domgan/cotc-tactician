@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, staff]
+weakness_coverage:
+- fire
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "D"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -128,21 +130,12 @@ skills:
     target: aoe
     hit_count: "3x"
     power: "3x80"
-  - skill_category: ex
-    name: "The Flamebringer’s Pure Flame"
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    power: "520"
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-    notes: "Uses: 2"
   - skill_category: special
     name: "Cleansing by Fire"
     skill_type: attack
     damage_types: [fire]
     target: single_enemy
-    power: "500→600"
+    power: "500→600→750"
 
 # Passives - parsed from markdown
 passives:
@@ -171,4 +164,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, staff]
+weakness_coverage:
+- dark
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "D"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -125,6 +127,14 @@ skills:
     target: aoe
     hit_count: "3x"
     power: "3x80"
+  - skill_category: tp
+    name: "Dark Mockery Lv.2"
+    sp_cost: 80
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "3x"
+    power: "3x80"
   - skill_category: ex
     name: "Duskneer"
     skill_type: mixed
@@ -140,8 +150,6 @@ skills:
     damage_types: [dark]
     target: single_enemy
     power: "500→600→750"
-    effects:
-      - "Grant Self Damage Limit Up using this Ultimate Technique (effect: 100,000)"
 
 # Passives - parsed from markdown
 passives:
@@ -161,6 +169,12 @@ passives:
   - passive_category: tp
     effect: "Impart Self with Elem. Atk. Up 30% when a bleeding enemy is present."
     trigger: always
+  - passive_category: tp
+    effect: "Impart Self with Elem. Atk. Up 30% and gain the ability to activate attacking skills twice when a bleeding enemy is present."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Dark attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -171,4 +185,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

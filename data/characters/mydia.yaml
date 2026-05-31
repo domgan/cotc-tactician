@@ -12,7 +12,10 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, light, staff]
+weakness_coverage:
+- fire
+- light
+- staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer", "breaker", "healer"]
@@ -42,17 +45,17 @@ crit_120: 308
 sp_120: 500
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Flaring Smash"
     sp_cost: 44
     skill_type: attack
     damage_types: [staff]
@@ -60,14 +63,15 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
-    name: "(Initial)"
+    name: "Medica (Front/All)"
     sp_cost: 42
     skill_type: heal
     target: front_row
     power: "55"
     effects:
-      - "**(Initial)** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
+      - "**Medica (Front/All)** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
   - skill_category: active
+    name: "Flaring Bludgeon"
     sp_cost: 66
     skill_type: attack
     damage_types: [staff]
@@ -75,13 +79,15 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
+    name: "Grand Abolishment"
     sp_cost: 48
     skill_type: mixed
     target: front_row
     effects:
-      - "**(2★)** Raise Phys"
+      - "**Grand Abolishment (2★)** Raise Phys"
       - "also raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
+    name: "Benedictory Bash"
     sp_cost: 66
     skill_type: attack
     damage_types: [staff]
@@ -89,16 +95,20 @@ skills:
     hit_count: "2x"
     power: "2x90"
   - skill_category: active
+    name: "Punitive Pathos"
     sp_cost: 70
     skill_type: debuff
     target: aoe
     effects:
-      - "**(3★)** Inflict All Foes Staff weakening (times: 6-9 based on Boost Lv.) and lower Staff"
+      - "**Punitive Pathos (3★)** Grant Staff weakness to All Foes (times: 6-9 based on Boost Lv.) and lower Staff"
   - skill_category: active
     name: "Lv.88 |"
-    skill_type: utility
+    skill_type: buff
     target: single_enemy
+    effects:
+      - "Granted Staff Weakness: Regardless of the source"
   - skill_category: active
+    name: "Shielding Mace"
     sp_cost: 110
     skill_type: mixed
     damage_types: [staff]
@@ -108,6 +118,7 @@ skills:
     effects:
       - "Restore HP of Entire Front Row (potency: 60) and grant HP Barrier (potency: 30% of user’s max HP/Does not stack)"
   - skill_category: active
+    name: "Radiant Smash"
     sp_cost: 88
     skill_type: attack
     damage_types: [staff]
@@ -115,6 +126,7 @@ skills:
     hit_count: "6x"
     power: "6x40"
   - skill_category: active
+    name: "Radiant Bludgeon"
     sp_cost: 110
     skill_type: attack
     damage_types: [staff]
@@ -122,31 +134,26 @@ skills:
     hit_count: "3x"
     power: "3x110"
   - skill_category: tp
+    name: "Raging Flaring Bash"
     sp_cost: 72
     skill_type: attack
     damage_types: [staff]
     target: random
     hit_count: "4x"
     power: "4x45"
+    effects:
+      - "Grant Staff weakness with every attack (times: 2)"
   - skill_category: tp
-    name: "Lv.2"
+    name: "Raging Flaring Bash Lv.2"
     sp_cost: 72
     skill_type: mixed
     damage_types: [staff]
     target: random
     power: "**5x45**"
     effects:
-      - "Inflict Staff weakening (times: 2) and lower Staff Res"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    hit_count: "4x"
-    power: "4x60"
-    notes: "Uses: 1"
+      - "Grant Staff weakness (times: 2) and lower Staff Res"
   - skill_category: special
-    name: "“Lightning Hammer”"
+    name: "Clavam de Iudicium"
     skill_type: attack
     damage_types: [staff]
     target: front_row
@@ -155,11 +162,11 @@ skills:
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When in front row: Grant Entire Front Row a follow-up attack when exploiting enemy weakness (*Triggers once regardless the number of attacks). Follow-up attack: Deal Phys. Staff damage to All Foes (potency: 150). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
+    effect: "When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes (potency: 150). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
     trigger: always
-    limit_break_upgrade: "When in front row: Grant Entire Front Row a follow-up attack when exploiting enemy weakness (*Triggers once regardless the number of attacks). Follow-up attack: Deal Phys. Staff damage to All Foes **2** time(s) (potency: **2x100**). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
+    limit_break_upgrade: "When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes **2** time(s) (potency: **2x100**). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
   - passive_category: innate
-    effect: "At full HP: Raise own Phys. Atk. by 15%, raise Staff damage of Self by 30% and grant Entire Front Row Damage Limit Up (effect: 20,000)."
+    effect: "At full HP: Raise Phys. Atk. of Entire Front Row by 15%, Staff damage by 30% and Damage Limit by 20,000."
     trigger: hp_condition
   - passive_category: innate
     effect: "Raise own Ice Res. by 20%."
@@ -171,60 +178,23 @@ passives:
     effect: "**Resilience** Raise own Fire and Light Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Increase the Staff damage limit of Entire Front Row from support skills and equipment effects to 50%. At full HP: Raise Staff damage of the same target by 20%."
+    effect: "Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%."
     trigger: hp_condition
   - passive_category: tp
-    effect: "Increase the Staff damage limit of Entire Front Row from support skills and equipment effects to 50%. At full HP: Raise Staff damage of the same target by 20%. When in back row: Grant Self automatic SP recovery (amount: 20% of Max SP)."
+    effect: "Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%. When in back row: Grant Self automatic SP recovery (amount: 20% of Max SP)."
     trigger: hp_condition
   - passive_category: tp
-    effect: "Raise Damage Limit of All Allies when using Staff attacks by 15,000."
+    effect: "Raise Damage Limit of Phys. Staff skills of All Allies by 15,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Flower and Wing Hair Ornament"
-  passive_effect: "80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a cleric: Grant the ability to trigger critical hits when using elemental attacks and grant Dead Aim (guaranteed critical hits)"
-
-# Usage Strategy (from YouTube video analysis)
-usage_strategy: |
-  CORE MECHANICS:
-  - Follow-up attack passive gives staff damage to active characters when exploiting weaknesses
-  - Follow-up damage uses active character's stats and buffs (inherits Partis/DK potency)
-  - Ultimate provides 20% Phys Atk + 20% Phys Damage to front row (20% gauge adds second buff)
-  - 5-hit breaker with TP skill (2 staff weakness implants per hit = 10 total)
-  
-  BREAKING CAPABILITIES:
-  - TP skill "Blasting Lantern": 4-5 hits + 2 staff weakness per hit
-  - Can break 5 shields while implanting 10 staff weaknesses
-  - Support skill for 6-9 staff weakness implants when needed
-  
-  BUFFING ROLE:
-  - Main selling point is ultimate (as important as early ultimates)
-  - Replaces many staff travelers in current meta
-  - Follow-up attacks benefit from character potency buffs
-  - 50% staff damage cap increase for entire front row
-  
-  VIABILITY:
-  - Still heavily used in JP meta to this day
-  - Fantastic as breaker and support for staff physical attackers
-  - Longevity 4.9/5 - will last until elemental meta dominates
-  - Overall rating 4.95/5 - "ultimate follow-up attacking queen"
-  
-  A4 ACCESSORY NOTES:
-  - Physical stats on elemental cleric (design mismatch)
-  - Skip for many players as elemental meta will provide crit/dead aim
-  - Frees up accessory slot when elemental support becomes common
-
-# Best use cases
-best_use_cases:
-  - "Staff physical attack teams (Partis, Dark Knight, etc.)"
-  - "Teams needing 5-hit breaker with weakness implant"
-  - "Content requiring 20% Phys Atk + 20% Phys Damage buffs"
-  - "Follow-up attack synergy teams"
-  - "Long-term investment (still relevant in JP meta)"
+  name: "Floral Wing Hairpin"
+  passive_effect: "80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a Cleric: Gain the ability to trigger critical hits with elemental attacks and gain Dead Aim (guaranteed critical hits)"
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube video analysis"
-last_updated: "2025-12-28"
+data_source: "Community spreadsheet CSV export"
+last_updated: "2026-05-31"
+gl_tier: S (9.49 - 8.50)

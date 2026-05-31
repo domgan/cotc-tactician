@@ -12,7 +12,11 @@ influence: fame
 origin: "NieR Universe (NieR series)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, dark, fire, sword]
+weakness_coverage:
+- axe
+- dark
+- fire
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -24,18 +28,18 @@ usage_strategy: |
   2B is the "best waifu" warrior from the NieR Automata collaboration with access to both sword and axe abilities. She has the highest physical attack and speed among warriors, making her the current strongest warrior. Her versatility comes from covering both weapon types with 3-hit attacks, but she's limited by skill usage requiring adjustment based on enemy weaknesses.
 
 best_use_cases:
-  - "Content requiring sword and axe coverage"
-  - "Situations where high physical damage is needed"
-  - "Teams needing versatile warrior coverage"
-  - "Players wanting the strongest current warrior"
-  - "Content where guaranteed critical hits are valuable"
+- "Content requiring sword and axe coverage"
+- "Situations where high physical damage is needed"
+- "Teams needing versatile warrior coverage"
+- "Players wanting the strongest current warrior"
+- "Content where guaranteed critical hits are valuable"
 
 weaknesses:
-  - "Warrior class is oversaturated with better units coming in future"
-  - "Limited by skill usage requiring enemy weakness adjustment"
-  - "Will be outclassed by future warriors as Square Enix loves sword users"
-  - "Time-limited collaboration availability"
-  - "Suffers from having too many great abilities that can't all be used"
+- "Warrior class is oversaturated with better units coming in future"
+- "Limited by skill usage requiring enemy weakness adjustment"
+- "Will be outclassed by future warriors as Square Enix loves sword users"
+- "Time-limited collaboration availability"
+- "Suffers from having too many great abilities that can't all be used"
 
 # Stats (base level)
 hp: 3242
@@ -64,7 +68,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "D (4.99 - 4.00)"
-jp_tier: "E"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -191,12 +195,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "2B's Goggles"
+  name: "2B’s Goggles"
   passive_effect: "100 P.Atk, 40 Spd; Start of battle: Raise Phys. Atk.by 10% (turns: 5); When breaking an enemy, raise BP recovery amount by 1 (turns: 1) (Does not stack with other BP recovery effects)"
-  notes: "Excellent accessory that enhances physical attack and provides BP recovery"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Nier Automata 9S, 2B, and A2 Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting her as strongest warrior with versatile sword/axe coverage"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

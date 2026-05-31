@@ -86,6 +86,11 @@ general_strategy: |
   4. Watch mercenary turn order - if they go first, counter mode is active!
   5. Kill mercenaries first if struggling with counters
 
+  COMMUNITY NOTES (Reddit, unverified):
+  - Lumis EX + Hujheb cleared Tikilen EX3 in 4T with physical counter mechanic negated.
+    Relevant for counter-stance / physical counter aura bosses.
+    Source: https://www.reddit.com/r/OctopathCotC/comments/1hnn7ax/twlumis_ex_hujheb_beat_tikilen_ex3_in_4t_physical/
+
 required_roles:
   - role: tank
     priority: required

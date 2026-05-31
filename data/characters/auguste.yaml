@@ -12,7 +12,10 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, dark, tome]
+weakness_coverage:
+- dagger
+- dark
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "buffer"]
@@ -24,18 +27,18 @@ usage_strategy: |
   Auguste is a dark thief whose main selling point is his interesting passive mechanic. When allies die or he uses his ultimate, he becomes "impassioned" for 4 turns, gaining 30% physical and dark attack boosts, and his abilities change - some become guaranteed crits and recover 3 BP. He has forehead attacks for all three elements and can lower dagger resistance.
 
 best_use_cases:
-  - "Dark teams needing versatile coverage with dagger, tome, and dark"
-  - "Situations where his A4 accessory's full ultimate bar is game-changing"
-  - "Teams that can benefit from his passive activation in longer fights"
-  - "Content requiring dagger resistance reduction"
-  - "Players who have A2 or Velco and want additional dark coverage"
+- "Dark teams needing versatile coverage with dagger, tome, and dark"
+- "Situations where his A4 accessory's full ultimate bar is game-changing"
+- "Teams that can benefit from his passive activation in longer fights"
+- "Content requiring dagger resistance reduction"
+- "Players who have A2 or Velco and want additional dark coverage"
 
 weaknesses:
-  - "Doesn't have any abilities that break shields regardless of weaknesses"
-  - "Limited to dagger, tome, and dark attacks for shield breaking"
-  - "Passive requires setup - unlikely to activate in short fights"
-  - "As limited time unit, expected more capabilities"
-  - "Will be outclassed by future thieves coming to the game"
+- "Doesn't have any abilities that break shields regardless of weaknesses"
+- "Limited to dagger, tome, and dark attacks for shield breaking"
+- "Passive requires setup - unlikely to activate in short fights"
+- "As limited time unit, expected more capabilities"
+- "Will be outclassed by future thieves coming to the game"
 
 # Stats (base level)
 hp: 3122
@@ -63,8 +66,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "C (5.99 - 5.00)"
-jp_tier: "D"
+gl_tier: "B (6.99 - 6.00)"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -189,12 +192,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Playwright's Quill"
+  name: "Playwright’s Quill"
   passive_effect: "70 P.Atk, 70 E.Atk; Raise Dagger and Tome damage dealt by 10%; Start of battle: Ultimate Technique gauge fills to 100%"
-  notes: "Game-changing accessory that allows any character to start battle with full ultimate bar"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC All Champion Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting his unique passive mechanic and game-changing A4 accessory"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

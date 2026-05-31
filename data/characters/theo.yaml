@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, lightning]
+weakness_coverage:
+- axe
+- lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "C"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -164,10 +166,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Pollonia’s Medicine Box"
+  name: "Pollonia’s Medicine Box
+·"
   passive_effect: "**40 P.Atk, 60 P. Def., 40 E. Def.; Raise Axe damage dealt by 15%; Raise Wind Res. by 10%"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

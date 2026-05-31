@@ -12,7 +12,14 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, fire, ice, light, lightning, staff, wind]
+weakness_coverage:
+- dark
+- fire
+- ice
+- light
+- lightning
+- staff
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,129 +47,137 @@ crit_120: 263
 sp_120: 530
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Heal More (Single)"
     sp_cost: 24
     skill_type: heal
     target: front_row
-    power: "160"
+    power: "160/180/220/280"
     effects:
-      - "**(Initial)** Restore HP of Single Ally (potency: 160)"
+      - "**Heal More (Single)** Restore HP of Single Ally (potency: 160/180/220/280)"
   - skill_category: active
-    name: "“Advent: Lion of the Flame”"
+    name: "Advent of Stollenwurm"
     sp_cost: 39
     skill_type: mixed
     damage_types: [wind, sword]
     target: aoe
     hit_count: "2x"
-    power: "2x70"
+    power: "2x70/2x80/2x100/2x120"
     effects:
-      - "·With 6 or more “Revere Beast” Points: Also lower Phys"
+      - "·6+: Also lower Phys"
   - skill_category: active
-    name: "“Advent: Burial Claw Wolf”"
+    name: "Advent of Lykaon"
     sp_cost: 39
     skill_type: mixed
     damage_types: [dark, dagger]
     target: random
     hit_count: "3x"
-    power: "3x55"
+    power: "3x55/3x65/3x80/3x100"
     effects:
-      - "·With 6 or more “Revere Beast” Points: Also have a low chance to lower Phys"
+      - "·6+: Also have a low chance to lower Phys"
   - skill_category: active
+    name: "Rehabillitate Magic (Front/All)"
     sp_cost: 30
     skill_type: heal
     target: front_row
     effects:
-      - "**(2★)** Cure status ailments of Entire Front Row and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+      - "**Rehabillitate Magic (Front/All) (2★)** Cure status ailments of Entire Front Row and grant them immunity to some status ailments (turns: 1/2/3/4 based on Boost Lv.)"
   - skill_category: active
-    name: "“Advent: Inmortal Bird”"
+    name: "Advent of Simurgh"
     sp_cost: 120
     skill_type: buff
     target: front_row
     effects:
-      - "**“Advent: Inmortal Bird” (2★)** Grant Entire Front Row automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
+      - "**Advent of Simurgh (2★)** Grant Entire Front Row automatic revival at 25%/50%/75%/100% of their max HP based on Boost Lv"
   - skill_category: active
-    name: "“Advent: Kaguya’s Moon Rabbit”"
-    sp_cost: 73
+    name: "Advent of Yuetu"
+    sp_cost: 91
     skill_type: attack
     damage_types: [light, fan]
     target: front_row
     hit_count: "4x"
-    power: "4x35"
+    power: "4x35/4x45/4x55/4x75"
     effects:
-      - "Also raise Elem"
-      - "·With 6 or more “Revere Beast” Points: Also raise Phys"
+      - "Light damage to Random Foe 4 time(s) (potency: 4x35/4x45/4x55/4x75) and raise elemental damage of Entire Front Row by 15% (turns: 2)"
+      - "·6+: Also raise physical damage of Entire Front Row by 15% (turns: 2)"
   - skill_category: active
-    sp_cost: 44
+    name: "Medica (Front/All) III"
+    sp_cost: 55
     skill_type: heal
     target: front_row
-    power: "65"
+    power: "65/80/110/150"
     effects:
-      - "**(4★)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost Lv.)"
+      - "**Medica (Front/All) III (4★)** Restore HP of Entire Front Row (potency: 65/80/110/150) and grant automatic HP recovery (potency: 90, turns: 2)"
   - skill_category: active
-    name: "“Advent: Thundering Hoof”"
-    sp_cost: 74
+    name: "Advent of Svadilfari"
+    sp_cost: 93
     skill_type: attack
     damage_types: [lightning, staff]
     target: front_row
     hit_count: "3x"
-    power: "3x55"
+    power: "3x55/3x65/3x75/3x100"
     effects:
-      - "Also raise Phys"
+      - "Lightning damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys"
+      - "·6+: Raise Phys"
   - skill_category: active
-    name: "“Advent: Deep Blue Armoured Dragon”"
-    sp_cost: 74
+    name: "Advent of Lutiya"
+    sp_cost: 93
     skill_type: attack
     damage_types: [ice, tome]
     target: front_row
     hit_count: "3x"
-    power: "3x55"
+    power: "3x55/3x65/3x75/3x100"
     effects:
-      - "Also raise Phys"
+      - "Ice damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys"
+      - "·6+: Raise Phys"
   - skill_category: tp
+    name: "Advent of the Divine"
     sp_cost: 97
     skill_type: attack
     damage_types: [fire]
     target: single_enemy
     hit_count: "3x"
-    power: "3x100"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: buff
-    target: all_allies
+    power: "3x110/3x120/3x140/3x180"
+  - skill_category: tp
+    name: "Advent of the Divine Lv.2"
+    sp_cost: 97
+    skill_type: attack
+    damage_types: [fire]
+    target: front_row
+    hit_count: "3x"
+    power: "3x110/3x120/3x140/3x180"
     effects:
-      - "**(EX)** Raise Phys"
-      - "fill the Ultimate Technique gauge to 100% and restore summons of Divine Beast"
-    notes: "Uses: 1"
+      - "Fire attack) and is enhanced with Reverence Points: [97 SP] ·6+: Also raise Phys"
   - skill_category: special
-    name: "“Sacred Tree’s Grace”"
+    name: "Sacred Tree’s Grace"
     skill_type: heal
     target: all_allies
     power: "3→4"
     effects:
       - "Restore HP of All Allies (amount: **10%→20%→30%** of target’s max HP)"
-      - "by **10%→15%→20%** (turns: 2→3) and lower reuse turns of All Allies’ keepers by **3→4** turns"
+      - "raise their Phys"
+      - "Uses of this Ultimate Technique cannot be restored"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "Gain 1 “Revere Beast” Point when using “Advent” skills and gain 3 “Revere Beast” Points when using Ultimate Technique or EX skill."
+    effect: "Gain 1 Reverence Point after using Advent skills, and 3 Reverence Points after using Ultimate Technique or EX Skill."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Elem. Atk. by 15% and grant Self ability to trigger critical hits when using elemental attacks. Grant Self effects based on own “Revere Beast” Points. ·With 3 or more: Half the reuse turns of Self’s keeper. ·With 6 or more: Additionally grant automatic SP recovery (amount: 5% of max SP)."
+    effect: "Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP)."
     trigger: always
-    limit_break_upgrade: "Raise own Elem. Atk. by 15% and grant Self ability to trigger critical hits when using elemental attacks. Grant Self effects based on own “Revere Beast” Points. ·With 3 or more: Half the reuse turns of Self’s keeper. ·With 6 or more: Additionally grant automatic SP recovery (amount: 5% of max SP). ·With 9 or more: Additionally activate Divine Beast summons twice."
+    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP). ·9+: Activate Divine Beast skills twice in a row (Does not stack)."
   - passive_category: innate
-    effect: "Grant Entire Front Row effects based on own “Revere Beast” Points. ·With 3 or more: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%. ·With 6 or more: Additionally grant automatic HP recovery (potency: 50). ·With 9 or more: Additionally grant Damage Limit Up (effect: 50,000)."
+    effect: "Augment Entire Front Row according to own Reverence Points: ·3+: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%. ·6+: Also grant automatic HP recovery (potency: 50). ·9+: Also raise Damage Limit by 50,000."
     trigger: always
   - passive_category: innate
     effect: "Raise own Fire and Ice Res. by 10%."
@@ -174,16 +189,22 @@ passives:
     effect: "Raise own Light and Dark Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Start of battle: Grant Self HP Barrier (potency: 50% of own max HP), fill the Ultimate Technique gauge of Self to 100% and increase arcanastone gauge by 5. Also lower preparation turns of Entire Front Row’s keepers by 3 turns."
+    effect: "Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by 100%, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns."
     trigger: battle_start
+  - passive_category: tp
+    effect: "Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by **200%**, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Fire, Ice, Lightning, Wind, Light and Dark attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Priest Cait Flower Decoration”"
+  name: "Cait Cleric’s Floral Ornament"
   passive_effect: "600 HP, 80 SP; Start of battle: Lower preparation turns of Paired Ally’s keeper by 2 turns; Halve the reuse turns of Paired Ally’s keeper"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

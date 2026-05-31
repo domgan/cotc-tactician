@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, tome]
+weakness_coverage:
+- light
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +47,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "D (4.99 - 4.00)"
-jp_tier: "D"
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -137,7 +139,7 @@ skills:
     skill_type: attack
     damage_types: [light]
     target: aoe
-    power: "375→450"
+    power: "375→450→565"
 
 # Passives - parsed from markdown
 passives:
@@ -166,4 +168,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

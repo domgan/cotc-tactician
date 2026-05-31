@@ -12,7 +12,11 @@ influence: fame
 origin: "World of Balance (Final Fantasy VI)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, light, polearm]
+weakness_coverage:
+- axe
+- bow
+- light
+- polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +49,7 @@ has_limit_break: false
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
@@ -115,7 +119,7 @@ skills:
     power: "3x85"
     effects:
       - "**Drill (4★)** Lower Phys"
-    limit_break_upgrade: "Lower Phys. Def. and Polearm Res. of Single Foe by **50%** (turns: 2/Limits from Phys. Def. Down and Polearm Res. Down are normally 30%) and deal Phys. Polearm damage **4** time(s) (potency: **4x85**). Exploits Light weakness (damage calculation based on Phys. Polearm attack). Raise Damage Limit of this skill by 200,000. Ignores Phys. Def. Up, Elem. Def. Up and damage reductions. At Max Boost: 50% more potent. At Max Boost and when target is broken: Additionally, attack count becomes 8."
+    limit_break_upgrade: "Lower Phys. Def. and Polearm Res. of Single Foe by **50%** (turns: 2/Limits from Phys. Def. Down and Polearm Res. Down are normally 30%) and deal Phys. Polearm damage **4** time(s) (potency: **4x85**). Exploits Light weakness (damage calculation based on Phys. Polearm attack). Damage Limit of this skill is increased by 200,000. Ignores Phys. Def. Up, Elem. Def. Up and damage reductions. At Max Boost: 50% more potent. At Max Boost and when target is broken: Additionally, attack count becomes 8."
   - skill_category: active
     name: "Alexander"
     sp_cost: 111
@@ -143,18 +147,6 @@ skills:
     target: random
     effects:
       - "**Air Anchor ** Reduce Shield Points of Random Foe by 1 regardless of weaknesses and lower Polearm and Light Res"
-  - skill_category: ex
-    name: "Royal Shock"
-    skill_type: mixed
-    damage_types: [light]
-    target: aoe
-    hit_count: "6x"
-    power: "6x30"
-    effects:
-      - "**Royal Shock** Act faster during turn and deal Phys"
-      - "Also lower Phys"
-      - "by 20% and lower Polearm and Light Res"
-    notes: "Uses: 3"
   - skill_category: special
     name: "“Coin of Destiny”"
     skill_type: debuff
@@ -191,4 +183,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

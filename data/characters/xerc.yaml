@@ -1,0 +1,167 @@
+# Character: Xerc
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: xerc
+display_name: "Xerc"
+rarity: 5
+
+# Core attributes
+job: scholar
+influence: wealth
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dark
+- fire
+- ice
+- light
+- lightning
+- tome
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2761
+p_atk: 191
+p_def: 271
+e_atk: 464
+e_def: 320
+speed: 298
+crit: 246
+sp: 572
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3421
+p_atk_120: 241
+p_def_120: 321
+e_atk_120: 529
+e_def_120: 370
+speed_120: 348
+crit_120: 296
+sp_120: 662
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S+ (10.00 - 9.50)"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Abstract"
+    sp_cost: 36
+    skill_type: attack
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+  - skill_category: active
+    name: "Safety Protocols"
+    sp_cost: 48
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Safety Protocols** Restore HP of Entire Front Row (potency: 65)"
+      - "At Max Boost: Also restore their BP by 2"
+  - skill_category: active
+    name: "Elemental Decay"
+    sp_cost: 34
+    skill_type: debuff
+    target: single_enemy
+    effects:
+      - "**Elemental Decay (1★)** Lower Elem"
+  - skill_category: active
+    name: "Theory Integration"
+    sp_cost: 62
+    skill_type: mixed
+    target: front_row
+    effects:
+      - "**Theory Integration (2★)** Raise Elem"
+  - skill_category: active
+    name: "Lab Clearance"
+    sp_cost: 300
+    skill_type: attack
+    target: aoe
+    power: "730"
+  - skill_category: active
+    name: "Theory of Detonation"
+    sp_cost: 84
+    skill_type: attack
+    target: aoe
+    power: "2x55, 2x55"
+    effects:
+      - "**Theory of Detonation (3★)** Gain Fire and Lightning Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
+  - skill_category: active
+    name: "Theory of Rheology"
+    sp_cost: 84
+    skill_type: attack
+    target: aoe
+    power: "2x55, 2x55"
+    effects:
+      - "**Theory of Rheology (4★)** Gain Ice and Wind Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
+  - skill_category: active
+    name: "Theory of Polarity"
+    sp_cost: 84
+    skill_type: attack
+    target: aoe
+    power: "2x55, 2x55"
+    effects:
+      - "**Theory of Polarity (5★)** Gain Light and Dark Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
+  - skill_category: active
+    name: "Wild Soulstone Toss"
+    skill_type: mixed
+    target: random
+    power: "6x65"
+    effects:
+      - "Light and Dark damage to Random Foe 1 time each (potency: 6x65) and have a moderate chance to lower their Elem"
+  - skill_category: tp
+    name: "Calculated Compound"
+    sp_cost: 120
+    skill_type: mixed
+    target: aoe
+    power: "6x95-6x150 based on Boost Lv."
+  - skill_category: special
+    name: "Soulstones Might"
+    skill_type: attack
+    target: single_enemy
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Augment Self based on the number of active Soulstone Resonances from the following: Fire/Ice/Lightning."
+    trigger: always
+  - passive_category: innate
+    effect: "When in front row: Gain the ability to trigger a follow-up strike when any ally in Entire Front Row deals Fire/Ice/Lightning/Wind/Light/Dark damage (only activates once for each element in an action)."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire and Ice Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning and Wind Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Augment Self based on the number of active Soulstone Resonances from the following: Wind/Light/Dark."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Soulstone Pendant"
+  passive_effect: "200 E.Atk, -30 P.Def, -30 E.Def; Raise Damage Limit by 70,000; When in front row: Raise Elem Damage of Entire Front Row"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

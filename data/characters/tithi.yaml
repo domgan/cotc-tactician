@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, lightning]
+weakness_coverage:
+- fan
+- lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer", "debuffer"]
@@ -24,18 +26,18 @@ usage_strategy: |
   Tithi is an exceptional dancer support who functions as a BP goddess. Her abilities are counted as two separate abilities at normal and Max BP usage, allowing her to cap front row physical/magical attack and crit rate at 30% in just two turns, or debuff enemy physical/magical attack to 30% in two turns. She revolves around BP recovery and giving BP to allies.
 
 best_use_cases:
-  - "Teams needing rapid buff capping for physical and magical attack"
-  - "Content requiring enemy debuff capping"
-  - "Situations where BP generation and distribution is crucial"
-  - "Teams that can benefit from lightning resistance reduction"
-  - "Players wanting a top-tier buffer rivaling Lynette"
+- "Teams needing rapid buff capping for physical and magical attack"
+- "Content requiring enemy debuff capping"
+- "Situations where BP generation and distribution is crucial"
+- "Teams that can benefit from lightning resistance reduction"
+- "Players wanting a top-tier buffer rivaling Lynette"
 
 weaknesses:
-  - "Dancers are naturally squishy with lowest physical defense"
-  - "Limited to time-limited sacred blaze guidance banner"
-  - "Not a necessary unit like Therion or Ophelia"
-  - "More of a want unit than essential"
-  - "Fan users not capable of high physical DPS damage"
+- "Dancers are naturally squishy with lowest physical defense"
+- "Limited to time-limited sacred blaze guidance banner"
+- "Not a necessary unit like Therion or Ophelia"
+- "More of a want unit than essential"
+- "Fan users not capable of high physical DPS damage"
 
 # Stats (base level)
 hp: 2776
@@ -63,8 +65,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "B (6.99 - 6.00)"
-jp_tier: "B"
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -197,10 +199,9 @@ passives:
 a4_accessory:
   name: "Silversand Balm"
   passive_effect: "40 P.Atk, 400 HP, 60 SP; Raise Fan and Lightning damage dealt by 15%"
-  notes: "Good accessory that enhances her primary damage types and provides sustain"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Tithi Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting her as top-tier buffer rivaling Lynette with BP manipulation capabilities"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

@@ -12,7 +12,8 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan]
+weakness_coverage:
+- fan
 
 # Roles
 roles: [tank]
@@ -26,18 +27,18 @@ usage_strategy: |
   Fiore EX is a summer dancer who functions as arguably a good tank. Her abilities allow her to dodge both physical and elemental attacks while countering with fan damage and combustion. She can cover allies from single-target attacks and has combustion status that removes shield points at turn end. She excels in long fights but requires setup to perform well.
 
 best_use_cases:
-  - "Major boss fights where tank survival is crucial"
-  - "Content requiring shield shaving regardless of weaknesses"
-  - "Long fights where her dodge and cover mechanics shine"
-  - "Teams needing strong fan damage with tank capabilities"
-  - "Situations where anticipating enemy attacks for perfect dodges"
+- "Major boss fights where tank survival is crucial"
+- "Content requiring shield shaving regardless of weaknesses"
+- "Long fights where her dodge and cover mechanics shine"
+- "Teams needing strong fan damage with tank capabilities"
+- "Situations where anticipating enemy attacks for perfect dodges"
 
 weaknesses:
-  - "Requires setup - won't perform well in short fights"
-  - "Low SP (286) causes issues with high skill consumption"
-  - "Low elemental defense and speed are crucial front row weaknesses"
-  - "Limited to fan damage coverage"
-  - "Time-limited summer unit availability"
+- "Requires setup - won't perform well in short fights"
+- "Low SP (286) causes issues with high skill consumption"
+- "Low elemental defense and speed are crucial front row weaknesses"
+- "Limited to fan damage coverage"
+- "Time-limited summer unit availability"
 
 # Tank type
 tank_type: cover
@@ -72,7 +73,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "A"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -180,8 +181,6 @@ skills:
     damage_types: [fan]
     target: single_enemy
     power: "500→600→750"
-    effects:
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
 
 # Passives - parsed from markdown
 passives:
@@ -206,10 +205,9 @@ passives:
 a4_accessory:
   name: "Sunny Sandals"
   passive_effect: "50 P.Atk, 500 HP, 40 SP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At full HP: Reduce own damage taken from some attacks by 25% (Does not stack with effects of the same type)"
-  notes: "Excellent accessory that enhances her tank survivability with lethal attack protection"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: Octopath COTC EX Fiore Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting her as arguably the best tank with dodge and cover mechanics"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

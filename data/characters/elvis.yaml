@@ -12,7 +12,9 @@ influence: fame
 origin: "Excillant (BRAVELY DEFAULT II)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, tome]
+weakness_coverage:
+- lightning
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,13 +42,13 @@ crit_120: 276
 sp_120: 592
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "D"
+jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
@@ -56,14 +58,14 @@ skills:
     skill_type: attack
     damage_types: [lightning]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
   - skill_category: active
     name: "Dual Slam"
     sp_cost: 26
     skill_type: attack
     target: single_enemy
     hit_count: "2x"
-    power: "2x90"
+    power: "2x90/2x105/2x125/2x180"
   - skill_category: active
     name: "Analyze"
     sp_cost: 1
@@ -79,17 +81,17 @@ skills:
     sp_cost: 24
     skill_type: heal
     target: single_ally
-    power: "160"
+    power: "160/180/220/280"
     effects:
-      - "**Cure (Single)** **(2★)** Restore HP of Single Ally (potency: 160)"
+      - "**Cure (Single)** **(2★)** Restore HP of Single Ally (potency: 160/180/220/280)"
   - skill_category: active
-    name: "Healing (All)"
+    name: "Cure (Front/All)"
     sp_cost: 24
     skill_type: heal
     target: front_row
-    power: "160"
+    power: "160/180/220/280"
     effects:
-      - "**Healing (All)** **(6★)** Restore HP of **Entire Front Row** (potency: 160)"
+      - "**Cure (Front/All)** **(6★)** Restore HP of **Entire Front Row** (potency: 160/180/220/280)"
   - skill_category: active
     name: "Lightningprone (Single) III"
     sp_cost: 12
@@ -104,41 +106,33 @@ skills:
     target: aoe
   - skill_category: active
     name: "Thunder (All)"
-    sp_cost: 46
+    sp_cost: 37
     skill_type: attack
     damage_types: [lightning]
     target: aoe
-    power: "180"
+    power: "180/205/245/300"
   - skill_category: active
     name: "Burst"
-    sp_cost: 42
+    sp_cost: 34
     skill_type: attack
     damage_types: [lightning]
     target: single_enemy
-    power: "260"
+    power: "260/290/340/450"
   - skill_category: tp
-    name: "Charged Particles"
+    name: "Electron"
     sp_cost: 42
     skill_type: mixed
     damage_types: [lightning]
     target: single_enemy
-    power: "230"
-  - skill_category: ex
-    name: "Piercing Lightning"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
     effects:
-      - "**Piercing Lightning** Grant Self the ability to trigger critical hits with elemental attacks and raise own Damage Limit by 30,000 (turns: 3)"
-      - "Guaranteed critical hit at Max Boost"
-    notes: "Uses: 2"
+      - "lower their Elem"
   - skill_category: special
     name: "Thunderstrike"
     skill_type: attack
     damage_types: [lightning]
     target: single_enemy
-    power: "500→600"
+    power: "500→600→750"
 
 # Passives - parsed from markdown
 passives:
@@ -167,4 +161,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

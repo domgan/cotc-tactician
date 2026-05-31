@@ -12,7 +12,9 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, dark]
+weakness_coverage:
+- dagger
+- dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["breaker", "dps"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Throné is good now as a breaker but not great. Can potentially deal up to 12 hits using 6-hit attack + latent ability double cast. Miss Physical Attack status is nice for enemies charging ultimate attacks, but spending 1 turn and 4 BP for one-time infliction is questionable. Most will use her for dagger breaking capabilities.
 
 best_use_cases:
-  - "Dagger weakness breaking with high hit counts"
-  - "Teams needing Miss Physical Attack status infliction"
-  - "Fast-paced teams where she can act first"
-  - "Players needing dedicated dagger breaker"
+- "Dagger weakness breaking with high hit counts"
+- "Teams needing Miss Physical Attack status infliction"
+- "Fast-paced teams where she can act first"
+- "Players needing dedicated dagger breaker"
 
 weaknesses:
-  - "Low HP and physical attack - squishy and won't deal massive damage"
-  - "Will be power crept by future thieves (two coming that will leave current thieves in dust)"
-  - "Limited to dagger/dark damage types"
-  - "Requires high speed investment to be effective"
+- "Low HP and physical attack - squishy and won't deal massive damage"
+- "Will be power crept by future thieves (two coming that will leave current thieves in dust)"
+- "Limited to dagger/dark damage types"
+- "Requires high speed investment to be effective"
 
 # Stats (base level)
 hp: 2792
@@ -62,7 +64,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "C"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -191,14 +193,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Night Dew Earrings"
-  passive_effect: "60 Physical Attack, 80 Speed; Grant Self Physical Attack Up 15%; When breaking an enemy, inflict Miss Physical Attacks (times: 1)"
-  notes: "Niche and nice to have but question if worth using over accessories that give more damage. Miss Physical Attack on break is useful but situational"
+  passive_effect: "60 P.Atk, 80 Spd; Grant Self Phys. Atk. Up 15%; When breaking an enemy, inflict Miss Phys. Attacks (times: 1)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Throne Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting breaker role and future power creep concerns"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

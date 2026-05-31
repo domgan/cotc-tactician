@@ -12,7 +12,11 @@ influence: approval
 origin: "Overworld (Dragon Quest III)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, polearm, staff, sword]
+weakness_coverage:
+- axe
+- polearm
+- staff
+- sword
 
 # Roles
 roles: [buffer, debuffer, dps]
@@ -28,12 +32,12 @@ tank_type: none
 # Buff/Debuff categories
 debuff_categories:
   ultimate:
-    - type: phys_def_down
-      value: 20
-      source_skill: "Ultimate"
-    - type: elem_def_down
-      value: 20
-      source_skill: "Ultimate"
+  - type: phys_def_down
+    value: 20
+    source_skill: "Ultimate"
+  - type: elem_def_down
+    value: 20
+    source_skill: "Ultimate"
 
 # Stats (base level)
 hp: 3940
@@ -56,136 +60,134 @@ crit_120: 258
 sp_120: 448
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "A"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Mercurial Thrust"
     sp_cost: 26
     skill_type: attack
     damage_types: [axe, polearm]
     target: single_enemy
-    power: "140"
+    power: "140/170/210/300"
     effects:
-      - "**(Initial)** Act faster during turn and deal Phys"
+      - "**Mercurial Thrust** Act faster during turn and deal Phys"
   - skill_category: active
-    name: "(Initial)"
+    name: "Whipping Boy"
     sp_cost: 18
-    skill_type: utility
-    target: self
+    skill_type: buff
+    target: front_row
     effects:
-      - "**(Initial)** Act faster during turn"
+      - "**Whipping Boy** Act faster and during the turn used"
   - skill_category: active
+    name: "Oracle VI: Axe Enfeeblement"
     sp_cost: 32
     skill_type: utility
     target: single_enemy
+    effects:
+      - "**Oracle VI: Axe Enfeeblement (1★)** Grant an Axe weakness to Single Foe (times: 6/7/8/9)"
   - skill_category: active
+    name: "Multislice"
     sp_cost: 33
     skill_type: attack
     damage_types: [axe, sword]
     target: aoe
-    power: "150"
+    power: "150/175/215/260"
   - skill_category: active
+    name: "War Drum"
     sp_cost: 1
     skill_type: mixed
     target: front_row
     effects:
-      - "**(2★)** Raise Phys"
-      - "of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
+      - "**War Drum (2★)** Raise Phys"
   - skill_category: active
-    sp_cost: 38
+    name: "Sword Dance"
+    sp_cost: 30
     skill_type: attack
     damage_types: [axe, sword]
     target: random
     hit_count: "4x"
-    power: "4x25"
+    power: "4x25/4x30/4x35/4x50"
   - skill_category: active
+    name: "Double-Edged Slash"
     sp_cost: 40
     skill_type: attack
     damage_types: [axe]
     target: single_enemy
-    power: "260"
-    effects:
-      - "Grant Self Damage Limit Up when using this skill (effect: 100,000)"
+    power: "290/320/380/800"
   - skill_category: active
     name: "Lv.96 |"
     skill_type: buff
     target: single_enemy
   - skill_category: active
-    sp_cost: 46
+    name: "Cutting Edge"
+    sp_cost: 37
     skill_type: attack
     damage_types: [axe]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
   - skill_category: active
     name: "Lv.99 |"
     skill_type: utility
     target: single_enemy
   - skill_category: active
+    name: "Oomph Powder"
     sp_cost: 1
     skill_type: buff
     target: self
     effects:
-      - "**(5★)** Raise the potency of battle skills of Self by 30%-100% based on Boost Lv"
+      - "**Oomph Powder (5★)** Raise the potency of Self by 30%/50%/70%/100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type)"
   - skill_category: active
     name: "Lv.100 |"
     skill_type: buff
-    target: self
+    target: single_enemy
     effects:
-      - "With “Legend”: Grant Self Damage Limit Up (effect 100,000, turns: 3)"
+      - "With Soul Sigil: Also raise Damage Limit by 100,000 (turns: 3)"
   - skill_category: tp
+    name: "Resolute Cleave"
     skill_type: attack
     damage_types: [axe]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
   - skill_category: tp
-    name: "Lv.2"
+    name: "Resolute Cleave Lv.2"
     skill_type: attack
     damage_types: [axe]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
   - skill_category: active
     name: "2"
     skill_type: buff
-    target: self
-    effects:
-      - "With “Legend”: Grant Self Determination (turns: **2**)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [axe]
     target: single_enemy
-    power: "630"
     effects:
-      - "Grant Self Damage Limit Up when using this skill (effect: 300,000)"
-    notes: "Uses: 2"
+      - "With Soul Sigil: Gain Resolve (turns: **2**/Does not stack/Granted as a support skill)"
   - skill_category: special
-    name: "“Determination to Defeat Evil”"
+    name: "Resolve to Vanquish Evil"
     skill_type: buff
-    target: self
-    power: "3→4"
+    target: single_enemy
+    power: "8→9"
     effects:
-      - "Grant Self “Determination” (turns: 9)"
-      - "grant Self Damage Limit Up (effect: **10,000→50,000→100,000**"
-      - "*“Determination” is granted as a support ability"
+      - "Gain Resolve (turns: **8→9**/Does not stack/Granted as a support skill)"
+      - "also raise Damage Limit Up by **10,000→50,000→100,000** (turns: 4)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When consuming 1 BP or more using a skill, grant the special effect “Legend” to Entire Front Row (turns: 2/Granted as a support ability/Effects of the same type do no stack)."
+    effect: "Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support ability/Does not stack)."
     trigger: always
   - passive_category: innate
-    effect: "“Attack” action changes to the following: Phys. Axe damage to Single Foe (potency: 65-440 based on Boost Lv.). *Number of attacks do not increase with Boost. Lower Shield Points even when not striking weak points. Grant Self Damage Limit Up when using “Attack” (effect: 100,000). The longer duration of “Determination” state, the higher the potency (up to 150% more potent with 5 or more turns). Reactivate the effect with 3 or more turns of “Determination”."
+    effect: "The “Attack” action performance changes as follows: Phys. Axe damage to Single Foe (potency: 65/150/255/440). Lower Shield Points even when not striking weak points. Damage Limit of this attack is increased by 100,000. Potency increases with the duration of own Resolve, up to 2.5x (with 5+ turns). *Attack count does not increase with Boost Lv.. If own Resolve has a duration of 3+ turns: Attack once more."
     trigger: always
   - passive_category: innate
-    effect: "When using damaging battle skills, grant Self “Determination” (turns: 3)."
+    effect: "Gain Resolve when using a battle skill (turns: 2/Does not stack)."
     trigger: always
+    limit_break_upgrade: "Gain Resolve when using a battle skill (turns: **3**/Does not stack)."
   - passive_category: innate
     effect: "Raise own Fire and Ice Res. by 10%."
     trigger: always
@@ -196,10 +198,10 @@ passives:
     effect: "**Resilience** Raise own Light and Dark Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Raise Phys. Atk. and Axe damage of Self by 30%. When in “Legend” state, also raise Damage Limit by 100,000."
+    effect: "Raise Phys. Atk. and Axe damage of Self by 30%. With Soul Sigil: Also raise Damage Limit by 100,000."
     trigger: always
   - passive_category: tp
-    effect: "Raise Phys. Atk. and Axe damage of Self by 30% and raise the limit of Phys. Atk. and Axe damage augments from equipment and support skills to 50%. When in “Legend” state, also raise Damage Limit by **300,000**."
+    effect: "Raise Phys. Atk. and Axe damage of Self by 30% and raise the limit of Phys. Atk. and Axe damage augments from equipment and support skills to 50%. With Soul Sigil: Also raise Damage Limit by **300,000**."
     trigger: always
   - passive_category: tp
     effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
@@ -208,10 +210,10 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Warrior’s Gloves”"
-  passive_effect: "200 P.Atk, -60 E.Atk; Grant Damage Limit Up (effect: 100,000); When equipped by an Apothecary, grant Dead Aim (guaranteed critical hits)"
+  name: "Warrior’s Gloves"
+  passive_effect: "200 P.Atk, -60 E.Atk; Raise Damage Limit by 100,000; When equipped by an Apothecary: Gain Dead Aim (guaranteed critical hits)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

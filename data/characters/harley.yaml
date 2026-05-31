@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, wind]
+weakness_coverage:
+- fan
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "D (4.99 - 4.00)"
-jp_tier: "C"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -61,9 +63,9 @@ skills:
     name: "Saintly Step II"
     sp_cost: 21
     skill_type: buff
-    target: single_ally
+    target: front_row
     effects:
-      - "**Saintly Step II** Impart Single Ally with Phys"
+      - "**Saintly Step II** Impart Entire Front Row with Phys"
   - skill_category: active
     name: "Sweep"
     sp_cost: 30
@@ -117,7 +119,7 @@ skills:
     hit_count: "2x"
     power: "2x100"
     effects:
-      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart with Phys"
+      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Phys"
   - skill_category: tp
     name: "Clear Sky Ballad"
     sp_cost: 57
@@ -127,15 +129,7 @@ skills:
     hit_count: "2x"
     power: "2x100"
     effects:
-      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart with Elem"
-  - skill_category: active
-    name: "竜巻の詩"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
+      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Elem"
   - skill_category: ex
     name: "Unending Wind"
     skill_type: mixed
@@ -151,6 +145,8 @@ skills:
     skill_type: buff
     target: front_row
     power: "2→3"
+    effects:
+      - "by **10%→20%→30%** (turns: **2→3**) and grant Entire Front Row HP Barrier (potency: **10%→20%→30%** of user’s max HP/Does not stack)"
 
 # Passives - parsed from markdown
 passives:
@@ -158,7 +154,7 @@ passives:
     effect: "Start of battle: Raise BP recovery amount of Self by 1 (turns: 2)."
     trigger: battle_start
   - passive_category: innate
-    effect: "Recover 3% of SP when taking damage from enemies."
+    effect: "Recover SP equal to 3% of damage taken when hit (With exceptions/Does not stack with effects of the same type)."
     trigger: always
   - passive_category: innate
     effect: "Raise own Lightning Res. by 20%."
@@ -167,7 +163,7 @@ passives:
     effect: "Raise own Wind Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When switching to front row: Impart Entire Front Row with Phys. Def. Up 10% and Elem. Def. Up 10% (turns: 2)."
+    effect: "When switching to back row: Raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 2)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
@@ -179,4 +175,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

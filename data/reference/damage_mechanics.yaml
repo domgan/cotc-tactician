@@ -128,3 +128,17 @@ tactical_notes: |
   - PDPS: Benefits from crit, use for physical-weak bosses
   - EDPS: No crit bonus but consistent, use for element-weak bosses
   - Some characters can do both (hybrid)
+
+# =============================================================================
+# MULTI-HIT DAMAGE REDUCTION (MHR) — COMMUNITY
+# =============================================================================
+# See data/reference/community/reddit_endgame_mechanics.yaml for full details.
+# data_confidence: community_unverified
+
+multi_hit_damage_reduction:
+  description: |
+    Endgame mechanic reducing damage on successive hits within a single skill.
+    NOT the same as multi-hit-damage-CAP-reduction (Side Solistia final boss only).
+  example_50pct_mhr: "Hit 1: Min[Z,CAP] → Hit 2: Min[0.5Z,CAP] → Hit 3: Min[0.25Z,CAP]"
+  bypass_note: "Community reports Edgar (FF6) 8-hit skill ignores MHR"
+  source: https://www.reddit.com/r/OctopathCotC/comments/1t1p87i/the_game_has_reached_such_a_frustrating_point/

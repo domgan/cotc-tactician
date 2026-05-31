@@ -12,7 +12,10 @@ influence: fame
 origin: "Dominion of Hate (Live A Live)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, sword]
+weakness_coverage:
+- dark
+- fire
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -24,16 +27,16 @@ usage_strategy: |
   O. Odio is good and will be best warrior for a while. Can keep allies HP up and potentially use AOE sword/dark attack every 2 turns. Support skill as warrior is amazing - front row takes 50% max HP damage but gets 20% damage up and dead aim. Straightforward to use.
 
 best_use_cases:
-  - "Dark weakness coverage with high hit counts"
-  - "Teams that can maintain HP above 60% for his abilities"
-  - "Content requiring massive dark damage output"
-  - "Players needing best current dark warrior"
+- "Dark weakness coverage with high hit counts"
+- "Teams that can maintain HP above 60% for his abilities"
+- "Content requiring massive dark damage output"
+- "Players needing best current dark warrior"
 
 weaknesses:
-  - "Must keep allies HP above 60% to avoid damaging them"
-  - "Requires careful turn order - want him to act last"
-  - "Alia has advantage in usefulness (can also hit light weakness)"
-  - "Self-damaging abilities require HP management"
+- "Must keep allies HP above 60% to avoid damaging them"
+- "Requires careful turn order - want him to act last"
+- "Alia has advantage in usefulness (can also hit light weakness)"
+- "Self-damaging abilities require HP management"
 
 # Stats (base level)
 hp: 3092
@@ -56,13 +59,13 @@ crit_120: 403
 sp_120: 401
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -74,15 +77,17 @@ skills:
     target: single_enemy
     hit_count: "2x"
     power: "2x90"
-  - skill_category: active
-    name: "Bold Slash"
-    sp_cost: 29
-    skill_type: mixed
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "170"
     effects:
-      - "Impart Self with Phys"
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
+  - skill_category: active
+    name: "Armageddon"
+    sp_cost: 29
+    skill_type: attack
+    damage_types: [sword, dark]
+    target: aoe
+    power: "120"
+    effects:
+      - "**Armageddon** Raise Damage Limit of Self by 100,000 (turns: 1) and deal Phys"
   - skill_category: active
     name: "Fetters of Hate"
     sp_cost: 42
@@ -97,9 +102,8 @@ skills:
     skill_type: attack
     damage_types: [sword, dark]
     target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    limit_break_upgrade: "Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x80) and have a moderate chance to inflict poison, bleeding and blindness (turns: 2). Exploits Dark weakness (damage calculation based on Phys. Sword attack)."
+    hit_count: "3x"
+    power: "3x85"
   - skill_category: active
     name: "Hatred’s Wild Blade"
     sp_cost: 58
@@ -124,13 +128,17 @@ skills:
     target: single_enemy
     power: "40"
   - skill_category: active
-    name: "Stare Daggers"
+    name: "Death Bargain"
     sp_cost: 55
-    skill_type: attack
-    damage_types: [sword, dark]
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Death Bargain (5★)** Grant Entire Front Row Unsinkable (turns: 1-4 based on Boost Lv.)"
+      - "but grant Paired Ally Fatal Sentence (count 2)"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: utility
     target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
   - skill_category: active
     name: "Hatred’s Fury"
     sp_cost: 82
@@ -140,21 +148,22 @@ skills:
     hit_count: "6x"
     power: "6x40"
   - skill_category: tp
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "5x"
-    power: "120"
+    name: "Righteous Fervor"
+    sp_cost: 30
+    skill_type: mixed
+    target: single_enemy
     effects:
-      - "Grant Damage Limit Up while using this skill (effect: 100,000)"
+      - "**Righteous Fervor ** Gain Unsinkable and raise Phys"
   - skill_category: ex
-    name: "(EX)"
-    skill_type: buff
-    target: front_row
+    name: "Shadow of Hatred"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "6x"
+    power: "6x40"
     effects:
-      - "**(EX)** Grant Unsinkable to Entire Front Row (turns: 1-4 based on Boost Lv.)"
-    notes: "Uses: 1"
+      - "--- Usage Condition: When Self has Dead Aim"
+    notes: "Uses: 2"
   - skill_category: special
     name: "Archon’s Mark"
     skill_type: attack
@@ -171,24 +180,23 @@ passives:
     effect: "At 75% HP or less: Impart Selfwith Phys. Atk. Up 15%, raise damage by 15% and grant Dead Aim (guaranteed critical hits)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Light Res. by 20%"
+    effect: "Raise own Light Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%"
+    effect: "**Resilience** Raise own Dark Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When an ally in front row gets incapacitated: Increase the damage multiplier of critical hits to 1.4 (instead of 1.25)."
+    effect: "When an enemy with 8+ statuses is present: Raise the critical damage multiplier (1.25→1.4). When an enemy with 12+ statuses is present: Raise BP recovery by 1."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Crux of Hatred"
-  passive_effect: "70 Physical Attack, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 50% HP or less: Reduce own damage taken from some attacks by 20%"
-  notes: "Functional accessory for survivability but nothing particularly special. Standard warrior stats with survival mechanics"
+  passive_effect: "70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 70% HP or less: Reduce own damage taken from some attacks by 30%; 70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At **60%** HP or less: Reduce own damage taken from some attacks by **20%**"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: O. Odio Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting best dark warrior status and HP management requirements"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

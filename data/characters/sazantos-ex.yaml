@@ -12,7 +12,10 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, polearm, wind]
+weakness_coverage:
+- fire
+- polearm
+- wind
 
 # Roles
 roles: [tank, dps]
@@ -53,8 +56,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "A"
+gl_tier: "S (9.49 - 8.50)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -205,4 +208,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

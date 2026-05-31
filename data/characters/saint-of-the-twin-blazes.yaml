@@ -1,0 +1,187 @@
+# Character: Saint of the Twin Blazes
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: saint-of-the-twin-blazes
+display_name: "Saint of the Twin Blazes"
+rarity: 5
+
+# Core attributes
+job: cleric
+influence: power
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dark
+- fire
+- light
+- sword
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3272
+p_atk: 286
+p_def: 362
+e_atk: 520
+e_def: 479
+speed: 251
+crit: 313
+sp: 460
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4012
+p_atk_120: 336
+p_def_120: 412
+e_atk_120: 585
+e_def_120: 544
+speed_120: 301
+crit_120: 348
+sp_120: 540
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S+ | 9.9"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [light]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 30
+    skill_type: heal
+    target: front_row
+    effects:
+      - "**(Initial)** Grant Entire Front Row immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: mixed
+    damage_types: [light]
+    target: aoe
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Light damage to All Foes 2 time(s) (potency: 2x90) and lower their Light Res"
+  - skill_category: active
+    sp_cost: 44
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "2x"
+    power: "2x90"
+    effects:
+      - "Dark damage to All Foes 2 time(s) (potency: 2x90) and lower their Dark Res"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [light]
+    target: random
+    power: "3x85/4x75/5x75/6x70"
+  - skill_category: active
+    sp_cost: 70
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    power: "3x85/4x75/5x75/6x70"
+  - skill_category: active
+    sp_cost: 141
+    skill_type: attack
+    damage_types: [light]
+    target: front_row
+    hit_count: "4x"
+    power: "4x25"
+    effects:
+      - "Light damage to All Foes 4 time(s) (potency: 4x25) and raise Phys"
+  - skill_category: active
+    sp_cost: 105
+    skill_type: mixed
+    damage_types: [dark]
+    target: aoe
+    hit_count: "4x"
+    power: "4x25"
+    effects:
+      - "Dark damage to All Foes 4 time(s) (potency: 4x25) and lower their Phys"
+  - skill_category: tp
+    skill_type: mixed
+    damage_types: [sword]
+    target: front_row
+    power: "260"
+    effects:
+      - "When consuming 2 BP or more: Also lower their Sword Res"
+      - "At Max Boost: Also restore 1 BP of Entire Front Row except Self"
+  - skill_category: tp
+    name: "Lv.2"
+    skill_type: mixed
+    damage_types: [sword]
+    target: front_row
+    power: "260"
+    effects:
+      - "When consuming 2 BP or more: Also lower their Sword Res"
+      - "by 20% (turns: 2) and raise the limit of Sword Res"
+      - "At Max Boost: Also restore 1 BP of Entire Front Row except Self"
+  - skill_category: special
+    name: "Demon Blade Fisteralda"
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "The “Attack” action deals Phys. Sword damage that exploits Light and Dark weaknesses (damage calculation based on Phys. Sword attack). When selecting a command, switch between Sacred Flame and Accursed Flame styles."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Impart All Allies with SP Stock (amount: 30% of self max SP/Does not stack)."
+    trigger: battle_start
+  - passive_category: innate
+    effect: "When there’s a broken enemy, raise Elem. Atk. and Light and Dark damage of Self by 30% and gain the ability to deal critical damage with elemental attacks."
+    trigger: always
+    limit_break_upgrade: "When there’s a broken enemy, raise Elem. Atk. and Light and Dark damage of Self by 30%, gain the ability to deal critical damage with elemental attacks and add 50% of P.Def attribute to P.Atk and 50% of E.Def attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect)."
+  - passive_category: innate
+    effect: "Raise own Light Res. by 30%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 30%."
+    trigger: always
+  - passive_category: tp
+    effect: "With Sacred Flame: Gain the ability to activate attack skills twice in a row. With Accursed Flame: Gain the ability to trigger a follow-up attack after an ally in Entire Front Row attacks. Follow-up attack: Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x50). Exploits Fire and Light weaknesses (damage calculation based on Elem. Dark damage)."
+    trigger: always
+  - passive_category: tp
+    effect: "With Sacred Flame: Gain the ability to activate attack skills twice in a row, gain automatic SP recovery (amount: 8% of max SP) and raise BP recovery by 1. With Accursed Flame: Gain the ability to trigger a follow-up attack after an ally in Entire Front Row attacks. Follow-up attack: Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x50). Exploits Fire and Light weaknesses (damage calculation based on Elem. Dark damage)."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“The Saint’s Twin Flames”"
+  passive_effect: "100 P.Atk, 20 P.Def, 100 E.Atk, 20 E.Def; Raise Sword damage by 30%; At full HP: Raise Phys. Atk. by 30% and Damage Limit by 50,000; Start of battle: Fill own Ultimate Technique gauge by 100%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

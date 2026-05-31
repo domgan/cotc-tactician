@@ -12,7 +12,10 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, fan, ice]
+weakness_coverage:
+- dark
+- fan
+- ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer"]
@@ -24,16 +27,16 @@ usage_strategy: |
   Neha is in same tier as EX Hunted and EX Primrose, perhaps just a tier below. The problem: we have the sauce but no meat - allows elemental teams to shine but don't have outstanding elemental travelers. COTC heavily favors physical attackers, making her obsolete until we get more love for elemental travelers.
 
 best_use_cases:
-  - "Elemental teams needing damage cap increases and crit support"
-  - "Light/dark/fire/ice elemental attackers synergy"
-  - "Teams that can maintain her below 50% SP for passive activation"
-  - "Content where elemental damage is primary damage source"
+- "Elemental teams needing damage cap increases and crit support"
+- "Light/dark/fire/ice elemental attackers synergy"
+- "Teams that can maintain her below 50% SP for passive activation"
+- "Content where elemental damage is primary damage source"
 
 weaknesses:
-  - "No outstanding elemental travelers to fully utilize her support"
-  - "SP must be below 50% for main passive - requires management headache"
-  - "Coming out as 5-star, not 6-star at release"
-  - "Physical attackers heavily favored in current meta"
+- "No outstanding elemental travelers to fully utilize her support"
+- "SP must be below 50% for main passive - requires management headache"
+- "Coming out as 5-star, not 6-star at release"
+- "Physical attackers heavily favored in current meta"
 
 # Stats (base level)
 hp: 2776
@@ -62,7 +65,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "A"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -200,14 +203,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Starshadow Crystal Ball"
-  passive_effect: "80 Critical, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When in back row: Raise Physical Defense and Elemental Defense of Paired Ally by 15%"
-  notes: "Rather useless A4 accessory. Stats all over place, skill is rather useless, and defense buffs are nice but not worth pulling for"
+  passive_effect: "80 Crit, 60 SP; Grant the ability to trigger critical hits with elemental attacks; When in back row: Raise Phys. Def. and Elem. Def. of Paired Ally by 15%"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Neha Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting elemental support role and current meta limitations"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

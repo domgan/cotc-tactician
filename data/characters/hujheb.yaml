@@ -12,7 +12,8 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow]
+weakness_coverage:
+- bow
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "buffer"]
@@ -24,16 +25,16 @@ usage_strategy: |
   Hujheb is a staple in every hunter squad. His main selling point is the passive that allows front row to deal additional hit when dealing bow damage, similar to Osvald's follow-up mechanics. He can lower 20% physical resist and 10% bow resist (equivalent to 30% bow resist down) using three different skills. His TP skill greatly increases firepower and consumes all arrow stacks for replenishment.
 
 best_use_cases:
-  - "Hunter-focused teams needing follow-up attacks"
-  - "Bow squads requiring resistance down debuffs"
-  - "Teams that can utilize hunter party buffs"
-  - "Content where bow weakness coverage is essential"
+- "Hunter-focused teams needing follow-up attacks"
+- "Bow squads requiring resistance down debuffs"
+- "Teams that can utilize hunter party buffs"
+- "Content where bow weakness coverage is essential"
 
 weaknesses:
-  - "Low speed (340) - will probably go last"
-  - "Arrow point management can be headache"
-  - "Limited to bow damage type"
-  - "Hunter class doesn't get much love compared to other classes"
+- "Low speed (340) - will probably go last"
+- "Arrow point management can be headache"
+- "Limited to bow damage type"
+- "Hunter class doesn't get much love compared to other classes"
 
 # Stats (base level)
 hp: 3232
@@ -61,8 +62,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "B"
+gl_tier: "S (9.49 - 8.50)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -201,14 +202,13 @@ passives:
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Rusted Knight's Emblem"
-  passive_effect: "60 Physical Attack, 80 SP; Raise Bow damage dealt by 15%; When equipped by a Hunter: When dealing physical attacks other than 'Attack', exploit Dark weakness"
-  notes: "Great to have but not necessary. Only Kils can truly utilize this effectively currently. As more hunters that can exploit dark are released (two more in JP), this becomes more valuable"
+  name: "Rusted Knight’s Emblem"
+  passive_effect: "60 P.Atk, 80 SP; Raise Bow damage dealt by 15%; When equipped by a Hunter: When dealing some physical attacks other than “Attack”, exploit Dark weakness (damage calculation based on each attack)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Hujheb Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including hunter squad synergy and arrow point mechanics"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

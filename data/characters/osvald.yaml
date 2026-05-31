@@ -12,7 +12,11 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, ice, lightning, tome]
+weakness_coverage:
+- fire
+- ice
+- lightning
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps"]
@@ -24,16 +28,16 @@ usage_strategy: |
   Osvald is essentially a better Cyrus but falls off heavily when focusing on specific team comps. His main flaw is that there's only been one relevant boss weak to fire, ice, and lightning all at once (level 120 NPC). He functions more as sub DPS rather than straight elemental DPS since you want to prioritize one or two weaknesses.
 
 best_use_cases:
-  - "Teams needing fire, ice, or lightning coverage"
-  - "Elemental teams that can utilize his follow-up attack passive"
-  - "Content where enemies are weak to multiple elements"
-  - "Players who missed Cyrus and need elemental scholar"
+- "Teams needing fire, ice, or lightning coverage"
+- "Elemental teams that can utilize his follow-up attack passive"
+- "Content where enemies are weak to multiple elements"
+- "Players who missed Cyrus and need elemental scholar"
 
 weaknesses:
-  - "Three-hit attacks aren't great in current meta"
-  - "Very few enemies weak to all three elements simultaneously"
-  - "Low HP and speed - somewhat squishy"
-  - "Elemental attacks still far behind physical attackers"
+- "Three-hit attacks aren't great in current meta"
+- "Very few enemies weak to all three elements simultaneously"
+- "Low HP and speed - somewhat squishy"
+- "Elemental attacks still far behind physical attackers"
 
 # Stats (base level)
 hp: 2736
@@ -61,8 +65,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "A"
+gl_tier: "S (9.49 - 8.50)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -187,17 +191,17 @@ skills:
     skill_type: mixed
     target: self
     effects:
-      - "Raise the potency of battle skills of Self by 100% (turns: 3/Cannot be extended/Effects of the same type do not stack)"
+      - "Raise the potency of Self by 100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type)"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When in front row: When an ally deal Fire/Ice/Lightning damage, that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200). **Lv.88 |** Potency Up: 200→230"
-    trigger: always
-  - passive_category: innate
     effect: "Raise Fire, Ice and Lightning damage of Self by 20%."
     trigger: always
-    limit_break_upgrade: "Raise Fire, Ice and Lightning damage of Self by **30%** and grant the ability to trigger critical hits with elemental attacks."
+    limit_break_upgrade: "Raise Fire, Ice and Lightning damage of Self by **30%**, raise Damage Limit by 20,000 and grant the ability to trigger critical hits with elemental attacks."
+  - passive_category: innate
+    effect: "When in front row: When an ally deal Fire/Ice/Lightning damage, that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200). **Lv.88 |** Potency Up: 200→230"
+    trigger: always
   - passive_category: innate
     effect: "Raise own Ice Res. by 20%."
     trigger: always
@@ -208,24 +212,23 @@ passives:
     effect: "Raise own Wind Res. by 20%."
     trigger: always
   - passive_category: tp
-    effect: "Upon activation, grant Self the special effect “Concentration” (turns: 1). Concentration: Change target of some spells to a single foe. Also apply bonus effects to certain spells. ---"
+    effect: "Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe. Also apply bonus effects to certain spells. ---"
     trigger: always
   - passive_category: tp
-    effect: "Upon activation, grant Self the special effect “Concentration” (turns: 1). Concentration: Change target of some spells to a single foe and add 30% of P.Atk to E.Atk. Also apply bonus effects to certain spells. ---"
+    effect: "Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe and add 30% of P.Atk to E.Atk. Also apply bonus effects to certain spells. ---"
     trigger: always
   - passive_category: tp
     effect: "Raise Self’s Damage Limit by 50,000."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Coded Notebook"
-  passive_effect: "140 Elemental Attack; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Resistance of all enemies by 10%"
-  notes: "Nice accessory to have but wouldn't chase after it. High elemental attack stat and free anytime fire/ice/lightning resist down when in front row"
+  passive_effect: "140 E.Atk; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Res. of all enemies by 10%"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Osvald Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including Cyrus 2.0 comparison and elemental limitations"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

@@ -12,7 +12,10 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, fire, light]
+weakness_coverage:
+- fan
+- fire
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["debuffer", "breaker"]
@@ -24,16 +27,16 @@ usage_strategy: |
   Signa is the prize of the two warriors coming with Cantos. Warriors will always be getting better as COTC loves warriors, but debuffers are a commodity. She has access to passive debuffs with her passive skill, active debuffs with attacking skills, four-turn countdown for resistance debuffs, and ultimate debuff.
 
 best_use_cases:
-  - "Any battle requiring comprehensive debuffing"
-  - "Fan weakness breaking with up to 6-hit attacks"
-  - "Light and fire weakness breaking with AOE 6-hit attacks"
-  - "Teams needing sword, fire, and light resistance reduction"
+- "Any battle requiring comprehensive debuffing"
+- "Fan weakness breaking with up to 6-hit attacks"
+- "Light and fire weakness breaking with AOE 6-hit attacks"
+- "Teams needing sword, fire, and light resistance reduction"
 
 weaknesses:
-  - "Extremely squishy with only 2600 HP and 255 defense"
-  - "Requires decent accessories to survive"
-  - "Limited to fan, light, and fire damage types"
-  - "Relies on status effects for maximum effectiveness"
+- "Extremely squishy with only 2600 HP and 255 defense"
+- "Requires decent accessories to survive"
+- "Limited to fan, light, and fire damage types"
+- "Relies on status effects for maximum effectiveness"
 
 # Stats (base level)
 hp: 2676
@@ -61,8 +64,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "S+"
+gl_tier: "S+ (10.00 - 9.50)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -143,6 +146,14 @@ skills:
     target: single_enemy
     hit_count: "4x"
     power: "4x65"
+  - skill_category: tp
+    name: "Sacred Blaze Ode: Finale Lv.2"
+    sp_cost: 67
+    skill_type: attack
+    damage_types: [light, fire]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x65"
   - skill_category: ex
     name: "Debilitating Cantata"
     skill_type: debuff
@@ -173,16 +184,21 @@ passives:
   - passive_category: tp
     effect: "At 50% SP or more: Lower Speed and Critical of All Foes by 5%."
     trigger: always
+  - passive_category: tp
+    effect: "At 50% SP or more: Lower Speed and Critical of All Foes by 5%. At 50% HP or more: Lower Light Res. of All Foes by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword and Elem. Light attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Little Finger's Hair Accessory"
-  passive_effect: "60 Elemental Attack, 400 HP, 40 SP; Raise Elemental Attack by 15%; Start of battle: Lower Physical Attack, Physical Defense, Elemental Attack and Elemental Defense of All Foes by 5% for 3 turns"
-  notes: "Okay accessory but not something to chase after pulling for her and Cantos. Would prioritize her first since she'll be useful for all fights"
+  name: "Little Finger’s Hair Accessory"
+  passive_effect: "60 E.Atk, 400 HP, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5% (turns: 3)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Signa Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting best debuffer status and comprehensive utility"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

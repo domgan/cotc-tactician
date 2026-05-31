@@ -74,6 +74,24 @@ cp data/teams/_template.yaml data/teams/my-boss-team.yaml
 
 Edit the YAML files with actual game data. See `data/*/_example-*.yaml` for format examples.
 
+**Bulk import from Notion export** (`resources/Character List/`):
+
+```bash
+# 1. Create YAML stubs for new characters (skips existing)
+uv run python scripts/import_characters_from_csv.py
+
+# 2. Merge stats/tiers only — preserves roles, skills, manual notes (uses ruamel.yaml)
+uv run python scripts/merge_character_stats_from_csv.py
+
+# 3. Import skills/passives from markdown (supports ## Support Skills sections)
+uv run python scripts/import_skills_from_markdown.py
+
+# 4. Reindex
+uv run cotc-tactician index --force
+```
+
+Use `--dry-run` on any script to preview changes first.
+
 ### 3. Index the Data
 
 ```bash

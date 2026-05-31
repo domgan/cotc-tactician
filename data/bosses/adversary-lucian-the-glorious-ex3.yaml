@@ -164,6 +164,13 @@ general_strategy: |
   - Silence (AoE Fire) 
   - Elemental Attack Lock (boost attack)
 
+  COMMUNITY NOTES (Reddit, unverified):
+  - Community consensus: do NOT break Lucian EX3 — nuke through shields with high
+    hit-count/potency setup instead (u/Mountain_Stretch8906 "all shields" challenge).
+    Post cites 88 shields; spreadsheet lists 12 — verify in-game.
+  - Speedkill approach: skip break, use Mydia FuA + Herminia passive +3 hits.
+    Source: https://www.reddit.com/r/OctopathCotC/comments/1qhptd9/did_an_all_shields_lucian_ex3/
+
 required_roles:
   - role: debuffer
     priority: required

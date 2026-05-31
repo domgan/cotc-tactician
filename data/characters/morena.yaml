@@ -12,7 +12,10 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [staff, tome, wind]
+weakness_coverage:
+- staff
+- tome
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,30 +43,31 @@ crit_120: 286
 sp_120: 642
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "A"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Gust of Evidence (All)"
     sp_cost: 30
     skill_type: attack
     damage_types: [wind]
     target: aoe
     power: "120"
   - skill_category: active
-    name: "(Initial)"
+    name: "Casework"
     sp_cost: 25
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**(Initial)** Lower Phys"
+      - "**Casework** Lower Phys"
   - skill_category: active
+    name: "Circumstancial Evidence"
     sp_cost: 37
     skill_type: mixed
     damage_types: [staff]
@@ -71,8 +75,10 @@ skills:
     hit_count: "2x"
     power: "2x75"
     effects:
+      - "Staff damage to Single Foe 2 time(s) (potency: 2x75) and grant them a Tome weakness (times: 2)"
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
+    name: "Truth Unveiled"
     sp_cost: 33
     skill_type: attack
     target: single_enemy
@@ -80,18 +86,21 @@ skills:
     effects:
       - "Guaranteed critical hit"
   - skill_category: active
+    name: "Deductive Reasoning"
     sp_cost: 57
     skill_type: buff
     target: front_row
     effects:
-      - "**(2★)** Raise Staff"
+      - "**Deductive Reasoning (2★)** Raise Staff"
   - skill_category: active
+    name: "Shrewd Investigation"
     sp_cost: 50
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**(3★)** Lower 4-7 Shield Points (based on Boost Lv.) of Single Foe regardless the weak points of the enemy"
+      - "**Shrewd Investigation (3★)** Lower Shield Points of Single Foe by 4-7 (based on Boost Lv.) regardless of the weakness"
   - skill_category: active
+    name: "Tempest of Testimony (All)"
     sp_cost: 96
     skill_type: mixed
     damage_types: [wind]
@@ -99,8 +108,9 @@ skills:
     hit_count: "4x"
     power: "4x35"
     effects:
-      - "Also lower Staff"
+      - "Wind damage to All Foes 4 time(s) (potency: 4x35) and lower their Staff"
   - skill_category: active
+    name: "Conclusive Evidence"
     sp_cost: 81
     skill_type: mixed
     damage_types: [staff]
@@ -108,36 +118,39 @@ skills:
     hit_count: "4x"
     power: "4x65"
     effects:
+      - "Staff damage to Single Foe 4 time(s) (potency: 4x65) and grant them a Tome weakness (times: 1-4 based on Boost Lv.)"
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
+    name: "Cross Examination"
     sp_cost: 49
     skill_type: attack
     target: single_enemy
     power: "230"
     effects:
       - "Guaranteed critical hit"
-      - "Grant Self Damage Limit Up when using this skill (effect: 50,000)"
-    limit_break_upgrade: "Deal Phys. Tome damage to Single Foe (potency: **260**). Exploits Staff and Wind weakness (damage calculation based on Phys. Tome attack). Guaranteed critical hit. Grant Self Damage Limit Up when using this skill (effect: 50,000). When exploiting a weakness: Reactivate the effect (without SP consumption)."
+    limit_break_upgrade: "Deal Phys. Tome damage to Single Foe (potency: **260**). Exploits Staff and Wind weaknesses (damage calculation based on Phys. Tome attack). Guaranteed critical hit. Guaranteed critical hit. Damage Limit of this skill is increased by 50,000. Activate this skill again if exploiting enemy weakness (the follow-up attack will not consume SP)."
   - skill_category: tp
+    name: "Inductive Reasoning"
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**** Lower Staff"
+      - "**Inductive Reasoning ** Lower Staff"
+      - "of Single Foe by 20% (turns: 2-5 based on Boost Lv.) and grant them a Tome weakness (times: 2)"
   - skill_category: ex
-    name: "(EX)"
+    name: "Reductio ad Absurdum"
     skill_type: debuff
     target: single_enemy
     effects:
-      - "**(EX)** Act faster during turn and lower 6-12 Shield Points (based on Boost Lv.) of Single Foe regardless the weak points of the enemy"
+      - "**Reductio ad Absurdum** Act faster during turn and lower Shield Points of Single Foe by 6-12 based on Boost Lv"
     notes: "Uses: 1"
   - skill_category: special
-    name: "“Clarification of the Truth”"
+    name: "Quod Erat Demonstrandum"
     skill_type: attack
     target: aoe
     hit_count: "2x"
     effects:
+      - "Grant a Tome weakness to All Foes (times: 2) and deal Phys"
       - "Guaranteed critical hits"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 50,000)"
 
 # Passives - parsed from markdown
 passives:
@@ -145,25 +158,25 @@ passives:
     effect: "Raise damage of Self by 30% when exploiting enemy weakness."
     trigger: always
   - passive_category: innate
-    effect: "When broken enemy is present: Add 100% of E.Atk to P.Atk (including equipment stats/Cannot be stacked)."
+    effect: "When a broken enemy is present, add 100% of your E.Atk attribute to P.Atk (including equipment attributes/the maximum value for each attribute takes effect)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%"
+    effect: "Raise own Lightning Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%"
+    effect: "**Resilience** Raise own Wind Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When an ally breaks an enemy: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10% and lower Staff, Tome and Wind Res. by 10% (turns: 2)."
+    effect: "When an ally breaks an enemy: Lower thier Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10% and their Staff, Tome and Wind Res. by 10% (turns: 2)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“The Seven Tools of a Great Detective”"
-  passive_effect: "60 P.Atk, 60 E.Atk, 20 Crit; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3) and  inflict Tome weakening (times: 9)"
+  name: "Detective’s Seven Tools"
+  passive_effect: "60 P.Atk, 60 E.Atk, 20 Crit; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3) and grant them a Tome weakness (times: 9)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

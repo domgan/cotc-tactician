@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, wind]
+weakness_coverage:
+- dagger
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +47,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S+ (10.00 - 9.00)"
-jp_tier: "A"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -131,6 +133,14 @@ skills:
     target: single_enemy
     hit_count: "8x"
     power: "40"
+  - skill_category: tp
+    name: "Ardito Lv.2"
+    sp_cost: 12
+    skill_type: attack
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "8x"
+    power: "**45**"
   - skill_category: ex
     name: "Spirito"
     skill_type: heal
@@ -142,9 +152,9 @@ skills:
     name: "For the Family"
     skill_type: utility
     target: all_allies
-    power: "50→100"
+    power: "50→100→150"
     effects:
-      - "Restore **50→100** SP of All Allies"
+      - "Restore **50→100→150** SP of All Allies"
       - "Restore Ultimate Technique use count of All Allies excluding Self by 1"
       - "(Use count of this Ultimate Technique cannot be restored)"
 
@@ -166,6 +176,12 @@ passives:
   - passive_category: tp
     effect: "Raise BP recovery amount of Self by 1 when a broken enemy is present."
     trigger: always
+  - passive_category: tp
+    effect: "Raise BP recovery amount of **Paired Allies** by 1 and grant automatic SP recovery (amount: 10% of max SP) when a broken enemy is present."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Dagger and Elem. Wind attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -176,4 +192,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

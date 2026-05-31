@@ -12,7 +12,11 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, light, polearm, tome]
+weakness_coverage:
+- axe
+- light
+- polearm
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +49,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "C"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -123,16 +127,6 @@ skills:
     target: front_row
     effects:
       - "**Tourney’s Dauntless Spirit ** Raise Polearm"
-  - skill_category: ex
-    name: "Spread Out Hit and Run"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Lower Polearm"
-    notes: "Uses: 2"
   - skill_category: special
     name: "Sharpened Focus"
     skill_type: attack
@@ -166,4 +160,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

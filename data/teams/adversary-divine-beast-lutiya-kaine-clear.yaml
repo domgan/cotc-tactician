@@ -1,0 +1,147 @@
+# Divine Beast Lutiya EX3 — Kaine 1-Break Clear
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1nm3zuk/and_all_ex3_is_done/
+
+schema_version: "1.0"
+
+id: adversary-divine-beast-lutiya-kaine-clear
+name: "Lutiya EX3 Kaine 1-Break Clear"
+boss_id: adversary-divine-beast-lutiya-ex3
+
+strategy_type: burst
+investment_level: high
+
+target_ex_rank: ex3
+survival_strategy: dodge_tank
+minimum_hp_recommended: 3500
+
+front_line:
+  - position: 1
+    character_id: kaine
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: ["pardis-iii"]
+    substitute_notes: "Kaine clears Lutiya phys/magic nullification in 1 break per community report"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 2
+    character_id: tiziano
+    role_in_team: utility
+    is_required: true
+    substitutes: ["tiziano-ex"]
+    substitute_notes: "Dagger implant on break turn — community nickname 'Tizi'"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 3
+    character_id: sonia
+    role_in_team: breaker
+    is_required: true
+    substitutes: ["canary", "nephti"]
+    substitute_notes: "Breaks boss on scripted turn sequence"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 4
+    character_id: shana
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: "SP/BP support for burst window"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+back_line:
+  - position: 5
+    character_id: lucetta
+    role_in_team: utility
+    is_required: false
+    substitutes: ["mabel"]
+    substitute_notes: "Buff extension support"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: bargello
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["richard"]
+    substitute_notes: "Damage buff for Kaine burst"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 7
+    character_id: canary
+    role_in_team: tank
+    is_required: true
+    substitutes: ["h-aanit-ex"]
+    substitute_notes: "Dodge tank for add management"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 8
+    character_id: signa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: ["signa-ex", "viola"]
+    substitute_notes: "Ultimate debuff on break turn before Kaine burst"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+speed_order:
+  - tiziano
+  - sonia
+  - signa
+  - kaine
+  - shana
+  - canary
+  - bargello
+  - lucetta
+
+speed_tuning_notes: |
+  Break turn sequence (community): Tiziano dagger implant → Sonia breaks →
+  Signa ult debuff → Kaine burst.
+
+turn_plan:
+  - turn_range: "break turn"
+    phase: break_window
+    actions:
+      - "Tiziano: Apply dagger implant"
+      - "Sonia: Break boss"
+      - "Signa: Ultimate defense debuff"
+      - "Kaine: Full burst — 1-break kill on Lutiya"
+    notes: "Phys/magic nullification fight — Kaine-specific clear path"
+
+why_it_works: |
+  Lutiya EX3 has phys/magic nullification mechanics. Community reports Kaine
+  can clear in a single break window with scripted turn order: implant → break →
+  debuff → burst. Default turtle for other EX3 uses Hikari team per same author.
+
+key_synergies:
+  - "Tiziano implant → Sonia break: Scripted break timing"
+  - "Signa ult → Kaine: Max debuff before burst"
+  - "Canary: Dodge tank for multi-enemy adds"
+
+risks_and_recovery:
+  - "Risk: Missing break timing — nullification blocks damage"
+  - "Recovery: Retry turn sequence; ensure debuff before Kaine acts"
+  - "Risk: Add management on multi-enemy fight"
+  - "Recovery: Focus adds first or use default Hikari turtle team"
+
+verified: false
+clear_time: "1 break window"
+success_rate: "High with invested Kaine"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1nm3zuk/and_all_ex3_is_done/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"

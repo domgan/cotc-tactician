@@ -12,7 +12,9 @@ influence: opulence
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, dark]
+weakness_coverage:
+- dagger
+- dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Pirro is the better Thron - everything Thron does he does better except inflicting miss physical attack debuff. His 50% passive allows double casting abilities and can shave up to 10 shields at any time. While better than Thron, still miles away from upcoming overpowered thieves.
 
 best_use_cases:
-  - "Dagger and dark weakness coverage"
-  - "Teams needing high single-target damage"
-  - "Shield breaking with multi-hit attacks"
-  - "Players who missed Thron and want thief upgrade"
+- "Dagger and dark weakness coverage"
+- "Teams needing high single-target damage"
+- "Shield breaking with multi-hit attacks"
+- "Players who missed Thron and want thief upgrade"
 
 weaknesses:
-  - "Permanent 15% speed down from passive"
-  - "High SP consumption for high potency skills"
-  - "Will be power crept by upcoming stronger thieves"
-  - "Limited to dagger and dark damage types"
+- "Permanent 15% speed down from passive"
+- "High SP consumption for high potency skills"
+- "Will be power crept by upcoming stronger thieves"
+- "Limited to dagger and dark damage types"
 
 # Stats (base level)
 hp: 2932
@@ -62,7 +64,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "B"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -173,24 +175,23 @@ passives:
     effect: "During action selection, 50% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
     trigger: always
   - passive_category: innate
-    effect: "Raise own Light Res. by 20%"
+    effect: "Raise own Light Res. by 20%."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%"
+    effect: "**Resilience** Raise own Dark Res. by 10%."
     trigger: always
   - passive_category: tp
     effect: "Raise Phys. Atk. of Self by 15%."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Old Cigar Box"
-  passive_effect: "60 Physical Attack, 40 Critical, 40 SP; Grant automatic HP recovery (amount: 300) and SP recovery (amount: 30); At night: Raise Dagger damage dealt by 15%"
-  notes: "Functional accessory for his kit but nothing particularly special. Standard stats with some recovery and night-time dagger damage boost"
+  passive_effect: "60 P.Atk, 40 Crit, 40 SP; Grant automatic HP recovery (amount: 300) and SP recovery (amount 30); At night: Raise Dagger damage dealt by 15%"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: COTC Pirro Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial including Thron comparison and double cast mechanics"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

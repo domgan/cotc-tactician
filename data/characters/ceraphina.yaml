@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, light]
+weakness_coverage:
+- dark
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer", "healer", "breaker"]
@@ -45,8 +47,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "B (6.99 - 6.00)"
-jp_tier: "S"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
@@ -144,6 +146,16 @@ skills:
     power: "4x100"
     effects:
       - "When an enemy with Curse Brand is present: Guaranteed critical hits"
+  - skill_category: tp
+    name: "Accursed Judgement Lv.2"
+    sp_cost: 99
+    skill_type: attack
+    damage_types: [light, dark]
+    target: single_enemy
+    hit_count: "4x"
+    power: "4x100"
+    effects:
+      - "When an enemy with Curse Brand is present: Guaranteed critical hits"
   - skill_category: ex
     name: "Dawnfire of Condemnation"
     skill_type: mixed
@@ -184,6 +196,12 @@ passives:
   - passive_category: tp
     effect: "When enemy with Curse Brand is present: Raise own Elem. Atk. by 30% and Light and Dark damage by 30%."
     trigger: always
+  - passive_category: tp
+    effect: "When enemy with Curse Brand is present: Raise own Elem. Atk. by 30% and Light and Dark damage by 30% and lower SP consumption by 20%. When in back row at the end of turn: Extend duration of Cursed Brand on All Foes by 1 turn."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Light and Dark attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -193,8 +211,8 @@ a4_accessory:
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-25
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -203,43 +221,43 @@ usage_strategy: |
   - Functions mainly as DPS support with shield breaking capabilities
   - Kit is all over the place but decent abilities
   - Highest auto attack stat among apothecaries (no physical attacks)
-  
+
   KEY MECHANIC - CURSED STATUS AILMENT:
   - New status ailment that grants extra turn for status ailment abilities
   - When inflicted, extends duration of status ailments by 1 turn
   - Enables allies to break shields with status ailment-inflicting abilities
   - Makes past travelers like Jilia/Herminia relevant again
-  
+
   NOTABLE ABILITIES:
   - 3-hit AoE light/dark attacks with defense/resistance down
   - 3-hit dark attack with combustion (2→5 hits with cursed status)
   - 4-hit AoE with 100% potency up when cursed status present
   - EX skill: 4-hit dark attack + HP/SP regen + ultimate gauge fill
   - Ultimate: 3-hit AoE with 50% potency up + resistance down when cursed
-  
+
   SUPPORT CAPABILITIES:
   - 15% physical/elemental attack up to front row
   - Additional 15% damage up when cursed enemy present
   - HP/SP restoration and status ailment curing
   - Immunity to status ailments when cursed enemy present
-  
+
   PASSIVE SYNERGIES:
   - Attacks become elemental dark with critical hit capability
   - AoE cursed status when hitting weaknesses
   - Allies can break shields with status ailment abilities
   - 30% attack/light/dark up when cursed enemy present
-  
+
   A4 ACCESSORY:
   - 100 E.Atk, 40 SP
   - 50% light/dark damage cap increase
   - Follow-up dark/light attack (potency 100)
   - Decent but not worth chasing specifically
-  
+
   LONGEVITY:
   - Future travelers with status ailment potency could benefit
   - Status ailment enabler gimmick keeps her relevant
   - 3.25/5 longevity rating
-  
+
   RECOMMENDATION:
   - Status ailment enabler is her main gimmick
   - Allows past travelers to shine again

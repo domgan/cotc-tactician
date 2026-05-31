@@ -1,0 +1,169 @@
+# Character: Warrior of Black Corrosion
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: warrior-of-black-corrosion
+display_name: "Warrior of Black Corrosion"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: domination
+origin: "Solistia"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dark
+- sword
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3732
+p_atk: 349
+p_def: 358
+e_atk: 552
+e_def: 326
+speed: 290
+crit: 313
+sp: 366
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4552
+p_atk_120: 414
+p_def_120: 423
+e_atk_120: 602
+e_def_120: 376
+speed_120: 325
+crit_120: 363
+sp_120: 436
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S | 9.8"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 58
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "290"
+  - skill_category: active
+    name: "(Initial)"
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    power: "4x25"
+    effects:
+      - "Dark damage to Single Foe (potency: 4x25) and lower their Dark Res"
+  - skill_category: active
+    sp_cost: 36
+    skill_type: buff
+    target: self
+    power: "80"
+    effects:
+      - "**(1★)** Grant Self automatic HP recovery (potency: 80) and raise BP recovery by 1 (turns: 3-6 based on Boost Lv.)"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    hit_count: "4x"
+    power: "4x20"
+  - skill_category: active
+    sp_cost: 34
+    skill_type: attack
+    damage_types: [dark]
+    target: random
+    hit_count: "5x"
+    power: "5x15"
+  - skill_category: active
+    sp_cost: 66
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "**(3★)** Lower Phys"
+  - skill_category: active
+    sp_cost: 87
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(4★)** Raise Elem"
+  - skill_category: active
+    sp_cost: 30
+    skill_type: attack
+    damage_types: [dark]
+    target: front_row
+    hit_count: "4x"
+    power: "4x5"
+  - skill_category: active
+    sp_cost: 54
+    skill_type: attack
+    damage_types: [dark]
+    target: aoe
+    power: "210"
+  - skill_category: tp
+    sp_cost: 240
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "530-900 based on Boost Lv."
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 240
+    skill_type: attack
+    damage_types: [dark]
+    target: single_enemy
+    power: "530-900 based on Boost Lv."
+  - skill_category: special
+    name: "“Black Solution”"
+    skill_type: mixed
+    target: self
+    effects:
+      - "Raise Potency of Self by 200% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type) and Damage Limit by **100,000→150,000→200,000** (turns: 3)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "The “Attack” action deals Elem. Dark damage that exploits Sword weakness (damage calculation based on Elem. Dark attack) and gain the ability to trigger critical hits with elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "When an ally breaks an enemy, grant Entire Front Row (except Self and Paired Ally) the special effect “Black Mark” and gain the special effect “Master of the Black Mark” (turns: 2). *This ability does not trigger if Self is incapacitated."
+    trigger: always
+  - passive_category: innate
+    effect: "Start of battle: Grant Self immunity to some status ailments and Undying (turns: 4)."
+    trigger: battle_start
+    limit_break_upgrade: "Start of battle: Grant Self immunity to some status ailments and Undying (turns: **7**)."
+  - passive_category: innate
+    effect: "Raise own Dark Res. by 30%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Critical by 30%. At full HP: Also raise Elem. Atk. and Dark damage by 20% and raise the limits of Elem. Atk. and Dark damage augments from support skills and equipment effects of Self to 50%."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "Gain Dead Aim (guaranteed critical hits). Allow Self to receive 1.5x greater Potency augments (Does not stack). At full HP: Also raise Elem. Atk. and Dark damage by **30%** and raise the limits of Elem. Atk. and Dark damage augments from support skills and equipment effects of Self to **60%**."
+    trigger: hp_condition
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Fate of the Black Corrosion”"
+  passive_effect: "250 E.Atk, -60 E.Def; When there’s a broken enemy, raise Damage Limit of Entire Front Row by 20,000 and Damage Limit of Entire Back Row by 50,000. At the end of turn and at 50% SP or less, restore 300 SP *Activates twice per battle"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

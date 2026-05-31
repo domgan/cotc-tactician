@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, ice]
+weakness_coverage:
+- dagger
+- ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["breaker", "buffer"]
@@ -24,17 +26,17 @@ usage_strategy: |
   Falco is a dagger support character designed to enable high DPS from other dagger users. His entire kit focuses on amplifying dagger damage through passives and buffs. He has 20% damage increase against broken enemies and provides 15% dagger damage buff to front row at full HP. His ultimate also raises dagger damage for front row by 5-10%.
 
 best_use_cases:
-  - "Dagger parties with multiple dagger users to maximize damage"
-  - "Teams with Therion, Ritu, or Ardell as main DPS"
-  - "Situations requiring consistent shield breaking"
-  - "Content where dagger coverage is needed"
+- "Dagger parties with multiple dagger users to maximize damage"
+- "Teams with Therion, Ritu, or Ardell as main DPS"
+- "Situations requiring consistent shield breaking"
+- "Content where dagger coverage is needed"
 
 weaknesses:
-  - "Lowest attack among thieves alongside Heathcote"
-  - "Lowest speed among thieves alongside Ritu"
-  - "Requires other dagger users to shine"
-  - "DPS capabilities and breaking abilities are subpar compared to dedicated thieves"
-  - "More of a convenience unit than essential"
+- "Lowest attack among thieves alongside Heathcote"
+- "Lowest speed among thieves alongside Ritu"
+- "Requires other dagger users to shine"
+- "DPS capabilities and breaking abilities are subpar compared to dedicated thieves"
+- "More of a convenience unit than essential"
 
 # Stats (base level)
 hp: 2902
@@ -63,7 +65,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "C (5.99 - 5.00)"
-jp_tier: "C"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -73,7 +75,7 @@ skills:
     skill_type: mixed
     damage_types: [dagger]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
@@ -89,16 +91,16 @@ skills:
     skill_type: attack
     damage_types: [ice]
     target: aoe
-    power: "150"
+    power: "150/175/215/260"
   - skill_category: active
     name: "Elusive Strike"
     sp_cost: 32
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
     effects:
-      - "Dagger damage to Single Foe (potency: 230) and grant Self 50% chance to dodge physical attacks (times: 1)"
+      - "Dagger damage to Single Foe (potency: 230/260/300/400) and grant Self 50% chance to dodge physical attacks (times: 1)"
   - skill_category: active
     name: "Double Break"
     sp_cost: 28
@@ -106,27 +108,27 @@ skills:
     damage_types: [dagger]
     target: single_enemy
     hit_count: "2x"
-    power: "2x70"
+    power: "2x70/2x85/2x105/2x135"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
     name: "Sapphire Burst"
-    sp_cost: 48
+    sp_cost: 38
     skill_type: mixed
     damage_types: [ice]
     target: single_enemy
     hit_count: "3x"
-    power: "3x65"
+    power: "3x65/3x75/3x90/3x120"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
     name: "Double Wide Burst"
-    sp_cost: 52
+    sp_cost: 42
     skill_type: mixed
     damage_types: [dagger]
     target: aoe
     hit_count: "2x"
-    power: "2x80"
+    power: "2x80/2x95/2x115/2x130"
     effects:
       - "Lower Shield Points even when not striking weak points"
   - skill_category: active
@@ -135,52 +137,26 @@ skills:
     skill_type: mixed
     damage_types: [dagger]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
-      - "Dagger damage to Single Foe (potency: 170) and impart Phys"
+      - "Dagger damage to Single Foe (potency: 170/200/240/350) and impart Phys"
       - "Grant Self Phys"
-    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: 170) and impart Phys. Atk. Down **30%** (turns: 2). Grant Self Phys. Atk. Up **30%** (turns: 3)."
+    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: 170/200/240/350) and impart Phys. Atk. Down **30%** (turns: 3). Grant Self Phys. Atk. Up **30%** (turns: 3)."
   - skill_category: active
     name: "Assassinate"
     sp_cost: 50
     skill_type: attack
     damage_types: [dagger]
     target: single_enemy
-    power: "230"
+    power: "260/290/340/450"
   - skill_category: tp
     name: "Once More"
     sp_cost: 40
     skill_type: buff
     target: self
     effects:
-      - "**Once More ** Grant Self the ability to trigger attack abilities 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP)"
-      - "Also grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "ジャガーバイト"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "シールドブラスト"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Sixfold Blast"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "6x"
-    power: "6x40"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-    notes: "Uses: 2"
+      - "**Once More ** Grant Self the ability to trigger attack abilities 2 times (turns: 2/Turns cannot be extended/Follow-up attack will not consume SP)"
+      - "Also gain Dead Aim (guaranteed critical hits) (turns: 3/4/5/6)"
   - skill_category: special
     name: "Bandit’s Blade"
     skill_type: attack
@@ -189,7 +165,6 @@ skills:
     power: "440→525→655"
     effects:
       - "Dagger damage to Single Foe (potency: **440→525→655**) and raise Dagger damage of Entire Front Row by **5%→10%→15%** (turns: 2)"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
 
 # Passives - parsed from markdown
 passives:
@@ -206,7 +181,7 @@ passives:
     effect: "Raise own Ice Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Raise Phys. Atk. of Self by 15% and grant Damage Limit Up (effect: 50,000) when broken enemy is present."
+    effect: "Raise Phys. Atk. of Self by 15% and Damage Limit by 50,000 when broken enemy is present."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
@@ -214,10 +189,9 @@ passives:
 a4_accessory:
   name: "Memorial Brush"
   passive_effect: "60 P.Atk, 40 P.Def, 40 E.Def; Raise Dagger damage by 15%; Grant Self automatic HP recovery (amount: 500)"
-  notes: "Good accessory that enhances dagger damage and provides sustain"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Falco Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis focusing on his role as dagger damage amplifier and support character"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

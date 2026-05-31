@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fire, polearm]
+weakness_coverage:
+- fire
+- polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "buffer"]
@@ -24,17 +26,17 @@ usage_strategy: |
   Dorothea is a fire merchant focused on killing heavily damaged enemies. She's essentially a 5-star version of Partitio but with mediocre stats. Her main value comes from high potency attacks and the 15% physical attack buff for front allies at full HP. However, she has self-damage drawbacks on some abilities and will be easily outclassed by future merchants.
 
 best_use_cases:
-  - "Teams needing fire and polearm damage coverage"
-  - "Players lacking other 5-star merchants"
-  - "Situations where high single-target polearm damage is needed"
-  - "Teams that can maintain her at full HP for buff"
+- "Teams needing fire and polearm damage coverage"
+- "Players lacking other 5-star merchants"
+- "Situations where high single-target polearm damage is needed"
+- "Teams that can maintain her at full HP for buff"
 
 weaknesses:
-  - "Mediocre stats compared to other 5-star units"
-  - "Self-damage drawbacks on high potency skills"
-  - "Time-limited availability making her less accessible"
-  - "Will be easily outclassed by future merchant releases"
-  - "Requires full HP maintenance for optimal performance"
+- "Mediocre stats compared to other 5-star units"
+- "Self-damage drawbacks on high potency skills"
+- "Time-limited availability making her less accessible"
+- "Will be easily outclassed by future merchant releases"
+- "Requires full HP maintenance for optimal performance"
 
 # Stats (base level)
 hp: 3380
@@ -63,7 +65,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "B (6.99 - 6.00)"
-jp_tier: "E"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -191,10 +193,9 @@ passives:
 a4_accessory:
   name: "Bird Statuette"
   passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Polearm and Fire damage dealt by 15%"
-  notes: "Good damage accessory for polearm/fire builds but nothing particularly special"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER: Champions of the Continent Dorothea Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis noting her as 5-star Partitio variant with self-damage drawbacks and limited longevity"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

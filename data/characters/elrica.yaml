@@ -12,7 +12,10 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, light, sword]
+weakness_coverage:
+- dark
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +48,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -57,7 +60,7 @@ skills:
     damage_types: [sword]
     target: single_enemy
     hit_count: "3x"
-    power: "3x65"
+    power: "3x65/3x75/3x90/3x120"
   - skill_category: active
     name: "Wild Triple Illuminate"
     sp_cost: 40
@@ -65,24 +68,24 @@ skills:
     damage_types: [light]
     target: random
     hit_count: "3x"
-    power: "3x65"
+    power: "3x65/3x75/3x90/3x120"
   - skill_category: active
     name: "Royal Blade of Order"
     sp_cost: 34
     skill_type: mixed
     damage_types: [sword]
     target: single_enemy
-    power: "170"
+    power: "170/200/240/350"
     effects:
       - "[34 SP] Monarch: Lower their Phys"
       - "Warrior: Lower their Phys"
   - skill_category: active
     name: "Faith for Tomorrow"
     sp_cost: 25
-    skill_type: utility
-    target: single_enemy
+    skill_type: heal
+    target: self
     effects:
-      - "**Faith for Tomorrow (2★)** Restore own SP (amount: 50)"
+      - "**Faith for Tomorrow (2★)** Restore SP of Self (amount: 50/75/100/125 based on Boost Lv.)"
   - skill_category: active
     name: "Royal Flame of Conviction"
     sp_cost: 37
@@ -90,14 +93,14 @@ skills:
     target: front_row
     effects:
       - "**Royal Flame of Conviction (2★)** Monarch: Raise Crit"
-      - "[37 SP] Warrior: Raise own Sword damage dealt by 30% (turns: 3-6, based on Boost Lv.)"
+      - "[37 SP] Warrior: Raise own Sword damage by 30% (turns: 3/4/5/6, based on Boost Lv.)"
   - skill_category: active
     name: "Tenacious Royal Sword"
     sp_cost: 44
     skill_type: attack
     damage_types: [sword]
     target: single_enemy
-    power: "230"
+    power: "230/260/300/400"
   - skill_category: active
     name: "Brilliant Royal Slash"
     sp_cost: 47
@@ -105,7 +108,7 @@ skills:
     damage_types: [sword, light]
     target: single_enemy
     power: "260"
-    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 290). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 2 or more Tenacity points, consume 2 Tenacity point to activate this skill twice (the follow-up attack will not consume SP). Grant **Damage Limit Up** while using this skill (effect: 50,000)."
+    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 290). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 2 or more Tenacity points, consume 2 Tenacity Points to activate the skill twice (the follow-up attack will not consume SP). Damage Limit of this skill is increased by 100,000."
   - skill_category: active
     name: "Royal Hopeful Prayers"
     sp_cost: 51
@@ -115,7 +118,7 @@ skills:
     effects:
       - "**Royal Hopeful Prayers (5★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
       - "[51 SP] Monarch: Raise their max HP by 15% (turns: 2-5, based on Boost Lv.)"
-      - "consume 1 Tenacity point to grant Self HP barrier (potency: 50% of user’s max HP/does not stack)"
+      - "consume 1 Tenacity Point to grant Self an HP barrier (potency: 50% of user’s max HP/Does not stack)"
   - skill_category: active
     name: "Brilliant Royal Flurry"
     sp_cost: 67
@@ -124,29 +127,23 @@ skills:
     target: random
     hit_count: "5x"
     power: "5x35"
-    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe 5 time(s) (potency: 5x35). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 3 or more Tenacity points, consume 3 Tenacity point to activate this skill twice (the follow-up attack will not consume SP)."
+    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe 5 time(s) (potency: 5x35/5x45/5x55/5x80). Exploits Light weakness (damage calculation based on Phys. Sword attack). With 3 or more Tenacity Points, consume 3 Tenacity Points to activate this skill twice (the follow-up attack will not consume SP)."
   - skill_category: tp
+    name: "Tranquil Focus"
     sp_cost: 22
     skill_type: buff
     target: self
     effects:
-      - "**** Grant Self automatic SP recovery (amount: 10% of user’s max SP"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "** Lv.2** Raise potency of Self by 100% (turns: 2) (Turns cannot be extended/Does not stack with effects of the same type)"
+      - "**Tranquil Focus ** Raise potency of Self by 100% (turns: 2) (Turns cannot be extended/Does not stack with effects of the same type)"
       - "grant Self automatic SP recovery (amount: 10% of user’s max SP"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [sword, light]
-    target: aoe
-    hit_count: "10x"
-    power: "10x35"
-    notes: "Uses: 1"
+  - skill_category: tp
+    name: "Tranquil Focus Lv.2"
+    sp_cost: 22
+    skill_type: buff
+    target: self
+    effects:
+      - "**Tranquil Focus Lv.2** Raise potency of Self by 100% (turns: 2) (Turns cannot be extended/Does not stack with effects of the same type)"
+      - "grant Self automatic SP recovery (amount: 10% of user’s max SP"
   - skill_category: special
     name: "Warlord’s Sword"
     skill_type: attack
@@ -154,16 +151,15 @@ skills:
     target: front_row
     power: "440→525→655"
     effects:
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
       - "Monarch: Raise Phys"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When selecting a command, switch between Monarch and Warrior styles. Warrior: Raise Sword damage of Self by 30% and grant Self Damage Limit Up (effect: 50,000)."
+    effect: "When selecting a command, switch between Monarch and Warrior styles. Warrior: Raise Sword damage of Self by 30% and Damage Limit Up by 50,000."
     trigger: always
   - passive_category: innate
-    effect: "Monarch: Gain 1 Tenacity point when using a battle skill (regardless of attack count)."
+    effect: "Monarch: Gain 1 Tenacity Point when using a battle skill (regardless of attack count)."
     trigger: always
   - passive_category: innate
     effect: "Raise own Dark Res. by 20%."
@@ -172,10 +168,10 @@ passives:
     effect: "Raise own Light Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "Start of battle: Gain 3 Tenacity points."
+    effect: "Start of battle: Gain 6 Tenacity points."
     trigger: battle_start
   - passive_category: tp
-    effect: "Start of battle: Gain 3 Tenacity points and 2 BP. At the end of turn: If Tenacity Points are 0, gain 6 Tenacity Points. *Once per battle."
+    effect: "Start of battle: Gain 6 Tenacity points and 2 BP. At the end of turn: If Tenacity Points are 0, gain 6 Tenacity Points. *Once per battle."
     trigger: battle_start
   - passive_category: tp
     effect: "Raise Self’s Damage Limit by 50,000."
@@ -190,4 +186,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

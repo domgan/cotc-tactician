@@ -12,7 +12,9 @@ influence: wealth
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, sword]
+weakness_coverage:
+- light
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "G"
+jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
@@ -110,6 +112,16 @@ skills:
     power: "2x120"
     effects:
       - "Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Phys"
+  - skill_category: tp
+    name: "Dual Sword Strike Lv.2"
+    sp_cost: 30
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "2x"
+    power: "2x120"
+    effects:
+      - "Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Phys"
   - skill_category: ex
     name: "Leave It To Me!"
     skill_type: attack
@@ -125,7 +137,7 @@ skills:
     target: single_enemy
     power: "440→525→655"
     effects:
-      - "Sword damage to Single Foe (potency: **440→525→655**) and lower Spd by **5%→10%** (turns: 2)"
+      - "Sword damage to Single Foe (potency: **440→525→655**) and lower their Speed by **5%→10%** (turns: 2)"
 
 # Passives - parsed from markdown
 passives:
@@ -147,6 +159,12 @@ passives:
   - passive_category: tp
     effect: "At full HP: Raise Phys. Atk. by 30%."
     trigger: hp_condition
+  - passive_category: tp
+    effect: "Raise Phys. Atk. by 30%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 6,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -157,4 +175,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

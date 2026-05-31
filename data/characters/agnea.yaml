@@ -12,7 +12,9 @@ influence: approval
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, wind]
+weakness_coverage:
+- fan
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["buffer", "breaker"]
@@ -24,16 +26,16 @@ usage_strategy: |
   Agnea has high potential for fast clears with overcomplicated passive system. With Augustus A4 accessory or Wills, can get ultimate right away and provide strong buffs quickly. Within 3-4 turns can provide very strong buffs meant for quick clears. All abilities flow well together but are buffs/debuffs we've seen before.
 
 best_use_cases:
-  - "Fast clear teams needing quick buff setup"
-  - "Wind and fan weakness breaking with up to 7 hits"
-  - "Teams that can utilize her Passion passive system"
-  - "Content requiring speed and efficiency"
+- "Fast clear teams needing quick buff setup"
+- "Wind and fan weakness breaking with up to 7 hits"
+- "Teams that can utilize her Passion passive system"
+- "Content requiring speed and efficiency"
 
 weaknesses:
-  - "Overcomplicated passive system requiring setup"
-  - "Low HP and physical defense - squishy"
-  - "Abilities are things we've seen before"
-  - "Must switch out one traveler from eight to include her"
+- "Overcomplicated passive system requiring setup"
+- "Low HP and physical defense - squishy"
+- "Abilities are things we've seen before"
+- "Must switch out one traveler from eight to include her"
 
 # Stats (base level)
 hp: 2776
@@ -61,8 +63,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
@@ -90,7 +92,7 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
-    name: "Kind Dance"
+    name: "Benevolent Breeze"
     sp_cost: 54
     skill_type: attack
     damage_types: [wind, fan]
@@ -98,7 +100,7 @@ skills:
     hit_count: "3x"
     power: "3x65"
   - skill_category: active
-    name: "Storm Dance"
+    name: "Sundering Storm"
     sp_cost: 76
     skill_type: attack
     damage_types: [wind, fan]
@@ -145,7 +147,7 @@ skills:
     effects:
       - "With Exuberant Dance II: Also raise physical damage by 15% (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
-    name: "Leilan Dance"
+    name: "Ceaseless Cyclone"
     sp_cost: 51
     skill_type: attack
     damage_types: [wind, fan]
@@ -172,7 +174,7 @@ skills:
     effects:
       - "With Exuberant Dance II: Attack count raises to **8**"
   - skill_category: tp
-    name: "Song of the Gale"
+    name: "Windy Refrain"
     sp_cost: 90
     skill_type: attack
     damage_types: [wind, fan]
@@ -190,7 +192,7 @@ skills:
       - "Also raise Damage Limit of the same target (effect: 30,000, turns: 2-5 based on Boost Lv.)"
     notes: "Uses: 2"
   - skill_category: special
-    name: "Moon Step Dance"
+    name: "Moonstep Dance"
     skill_type: buff
     target: all_allies
     power: "2→3"
@@ -200,10 +202,10 @@ skills:
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When self uses battle skills or Ultimate Technique, inflict “Fervor” on the target of allied skills (including Self) (turns: 3)."
+    effect: "When self uses battle skills or Ultimate Technique, grant Fervent Enthusiasm to the target allies (including Self) (turns: 3)."
     trigger: always
   - passive_category: innate
-    effect: "Raise Wind damage of Self by 30%. ·With 4 or more allies in Fervor, grant Self “Exuberant Dance I”. ·With 7 or more allies in Fervor, additionally grant Self “Exuberant Dance II”."
+    effect: "Raise Wind damage of Self by 30%. ·With 4 or more allies in Fervent Enthusiasm, grant Self Exuberant Dance I. ·With 7 or more allies in Fervent Enthusiasm, also grant Self Exuberant Dance II."
     trigger: always
   - passive_category: innate
     effect: "Raise own Lightning Res. by 20%."
@@ -212,18 +214,17 @@ passives:
     effect: "**Resilience** Raise own Wind Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect Everyone Together (turns: 1). Everyone Together: The target of Self’s battle skills will change: ·Self, Single Ally → Entire Front Row ·Entire Front Row → All Allies ·Single Foe → All Foes ---"
+    effect: "When selecting a command, grant Self the special effect All Together Now (turns: 1). All Together Now: The target of Self’s battle skills will change: ·Self, Single Ally → Entire Front Row ·Entire Front Row → All Allies ·Single Foe → All Foes ---"
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
-# A4 Accessory - parsed from YouTube transcript
+# A4 Accessory - parsed from markdown
 a4_accessory:
   name: "Deceased Mother Hair Ornament"
-  passive_effect: "40 Speed, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
-  notes: "Good accessory, not must-have but really nice to have. Same can be said about Agnea - nice to have unit that provides quick buffs to entire team"
+  passive_effect: "40 Spd, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC: Agnea Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis from YouTube tutorial noting fast clear potential and complicated passive system"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

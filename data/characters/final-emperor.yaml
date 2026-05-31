@@ -1,0 +1,229 @@
+# Character: Final Emperor
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: final-emperor
+display_name: "Final Emperor"
+rarity: 5
+
+# Core attributes
+job: warrior
+influence: power
+origin: "Empire of Avalon (Romancing SaGa 2)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- axe
+- bow
+- dagger
+- dark
+- fire
+- ice
+- light
+- lightning
+- polearm
+- staff
+- sword
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3782
+p_atk: 554
+p_def: 388
+e_atk: 267
+e_def: 301
+speed: 320
+crit: 323
+sp: 346
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4602
+p_atk_120: 619
+p_def_120: 453
+e_atk_120: 317
+e_def_120: 351
+speed_120: 355
+crit_120: 373
+sp_120: 416
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S++ | 10.0"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 27
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    power: "170"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 25
+    skill_type: attack
+    damage_types: [sword]
+    target: random
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    sp_cost: 87
+    skill_type: buff
+    target: self
+    effects:
+      - "**(1★)** Grant Self the ability to completely block some physical attacks (turns: 2) and restore 2 BP when blocking an attack from this skill"
+  - skill_category: active
+    sp_cost: 81
+    skill_type: heal
+    target: front_row
+    power: "205"
+    effects:
+      - "**(2★)** Restore HP of Entire Front Row (potency: 205)"
+      - "cure some status ailments and raise their BP recovery by 1 (turns: 2)"
+  - skill_category: active
+    sp_cost: 71
+    skill_type: mixed
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+    effects:
+      - "Sword damage to Single Foe 3 time(s) (potency: 3x55) and lower Phys"
+  - skill_category: active
+    sp_cost: 72
+    skill_type: mixed
+    target: self
+    effects:
+      - "**(3★)** Raise Phys"
+      - "When consuming 1 BP or more: Also raise Sword"
+  - skill_category: active
+    sp_cost: 129
+    skill_type: mixed
+    damage_types: [staff]
+    target: aoe
+    power: "240-380 based on Boost Lv."
+  - skill_category: active
+    name: "Lv.96 |"
+    skill_type: mixed
+    damage_types: [staff]
+    target: aoe
+    power: "290-875 based on Boost Lv."
+    effects:
+      - "raise the limits of Sword"
+      - "reductions from battle skills on All Foes to 50% and lower their Sword"
+  - skill_category: active
+    sp_cost: 105
+    skill_type: mixed
+    damage_types: [staff]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x85"
+    effects:
+      - "Staff damage to Single Foe 3 time(s) (potency: 3x85) and lower Phys"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: mixed
+    damage_types: [staff]
+    target: aoe
+    hit_count: "4x"
+    power: "4x85"
+    effects:
+      - "raise the limit of Phys"
+      - "reductions from battle skills on All Foes to 50% and lower their Phys"
+  - skill_category: active
+    skill_type: attack
+    damage_types: [sword]
+    target: aoe
+    power: "260"
+  - skill_category: tp
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "3x85"
+  - skill_category: tp
+    name: "Lv.2"
+    sp_cost: 60
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "**3x95**"
+  - skill_category: active
+    name: "3x95"
+    skill_type: attack
+    damage_types: [axe]
+    target: random
+    hit_count: "3x"
+    power: "**3x95**"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: mixed
+    damage_types: [sword]
+    target: aoe
+    hit_count: "6x"
+    power: "6x25"
+    effects:
+      - "**(EX)** Act faster during turn and deal Phys"
+      - "Lower Shield Points even when not striking weak points and lower 1 additional Shield Point"
+      - "Also restore own SP (amount: 100% of max SP)"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Disturbing Snow, Moon and Flowers”"
+    skill_type: attack
+    damage_types: [sword]
+    target: single_enemy
+    hit_count: "6x"
+    effects:
+      - "Raise the critical damage multiplier of Self (1.25→1.5) (turns: 3) and deal Phys"
+      - "Guaranteed critical hits"
+      - "Also raise BP recovery of Self by 5 (turns: 3)"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). Enhance Boost Levels to Boost Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively. When consuming 3+ BP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5)."
+    trigger: always
+  - passive_category: innate
+    effect: "With 3 or more alive allies in front row: Raise BP recovery of Self by 1, raise Phys. Def. and Elem. Def. of Entire Front Row by 20% and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type). Also grant Entire Front Row automatic HP recovery (potency: 50) and automatic SP recovery (amount: 2% of target’s max SP)."
+    trigger: always
+  - passive_category: innate
+    effect: "Augment Self based on number of alive allies in party. ·5+: Grant Self 50% chance of dodging some attacks. ·6+: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·7+: Raise potency of Self by 50% (Does not stack with effects of the same type). ·8: Raise Damage Limit of Self by 100,000."
+    trigger: always
+    limit_break_upgrade: "Augment Self based on number of alive allies in party. ·**4+**: Grant Self 50% chance of dodging some attacks. ·**5+**: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·**6+**: Raise potency of Self by **100%** (Does not stack with effects of the same type). ·**7+**: Raise Damage Limit of Self by **400,000**."
+  - passive_category: innate
+    effect: "Raise own Phys. Res. by 10%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 15%."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies."
+    trigger: always
+  - passive_category: tp
+    effect: "At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP) and grant them automatic HP recovery (potency: 50, turns: 1). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies."
+    trigger: always
+  - passive_category: tp
+    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“Golden Empire Crest”"
+  passive_effect: "200 P.Atk, -100 E.Atk, 500 HP, 40 SP; When consuming 3 BP or more, raise BP recovery by 2 (turns: 1).; Start of battle: Recover 5 BP"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

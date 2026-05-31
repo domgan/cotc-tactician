@@ -1,0 +1,191 @@
+# Character: Lynette EX
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: lynette-ex
+display_name: "Lynette EX"
+rarity: 5
+
+# Core attributes
+job: thief
+influence: fame
+origin: "Orsterra"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dagger
+- dark
+- fire
+- ice
+- light
+- lightning
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 2901
+p_atk: 231
+p_def: 278
+e_atk: 435
+e_def: 258
+speed: 430
+crit: 330
+sp: 466
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 3721
+p_atk_120: 296
+p_def_120: 298
+e_atk_120: 485
+e_def_120: 308
+speed_120: 495
+crit_120: 380
+sp_120: 546
+
+# Progression availability (in GL)
+has_blessing_of_lantern: true
+has_limit_break: true
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+gl_tier: "S (9.49 - 8.50)"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "Double Burst"
+    sp_cost: 36
+    skill_type: mixed
+    damage_types: [dagger]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x90/2x105/2x125/2x180"
+    effects:
+      - "Lower Shield Points even when not striking weak points"
+  - skill_category: active
+    name: "Fiery Fouetté"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [fire, dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+  - skill_category: active
+    name: "Icy Improv"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [ice, dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+  - skill_category: active
+    name: "Lightning Leap"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [lightning, dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+  - skill_category: active
+    name: "Light Lunge"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [light, dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+    effects:
+      - "Light damage to Single Foe 5 time(s) (potency: 5x35/5x45/5x55/5x70) and raise BP recovery of Paired Allies by 1 (turns: 1)"
+  - skill_category: active
+    name: "Devant Determination"
+    sp_cost: 40
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Devant Determination (3★)** Raise Phys"
+  - skill_category: active
+    name: "Windy Waltz"
+    sp_cost: 50
+    skill_type: attack
+    damage_types: [wind, dagger]
+    target: front_row
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+    effects:
+      - "Wind damage to Single Foe 5 time(s) (potency: 5x35/5x45/5x55/5x70) and raise Speed and Critical of Entire Front Row by 15% (turns: 3)"
+  - skill_category: active
+    name: "Technicolor Triplet"
+    sp_cost: 64
+    skill_type: attack
+    damage_types: [dagger]
+    target: aoe
+    hit_count: "3x"
+    power: "3x45/3x55/3x65/5x55"
+  - skill_category: active
+    name: "Midnight Manèges"
+    sp_cost: 50
+    skill_type: mixed
+    damage_types: [dark, dagger]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x35/5x45/5x55/5x70"
+    effects:
+      - "Dark damage to Single Foe 5 time(s) (potency: 5x35/5x45/5x55/5x70) and lower their Phys"
+  - skill_category: tp
+    name: "Waves of Serenity"
+    sp_cost: 50
+    skill_type: buff
+    target: all_allies
+    effects:
+      - "Critical and Speed of All Allies by 30% (turns: 2) and restore their BP by 1"
+  - skill_category: special
+    name: "Prismatic Pirouette"
+    skill_type: debuff
+    target: aoe
+    power: "3→4"
+    effects:
+      - "Grant All Foes Fire"
+      - "Light and Dark weaknesses (times: 3 each) and lower their Elem"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "When breaking an enemy, lower their Elem. Res. by 10% (turns: 3)."
+    trigger: on_break
+    limit_break_upgrade: "When breaking an enemy, lower their Elem. Res. by 10% (turns: 3) and gain the ability to freely reuse the Latent Power: Ode to the Seasons (turns: 2)."
+  - passive_category: innate
+    effect: "Upon activation, gain Ode to the Seasons (turns: 1). Ode to the Seasons: Skill configuration changes to the following. ---"
+    trigger: always
+  - passive_category: innate
+    effect: "Grant All Foes Fire and Lightning weaknesses (times: 2-5 each based on Boost Lv.), lower their Fire and Lightning Res. by 30% (turns: 2) and their Shield Points by 1-4 based on Boost Lv.."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant All Foes Ice and Wind weaknesses (times: 2-5 each based on Boost Lv.), lower their Ice and Wind Res. by 30% (turns: 2) and their Shield Points by 1-4 based on Boost Lv.."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant All Foes Light and Dark weaknesses (times: 2-5 each based on Boost Lv.), lower their Light and Dark Res. by 30% (turns: 2) and their Shield Points by 1-4 based on Boost Lv.."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Ice Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Fire Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "While any enemy has the required number of revealed weak points (including granted ones), grant effects to Entire Front Row. ·5+: Raise Elem. Atk. by 15%. ·6+: Raise elemental damage by 15%. ·7+: Grant the ability to trigger critical hits with elemental attacks and raise their Damage Limit by 50,000. ·8+: Raise the limit of Elem. Atk. augments from battle skills to 50%. *Depleted granted weaknesses do not count."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "Sunflower Bracelet"
+  passive_effect: "100 E.Atk, 40 SP; Raise Damage Limit by 100,000; Start of battle: Lower Elem. Res. of All Foes by 10% (turns: 6)"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

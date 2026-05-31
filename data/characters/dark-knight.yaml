@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, sword]
+weakness_coverage:
+- dark
+- sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: ["dps", "breaker"]
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
@@ -130,6 +132,14 @@ skills:
     effects:
       - "**Blessings of the Damned ** Restore HP of All Allies (amount: 10%-40% of max HP based on Boost Lv.)"
       - "if the target is in “Cursed” status raise their Phys"
+  - skill_category: tp
+    name: "Blessings of the Damned Lv.2"
+    sp_cost: 143
+    skill_type: heal
+    target: all_allies
+    effects:
+      - "**Blessings of the Damned Lv.2** Restore HP of All Allies (amount: 10%-40% of max HP based on Boost Lv.)"
+      - "if the target is in “Cursed” status raise their Phys"
   - skill_category: ex
     name: "Demon Blade Fisteralda"
     skill_type: mixed
@@ -167,17 +177,23 @@ passives:
   - passive_category: tp
     effect: "Grant Self effects based on the number of allies in Cursed Puppet state: ·1+: Raise Phys. Atk. and Sword damage by 30%. ·3+: Also raise Damage Limit by 100,000. ·5+: Also raise BP recovery by 2. ·7+: Also gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). *Incapacitated allies in Cursed Puppet state also count."
     trigger: always
+  - passive_category: tp
+    effect: "Grant Self effects based on the number of allies in Cursed Puppet state: ·1+: Raise Phys. Atk. and Sword damage by 30%. ·3+: Also raise Damage Limit by **150,000**. ·5+: Also raise BP recovery by 2. ·7+: Also gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). *Incapacitated allies in Cursed Puppet state also count."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Self’s Damage Limit by 50,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dark Knight's Mask"
+  name: "Dark Knight’s Mask"
   passive_effect: "60 P.Atk, 80 SP; Grant Damage Limit Up (effect: 70,000); Raise the limit of Phys. Atk. augments from support skills and equipment effects to 50%"
 
 # Metadata
 data_confidence: complete
-data_source: "Community spreadsheet CSV export + YouTube tutorial analysis"
-last_updated: 2025-12-28
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'
 
 # Usage Strategy Notes (from YouTube tutorial)
 usage_strategy: |
@@ -186,7 +202,7 @@ usage_strategy: |
   - Requires Cursed Puppet state on 7 allies for full effectiveness (unless paired with Black Priestess)
   - Needs BP recovery support and team coordination
   - Overkill mechanic: Killing allies with certain skills provides buffs
-  
+
   ROTATION (SOLO - FULL CURSED PUPPET SETUP):
   - Turn 1: Purge of Avarice Lv1, move front row to back row
   - Turn 2: Purge of Avarice again, activate auto-revives (Ophilia, Lucetta)
@@ -195,7 +211,7 @@ usage_strategy: |
   - Turn 5: Main damage with 100% potency up from EX skill + activate keepers
   - Turn 6+: Use keepers (Nona, Primrose, etc.) and additional casts
   - Turn 7+: Use Mafa for additional BP if needed, use divine beast (Smur) for revives
-  
+
   ROTATION (WITH BLACK PRIESTESS - SIMPLIFIED):
   - Black Priestess gives access to all elemental exploits (99% of enemies have both)
   - Only need 5 cursed puppets instead of 7
@@ -203,12 +219,12 @@ usage_strategy: |
   - Turn 2: Ultimate + kill auto-revive ally (gains 2 BP starting turn 3)
   - Turn 3: EX skill + Black Priestess ultimate
   - Turn 4: Main damage phase
-  
+
   CRITICAL MECHANICS:
   - If ultimate at 20%, DK goes to back row and passive doesn't proc
   - Cursed Puppet passive allows exploiting ALL physical weaknesses (sword, polearm, dagger, axe, bow, staff, tome, fan)
   - BP recovery is crucial for sustained damage
-  
+
   TEAM SYNERGIES:
   - Black Priestess: All elemental exploits, reduces Cursed Puppet requirement to 5
   - Nona: Ultimate gauge increase, 30% potency up EX skill, Penguin Keeper (25% alt increase turn 2)
@@ -218,24 +234,25 @@ usage_strategy: |
   - Lucetta: Extends buffs by 1 turn
   - Ophilia: Ultimate + auto-revive
   - Billy: Ultimate + dedicated breaker, Chomper keeper
-  
+
   KEEPER MANAGEMENT:
   - Level keepers to 10 for earlier usage (turn 1-2 instead of turn 2-3)
   - Best keeper leveling: Heavenly Kate (600k exp, 1.3M with pass)
   - Expert hunts with Crafty Kate currently available
-  
+
   WEAPON RECOMMENDATION:
   - Brilliant weapon is best in slot (additional 100,000 damage cap up)
   - Fortune weapon is alternative (missing ~150k damage per hit vs brilliant)
-  
+
   COMPARISON TO PARTIS:
   - Nearly 2x damage potential than Partis
   - Slower setup (4-5 turns vs 3 turns)
   - Better for difficult battles where setup time is justified
   - Partis better for quick fights/historic content
-  
+
   BEST USE CASES:
   - Very difficult battles where setup time is justified
   - Content where overkill mechanics can be utilized
   - Teams with strong BP recovery and keeper support
   - NOT recommended for historic content (overkill)
+gl_tier: S+ (10.00 - 9.50)

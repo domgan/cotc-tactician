@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [lightning, sword]
+weakness_coverage:
+- lightning
+- sword
 
 # Roles
 roles: [buffer, dps]
@@ -24,18 +26,18 @@ usage_strategy: |
   Richard is a lightning warrior who functions as both an amazing enabler and solid attacker. His abilities allow him to buff sword and polearm users while debuffing enemies with speed and physical defense reductions. He's the strongest sword user right now with passives that enhance sword/polearm damage by 15% for front row at full HP.
 
 best_use_cases:
-  - "Sword and polearm focused teams needing damage enhancement"
-  - "Content where enemy speed and defense debuffs are valuable"
-  - "Warrior teams requiring both damage and support"
-  - "Players needing the best sword user available"
-  - "Memory traveler priority for long-term investment"
+- "Sword and polearm focused teams needing damage enhancement"
+- "Content where enemy speed and defense debuffs are valuable"
+- "Warrior teams requiring both damage and support"
+- "Players needing the best sword user available"
+- "Memory traveler priority for long-term investment"
 
 weaknesses:
-  - "Memory traveler with 4500 ruby pity for featured character"
-  - "Most attacks are random target, less effective against groups"
-  - "Time-limited availability requiring strategic ruby management"
-  - "High SP consumption on abilities"
-  - "Requires careful planning for free-to-play players"
+- "Memory traveler with 4500 ruby pity for featured character"
+- "Most attacks are random target, less effective against groups"
+- "Time-limited availability requiring strategic ruby management"
+- "High SP consumption on abilities"
+- "Requires careful planning for free-to-play players"
 
 # Tank type
 tank_type: none
@@ -43,16 +45,16 @@ tank_type: none
 # Buff/Debuff categories
 buff_categories:
   passive:
-    - type: sword_damage_up
-      value: 15
-      source_skill: "Front row passive"
-    - type: polearm_damage_up
-      value: 15
-      source_skill: "Front row passive"
+  - type: sword_damage_up
+    value: 15
+    source_skill: "Front row passive"
+  - type: polearm_damage_up
+    value: 15
+    source_skill: "Front row passive"
   active:
-    - type: phys_atk_up
-      value: 15
-      source_skill: "Attack buff skill"
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Attack buff skill"
 
 # Stats (base level)
 hp: 3247
@@ -80,8 +82,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -213,12 +215,11 @@ passives:
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "New King's Cloak"
+  name: "New King’s Cloak"
   passive_effect: "40 P.Atk, 60 Spd, 40 SP; Raise Sword damage dealt by 15%; Grant automatic HP recovery (amount: 500)"
-  notes: "Excellent accessory that enhances sword damage and provides sustain"
 
 # Metadata
 data_confidence: verified
-data_source: "YouTube transcript analysis: OCTOPATH TRAVELER COTC Richard Overview by Lad"
+data_source: "Community spreadsheet CSV export"
 data_notes: "Updated with strategic analysis highlighting him as best warrior to date with sword/polearm enhancement capabilities"
-last_updated: 2025-12-25
+last_updated: '2026-05-31'

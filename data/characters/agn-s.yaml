@@ -12,7 +12,10 @@ influence: fame
 origin: "Luxendarc (BRAVELY DEFAULT)"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [light, staff, wind]
+weakness_coverage:
+- light
+- staff
+- wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,29 +48,19 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "D (4.99 - 4.00)"
-jp_tier: "B"
+gl_tier: "C (5.99 - 5.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: ex
-    name: "Holy Light"
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "5x"
-    power: "5x75"
-    effects:
-      - "Light damage to Single Foe 5 time(s) (potency: 5x75) and raise Elem"
-    notes: "Uses: 2"
   - skill_category: special
     name: "Prayer of Winds"
     skill_type: buff
     target: front_row
     power: "2→3"
     effects:
-      - "Raise Spd of Entire Front Row by **10%→20%** (turns: **2→3**)"
-      - "Grant automatic HP recovery (potency: **100→125**"
+      - "Raise Spd of Entire Front Row by **10%→20%→30%** (turns: **2→3**)"
+      - "Grant automatic HP recovery (potency: **100→125→150**"
 
 # Passives - parsed from markdown
 passives:
@@ -84,9 +77,40 @@ passives:
     effect: "Raise own Wind Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When consuming 3 BP to use a skill, raise BP recover amount of Self by 1 (turns: 2)."
+    effect: "When consuming 3 BP to use a skill, raise BP recovery of Self by 1 (turns: 2)."
     trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000. ## Battle S**kills**"
+  - passive_category: innate
+    effect: "Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180)."
+    trigger: always
+  - passive_category: innate
+    effect: "Restore HP of Entire Front Row (potency: 130/150/180/220)."
+    trigger: always
+  - passive_category: innate
+    effect: "Impart Entire Front Row with Phys. Def. Up 15% (turns: 2/3/4/5)."
+    trigger: always
+  - passive_category: innate
+    effect: "**(2★)** Deal Phys. Staff damage to Single Foe (potency: 170/200/240/350) and lower their Elem. Def. by 15% (turns: 2)."
+    trigger: always
+  - passive_category: innate
+    effect: "**(2★)** Raise Speed of Single Ally by 15% (turns: 2/3/4/5). Reaches Entire Front Row at Max Boost."
+    trigger: always
+  - passive_category: innate
+    effect: "Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x80/2x95/2x115/2x130)."
+    trigger: always
+  - passive_category: innate
+    effect: "Grant Single Ally automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches Entire Front Row at Max Boost."
+    trigger: always
+    limit_break_upgrade: "Grant **Entire Front Row** automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches **All Allies** at Max Boost."
+  - passive_category: innate
+    effect: "**(5★)** Deal Elem. Light damage to Single Foe (potency: 260/290/340/450)."
+    trigger: always
+  - passive_category: innate
+    effect: "Revive a fallen ally (recovery amount: 25%/50%/75%/100% of max HP). *Can be used 3 times per battle."
+    trigger: always
+  - passive_category: tp
+    effect: "Impart Entire Front Row with Elem. Def. Up 15% (turns: 2/3/4/5). At Max Boost: Also grant the ability to completely block some elemental attacks (times: 1) and counter with Elem. Light damage (potency: 200)."
+    trigger: always
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
@@ -96,4 +120,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

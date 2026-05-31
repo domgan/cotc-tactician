@@ -1,0 +1,41 @@
+# Reddit Community Intake — Gacha & Banner Planning (2026-05-31)
+# Pre-release / community planning notes — NOT verified in-game data.
+# All entries: data_confidence community_unverified
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-05-31"
+
+ff6_collab:
+  context: "GL FF6 collab banner planning (pre-release community discussion)"
+  rainbow_priority:
+    must_have:
+      - character: setzer
+        reason: "Freeze weakness implant — core rainbow enabler with Lynette EX"
+      - character: edgar
+        reason: "Signa upgrade — DPS or support slot"
+    lower_priority:
+      - character: terra
+        aliases: [relm]
+        reason: "Strong standalone DPS; pairs with Molrusso EX; not rainbow-optimal (long setup)"
+        note: "Terra A4 noted as best collab A4 for ult-reliant DPS (Xerc, Hikari EX)"
+  f2p_guidance:
+    - "Never A4 collab/seasonal units as F2P"
+    - "If low rubies: prioritize Setzer over Edgar (Edgar eventually powercrept by Rocbouquet)"
+    - "Keep ≥4500 rubies entering FF6 banner"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1t64s52/how_much_value_does_each_ff6_collab_unit_bring/
+      date: 2026-05-07
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1t5cwal/my_personal_advice_on_recent_banners_avieteff6ot0/
+      date: 2026-05-06
+      author: u/BrickSuccessful4703
+
+aviete:
+  role: "Rainbow flexible support slot; spookable from Aviete banner"
+  osvald_acquisition:
+    - "SS memory — pity on rerun banner"
+    - "Overpity on other SS banners"
+    - "Anniversary paid selector"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1t5cwal/my_personal_advice_on_recent_banners_avieteff6ot0/
+      date: 2026-05-06

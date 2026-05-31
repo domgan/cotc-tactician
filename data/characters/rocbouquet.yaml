@@ -1,0 +1,208 @@
+# Character: Rocbouquet
+# Auto-generated from CSV on 2026-05-31
+# Skills and passives must be added manually
+
+id: rocbouquet
+display_name: "Rocbouquet"
+rarity: 5
+
+# Core attributes
+job: dancer
+influence: power
+origin: "Empire of Avalon (Romancing SaGa 2)"
+
+# Weakness coverage (what enemy weaknesses this character can hit)
+weakness_coverage:
+- dark
+- fan
+- lightning
+- wind
+
+# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
+roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+role_notes: |
+  TODO: Describe role capabilities based on skill analysis
+
+# Stats (base level)
+hp: 3266
+p_atk: 270
+p_def: 320
+e_atk: 572
+e_def: 402
+speed: 312
+crit: 287
+sp: 544
+
+# Stats (Lv 120 after Limit Break)
+hp_120: 4086
+p_atk_120: 320
+p_def_120: 370
+e_atk_120: 637
+e_def_120: 452
+speed_120: 377
+crit_120: 322
+sp_120: 614
+
+# Progression availability (in GL)
+has_blessing_of_lantern: false
+has_limit_break: false
+awakening_stage: 4  # Assume max for team comp purposes
+
+# Tier ratings (from community)
+jp_tier: "S++ | 10.0"
+
+# Skills - parsed from markdown
+skills:
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 33
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x55"
+  - skill_category: active
+    name: "(Initial)"
+    sp_cost: 35
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "2x"
+    power: "2x75"
+  - skill_category: active
+    sp_cost: 42
+    skill_type: heal
+    target: front_row
+    power: "55-130 based on Boost Lv."
+    effects:
+      - "**(1★)** Restore HP of Entire Front Row (potency: 55-130 based on Boost Lv.) and grant them automatic HP recovery (potency: 80/turns: 2)"
+  - skill_category: active
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [wind]
+    target: random
+    hit_count: "4x"
+    power: "4x35"
+  - skill_category: active
+    sp_cost: 60
+    skill_type: mixed
+    damage_types: [dark]
+    target: single_enemy
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "also lower their Phys"
+  - skill_category: active
+    sp_cost: 88
+    skill_type: mixed
+    damage_types: [wind]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "also lower their Phys"
+  - skill_category: active
+    name: "Lv.88 |"
+    skill_type: utility
+    target: single_enemy
+  - skill_category: active
+    sp_cost: 84
+    skill_type: heal
+    target: front_row
+    power: "55-130 based on Boost Lv."
+    effects:
+      - "**(4★)** Act faster during turn"
+      - "restore HP of Entire Front Row (potency: 55-130 based on Boost Lv.) and grant them automatic HP recovery (potency: 80/turns: 2)"
+      - "Cure some status ailments and enchant and grant them immunity to some status ailments"
+  - skill_category: active
+    sp_cost: 118
+    skill_type: mixed
+    damage_types: [lightning]
+    target: aoe
+    hit_count: "3x"
+    power: "3x65"
+    effects:
+      - "also lower their Phys"
+  - skill_category: active
+    name: "Lv.99 |"
+    skill_type: attack
+    damage_types: [lightning]
+    target: single_enemy
+    effects:
+      - "Shock: Lower Shield Points by 1 when taking Elem"
+  - skill_category: active
+    sp_cost: 63
+    skill_type: attack
+    damage_types: [wind]
+    target: single_enemy
+    hit_count: "5x"
+    power: "5x30"
+  - skill_category: tp
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "lower their Phys"
+  - skill_category: tp
+    name: "Lv.2"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "lower their Phys"
+  - skill_category: ex
+    name: "(EX)"
+    skill_type: debuff
+    target: aoe
+    effects:
+      - "also lower their Phys"
+      - "by 30% and raise the limits of Phys"
+    notes: "Uses: 2"
+  - skill_category: special
+    name: "“Passion Perfume”"
+    skill_type: attack
+    target: front_row
+    effects:
+      - "Act faster during turn"
+      - "raise Damage Limit of All Allies by **10,000→50,000→100,000** (turns: 3) and mark All Foes with Rancor (turns: 4/ignores immunity to status ailments)"
+      - "Also raise potency of All Allies by 100% (turns: 1/Turns cannot be extended/Effects of the same type do not stack)"
+      - "*Use count of this Ultimate Technique cannot be restored"
+
+# Passives - parsed from markdown
+passives:
+  - passive_category: innate
+    effect: "Gain the ability to trigger a follow-up strike when any ally in Entire Front Row exploits a weakness (only activates once in an action). Follow-up attack: Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x100) and mark them with Rancor (turns: 1/ignores immunity to status ailments). Exploits Fan and Dark weaknesses (damage calculation based on Elem. Wind attack). When a broken enemy is present: Attack count becomes 3."
+    trigger: always
+  - passive_category: innate
+    effect: "When an enemy with Rancor is present: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 20%, raise their elemental damage by 20% and grant them the ability to deal critical hits with elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "When an enemy with Rancor is present: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 20%, raise their elemental damage by 20% and their Damage Limit by 20% (effect: up to 100,000) and grant them the ability to deal critical hits with elemental attacks."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Lightning Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "Raise own Wind and Dark Res. by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When a broken enemy is present, lower Elem. Res. of All Foes by 10%."
+    trigger: always
+  - passive_category: tp
+    effect: "When a broken enemy is present, lower Elem. Res. of All Foes by **20%** and raise the limits of Elem. Res. reductions from support skills and equipment effects on All Foes to 50%."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Lightning, Wind and Dark attacks of All Allies by 15,000."
+    trigger: always
+    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+
+# A4 Accessory - parsed from markdown
+a4_accessory:
+  name: "“The Queen’s Flower Ornament”"
+  passive_effect: "200 E.Atk, -50 P.Def, 40 SP; At full HP: Raise Damage Limit of Paired Ally by 100,000; At full HP: Lower Elem. Res. of all enemies by 10%"
+
+# Metadata
+data_confidence: incomplete
+data_source: "Community spreadsheet CSV export"
+last_updated: '2026-05-31'

@@ -12,7 +12,9 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dark, light]
+weakness_coverage:
+- dark
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -40,17 +42,17 @@ crit_120: 268
 sp_120: 550
 
 # Progression availability (in GL)
-has_blessing_of_lantern: false
-has_limit_break: false
+has_blessing_of_lantern: true
+has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "S+"
+jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
   - skill_category: active
-    name: "(Initial)"
+    name: "Resentment (Single)"
     sp_cost: 59
     skill_type: attack
     damage_types: [dark, light]
@@ -58,19 +60,21 @@ skills:
     hit_count: "2x"
     power: "2x75"
   - skill_category: active
-    name: "(Initial)"
+    name: "Malice (All) II"
     sp_cost: 59
     skill_type: attack
     damage_types: [dark, light]
     target: aoe
     power: "150"
   - skill_category: active
+    name: "Serenity"
     sp_cost: 74
     skill_type: buff
     target: single_ally
     effects:
-      - "**(1★)** Grant Single Ally automatic SP recovery (amount: 10% of max SP) and raise Elem"
+      - "**Serenity (1★)** Grant Single Ally automatic SP recovery (amount: 10% of target’s max SP) and raise Elem"
   - skill_category: active
+    name: "Umbral Benediction"
     sp_cost: 54
     skill_type: mixed
     damage_types: [dark, light]
@@ -78,15 +82,16 @@ skills:
     hit_count: "2x"
     power: "2x80"
     effects:
-      - "restore HP of Entire Front Row (potency: 90)"
+      - "Dark damage to All Foes 2 time(s) (potency: 2x80) and restore HP of Entire Front Row (potency: 90)"
   - skill_category: active
+    name: "Seal of Bloodlust"
     sp_cost: 57
     skill_type: mixed
     target: front_row
     effects:
-      - "**(2★)** Impart Entire Front Row with Elem"
-      - "Up 15% and raise elemental damage by 15% (turns: 2-5 based on Boost Lv.)"
+      - "**Seal of Bloodlust (2★)** Raise Elem"
   - skill_category: active
+    name: "Animus"
     sp_cost: 76
     skill_type: mixed
     damage_types: [dark, light]
@@ -94,14 +99,16 @@ skills:
     hit_count: "3x"
     power: "3x65"
     effects:
-      - "Have a moderate chance to lower Elem"
+      - "Dark damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to lower Elem"
   - skill_category: active
+    name: "Price of Power"
     sp_cost: 51
     skill_type: mixed
     target: single_ally
     effects:
-      - "**(4★)** Raise potency of Single Ally by 100% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: 30,000, turns: 2-5 based on Boost Lv.)"
+      - "**Price of Power (4★)** Raise potency of Single Ally by 100% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type) and their Damage Limit by 30,000 (turns: 2-5 based on Boost Lv.)"
   - skill_category: active
+    name: "Malevolence (All) IV"
     sp_cost: 123
     skill_type: attack
     damage_types: [dark, light]
@@ -110,17 +117,17 @@ skills:
     power: "3x95"
   - skill_category: active
     name: "Lv.99 |"
-    skill_type: buff
+    skill_type: utility
     target: single_enemy
-    effects:
-      - "“Deep Grudge”: Raise the potency of received attacks by 10% (with some exceptions/Does not stack with effects of the same type)"
   - skill_category: active
+    name: "Malignity (Single) V"
     sp_cost: 71
     skill_type: attack
     damage_types: [dark, light]
     target: single_enemy
     power: "290"
   - skill_category: tp
+    name: "Odium (All) III"
     sp_cost: 81
     skill_type: mixed
     damage_types: [dark, light]
@@ -128,55 +135,50 @@ skills:
     hit_count: "3x"
     power: "3x80"
     effects:
-      - "Also lower Elem"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [dark, light]
-    target: aoe
-    hit_count: "5x"
-    power: "5x40"
-    notes: "Uses: 2"
+      - "Dark damage to All Foes 3 time(s) (potency: 3x80) and lower their Elem"
   - skill_category: special
-    name: "“Chaos Magic (All)”"
+    name: "Consumating Rancor"
     skill_type: mixed
     damage_types: [dark, light]
     target: aoe
     hit_count: "2x"
     power: "2→3"
+    effects:
+      - "lower their Elem"
 
 # Passives - parsed from markdown
 passives:
   - passive_category: innate
-    effect: "When exploiting enemy weakness, reduce by 1 the reuse turns of Latent Power: “Ritual Magic” (*Triggers once regardless the number of attacks). When there’s an enemy inflicted with “Deep Grudge”, grant Self the effect of lowering 1 additional Shield Points when using Dark attacks that strike a weakness."
+    effect: "Elem. Dark attacks reduce 1 additional Shield Point when exploiting weaknesses if an enemy with Rancor is present (does not stack with effects of the same type) and advance the reuse of Latent Power: Last Rites by 1 turn when exploiting weaknesses with battle skills. *Only triggers once even if exploiting multiple weaknesses at a time."
     trigger: always
   - passive_category: innate
-    effect: "Raise Dark damage of Self by 30% when broken enemy is present."
+    effect: "Raise Dark damage of Self by 30% when a broken enemy is present."
     trigger: always
-    limit_break_upgrade: "Raise Dark damage of Self by 30% and grant Damage Limit Up (effect: 70,000) when broken enemy is present."
+    limit_break_upgrade: "Raise Dark damage of Self by 30% and Damage Limit by 70,000 when a broken enemy is present."
   - passive_category: innate
-    effect: "When there’s an enemy inflicted with “Deep Grudge”, add 20% of own E.Def to E.Atk of Entire Front Row (including equipment stats/Cannot be stacked)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%"
+    effect: "When an enemy with Rancor is present: Add 20% of Osvald EX’s E.DEf attribute to the E.Atk of Entire Front Row (including equipment stats/the maximum value for each attribute takes effect)."
     trigger: always
   - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%"
+    effect: "Raise own Light Res. by 20%."
+    trigger: always
+  - passive_category: innate
+    effect: "**Resilience** Raise own Dark Res. by 10%."
     trigger: always
   - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect of “Ritual Magic” (turns: 1). “Ritual Magic”: Skill configuration changes to the following."
+    effect: "Upon activation, gain Last Rites (turns: 1). Last Rites: Skill configuration changes to the following."
     trigger: always
   - passive_category: innate
-    effect: "Deal Elem. Dark damage to All Foes (potency: 630). Exploits Light weakness (damage calculation based on Elem. Dark attack). Grant Self Damage Limit Up when using this skill (effect: 200,000). 50% more potent when target is inflicted with “Deep Grudge”. At Max Boost: Reactivate the effect (without consuming SP) at start of next turn before any ally’s action."
+    effect: "Deal Elem. Dark damage to All Foes (potency: 630). Exploits Light weakness (damage calculation based on Elem. Dark attack). Damage Limit of this skill is increased by 200,000. Potency increases by 1.5x if an enemy with Rancor is present. At Max Boost: In the next turn after use, activate the skill again before some allies act (does not consume SP)."
     trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Sorcerer Mask”"
-  passive_effect: "-60 P.Atk, 100 E.Atk, 40 SP; Raise Elem. Atk. by 15% and grant the ability to trigger critical hits with elemental attacks; At full HP: Grant Self Dead Aim (guaranteed critical hits)"
+  name: "Arcanist’s Mask"
+  passive_effect: "-60 P.Atk, 100 E.Atk, 60 E.Def, 40 SP; Raise Elem. Atk. by 15% and gain the ability to trigger critical hits with elemental attacks; At full HP: Gain Dead Aim (guaranteed critical hits)"
 
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'
+gl_tier: A (8.49 - 7.00)

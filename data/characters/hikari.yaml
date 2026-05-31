@@ -12,7 +12,15 @@ influence: domination
 origin: "Solistia"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, bow, dagger, fan, polearm, staff, sword, tome]
+weakness_coverage:
+- axe
+- bow
+- dagger
+- fan
+- polearm
+- staff
+- sword
+- tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +53,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "S (8.99 - 8.25)"
-jp_tier: "B"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -116,9 +124,9 @@ skills:
     damage_types: [sword]
     target: random
     hit_count: "2x"
-    power: "2x65"
+    power: "2x45"
     effects:
-      - "Sword damage to Random Foe 2 time(s) (potency: 2x65) and have a low chance to lower Phys"
+      - "Sword damage to Random Foe 2 time(s) (potency: 2x45) and have a low chance to lower Phys"
   - skill_category: active
     name: "Skyrending Slice"
     sp_cost: 48
@@ -211,4 +219,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

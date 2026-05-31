@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [axe, fire]
+weakness_coverage:
+- axe
+- fire
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,7 +47,7 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-jp_tier: "H"
+jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
@@ -108,6 +110,15 @@ skills:
     effects:
       - "**Swift Disposal ** Act faster during turn"
       - "restore HP of Entire Front Row (potency: 65) and raise Ice"
+  - skill_category: tp
+    name: "Swift Disposal Lv.2"
+    sp_cost: 50
+    skill_type: heal
+    target: front_row
+    power: "65"
+    effects:
+      - "**Swift Disposal Lv.2** Act faster during turn"
+      - "restore HP of Entire Front Row (potency: 65) and raise Ice"
   - skill_category: ex
     name: "Swift Raging Gash"
     skill_type: attack
@@ -143,6 +154,12 @@ passives:
   - passive_category: tp
     effect: "Start of battle: Raise Speed of Paired Allies by 20% (turns: 3)."
     trigger: battle_start
+  - passive_category: tp
+    effect: "Start of battle: Raise Speed of Paired Allies by **30%** (turns: 3)."
+    trigger: battle_start
+  - passive_category: tp
+    effect: "Raise Damage Limit of Phys. Axe attacks of All Allies by 6,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -153,4 +170,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

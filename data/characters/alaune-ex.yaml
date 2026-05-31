@@ -12,7 +12,9 @@ influence: power
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [fan, ice]
+weakness_coverage:
+- fan
+- ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -45,8 +47,8 @@ has_limit_break: true
 awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
-gl_tier: "A (8.24 - 7.00)"
-jp_tier: "A"
+gl_tier: "A (8.49 - 7.00)"
+jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
@@ -132,6 +134,13 @@ skills:
     target: front_row
     effects:
       - "**Dragon Scale Parade ** Raise Phys"
+  - skill_category: tp
+    name: "Dragon Scale Parade Lv.2"
+    sp_cost: 54
+    skill_type: buff
+    target: front_row
+    effects:
+      - "**Dragon Scale Parade Lv.2** Raise Phys"
   - skill_category: ex
     name: "Ice God’s Slash Dance"
     skill_type: attack
@@ -144,7 +153,7 @@ skills:
     skill_type: buff
     target: all_allies
     effects:
-      - "Grant All Allies automatic revival (revived at **15%→25%** of max HP)"
+      - "Grant All Allies automatic revival (revived at **15%→25%→50%** of max HP)"
 
 # Passives - parsed from markdown
 passives:
@@ -164,6 +173,12 @@ passives:
   - passive_category: tp
     effect: "Extend duration of buff casted by Self by 1 turn."
     trigger: always
+  - passive_category: tp
+    effect: "Extend duration of buff casted by Self by **2** turns."
+    trigger: always
+  - passive_category: tp
+    effect: "Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000."
+    trigger: always
     limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
 
 # A4 Accessory - parsed from markdown
@@ -174,4 +189,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

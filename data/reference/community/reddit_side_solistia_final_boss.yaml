@@ -1,0 +1,63 @@
+# Side Solistia True Final Boss — Community Strategies
+# SOURCE: Reddit intake round 2 (2026-05-31)
+# data_confidence: community_unverified
+# NOTE: No boss YAML in repo yet — reference only until imported.
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-05-31"
+
+encounter:
+  name: "Side Solistia True Final Boss"
+  aliases:
+    - "SS true final boss"
+    - "Sail fight"
+  composition: |
+    Three-enemy encounter: Lyblac, Lucian, and Galdera (NOT Evil Sail).
+    Sail (The Useless One) must be in party per u/eloguent.
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1sbcnli/really_need_a_big_help_for_the_true_final_boss/
+      author: u/eloguent
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1t0w1t9/my_strategy_against_side_solistia_true_final_boss/
+      author: u/Winter_Code2286
+
+mechanics_notes:
+  - "Double break + 16 shield break sequence is primary difficulty spike"
+  - "Multi-hit damage reduction makes Pardis multi-hit worse than Godblow per u/Conscious_Spare_99"
+  - "Status cleanse: Shana Rehabilitate + Rinyuu EX Gracious Prayer"
+  - "Sleep status may not clear via Rinyuu EX auto-heal alone (u/crazyrathalos)"
+
+strategies:
+  break_and_nuke:
+    description: "Break all three quickly with AoE/FUA then nuke with Partitio or ST burst"
+    teams:
+      - note: "Crickari + light variation + Rehabilitation (u/Guilty-Doughnut-1796)"
+      - note: "Shana + Canary + Hikari EX breaks; Pardis + Hikari EX DPS (u/Conscious_Spare_99)"
+    source: https://www.reddit.com/r/OctopathCotC/comments/1sbcnli/really_need_a_big_help_for_the_true_final_boss/
+
+  dk_nuke_no_break:
+    description: "Stack buffs with DK ult + Mydia/Molrusso ult; nuke without breaking"
+    note: "Anti-debuff artifact on Shana or DK; build DK buffs with ult + EX"
+    source: https://www.reddit.com/r/OctopathCotC/comments/1sbcnli/really_need_a_big_help_for_the_true_final_boss/
+
+  sail_pardis_combo:
+    description: "Pardis and Sail on different rows; buff Sail with Pardis latent"
+    note: |
+      Sail benefits from Dawn engraving; EX skill blows up front two protecting back.
+      Mydia ult + Sail ult for massive DK/Pardis damage to main boss.
+    source: https://www.reddit.com/r/OctopathCotC/comments/1sbcnli/really_need_a_big_help_for_the_true_final_boss/
+
+  rocbouquet_skip:
+    description: "Saga units — boss attacks miss or Rocbouquet charm procs skip turns"
+    source: https://www.reddit.com/r/OctopathCotC/comments/1t0w1t9/my_strategy_against_side_solistia_true_final_boss/
+
+related_boss_mechanics:
+  divine_beast_jormungandr:
+    description: |
+      u/Winter_Code2286 notes (from memory): locks weakness per phys/elem skill used;
+      break drains all BP + seals frontrow physical; boss can heal.
+    source: https://www.reddit.com/r/OctopathCotC/comments/1t0w1t9/my_strategy_against_side_solistia_true_final_boss/
+
+video_reference:
+  - url: https://youtu.be/FRhpd4qU-BU
+    note: "Linked by u/Mrxyzl in Side Solistia strategy thread"

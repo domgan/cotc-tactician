@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [bow, ice]
+weakness_coverage:
+- bow
+- ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "E (3.99 - 0.00)"
-jp_tier: "E"
+jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
@@ -135,37 +137,6 @@ skills:
     power: "230"
     effects:
       - "Bow damage to Single Foe (potency: 230) and impart with Phys"
-  - skill_category: active
-    name: "自然体"
-    skill_type: buff
-    target: self
-    effects:
-      - "Raise damage dealt of Self by 20% (turns: 1)"
-  - skill_category: active
-    name: "穿鷲"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Bow damage to Single Foe (potency: 170) and lower Bow Res"
-  - skill_category: active
-    name: "氷紋の矢"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [ice]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Ice damage to Single Foe (potency: 260) and impart Elem"
-  - skill_category: active
-    name: "金剛無双射ち"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "260"
   - skill_category: ex
     name: "(EX)"
     skill_type: attack
@@ -212,4 +183,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

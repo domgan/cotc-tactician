@@ -13,24 +13,16 @@ Usage:
 
 import argparse
 import re
+import sys
 from pathlib import Path
 
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
 
-def extract_character_name(filename: str) -> str:
-    """Extract character name from filename like 'Richard 2d02a61823198175b9bad46cb9f01d6d.md'"""
-    # Remove .md extension and hash
-    name = re.sub(r"\s+[a-f0-9]{32}\.md$", "", filename)
-    return name
-
-
-def create_character_id(name: str) -> str:
-    """Create a safe ID from character name."""
-    id_str = name.lower()
-    id_str = re.sub(r"[''`]", "", id_str)
-    id_str = re.sub(r"[^a-z0-9]+", "-", id_str)
-    id_str = re.sub(r"-+", "-", id_str)
-    id_str = id_str.strip("-")
-    return id_str
+from _character_ids import (  # noqa: E402
+    extract_character_name_from_md,
+    resolve_character_id,
+)
 
 
 def clean_html_tags(text: str) -> str:
@@ -319,11 +311,14 @@ def parse_aside_block(text: str) -> dict | None:
 
 
 def parse_passives_section(content: str) -> list[dict]:
-    """Parse the Passive Skills section."""
+    """Parse Passive Skills or Support Skills section."""
     passives = []
 
-    # Find passive skills section
-    match = re.search(r"## Passive Skills\s*(.*?)(?=##|$)", content, re.DOTALL)
+    match = re.search(
+        r"## (?:Passive Skills|Support Skills)\s*(.*?)(?=## Battle Skills|## Ultimate|## EX|$)",
+        content,
+        re.DOTALL,
+    )
     if not match:
         return passives
 
@@ -562,7 +557,7 @@ def parse_markdown_file(filepath: Path) -> dict:
     content = filepath.read_text(encoding="utf-8")
 
     result = {
-        "name": extract_character_name(filepath.name),
+        "name": extract_character_name_from_md(filepath.name),
         "passives": parse_passives_section(content),
         "skills": parse_skills_section(content),
     }
@@ -732,8 +727,8 @@ def main():
     errors = 0
 
     for md_file in md_files:
-        char_name = extract_character_name(md_file.name)
-        char_id = create_character_id(char_name)
+        char_name = extract_character_name_from_md(md_file.name)
+        char_id = resolve_character_id(char_name)
         yaml_path = yaml_dir / f"{char_id}.yaml"
 
         try:

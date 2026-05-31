@@ -12,7 +12,9 @@ influence: fame
 origin: "Orsterra"
 
 # Weakness coverage (what enemy weaknesses this character can hit)
-weakness_coverage: [dagger, light]
+weakness_coverage:
+- dagger
+- light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
 roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
@@ -46,7 +48,7 @@ awakening_stage: 4  # Assume max for team comp purposes
 
 # Tier ratings (from community)
 gl_tier: "C (5.99 - 5.00)"
-jp_tier: "C"
+jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
@@ -131,21 +133,6 @@ skills:
     target: random
     hit_count: "4x"
     power: "4x35"
-  - skill_category: active
-    name: "たたかうでSP吸収"
-    skill_type: mixed
-    target: single_enemy
-    effects:
-      - "restore SP equal to 1% of damage dealt"
-    limit_break_upgrade: "When using 'Attack', restore SP equal to 1% of damage dealt and raise Phys. Atk. and Dagger damage by 15%. Instead of **Red Saint’s Flash** **Battle Skills**"
-  - skill_category: active
-    name: "トリプルスティング"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
   - skill_category: ex
     name: "Red Blade Thrust"
     skill_type: attack
@@ -189,4 +176,4 @@ a4_accessory:
 # Metadata
 data_confidence: incomplete
 data_source: "Community spreadsheet CSV export"
-last_updated: 2025-12-21
+last_updated: '2026-05-31'

@@ -1,0 +1,184 @@
+# Dark Knight Universal Adversary Log Team
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1prkptv/complete_guide_of_a_perfect_team_that_doesnt_take/
+# UPDATE: https://www.reddit.com/r/OctopathCotC/comments/1q27qwm/an_update_to_the_perfect_team_guide_i_made_two/
+
+schema_version: "1.0"
+
+id: adversary-dk-universal-vivi
+name: "DK Universal Adversary Log (Vivi_Hallow)"
+boss_id: general-difficult-content
+
+strategy_type: burst
+investment_level: high
+
+target_ex_rank: ex3
+survival_strategy: dodge_tank
+minimum_hp_recommended: 3500
+
+buff_category_coverage:
+  active_atk_up: 30
+  active_def_down: 30
+  passive_damage_up: 30
+  ultimate_potency: 100
+  pet_damage_up: 15
+  divine_beast: 0
+
+front_line:
+  - position: 1
+    character_id: dark-knight
+    role_in_team: primary_dps
+    is_required: true
+    substitutes: []
+    substitute_notes: "Core DPS — 3T setup then burst during break windows"
+    key_skills_used:
+      - "Purge of Avarice"
+      - "Ultimate technique"
+      - "EX skill"
+    accessory_requirements: ["Lv120 artifact", "Chomper pet optional", "Linde for Dead Aim T5 option"]
+    awakening_required: 4
+
+  - position: 2
+    character_id: pardis-iii
+    role_in_team: secondary_dps
+    is_required: true
+    substitutes: ["kaine"]
+    substitute_notes: "Kaine works if missing Pardis per author update"
+    key_skills_used: ["Despotic Megalomania"]
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 3
+    character_id: tiziano
+    role_in_team: utility
+    is_required: false
+    substitutes: ["mydia"]
+    substitute_notes: "Mydia replaces Tiziano once available (extra hit count + shield shave)"
+    key_skills_used: []
+    accessory_requirements: ["120 Adventurer Pack artifact if DP passive OFF"]
+    awakening_required: 3
+
+  - position: 4
+    character_id: canary
+    role_in_team: breaker
+    is_required: false
+    substitutes: ["mydia"]
+    substitute_notes: "Mydia replaces Canary for shield shave; Canary acts T1/T3/T4 per guide"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+back_line:
+  - position: 5
+    character_id: signa
+    role_in_team: debuffer
+    is_required: true
+    substitutes: ["signa-ex", "viola"]
+    substitute_notes: "Move behind DK per optimization threads; stacks sword res down"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 6
+    character_id: dark-priestess
+    role_in_team: buffer
+    is_required: true
+    substitutes: ["molrusso-ex"]
+    substitute_notes: |
+      No direct replacement except Kilns on sword/dark fights or Molrusso EX long-term.
+      Turn OFF passive if Signa outruns Tiziano; OR keep passive ON and DK kill T1
+      removes ally Fatal Sentence debuffs (u/Square_Brick_9590).
+    key_skills_used: ["Ultimate — all elemental exploits"]
+    accessory_requirements: []
+    awakening_required: 4
+
+  - position: 7
+    character_id: rinyuu-ex
+    role_in_team: healer
+    is_required: true
+    substitutes: ["solon", "primrose-ex"]
+    substitute_notes: "Solon replaces Rinyuu EX if missing"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+  - position: 8
+    character_id: shana
+    role_in_team: utility
+    is_required: true
+    substitutes: []
+    substitute_notes: "SP stock, BP battery — no easy substitute per author"
+    key_skills_used: []
+    accessory_requirements: []
+    awakening_required: 3
+
+speed_order:
+  - shana
+  - rinyuu-ex
+  - signa
+  - canary
+  - tiziano
+  - dark-priestess
+  - pardis-iii
+  - dark-knight
+
+speed_tuning_notes: |
+  DP passive ON speeds entire back row — may make Signa faster than Tiziano, causing DK
+  to kill Tiziano before his ult. Mitigation: turn off DP passive + 120 Adventurer Pack
+  on Tiziano, or adjust speed tiers.
+
+turn_plan:
+  - turn_range: "1"
+    phase: setup
+    actions:
+      - "Dark Knight: Charge ult gauge + kill backrow allies"
+      - "Canary: Shield shave (if using)"
+      - "Signa + Tiziano: Begin debuff stack"
+      - "Shana: SP/BP support"
+    notes: "Standard DK 3T setup begins"
+
+  - turn_range: "2-3"
+    phase: setup
+    actions:
+      - "Dark Knight: Ult + kill ally; EX skill on T3"
+      - "Rinyuu EX: Sustain + buffs"
+      - "Dark Priestess: Ultimate for all elemental exploits"
+    notes: "Kill 5th ally with ult for permanent 2BP regen"
+
+  - turn_range: "4+"
+    phase: burst
+    actions:
+      - "Dark Knight + Pardis: Main damage during break"
+      - "Chomper pet on break if used"
+    notes: "Designed for Adversary Log + elite towers; not Cascade Log flexible"
+
+why_it_works: |
+  Community "perfect" universal team for Adversary Log and elite towers.
+  Dark Priestess enables all elemental exploits for DK + Pardis multi-DPS.
+  Shana provides SP/BP resources; Signa + Canary/Mydia handle debuff/break.
+  Mows through most Orsterra EX3 with minimal turn planning.
+
+  Poor fit: Cascade Log (needs flexibility), gimmick arena bosses.
+
+key_synergies:
+  - "Dark Knight + Dark Priestess: Universal weakness exploitation"
+  - "Dark Knight + Pardis: Dual physical DPS under DP ult"
+  - "Signa + Canary/Mydia: Debuff + shield break"
+  - "Shana + Rinyuu EX: SP/BP + healing sustain"
+
+risks_and_recovery:
+  - "Risk: DP passive messes turn order"
+  - "Recovery: Disable passive or use Adventurer Pack on Tiziano"
+  - "Risk: Missing Shana — team plays completely different"
+  - "Recovery: Primrose EX partial heal substitute only"
+  - "Risk: Cascade Log gimmicks"
+  - "Recovery: Build flexible second team"
+
+verified: false
+clear_time: "Varies — fast on standard EX3"
+success_rate: "Very high with full roster"
+
+author: community
+source_url: "https://www.reddit.com/r/OctopathCotC/comments/1prkptv/complete_guide_of_a_perfect_team_that_doesnt_take/"
+data_confidence: community_unverified
+last_verified: null
+last_updated: "2026-05-31"
