@@ -238,7 +238,23 @@ rainbow_team_structure:
     source: data/reference/community/reddit_rainbow_and_ice_meta.yaml
 
 # =============================================================================
+# GACHA / BANNER PLANNING (COMMUNITY)
+# =============================================================================
+# Full details: data/reference/community/reddit_gacha_planning.yaml
+# JP tier context: data/reference/community/youtube_urshiko_meta.yaml
+# data_confidence: community_unverified
+
+gacha_planning:
+  ff6_part1_units: [locke, terra, edgar]
+  ff6_part2_units: [setzer, relm]
+  default_f2p_part1: "Edgar A0, stop; save rubies for Part 2 Setzer (rainbow) or Relm (DPS)"
+  aviete_priority: "AU mandatory; #2 must-have support behind Shana per community"
+  sources:
+    - data/reference/community/reddit_gacha_planning.yaml
+    - data/reference/community/youtube_urshiko_meta.yaml
+
+# =============================================================================
 # METADATA
 # =============================================================================
 data_confidence: verified
-last_updated: 2026-05-31
+last_updated: 2026-06-12

@@ -18,10 +18,19 @@ weakness_coverage:
 - light
 - polearm
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles - assigned from skill analysis + community guides
+roles: [buffer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Merchant debuffer/support — Signa-level buff/debuff package with row-swap mechanics.
+  Weakmaker implants polearm + light weakness; Royal Pressure caps enemy def-down at 50%.
+  Drill (up to 8 hits on break) ignores def buffs and damage reductions (MHR-relevant).
+  +2 BP to front row on break. Community: best FF6 Part 1 pull; replaces Signa on phys teams.
+  JP: #1 Merchant but powercrept by Rocbouquet (future GL banner).
+
+community_sources:
+  - data/reference/community/reddit_gacha_planning.yaml
+  - data/reference/community/youtube_urshiko_meta.yaml
 
 # Stats (base level)
 hp: 3440

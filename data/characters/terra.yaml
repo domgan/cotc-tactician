@@ -21,10 +21,16 @@ weakness_coverage:
 - tome
 - wind
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles - assigned from skill analysis + community guides
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Scholar fire/wind EDPS with Magitek Knight ↔ Trance stance and elemental crits.
+  A4 restores one ult use + 200% ult gauge once per battle — premium for ult-reliant DPS (Xerc, Hikari EX).
+  Low rainbow meta priority; community recommends pull for nostalgia over optimization.
+
+community_sources:
+  - data/reference/community/reddit_gacha_planning.yaml
 
 # Stats (base level)
 hp: 2846

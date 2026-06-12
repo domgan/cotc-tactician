@@ -1,41 +1,193 @@
-# Reddit Community Intake — Gacha & Banner Planning (2026-05-31)
-# Pre-release / community planning notes — NOT verified in-game data.
+# Community Intake — Gacha & Banner Planning
+# Reddit + YouTube (Urshiko) planning notes — NOT verified in-game data.
 # All entries: data_confidence community_unverified
 
 schema_version: "1.0"
 data_confidence: community_unverified
-last_updated: "2026-05-31"
+last_updated: "2026-06-12"
 
-ff6_collab:
-  context: "GL FF6 collab banner planning (pre-release community discussion)"
+# =============================================================================
+# FF6 COLLAB — BANNER STRUCTURE (GL)
+# =============================================================================
+
+ff6_banner_structure:
+  context: "GL FF6 is split across two banners; do not conflate Part 1 and Part 2 pull advice."
+  part1:
+    banner: "Part 1 (live GL June 2026)"
+    units: [locke, terra, edgar]
+    notes:
+      - "Rebel Fragments from banner convert to Grand Sacred Seal (patch notes)"
+      - "Free 10-pull guarantee on launch (community reports)"
+  part2:
+    banner: "Part 2 (upcoming GL)"
+    units: [setzer, relm]
+    also_mentioned: [celes]
+    notes:
+      - "Setzer is the primary rainbow weakness-exploit upgrade (with Lynette EX)"
+      - "Relm noted as strongest FF6 DPS on banner but also subject to power creep"
+
+# =============================================================================
+# FF6 PART 1 — POST-RELEASE (Locke / Terra / Edgar)
+# =============================================================================
+
+ff6_part1:
+  context: "GL Part 1 live; community pull advice June 2026"
+  pull_priority:
+    - rank: 1
+      character: edgar
+      verdict: "Best universal Part 1 pick"
+      reasons:
+        - "Signa-level buff/debuff; row-swap support; +2 BP to front row on break"
+        - "Drill bypasses def/mitigation (MHR-relevant per community)"
+        - "Easily replaces Signa on physical teams (multiple Reddit reports)"
+      investment:
+        f2p: "A0 then stop on Part 1"
+        dolphin: "A1/AU if going deeper"
+      caveats:
+        - "Eventually powercrept by Rocbouquet (Romancing SaGa 2) per JP meta"
+        - "Less critical for full rainbow than for physical/ice teams"
+    - rank: 2
+      character: locke
+      verdict: "Conditional — physical/dagger teams only"
+      reasons:
+        - "Fast dagger PDPS; Sneak Slash breaks without weakness; strong A4 (Undying 4T)"
+        - "Pairs with Tiziano/Billy for breaking on physical teams"
+      investment:
+        f2p: "Skip unless free pull"
+        dolphin: "A4 if main phys DPS; AU for challenge content"
+      caveats:
+        - "JP meta: 16-hit (broken-only double cast) below current 18-hit standard (Urshiko June 2026)"
+        - "Powercrept by upcoming banners (Phenn, Alaune EX2, Romancing SaGa 2) per Reddit"
+    - rank: 3
+      character: terra
+      verdict: "Low meta priority; nostalgia / whale A4"
+      reasons:
+        - "Scholar fire/wind EDPS; Magitek/Trance stance; elemental crits"
+        - "A4: restore ult use + 200% ult gauge once per battle (ult-reliant teams)"
+      investment:
+        f2p: "Skip"
+        whale: "A4 for Xerc or Hikari EX ult spam"
+      caveats:
+        - "Not rainbow-optimal; Isla/Frederica cover scholar for Xerc"
+        - "Community: pull for love, not meta"
+  by_archetype:
+    f2p_low_rubies:
+      - "Edgar A0, stop Part 1"
+      - "Save rubies for Part 2 Setzer (rainbow) or Relm (DPS)"
+      - "Never A4 collab units as F2P"
+    physical_team:
+      - "Edgar: yes (Signa upgrade)"
+      - "Locke: yes if lacking top dagger DPS"
+      - "Terra: skip"
+    rainbow_team:
+      - "Edgar: optional; Part 2 Setzer is the real rainbow slot"
+      - "Locke: skip"
+      - "Terra: skip for meta"
+    dolphin_plus:
+      - "Edgar → A1/AU"
+      - "Locke → A4 if phys main"
+      - "Terra → A4 only for ult-reliant DPS"
+      - "Still budget for Part 2 Setzer and/or Relm"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u2zy9f/what_are_the_pull_advice_for_ff6_crossover/
+      date: 2026-06-10
+      authors: [u/BrickSuccessful4703, u/imabaer, u/HowdyFancyPanda]
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u347el/physical_team_question_how_to_put_in_locke/
+      date: 2026-06-11
+      author: u/angelrjrjrj
+    - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+      date: 2026-06-11
+      author: "Urshiko: COTC"
+      note: "JP job rankings — Edgar/Locke/Setzer tier context"
+
+# =============================================================================
+# FF6 PART 2 — PRE-RELEASE + JP CORROBORATION (Setzer / Relm)
+# =============================================================================
+
+ff6_part2:
+  context: "Part 2 not yet live on GL; advice from pre-release Reddit + JP Urshiko rankings"
+  superseded_note: "Pre-release ff6_collab.rainbow_priority below still applies to Part 2 units"
   rainbow_priority:
     must_have:
       - character: setzer
         reason: "Freeze weakness implant — core rainbow enabler with Lynette EX"
       - character: edgar
-        reason: "Signa upgrade — DPS or support slot"
+        reason: "Signa upgrade if skipped on Part 1; less urgent if already owned"
     lower_priority:
-      - character: terra
-        aliases: [relm]
+      - character: relm
         reason: "Strong standalone DPS; pairs with Molrusso EX; not rainbow-optimal (long setup)"
-        note: "Terra A4 noted as best collab A4 for ult-reliant DPS (Xerc, Hikari EX)"
+      - character: terra
+        reason: "Terra A4 noted as best collab A4 for ult-reliant DPS (Xerc, Hikari EX)"
+  jp_meta_notes:
+    setzer:
+      - "Urshiko JP June 2026: #1 Hunter by technicality — weakness implant, freeze, 7-hit"
+      - "Only hunter 'close to on par' with current JP meta; other hunters heavily powercrept"
+      - "Viola ES noted as alternative weakness-exploit option"
+    relm:
+      - "Reddit: best DPS on FF6 banners but powercrept by future units"
   f2p_guidance:
-    - "Never A4 collab/seasonal units as F2P"
-    - "If low rubies: prioritize Setzer over Edgar (Edgar eventually powercrept by Rocbouquet)"
-    - "Keep ≥4500 rubies entering FF6 banner"
+    - "If low rubies after Part 1: prioritize Setzer over deeper Edgar investment"
+    - "Keep ≥4500 rubies entering FF6 banners (pre-release guidance)"
+    - "Edgar eventually powercrept by Rocbouquet (Romancing SaGa 2)"
   sources:
     - url: https://www.reddit.com/r/OctopathCotC/comments/1t64s52/how_much_value_does_each_ff6_collab_unit_bring/
       date: 2026-05-07
     - url: https://www.reddit.com/r/OctopathCotC/comments/1t5cwal/my_personal_advice_on_recent_banners_avieteff6ot0/
       date: 2026-05-06
       author: u/BrickSuccessful4703
+    - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+      date: 2026-06-11
+      author: "Urshiko: COTC"
+
+# Legacy alias — pre-release umbrella; prefer ff6_part1 / ff6_part2 above
+ff6_collab:
+  context: "DEPRECATED split — use ff6_banner_structure, ff6_part1, ff6_part2"
+  superseded_by: ff6_part2
+
+# =============================================================================
+# AVIETE BANNER
+# =============================================================================
 
 aviete:
-  role: "Rainbow flexible support slot; spookable from Aviete banner"
+  role: "Pet + Divine Beast support; uncontested niche in JP/GL"
+  tier_community: "10/10 (Urshiko); #2 must-have behind Shana"
+  works_on:
+    - rainbow
+    - physical
+    - magic
+    - ice
+  key_mechanics:
+    - "Turn-1 Divine Beast via battle-start Arcanastone fill (5 gauge)"
+    - "Reduces pet cooldown for self and front row (passive + TP + ultimate)"
+    - "9 Reverence Points: double-cast Divine Beast (~16 shield if weakness matches)"
+    - "Ultimate: 20% all stats + 50% potency (stacks separately from normal buffs)"
+    - "EX skill: full ult gauge + refresh Divine Beast usage (T1 + ~T6 pattern)"
+  play_pattern:
+    - "200% ultimate turn 1 (accessory or pet charge) → EX skill → back row"
+    - "Normal kit weak for damage — do not build as DPS"
+    - "Recommended skills: Advent of the Divine (coverage) or Advent of Lutiya (def/heal); empty bar viable"
+  awakening_priority:
+    au: "Mandatory — faster ult, double DB at 9 Reverence"
+    a1: "Not recommended (not a DPS)"
+    a4: "Pet keeper CD accessory — nice but not must-pull"
+  banner_guidance:
+    - "Urshiko recommends 6000 ruby path (Memorial Stair pity → strong memoria exchange)"
+    - "Spookable from Aviete banner (Reddit)"
+  longevity:
+    - "Lasts until another pet/DB manipulator releases (Urshiko)"
+    - "Still #1 Cleric JP June 2026 — niche uncontested"
   osvald_acquisition:
     - "SS memory — pity on rerun banner"
     - "Overpity on other SS banners"
     - "Anniversary paid selector"
   sources:
+    - url: https://www.youtube.com/watch?v=BIA7ow0vctM
+      date: 2026-05-11
+      author: "Urshiko: COTC"
     - url: https://www.reddit.com/r/OctopathCotC/comments/1t5cwal/my_personal_advice_on_recent_banners_avieteff6ot0/
       date: 2026-05-06
+      author: u/BrickSuccessful4703
+    - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+      date: 2026-06-11
+      author: "Urshiko: COTC"
+      note: "JP #1 Cleric ranking"

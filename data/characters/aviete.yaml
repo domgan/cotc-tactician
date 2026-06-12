@@ -21,10 +21,32 @@ weakness_coverage:
 - staff
 - wind
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles - assigned from skill analysis + community guides
+roles: [buffer, healer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Pet + Divine Beast support — only unit that manipulates both (JP/GL uncontested niche).
+  Turn-1 Divine Beast via battle-start Arcanastone; reduces pet cooldown for self and front row.
+  9 Reverence Points enables double-cast Divine Beast. Ultimate grants team stat buffs + potency.
+  Do not build as DPS — optimal play is 200% ult T1 → EX skill → back row. AU mandatory.
+  Community tier: #2 must-have behind Shana; works on rainbow, physical, and magic teams.
+
+usage_strategy: |
+  Charge 200% ultimate turn 1 (A4 accessory or pet self-charge). Use EX skill at max boost to
+  regain ult gauge and stack Reverence. Recommended kit: Advent of the Divine or Advent of Lutiya;
+  empty skill bar is viable. After setup, leave Aviete in back row while front row DPS executes.
+
+best_use_cases:
+  - "Any team needing faster Divine Beast and pet cycles (EX3, Cascade Log, speedclear)"
+  - "Rainbow flex survival/burst slot alongside Shana or Cecil"
+  - "Memorial Stair banner — 6000 ruby pity path for memoria exchange (community)"
+
+community_sources:
+  - url: https://www.youtube.com/watch?v=BIA7ow0vctM
+    author: "Urshiko: COTC"
+  - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+    author: "Urshiko: COTC"
+  - data/reference/community/reddit_gacha_planning.yaml
 
 # Stats (base level)
 hp: 2762
@@ -205,6 +227,6 @@ a4_accessory:
   passive_effect: "600 HP, 80 SP; Start of battle: Lower preparation turns of Paired Ally’s keeper by 2 turns; Halve the reuse turns of Paired Ally’s keeper"
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: '2026-05-31'
+data_confidence: complete
+data_source: "Community spreadsheet CSV export + Urshiko YouTube review"
+last_updated: '2026-06-12'

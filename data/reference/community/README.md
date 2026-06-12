@@ -1,8 +1,11 @@
-# Reddit community data intake
+# Community data intake
 
-When Reddit MCP is configured, community threads are collected into `resources/reddit-intake/` (gitignored alongside `resources/`).
+Community-sourced planning and meta notes are promoted into `data/reference/community/`.
+Raw intake files live under `resources/` (gitignored).
 
 ## MCP options
+
+### Reddit
 
 | Server | Auth | Best for |
 |--------|------|----------|
@@ -11,7 +14,7 @@ When Reddit MCP is configured, community threads are collected into `resources/r
 
 Prefer **`reddit-rss`** for intake when OAuth credentials are unavailable.
 
-## OAuth environment variables
+#### OAuth environment variables
 
 Configure the `user-reddit` MCP server in `~/.cursor/mcp.json`:
 
@@ -23,6 +26,16 @@ Configure the `user-reddit` MCP server in `~/.cursor/mcp.json`:
 
 If searches return HTTP 403, fix `REDDIT_USER_AGENT` first, then verify credentials via the MCP `test_reddit_mcp_server` tool.
 
+### YouTube (transcripts)
+
+| Server | Tools | Best for |
+|--------|-------|----------|
+| `MCP_DOCKER` | `get_transcript`, `get_video_info`, `get_timed_transcript` | Creator guides (Urshiko, etc.) |
+
+Transcripts are auto-generated and may mis-hear names (e.g. Aviete → "Avite"). Cross-check claims against character YAML before promoting mechanics.
+
+When Reddit MCP is configured, threads are collected into `resources/reddit-intake/`.
+
 ## Freshness rule
 
 Prefer newer posts when a topic has multiple threads. Mark older guides as `superseded_by` when a newer thread covers the same character/boss.
@@ -31,9 +44,11 @@ Prefer newer posts when a topic has multiple threads. Mark older guides as `supe
 
 - **Teams** → `data/teams/` only when a full 8-character comp is documented with source URL
 - **Boss tips** → boss `general_strategy` append with attribution
-- **Meta claims** → `data/reference/community/` only if corroborated
+- **Meta / gacha claims** → `data/reference/community/` when corroborated by existing reference or character YAML
+- **Character roles** → `data/characters/*.yaml` when skills support the assignment; cite community source in `role_notes` or `community_sources`
 
-All Reddit-sourced entries use `data_confidence: community_unverified`.
+All community-sourced entries use `data_confidence: community_unverified` in reference YAML.
+Character files may use `partial` when skills are complete but community strategy is appended.
 
 ## Promoted files (2026-05-31)
 
@@ -68,3 +83,20 @@ All Reddit-sourced entries use `data_confidence: community_unverified`.
 - `data/reference/damage_stacking.yaml`
 
 See `resources/reddit-intake/2026-05-31-STATUS.md` for items not promoted (partial rosters, missing boss YAML).
+
+## Promoted files (2026-06-12)
+
+### Community reference
+- `data/reference/community/youtube_urshiko_meta.yaml` — JP job rankings, power creep, Aviete review (Urshiko transcripts)
+
+### Community reference updates
+- `data/reference/community/reddit_gacha_planning.yaml` — FF6 Part 1 post-release pull advice; Aviete banner detail; Part 2 split
+
+### Character updates
+- `data/characters/aviete.yaml` — roles, usage strategy, community sources
+- `data/characters/edgar.yaml` — roles, Part 1 pull context
+- `data/characters/locke.yaml` — roles, Part 1 pull context
+- `data/characters/terra.yaml` — roles, Part 1 pull context
+
+### Reference updates
+- `data/reference/llm_guidelines.yaml` — gacha planning community pointer

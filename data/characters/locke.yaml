@@ -19,10 +19,17 @@ weakness_coverage:
 - ice
 - lightning
 
-# Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+# Roles - assigned from skill analysis + community guides
+roles: [dps, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Fast thief dagger PDPS (435 base speed) with Dead Aim crit loop and Sneak Slash shield shave
+  without hitting weakness. Wild Barrage scales to 8 hits with Dead Aim; strong A4 (Undying 4T).
+  Conditional Part 1 pull for physical/dagger teams; JP meta ranks below Noel, 16-hit standard outdated.
+
+community_sources:
+  - data/reference/community/reddit_gacha_planning.yaml
+  - data/reference/community/youtube_urshiko_meta.yaml
 
 # Stats (base level)
 hp: 2892

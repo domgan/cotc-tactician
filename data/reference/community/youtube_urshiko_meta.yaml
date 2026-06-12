@@ -1,0 +1,129 @@
+# YouTube Community Intake — Urshiko: COTC (transcript via MCP_DOCKER)
+# JP meta perspective; ~70-80% predictive for GL per creator.
+# All entries: data_confidence community_unverified
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-06-12"
+
+# =============================================================================
+# META CONTEXT
+# =============================================================================
+
+jp_gl_parity:
+  summary: |
+    Urshiko notes JP and GL meta were historically aligned except character buffs.
+    GL-exclusive units (e.g. Satori) and pacing differences mean JP rankings are
+    ~70-80% predictive for GL — useful for future pull planning, not guaranteed.
+  pull_philosophy:
+    - "Pull characters you like; meta is a bonus"
+    - "Power creep is accelerating; units can be obsolete within ~6 months"
+    - "Romancing SaGa 2 collab dramatically raised JP power ceiling"
+  sources:
+    - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+      date: 2026-06-11
+      title: "Top 3 Best Unit of Each Job in JP (as of June 2026)"
+
+power_creep:
+  romancing_saga_2:
+    impact: "Extreme — accelerated meta past 16-hit and 18-hit-on-break standards"
+    standout_units:
+      - id: rocbouquet
+        note: "Dancer — disables all enemy mitigation/dodge; LE FUA, BP regen, damage cut; powercrept most supports"
+      - id: final-empress
+        note: "Scholar DPS — 18-hit on normal scale; Galaxy bypasses dodge + mitigation; team priority grant"
+      - id: final-emperor
+        note: "Warrior — high per-hit damage cap compensates for lower hit count"
+      - id: lavinia-ex2
+        note: "Apothecary — break extension without time limit; fragility down on break; near-replacement"
+    edgar_note: "Edgar powercrept by Rocbouquet but remains best Merchant (no newer merchant in ~6 months)"
+  hit_count_standard:
+    outdated: "16-hit only when enemy broken (Locke, Richard EX)"
+    current_norm: "18-hit on normal scale with minimal conditions (Final Empress)"
+  endgame_content_gap: "New EX/NPC content not keeping pace with unit power (level 140 NPC cited)"
+
+# =============================================================================
+# JP JOB RANKINGS — JUNE 2026
+# =============================================================================
+# WARNING: Top-3 by job ≠ meta parity when a job has few viable units (e.g. Hunter).
+
+job_rankings_jp_june_2026:
+  warrior:
+    - { rank: 1, character: alaune-ex2, note: "Rune buff support + 18-hit ult; damage fallen off but support strong" }
+    - { rank: 2, character: final-emperor, note: "Cosmos Nebula 6-hit AoE; very high damage cap per hit" }
+    - { rank: 3, character: on-master-viola, note: "Implants all phys weaknesses + freeze + shield reduce" }
+  merchant:
+    - { rank: 1, character: edgar, note: "Signa-level buff/debuff; Drill bypasses def/mitigation; powercrept by Rocbouquet" }
+    - { rank: 2, character: richard-ex, note: "16-hit UA niche; hit count outdated" }
+    - { rank: 3, character: tiziano-ex, note: "Spear/dagger support; overshadowed by Lavinia EX2" }
+  thief:
+    - { rank: 1, character: noel, note: "Romancing SaGa — chemist absorption damage gimmick" }
+    - { rank: 2, character: locke, note: "16-hit when broken; below current meta standard" }
+  apothecary:
+    - { rank: 1, character: shana, note: "Still best; Shana 2 exists but Shana 1 remains top" }
+    - { rank: 2, character: setzer, note: "Better Nephti-style summon/support; not top meta tier" }
+    - { rank: 3, character: rinyuu-ex, note: "By technicality — no newer apothecary at tier" }
+  hunter:
+    rankings:
+      - { rank: 1, character: setzer, note: "Only hunter close to meta — weakness implant, freeze, 7-hit" }
+    meta_caveat: "Hunter class heavily powercrept; Urshiko lists only Setzer as viable — top-3 label is misleading"
+  cleric:
+    - { rank: 1, character: aviete, note: "Uncontested pet + Divine Beast buff niche; must-have support" }
+    - { rank: 2, character: sazantos, note: "Starfall boss — Shana-like kit with damage" }
+    - { rank: 3, character: buddha, note: "15-hit dodge bypass; below 18-hit standard" }
+  scholar:
+    - { rank: 1, character: final-empress, note: "18-hit + Galaxy + FUA + team priority" }
+    - { rank: 2, character: rondo-ex, note: "General magic support; overshadowed by Rocbouquet" }
+    - { rank: 3, character: terminus-ex, note: "Single-target DPS option" }
+  dancer:
+    - { rank: 1, character: rocbouquet, note: "Disables all enemy mitigation; broad team buff package" }
+    - { rank: 2, character: medea-ex, note: "Boost point stock; trouble early" }
+    - { rank: 3, character: modest-ex, note: "Weakness exploit T1 with torch point buff" }
+  sources:
+    - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
+      date: 2026-06-11
+
+# =============================================================================
+# FF6 UNITS — URSHIKO ASSESSMENT
+# =============================================================================
+
+ff6_units:
+  edgar:
+    jp_merchant_rank: 1
+    summary: "Best merchant despite Rocbouquet power creep; Signa-level support + Drill mitigation bypass"
+    gl_part1_verdict: "Strong Part 1 pull; see reddit_gacha_planning.yaml ff6_part1"
+  locke:
+    jp_thief_rank: 2
+    summary: "16-hit broken-only double cast below 18-hit meta norm"
+    gl_part1_verdict: "Physical teams only; short shelf life expected"
+  setzer:
+    jp_hunter_rank: 1
+    jp_apothecary_rank: 2
+    summary: "Weakness implant + freeze; only hunter near meta parity"
+    gl_part2_verdict: "Primary rainbow pull on Part 2 banner"
+
+# =============================================================================
+# AVIETE — DEDICATED REVIEW
+# =============================================================================
+
+aviete_review:
+  rating: "10/10"
+  must_have_tier: "#2 behind Shana (offensive support vs survival support)"
+  uniqueness: "Only unit manipulating pet + Divine Beast cooldowns (JP and GL)"
+  optimal_rotation:
+    turn_1: "200% ultimate (accessory or self-charge) → reaction"
+    turn_2_plus: "EX skill at max boost → regain 200% ult + BP for next ult"
+    back_row: "After ult + EX, sit back row; front row DPS carries"
+  skill_bar_guidance:
+    avoid: "Using normal kit for damage"
+    recommended: [advent-of-the-divine, advent-of-lutiya]
+    optional: "Empty skill bar — still functions via passive/ult/EX"
+  awakening:
+    mandatory: "awakening_ultimate"
+    skip: [a1]
+    optional: a4_accessory
+  banner: "6000 ruby Memorial Stair pity path recommended"
+  sources:
+    - url: https://www.youtube.com/watch?v=BIA7ow0vctM
+      date: 2026-05-11
+      title: "Go Forth, Divine Beasts - Aviete 8 Minutes Review"
