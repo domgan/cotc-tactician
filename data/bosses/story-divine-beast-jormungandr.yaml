@@ -1,0 +1,211 @@
+# Story Boss: Divine Beast Jörmungandr (混沌の神獣ユルムング)
+# SOURCE: Game8 JP + Reddit community (2026-04)
+#
+# Emberflame (Seed) Story Chapter 16 finale — "Holy War of the Divine Beasts"
+# Also known as Eye of Calamity (sided with Galdera per lore)
+
+id: story-divine-beast-jormungandr
+display_name: "Divine Beast Jörmungandr"
+display_name_jp: "混沌の神獣ユルムング"
+content_type: story_boss
+difficulty: extreme
+location: "Emberflame Story Chapter 16 — Demon Tree Swamp (Sacred Tree Spring quest)"
+# Aliases: Chaos Divine Beast Jörmungandr, Eye of Calamity (Galdera faction)
+
+# ===========================================================================
+# STATS (main body)
+# ===========================================================================
+shield_count: 33
+hp: 3200000
+
+weaknesses:
+  elements:
+    - lightning
+    - wind
+  weapons:
+    - dagger
+    - bow
+
+# Break window retains dagger/bow weakness hits (Game8); shield-shave prefers
+# lightning/wind physical OR dagger/bow elemental to avoid weakness lock.
+recommended_weakness_coverage:
+  - lightning
+  - wind
+  - dagger
+  - bow
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+enemies:
+  - name: "Jörmungandr (Main Body)"
+    is_main_target: true
+    hp: 3200000
+    shield_count: 33
+    notes: |
+      Locks physical weaknesses after any physical hit; locks elemental weaknesses
+      after any elemental hit (until end of turn, including implanted weaknesses).
+      On break: seals front-row physical OR elemental attacks (break-type dependent);
+      drains -5 BP from entire party (scheduled BP for that turn still usable).
+  - name: "Twin Heads (Right/Left)"
+    is_main_target: false
+    notes: |
+      Cannot be debuffed or provoked. Heavy status (bleed, poison, paralyze, silence).
+      Right head at BP5: guaranteed random 5-hit + main body heals ~650,000 HP.
+      Right head at BP8: random 8-hit + severe bleed. Continues acting during break.
+
+# ===========================================================================
+# MECHANICS
+# ===========================================================================
+mechanics:
+  - name: "Weakness Lock (Physical)"
+    mechanic_type: passive
+    trigger: "After boss uses a physical attack"
+    target: all
+    effects:
+      - "Locks all physical weaknesses until end of turn (includes implanted weaknesses)"
+    threat_level: high
+    counter_strategy: |
+      Use lightning/wind physical for shield shave; mix phys + elemental same turn;
+      or use weakness-exploit / non-weakness shield shave (thief Sneak Slash, etc.).
+
+  - name: "Weakness Lock (Elemental)"
+    mechanic_type: passive
+    trigger: "After boss uses an elemental attack"
+    target: all
+    effects:
+      - "Locks all elemental weaknesses until end of turn (includes implanted weaknesses)"
+    threat_level: high
+    counter_strategy: "Use dagger/bow elemental attacks; alternate attack types per turn."
+
+  - name: "Break Punishment — BP Drain & Skill Seal"
+    mechanic_type: debuff_party
+    trigger: "On break"
+    target: all
+    effects:
+      - "Front row: physical OR elemental attack seal (depends on break damage type)"
+      - "All allies: -5 BP (BP already scheduled for actions that turn still usable)"
+    threat_level: critical
+    counter_strategy: |
+      Put breakers/DPS in back row before break to dodge front-row seal.
+      Break turn 2: use ultimates (no BP cost). Pre-break: Shana BP restore, Gloria timed
+      break BP refill, or Rinyuu EX EX skill. Oskha ult ignores BP drain penalty well.
+
+  - name: "Five Dragon Life Drain"
+    mechanic_type: attack
+    trigger: "Right head at BP5; also guaranteed each break turn"
+    target: random
+    effects:
+      - "Random 5-hit physical"
+      - "Main body heals ~650,000 HP"
+    threat_level: critical
+    counter_strategy: "Break before right head reaches BP5 (~turn 6 from fight start). Out-damage heal on break turns."
+
+  - name: "Break Turn Self-Heal"
+    mechanic_type: buff_self
+    trigger: "Each turn while broken"
+    target: single
+    effects:
+      - "Main body heals ~650,000 HP per break turn (via head actions)"
+    threat_level: high
+    counter_strategy: "Stack buffs before break; burst with attack ults on break turn 2; do not break unprepared."
+
+  - name: "Twin Head Status Spam"
+    mechanic_type: debuff_party
+    trigger: "Twin head actions"
+    target: random
+    effects:
+      - "Bleed, poison, paralyze, silence"
+    threat_level: medium
+    counter_strategy: "Rehabilitate / Shana; ailment accessories; healing through bleed/poison damage."
+
+  - name: "BP MAX — Charm"
+    mechanic_type: debuff_party
+    trigger: "Boss BP MAX attack"
+    target: front_row
+    effects:
+      - "Charm entire front row"
+    threat_level: high
+    counter_strategy: "Rehabilitate; keep key units in back row when charm is imminent."
+
+  - name: "Yellow HP — Sleep & Switch Lock"
+    mechanic_type: debuff_party
+    trigger: "Main body below yellow HP threshold"
+    target: front_row
+    effects:
+      - "Sleep and switch prohibition (2 turns; boss slow so ~1 effective turn)"
+    threat_level: medium
+    counter_strategy: "Ailment accessories; ensure back row can shield shave if front locked."
+
+hp_thresholds:
+  - hp_percent: 50
+    event: "Yellow HP gauge"
+    behavior_changes: "Front row sleep + switch prohibition; twin head attacks intensify"
+
+# ===========================================================================
+# TEAM REQUIREMENTS
+# ===========================================================================
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Must break before head BP5; prefer lightning/wind phys or non-weakness shave"
+  - role: buffer
+    priority: required
+    reason: "Pre-break setup for break-window burst"
+  - role: debuffer
+    priority: recommended
+    reason: "Stack damage for break turn 2 ult burst"
+  - role: dps
+    priority: required
+    reason: "Must exceed ~650k heal per break turn; attack ults for break turn 2"
+  - role: healer
+    priority: required
+    reason: "Status cleanse + sustain; Shana recommended (Rehabilitate + BP restore)"
+
+required_capabilities:
+  - "Lightning/wind physical shield shave OR weakness-exploit / non-weakness break"
+  - "Attack-type ultimates for break turn 2 (BP drained on break)"
+  - "Status ailment cleanse (Rehabilitate, Shana, Rinyuu EX)"
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  Emberflame Story Ch.16 finale. Two-part fight: main serpent body + untargetable twin heads.
+
+  CORE LOOP:
+  1. Shield shave without triggering bad weakness locks (lightning/wind phys meta path).
+  2. Break before right head hits BP5 (~turn 6) to prevent first 650k heal.
+  3. Do NOT break until buffs/debuffs stacked — break punishes with BP drain + front seal.
+  4. Break turn 2: fire attack ults from back-row DPS (no BP needed).
+  5. Repeat cycles; out-damage 650k heal each break turn.
+
+  COMMUNITY TIPS (Reddit):
+  - Oskha: strong if broken with physical — avoids phys lock; ult with damage cap artifacts.
+  - Dark Priestess or Molrusso EX enables Oskha weakness hits.
+  - Canary useful for breaking; Shana BP restore on break turn.
+  - Sazantos cover can block front-row break hits (annoying interaction).
+  - No-break brute force possible but needs high investment; not recommended for most.
+
+  GAME8 RECOMMENDED ARCHETYPES:
+  Sword (Mahrez/Eltrix/Pardis), bow (Ditraina EX/Kilns/Rymys EX), dagger (Tiziano/Kagemune/Sonia),
+  spear (Sazantos EX/Ori), staff (Morena/Therese EX/Relisha). Mix 2–3 for coverage + burst.
+
+  Aviete is thematically tied to Emberflame finale (talk to Aviete after quest).
+
+common_mistakes:
+  - "Breaking too early without buffs — BP drain wastes break window"
+  - "Front-row DPS during break — attack seal blocks damage dealers"
+  - "Only multi-hit breakers that lock wrong weakness type mid-turn"
+  - "Using provoke tanks on twin heads — provoke does not work"
+  - "Letting right head reach BP5 before first break — free 650k heal"
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: tested
+data_source: |
+  Game8 JP (https://game8.jp/octopathtraveler-sp/691370, /691369);
+  Reddit r/OctopathCotC (2026-04, u/Winter_Code2286, u/jobpasin);
+  video https://youtu.be/FRhpd4qU-BU
+last_updated: 2026-06-12

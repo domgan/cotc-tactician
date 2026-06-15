@@ -53,9 +53,11 @@ strategies:
 
 related_boss_mechanics:
   divine_beast_jormungandr:
+    boss_id: story-divine-beast-jormungandr
     description: |
-      u/Winter_Code2286 notes (from memory): locks weakness per phys/elem skill used;
-      break drains all BP + seals frontrow physical; boss can heal.
+      Full boss YAML now available. Key mechanics: weakness lock per attack type,
+      break drains -5 BP + front-row skill seal, twin head heals ~650k at BP5 and each break turn.
+    superseded_note: "See data/bosses/story-divine-beast-jormungandr.yaml for full detail"
     source: https://www.reddit.com/r/OctopathCotC/comments/1t0w1t9/my_strategy_against_side_solistia_true_final_boss/
 
 video_reference:

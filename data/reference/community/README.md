@@ -98,5 +98,8 @@ See `resources/reddit-intake/2026-05-31-STATUS.md` for items not promoted (parti
 - `data/characters/locke.yaml` — roles, Part 1 pull context
 - `data/characters/terra.yaml` — roles, Part 1 pull context
 
+### Boss updates
+- `data/bosses/story-divine-beast-jormungandr.yaml` — Emberflame Ch.16 finale (Game8 + Reddit)
+
 ### Reference updates
 - `data/reference/llm_guidelines.yaml` — gacha planning community pointer
