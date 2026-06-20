@@ -1,0 +1,88 @@
+# Community Intake — Phenn (OT0 Hunter, GL launch June 2026)
+# NOT verified in-game data. data_confidence: community_unverified
+
+schema_version: "1.0"
+data_confidence: community_unverified
+last_updated: "2026-06-20"
+
+banner:
+  name: "Phenn step-up banner"
+  release_gl: "2026-06-18"
+  exclusivity: "GL/SEA exclusive; Traveler of Memories limited; not in global pool"
+  context: "Mid-Year Celebration alongside FF6 Part 1; free pulls/rubies event per patch notes"
+
+pull_verdict:
+  summary: |
+    Marketed as "cornerstone of physical DPS" but not a Xerc-tier must-pull. Strong now with
+    room to grow; physical teams gain a unique HoR buffer/debuffer/cover enabler. Skip if
+    committed to rainbow-only or saving for FF6 Part 2 Setzer / future Saga powercreep.
+  must_pull: false
+  strong_for:
+    - "Physical sword/axe/bow/staff front-row teams"
+    - "Players lacking Fiore EX cover or wanting stacked physical debuffs + dmg cap"
+    - "OT0 fans / limited-unit collectors"
+  skip_if:
+    - "Full rainbow roster already set (Xerc/Isla/Lynette EX core)"
+    - "F2P saving for Setzer or Romancing SaGa 2"
+    - "No physical DPS bench to feed HoR stacks"
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u7df4l/should_you_pull_on_phenn/
+      date: 2026-06-16
+      author: u/Drayleb
+      excerpt: |
+        The "cornerstone of physical dps" has arrived. Sadly for Phenn, he ain't like Xerc,
+        who single-handedly flipped the meta head over heels. This isn't to say Phenn is bad —
+        he's actually quite strong at the moment, with even greater potential down the road —
+        but he isn't an absolute must pull.
+
+investment:
+  a0: "Functional — core HoR loop and cover available"
+  a1: "Unlocks HoR debuff passive tier (3+/6+/9+ effects) — meaningful for debuff stacking"
+  a4: "50% HP barrier at battle start + 50k dmg cap accessory — strong for immediate barrier uptime"
+  au: "Community debate (thread 1u98f11); prioritize if using as primary physical support/tank"
+  ult: "100% potency to warrior/apothecary/hunter/cleric jobs + AOE nuke; U10 for 2 uses; U20 for 200% double cast"
+  f2p: "A0–A1 from free step-up pulls; skip deep investment unless physical main"
+  note: "No Blessing of Lantern / Limit Break on GL launch (same pattern as other OT0 seasonals)"
+
+physical_meta:
+  context: "Analysis window until Romancing SaGa 2 (~6 months) — major powercreep expected"
+  branches: "Physical meta expected to split into two major team archetypes (details in full post)"
+  powerceep_targets:
+    - locke
+    - edgar
+    - "Older physical DPS lacking modern damage cap stacking"
+  showcase_clears:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u9cbvl/kagemune_ex3_in_3t_with_phenn_team/
+      author: u/BrickSuccessful4703
+      note: "Kagemune EX3 3-turn clear"
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u9m2gh/collab_king_pardis_iii_ex3_in_one_action_with/
+      author: u/BrickSuccessful4703
+      note: "Pardis III EX3 one-action clear"
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1tjdxdi/phenn_damage_potential_27m2_if_cap_allows/
+      author: u/BrickSuccessful4703
+      note: "CN preview — ~1.37M hit T2, ~2.7M×2 if cap allows (Celeborete1)"
+  common_teammates:
+    - pardis-iii
+    - ditraina-ex
+    - kaine
+    - mahrez
+    - edgar
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u9gd72/my_analysis_on_phenn_and_future_physical_meta/
+      date: 2026-06-18
+      author: u/BrickSuccessful4703
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u98rlr/phenn_the_guardian_of_wishvale_showcase/
+      date: 2026-06-18
+      author: u/spear_of_salvation
+
+related_threads:
+  - url: https://www.reddit.com/r/OctopathCotC/comments/1u98f11/phenn_a1_a4_or_au/
+    topic: "A1 vs A4 vs AU investment priority"
+  - url: https://www.reddit.com/r/OctopathCotC/comments/1u857fp/june_18th_patch_notes_phenn_update/
+    topic: "June 18 patch notes"
+  - url: https://www.reddit.com/r/OctopathCotC/comments/1uadjw5/mid_year_paid_banner/
+    topic: "Paid selector — Bargello A4 vs Ditraina EX for Phenn team"
+
+kit_reference:
+  url: https://meowdb.com/db/octopath-traveler-cotc/characters/phenn
+  note: "Authoritative skill/passive text for RAG; stats listed as coming soon"

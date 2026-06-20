@@ -4,7 +4,7 @@
 
 schema_version: "1.0"
 data_confidence: community_unverified
-last_updated: "2026-06-12"
+last_updated: "2026-06-20"
 
 # =============================================================================
 # FF6 COLLAB — BANNER STRUCTURE (GL)
@@ -138,6 +138,29 @@ ff6_part2:
     - url: https://www.youtube.com/watch?v=EJuegRe7Cy0
       date: 2026-06-11
       author: "Urshiko: COTC"
+
+# =============================================================================
+# PHENN BANNER (OT0 Hunter — GL June 2026)
+# =============================================================================
+
+phenn:
+  context: "GL/SEA exclusive OT0 crossover; live June 18 2026 step-up banner"
+  pull_verdict:
+    summary: "Strong physical enabler, not Xerc-tier must-pull"
+    must_pull: false
+    prioritize_if: "Running physical front-row teams; want cover + HoR debuff stacking"
+    skip_if: "Rainbow main / saving for FF6 Part 2 Setzer / F2P low rubies"
+  investment:
+    f2p: "Use free step-up pulls; A0–A1 sufficient unless physical main"
+    dolphin: "A4 for 50% start barrier accessory; AU debated for support/tank role"
+    whale: "Deep invest if replacing Locke/older phys support before Saga banner"
+  powercreep_note: "Locke/Edgar noted as powercrept by Phenn (Part 1 context); Phenn himself expected to face Saga/Romancing SaGa 2 creep"
+  detail_file: data/reference/community/reddit_phenn_meta.yaml
+  sources:
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u7df4l/should_you_pull_on_phenn/
+      author: u/Drayleb
+    - url: https://www.reddit.com/r/OctopathCotC/comments/1u9gd72/my_analysis_on_phenn_and_future_physical_meta/
+      author: u/BrickSuccessful4703
 
 # Legacy alias — pre-release umbrella; prefer ff6_part1 / ff6_part2 above
 ff6_collab:

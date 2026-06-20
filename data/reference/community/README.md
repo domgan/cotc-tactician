@@ -98,6 +98,17 @@ See `resources/reddit-intake/2026-05-31-STATUS.md` for items not promoted (parti
 - `data/characters/locke.yaml` — roles, Part 1 pull context
 - `data/characters/terra.yaml` — roles, Part 1 pull context
 
+## Promoted files (2026-06-20)
+
+### Community reference
+- `data/reference/community/reddit_phenn_meta.yaml` — GL launch pull advice, physical meta, investment (Reddit + MeowDB)
+
+### Community reference updates
+- `data/reference/community/reddit_gacha_planning.yaml` — Phenn banner section
+
+### Character updates
+- `data/characters/phenn.yaml` — full kit, roles, HoR mechanics, community strategy (GL launch)
+
 ### Boss updates
 - `data/bosses/story-divine-beast-jormungandr.yaml` — Emberflame Ch.16 finale (Game8 + Reddit)
 
