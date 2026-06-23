@@ -1,0 +1,18 @@
+# Example player roster — copy is optional; use `cotc-tactician roster-ui` instead.
+# Saved roster lives at ~/.cotc-tactician/roster.yaml (or COTC_ROSTER_FILE).
+
+schema_version: "1.0"
+last_updated: "2026-06-20"
+characters:
+  solon:
+    awakening: 4
+    au: true
+    ult_level: 20
+  shana:
+    awakening: 4
+    au: false
+    ult_level: 10
+  lynette-ex:
+    awakening: 2
+    au: false
+    ult_level: 0

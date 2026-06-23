@@ -28,11 +28,19 @@ core_principles:
 
   - name: "Skill Slot Limits"
     description: |
-      Each character has 3-4 skill slots (depends on Awakening Stage II):
-      - Awakening 0-1: 3 skill slots
-      - Awakening 2+: 4 skill slots
+      Each character has 3-4 BATTLE skill slots depending on THEIR awakening level:
+      - Awakening 0-1 (Stage 0/I): 3 equip slots
+      - Awakening 2+ (Stage II+): 4 equip slots (4th unlocks at Stage II)
       
-      Characters cannot use all their skills - recommend which 3-4 to equip!
+      Use get_my_roster() / investment.battle_skill_slots per character — do not
+      assume all party members have 4 slots.
+      
+      Ultimate, EX, and TP skills are SEPARATE — they do NOT consume battle slots.
+      Characters cannot equip their full kit — assign exactly one skill per slot.
+      
+      NEVER list multiple upgrade tiers of the same attack line as if all are equipped.
+      Example: Oskha's Swift Stab → Twofold Vengeful Strike → Quad Shredder Strike
+      are ONE slot choice — pick the best tier the player owns, not all three.
 
   - name: "EX Variant Extrapolation"
     description: |
@@ -43,6 +51,21 @@ core_principles:
       
       CLEARLY STATE you are extrapolating: "Based on EX scaling patterns..."
       DO NOT invent specific HP numbers - say "~5x base HP" instead.
+
+  - name: "Player Roster"
+    description: |
+      Call get_my_roster() before team planning when personalized advice is needed.
+      plan_team_for_boss sets roster_applied=true only when ~/.cotc-tactician/roster.yaml
+      exists with at least one character. When roster_applied=false (or
+      recommendation_pool=full_database), recommended_characters is the ENTIRE database —
+      not a bug; the agent must not treat those as owned units.
+      If configured=false or owned_count=0, proceed with the full character pool
+      and suggest the user run `cotc-tactician roster-ui` to set their roster.
+      Never recommend characters outside the saved roster unless the user explicitly
+      asks for a wishlist or future-pull comparison (pass available_characters to override).
+      When roster is applied, use teams_for_my_roster / feasible_proven_teams from
+      get_proven_teams or plan_team_for_boss — prefer full-feasibility comps first.
+      Flag investment_gaps when the user's awakening/AU/ult is below team slot requirements.
 
 # =============================================================================
 # TEAM BUILDING STRUCTURE
@@ -75,12 +98,23 @@ team_recommendation_format:
 
     - name: "Skill Loadouts"
       content: |
-        For each key character, recommend 3-4 skills to equip:
-        [Character Name]:
-        - Skill 1: [Name] - [Why]
-        - Skill 2: [Name] - [Why]
-        - Skill 3: [Name] - [Why]
-        - Skill 4: [Name] - [Why] (if A2+)
+        For each key character, assign EXACTLY 3-4 battle skills (one per slot).
+        Each slot must have a DISTINCT job (break, heal, buff, debuff, utility).
+        Do NOT list upgrade tiers of the same line in multiple slots.
+        
+        [Character Name] — Awakening [0-4] → [3 or 4] battle slots (from roster):
+        Slot 1: [Skill] — [job: break/heal/buff/debuff/utility] — [why]
+        Slot 2: [Skill] — [job] — [why]
+        Slot 3: [Skill] — [job] — [why]
+        Slot 4: [Skill] — [job] — [why]  (ONLY if awakening >= 2; omit entirely at A0-A1)
+        Ultimate: [when to use]  (separate from battle slots)
+        Alternatives: [lower tier OR different pick for same slot] — only if relevant
+        
+        BAD (do not do this):
+        - Slot 1: Swift Stab / Slot 2: Twofold Vengeful Strike / Slot 3: Quad Shredder
+          (same polearm/fire line — pick ONE)
+        GOOD:
+        - Slot 1: Quad Shredder Strike (break) — Slot 2: empty — Ultimate: break turn 2
 
     - name: "Turn-by-Turn Tactics"
       content: |
@@ -103,6 +137,60 @@ team_recommendation_format:
         If user doesn't have recommended characters, provide alternatives:
         - Budget option (general pool only)
         - Specific replacements for each key character
+
+# =============================================================================
+# SKILL LOADOUT RULES (for MCP + team recommendations)
+# =============================================================================
+
+skill_loadout_rules:
+  battle_skill_slots:
+    awakening_0_1: 3
+    awakening_2_plus: 4
+  slots_by_awakening:
+    description: "4th battle slot unlocks at Awakening Stage II — use roster awakening"
+    mapping:
+      0: 3
+      1: 3
+      2: 4
+      3: 4
+      4: 4
+  separate_from_slots:
+    - ultimate
+    - ex_skill
+    - tp_skill
+  rules:
+    - "Slot count is per-character from roster investment.awakening (or battle_skill_slots): A0-A1 = 3 slots, A2+ = 4 slots — never assign slot 4 for A0/A1"
+    - "If roster missing, state assumed awakening and slot count; default to 3 slots unless user confirms A2+"
+    - "Assign exactly one active skill per battle slot — never fill a slot with slash-separated options"
+    - "Each slot must serve a distinct job: break, heal, buff, debuff, or utility"
+    - "Skills in the same upgrade line (more hits / higher power, same weapon+element pattern) count as ONE slot choice"
+    - "When character data lists many attack variants, pick the highest tier the roster likely owns; note lower tiers under alternatives only"
+    - "Back-row burst characters often run 1-2 actives + save BP for ult — empty slots are valid"
+    - "Reference proven team key_skills_used when available — those are intentional loadouts, not full kits"
+  upgrade_line_signals:
+    description: |
+      Treat as ONE line (pick one) when skills share the same role and differ mainly by
+      hit count, power tier, or name pattern (Swift/Twofold/Triple/Quad, basic→refined names).
+      Data may not tag skill_line yet — infer from names and hit_count in get_character output.
+  format_example:
+    character_id: oskha
+    awakening: 2
+    battle_skill_slots: 4
+    equipped_skills:
+      - slot: 1
+        skill: "Quad Shredder Strike"
+        job: break
+        why: "Highest-tier polearm+fire single-target break; back row for turn-2 ult burst"
+      - slot: 2
+        skill: null
+        job: null
+        why: "Back row — save BP for ultimate on break turn 2"
+    ultimate_timing: "Break turn 2 (after BP drain); not a battle slot"
+    alternatives:
+      - slot: 1
+        instead: "Quad Shredder Strike"
+        use: "Purgation Thrust"
+        when: "Prefer 3-hit AoE break over single-target"
 
 # =============================================================================
 # ROLE DEFINITIONS
@@ -185,7 +273,22 @@ common_mistakes:
     correct: "Always recommend 8 (4 front + 4 back)"
     
   - mistake: "Ignoring skill slot limits"
-    correct: "Recommend specific 3-4 skills per character"
+    correct: "Assign exactly 3-4 battle skills — one per slot, one role per slot"
+
+  - mistake: "Assuming every character has 4 battle skill slots"
+    correct: |
+      Check roster awakening per character: A0-A1 = 3 slots, A2+ = 4.
+      investment.battle_skill_slots is set automatically when roster is loaded.
+
+  - mistake: "Listing multiple tiers of the same skill line"
+    correct: |
+      Pick ONE skill per upgrade line (e.g. Quad Shredder OR Purgation Thrust, not both
+      plus Swift Stab). Mention lower tiers only under Alternatives if investment unknown.
+
+  - mistake: "Treating Ultimate/EX/TP as equip slots"
+    correct: |
+      Battle slots = active skills only. Note ult/EX/TP timing separately
+      (e.g. 'Ult: break turn 2 — not a battle slot').
     
   - mistake: "Not accounting for provoke immunity"
     correct: "Check if EX boss is provoke immune - use dodge/cover tank instead"
@@ -257,4 +360,4 @@ gacha_planning:
 # METADATA
 # =============================================================================
 data_confidence: verified
-last_updated: 2026-06-12
+last_updated: 2026-05-31

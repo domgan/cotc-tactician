@@ -18,6 +18,20 @@ def test_load_team_building_guide_includes_signa_and_cecil():
     assert "fiore-ex" in guide["role_priorities"]["tank"]["top_picks"]
 
 
+def test_load_team_building_guide_includes_skill_loadout_rules():
+    guide = load_team_building_guide(DATA_DIR)
+    loadout = guide["skill_loadout_guidance"]
+
+    assert guide["skill_slots"]["awakening_0_1"] == 3
+    assert guide["skill_slots"]["awakening_2_plus"] == 4
+    assert loadout["slots_by_awakening"][0] == 3
+    assert loadout["slots_by_awakening"][2] == 4
+    assert "ultimate" in loadout["separate_from_slots"]
+    assert any("upgrade line" in rule.lower() for rule in loadout["rules"])
+    assert loadout["format_example"]["character_id"] == "oskha"
+    assert len(loadout["format_example"]["equipped_skills"]) >= 1
+
+
 def test_load_team_building_guide_cached():
     _load_llm_guidelines_yaml.cache_clear()
     load_team_building_guide(DATA_DIR)

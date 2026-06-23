@@ -26,8 +26,21 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"  # Suppress transformers logging
 
 from mcp.server.fastmcp import FastMCP
 
-from .models import RolePriority
+from pydantic import ValidationError
+
+from .models import RolePriority, RosterEntry
 from .retrieval import RetrievalService, _normalize_weakness
+from .roster import (
+    import_roster_yaml,
+    known_character_ids,
+    load_roster_with_meta,
+    remove_roster_characters as remove_chars_from_roster,
+    resolve_roster,
+    roster_entry_for_character,
+    roster_path,
+    teams_for_roster,
+    upsert_roster_characters,
+)
 from .team_guide import load_team_building_guide
 from .vector_store import VectorStore
 
@@ -166,15 +179,19 @@ def character_summary(char: Any) -> dict:
     }
 
 
-def plan_team_character_entry(char: Any) -> dict:
+def plan_team_character_entry(char: Any, roster: Any = None) -> dict:
     """Compact character entry for plan_team_for_boss recommendations."""
-    return {
+    entry = {
         "id": char.id,
         "display_name": char.display_name,
         "job": char.job.value,
         "roles": [r.value for r in char.roles] if char.roles else [],
         "jp_tier": char.jp_tier,
     }
+    investment = roster_entry_for_character(roster, char.id)
+    if investment:
+        entry["investment"] = investment
+    return entry
 
 
 def team_slot_to_dict(slot: Any) -> dict:
@@ -262,7 +279,8 @@ def get_character(character_id: str) -> dict | str:
     Get full details for a specific character.
 
     Use this after search_characters to get complete information including
-    skills, passives, stats, and A4 accessory.
+    skills, passives, stats, and A4 accessory. When a roster is configured,
+    includes investment (awakening, battle_skill_slots) for loadout planning.
 
     Args:
         character_id: The character's unique ID (e.g., "richard", "primrose-ex").
@@ -276,7 +294,16 @@ def get_character(character_id: str) -> dict | str:
     if char is None:
         return f"Character '{character_id}' not found."
 
-    return character_to_dict(char)
+    result = character_to_dict(char)
+    _, roster = resolve_roster(None, known_ids=known_character_ids(retrieval))
+    investment = roster_entry_for_character(roster, character_id)
+    if investment:
+        result["investment"] = investment
+    else:
+        result["loadout_note"] = (
+            "No roster entry — assume 3 battle slots (A0-A1) unless user confirms A2+"
+        )
+    return result
 
 
 @mcp.tool()
@@ -377,9 +404,11 @@ def list_by_role(
         List of character summaries matching the role.
     """
     retrieval = get_retrieval()
+    known = known_character_ids(retrieval)
+    roster_ids, _ = resolve_roster(available_characters, known_ids=known)
     chars = retrieval.find_characters_by_role_exact(
         role,
-        character_ids=available_characters,
+        character_ids=roster_ids,
         limit=limit,
     )
     return [character_summary(c) for c in chars]
@@ -389,6 +418,7 @@ def list_by_role(
 def get_team_suggestions(
     weaknesses: list[str],
     roles_needed: list[str] | None = None,
+    available_characters: list[str] | None = None,
     limit: int = 8,
 ) -> dict:
     """
@@ -404,6 +434,8 @@ def get_team_suggestions(
         roles_needed: Optional roles you need (e.g., ["healer", "buffer", "dps"]).
                      Valid roles: tank, healer, buffer, debuffer, breaker, dps
                      From meowdb: PDPS, EDPS, Tankiness, Healer, Buffer, Debuffer, Breaker
+        available_characters: Optional roster filter — only these character IDs.
+                          If omitted, uses saved roster when configured.
         limit: Max characters per category (default: 8, full party).
 
     Returns:
@@ -411,9 +443,12 @@ def get_team_suggestions(
         and optionally by role.
     """
     retrieval = get_retrieval()
+    known = known_character_ids(retrieval)
+    roster_ids, roster = resolve_roster(available_characters, known_ids=known)
 
     result = {
         "by_weakness": {},
+        "roster_applied": roster_ids is not None,
         "summary": {
             "total_weaknesses": weaknesses,
             "roles_requested": roles_needed or [],
@@ -422,28 +457,23 @@ def get_team_suggestions(
 
     # Find characters for each weakness
     for weakness in weaknesses:
-        chars = retrieval.find_characters_by_weakness(weakness, limit=limit)
-        result["by_weakness"][weakness] = [character_summary(c) for c in chars]
+        chars = retrieval.find_characters_by_weakness(
+            weakness, character_ids=roster_ids, limit=limit
+        )
+        result["by_weakness"][weakness] = [
+            plan_team_character_entry(c, roster) for c in chars
+        ]
 
     # If roles requested, add role-based suggestions
     if roles_needed:
         result["by_role"] = {}
         for role in roles_needed:
-            query = f"Character with {role} role"
-            search_results = retrieval.vector_store.search_characters(
-                query=query,
-                n_results=limit,
+            chars_for_role = retrieval.find_characters_by_role_exact(
+                role, character_ids=roster_ids, limit=max(limit // 2, 1)
             )
-
-            chars_for_role = []
-            for sr in search_results:
-                char = retrieval.get_character_by_id(sr["id"])
-                if char:
-                    chars_for_role.append(character_summary(char))
-                if len(chars_for_role) >= limit // 2:
-                    break
-
-            result["by_role"][role] = chars_for_role
+            result["by_role"][role] = [
+                plan_team_character_entry(c, roster) for c in chars_for_role
+            ]
 
     return result
 
@@ -697,10 +727,13 @@ def get_proven_teams(boss_id: str) -> dict | str:
         return f"Boss '{boss_id}' not found."
 
     teams = retrieval.get_teams_for_boss(boss_id)
+    known = known_character_ids(retrieval)
+    _, roster = resolve_roster(None, known_ids=known)
+    roster_payload = teams_for_roster(teams, roster, team_to_dict)
     return {
         "boss_id": boss_id,
         "count": len(teams),
-        "teams": [team_to_dict(t) for t in teams],
+        **roster_payload,
     }
 
 
@@ -715,17 +748,18 @@ def plan_team_for_boss(
     IMPORTANT: COTC parties have 8 characters (4 front + 4 back).
     Use get_team_building_guide() first for full context.
 
-    Returns recommended_characters (roster-filtered weakness matches),
-    recommended_by_role (roster-filtered role matches from boss required_roles),
-    proven_teams (curated comps if any), coverage_gaps (weaknesses the roster
-    cannot cover), and role_coverage_gaps (required roles with no roster match).
+    Returns recommended_characters (weakness matches; filtered to saved roster when
+    roster_applied is true), recommended_by_role (same), proven_teams, coverage_gaps,
+    role_coverage_gaps, recommendation_pool ("roster" or "full_database"), and
+    skill_loadout_guidance. Check roster_applied before using recommendations — when
+    false, recommended_* lists the entire character database, not owned units.
     Prioritize proven_teams when non-empty.
     Do not invent characters to fill empty weakness or role slots.
 
     Args:
         boss_id: The boss to plan for.
         available_characters: Optional list of character IDs the user owns.
-                             If not provided, suggests from all characters.
+                             If not provided, uses saved roster when configured.
 
     Returns:
         Dictionary with boss analysis, proven teams, character recommendations
@@ -737,7 +771,12 @@ def plan_team_for_boss(
     if boss is None:
         return {"error": f"Boss '{boss_id}' not found."}
 
+    roster_ids, roster = resolve_roster(available_characters, known_ids=known_character_ids(retrieval))
     weaknesses = retrieval.get_boss_weaknesses(boss)
+
+    teams = retrieval.get_teams_for_boss(boss_id)
+    roster_teams = teams_for_roster(teams, roster, team_to_dict)
+    skill_loadout = load_team_building_guide(get_data_dir())["skill_loadout_guidance"]
 
     result = {
         "party_structure": {
@@ -746,6 +785,7 @@ def plan_team_for_boss(
             "back_row": 4,
             "instruction": "Pick 8 total from recommended characters below",
         },
+        "skill_loadout_guidance": skill_loadout,
         "boss": {
             "id": boss.id,
             "display_name": boss.display_name,
@@ -762,13 +802,31 @@ def plan_team_for_boss(
             {"role": rr.role.value, "priority": rr.priority, "reason": rr.reason}
             for rr in (boss.required_roles or [])
         ],
-        "proven_teams": [team_to_dict(t) for t in retrieval.get_teams_for_boss(boss_id)],
+        "proven_teams": roster_teams["teams"],
+        "teams_for_my_roster": roster_teams.get("teams_for_my_roster", []),
+        "feasible_proven_teams": roster_teams.get("feasible_proven_teams", []),
+        "partial_proven_teams": roster_teams.get("partial_proven_teams", []),
+        "roster_applied": roster_teams["roster_applied"],
+        "recommendation_pool": "roster" if roster_teams["roster_applied"] else "full_database",
         "recommended_characters": {},
         "recommended_by_role": {},
         "coverage_gaps": [],
         "role_coverage_gaps": [],
         "tactical_notes": [],
     }
+
+    if roster_teams["roster_applied"]:
+        result["roster_summary"] = {
+            "path": str(roster_path()),
+            "owned_count": len(roster_ids) if roster_ids else 0,
+        }
+    else:
+        result["tactical_notes"].insert(
+            0,
+            "Roster not configured or empty — recommended_characters and recommended_by_role "
+            "use the FULL character database. Call get_my_roster() or set roster via roster-ui; "
+            "only use picks where you own the character.",
+        )
 
     # Add EX-specific notes
     if boss.ex_rank:
@@ -792,11 +850,11 @@ def plan_team_for_boss(
     for weakness in weaknesses[:4]:
         chars = retrieval.find_characters_by_weakness(
             weakness,
-            character_ids=available_characters,
+            character_ids=roster_ids,
             limit=5,
         )
         result["recommended_characters"][weakness] = [
-            plan_team_character_entry(c) for c in chars
+            plan_team_character_entry(c, roster) for c in chars
         ]
 
     result["coverage_gaps"] = [
@@ -807,11 +865,11 @@ def plan_team_for_boss(
         role = rr.role.value
         chars = retrieval.find_characters_by_role_exact(
             role,
-            character_ids=available_characters,
+            character_ids=roster_ids,
             limit=5,
         )
         result["recommended_by_role"][role] = [
-            plan_team_character_entry(c) for c in chars
+            plan_team_character_entry(c, roster) for c in chars
         ]
 
     result["role_coverage_gaps"] = [
@@ -1034,6 +1092,86 @@ def check_buff_coverage(character_ids: list[str]) -> dict:
 
 
 # =============================================================================
+# PLAYER ROSTER TOOLS
+# =============================================================================
+
+
+@mcp.tool()
+def get_my_roster() -> dict:
+    """
+    Get the player's saved character roster (owned units + investment).
+
+    Call before team planning. If not configured, returns configured=false —
+    proceed with the full character pool and suggest `cotc-tactician roster-ui`.
+
+    Returns:
+        path, owned_count, characters dict, skipped_invalid_ids from lenient load.
+    """
+    retrieval = get_retrieval()
+    known = known_character_ids(retrieval)
+    return load_roster_with_meta(known_ids=known)
+
+
+@mcp.tool()
+def set_roster_characters(characters: dict[str, dict]) -> dict | str:
+    """
+    Upsert owned characters in the saved roster.
+
+    Args:
+        characters: Map of character_id → {awakening: 0-4, au: bool, ult_level: 0-20}.
+                    Example: {"solon": {"awakening": 4, "au": true, "ult_level": 20}}
+
+    Returns:
+        Updated roster summary or error message.
+    """
+    retrieval = get_retrieval()
+    known = known_character_ids(retrieval)
+    try:
+        updates = {cid: RosterEntry.model_validate(data) for cid, data in characters.items()}
+        upsert_roster_characters(updates, known_ids=known)
+    except ValueError as e:
+        return str(e)
+    return load_roster_with_meta(known_ids=known)
+
+
+@mcp.tool()
+def remove_roster_characters(character_ids: list[str]) -> dict:
+    """
+    Remove characters from the saved roster.
+
+    Args:
+        character_ids: Character IDs to remove from ownership.
+
+    Returns:
+        Updated roster summary.
+    """
+    retrieval = get_retrieval()
+    remove_chars_from_roster(character_ids)
+    return load_roster_with_meta(known_ids=known_character_ids(retrieval))
+
+
+@mcp.tool()
+def import_roster_yaml_content(yaml_content: str, merge: bool = False) -> dict | str:
+    """
+    Import roster from YAML text (replace or merge into saved roster).
+
+    Args:
+        yaml_content: Full or partial roster YAML (schema_version + characters map).
+        merge: If true, merge into existing roster; if false, replace entirely.
+
+    Returns:
+        Updated roster summary or error message.
+    """
+    retrieval = get_retrieval()
+    known = known_character_ids(retrieval)
+    try:
+        import_roster_yaml(yaml_content, merge=merge, known_ids=known)
+    except (ValueError, ValidationError) as e:
+        return str(e)
+    return load_roster_with_meta(known_ids=known)
+
+
+# =============================================================================
 # TEAM BUILDING GUIDE TOOL
 # =============================================================================
 
@@ -1047,7 +1185,8 @@ def get_team_building_guide() -> dict:
 
     Returns critical information:
     - Party structure (8 characters: 4 front + 4 back)
-    - Skill slot limits (3-4 per character)
+    - Skill slot limits (3-4 battle slots; ult/EX/TP separate)
+    - Skill loadout rules (one skill per slot, no upgrade-line stacking)
     - Role definitions with top characters
     - EX fight scaling patterns for extrapolation
     - Common mistakes to avoid

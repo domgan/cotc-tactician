@@ -20,6 +20,7 @@ from rich.table import Table
 
 from .pipeline import OllamaClient, OpenAIClient, ReasoningPipeline
 from .retrieval import RetrievalService
+from .roster import load_roster, owned_character_ids, roster_path
 from .vector_store import VectorStore
 
 # Setup rich console
@@ -159,10 +160,17 @@ def compose(
         console.print("[red]Error: Must provide --boss or --desc[/]")
         raise typer.Exit(1)
 
-    # Parse character list
+    # Parse character list — explicit --chars overrides saved roster
     char_list = None
     if characters:
-        char_list = [c.strip() for c in characters.split(",")]
+        char_list = [c.strip() for c in characters.split(",") if c.strip()]
+    else:
+        saved = load_roster()
+        if saved and saved.characters:
+            char_list = owned_character_ids(saved)
+            console.print(
+                f"[dim]Using roster from {roster_path()} ({len(char_list)} characters)[/]"
+            )
 
     # Create pipeline
     try:
@@ -235,11 +243,18 @@ def compose(
                 table.add_column("Key Skills")
 
                 for member in team["composition"]:
+                    skills = member.get("key_skills", [])
+                    if not skills and member.get("equipped_skills"):
+                        skills = [
+                            s.get("skill_name")
+                            for s in member["equipped_skills"]
+                            if s.get("skill_name")
+                        ]
                     table.add_row(
                         str(member.get("position", "?")),
                         member.get("character_id", "?"),
                         member.get("role", "?"),
-                        ", ".join(member.get("key_skills", [])[:2]),
+                        ", ".join(skills[:2]),
                     )
 
                 console.print(table)
@@ -378,6 +393,58 @@ def search(
         )
 
     console.print(table)
+
+
+@app.command("roster-ui")
+def roster_ui(
+    port: int = typer.Option(8787, "--port", "-p", help="Local port"),
+    no_open: bool = typer.Option(False, "--no-open", help="Do not open browser"),
+    reload: bool = typer.Option(False, "--reload", help="Reload on file changes (dev)"),
+):
+    """Launch local web UI to manage your character roster."""
+    try:
+        import uvicorn
+    except ImportError as e:
+        console.print(
+            "[red]Error: roster-ui requires the ui extra. "
+            "Run: uv sync --extra ui[/]"
+        )
+        raise typer.Exit(1) from e
+
+    from .roster_ui.app import create_app
+
+    url = f"http://localhost:{port}"
+    console.print(f"[bold blue]COTC Tactician — Roster UI[/]")
+    console.print(f"Roster file: {roster_path()}")
+    console.print(f"Open [link={url}]{url}[/] in your browser")
+    if reload:
+        console.print("[dim]Hot reload enabled — edit src/roster_ui/ and refresh[/]")
+    console.print("[dim]Press Ctrl+C to stop[/]")
+    console.print()
+
+    if not no_open:
+        import webbrowser
+
+        webbrowser.open(url)
+
+    data_dir = get_data_dir()
+    if reload:
+        import os
+
+        os.environ.setdefault("COTC_DATA_DIR", str(data_dir))
+        roster_ui_dir = Path(__file__).parent / "roster_ui"
+        uvicorn.run(
+            "src.roster_ui.app:create_app_for_uvicorn",
+            factory=True,
+            host="127.0.0.1",
+            port=port,
+            reload=True,
+            reload_dirs=[str(roster_ui_dir)],
+            log_level="warning",
+        )
+    else:
+        app = create_app(data_dir)
+        uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")
 
 
 @app.command("mcp-serve")

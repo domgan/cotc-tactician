@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COTC Tactician — Roster</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --border: #2d3a4f;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --accent: #5b9fd4;
+      --accent-hover: #7ab3e0;
+      --success: #3d9970;
+      --warn: #c9a227;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+    .meta { color: var(--muted); font-size: 0.875rem; }
+    .meta strong { color: var(--text); }
+    .toolbar {
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    input[type="search"], select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.45rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+    input[type="search"] { min-width: 220px; }
+    label.toggle { display: flex; align-items: center; gap: 0.35rem; font-size: 0.875rem; cursor: pointer; }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    button.secondary:hover { border-color: var(--accent); }
+    #status {
+      margin-left: auto;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    #status.ok { color: var(--success); }
+    #status.err { color: #e57373; }
+    main { padding: 0 1.5rem 2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    th, td {
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 500; position: sticky; top: 0; background: var(--bg); }
+    tr.owned { background: rgba(91, 159, 212, 0.06); }
+    tr:not(.owned) .invest { opacity: 0.35; pointer-events: none; }
+    .tier { font-size: 0.75rem; color: var(--muted); }
+    .invest select, .invest input[type="number"] {
+      width: 4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.25rem;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+    }
+    .invest label { display: inline-flex; align-items: center; gap: 0.25rem; margin-right: 0.5rem; font-size: 0.8125rem; }
+    dialog {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 1rem;
+      max-width: 560px;
+      width: 90%;
+    }
+    dialog textarea {
+      width: 100%;
+      min-height: 200px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: ui-monospace, monospace;
+      font-size: 0.8125rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+    .dialog-actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; justify-content: flex-end; flex-wrap: wrap; }
+    .dialog-field { margin-bottom: 0.75rem; }
+    .dialog-field label { display: block; font-size: 0.8125rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .dialog-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .dialog-row label.toggle { font-size: 0.8125rem; }
+    .scope-options { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.875rem; margin: 0.75rem 0; }
+    .bulk-preview { font-size: 0.8125rem; color: var(--muted); margin-top: 0.5rem; }
+    .empty { text-align: center; padding: 2rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>COTC Tactician — Player Roster</h1>
+      <div class="meta">File: <strong id="roster-path">—</strong> · Owned: <strong id="owned-count">0</strong></div>
+    </div>
+    <div style="display:flex;gap:0.5rem;">
+      <button type="button" id="btn-import" class="secondary">Import YAML</button>
+      <button type="button" id="btn-export" class="secondary">Export YAML</button>
+      <button type="button" id="btn-save">Save</button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search name or ID…" autocomplete="off" />
+    <select id="filter-job">
+      <option value="">All jobs</option>
+    </select>
+    <select id="filter-rarity">
+      <option value="">All rarities</option>
+      <option value="5">5★</option>
+      <option value="4">4★</option>
+      <option value="3">3★</option>
+    </select>
+    <label class="toggle"><input type="checkbox" id="owned-only" /> Owned only</label>
+    <button type="button" id="btn-select-all" class="secondary">Select all</button>
+    <button type="button" id="btn-deselect-all" class="secondary">Deselect all</button>
+    <button type="button" id="btn-bulk-invest" class="secondary">Bulk investment</button>
+    <span id="status"></span>
+  </div>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Owned</th>
+          <th>Name</th>
+          <th>Job</th>
+          <th>Tier</th>
+          <th>Investment (A / AU / Ult)</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="empty" id="empty-msg" hidden>No characters match filters.</p>
+  </main>
+
+  <dialog id="import-dialog">
+    <h3 style="margin-top:0;">Import roster YAML</h3>
+    <p style="font-size:0.875rem;color:var(--muted);">Paste roster YAML. Merge keeps existing entries; replace overwrites all.</p>
+    <textarea id="import-text"></textarea>
+    <div class="dialog-actions">
+      <label class="toggle"><input type="checkbox" id="import-merge" /> Merge</label>
+      <button type="button" class="secondary" id="import-cancel">Cancel</button>
+      <button type="button" id="import-confirm">Import</button>
+    </div>
+  </dialog>
+
+  <dialog id="bulk-dialog">
+    <h3 style="margin-top:0;">Bulk investment update</h3>
+    <p style="font-size:0.875rem;color:var(--muted);margin:0 0 0.75rem;">
+      Apply awakening, AU, and/or ult to many owned characters at once. Uncheck a field to leave it unchanged.
+    </p>
+    <div class="dialog-row">
+      <label class="toggle"><input type="checkbox" id="bulk-set-awakening" checked /> Awakening</label>
+      <select id="bulk-awakening"></select>
+      <label class="toggle"><input type="checkbox" id="bulk-set-au" checked /> AU</label>
+      <label class="toggle"><input type="checkbox" id="bulk-au" /> Has AU</label>
+      <label class="toggle"><input type="checkbox" id="bulk-set-ult" checked /> Ult</label>
+      <select id="bulk-ult"></select>
+    </div>
+    <div class="scope-options">
+      <label class="toggle"><input type="radio" name="bulk-scope" value="all-owned" checked /> All owned characters</label>
+      <label class="toggle"><input type="radio" name="bulk-scope" value="filtered-owned" /> Owned characters matching current filters</label>
+    </div>
+    <p class="bulk-preview" id="bulk-preview">—</p>
+    <div class="dialog-actions">
+      <button type="button" class="secondary" id="bulk-cancel">Cancel</button>
+      <button type="button" id="bulk-apply">Apply</button>
+    </div>
+  </dialog>
+
+  <dialog id="export-dialog">
+    <h3 style="margin-top:0;">Export roster YAML</h3>
+    <textarea id="export-text" readonly></textarea>
+    <div class="dialog-actions">
+      <button type="button" class="secondary" id="export-close">Close</button>
+      <button type="button" id="export-copy">Copy</button>
+    </div>
+  </dialog>
+
+  <script>
+    const state = {
+      characters: [],
+      roster: {},
+      path: "",
+      dirty: false,
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    function defaultEntry() {
+      return { awakening: 0, au: false, ult_level: 0 };
+    }
+
+    const ULT_LEVELS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20];
+
+    function fillSelectOptions(select, values, labels) {
+      select.innerHTML = values.map((v, i) => {
+        const label = labels ? labels[i] : v;
+        return `<option value="${v}">${label}</option>`;
+      }).join("");
+    }
+
+    function initBulkDialog() {
+      fillSelectOptions($("bulk-awakening"), [0, 1, 2, 3, 4]);
+      fillSelectOptions(
+        $("bulk-ult"),
+        ULT_LEVELS,
+        ULT_LEVELS.map((n) => (n === 0 ? "0" : String(n))),
+      );
+    }
+
+    function bulkTargetIds() {
+      const scope = document.querySelector('input[name="bulk-scope"]:checked')?.value;
+      if (scope === "filtered-owned") {
+        return filteredCharacters()
+          .filter((c) => state.roster[c.id])
+          .map((c) => c.id);
+      }
+      return Object.keys(state.roster);
+    }
+
+    function updateBulkPreview() {
+      const ids = bulkTargetIds();
+      $("bulk-preview").textContent =
+        ids.length === 0
+          ? "No owned characters match this scope."
+          : `Will update ${ids.length} character${ids.length === 1 ? "" : "s"}.`;
+    }
+
+    function applyBulkInvestment() {
+      const ids = bulkTargetIds();
+      if (ids.length === 0) {
+        alert("No owned characters to update for the selected scope.");
+        return;
+      }
+
+      const setA = $("bulk-set-awakening").checked;
+      const setAu = $("bulk-set-au").checked;
+      const setUlt = $("bulk-set-ult").checked;
+      if (!setA && !setAu && !setUlt) {
+        alert("Select at least one field to update.");
+        return;
+      }
+
+      const awakening = Number($("bulk-awakening").value);
+      const au = $("bulk-au").checked;
+      const ult = Number($("bulk-ult").value);
+
+      ids.forEach((id) => {
+        const entry = state.roster[id] || defaultEntry();
+        if (setA) entry.awakening = awakening;
+        if (setAu) entry.au = au;
+        if (setUlt) entry.ult_level = ult;
+        state.roster[id] = entry;
+      });
+
+      state.dirty = true;
+      $("bulk-dialog").close();
+      render();
+      setStatus(`Updated investment for ${ids.length} character${ids.length === 1 ? "" : "s"}`, "ok");
+    }
+
+    function openBulkDialog() {
+      updateBulkPreview();
+      $("bulk-dialog").showModal();
+    }
+
+    function setStatus(msg, kind = "") {
+      const el = $("status");
+      el.textContent = msg;
+      el.className = kind;
+    }
+
+    async function loadAll() {
+      const [charsRes, rosterRes] = await Promise.all([
+        fetch("/api/characters"),
+        fetch("/api/roster"),
+      ]);
+      state.characters = await charsRes.json();
+      const rosterData = await rosterRes.json();
+      state.roster = rosterData.characters || {};
+      state.path = rosterData.path || "";
+      $("roster-path").textContent = state.path;
+      updateOwnedCount();
+
+      const jobs = [...new Set(state.characters.map((c) => c.job))].sort();
+      const jobSel = $("filter-job");
+      jobSel.innerHTML = '<option value="">All jobs</option>';
+      jobs.forEach((j) => {
+        const o = document.createElement("option");
+        o.value = j;
+        o.textContent = j;
+        jobSel.appendChild(o);
+      });
+      render();
+    }
+
+    function filteredCharacters() {
+      const q = $("search").value.trim().toLowerCase();
+      const job = $("filter-job").value;
+      const rarity = $("filter-rarity").value;
+      const ownedOnly = $("owned-only").checked;
+
+      return state.characters.filter((c) => {
+        if (ownedOnly && !state.roster[c.id]) return false;
+        if (job && c.job !== job) return false;
+        if (rarity && String(c.rarity) !== rarity) return false;
+        if (q) {
+          const hay = `${c.display_name} ${c.id}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    function render() {
+      const tbody = $("rows");
+      tbody.innerHTML = "";
+      const list = filteredCharacters();
+      $("empty-msg").hidden = list.length > 0;
+
+      list.forEach((c) => {
+        const owned = !!state.roster[c.id];
+        const entry = state.roster[c.id] || defaultEntry();
+        const tr = document.createElement("tr");
+        if (owned) tr.classList.add("owned");
+
+        const tier = c.gl_tier || c.jp_tier || "—";
+
+        tr.innerHTML = `
+          <td><input type="checkbox" data-id="${c.id}" class="own-cb" ${owned ? "checked" : ""} /></td>
+          <td><div>${escapeHtml(c.display_name)}</div><div class="tier">${escapeHtml(c.id)}</div></td>
+          <td>${escapeHtml(c.job)}</td>
+          <td>${escapeHtml(tier)}</td>
+          <td class="invest">
+            <label>A<select data-id="${c.id}" data-field="awakening">${[0,1,2,3,4].map((n) =>
+              `<option value="${n}" ${entry.awakening === n ? "selected" : ""}>${n}</option>`
+            ).join("")}</select></label>
+            <label><input type="checkbox" data-id="${c.id}" data-field="au" ${entry.au ? "checked" : ""} /> AU</label>
+            <label>Ult<select data-id="${c.id}" data-field="ult_level">${ULT_LEVELS.map((n) =>
+              `<option value="${n}" ${entry.ult_level === n ? "selected" : ""}>${n === 0 ? "0" : n}</option>`
+            ).join("")}</select></label>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      tbody.querySelectorAll(".own-cb").forEach((cb) => {
+        cb.addEventListener("change", (e) => {
+          const id = e.target.dataset.id;
+          if (e.target.checked) {
+            state.roster[id] = state.roster[id] || defaultEntry();
+          } else {
+            delete state.roster[id];
+          }
+          state.dirty = true;
+          updateOwnedCount();
+          render();
+        });
+      });
+
+      tbody.querySelectorAll(".invest select, .invest input").forEach((el) => {
+        el.addEventListener("change", (e) => {
+          const id = e.target.dataset.id;
+          const field = e.target.dataset.field;
+          if (!state.roster[id]) return;
+          if (field === "au") {
+            state.roster[id].au = e.target.checked;
+          } else {
+            state.roster[id][field] = Number(e.target.value);
+          }
+          state.dirty = true;
+        });
+      });
+    }
+
+    function updateOwnedCount() {
+      $("owned-count").textContent = Object.keys(state.roster).length;
+    }
+
+    function selectAllCharacters() {
+      let added = 0;
+      state.characters.forEach((c) => {
+        if (!state.roster[c.id]) {
+          state.roster[c.id] = defaultEntry();
+          added += 1;
+        }
+      });
+      state.dirty = true;
+      updateOwnedCount();
+      render();
+      setStatus(
+        added ? `Selected all (${added} added, ${Object.keys(state.roster).length} total)` : "All characters already selected",
+        added ? "ok" : "",
+      );
+    }
+
+    function deselectAllCharacters() {
+      const count = Object.keys(state.roster).length;
+      if (count === 0) return;
+      if (!confirm(`Remove all ${count} characters from your roster?`)) return;
+      state.roster = {};
+      state.dirty = true;
+      updateOwnedCount();
+      render();
+      setStatus("Cleared roster", "ok");
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    async function saveRoster() {
+      setStatus("Saving…");
+      const body = {
+        schema_version: "1.0",
+        characters: state.roster,
+      };
+      const res = await fetch("/api/roster", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        setStatus(err.detail || "Save failed", "err");
+        return;
+      }
+      const data = await res.json();
+      state.roster = data.characters || {};
+      state.dirty = false;
+      updateOwnedCount();
+      setStatus("Saved", "ok");
+      setTimeout(() => setStatus(""), 2000);
+    }
+
+    $("btn-save").addEventListener("click", saveRoster);
+    $("search").addEventListener("input", render);
+    $("filter-job").addEventListener("change", render);
+    $("filter-rarity").addEventListener("change", render);
+    $("owned-only").addEventListener("change", render);
+    $("btn-select-all").addEventListener("click", selectAllCharacters);
+    $("btn-deselect-all").addEventListener("click", deselectAllCharacters);
+    $("btn-bulk-invest").addEventListener("click", openBulkDialog);
+    $("bulk-cancel").addEventListener("click", () => $("bulk-dialog").close());
+    $("bulk-apply").addEventListener("click", applyBulkInvestment);
+    document.querySelectorAll('input[name="bulk-scope"]').forEach((el) => {
+      el.addEventListener("change", updateBulkPreview);
+    });
+
+    initBulkDialog();
+
+    $("btn-import").addEventListener("click", () => {
+      $("import-text").value = "";
+      $("import-merge").checked = false;
+      $("import-dialog").showModal();
+    });
+    $("import-cancel").addEventListener("click", () => $("import-dialog").close());
+    $("import-confirm").addEventListener("click", async () => {
+      const content = $("import-text").value;
+      const merge = $("import-merge").checked;
+      const res = await fetch(`/api/roster/import?merge=${merge}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        alert(err.detail || "Import failed");
+        return;
+      }
+      const data = await res.json();
+      state.roster = data.characters || {};
+      state.path = data.path || state.path;
+      $("import-dialog").close();
+      updateOwnedCount();
+      state.dirty = false;
+      render();
+      setStatus("Imported", "ok");
+    });
+
+    $("btn-export").addEventListener("click", async () => {
+      const res = await fetch("/api/roster/export");
+      const data = await res.json();
+      $("export-text").value = data.yaml || "";
+      $("export-dialog").showModal();
+    });
+    $("export-close").addEventListener("click", () => $("export-dialog").close());
+    $("export-copy").addEventListener("click", async () => {
+      await navigator.clipboard.writeText($("export-text").value);
+      setStatus("Copied to clipboard", "ok");
+      $("export-dialog").close();
+    });
+
+    window.addEventListener("beforeunload", (e) => {
+      if (state.dirty) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    });
+
+    loadAll().catch((err) => setStatus(String(err), "err"));
+  </script>
+</body>
+</html>

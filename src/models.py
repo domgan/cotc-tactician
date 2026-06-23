@@ -952,6 +952,27 @@ class BossQuery(BaseModel):
     constraints: str | None = None  # Any specific constraints
 
 
+# =============================================================================
+# PLAYER ROSTER
+# =============================================================================
+
+
+class RosterEntry(BaseModel):
+    """One owned character with investment level."""
+
+    awakening: int = Field(default=0, ge=0, le=4)
+    au: bool = False
+    ult_level: int = Field(default=0, ge=0, le=20)
+
+
+class PlayerRoster(BaseModel):
+    """User-owned characters persisted in ~/.cotc-tactician/roster.yaml."""
+
+    schema_version: str = "1.0"
+    last_updated: date | None = None
+    characters: dict[str, RosterEntry] = Field(default_factory=dict)
+
+
 class MechanicAnalysis(BaseModel):
     """Analysis of a single mechanic."""
 

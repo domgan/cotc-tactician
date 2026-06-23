@@ -31,8 +31,13 @@ cotc-tactician/
 │   ├── retrieval.py        # Retrieval service (combines loader + vectors)
 │   ├── prompts.py          # System prompt and templates
 │   ├── pipeline.py         # Main reasoning pipeline
+│   ├── roster.py           # Player roster load/save + team feasibility
+│   ├── roster_ui/          # Local web UI (cotc-tactician roster-ui)
+│   ├── team_guide.py       # Loads llm_guidelines.yaml for MCP get_team_building_guide
 │   ├── mcp_server.py       # MCP server for Cursor/Claude integration
 │   └── main.py             # CLI entry point
+├── config/
+│   └── roster.example.yaml # Example player roster template
 ├── scripts/
 │   └── import_characters_from_csv.py  # CSV to YAML converter
 ├── data/
@@ -56,6 +61,7 @@ Pydantic models for all game entities:
 - `Character`: Player characters with skills, roles, synergies
 - `Boss`: Enemy encounters with mechanics, weaknesses, phases
 - `Team`: Proven team compositions for specific bosses
+- `PlayerRoster` / `RosterEntry`: Saved player ownership + investment (awakening, AU, ult)
 
 Each model has:
 - `get_embedding_text()`: Returns text for vector embedding
@@ -238,7 +244,41 @@ Supports two LLM backends:
 - `OpenAIClient`: Uses OpenAI API
 - `OllamaClient`: Uses local Ollama
 
-### 7. MCP Server (`src/mcp_server.py`)
+CLI `compose` auto-loads `~/.cotc-tactician/roster.yaml` when `--chars` is omitted.
+
+### 7b. Player Roster (`src/roster.py`)
+
+Optional per-player ownership file at `~/.cotc-tactician/roster.yaml` (`COTC_ROSTER_FILE` override).
+
+```python
+from src.roster import (
+    resolve_roster,
+    battle_skill_slot_count,
+    score_team_feasibility,
+    teams_for_roster,
+)
+
+# filter_ids None = no roster filter (full character pool)
+filter_ids, roster = resolve_roster(None, known_ids=known_character_ids)
+
+# Awakening 0-1 → 3 battle slots; awakening 2+ → 4 (4th unlocks at Stage II)
+slots = battle_skill_slot_count(entry.awakening)
+```
+
+Key behaviors:
+- **Lenient load**: unknown character IDs dropped with warnings
+- **Strict write**: upsert/save rejects unknown IDs
+- **No in-memory cache**: disk read fresh on each MCP/CLI call
+- **Feasibility scoring**: proven teams ranked by owned chars + investment gaps
+
+Primary UX: `cotc-tactician roster-ui` (FastAPI + static HTML in `src/roster_ui/`).
+
+### 7c. Team Guide (`src/team_guide.py`)
+
+Parses `data/reference/llm_guidelines.yaml` into the dict returned by `get_team_building_guide`
+(party structure, role priorities, EX scaling, **skill_loadout_guidance**, common mistakes).
+
+### 8. MCP Server (`src/mcp_server.py`)
 
 Alternative interface using Model Context Protocol (MCP) for Cursor/Claude integration.
 Instead of using paid LLM APIs, you can use Claude in Cursor as the reasoning engine.
@@ -264,20 +304,56 @@ cotc-tactician mcp-serve
 
 | Tool | Description |
 |------|-------------|
-| `get_team_building_guide` | **CALL FIRST** - Party structure, roles, EX scaling (from `llm_guidelines.yaml`) |
+| `get_team_building_guide` | **CALL FIRST** - Party structure, roles, skill loadout rules, EX scaling |
 | `search_characters` | Semantic search for characters by query |
-| `get_character` | Get full character details (skills, passives, stats) |
+| `get_character` | Full details; includes `investment.battle_skill_slots` when roster configured |
 | `find_by_weakness` | Find characters covering specific weaknesses |
 | `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
 | `list_by_role` | Exact match on character `roles` field (tank, healer, debuffer, etc.) |
 | `get_team_suggestions` | Suggest characters for a boss fight |
-| `get_proven_teams` | Get human-curated proven team comps for a boss |
+| `get_proven_teams` | Human-curated proven team comps; roster feasibility when configured |
 | `list_all_character_ids` | List all available character IDs |
 | `get_database_stats` | Get indexed entity counts |
 | `search_bosses` | Search for bosses by description |
 | `get_boss` | Get full boss details (mechanics, weaknesses, strategy) |
 | `list_all_boss_ids` | List all available boss IDs |
-| `plan_team_for_boss` | Strategic team planning (8 chars); proven_teams, weakness/role gaps |
+| `plan_team_for_boss` | Team planning: proven_teams, weakness/role picks, `skill_loadout_guidance` |
+| `get_my_roster` | Get saved roster — **call before personalized planning** |
+| `set_roster_characters` | Upsert owned characters + investment (awakening/AU/ult) |
+| `remove_roster_characters` | Remove characters from saved roster |
+| `import_roster_yaml_content` | Import roster from YAML (replace or merge) |
+
+**Roster filtering (`plan_team_for_boss`, `get_proven_teams`, etc.):**
+
+| Field | Meaning |
+|-------|---------|
+| `roster_applied: true` | Saved roster loaded; recommendations limited to owned IDs |
+| `roster_applied: false` | No roster file or empty — **full database** (not a bug) |
+| `recommendation_pool: "roster"` | Weakness/role picks are owned characters only |
+| `recommendation_pool: "full_database"` | Picks may include units the player does not own |
+
+Always check `roster_applied` / `recommendation_pool` before treating `recommended_characters`
+as owned. When unfiltered, call `get_my_roster()` or pass `available_characters` explicitly.
+
+**Roster UX:** Primary input is `cotc-tactician roster-ui` (local FastAPI web UI).
+File: `~/.cotc-tactician/roster.yaml` (`COTC_ROSTER_FILE` override). MCP tools auto-apply
+the saved roster when `available_characters` is omitted; explicit param overrides per call.
+No in-memory roster cache — disk is read fresh on each invocation.
+
+**Skill loadout recommendations (agents using MCP or compose):**
+
+Character YAML lists the **full kit** — not what to equip. Each character has **3–4 battle
+skill slots** depending on **their** roster awakening (A0–A1 = 3, A2+ = 4). Ultimate, EX, and
+TP are **separate** from battle slots.
+
+When recommending loadouts:
+- Assign **one skill per slot**, each with a distinct job (break, heal, buff, debuff, utility)
+- **Never** list multiple upgrade tiers of the same line as equipped (e.g. Swift Stab + Quad Shredder)
+- Use `investment.battle_skill_slots` from roster or `get_character` — do not assume 4 for everyone
+- Prefer proven team `key_skills_used` when present (intentional loadouts, not full kits)
+- See `skill_loadout_guidance` in `get_team_building_guide` / `plan_team_for_boss` output
+
+Compose pipeline `OUTPUT_SCHEMA` uses `equipped_skills` (slot assignments), not flat skill lists.
 
 **How it works:**
 1. Claude in Cursor calls these tools to retrieve game data
@@ -483,7 +559,7 @@ The `data/reference/` directory contains verified game mechanics knowledge:
 | `ex_mechanics.yaml` | EX fight mechanics (Adversary Log), HP scaling, auras |
 | `survival_strategies.yaml` | Tank archetypes (provoke, dodge, cover, HP barrier) |
 | `damage_stacking.yaml` | 5 multiplicative damage categories for speedkill |
-| `llm_guidelines.yaml` | **CRITICAL** - Party structure (8 chars), skill slots, EX scaling, common mistakes |
+| `llm_guidelines.yaml` | **CRITICAL** - Party structure (8 chars), skill loadout rules, roster behavior, EX scaling |
 
 ### Key Mechanics Summary
 
@@ -634,6 +710,9 @@ buff_category_coverage:
 4. **Validate data confidence**: Flag low-confidence recommendations
 5. **Test with empty data**: System should gracefully handle missing data
 6. **CSV-imported characters are incomplete**: They need skills, passives, and roles added manually
+7. **Listing full skill kits as loadouts**: Character data has all tiers — recommend one skill per battle slot only
+8. **Assuming 4 skill slots for everyone**: Slot count is per-character from roster awakening (A0–A1 = 3)
+9. **Ignoring `roster_applied`**: When false, `plan_team_for_boss` recommendations are the full database, not owned units
 
 ## Environment Setup
 

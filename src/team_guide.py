@@ -163,6 +163,36 @@ def _build_recommendation_format(fmt: dict[str, Any]) -> dict[str, Any]:
     return {"sections": numbered}
 
 
+def _build_skill_loadout_guidance(guidelines: dict[str, Any]) -> dict[str, Any]:
+    """Build skill loadout rules from llm_guidelines.yaml for MCP consumers."""
+    rules_block = guidelines.get("skill_loadout_rules", {})
+    slots = rules_block.get("battle_skill_slots", {})
+    slots_by_awakening = rules_block.get("slots_by_awakening", {}).get(
+        "mapping", {"0": 3, "1": 3, "2": 4, "3": 4, "4": 4}
+    )
+    # YAML may parse numeric keys as int or str
+    normalized_slots = {int(k): int(v) for k, v in slots_by_awakening.items()}
+    return {
+        "battle_skill_slots": {
+            "awakening_0_1": slots.get("awakening_0_1", 3),
+            "awakening_2_plus": slots.get("awakening_2_plus", 4),
+        },
+        "slots_by_awakening": normalized_slots,
+        "separate_from_slots": rules_block.get(
+            "separate_from_slots", ["ultimate", "ex_skill", "tp_skill"]
+        ),
+        "rules": rules_block.get("rules", []),
+        "upgrade_line_signals": rules_block.get("upgrade_line_signals", {}),
+        "format_example": rules_block.get("format_example", {}),
+        "instruction": (
+            "When recommending loadouts: use each character's awakening from roster "
+            "(investment.battle_skill_slots or slots_by_awakening) — A0-A1 = 3 slots, "
+            "A2+ = 4. Assign one active skill per slot; never stack upgrade tiers. "
+            "Note ultimate/EX/TP timing separately."
+        ),
+    }
+
+
 def load_team_building_guide(data_dir: Path) -> dict[str, Any]:
     """
     Build MCP team-building guide dict from reference YAML.
@@ -171,6 +201,7 @@ def load_team_building_guide(data_dir: Path) -> dict[str, Any]:
     """
     guidelines = _load_llm_guidelines_yaml(str(data_dir.resolve()))
     roles = guidelines.get("roles", {})
+    skill_loadout = _build_skill_loadout_guidance(guidelines)
 
     return {
         "party_structure": {
@@ -180,10 +211,12 @@ def load_team_building_guide(data_dir: Path) -> dict[str, Any]:
             "notes": "ALWAYS recommend 8 characters. Front row is active, back row swaps in.",
         },
         "skill_slots": {
-            "awakening_0_1": 3,
-            "awakening_2_plus": 4,
-            "notes": "Recommend specific skills to equip for each character.",
+            "awakening_0_1": skill_loadout["battle_skill_slots"]["awakening_0_1"],
+            "awakening_2_plus": skill_loadout["battle_skill_slots"]["awakening_2_plus"],
+            "separate_from_slots": skill_loadout["separate_from_slots"],
+            "notes": skill_loadout["instruction"],
         },
+        "skill_loadout_guidance": skill_loadout,
         "ex_scaling_patterns": EX_SCALING_PATTERNS,
         "role_priorities": _build_role_priorities(roles),
         "recommendation_format": _build_recommendation_format(

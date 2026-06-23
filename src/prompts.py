@@ -47,6 +47,15 @@ When making claims, cite the data:
 ### 6. Structured Output
 Always respond in the requested JSON format. Do not add fields or omit required fields.
 
+### 7. Skill Loadout Slots
+Battle skill slot count is PER CHARACTER from awakening (roster investment):
+- Awakening 0-1: 3 equip slots | Awakening 2+: 4 equip slots (4th unlocks at Stage II)
+- Use investment.battle_skill_slots when roster data is provided — do not assume 4 for everyone
+- Ultimate, EX, and TP are separate from battle slots
+- Assign exactly ONE active skill per slot — never list multiple upgrade tiers as equipped skills
+- Each slot needs a distinct job (break, heal, buff, debuff, utility)
+- Empty slots are valid (e.g. back-row ult bots). Note ultimate timing separately
+
 ## WHAT YOU CAN DO
 
 1. Analyze boss mechanics FROM the provided boss data
@@ -97,6 +106,11 @@ Analyze the boss encounter and propose team compositions.
 ### For ALL responses:
 - Use ONLY character IDs from AVAILABLE CHARACTERS
 - Cite specific skills and mechanics by name
+- For each character in a team, assign equipped_skills up to their battle_skill_slots
+  (3 at A0-A1, 4 at A2+ — from roster awakening when available)
+- Do NOT assign slot 4 for characters at awakening 0 or 1
+- Do NOT list multiple tiers of the same skill line as separate equipped slots
+- Note ultimate/EX/TP timing in ultimate_note — they are not battle slots
 - Flag any data gaps that affect your recommendations
 - Do not recommend characters not in the provided list
 
@@ -145,7 +159,25 @@ OUTPUT_SCHEMA = """{
           "position": 1,
           "character_id": "FROM available_characters",
           "role": "tank | healer | buffer | debuffer | breaker | dps",
-          "key_skills": ["skill names FROM that character's data"],
+          "awakening_assumed": "FROM roster investment or state assumption if unknown",
+          "battle_skill_slots": "3 if awakening 0-1, 4 if awakening 2+",
+          "equipped_skills": [
+            {
+              "slot": 1,
+              "skill_name": "exact name FROM character data OR null if empty",
+              "job": "break | heal | buff | debuff | utility",
+              "why": "Why this skill fills this slot"
+            }
+          ],
+          "ultimate_note": "When to use ult/EX/TP — separate from battle slots",
+          "skill_alternatives": [
+            {
+              "slot": 1,
+              "instead_of": "higher-tier skill name",
+              "use": "lower-tier or different pick FROM same character data",
+              "when": "If investment unknown or skill not owned"
+            }
+          ],
           "why_selected": "Reasoning citing specific character data",
           "substitutes": ["other character_ids that could fill this role"],
           "substitute_tradeoffs": "What changes with substitution"

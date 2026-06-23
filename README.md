@@ -110,7 +110,29 @@ uv run cotc-tactician compose --desc "Boss with party-wide nuke every 5 turns, w
 
 # With specific available characters
 uv run cotc-tactician compose --boss example-boss --chars "char1,char2,char3"
+
+# With saved roster (auto-loaded when --chars omitted and ~/.cotc-tactician/roster.yaml exists)
+uv run cotc-tactician compose --boss example-boss
 ```
+
+### Player Roster
+
+Manage owned characters locally for personalized team recommendations:
+
+```bash
+# Install UI dependencies (one time)
+uv sync --extra ui
+
+# Launch roster manager (opens browser at http://127.0.0.1:8787)
+uv run cotc-tactician roster-ui
+
+# Dev mode: reload when editing src/roster_ui/
+uv run cotc-tactician roster-ui --reload
+```
+
+Roster is stored at `~/.cotc-tactician/roster.yaml` (override with `COTC_ROSTER_FILE`).
+See `config/roster.example.yaml` for the schema. When configured, MCP tools and `compose`
+auto-filter recommendations to your roster; omit `--chars` on compose to use the saved file.
 
 ## Usage Options
 
@@ -166,6 +188,7 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 |---------|-------------|
 | `index` | Index game data into vector database |
 | `compose` | Compose a team for a boss encounter |
+| `roster-ui` | Local web UI to manage your character roster |
 | `mcp-serve` | Start MCP server for Cursor/Claude integration |
 | `list-bosses` | List all indexed bosses |
 | `list-characters` | List all indexed characters |
@@ -198,9 +221,17 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 |------|-------------|
 | `get_team_building_guide` | **CALL FIRST** - Party structure, roles, EX scaling (from reference YAML) |
 | `get_team_suggestions` | Suggest characters for a boss fight by weaknesses |
-| `get_proven_teams` | Human-curated proven team comps for a boss (prefer over inferred) |
+| `get_proven_teams` | Human-curated proven team comps; roster feasibility when configured |
 | `plan_team_for_boss` | Team planning with roster filtering, proven_teams, weakness/role gaps |
 | `check_buff_coverage` | Analyze buff/debuff stacking categories for a team |
+
+**Roster Tools:**
+| Tool | Description |
+|------|-------------|
+| `get_my_roster` | Get saved roster (owned units + awakening/AU/ult investment) |
+| `set_roster_characters` | Upsert owned characters in the saved roster |
+| `remove_roster_characters` | Remove characters from the saved roster |
+| `import_roster_yaml_content` | Import roster from YAML text (replace or merge) |
 
 **Utility:**
 | Tool | Description |
