@@ -62,6 +62,16 @@ mechanics:
       - "Pending in GL and often requested: Aviete, FF6 units, Molrusso EX."
     source: https://www.reddit.com/r/OctopathCotC/comments/1unk19u/octopath_traveler_cotc_tp_level_2_enhancement/
 
+auto_battle:
+  - topic: "Auto-battle physical team for most EX3"
+    characters: [mydia, richard-ex, final-emperor, stia, levina-ex2, molrusso-ex, phenn, aviete]
+    notes:
+      - "u/hayder83: front Mydia / Richard EX / Final Emperor / Stia, back Levina EX2. Mydia spams Shielding Mace with an SP regen relic; 'works for nearly every EX3'."
+      - "u/KeylessJo: Richard EX and Final Emperor as main DPS; Molrusso EX gives both Enlightened (Phenn loses it on auto). Auto uses EX/Ultimate on rounds 3, 5 and 7 (ultimate skipped if not learned). Auto swaps can keep main DPS in front if supports switch to the back row."
+      - "u/BrickSuccessful4703: include Aviete; Alaune EX, Kilns and Ogen can provide regen. Auto is fine for farming but a handicap on EX4; manual EX4 clears take 5-6 turns vs 50-60 on auto."
+      - "u/truejeff: auto teams are for farming (Ouma, Fortune, arena, XP/TP runs); some fights (e.g. Reime) still need manual play."
+    source: https://www.reddit.com/r/OctopathCotC/comments/1xe42aj/an_unoptimised_f2p_auto_battle_team_for_most/
+
 investment_priority:
   - topic: "A4 / AU priority (Saga era)"
     notes:

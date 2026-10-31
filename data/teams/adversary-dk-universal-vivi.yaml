@@ -52,10 +52,15 @@ front_line:
     character_id: tiziano
     role_in_team: utility
     is_required: false
-    substitutes: ["mydia"]
-    substitute_notes: "Mydia replaces Tiziano once available (extra hit count + shield shave)"
-    key_skills_used: []
-    accessory_requirements: ["120 Adventurer Pack artifact if DP passive OFF"]
+    substitutes: ["mydia", "o-odio"]
+    substitute_notes: |
+      Job: act before Dark Knight and fire his ultimate, then DK overkills him (author: if DP's
+      passive makes Signa faster, "Dark Knight kill[s] him before he gets to ult"). Battle skills
+      matter little. Author: Canary and Tiziano "fall into irrelevancy once Mydia/6* Odio.O drop".
+      Revive: DP's start-of-battle encore (passive ON) or the 120 Adventurer Pack artifact
+      (Cascade "Mighty Foe of the Otherworld" 100 pts, after the BD2 collab story).
+    key_skills_used: ["Ultimate (before DK overkill)"]
+    accessory_requirements: ["120 Adventurer Pack artifact if DP passive OFF or DP absent"]
     awakening_required: 3
 
   - position: 4
@@ -63,7 +68,10 @@ front_line:
     role_in_team: breaker
     is_required: false
     substitutes: ["mydia"]
-    substitute_notes: "Mydia replaces Canary for shield shave; Canary acts T1/T3/T4 per guide"
+    substitute_notes: |
+      Mydia replaces Canary: in front row she gives every attacker 2 extra hits based on the
+      attacker's stats (author: Pardis becomes a 10-hitter, DK hits 17 times) and has a skill
+      that implants Staff weakness on every hit. Canary acts T1/T3/T4 per guide.
     key_skills_used: []
     accessory_requirements: []
     awakening_required: 3
@@ -83,9 +91,10 @@ back_line:
     character_id: dark-priestess
     role_in_team: buffer
     is_required: true
-    substitutes: ["molrusso-ex"]
+    substitutes: ["molrusso-ex", "kilns"]
     substitute_notes: |
-      No direct replacement except Kilns on sword/dark fights or Molrusso EX long-term.
+      No direct replacement. Kilns only on fights already weak to sword/dark (gives DK and Pardis
+      a 30% active Atk buff). Molrusso EX plays a similar universal weakness-exploit role.
       Turn OFF passive if Signa outruns Tiziano; OR keep passive ON and DK kill T1
       removes ally Fatal Sentence debuffs (u/Square_Brick_9590).
     key_skills_used: ["Ultimate — all elemental exploits"]
@@ -182,4 +191,4 @@ author: community
 source_url: "https://www.reddit.com/r/OctopathCotC/comments/1prkptv/complete_guide_of_a_perfect_team_that_doesnt_take/"
 data_confidence: community_unverified
 last_verified: null
-last_updated: "2026-05-31"
+last_updated: "2026-10-31"
