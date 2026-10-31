@@ -20,6 +20,11 @@ provoke_immunity: true  # Immune to provoke
 
 # Scaled stats (EX1 = ~2x HP)
 shield_count: 12  # Increased from base 9, goes to 15 at HP 75%
+level: 120
+hp: 6305145
+speed: 434
+p_def: 630
+e_def: 566
 
 # HP-based thresholds (same pattern as base, scaled shields)
 hp_thresholds:
@@ -92,5 +97,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

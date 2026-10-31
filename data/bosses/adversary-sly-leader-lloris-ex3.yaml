@@ -24,6 +24,8 @@ provoke_immunity: true
 shield_count: 30
 hp: 1143210
 speed: 481
+p_def: 217
+e_def: 227
 
 enemies:
   - name: "Sly Leader Lloris"
@@ -105,5 +107,5 @@ required_roles:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Adversary Log New spreadsheet"
+data_source: "Adversary Log New spreadsheet; Adversary Log New spreadsheet (Solistia Lvl 25)"
 last_updated: 2026-01-04

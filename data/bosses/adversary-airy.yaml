@@ -65,11 +65,13 @@ required_roles:
     reason: "Deal damage during break windows"
 
 general_strategy: |
-  TODO: Add strategy notes for this fight.
+  - Gains permanent 30k hp/turn regen at around 50% health or below
+  - Probably won't be doing this until my spear DPS is good enough to 1 break from 50% (2,295,390) HP, no real point in doing this otherwise since relatively easy fight to understand
+  - Action pattern and actions don't seem to change based on HP%?
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
 data_confidence: incomplete
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) Fight Notes"
 last_updated: 2025-12-22

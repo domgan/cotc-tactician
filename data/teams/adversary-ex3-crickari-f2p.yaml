@@ -5,7 +5,8 @@ schema_version: "1.0"
 
 id: adversary-ex3-crickari-f2p
 name: "Crickari F2P Universal EX3"
-boss_id: general-difficult-content
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: low_investment
 investment_level: low
@@ -57,7 +58,7 @@ front_line:
     character_id: billy
     role_in_team: debuffer
     is_required: false
-    substitutes: ["jose"]
+    substitutes: ["jos"]
     substitute_notes: |
       Billy provides ultimate defense debuff. Community alt: Jose (elem def ult) +
       4★ Levan A4 (10% light res on break) for higher Hikari EX damage.

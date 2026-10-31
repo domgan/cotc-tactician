@@ -23,10 +23,10 @@ provoke_immunity: true
 # ===========================================================================
 shield_count: 40
 hp: 12745941
-speed: 890
+speed: 619
 p_atk: 2998
-p_def: 2864
-e_atk: 620
+p_def: 890
+e_atk: 2864
 e_def: 890
 
 weaknesses:
@@ -112,5 +112,6 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: theoretical
+data_notes: "2026-10-31: speed/p_def/e_atk held the sheet row's P.Def/E.Atk/Crit (890/2864/620); corrected to 619/890/2864."
 data_source: "Game8 JP - 宿敵の写記"
 last_updated: 2025-12-22

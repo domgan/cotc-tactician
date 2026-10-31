@@ -91,11 +91,13 @@ required_roles:
     reason: "Deal damage during break windows"
 
 general_strategy: |
-  TODO: Add strategy notes for this fight.
+  - A lot of RNG, but the ad should be 1 breakable with even a mediocre Axe roster if you have Bargello and Sonia. Hayes + Gertrude + Bargello + Sonia can do it.
+    - After that, it becomes very easy to survive and avoid the countdown
+    - The only problem is that if this fight takes more than 2 breaks on Herminia and 1 break on the ad, you're likely going to run out of SP.
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
 data_confidence: incomplete
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) Fight Notes"
 last_updated: 2025-12-22

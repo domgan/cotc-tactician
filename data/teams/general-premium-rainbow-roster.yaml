@@ -5,7 +5,8 @@ schema_version: "1.0"
 
 id: general-premium-rainbow-roster
 name: "Premium Rainbow Roster (Full Investment)"
-boss_id: general-difficult-content
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: speed_clear
 investment_level: whale

@@ -14,9 +14,14 @@ location: "Arena (闘技大会)"
 # ===========================================================================
 # EX FIGHT / ADVERSARY LOG INFO
 # ===========================================================================
-ex_rank: base  # This is the base arena version
 actions_per_turn: 1  # Gains double actions at HP ≤50%
 provoke_immunity: true  # Assumed provoke immune
+level: 95
+shield_count: 26
+hp: 314160
+speed: 311
+p_def: 131
+e_def: 118
 
 # HP-based thresholds
 hp_thresholds:
@@ -257,5 +262,5 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Game8 JP"
+data_source: "Game8 JP; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

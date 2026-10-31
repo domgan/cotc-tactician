@@ -24,6 +24,8 @@ hp: 3831636
 speed: 584
 p_atk: 3159
 e_atk: 3422
+p_def: 207
+e_def: 175
 
 weaknesses:
   elements:
@@ -83,5 +85,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) - Lv. 1~"
 last_updated: 2025-12-23

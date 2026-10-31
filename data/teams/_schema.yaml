@@ -31,10 +31,22 @@ fields:
     example: "Fire Magic Burst Team"
 
   boss_id:
-    type: string
-    required: true
+    type: string | null
+    required: false
     source: "[HUMAN-REQUIRED]"
-    description: "Reference to boss this team is designed for"
+    description: "Boss this team is designed for. null = universal team (set applies_to)"
+
+  applies_to:
+    type: list[string]
+    required: "when boss_id is null"
+    source: "[HUMAN-REQUIRED]"
+    description: "Content types a universal team is offered for (e.g. adversary_log, npc_battle)"
+
+  unresolved_character_ids:
+    type: list[string]
+    required: false
+    source: "[HUMAN-REQUIRED]"
+    description: "Source names that match no data/characters file yet; resolve, then remove"
 
   # ===========================================================================
   # CLASSIFICATION

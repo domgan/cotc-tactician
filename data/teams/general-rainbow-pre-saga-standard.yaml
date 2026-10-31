@@ -1,0 +1,66 @@
+# Standard Rainbow Team (Pre-Saga)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1x7uexb/guide_on_empress_and_rainbow_team/ (u/BrickSuccessful4703, 2026-10-16)
+# Community template, not a verified clear. Roles from curated character roles where present.
+
+schema_version: '1.0'
+id: general-rainbow-pre-saga-standard
+name: Standard Rainbow Team (Pre-Saga)
+boss_id: null
+applies_to:
+- adversary_log
+strategy_type: burst
+investment_level: high
+front_line:
+- position: 1
+  character_id: xerc
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 2
+  character_id: osvald
+  role_in_team: secondary_dps
+  is_required: true
+  substitutes: []
+- position: 3
+  character_id: alaune-ex2
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 4
+  character_id: lynette-ex
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+back_line:
+- position: 5
+  character_id: isla
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 6
+  character_id: aviete
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 7
+  character_id: edgar
+  role_in_team: buffer
+  is_required: false
+  substitutes:
+  - shana
+- position: 8
+  character_id: setzer
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+why_it_works: 'Author''s ''standard rainbow team before Saga'': Xerc/Isla, Osvald/Aviete, Alaune EX2/Edgar
+  (or Shana), Lynette EX/Setzer. Adding Final Empress: she takes a front slot, moving Lynette EX out (she
+  can stay as backline support per u/cockoissant''s test). Front/back follows the author''s pair order
+  (front = first of each pair).'
+key_synergies:
+- Rainbow weakness implants (Lynette EX, Setzer) feeding Xerc
+verified: false
+author: u/BrickSuccessful4703
+source_url: https://www.reddit.com/r/OctopathCotC/comments/1x7uexb/guide_on_empress_and_rainbow_team/
+data_confidence: community_unverified
+last_updated: '2026-10-31'

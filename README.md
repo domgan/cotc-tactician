@@ -87,7 +87,7 @@ uv run python scripts/merge_character_stats_from_csv.py
 uv run python scripts/import_skills_from_markdown.py
 
 # 4. Check data quality (junk skill names, truncated effects, empty roles)
-uv run python scripts/audit_character_data.py
+uv run python scripts/audit_data.py
 
 # 5. Reindex (optional: the MCP server reindexes automatically when data/ changes)
 uv run cotc-tactician index --force
@@ -98,6 +98,8 @@ Use `--dry-run` on any script to preview changes first.
 The skill importer only rewrites the block from `# Skills - parsed from markdown` down to
 the metadata section. Roles, notes and stacking categories above it are preserved. If you
 edit a kit by hand, delete that marker line so re-imports skip the file.
+
+What is still missing and how to fill it: [docs/CURATION.md](docs/CURATION.md).
 
 **Character pages on [NiaDB](https://meowdb.com/db/octopath-traveler-cotc)** are a good
 reference for curating roles and notes on single units. Their
@@ -214,6 +216,7 @@ and report `roster_applied` / `recommendation_pool`):
 | Tool | Description |
 |------|-------------|
 | `search_skill_effects` | Regex search over kit text (skills, EX, ultimate, passives, A4), e.g. "who in my roster lowers Elem. Def" |
+| `search_community_notes` | Community meta notes (stacking rules, A4/AU priority, slotting), flagged unverified |
 | `search_characters` | Semantic search over names, roles, notes, weakness coverage |
 | `get_character` | Full kit: every skill, passive, EX, ultimate, A4, glossary, buff/debuff categories |
 | `find_by_weakness` | Characters covering specific weaknesses (strongest JP tier first) |

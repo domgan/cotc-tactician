@@ -556,6 +556,26 @@ class RetrievalService:
 
         return teams
 
+    def get_universal_teams(self, boss: Boss) -> list[Team]:
+        """
+        Universal teams (no boss_id) whose applies_to covers this boss's content type.
+
+        Teams targeting the boss's EX rank come first.
+        """
+        if not self._teams_cache:
+            self.initialize()
+        teams = [
+            t
+            for t in self._teams_cache.values()
+            if t.boss_id is None and boss.content_type in t.applies_to
+        ]
+        teams.sort(key=lambda t: (t.target_ex_rank != boss.ex_rank, t.name))
+        return teams
+
+    def get_teams_for_planning(self, boss: Boss) -> list[Team]:
+        """Boss-specific proven teams followed by matching universal teams."""
+        return self.get_teams_for_boss(boss.id) + self.get_universal_teams(boss)
+
     def find_similar_teams(
         self,
         query: str,
@@ -632,8 +652,8 @@ class RetrievalService:
                     "complete" if boss.data_confidence.value == "verified" else "partial"
                 )
 
-                # Get proven teams for this boss
-                teams = self.get_teams_for_boss(boss_id)
+                # Get proven teams for this boss (plus matching universal teams)
+                teams = self.get_teams_for_planning(boss)
                 context["proven_teams"] = teams
                 context["data_completeness"]["proven_teams_available"] = len(teams) > 0
 
@@ -650,9 +670,10 @@ class RetrievalService:
             context["similar_bosses"] = similar
 
             # Find teams for similar bosses
-            for boss in similar:
-                teams = self.get_teams_for_boss(boss.id)
-                context["proven_teams"].extend(teams)
+            teams_by_id = {
+                team.id: team for boss in similar for team in self.get_teams_for_planning(boss)
+            }
+            context["proven_teams"].extend(teams_by_id.values())
 
             context["data_completeness"]["proven_teams_available"] = (
                 len(context["proven_teams"]) > 0

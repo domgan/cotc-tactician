@@ -1,0 +1,66 @@
+# Elemental Saga-Era Rainbow Team (Template)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/ (u/BrickSuccessful4703, 2026-10-07)
+# Community template, not a verified clear. Roles from curated character roles where present.
+
+schema_version: '1.0'
+id: general-saga-elemental-template
+name: Elemental Saga-Era Rainbow Team (Template)
+boss_id: null
+applies_to:
+- adversary_log
+strategy_type: burst
+investment_level: high
+front_line:
+- position: 1
+  character_id: xerc
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 2
+  character_id: alaune-ex2
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 3
+  character_id: osvald
+  role_in_team: secondary_dps
+  is_required: true
+  substitutes: []
+- position: 4
+  character_id: final-empress
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+back_line:
+- position: 5
+  character_id: rondo-ex
+  role_in_team: utility
+  is_required: false
+  substitutes:
+  - levina-ex2
+  - setzer
+- position: 6
+  character_id: rocbouquet
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 7
+  character_id: aviete
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 8
+  character_id: molrusso-ex
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+why_it_works: 'Elemental variant from the same thread: Xerc/Rondo EX (or Levina EX2/Setzer), Alaune EX2/Roc,
+  Osvald/Aviete, Empress/Mol EX. Lynette EX and Setzer are dropped in favor of Empress and Mol EX. Front/back
+  follows the author''s pair order (front = first of each pair).'
+key_synergies:
+- Empress Techniques + Rocbouquet Rancor buffs on an elemental rainbow core
+verified: false
+author: u/BrickSuccessful4703
+source_url: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/
+data_confidence: theoretical
+last_updated: '2026-10-31'

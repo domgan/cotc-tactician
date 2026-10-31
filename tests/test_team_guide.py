@@ -37,6 +37,7 @@ def test_load_team_building_guide_exposes_core_principles():
 
     assert "Player Roster" in principles
     assert "search_skill_effects" in principles["Effect-Level Search"]
+    assert "search_community_notes" in principles["Community Notes"]
 
 
 def test_load_team_building_guide_cached():

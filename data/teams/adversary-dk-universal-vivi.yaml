@@ -6,7 +6,8 @@ schema_version: "1.0"
 
 id: adversary-dk-universal-vivi
 name: "DK Universal Adversary Log (Vivi_Hallow)"
-boss_id: general-difficult-content
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: burst
 investment_level: high

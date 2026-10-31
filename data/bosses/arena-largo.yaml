@@ -13,9 +13,14 @@ location: "Arena (闘技大会)"
 # ===========================================================================
 # EX FIGHT / ADVERSARY LOG INFO
 # ===========================================================================
-ex_rank: base  # This is the base arena version
 actions_per_turn: 1  # Gains TRIPLE ACTIONS at HP ≤25% or Red/Blue robot dead!
 provoke_immunity: false  # Can use provoke initially
+level: 100
+shield_count: 27
+hp: 1201450
+speed: 374
+p_def: 162
+e_def: 162
 
 # HP-based thresholds
 hp_thresholds:
@@ -367,5 +372,5 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Game8 JP"
+data_source: "Game8 JP; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

@@ -12,6 +12,17 @@ base_boss_id: arena-yunnie
 ex_rank: ex1
 actions_per_turn: 1
 provoke_immunity: false
+level: 120
+shield_count: 30
+hp: 2790050
+speed: 499
+p_def: 506
+e_def: 430
+weaknesses:
+  weapons:
+    - sword
+    - axe
+    - fan
 
 hp_thresholds:
   - hp_percent: 75
@@ -58,5 +69,5 @@ recommended_weakness_coverage:
   - lightning
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

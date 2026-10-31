@@ -8,6 +8,8 @@
 id: "arena-varkyn-lad-no-sophia"
 name: "Lad's NO SOPHIA Team"
 boss_id: "arena-varkyn"
+# Source names with no matching character file (YouTube transcript spellings).
+unresolved_character_ids: [thame]
 
 # ===========================================================================
 # CLASSIFICATION
@@ -84,10 +86,10 @@ back_line:
     awakening_required: 4
 
   - position: 7
-    character_id: "agnes"
+    character_id: "agn-s"
     role_in_team: "healer"
     is_required: false
-    substitutes: ["shana", "nefty"]
+    substitutes: ["shana", "nephti"]
     substitute_notes: "Healer with raise capabilities"
     key_skills_used: ["Healing", "Raise"]
     accessory_requirements: ["Healing accessories"]
@@ -96,7 +98,7 @@ back_line:
 # ===========================================================================
 # SPEED ORDER
 # ===========================================================================
-speed_order: ["scarecrow", "trish", "sigrid", "millard", "pia", "viola", "agnes"]
+speed_order: ["scarecrow", "trish", "sigrid", "millard", "pia", "viola", "agn-s"]
 speed_tuning_notes: "Speed 285+ needed to outrun researcher. Most characters should be faster than adds."
 
 # ===========================================================================

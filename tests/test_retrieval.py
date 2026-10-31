@@ -2,6 +2,9 @@
 
 from pathlib import Path
 
+import pytest
+from pydantic import ValidationError
+
 from src.models import (
     Boss,
     Character,
@@ -9,6 +12,8 @@ from src.models import (
     Difficulty,
     Element,
     Enemy,
+    ExRank,
+    InvestmentLevel,
     Job,
     Passive,
     PassiveCategory,
@@ -17,6 +22,8 @@ from src.models import (
     SkillCategory,
     SkillTarget,
     SkillType,
+    StrategyType,
+    Team,
     Weaknesses,
     Weapon,
 )
@@ -303,6 +310,54 @@ def test_search_kit_effects_sources_match_all_and_roster():
     assert service.search_kit_effects(["lower", "Damage Limit"], match_all=True) == []
     assert service.search_kit_effects(["Phys. Def"], character_ids=["someone-else"]) == []
     assert service.search_kit_effects(["(unclosed"]) == []
+
+
+def _team(team_id: str, boss_id: str | None, applies_to=(), ex_rank=None) -> Team:
+    return Team(
+        id=team_id,
+        name=team_id,
+        boss_id=boss_id,
+        applies_to=list(applies_to),
+        target_ex_rank=ex_rank,
+        strategy_type=StrategyType.BURST,
+        investment_level=InvestmentLevel.MEDIUM,
+        front_line=[],
+        why_it_works="test",
+        key_synergies=[],
+    )
+
+
+def test_planning_teams_include_matching_universal_teams_after_boss_teams():
+    boss = Boss(
+        id="adversary-x-ex3",
+        display_name="X EX3",
+        content_type=ContentType.ADVERSARY_LOG,
+        difficulty=Difficulty.EXTREME,
+        ex_rank=ExRank.EX3,
+    )
+    service = _service([])
+    service._bosses_cache = {boss.id: boss}
+    service._teams_cache = {
+        t.id: t
+        for t in [
+            _team("universal-ex1", None, [ContentType.ADVERSARY_LOG], ExRank.EX1),
+            _team("universal-ex3", None, [ContentType.ADVERSARY_LOG], ExRank.EX3),
+            _team("arena-only", None, [ContentType.ARENA]),
+            _team("specific", boss.id),
+            _team("other-boss", "someone-else"),
+        ]
+    }
+
+    assert [t.id for t in service.get_teams_for_planning(boss)] == [
+        "specific",
+        "universal-ex3",
+        "universal-ex1",
+    ]
+
+
+def test_team_requires_boss_or_scope():
+    with pytest.raises(ValidationError):
+        _team("nowhere", None)
 
 
 def test_initialize_reloads_when_data_changes(tmp_path):

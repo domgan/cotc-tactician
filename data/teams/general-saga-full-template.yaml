@@ -1,0 +1,66 @@
+# Full Saga Team (Template)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/ (u/BrickSuccessful4703, 2026-10-07)
+# Community template, not a verified clear. Roles from curated character roles where present.
+
+schema_version: '1.0'
+id: general-saga-full-template
+name: Full Saga Team (Template)
+boss_id: null
+applies_to:
+- adversary_log
+strategy_type: burst
+investment_level: high
+front_line:
+- position: 1
+  character_id: final-empress
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 2
+  character_id: final-emperor
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 3
+  character_id: noel
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 4
+  character_id: molrusso-ex
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+back_line:
+- position: 5
+  character_id: rocbouquet
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 6
+  character_id: levina-ex2
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 7
+  character_id: aviete
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 8
+  character_id: tiziano-ex
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+why_it_works: 'Community template for the Romancing SaGa 2 era: Empress/Roc, Emperor/Levina EX2, Noel/Aviete,
+  Mol EX/Tiziano EX. Author: put damage-cap accessories on all three DPS (Remnants of Dark Desire on Noel,
+  physical orb or Eternal Blade of Flaw on Emperor, elemental orb on Empress). Written before Roc/Noel
+  were live in GL. Front/back follows the author''s pair order (front = first of each pair).'
+key_synergies:
+- Cap accessories on Empress, Emperor and Noel
+- Rocbouquet and Aviete provide party-wide support from the back
+verified: false
+author: u/BrickSuccessful4703
+source_url: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/
+data_confidence: theoretical
+last_updated: '2026-10-31'

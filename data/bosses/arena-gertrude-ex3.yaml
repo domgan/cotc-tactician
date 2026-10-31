@@ -23,11 +23,12 @@ provoke_immunity: true  # Immune to provoke
 # ===========================================================================
 shield_count: 16
 hp: 9457718
-speed: 819
+speed: 455
 p_atk: 4555
-p_def: 4054
-e_atk: 522
+p_def: 819
+e_atk: 4054
 e_def: 679
+level: 120
 
 # HP-based thresholds
 hp_thresholds:
@@ -125,5 +126,6 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_notes: "2026-10-31: speed/p_def/e_atk held the sheet row's P.Def/E.Atk/Crit (819/4054/522); corrected to 455/819/4054."
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

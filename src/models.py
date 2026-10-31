@@ -8,7 +8,7 @@ Fields are designed to be flexible for partial/incomplete data.
 from datetime import date
 from enum import Enum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 # =============================================================================
 # ENUMS
@@ -272,6 +272,7 @@ class ExRank(str, Enum):
     EX1 = "ex1"  # First EX rematch (~2x HP)
     EX2 = "ex2"  # Second EX rematch (~3x HP)
     EX3 = "ex3"  # Third EX rematch (~5x HP)
+    EX4 = "ex4"  # Fourth EX rank (live in GL since Oct 2026)
 
 
 class TankType(str, Enum):
@@ -758,6 +759,7 @@ class Boss(BaseModel):
 
     # Metadata
     data_confidence: DataConfidence = DataConfidence.INCOMPLETE
+    data_notes: str | None = None  # Provenance/corrections, e.g. values fixed from source rows
     data_source: str | None = None
     last_updated: date | None = None
 
@@ -838,7 +840,7 @@ class BuffPlan(BaseModel):
     """Buff stacking plan."""
 
     buff_type: str
-    sources: list[str]  # character IDs
+    sources: list[str]  # Free text: character IDs, pets, gear, passives
     target_cap: str | None = None
     timing: str
 
@@ -870,7 +872,11 @@ class Team(BaseModel):
     # Identity
     id: str
     name: str
-    boss_id: str
+    boss_id: str | None = None  # None = universal team, matched via applies_to
+    applies_to: list[ContentType] = Field(default_factory=list)
+
+    # Names from the source that match no character file (kept for human curation)
+    unresolved_character_ids: list[str] = Field(default_factory=list)
 
     # Classification
     strategy_type: StrategyType
@@ -915,6 +921,20 @@ class Team(BaseModel):
     last_verified: date | None = None
     last_updated: date | None = None
 
+    @model_validator(mode="after")
+    def _requires_boss_or_scope(self) -> "Team":
+        if not self.boss_id and not self.applies_to:
+            raise ValueError("team needs boss_id or applies_to (universal team)")
+        return self
+
+    def character_ids(self) -> list[str]:
+        """Every character ID referenced by slots, substitutes and speed order."""
+        ids = []
+        for slot in [*self.front_line, *self.back_line]:
+            ids.extend([slot.character_id, *slot.substitutes])
+        ids.extend(self.speed_order)
+        return ids
+
     def get_embedding_text(self) -> str:
         """Generate text for vector embedding."""
         parts = [
@@ -936,6 +956,7 @@ class Team(BaseModel):
         return {
             "id": self.id,
             "boss_id": self.boss_id,
+            "applies_to": [c.value for c in self.applies_to],
             "character_ids": all_character_ids,
             "strategy_type": self.strategy_type.value,
             "investment_level": self.investment_level.value,

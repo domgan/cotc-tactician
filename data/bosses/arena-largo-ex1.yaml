@@ -12,6 +12,18 @@ base_boss_id: arena-largo
 ex_rank: ex1
 actions_per_turn: 1  # Gains TRIPLE at HP ≤25%
 provoke_immunity: false
+level: 120
+shield_count: 33
+hp: 3063698
+speed: 483
+p_def: 552
+e_def: 552
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - dagger
+    - bow
 
 hp_thresholds:
   - hp_percent: 75
@@ -65,5 +77,5 @@ recommended_weakness_coverage:
   - staff
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

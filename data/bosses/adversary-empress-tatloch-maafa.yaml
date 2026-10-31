@@ -9,6 +9,11 @@ display_name: "Empress Tatloch & Maa'fa"
 content_type: adversary_log
 difficulty: very_hard
 level: 73
+shield_count: 26
+hp: 214100
+speed: 259
+p_def: 241
+e_def: 289
 
 # ===========================================================================
 # MULTI-ENEMY ENCOUNTER (2 bosses)
@@ -122,5 +127,5 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) - Lv. 50~"
 last_updated: 2025-12-22

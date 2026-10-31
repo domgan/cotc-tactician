@@ -92,11 +92,13 @@ required_roles:
     reason: "Deal damage during break windows"
 
 general_strategy: |
-  TODO: Add strategy notes for this fight.
+  - Entire fight can be completely dodged with any phys sidestep, but will need to quickly take out at least 1 ad for that to be sustainable
+    - Otherwise, Aedelgard + 30% Passive P. Def Up + 0 Active Down + a lot of HP should be sufficient
+  - With careful play, Aedelgard + Sidestep Pet + Hammy lets you hold out long enough to nuke down the ads, from which point you can't lose
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
 data_confidence: incomplete
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) Fight Notes"
 last_updated: 2025-12-22

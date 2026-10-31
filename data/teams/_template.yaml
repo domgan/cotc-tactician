@@ -9,7 +9,9 @@
 # ===========================================================================
 id: ""                    # [HUMAN-REQUIRED] unique-identifier (lowercase, hyphenated)
 name: ""                  # [HUMAN-REQUIRED] Descriptive team name
-boss_id: ""               # [HUMAN-REQUIRED] ID of the boss this team is for
+boss_id: ""               # [HUMAN-REQUIRED] ID of the boss this team is for (null = universal)
+applies_to: []            # Universal teams only: content types, e.g. [adversary_log]
+unresolved_character_ids: []  # Source names with no data/characters file yet
 
 # ===========================================================================
 # CLASSIFICATION

@@ -5,7 +5,8 @@ schema_version: "1.0"
 
 id: "dark-knight-black-priestess-team"
 name: "Dark Knight + Black Priestess Setup"
-boss_id: "general-difficult-content"
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: "burst"
 investment_level: "medium"
@@ -38,7 +39,7 @@ front_line:
     awakening_required: 4
 
   - position: 2
-    character_id: "black-priestess"
+    character_id: "dark-priestess"
     role_in_team: "buffer"
     is_required: true
     substitutes: []
@@ -64,7 +65,7 @@ back_line:
     awakening_required: 3
 
   - position: 6
-    character_id: "ex-primrose"
+    character_id: "primrose-ex"
     role_in_team: "buffer"
     is_required: true
     substitutes: []
@@ -126,9 +127,9 @@ turn_plan:
 
 speed_order:
   - "nona"
-  - "ex-primrose"
+  - "primrose-ex"
   - "dark-knight"
-  - "black-priestess"
+  - "dark-priestess"
   - "lucetta"
 
 speed_tuning_notes: "Black Priestess setup reduces setup time significantly"
@@ -140,7 +141,7 @@ buff_stacking:
     timing: "during break"
 
   - buff_type: "elemental_exploits"
-    sources: ["black-priestess"]
+    sources: ["dark-priestess"]
     target_cap: "100%"
     timing: "during break"
 

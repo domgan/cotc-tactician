@@ -27,7 +27,16 @@ hp_thresholds:
 # Multi-enemy encounter: Yan Long + Crows
 hp: 7346082           # Main boss
 shield_count: 30      # From CSV patterns
-speed: 675
+speed: 470
+level: 120
+p_def: 675
+e_def: 688
+weaknesses:
+  elements:
+    - light
+  weapons:
+    - sword
+    - polearm
 
 enemies:
   - name: "Yan Long"
@@ -120,5 +129,6 @@ recommended_weakness_coverage:
   - tome
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_notes: "2026-10-31: speed held the sheet row's P.Def (675); corrected to 470."
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

@@ -131,7 +131,9 @@ upgrades (`upgrades`, 6★ → `limit_break_upgrade`), differently named childre
 entries, headerless children are glossary terms (`unique_mechanics`) or skill meta (`notes`).
 Tier tags like `(Initial)`, `(3★)`, `(EX)` go to `unlock_tier`, never `name`. Only the region
 below `# Skills - parsed from markdown` is rewritten; hand-edited kits must drop that marker.
-Verify with `uv run python scripts/audit_character_data.py`.
+Verify with `uv run python scripts/audit_data.py`.
+
+Data gaps, priorities and source limits: `docs/CURATION.md` (numbers from `scripts/audit_data.py`).
 
 **NiaDB (meowdb.com)** is allowed as a curation reference for single units (facts/excerpts
 with the exact page URL in `data_source`). Do not crawl or bulk-import it without permission.
@@ -316,6 +318,7 @@ cotc-tactician mcp-serve
 |------|-------------|
 | `get_team_building_guide` | **CALL FIRST** - Party structure, roles, skill loadout rules, EX scaling |
 | `search_skill_effects` | Regex search over kit text (skills/TP/EX/ultimate/passives/A4); roster-default. Use for effect needs: Def down, Res down, Damage Limit, taunt, BP |
+| `search_community_notes` | Regex/character search over `data/reference/community/*.yaml` (meta, stacking rules, investment priority); results are `community_unverified` |
 | `search_characters` | Semantic search over names/roles/notes/weakness coverage (no skill text); roster-default |
 | `get_character` | Full kit incl. `unlock_tier`, upgrades, glossary (`unique_mechanics`), buff/debuff categories; `investment.battle_skill_slots` when roster configured |
 | `find_by_weakness` | Characters covering weaknesses, strongest JP tier first; roster-default |
@@ -377,7 +380,7 @@ Each scenario has two halves:
 - `steps` + `expect`: deterministic tool calls checked by `tests/test_mcp_scenarios.py`,
   which spawns `python -m src.mcp_server` over stdio with the fixture roster
   (`tests/mcp_scenarios/roster.yaml`, or no roster when `roster: none`). Assertions:
-  `equals`, `includes_ids`, `excludes_ids`, `ids_owned`, `min_items`, `contains_text`,
+  `equals`, `includes_ids`, `excludes_ids`, `ids_owned`, `min_items`, `min_value`, `contains_text`,
   `not_contains_text` (dotted paths, `*` fans out). Run: `uv run pytest tests/test_mcp_scenarios.py`.
 - `agent_prompt` + `agent_checks`: for an agent driving the **live** `cotc-tactician` MCP in
   Cursor against the user's real roster. The agent sends each prompt to itself (tool calls

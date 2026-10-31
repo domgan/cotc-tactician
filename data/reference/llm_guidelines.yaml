@@ -75,6 +75,14 @@ core_principles:
       call search_skill_effects over the roster and quote the returned "matched" text.
       Confirm the chosen skill fits the character's battle_skill_slots via get_character.
 
+  - name: "Community Notes"
+    description: |
+      Kits do not state meta rules (e.g. ultimate potency buffs not stacking, how to push a
+      debuff past 30%, A1/A4/AU priority, slotting advice). Call search_community_notes when
+      get_character reports community_notes_available > 0 or a stacking/priority question
+      comes up. Results are community_unverified: cite the source URL and label them as
+      community opinion. Kit text wins when they disagree.
+
 # =============================================================================
 # TEAM BUILDING STRUCTURE
 # =============================================================================

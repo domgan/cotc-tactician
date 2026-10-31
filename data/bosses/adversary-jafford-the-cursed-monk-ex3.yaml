@@ -24,6 +24,8 @@ provoke_immunity: true
 shield_count: 28
 hp: 2311702
 speed: 433
+p_def: 308
+e_def: 334
 
 enemies:
   - name: "Jafford the Cursed Monk"
@@ -163,5 +165,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Adversary Log New spreadsheet"
+data_source: "Adversary Log New spreadsheet; Adversary Log New spreadsheet (Solistia Lvl 75)"
 last_updated: 2026-01-04

@@ -22,6 +22,8 @@ level: 100
 shield_count: 52
 hp: 2605912
 speed: 438
+p_def: 191
+e_def: 167
 
 # WEAKNESS CYCLING: Swaps between two sets
 weakness_change_trigger: "Swaps between two weakness sets"
@@ -128,5 +130,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) - Lv. 25~"
 last_updated: 2025-12-23

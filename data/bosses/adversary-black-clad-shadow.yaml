@@ -64,11 +64,11 @@ required_roles:
     reason: "Deal damage during break windows"
 
 general_strategy: |
-  TODO: Add strategy notes for this fight.
+  - All physical attacks, aura is AOE 2x physical hit, inflict Blind (possibly silence too, but I had Rinyuu active so I don't know)
 
 # ===========================================================================
 # METADATA
 # ===========================================================================
 data_confidence: incomplete
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) Fight Notes"
 last_updated: 2025-12-22

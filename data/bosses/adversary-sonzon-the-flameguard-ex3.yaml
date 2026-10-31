@@ -24,6 +24,8 @@ provoke_immunity: true
 shield_count: 41
 hp: 8959991
 speed: 363
+p_def: 492
+e_def: 533
 
 enemies:
   - name: "Sonzon the Flameguard"
@@ -150,5 +152,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Adversary Log New spreadsheet"
+data_source: "Adversary Log New spreadsheet; Adversary Log New spreadsheet (Lvl 75)"
 last_updated: 2026-01-04

@@ -20,6 +20,15 @@ provoke_immunity: false
 hp: 4460250          # Tikilen main
 shield_count: 36     # Tikilen shields (reduces to 18 at 40% HP)
 speed: 484           # Estimated from CSV patterns
+level: 120
+p_def: 752
+e_def: 655
+weaknesses:
+  elements:
+    - light
+  weapons:
+    - bow
+    - fan
 
 enemies:
   - name: "Tikilen"
@@ -118,5 +127,5 @@ recommended_weakness_coverage:
   - lightning
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

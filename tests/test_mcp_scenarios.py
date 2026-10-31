@@ -77,6 +77,10 @@ def check_expectations(data: Any, expect: dict) -> list[str]:
         count = len(items(data, path))
         if count < minimum:
             failures.append(f"min_items {path}: expected >= {minimum}, got {count}")
+    for path, minimum in (expect.get("min_value") or {}).items():
+        values = select(data, path)
+        if len(values) != 1 or not isinstance(values[0], int | float) or values[0] < minimum:
+            failures.append(f"min_value {path}: expected a number >= {minimum}, got {values!r}")
     for needle in expect.get("contains_text") or []:
         if needle not in text:
             failures.append(f"contains_text: {needle!r} not found")

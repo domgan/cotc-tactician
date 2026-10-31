@@ -1,0 +1,76 @@
+# Adversary Log Boss: Rondo of the Knights Ardante
+# SOURCE: Adversary Log New spreadsheet (Lvl 75)
+#
+# Base version with Rank 1-3 variants.
+# See separate -ex1, -ex2, -ex3 files for EX variants.
+
+id: adversary-rondo-of-the-knights-ardante
+display_name: "Rondo of the Knights Ardante"
+content_type: adversary_log
+difficulty: extreme
+location: "Adversary Log (宿敵の写記)"
+
+# ===========================================================================
+# BASE STATS (Rank 1)
+# ===========================================================================
+shield_count: 9
+hp: 429120
+speed: 271
+p_atk: 1015
+p_def: 248
+e_atk: 1055
+e_def: 248
+
+
+# ===========================================================================
+# RANK VARIANTS (for progression)
+# ===========================================================================
+rank_variants:
+  rank1:
+    shield_count: 9
+    hp: 429120
+    speed: 271
+
+# ===========================================================================
+# MULTI-ENEMY ENCOUNTER
+# ===========================================================================
+enemies:
+  - name: "Rondo of the Knights Ardante"
+    is_main_target: true
+    shield_count: 9
+    hp: 429120
+    speed: 271
+
+  - name: "Enemy 2"
+    shield_count: 13
+    hp: 66666
+    speed: 294
+
+  - name: "Enemy 3"
+    shield_count: 11
+    hp: 66666
+    speed: 305
+
+
+# ===========================================================================
+# STRATEGY
+# ===========================================================================
+general_strategy: |
+  TODO: Add strategy notes for this fight.
+
+required_roles:
+  - role: breaker
+    priority: required
+    reason: "Break to deal damage and control fight"
+  - role: dps
+    priority: required
+    reason: "Deal damage during break windows"
+
+recommended_weakness_coverage: []  # No weaknesses parsed
+
+# ===========================================================================
+# METADATA
+# ===========================================================================
+data_confidence: incomplete
+data_source: "Adversary Log New spreadsheet (Lvl 75)"
+last_updated: 2026-10-31

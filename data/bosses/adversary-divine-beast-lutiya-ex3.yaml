@@ -1,7 +1,7 @@
 # Adversary Log Boss: Divine Beast Lutiya EX3
 # SOURCE: Adversary Log New spreadsheet (Lvl 75)
 #
-# NEW EX3 Divine Beast with Hammy mechanics
+# NEW EX3 Divine Beast
 
 id: adversary-divine-beast-lutiya-ex3
 display_name: "Divine Beast Lutiya EX3"
@@ -20,23 +20,21 @@ provoke_immunity: true
 # ===========================================================================
 # STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
-# Multi-enemy encounter with Hammy
+# Multi-enemy encounter
 shield_count: 30
-hp: 1503810
-speed: 535
+hp: 4442235
+speed: 416
+p_def: 846
+e_def: 1003
 
 enemies:
   - name: "Divine Beast Lutiya"
     is_main_target: true
-    hp: 1503810
+    hp: 4442235
     shield_count: 30
-  - name: "Hammy"
-    hp: 2543050
-    shield_count: 32
-    notes: "Higher HP than main boss!"
-  - name: "Another Add"
-    hp: 2398041
-    shield_count: 28
+  - name: "Enemy 2"
+    hp: 2622651
+    shield_count: 34
 
 # ===========================================================================
 # MECHANICS (from Adversary Log New spreadsheet comments)
@@ -57,10 +55,9 @@ general_strategy: |
   EX3 Divine Beast Lutiya - 120 NPC fight with special resistance.
   
   EX3 CHARACTERISTICS:
-  - Lutiya HP: 1,503,810
-  - Hammy HP: 2,543,050 (higher than main boss!)
-  - Third add HP: 2,398,041
-  - Speed: 535
+  - Lutiya HP: 4,442,235
+  - Second enemy HP: 2,622,651
+  - Speed: 416
   
   CRITICAL MECHANIC (FROM SPREADSHEET):
   - SUCCESSIVE STRIKE RESISTANCE
@@ -74,7 +71,6 @@ general_strategy: |
   1. Prioritize single-hit, high-potency attacks
   2. Multi-hit breakers still useful for shield shave
   3. For damage: 1-hit nukes > multi-hit spam
-  4. Hammy has more HP than Lutiya - decide kill order
   
   OPTIMAL DPS:
   - Solon (single-hit ultimate)
@@ -102,5 +98,10 @@ required_roles:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Adversary Log New spreadsheet"
+data_notes: >-
+  2026-10-31: hp, speed and the three-enemy roster held Hammy EX3's block (1503810 / 535; adds
+  2543050 and 2398041), the neighbouring block in the Lvl 75 sheet; corrected from the Divine
+  Beast Lutiya EX3 block (two enemies). The sheet numbers the second enemy without naming it.
+  The mechanics text came from sheet comments and could not be re-checked against the CSV.
+data_source: "Adversary Log New spreadsheet; Adversary Log New spreadsheet (Lvl 75)"
 last_updated: 2026-01-04

@@ -12,6 +12,18 @@ base_boss_id: arena-glossom
 ex_rank: ex2
 actions_per_turn: 1  # Becomes 2 at HP ≤50%
 provoke_immunity: true
+level: 120
+shield_count: 35
+hp: 3927000
+speed: 499
+p_def: 678
+e_def: 584
+weaknesses:
+  elements:
+    - dark
+  weapons:
+    - polearm
+    - axe
 
 hp_thresholds:
   - hp_percent: 50
@@ -64,5 +76,5 @@ recommended_weakness_coverage:
   - axe
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

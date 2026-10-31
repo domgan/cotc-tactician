@@ -3,8 +3,8 @@
 #
 # EX2 variant with increased stats and difficulty.
 
-id: adversary-９ｓ-ex2
-display_name: "９Ｓ？ EX2"
+id: adversary-9s-ex2
+display_name: "9S? EX2"
 content_type: adversary_log
 difficulty: extreme
 location: "Adversary Log (宿敵の写記)"
@@ -12,7 +12,7 @@ location: "Adversary Log (宿敵の写記)"
 # ===========================================================================
 # EX VARIANT INFO
 # ===========================================================================
-base_boss_id: adversary-９ｓ
+base_boss_id: adversary-9s
 ex_rank: ex2
 actions_per_turn: 2
 provoke_immunity: true  # Most EX bosses are provoke immune

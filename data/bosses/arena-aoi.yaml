@@ -13,7 +13,6 @@ location: "Arena (闘技大会)"
 # ===========================================================================
 # EX FIGHT / ADVERSARY LOG INFO
 # ===========================================================================
-ex_rank: base
 actions_per_turn: 1
 provoke_immunity: true  # Uses cover tank instead
 

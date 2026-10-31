@@ -9,6 +9,11 @@ display_name: "Adventurer & Fox"
 content_type: adversary_log
 difficulty: extreme
 level: 100
+shield_count: 21
+hp: 530000
+speed: 289
+p_def: 99
+e_def: 99
 
 # ===========================================================================
 # MULTI-ENEMY ENCOUNTER
@@ -112,5 +117,5 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

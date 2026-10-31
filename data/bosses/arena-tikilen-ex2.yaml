@@ -12,6 +12,18 @@ base_boss_id: arena-tikilen
 ex_rank: ex2
 actions_per_turn: 1
 provoke_immunity: false
+level: 120
+shield_count: 34
+hp: 3716875
+speed: 472
+p_def: 665
+e_def: 600
+weaknesses:
+  elements:
+    - light
+  weapons:
+    - bow
+    - fan
 
 # Tikilen: 34→16, Skilled: 24, Veteran: 23
 
@@ -76,5 +88,5 @@ recommended_weakness_coverage:
   - lightning
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

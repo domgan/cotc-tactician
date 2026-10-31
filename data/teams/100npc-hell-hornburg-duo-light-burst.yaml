@@ -140,7 +140,7 @@ back_line:
     awakening_required: 1
 
   - position: 8
-    character_id: wludai
+    character_id: w-ludai
     role_in_team: breaker
     is_required: false
     substitutes: [krauser]

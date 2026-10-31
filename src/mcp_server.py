@@ -27,7 +27,9 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"  # Suppress transformers logging
 from mcp.server.fastmcp import FastMCP
 from pydantic import ValidationError
 
-from .models import RolePriority, RosterEntry
+from .community_notes import count_character_notes
+from .community_notes import search_community_notes as search_community_notes_in
+from .models import ExRank, RolePriority, RosterEntry
 from .retrieval import RetrievalService, _normalize_weakness, strength_sort_key
 from .roster import (
     import_roster_yaml,
@@ -194,6 +196,7 @@ def team_to_dict(team: Any) -> dict:
     result = {
         "id": team.id,
         "name": team.name,
+        "scope": "boss" if team.boss_id else "universal",
         "boss_id": team.boss_id,
         "strategy_type": team.strategy_type.value,
         "investment_level": team.investment_level.value,
@@ -212,6 +215,10 @@ def team_to_dict(team: Any) -> dict:
         result["minimum_hp_recommended"] = team.minimum_hp_recommended
     if team.buff_category_coverage:
         result["buff_category_coverage"] = team.buff_category_coverage.model_dump(exclude_none=True)
+    if team.applies_to:
+        result["applies_to"] = [c.value for c in team.applies_to]
+    if team.unresolved_character_ids:
+        result["unresolved_character_ids"] = team.unresolved_character_ids
     return result
 
 
@@ -281,6 +288,7 @@ def get_character(character_id: str) -> dict | str:
         return f"Character '{character_id}' not found."
 
     result = character_to_dict(char)
+    result["community_notes_available"] = count_character_notes(get_data_dir(), character_id)
     investment = roster_entry_for_character(roster, character_id)
     if investment:
         result["investment"] = investment
@@ -342,6 +350,34 @@ def search_skill_effects(
             entry["investment"] = investment
         results.append(entry)
     return {**pool_meta(filter_ids), "count": len(found), "results": results}
+
+
+@mcp.tool()
+def search_community_notes(
+    terms: list[str] | None = None,
+    character_id: str | None = None,
+    limit: int = 10,
+) -> dict:
+    """
+    Search community notes (Reddit/YouTube intake in data/reference/community).
+
+    Covers meta and mechanics discussion that kits do not state: buff stacking rules,
+    investment priority (A1/A4/AU), slotting advice, speed tuning, GL release timeline.
+    Everything returned is community_unverified: cite the source URL and present it as
+    community opinion, never as kit fact. get_character reports community_notes_available.
+
+    Args:
+        terms: Case-insensitive regexes that must all match (e.g. ["potency", "stack"]).
+        character_id: Only sections that mention this character ID.
+        limit: Max sections returned (default 10).
+
+    Returns:
+        count and results: [{file, section, text, data_confidence}].
+    """
+    if not terms and not character_id:
+        return {"error": "Pass terms and/or character_id."}
+    results = search_community_notes_in(get_data_dir(), terms, character_id, limit)
+    return {"count": len(results), "results": results}
 
 
 @mcp.tool()
@@ -566,6 +602,7 @@ def get_boss(boss_id: str) -> dict | str:
         "required_capabilities": boss.required_capabilities,
         "general_strategy": boss.general_strategy,
         "data_confidence": boss.data_confidence.value,
+        "data_notes": boss.data_notes,
     }
 
     # Handle weaknesses (can be None for multi-enemy bosses)
@@ -659,6 +696,8 @@ def get_proven_teams(boss_id: str) -> dict | str:
 
     Returns team YAMLs indexed in the database (front/back line, roles,
     skill loadouts, strategy notes). Prefer these over inferred comps when present.
+    Includes universal teams (scope "universal") whose applies_to matches the boss's
+    content type, after boss-specific ones (scope "boss").
 
     Args:
         boss_id: The boss's unique ID (e.g., "arena-tikilen").
@@ -672,7 +711,7 @@ def get_proven_teams(boss_id: str) -> dict | str:
     if boss is None:
         return f"Boss '{boss_id}' not found."
 
-    teams = retrieval.get_teams_for_boss(boss_id)
+    teams = retrieval.get_teams_for_planning(boss)
     known = known_character_ids(retrieval)
     _, roster = resolve_roster(None, known_ids=known)
     roster_payload = teams_for_roster(teams, roster, team_to_dict)
@@ -724,7 +763,7 @@ def plan_team_for_boss(
     )
     weaknesses = retrieval.get_boss_weaknesses(boss)
 
-    teams = retrieval.get_teams_for_boss(boss_id)
+    teams = retrieval.get_teams_for_planning(boss)
     roster_teams = teams_for_roster(teams, roster, team_to_dict)
     skill_loadout = load_team_building_guide(get_data_dir())["skill_loadout_guidance"]
 
@@ -779,14 +818,14 @@ def plan_team_for_boss(
         )
 
     # Add EX-specific notes
-    if boss.ex_rank:
+    if boss.ex_rank and boss.ex_rank != ExRank.BASE:
         result["tactical_notes"].append(
-            f"EX{boss.ex_rank.value[-1]} fight - provoke likely immune, use dodge/cover tank"
+            f"{boss.ex_rank.value.upper()} fight - provoke likely immune, use dodge/cover tank"
         )
-        if boss.actions_per_turn and boss.actions_per_turn >= 3:
-            result["tactical_notes"].append(
-                "3 actions/turn - very aggressive, prioritize survival and debuffs"
-            )
+    if boss.actions_per_turn and boss.actions_per_turn >= 3:
+        result["tactical_notes"].append(
+            "3 actions/turn - very aggressive, prioritize survival and debuffs"
+        )
 
     # Add tactical notes based on shield count
     if boss.shield_count:
@@ -874,7 +913,7 @@ def get_ex_variants(boss_id: str) -> dict | str:
             )
 
     # Sort by EX rank
-    rank_order = {"ex1": 1, "ex2": 2, "ex3": 3}
+    rank_order = {"ex1": 1, "ex2": 2, "ex3": 3, "ex4": 4}
     variants.sort(key=lambda v: rank_order.get(v.get("ex_rank", ""), 0))
 
     return {

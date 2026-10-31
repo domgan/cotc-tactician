@@ -21,17 +21,10 @@ provoke_immunity: true
 # STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
 # Multi-enemy encounter: Rondo (main) + 2 Wisps
-shield_count: 41
-hp: 8959991
-speed: 363
-
 enemies:
   - name: "Rondo of the Knights Ardante"
     is_main_target: true
-    hp: 8959991
-    shield_count: 41
   - name: "Wisp"
-    hp: 58888
     notes: "Summoned after break when Rondo unlocks sword weakness"
 
 # ===========================================================================
@@ -96,11 +89,6 @@ auras:
 general_strategy: |
   EX3 variant - EXTREME difficulty with complex phase mechanics.
   
-  EX3 CHARACTERISTICS:
-  - HP: 8,959,991
-  - Shields: 41
-  - Speed: 363
-  
   KEY MECHANICS (FROM SPREADSHEET):
   - Battle start: Locks Sword/Fan/Ice weaknesses
   - Turn 2: Rondo unlocks weaknesses
@@ -137,7 +125,7 @@ required_roles:
     reason: "Damage stacking"
   - role: breaker
     priority: required
-    reason: "41 shields requires dedicated breaking"
+    reason: "Break to deal damage and control fight"
   - role: dps
     priority: required
     reason: "Flexible physical/elemental for phase switching"
@@ -155,5 +143,10 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
+data_notes: >-
+  2026-10-31: shield_count, hp, speed and the enemy stats held Sonzon the Flameguard EX3's block
+  (41 / 8959991 / 363; add 58888 HP), the neighbouring block in the Lvl 75 sheet. The sheet has
+  no Rondo EX3 row (only Rank 1), so those values were removed rather than replaced. The
+  mechanics text came from sheet comments and could not be re-checked against the CSV.
 data_source: "Adversary Log New spreadsheet"
 last_updated: 2026-01-04

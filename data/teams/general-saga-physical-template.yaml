@@ -1,0 +1,66 @@
+# Physical Saga-Era Team (Template)
+# SOURCE: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/ (u/BrickSuccessful4703, 2026-10-07)
+# Community template, not a verified clear. Roles from curated character roles where present.
+
+schema_version: '1.0'
+id: general-saga-physical-template
+name: Physical Saga-Era Team (Template)
+boss_id: null
+applies_to:
+- adversary_log
+strategy_type: burst
+investment_level: high
+front_line:
+- position: 1
+  character_id: richard-ex
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 2
+  character_id: locke
+  role_in_team: secondary_dps
+  is_required: true
+  substitutes: []
+- position: 3
+  character_id: final-emperor
+  role_in_team: primary_dps
+  is_required: true
+  substitutes: []
+- position: 4
+  character_id: phenn
+  role_in_team: buffer
+  is_required: false
+  substitutes:
+  - noel
+back_line:
+- position: 5
+  character_id: rocbouquet
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 6
+  character_id: aviete
+  role_in_team: buffer
+  is_required: true
+  substitutes: []
+- position: 7
+  character_id: levina-ex2
+  role_in_team: utility
+  is_required: true
+  substitutes: []
+- position: 8
+  character_id: molrusso-ex
+  role_in_team: utility
+  is_required: false
+  substitutes:
+  - viola-ex2
+why_it_works: 'Pure physical variant from the same thread: Richard EX/Roc, Locke/Aviete, Emperor/Levina
+  EX2, Phenn (or Noel)/Mol EX. Author: without Mol EX, physical teams can use Viola EX2 instead. Front/back
+  follows the author''s pair order (front = first of each pair).'
+key_synergies:
+- Physical buff stacking around Final Emperor
+verified: false
+author: u/BrickSuccessful4703
+source_url: https://www.reddit.com/r/OctopathCotC/comments/1wzw562/how_squads_are_gonna_be_looking_when_we_get_saga/
+data_confidence: theoretical
+last_updated: '2026-10-31'

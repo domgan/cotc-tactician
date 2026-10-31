@@ -66,7 +66,7 @@ back_line:
     character_id: "alaune-ex"
     role_in_team: "buffer"
     is_required: false
-    substitutes: ["ex-elrica", "morffins"]
+    substitutes: ["elrica-ex", "morffins"]
     substitute_notes: "Any support with invigorating prayers or similar buffs"
     key_skills_used: ["Invigorating Prayers"]
     accessory_requirements: []

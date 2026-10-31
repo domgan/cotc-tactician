@@ -24,6 +24,8 @@ provoke_immunity: true
 shield_count: 38
 hp: 2568559
 speed: 452
+p_def: 344
+e_def: 373
 
 enemies:
   - name: "Blood Pact Bishop Jafford"
@@ -151,5 +153,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Adversary Log New spreadsheet"
+data_source: "Adversary Log New spreadsheet; Adversary Log New spreadsheet (Solistia Lvl 75)"
 last_updated: 2026-01-04

@@ -5,7 +5,8 @@ schema_version: "1.0"
 
 id: "dark-knight-beginner-team"
 name: "Dark Knight Beginner Solo Setup"
-boss_id: "general-difficult-content"
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: "sustain"
 investment_level: "low"

@@ -21,11 +21,11 @@ provoke_immunity: true
 # STATS (EX3 - from Adversary Log New spreadsheet)
 # ===========================================================================
 shield_count: 37
-hp: 5268520
-speed: 374
-p_atk: 2323
+hp: 6063525
+speed: 405
+p_atk: 1994
 p_def: 463
-e_atk: 2735
+e_atk: 2141
 e_def: 471
 
 weaknesses:
@@ -45,9 +45,9 @@ general_strategy: |
   EX3 Kainé? - NieR crossover boss.
   
   EX3 CHARACTERISTICS:
-  - HP: 5,268,520
+  - HP: 6,063,525
   - Shields: 37
-  - Speed: 374
+  - Speed: 405
   
   Standard EX3 fight - apply normal strategies.
 
@@ -77,5 +77,10 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
+data_notes: >-
+  2026-10-31: hp, speed, p_atk and e_atk held S. Odio, Lord of Dark EX3's row (5268520 / 374 /
+  2323 / 2735), the neighbouring block in the Lvl 50 sheet; corrected from the Kainé? EX3 row.
+  Shields and defenses already matched Kainé. The sheet has no weakness data for Kainé, so the
+  weaknesses below are unverified.
 data_source: "Adversary Log New spreadsheet"
 last_updated: 2026-01-04

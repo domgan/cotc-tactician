@@ -8,6 +8,8 @@
 id: "arena-mirgardi-casual-guide"
 name: "Casual Guide Team"
 boss_id: "arena-mirgardi"
+# Source names with no matching character file (YouTube transcript spellings).
+unresolved_character_ids: [ney, cesley, elri-rico, tantos, thame]
 
 # ===========================================================================
 # CLASSIFICATION
@@ -20,7 +22,7 @@ investment_level: "medium"
 # ===========================================================================
 front_line:
   - position: 1
-    character_id: "canari"
+    character_id: "canary"
     role_in_team: "breaker"
     is_required: true
     substitutes: ["ochette", "canary"]
@@ -33,14 +35,14 @@ front_line:
     character_id: "ney"
     role_in_team: "buffer"
     is_required: true
-    substitutes: ["agnes", "therion"]
+    substitutes: ["agn-s", "therion"]
     substitute_notes: "Character with buff capabilities"
     key_skills_used: ["Attack buffs", "Support skills"]
     accessory_requirements: ["Buff accessories"]
     awakening_required: 4
 
   - position: 3
-    character_id: "lady-herminia"
+    character_id: "herminia"
     role_in_team: "primary_dps"
     is_required: true
     substitutes: ["elri-rico", "tantos"]
@@ -50,7 +52,7 @@ front_line:
     awakening_required: 4
 
   - position: 4
-    character_id: "nefty"
+    character_id: "nephti"
     role_in_team: "healer"
     is_required: true
     substitutes: ["temenos", "ophilia"]
@@ -106,7 +108,7 @@ back_line:
 # ===========================================================================
 # SPEED ORDER
 # ===========================================================================
-speed_order: ["canari", "ney", "lady-herminia", "nefty", "cesley", "elri-rico", "tantos", "ochette"]
+speed_order: ["canary", "ney", "herminia", "nephti", "cesley", "elri-rico", "tantos", "ochette"]
 speed_tuning_notes: "Canari should act early for shield shaving. Speed not as critical due to boss self-slowing."
 
 # ===========================================================================

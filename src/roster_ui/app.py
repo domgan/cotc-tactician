@@ -5,21 +5,20 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+import yaml
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from ..models import PlayerRoster, RosterEntry
-from ..retrieval import RetrievalService
+from ..data_loader import DataLoader
+from ..models import Character, PlayerRoster, RosterEntry
 from ..roster import (
     import_roster_yaml,
-    known_character_ids,
     load_roster_with_meta,
     roster_path,
     save_roster,
 )
-from ..vector_store import VectorStore
 
 STATIC_DIR = Path(__file__).parent / "static"
 
@@ -39,24 +38,21 @@ class ImportBody(BaseModel):
     content: str
 
 
-def create_app(data_dir: Path, retrieval: RetrievalService | None = None) -> FastAPI:
-    """Build FastAPI application bound to game data directory."""
+def create_app(data_dir: Path, characters: list[Character] | None = None) -> FastAPI:
+    """Build FastAPI application bound to game data directory (no vector index needed)."""
     app = FastAPI(title="COTC Tactician Roster", docs_url=None, redoc_url=None)
 
-    if retrieval is None:
-        vector_dir = data_dir.parent / ".vectordb"
-        vector_store = VectorStore(persist_directory=vector_dir)
-        retrieval = RetrievalService(data_dir=data_dir, vector_store=vector_store)
-        retrieval.initialize()
-    known = known_character_ids(retrieval)
+    if characters is None:
+        characters = DataLoader(data_dir).load_characters()
+    chars = sorted(characters, key=lambda c: c.display_name)
+    known = {c.id for c in chars}
 
     @app.get("/")
     def index() -> FileResponse:
-        return FileResponse(STATIC_DIR / "index.html")
+        return FileResponse(STATIC_DIR / "index.html", headers={"Cache-Control": "no-cache"})
 
     @app.get("/api/characters")
     def list_characters() -> list[dict]:
-        chars = sorted(retrieval._characters_cache.values(), key=lambda c: c.display_name)
         return [
             {
                 "id": c.id,
@@ -136,8 +132,6 @@ def create_app(data_dir: Path, retrieval: RetrievalService | None = None) -> Fas
 
 
 def _roster_to_yaml(meta: dict) -> str:
-    import yaml
-
     payload = {
         "schema_version": meta.get("schema_version", "1.0"),
         "last_updated": meta.get("last_updated"),

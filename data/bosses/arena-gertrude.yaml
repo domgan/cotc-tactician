@@ -13,7 +13,6 @@ location: "Arena (闘技大会)"
 # ===========================================================================
 # EX FIGHT / ADVERSARY LOG INFO
 # ===========================================================================
-ex_rank: base  # This is the base arena version
 actions_per_turn: 2  # Permanently has double actions from Turn 1
 provoke_immunity: true  # IMMUNE to provoke - must use Cover (Fiore EX)
 
@@ -45,6 +44,11 @@ auras:
 # SINGLE ENEMY BOSS
 # ===========================================================================
 shield_count: 9  # Increases to 12 at HP 75%
+level: 95
+hp: 764260
+speed: 373
+p_def: 126
+e_def: 113
 weaknesses:
   elements:
     - fire
@@ -226,5 +230,5 @@ general_strategy: |
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Game8 JP"
+data_source: "Game8 JP; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

@@ -7,40 +7,22 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from src.data_loader import DataLoader
-from src.retrieval import RetrievalService
 from src.roster_ui.app import create_app
-from src.vector_store import VectorStore
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
-class _FakeEmbedding:
-    def __call__(self, texts: list[str]) -> list[list[float]]:
-        return [[0.0] * 8 for _ in texts]
-
-
 @pytest.fixture
 def client(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> TestClient:
-    roster_file = tmp_path / "roster.yaml"
-    monkeypatch.setenv("COTC_ROSTER_FILE", str(roster_file))
-
-    loader = DataLoader(DATA_DIR)
-    retrieval = RetrievalService(
-        DATA_DIR,
-        vector_store=VectorStore(embedding_function=_FakeEmbedding()),
-    )
-    retrieval._characters_cache = {c.id: c for c in loader.load_characters()}
-    retrieval._indexed = True
-
-    app = create_app(DATA_DIR, retrieval=retrieval)
-    return TestClient(app)
+    monkeypatch.setenv("COTC_ROSTER_FILE", str(tmp_path / "roster.yaml"))
+    return TestClient(create_app(DATA_DIR))
 
 
 def test_index(client: TestClient) -> None:
     res = client.get("/")
     assert res.status_code == 200
     assert "COTC Tactician" in res.text
+    assert res.headers["cache-control"] == "no-cache"
 
 
 def test_list_characters(client: TestClient) -> None:

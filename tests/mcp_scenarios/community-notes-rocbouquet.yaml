@@ -1,0 +1,27 @@
+id: community-notes-rocbouquet
+goal: Community meta (stacking rules, slotting advice) is reachable via MCP and flagged unverified.
+roster: fixture
+
+agent_prompt: |
+  Should I ult with Aviete and Rocbouquet on the same turn? What does the community say about
+  where Rocbouquet fits in my team? Use the cotc-tactician MCP only.
+agent_checks:
+  - Calls search_community_notes (or follows get_character's community_notes_available hint).
+  - States that ultimate potency does not stack (higher wins) and cites the Reddit source URL.
+  - Presents community claims as community opinion (community_unverified), separate from kit text.
+
+steps:
+  - tool: get_character
+    args:
+      character_id: rocbouquet
+    expect:
+      min_value:
+        community_notes_available: 1
+  - tool: search_community_notes
+    args:
+      terms: [potency, stack]
+      character_id: rocbouquet
+    expect:
+      min_items:
+        results: 1
+      contains_text: [higher value wins, reddit.com, community_unverified]

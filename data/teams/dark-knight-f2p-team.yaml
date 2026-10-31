@@ -5,7 +5,8 @@ schema_version: "1.0"
 
 id: "dark-knight-f2p-team"
 name: "Dark Knight Free-to-Play Setup"
-boss_id: "general-difficult-content"
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: "burst"
 investment_level: "medium"
@@ -52,7 +53,7 @@ front_line:
     awakening_required: 3
 
   - position: 3
-    character_id: "ex-primrose"
+    character_id: "primrose-ex"
     role_in_team: "buffer"
     is_required: true
     substitutes: []
@@ -133,7 +134,7 @@ turn_plan:
 
 speed_order:
   - "nona"
-  - "ex-primrose"
+  - "primrose-ex"
   - "dark-knight"
   - "lucetta"
 

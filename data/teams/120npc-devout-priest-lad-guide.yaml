@@ -8,6 +8,8 @@
 id: "120npc-devout-priest-lad-guide"
 name: "Lad's YouTube Guide Team"
 boss_id: "120npc-devout-priest"
+# Source names with no matching character file (YouTube transcript spellings).
+unresolved_character_ids: [ario, alani-ex, reek, reku, thame]
 
 # ===========================================================================
 # CLASSIFICATION
@@ -43,7 +45,7 @@ front_line:
     character_id: "partitio"
     role_in_team: "buffer"
     is_required: true
-    substitutes: ["agnes", "therion"]
+    substitutes: ["agn-s", "therion"]
     substitute_notes: "Merchant with team buff capabilities"
     key_skills_used: ["Merchant buffs", "Physical attack buffs"]
     accessory_requirements: ["Master Apothecary Necklace", "Cuffs of the Family", "Ney's A4"]
@@ -106,7 +108,7 @@ back_line:
 # ===========================================================================
 # SPEED ORDER
 # ===========================================================================
-speed_order: ["agnes", "ario", "alani-ex", "partitio", "reek", "millard-ex", "magnolia", "solon"]
+speed_order: ["agn-s", "ario", "alani-ex", "partitio", "reek", "millard-ex", "magnolia", "solon"]
 speed_tuning_notes: "Agnes must be faster than 525 (boss speed). All characters should have 4500+ HP minimum."
 
 # ===========================================================================

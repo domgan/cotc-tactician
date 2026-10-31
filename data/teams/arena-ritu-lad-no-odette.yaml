@@ -8,6 +8,8 @@
 id: "arena-ritu-lad-no-odette"
 name: "Lad's NO ODETTE Team"
 boss_id: "arena-ritu"
+# Source names with no matching character file (YouTube transcript spellings).
+unresolved_character_ids: [elfin, mina]
 
 # ===========================================================================
 # CLASSIFICATION
@@ -20,7 +22,7 @@ investment_level: "high"
 # ===========================================================================
 front_line:
   - position: 1
-    character_id: "tickling"
+    character_id: "tikilen"
     role_in_team: "breaker"
     is_required: true
     substitutes: ["ochette", "canary"]
@@ -53,7 +55,7 @@ front_line:
     character_id: "alfyn"
     role_in_team: "healer"
     is_required: true
-    substitutes: ["shana", "nefty"]
+    substitutes: ["shana", "nephti"]
     substitute_notes: "Premium healer with wildfire capabilities"
     key_skills_used: ["Wildfire", "Healing skills"]
     accessory_requirements: ["Healing accessories"]
@@ -84,10 +86,10 @@ back_line:
     awakening_required: 4
 
   - position: 7
-    character_id: "agnes"
+    character_id: "agn-s"
     role_in_team: "healer"
     is_required: false
-    substitutes: ["shana", "nefty"]
+    substitutes: ["shana", "nephti"]
     substitute_notes: "Healer with raise capabilities"
     key_skills_used: ["Healing", "Raise"]
     accessory_requirements: ["Healing accessories"]
@@ -97,7 +99,7 @@ back_line:
     character_id: "mina"
     role_in_team: "buffer"
     is_required: false
-    substitutes: ["agnes", "therion"]
+    substitutes: ["agn-s", "therion"]
     substitute_notes: "4-star character with defense up and light attacks"
     key_skills_used: ["Defense Up", "Light attacks", "Spirited Mole Dance"]
     accessory_requirements: ["Light damage accessories"]
@@ -106,7 +108,7 @@ back_line:
 # ===========================================================================
 # SPEED ORDER
 # ===========================================================================
-speed_order: ["tickling", "scarecrow", "viola", "alfyn", "elfin", "lynette", "agnes", "mina"]
+speed_order: ["tikilen", "scarecrow", "viola", "alfyn", "elfin", "lynette", "agn-s", "mina"]
 speed_tuning_notes: "Ri'tu has 337 speed, dancer 285, warrior 245. Need 285+ speed to outrun dancer."
 
 # ===========================================================================

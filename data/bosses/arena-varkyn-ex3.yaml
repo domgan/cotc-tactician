@@ -12,6 +12,18 @@ base_boss_id: arena-varkyn
 ex_rank: ex3
 actions_per_turn: 1
 provoke_immunity: false
+level: 120
+shield_count: 38
+hp: 4802700
+speed: 453
+p_def: 750
+e_def: 782
+weaknesses:
+  elements:
+    - ice
+  weapons:
+    - sword
+    - staff
 
 hp_thresholds:
   - hp_percent: 50
@@ -63,5 +75,5 @@ recommended_weakness_coverage:
   - staff
 
 data_confidence: theoretical
-data_source: "Game8 JP - Adversary Log"
+data_source: "Game8 JP - Adversary Log; Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-22

@@ -6,7 +6,8 @@ schema_version: "1.0"
 
 id: adversary-ex3-hybrid-rainbow-3t
 name: "Hybrid Rainbow 3T EX3 (Budget-ish)"
-boss_id: general-difficult-content
+boss_id: null  # universal team
+applies_to: [adversary_log]
 
 strategy_type: speed_clear
 investment_level: medium

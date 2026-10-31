@@ -50,6 +50,8 @@ level: 100
 shield_count: 26
 hp: 4530117
 speed: 370
+p_def: 169
+e_def: 183
 
 weaknesses:
   elements:
@@ -117,5 +119,5 @@ recommended_weakness_coverage:
 # METADATA
 # ===========================================================================
 data_confidence: verified
-data_source: "Community Spreadsheet (Wigglytuff)"
+data_source: "Community Spreadsheet (Wigglytuff); Community Spreadsheet (Wigglytuff) - Lv. 75~"
 last_updated: 2025-12-23

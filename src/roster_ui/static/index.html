@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>COTC Tactician — Roster</title>
+  <link rel="icon" href="data:," />
   <style>
     :root {
       --bg: #0f1419;
@@ -68,6 +69,11 @@
     button:hover { background: var(--accent-hover); }
     button.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
     button.secondary:hover { border-color: var(--accent); }
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--accent-hover);
+      outline-offset: 2px;
+    }
+    #btn-save.dirty { background: var(--warn); color: #111; }
     #status {
       margin-left: auto;
       font-size: 0.8125rem;
@@ -75,7 +81,7 @@
     }
     #status.ok { color: var(--success); }
     #status.err { color: #e57373; }
-    main { padding: 0 1.5rem 2rem; }
+    main { padding: 0 1.5rem 2rem; overflow-x: auto; }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -87,8 +93,9 @@
       border-bottom: 1px solid var(--border);
     }
     th { color: var(--muted); font-weight: 500; position: sticky; top: 0; background: var(--bg); }
+    th, td.nowrap, td.invest { white-space: nowrap; }
     tr.owned { background: rgba(91, 159, 212, 0.06); }
-    tr:not(.owned) .invest { opacity: 0.35; pointer-events: none; }
+    tr:not(.owned) .invest { opacity: 0.35; }
     .tier { font-size: 0.75rem; color: var(--muted); }
     .invest select, .invest input[type="number"] {
       width: 4rem;
@@ -144,11 +151,11 @@
   </header>
 
   <div class="toolbar">
-    <input type="search" id="search" placeholder="Search name or ID…" autocomplete="off" />
-    <select id="filter-job">
+    <input type="search" id="search" name="search" placeholder="Search name or ID…" autocomplete="off" aria-label="Search characters by name or ID" />
+    <select id="filter-job" name="filter-job" aria-label="Filter by job">
       <option value="">All jobs</option>
     </select>
-    <select id="filter-rarity">
+    <select id="filter-rarity" name="filter-rarity" aria-label="Filter by rarity">
       <option value="">All rarities</option>
       <option value="5">5★</option>
       <option value="4">4★</option>
@@ -158,7 +165,7 @@
     <button type="button" id="btn-select-all" class="secondary">Select all</button>
     <button type="button" id="btn-deselect-all" class="secondary">Deselect all</button>
     <button type="button" id="btn-bulk-invest" class="secondary">Bulk investment</button>
-    <span id="status"></span>
+    <span id="status" role="status" aria-live="polite"></span>
   </div>
 
   <main>
@@ -168,7 +175,8 @@
           <th>Owned</th>
           <th>Name</th>
           <th>Job</th>
-          <th>Tier</th>
+          <th>GL tier</th>
+          <th>JP tier</th>
           <th>Investment (A / AU / Ult)</th>
         </tr>
       </thead>
@@ -180,7 +188,7 @@
   <dialog id="import-dialog">
     <h3 style="margin-top:0;">Import roster YAML</h3>
     <p style="font-size:0.875rem;color:var(--muted);">Paste roster YAML. Merge keeps existing entries; replace overwrites all.</p>
-    <textarea id="import-text"></textarea>
+    <textarea id="import-text" name="import-text" aria-label="Roster YAML to import"></textarea>
     <div class="dialog-actions">
       <label class="toggle"><input type="checkbox" id="import-merge" /> Merge</label>
       <button type="button" class="secondary" id="import-cancel">Cancel</button>
@@ -195,11 +203,11 @@
     </p>
     <div class="dialog-row">
       <label class="toggle"><input type="checkbox" id="bulk-set-awakening" checked /> Awakening</label>
-      <select id="bulk-awakening"></select>
+      <select id="bulk-awakening" name="bulk-awakening" aria-label="Awakening to apply"></select>
       <label class="toggle"><input type="checkbox" id="bulk-set-au" checked /> AU</label>
       <label class="toggle"><input type="checkbox" id="bulk-au" /> Has AU</label>
       <label class="toggle"><input type="checkbox" id="bulk-set-ult" checked /> Ult</label>
-      <select id="bulk-ult"></select>
+      <select id="bulk-ult" name="bulk-ult" aria-label="Ultimate level to apply"></select>
     </div>
     <div class="scope-options">
       <label class="toggle"><input type="radio" name="bulk-scope" value="all-owned" checked /> All owned characters</label>
@@ -214,7 +222,7 @@
 
   <dialog id="export-dialog">
     <h3 style="margin-top:0;">Export roster YAML</h3>
-    <textarea id="export-text" readonly></textarea>
+    <textarea id="export-text" name="export-text" aria-label="Exported roster YAML" readonly></textarea>
     <div class="dialog-actions">
       <button type="button" class="secondary" id="export-close">Close</button>
       <button type="button" id="export-copy">Copy</button>
@@ -298,7 +306,7 @@
         state.roster[id] = entry;
       });
 
-      state.dirty = true;
+      markDirty();
       $("bulk-dialog").close();
       render();
       setStatus(`Updated investment for ${ids.length} character${ids.length === 1 ? "" : "s"}`, "ok");
@@ -357,7 +365,29 @@
       });
     }
 
+    function markDirty() {
+      state.dirty = true;
+      $("btn-save").classList.add("dirty");
+      $("btn-save").textContent = "Save changes";
+      setStatus("Unsaved changes");
+    }
+
+    function markClean() {
+      state.dirty = false;
+      $("btn-save").classList.remove("dirty");
+      $("btn-save").textContent = "Save";
+    }
+
+    function focusKey() {
+      const el = document.activeElement;
+      if (!el || !el.dataset || !el.dataset.id) return null;
+      return el.dataset.field
+        ? `[data-id="${el.dataset.id}"][data-field="${el.dataset.field}"]`
+        : `.own-cb[data-id="${el.dataset.id}"]`;
+    }
+
     function render() {
+      const restoreFocus = focusKey();
       const tbody = $("rows");
       tbody.innerHTML = "";
       const list = filteredCharacters();
@@ -368,26 +398,29 @@
         const entry = state.roster[c.id] || defaultEntry();
         const tr = document.createElement("tr");
         if (owned) tr.classList.add("owned");
-
-        const tier = c.gl_tier || c.jp_tier || "—";
+        const off = owned ? "" : "disabled";
+        const name = escapeHtml(c.display_name);
 
         tr.innerHTML = `
-          <td><input type="checkbox" data-id="${c.id}" class="own-cb" ${owned ? "checked" : ""} /></td>
-          <td><div>${escapeHtml(c.display_name)}</div><div class="tier">${escapeHtml(c.id)}</div></td>
+          <td><input type="checkbox" name="own-${c.id}" data-id="${c.id}" class="own-cb" aria-label="Own ${name}" ${owned ? "checked" : ""} /></td>
+          <td><div>${name}</div><div class="tier">${escapeHtml(c.id)}</div></td>
           <td>${escapeHtml(c.job)}</td>
-          <td>${escapeHtml(tier)}</td>
+          <td class="nowrap">${escapeHtml(c.gl_tier || "—")}</td>
+          <td class="nowrap">${escapeHtml(c.jp_tier || "—")}</td>
           <td class="invest">
-            <label>A<select data-id="${c.id}" data-field="awakening">${[0,1,2,3,4].map((n) =>
+            <label>A<select name="awakening-${c.id}" data-id="${c.id}" data-field="awakening" aria-label="${name} awakening" ${off}>${[0,1,2,3,4].map((n) =>
               `<option value="${n}" ${entry.awakening === n ? "selected" : ""}>${n}</option>`
             ).join("")}</select></label>
-            <label><input type="checkbox" data-id="${c.id}" data-field="au" ${entry.au ? "checked" : ""} /> AU</label>
-            <label>Ult<select data-id="${c.id}" data-field="ult_level">${ULT_LEVELS.map((n) =>
+            <label><input type="checkbox" name="au-${c.id}" data-id="${c.id}" data-field="au" aria-label="${name} AU" ${entry.au ? "checked" : ""} ${off} /> AU</label>
+            <label>Ult<select name="ult-${c.id}" data-id="${c.id}" data-field="ult_level" aria-label="${name} ultimate level" ${off}>${ULT_LEVELS.map((n) =>
               `<option value="${n}" ${entry.ult_level === n ? "selected" : ""}>${n === 0 ? "0" : n}</option>`
             ).join("")}</select></label>
           </td>
         `;
         tbody.appendChild(tr);
       });
+
+      if (restoreFocus) tbody.querySelector(restoreFocus)?.focus();
 
       tbody.querySelectorAll(".own-cb").forEach((cb) => {
         cb.addEventListener("change", (e) => {
@@ -397,7 +430,7 @@
           } else {
             delete state.roster[id];
           }
-          state.dirty = true;
+          markDirty();
           updateOwnedCount();
           render();
         });
@@ -413,7 +446,7 @@
           } else {
             state.roster[id][field] = Number(e.target.value);
           }
-          state.dirty = true;
+          markDirty();
         });
       });
     }
@@ -430,7 +463,7 @@
           added += 1;
         }
       });
-      state.dirty = true;
+      markDirty();
       updateOwnedCount();
       render();
       setStatus(
@@ -444,7 +477,7 @@
       if (count === 0) return;
       if (!confirm(`Remove all ${count} characters from your roster?`)) return;
       state.roster = {};
-      state.dirty = true;
+      markDirty();
       updateOwnedCount();
       render();
       setStatus("Cleared roster", "ok");
@@ -472,7 +505,7 @@
       }
       const data = await res.json();
       state.roster = data.characters || {};
-      state.dirty = false;
+      markClean();
       updateOwnedCount();
       setStatus("Saved", "ok");
       setTimeout(() => setStatus(""), 2000);
@@ -518,7 +551,7 @@
       state.path = data.path || state.path;
       $("import-dialog").close();
       updateOwnedCount();
-      state.dirty = false;
+      markClean();
       render();
       setStatus("Imported", "ok");
     });
