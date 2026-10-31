@@ -51,102 +51,131 @@ jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Duskfall (Single)"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Slam"
-    sp_cost: 7
-    skill_type: attack
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Darkprone (Single)"
-    sp_cost: 4
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Darkprone (Single) (1★)** Lower Dark Res"
-  - skill_category: active
-    name: "Analyze"
-    sp_cost: 1
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Duskfall (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "150"
-  - skill_category: active
-    name: "Dual Slam"
-    sp_cost: 26
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Dual Slam"
-    sp_cost: 22
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x110**"
-  - skill_category: tp
-    name: "Lost Darkness (All) III"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [dark]
-    target: aoe
-    power: "180"
-    effects:
-      - "Dark damage to All Foes (potency: 180) and lower Dark Res"
-  - skill_category: ex
-    name: "Dorrie’s Potential"
-    skill_type: debuff
-    target: front_row
-    effects:
-      - "**Dorrie’s Potential** Lower Dark Res"
-      - "of All Foes by 15% (turns: 2-5 based on Boost Lv.) and raise Dark damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Dark Dream"
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Dark damage to Single Foe (potency: **440→525→655**) and lower Dark Res"
+- skill_category: active
+  name: Duskfall (Single)
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Slam
+  sp_cost: 7
+  skill_type: utility
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Darkprone (Single)
+  unlock_tier: 1★
+  sp_cost: 4
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Dark Res. of Single Foe by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Analyze
+  unlock_tier: 2★
+  sp_cost: 1
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - Show 1-4 weak point(s) of Single Foe based on Boost Lv..
+- skill_category: active
+  name: Duskfall (Single) II
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 150).'
+- skill_category: active
+  name: Dual Slam
+  unlock_tier: 3★
+  sp_cost: 26
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 2 time(s) (potency: 2x80).'
+  upgrades:
+  - 'Lv.60: SP Saver: 26→22'
+  - 'Upgraded: Deal Phys. Tome damage to Single Foe 2 time(s) (potency: 2x110).'
+- skill_category: tp
+  name: Lost Darkness (All) III
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 180) and lower Dark Res. by 10% (turns: 2).'
+- skill_category: ex
+  name: Dorrie’s Potential
+  skill_type: debuff
+  target: front_row
+  effects:
+  - 'Lower Dark Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.) and raise Dark damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Dark Dream
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 440→525→655) and lower Dark Res. by 5%→10%→15% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "End of battle: Raise EXP earned of Paired Allies by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Raise Light Res. of Paired Allies by 10%(turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Light Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Dark damage of Paired Allies by 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: More Experience (Joint)
+  unlock_tier: 1★
+  effect: 'End of battle: Raise EXP earned of Paired Allies by 10%.'
+  trigger: always
+- passive_category: innate
+  name: Initial Light Res Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Light Res. of Paired Allies by 10%(turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Light Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Light Resilience III
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 4★
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Dark Augment (Joint) III
+  effect: Raise Dark damage of Paired Allies by 15%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Chronicles of the Flatlands"
-  passive_effect: "20 E.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Vivian: Raise Elem. Atk. and Dark damage of Paired Allies by 10%"
+  name: Chronicles of the Flatlands
+  passive_effect: '20 E.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Vivian: Raise Elem. Atk. and Dark damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

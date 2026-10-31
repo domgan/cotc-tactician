@@ -68,116 +68,197 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blossom Slash"
-    sp_cost: 31
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70/2x80/2x100/2x120"
-  - skill_category: active
-    name: "Black Rose"
-    sp_cost: 31
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "170/200/240/350"
-    effects:
-      - "Sword damage to Single Foe (potency: 170/200/240/350) and raise max HP of Self by 20% (turns: 2)"
-  - skill_category: active
-    name: "Dark Bane"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "290/320/380/500"
-  - skill_category: active
-    name: "Rage"
-    sp_cost: 16
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "30/35/40/60"
-  - skill_category: active
-    name: "Absorb Magic (Dark)"
-    sp_cost: 27
-    skill_type: buff
-    target: self
-    effects:
-      - "**Absorb Magic (Dark) (2★)** Gran Self automatic SP recovery (amount: 10% of max SP/turns: 3/4/5/6) and raise Phys"
-  - skill_category: active
-    name: "Minus Strike"
-    sp_cost: 53
-    skill_type: mixed
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "290/320/380/500"
-    effects:
-      - "The lower your HP"
-      - "Potency doubles at max (when HP is 10% or lower)"
-  - skill_category: active
-    name: "Order Break"
-    sp_cost: 57
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80/3x90/3x105/3x130"
-  - skill_category: active
-    name: "Black Bane"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "4x"
-    power: "4x55/4x60/4x70/4x85"
-  - skill_category: active
-    name: "Black Annihilation"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x65/5x75/5x85/5x110"
-    limit_break_upgrade: "If own HP is above 50%, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: **5x75/5x85/5x95/5x120**). Exploits Dark weakness (damage calculation based on Phys. Sword attack). 10% more potent if HP is successfully consumed."
-  - skill_category: tp
-    name: "Life or Death"
-    sp_cost: 74
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "**Life or Death ** Gain Undying (turns: 3/4/5/6) and raise BP recovery by 3 (turns: 3/4/5/6)"
-  - skill_category: special
-    name: "Dark Nebula"
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "7x"
+- skill_category: active
+  name: Blossom Slash
+  sp_cost: 31
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 2x
+  power: 2x70/2x80/2x100/2x120
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x70/2x80/2x100/2x120).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Black Rose
+  sp_cost: 31
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170/200/240/350) and raise max HP of Self by 20% (turns: 2).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Dark Bane
+  unlock_tier: 1★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: 290/320/380/500
+  effects:
+  - 'If own HP is above 50%, consume 50% of max HP and deal Phys. Sword damage to Single Foe (potency: 290/320/380/500).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 10% more potent if HP is successfully consumed.
+- skill_category: active
+  name: Rage
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: 30/35/40/60
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 30/35/40/60).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 'At Max Boost: Consume 10% of max HP (up to 6 times) until HP falls below 10% to attack as many additional times as HP is consumed.'
+  - '*Cannot incapacitate Self with this skill.'
+- skill_category: active
+  name: Absorb Magic (Dark)
+  unlock_tier: 2★
+  sp_cost: 27
+  skill_type: buff
+  target: self
+  effects:
+  - 'Gran Self automatic SP recovery (amount: 10% of max SP/turns: 3/4/5/6) and raise Phys. Atk. by 15% (turns: 3/4/5/6).'
+- skill_category: active
+  name: Minus Strike
+  unlock_tier: 3★
+  sp_cost: 53
+  skill_type: debuff
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: 290/320/380/500
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 290/320/380/500).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - The lower your HP, the greater the potency.
+  - Potency doubles at max (when HP is 10% or lower).
+  upgrades:
+  - 'Lv.88: Potency Up: 260→290'
+- skill_category: active
+  name: Order Break
+  unlock_tier: 4★
+  sp_cost: 57
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: 3x80/3x90/3x105/3x130
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x80/3x90/3x105/3x130).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 71→57'
+- skill_category: active
+  name: Black Bane
+  unlock_tier: 5★
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 4x
+  power: 4x55/4x60/4x70/4x85
+  effects:
+  - 'If own HP is above 50%, consume 50% of max HP and deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x55/4x60/4x70/4x85).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 10% more potent if HP is successfully consumed.
+  upgrades:
+  - 'Lv.99: SP Saver: 79→63'
+- skill_category: active
+  name: Black Annihilation
+  unlock_tier: 5★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  hit_count: 5x
+  power: 5x65/5x75/5x85/5x110
+  effects:
+  - 'If own HP is above 50%, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: 5x65/5x75/5x85/5x110).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 10% more potent if HP is successfully consumed.
+  upgrades:
+  - 'Lv.100: Potency Up: 55→65'
+  limit_break_upgrade: 'If own HP is above 50%, consume 50% of own max HP and deal Phys. Sword damage to Single Foe 5 time(s) (potency: 5x75/5x85/5x95/5x120). Exploits Dark weakness (damage calculation based on Phys. Sword attack). 10% more potent if HP is successfully consumed.'
+- skill_category: tp
+  name: Life or Death
+  sp_cost: 74
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Gain Undying (turns: 3/4/5/6) and raise BP recovery by 3 (turns: 3/4/5/6).'
+  - '*Can only be used once per battle.'
+- skill_category: special
+  name: Dark Nebula
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 7x
+  power: 7x40→7x50→7x65
+  effects:
+  - 'If own HP is above 50%, consume 50% of max HP and deal Phys. Sword damage to All Foes 7 time(s) (potency: 7x40→7x50→7x65).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 10% more potent if HP is successfully consumed.
+  - '*Cannot incapacitate Self with this Ultimate Technique.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At 60% HP or less: Raise Phys. Atk. and Sword damage of Self by 30%. After using a battle skill, if HP is at 60% or lower, gain an HP Barrier (potency: 50% of user’s max HP/Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Grant Self the ability to automatically revive upon incapacitation (revives with 100% of max HP and SP/Stacks with revival effects granted by battle skills) and gain an HP Barrier (potency: 100% of the user’s max HP/Does not stack)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise max HP of Self by 30%. At the start of turn, if Self has an HP Barrier, raise potency by 50% (Does not stack with effects of the same type) and recover 50% of max HP at the end of turn. When the HP Barrier is removed, the Potency Up and HP recovery effects are also removed."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Adversity
+  unlock_tier: 1★
+  effect: 'At 60% HP or less: Raise Phys. Atk. and Sword damage of Self by 30%. After using a battle skill, if HP is at 60% or lower, gain an HP Barrier (potency: 50% of user’s max HP/Does not stack).'
+  trigger: always
+- passive_category: innate
+  name: Auto Reraise
+  unlock_tier: 3★
+  effect: 'Start of battle: Grant Self the ability to automatically revive upon incapacitation (revives with 100% of max HP and SP/Stacks with revival effects granted by battle skills) and gain an HP Barrier (potency: 100% of the user’s max HP/Does not stack).'
+  trigger: battle_start
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Invigorated
+  effect: Raise max HP of Self by 30%. At the start of turn, if Self has an HP Barrier, raise potency by 50% (Does not stack with effects of the same type) and recover 50% of max HP at the end of turn. When the HP Barrier is removed, the Potency Up and HP recovery effects are also removed.
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Everlasting Rose"
-  passive_effect: "100 P.Atk, -30 P.Def, -30 E.Def, 1000 HP; Grant Dead Aim (guaranteed critical hits); 40 P.Atk, 1000 HP; Grant Dead Aim (guaranteed critical hits)"
+  name: Everlasting Rose
+  passive_effect: 100 P.Atk, -30 P.Def, -30 E.Def, 1000 HP; Grant Dead Aim (guaranteed critical hits); 40 P.Atk, 1000 HP; Grant Dead Aim (guaranteed critical hits)
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Undying
+  description: Survive an otherwise lethal attack with 1 HP (with some exceptions).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

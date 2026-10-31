@@ -67,6 +67,14 @@ core_principles:
       get_proven_teams or plan_team_for_boss — prefer full-feasibility comps first.
       Flag investment_gaps when the user's awakening/AU/ult is below team slot requirements.
 
+  - name: "Effect-Level Search"
+    description: |
+      Many characters have no curated roles, tank_type or buff_categories yet, so
+      list_by_role / find_tanks_by_type miss real options. For concrete needs (Def/Res
+      down, Atk up, Damage Limit up, taunt/provoke, dodge, cover, BP, shield reduction)
+      call search_skill_effects over the roster and quote the returned "matched" text.
+      Confirm the chosen skill fits the character's battle_skill_slots via get_character.
+
 # =============================================================================
 # TEAM BUILDING STRUCTURE
 # =============================================================================

@@ -51,152 +51,200 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 21
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(Initial)** Lower Critical of All Foes by 20% (turns: 2-5 based on Boost Lv.) and reveak 1-4 weak point(s) of each enemy based on Boost Lv"
-  - skill_category: active
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    sp_cost: 87
-    skill_type: debuff
-    target: front_row
-    power: "110"
-    effects:
-      - "**(2★)** Grant Entire Front Row automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.)"
-      - "Also lower Speed of All Foes by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 65
-    skill_type: attack
-    damage_types: [light, tome]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    sp_cost: 168
-    skill_type: buff
-    target: front_row
-    power: "20% of user’s Max HP/Does not stack"
-    effects:
-      - "grant Entire Front Row a continuous effect at the end of turn (times: 1-4 based on Boost Lv.)"
-      - "Continuous effect: Restore 1 BP and grant an HP Barrier (potency: 20% of user’s Max HP/Does not stack)"
-  - skill_category: active
-    sp_cost: 74
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Light damage to Random Foe 3 time(s) (potency: 3x65) and lower Light Res"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [light, tome]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-  - skill_category: active
-    sp_cost: 49
-    skill_type: attack
-    damage_types: [light, tome]
-    target: random
-    hit_count: "5x"
-    power: "5x30"
-  - skill_category: tp
-    sp_cost: 60
-    skill_type: buff
-    target: self
-    power: "20%-80% of user’s Max HP/Does not stack"
-    effects:
-      - "**** Grant Self an HP Barrier (potency: 20%-80% of user’s Max HP/Does not stack) and raise BP recovery amount by 1 (turns: 1)"
-      - "At Max Boost: Also restore uses of EX skill by 1"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 60
-    skill_type: buff
-    target: self
-    power: "**25%-100%** of user’s Max HP/Does not stack"
-    effects:
-      - "** Lv.2** Grant Self an HP Barrier (potency: **25%-100%** of user’s Max HP/Does not stack) and raise BP recovery amount by **2** (turns: 1)"
-      - "At Max Boost: Also restore uses of EX skill by 1"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "630"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "“The Mask Maker’s Pride”"
-    skill_type: mixed
-    target: all_allies
-    effects:
-      - "Grant All Allies an HP Barrier (potency: **30%→40%→50%** of user’s Max HP/Does not stack) and reduce received damage by 30% (turns: 3)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65) and reveal 1 weak point.'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 21
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Critical of All Foes by 20% (turns: 2-5 based on Boost Lv.) and reveak 1-4 weak point(s) of each enemy based on Boost Lv.'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 150) and cause them to combust (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 87
+  skill_type: debuff
+  target: front_row
+  power: '110'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.).'
+  - 'Also lower Speed of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 65
+  skill_type: utility
+  damage_types:
+  - light
+  - tome
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Tome weakness (damage calculation based on Elem. Light attack).
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 168
+  skill_type: buff
+  target: front_row
+  power: 20% of user’s Max HP/Does not stack
+  effects:
+  - 'Once per turn from the turn this skill is used, grant Entire Front Row a continuous effect at the end of turn (times: 1-4 based on Boost Lv.).'
+  - 'Continuous effect: Restore 1 BP and grant an HP Barrier (potency: 20% of user’s Max HP/Does not stack).'
+  upgrades:
+  - 'Lv.88: SP Saver: 168→134'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 74
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 3 time(s) (potency: 3x65) and lower Light Res. by 20% (turns: 2) and cause them to combust (turns: 2) with every attack.'
+  upgrades:
+  - 'Lv.96: SP Saver: 74→59'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - light
+  - tome
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x120).'
+  - Exploits Tome weakness (damage calculation based on Elem. Light attack).
+  - Damage Limit of this skill is increased by 50,000.
+  - 'With an HP Barrier: Attack count becomes 3.'
+  upgrades:
+  - 'Lv.99: SP Saver: 45→36'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 49
+  skill_type: utility
+  damage_types:
+  - light
+  - tome
+  target: random
+  hit_count: 5x
+  power: 5x30
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 5 time(s) (potency: 5x30).'
+  - Exploits Tome weakness (damage calculation based on Elem. Light attack).
+  upgrades:
+  - 'Lv.100: SP Saver: 49→39'
+- skill_category: tp
+  sp_cost: 60
+  skill_type: buff
+  target: self
+  power: 20%-80% of user’s Max HP/Does not stack
+  effects:
+  - 'Grant Self an HP Barrier (potency: 20%-80% of user’s Max HP/Does not stack) and raise BP recovery amount by 1 (turns: 1).'
+  - 'At Max Boost: Also restore uses of EX skill by 1.'
+  upgrades:
+  - 'Lv.2: Grant Self an HP Barrier (potency: 25%-100% of user’s Max HP/Does not stack) and raise BP recovery amount by 2 (turns: 1). At Max Boost: Also restore uses of EX skill by 1.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '630'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 630).'
+  - Damage Limit of this skill is increased by 300,000.
+  - 'At Max Boost: Attack count becomes 3.'
+  notes: 'Usage Condition: With an HP Barrier; Uses: 1'
+  ex_trigger: With an HP Barrier
+- skill_category: special
+  name: The Mask Maker’s Pride
+  skill_type: buff
+  target: all_allies
+  power: 30%→40%→50% of user’s Max HP/Does not stack
+  effects:
+  - 'Grant All Allies an HP Barrier (potency: 30%→40%→50% of user’s Max HP/Does not stack) and reduce received damage by 30% (turns: 3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Upon activation, grant Self Mask (turns: 1). Mask: Skill configuration changes to the following. ---"
-    trigger: always
-  - passive_category: innate
-    effect: "Lower Elem. Def. of All Foes by 30% (turns: 3) and deal Elem. Light damage to All Foes 5 time(s) (potency: 5x35)."
-    trigger: always
-  - passive_category: innate
-    effect: "Restore HP of Entire Front Row (potency: 130) and raise their Phys. Def. and Elem. Def. by 20% (turns: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Entire Front Row an HP Barrier (potency: 5%-20% of user’s Max HP/Does not stack) and reduce Shield Points of All Foes by 6 regardless of weaknesses."
-    trigger: always
-  - passive_category: innate
-    effect: "At the end of turn after using “Latent Power: Mask”, raise potency of Self by 50% (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: 50,000, turns: 3) and gain the ability to trigger battle skills 2 times (turns: 2). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack)."
-    trigger: always
-    limit_break_upgrade: "At the end of turn after using “Latent Power: Mask”, raise potency of Self by **100%** (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: **100,000**, turns: 3) and gain the ability to trigger battle skills 2 times (turns: **3**). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack)."
-  - passive_category: innate
-    effect: "When Self has an HP Barrier: Raise own Light damage by 30%, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by 20% (turns: 3)."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by **30%** (turns: 3)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: 'Latent Power: Mask'
+  effect: 'Upon activation, grant Self Mask (turns: 1). Mask: Skill configuration changes to the following.'
+  trigger: always
+  notes: 'Preparation Turns: 1; Reuse Turns: 4'
+- passive_category: innate
+  name: Demon Mask
+  effect: 'Lower Elem. Def. of All Foes by 30% (turns: 3) and deal Elem. Light damage to All Foes 5 time(s) (potency: 5x35).'
+  trigger: always
+- passive_category: innate
+  name: Angel Mask
+  effect: 'Restore HP of Entire Front Row (potency: 130) and raise their Phys. Def. and Elem. Def. by 20% (turns: 3).'
+  trigger: always
+- passive_category: innate
+  name: Mask of Duality
+  effect: 'Grant Entire Front Row an HP Barrier (potency: 5%-20% of user’s Max HP/Does not stack) and reduce Shield Points of All Foes by 6 regardless of weaknesses.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'At the end of turn after using “Latent Power: Mask”, raise potency of Self by 50% (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: 50,000, turns: 3) and gain the ability to trigger battle skills 2 times (turns: 2). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack).'
+  trigger: always
+  limit_break_upgrade: 'At the end of turn after using “Latent Power: Mask”, raise potency of Self by 100% (turns: 3/Turns cannot be extended), grant Damage Limit Up (effect: 100,000, turns: 3) and gain the ability to trigger battle skills 2 times (turns: 3). Also grant Self an HP Barrrier (potency: 50% of user’s Max HP/Does not stack).'
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When Self has an HP Barrier: Raise own Light damage by 30%, grant Self the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits).'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by 20% (turns: 3).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When an ally breaks an enemy, lower Elem. Atk. and Elem. Def. of the broken enemy by 30% (turns: 3).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Soothing Mask”"
-  passive_effect: "-50 P.Def, 100 E.Atk, 90 E.Def, 500 HP; At the start of turn: Grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack); At the end of turn: If the wearer doesn’t have an HP Barrier, grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack)"
+  name: Soothing Mask
+  passive_effect: '-50 P.Def, 100 E.Atk, 90 E.Def, 500 HP; At the start of turn: Grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack); At the end of turn: If the wearer doesn’t have an HP Barrier, grant an HP Barrier (potency: 25% of wearer’s Max HP/Does not stack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: incomplete

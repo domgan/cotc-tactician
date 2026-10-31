@@ -68,160 +68,208 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Triple Bat"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "General’s March II"
-    sp_cost: 57
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**General’s March II** Raise Phys"
-  - skill_category: active
-    name: "Ode of the Charming Wind II"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Benevolent Breeze"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [wind, fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Sundering Storm"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [wind, fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Archbishop’s Inspiration II"
-    sp_cost: 74
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Archbishop’s Inspiration II (3★)** Raise Elem"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance II: Also raise elemental damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Dance of the Shining Star"
-    sp_cost: 98
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Dance of the Shining Star (4★)** Raise Phys"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance II: Additionally restore 1 BP"
-  - skill_category: active
-    name: "Great Knight’s Inspiration II"
-    sp_cost: 74
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Great Knight’s Inspiration II (5★)** Raise Phys"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance II: Also raise physical damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Ceaseless Cyclone"
-    sp_cost: 51
-    skill_type: attack
-    damage_types: [wind, fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x45"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance II: Attack count raises to 7"
-    limit_break_upgrade: "Deal Elem. Wind damage to Single Foe **4** time(s) (potency: **4x45**). Exploits Fan weakness (damage calculation based on Elem. Wind attack)."
-  - skill_category: active
-    name: "6"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance I: Attack count raises to **6**"
-  - skill_category: active
-    name: "8"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Exuberant Dance II: Attack count raises to **8**"
-  - skill_category: tp
-    name: "Windy Refrain"
-    sp_cost: 90
-    skill_type: attack
-    damage_types: [wind, fan]
-    target: front_row
-    hit_count: "3x"
-    power: "3x95"
-    effects:
-      - "When consuming 1 BP or more: Allow Entire Front Row to act faster during next turn"
-  - skill_category: ex
-    name: "Song of Sun"
-    skill_type: mixed
-    target: all_allies
-    effects:
-      - "**Song of Sun** Act faster during turn and raise the Phys"
-      - "Also raise Damage Limit of the same target (effect: 30,000, turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Moonstep Dance"
-    skill_type: buff
-    target: all_allies
-    power: "2→3"
-    effects:
-      - "Act faster during turn and raise Phys"
+- skill_category: active
+  name: Triple Bat
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: General’s March II
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Critical of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Ode of the Charming Wind II
+  unlock_tier: 1★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Benevolent Breeze
+  unlock_tier: 2★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - wind
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fan weakness (damage calculation based on Elem. Wind attack).
+  - 'At Max Boost: Delay actions during turn.'
+- skill_category: active
+  name: Sundering Storm
+  unlock_tier: 2★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - wind
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fan weakness (damage calculation based on Elem. Wind attack).
+  - Inflict effects based on number of allies in Fervor.
+- skill_category: active
+  name: Archbishop’s Inspiration II
+  unlock_tier: 3★
+  sp_cost: 74
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk., Elem. Def. and Critical of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 74→59'
+- skill_category: active
+  name: Dance of the Shining Star
+  unlock_tier: 4★
+  sp_cost: 98
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Critical of Single Ally by 30% (turns: 2-5 based on Boost Lv.).'
+  - Effect enhances based on number of allies in Fervor.
+  upgrades:
+  - 'Lv.96: SP Saver: 98→78'
+- skill_category: active
+  name: Great Knight’s Inspiration II
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Phys. Def. and Critical of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 74→59'
+- skill_category: active
+  name: Ceaseless Cyclone
+  unlock_tier: 5★
+  sp_cost: 51
+  skill_type: utility
+  damage_types:
+  - wind
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x45
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x45).'
+  - Exploits Fan weakness (damage calculation based on Elem. Wind attack).
+  upgrades:
+  - 'Lv.100: SP Saver: 51→41'
+  limit_break_upgrade: 'Deal Elem. Wind damage to Single Foe 4 time(s) (potency: 4x45). Exploits Fan weakness (damage calculation based on Elem. Wind attack).'
+- skill_category: active
+  name: '6'
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - .
+- skill_category: active
+  name: '8'
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - .
+- skill_category: tp
+  name: Windy Refrain
+  sp_cost: 90
+  skill_type: utility
+  damage_types:
+  - wind
+  - fan
+  target: front_row
+  hit_count: 3x
+  power: 3x95
+  priority: true
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 3 time(s) (potency: 3x95).'
+  - Exploits Fan weakness (damage calculation based on Elem. Wind attack).
+  - 'When consuming 1 BP or more: Allow Entire Front Row to act faster during next turn.'
+- skill_category: ex
+  name: Song of Sun
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn and raise the Phys. Atk., Elem. Atk. and Critical limit from battle skills of All Allies to 50% (turns: 2-5 based on Boost Lv.).'
+  - 'Also raise Damage Limit of the same target (effect: 30,000, turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: At least 4 allies in Fervent Enthusiasm; Uses: 2'
+  ex_trigger: At least 4 allies in Fervent Enthusiasm
+- skill_category: special
+  name: Moonstep Dance
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn and raise Phys. Atk., Elem. Atk. and Critical of All Allies by 5%→10%→15% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When self uses battle skills or Ultimate Technique, grant Fervent Enthusiasm to the target allies (including Self) (turns: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Wind damage of Self by 30%. ·With 4 or more allies in Fervent Enthusiasm, grant Self Exuberant Dance I. ·With 7 or more allies in Fervent Enthusiasm, also grant Self Exuberant Dance II."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect All Together Now (turns: 1). All Together Now: The target of Self’s battle skills will change: ·Self, Single Ally → Entire Front Row ·Entire Front Row → All Allies ·Single Foe → All Foes ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Frenzied Vortex
+  unlock_tier: 1★
+  effect: 'When self uses battle skills or Ultimate Technique, grant Fervent Enthusiasm to the target allies (including Self) (turns: 3).'
+  trigger: always
+- passive_category: innate
+  name: Exuberant Dance
+  unlock_tier: 3★
+  effect: Raise Wind damage of Self by 30%. ·With 4 or more allies in Fervent Enthusiasm, grant Self Exuberant Dance I. ·With 7 or more allies in Fervent Enthusiasm, also grant Self Exuberant Dance II.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: All Together Now'
+  effect: 'When selecting a command, grant Self the special effect All Together Now (turns: 1). All Together Now: The target of Self’s battle skills will change: ·Self, Single Ally → Entire Front Row ·Entire Front Row → All Allies ·Single Foe → All Foes'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+  notes: 'Preparation Turns: 2; Reuse Turns: 4'
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Deceased Mother Hair Ornament"
-  passive_effect: "40 Spd, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)"
+  name: Deceased Mother Hair Ornament
+  passive_effect: '40 Spd, 100 SP; When in front row: Grant Entire Front Row Damage Limit Up (effect: 30,000)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Fervent Enthusiasm
+  description: Raise Phys. Atk., Elem. Atk. and Critical by 5%. Enhance the effect of Exhuberant Dance based on number of allies in Fervent Enthusiam.
+- name: Exuberant Dance I
+  description: 'Grant automatic SP recovery (amount: 10% of max SP).'
+- name: Exuberant Dance II
+  description: Raise BP recovery amount by 1.
+- name: With Exuberant Dance I
+  description: 'Have a moderate chance to inflict enchant (turns: 2).'
+- name: Enchant
+  description: Have a certain chance of being unable to act.
+- name: With Exuberant Dance II
+  description: 'Lower Phys. and Elem. Res. by 10% (turns: 2).'
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: verified

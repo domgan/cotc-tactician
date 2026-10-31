@@ -51,207 +51,261 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Slash"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "140/170/210/300"
-  - skill_category: active
-    name: "Heal Wounds (Single)"
-    sp_cost: 12
-    skill_type: heal
-    target: single_ally
-    power: "100/120/160/220"
-    effects:
-      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 100/120/160/220)"
-  - skill_category: active
-    name: "Repeated Slash"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Lifesteal Sword"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75/2x90/2x110/2x150"
-  - skill_category: active
-    name: "Trifold Wild Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Beastly Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "4x"
-    power: "4x65/4x75/4x90/4x120"
-    effects:
-      - "**Beastly Slash (2★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Level Slash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "120"
-  - skill_category: active
-    name: "Spirited Flash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70/2x80/2x100/2x120"
-  - skill_category: active
-    name: "Rest"
-    sp_cost: 42
-    skill_type: heal
-    target: single_enemy
-    power: "105/125/165/225"
-    effects:
-      - "**Rest (3★)** Restore own HP (potency: 105/125/165/225)"
-      - "restore own SP (amount: 5%/6%/8%/10% of max SP) and cure certain status ailments"
-  - skill_category: active
-    name: "Beneficial Break"
-    sp_cost: 42
-    skill_type: heal
-    target: single_enemy
-    power: "105/125/165/225"
-    effects:
-      - "**Beneficial Break (3★)** Restore own HP (potency: 105/125/165/225) and SP (amount: 5%/6%/8%/10% of max SP)"
-      - "Cure some status ailments and raise Phys"
-  - skill_category: active
-    name: "Sword of Protection"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
-  - skill_category: active
-    name: "Blessed Blade"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    hit_count: "3x"
-    power: "3x85/3x95/3x110/3x140"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: 3x85/3x95/3x110/3x140) and raise Phys"
-  - skill_category: active
-    name: "Full Body Armor Break"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Sword damage to Single Foe (potency: 230) and lower Phys"
-  - skill_category: active
-    name: "Hachimonjikuzure"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "Sword damage to Single Foe (potency: 260/290/340/450) and lower Phys"
-      - "Guaranteed critical hit at Max Boost"
-  - skill_category: active
-    name: "Vivify"
-    sp_cost: 50
-    skill_type: buff
-    target: single_enemy
-  - skill_category: active
-    name: "Drum of Life"
-    sp_cost: 50
-    skill_type: buff
-    target: single_enemy
-  - skill_category: tp
-    name: "Wave Slash"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    power: "2x120/3x95/4x85/5x100"
-  - skill_category: tp
-    name: "Wave Slash Lv.2"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [sword]
-    target: random
-    power: "**3x120/4x95/5x85/6x100**"
-    effects:
-      - "Sword damage to Random Foe and lower Sword Res"
-  - skill_category: special
-    name: "Black Sword"
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    power: "600→650→700"
-    effects:
-      - "Raise damage of Entire Front Row by 10% (turns: 2) and recover 1 BP"
+- skill_category: active
+  name: Slash
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 140/170/210/300
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 140/170/210/300).'
+- skill_category: active
+  name: Heal Wounds (Single)
+  sp_cost: 12
+  skill_type: heal
+  target: single_ally
+  power: 100/120/160/220
+  effects:
+  - 'Restore HP of Single Ally (potency: 100/120/160/220).'
+- skill_category: active
+  name: Repeated Slash
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Lifesteal Sword
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75/2x90/2x110/2x150
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x75/2x90/2x110/2x150) and absorb 30% of the damage dealt as HP.'
+  - Complete Side Story “Throné’s Trial”
+- skill_category: active
+  name: Trifold Wild Slash
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Beastly Slash
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x65/4x75/4x90/4x120
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x65/4x75/4x90/4x120).'
+  - Complete Side Story “Hunting Secrets”
+- skill_category: active
+  name: Level Slash
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 120).'
+- skill_category: active
+  name: Spirited Flash
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 2x
+  power: 2x70/2x80/2x100/2x120
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x70/2x80/2x100/2x120) and recover 1 BP.'
+  - Complete Side Story “A Merchant’s Insight”
+- skill_category: active
+  name: Rest
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: heal
+  target: single_enemy
+  power: 105/125/165/225
+  effects:
+  - 'Restore own HP (potency: 105/125/165/225), restore own SP (amount: 5%/6%/8%/10% of max SP) and cure certain status ailments.'
+- skill_category: active
+  name: Beneficial Break
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: heal
+  target: single_enemy
+  power: 105/125/165/225
+  effects:
+  - 'Restore own HP (potency: 105/125/165/225) and SP (amount: 5%/6%/8%/10% of max SP).'
+  - 'Cure some status ailments and raise Phys. Atk. and Phys. Def. by 20% (turns: 3).'
+  - Complete Side Story “A Scholar’s Way of Thinking”
+- skill_category: active
+  name: Sword of Protection
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys. Def. and Elem. Def. of Self by 10% (turns: 2).'
+- skill_category: active
+  name: Blessed Blade
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  hit_count: 3x
+  power: 3x85/3x95/3x110/3x140
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85/3x95/3x110/3x140) and raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 2).'
+  - Complete Side Story “Temenos’ Dog Search”
+- skill_category: active
+  name: Full Body Armor Break
+  unlock_tier: 5★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230) and lower Phys. Def. by 10% (turns: 2).'
+- skill_category: active
+  name: Hachimonjikuzure
+  unlock_tier: 5★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 260/290/340/450
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260/290/340/450) and lower Phys. Def. by 15% (turns: 2).'
+  - Guaranteed critical hit at Max Boost.
+  - Complete Side Story “Essence of Swordsmanship”
+- skill_category: active
+  name: Vivify
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Revive a fallen ally (recovery amount: 25%/50%/75%/100% of max HP based on Boost Lv.).'
+  - '*Can be used 3 times per battle.'
+- skill_category: active
+  name: Drum of Life
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Revive a fallen ally (recovery amount: 25%/50%/75%/100% of max HP based on Boost Lv.) and fill their Ultimate Technique gauge by 50%.'
+  - '*Can be used 3 times per battle.'
+  - Complete Side Story “Spreading Miles”
+- skill_category: tp
+  name: Wave Slash
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  power: 2x120/3x95/4x85/5x100
+  effects:
+  - Deal Phys. Sword damage to Random Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 2x120/3x95/4x85/5x100).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Sword damage to Random Foe and lower Sword Res. by 10% with every attack (turns: 1). Attack count rises based on Boost Lv. (potency: 3x120/4x95/5x85/6x100).'
+- skill_category: special
+  name: Black Sword
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  power: 600→650→700
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 600→650→700).'
+  - 'Raise damage of Entire Front Row by 10% (turns: 2) and recover 1 BP.'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires a special item for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Usage condition: Night. Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
-    trigger: always
-  - passive_category: innate
-    effect: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
-    trigger: always
-  - passive_category: innate
-    effect: ""
-    trigger: always
-    limit_break_upgrade: "When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage. --- Preparation: 3 turns"
-  - passive_category: innate
-    effect: "Reuse: 5 turns"
-    trigger: always
-  - passive_category: innate
-    effect: ""
-    trigger: always
-  - passive_category: innate
-    effect: "Absorb 1% of damage dealt as SP when using Attack."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000). With Black Corrosion: Raise BP recovery by 2, raise potency of Phys. Sword attacks by 50% (Does not stack with effects of the same type) and Damage Limit by 50,000 instead."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: 'Latent Power: Black Corrosion'
+  unlock_tier: 1★
+  effect: 'When selecting a command, grant Self “Black Corrosion” (turns: 3). Usage condition: Night. Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage.'
+  trigger: always
+  upgrades:
+  - 'Upgraded: When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage.'
+  notes: 'Preparation: 3 turns Reuse: 5 turns; Preparation Turns: 2; Reuse Turns: 5'
+- passive_category: innate
+  name: Absorb SP through Attacks
+  unlock_tier: 3★
+  effect: Absorb 1% of damage dealt as SP when using Attack.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Ice
+  effect: Resilience Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Sword Atk. Boost II & Limit Break IV
+  effect: 'Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise Sword damage of Self by 15% and grant Damage Limit Up (effect: 25,000). With Black Corrosion: Raise BP recovery by 2, raise potency of Phys. Sword attacks by 50% (Does not stack with effects of the same type) and Damage Limit by 50,000 instead.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Traveler’s Cape"
-  passive_effect: "70 P.Atk, 70 E.Atk; When consuming BP to perform “Attack”, raise BP recovery by 1, potency by 100% (Does not stack with effects of the same type) and ignore effects that dodge or nullify damage"
+  name: Traveler’s Cape
+  passive_effect: 70 P.Atk, 70 E.Atk; When consuming BP to perform “Attack”, raise BP recovery by 1, potency by 100% (Does not stack with effects of the same type) and ignore effects that dodge or nullify damage
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

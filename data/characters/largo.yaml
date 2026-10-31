@@ -54,124 +54,187 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Whirling Blow"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Fire Soulstone"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Bomb Bow"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    limit_break_upgrade: "Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to inflict bleeding and cause them to combust with every attack (turns: 2). Exploits Polearm and Bow weaknesses (damage calculation based on Elem. Fire attack). Attack count becomes 5 during Max Boost."
-  - skill_category: active
-    name: "Innovative Poison Spear"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Special Fragant Dumpling"
-    sp_cost: 30
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Special Fragant Dumpling (2★)** Provoke All Foes and lower Phys"
-  - skill_category: active
-    name: "Fire Soulstone (XL)"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "210"
-  - skill_category: active
-    name: "Super Whirling Blow"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: active
-    name: "The Great Plum Lance"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "110"
-    effects:
-      - "Polearm damage to Single Foe (potency: 110) and restore own SP (amount: 20-60 based on Boost Lv.)"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: 110) and restore own HP (potency: 100) and SP (amount: 20-60 based on Boost Lv.). Restore BP of Self by 3 at Max Boost."
-  - skill_category: active
-    name: "Bolt Bow"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [lightning]
-    target: random
-    power: "290"
-    limit_break_upgrade: "Deal Elem. Lightning damage to Random Foe (potency: 290) and have a moderate chance to inflict paralysis (turns: 2). Exploits Polearm and Bow weaknesses (damage calculation based on Elem. Lightning attack). Inflict shock during Max Boost (turns: 2)."
-  - skill_category: tp
-    name: "Lightning and Fire Diffusion Spirit Stone (XL)"
-    sp_cost: 81
-    skill_type: attack
-    damage_types: [lightning, fire]
-    target: aoe
-    power: "3x95"
-  - skill_category: ex
-    name: "Taut Crossbow Cannon"
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "430"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Brute (Largo)"
-    skill_type: attack
-    damage_types: [fire, lightning]
-    target: aoe
-    power: "290→335"
+- skill_category: active
+  name: Whirling Blow
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Fire Soulstone
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Bomb Bow
+  unlock_tier: 1★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to inflict bleeding with every attack (turns: 2).'
+  limit_break_upgrade: 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to inflict bleeding and cause them to combust with every attack (turns: 2). Exploits Polearm and Bow weaknesses (damage calculation based on Elem. Fire attack). Attack count becomes 5 during Max Boost.'
+- skill_category: active
+  name: Innovative Poison Spear
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170) and have a moderate chance to inflict poison (turns: 2).'
+- skill_category: active
+  name: Special Fragant Dumpling
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Provoke All Foes and lower Phys. Atk. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Fire Soulstone (XL)
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 210).'
+  upgrades:
+  - 'Lv.88: SP Saver: 54→43'
+- skill_category: active
+  name: Super Whirling Blow
+  unlock_tier: 4★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x95).'
+  upgrades:
+  - 'Lv.96: SP Saver: 48→38'
+- skill_category: active
+  name: The Great Plum Lance
+  unlock_tier: 5★
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '110'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 110) and restore own SP (amount: 20-60 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 25→20'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Single Foe (potency: 110) and restore own HP (potency: 100) and SP (amount: 20-60 based on Boost Lv.). Restore BP of Self by 3 at Max Boost.'
+- skill_category: active
+  name: Bolt Bow
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: random
+  power: '290'
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe (potency: 290) and have a moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+  limit_break_upgrade: 'Deal Elem. Lightning damage to Random Foe (potency: 290) and have a moderate chance to inflict paralysis (turns: 2). Exploits Polearm and Bow weaknesses (damage calculation based on Elem. Lightning attack). Inflict shock during Max Boost (turns: 2).'
+- skill_category: tp
+  name: Lightning and Fire Diffusion Spirit Stone (XL)
+  sp_cost: 81
+  skill_type: utility
+  damage_types:
+  - lightning
+  - fire
+  target: aoe
+  power: 3x95
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 3x95).'
+  - Exploits Fire weakness (damage calculation based on Elem. Lightning attack).
+- skill_category: ex
+  name: Taut Crossbow Cannon
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '430'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 430).'
+  - Exploits all elemental weaknesses (damage calculation based on Elem. Lightning attack).
+  notes: 'Usage Condition: After turn 3; Uses: 1'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Brute (Largo)
+  skill_type: utility
+  damage_types:
+  - fire
+  - lightning
+  target: aoe
+  power: 290→335
+  effects:
+  - 'Deal Elem. Fire damage (potency: 290→335) and Elem. Lightning damage (potency: 290→335) to All Foes.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** At end of turn: 20% chance to recover from some of own status ailments."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Raise damage of Self by 20% when exploiting enemy weakness."
-    trigger: always
-  - passive_category: innate
-    effect: "**(6★)** Raise damage of Self by 20% when exploiting enemy weakness and grant Self Damage Limit Up (effect: 50,000)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When consuming 3 BP to use a skill, raise BP recovery amount of Self by 1 (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Chance Ailment Rec. (Turn's End)
+  effect: '(1★) At end of turn: 20% chance to recover from some of own status ailments.'
+  trigger: always
+- passive_category: innate
+  name: Where it Hurts III
+  effect: (3★) Raise damage of Self by 20% when exploiting enemy weakness.
+  trigger: always
+  upgrades:
+  - 'Upgraded: (6★) Raise damage of Self by 20% when exploiting enemy weakness and grant Self Damage Limit Up (effect: 50,000).'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Remaining Strength
+  effect: 'When consuming 3 BP to use a skill, raise BP recovery amount of Self by 1 (turns: 2).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Inventor’s Drawing Board"
-  passive_effect: "40 P.Def, 40 E.Def, 600 HP; Raise Polearm damage dealt by 15%; Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack); -80 P.Atk, 130 E.Atk, -50 Spd; With Inventor’s Compass equipped: Raise Elem. Atk. by 30%"
+  name: Inventor’s Drawing Board
+  passive_effect: '40 P.Def, 40 E.Def, 600 HP; Raise Polearm damage dealt by 15%; Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack); -80 P.Atk, 130 E.Atk, -50 Spd; With Inventor’s Compass equipped: Raise Elem. Atk. by 30%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Shock
+  description: Lower Shield Points by 1 when taking Elem. Lightning damage (will not break the target).
 
 # Metadata
 data_confidence: incomplete

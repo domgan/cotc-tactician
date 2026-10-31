@@ -52,142 +52,183 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Malizioso"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res"
-  - skill_category: active
-    name: "Debilitate II"
-    sp_cost: 35
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Debilitate II** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Trattamento"
-    sp_cost: 33
-    skill_type: heal
-    target: single_ally
-    power: "100"
-    effects:
-      - "**Trattamento (1★)** Restore HP (potency: 100) and SP (amount: 5%-10% of max SP based on Boost Lv.) of Single Ally"
-  - skill_category: active
-    name: "Wild Fourfold Squall"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Sidestep"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Sidestep (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Perseverante"
-    sp_cost: 10
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x45"
-  - skill_category: active
-    name: "Raffica"
-    sp_cost: 73
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: active
-    name: "Give the Signal"
-    sp_cost: 74
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Give the Signal (5★)** Raise Phys"
-      - "of Entire Front Row by 15% and raise Dagger and Wind damage by 15%"
-      - "Grant Damage Limit Up (effect: 30,000 / turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Astuto"
-    sp_cost: 65
-    skill_type: mixed
-    damage_types: [dagger, wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: tp
-    name: "Ardito"
-    sp_cost: 12
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "8x"
-    power: "40"
-  - skill_category: tp
-    name: "Ardito Lv.2"
-    sp_cost: 12
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "8x"
-    power: "**45**"
-  - skill_category: ex
-    name: "Spirito"
-    skill_type: heal
-    target: all_allies
-    effects:
-      - "**Spirito** Restore SP of All Allies (amount: 75-200 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "For the Family"
-    skill_type: utility
-    target: all_allies
-    power: "50→100→150"
-    effects:
-      - "Restore **50→100→150** SP of All Allies"
-      - "Restore Ultimate Technique use count of All Allies excluding Self by 1"
-      - "(Use count of this Ultimate Technique cannot be restored)"
+- skill_category: active
+  name: Malizioso
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res. by 10% (turns: 2).'
+- skill_category: active
+  name: Debilitate II
+  sp_cost: 35
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Def. Down 20% and Elem. Def. Down 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Trattamento
+  unlock_tier: 1★
+  sp_cost: 33
+  skill_type: heal
+  target: single_ally
+  power: '100'
+  effects:
+  - 'Restore HP (potency: 100) and SP (amount: 5%-10% of max SP based on Boost Lv.) of Single Ally.'
+- skill_category: active
+  name: Wild Fourfold Squall
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Wind damage to Random Foe 4 time(s) (potency: 4x45).'
+- skill_category: active
+  name: Sidestep
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Perseverante
+  unlock_tier: 3★
+  sp_cost: 10
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x45
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x45).'
+  - At Max Boost, consume 100 SP each from All Allies.
+  - Potency increases with each ally, up to 5 time(s) (with 8 travelers).
+  upgrades:
+  - 'Lv.88: Potency Up: 2x45→2x55'
+- skill_category: active
+  name: Raffica
+  unlock_tier: 4★
+  sp_cost: 73
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x35).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 73→58'
+- skill_category: active
+  name: Give the Signal
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: buff
+  target: front_row
+  effects:
+  - Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and raise Dagger and Wind damage by 15%.
+  - 'Grant Damage Limit Up (effect: 30,000 / turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 74→59'
+- skill_category: active
+  name: Astuto
+  unlock_tier: 5★
+  sp_cost: 65
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x85).'
+  - 30% more potent if target has their Dagger Res. lowered.
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.100: SP Saver: 65→52'
+- skill_category: tp
+  name: Ardito
+  sp_cost: 12
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 8x
+  power: '40'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 40).'
+  - At Max Boost, consume 100 SP of each ally.
+  - Attack count increases with each ally affected (up to 8 time(s) with 8 travelers).
+  upgrades:
+  - 'Lv.2: Deal Phys. Dagger damage to Single Foe (potency: 45). At Max Boost, consume 80 SP of each ally. Attack count increases with each ally affected (up to 8 time(s) with 8 travelers).'
+- skill_category: ex
+  name: Spirito
+  skill_type: heal
+  target: all_allies
+  effects:
+  - 'Restore SP of All Allies (amount: 75-200 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: For the Family
+  skill_type: utility
+  target: all_allies
+  effects:
+  - Restore 50→100→150 SP of All Allies.
+  - Restore Ultimate Technique use count of All Allies excluding Self by 1.
+  - (Use count of this Ultimate Technique cannot be restored).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Dagger and Wind damage of Entire Front Row by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Dagger and Wind damage of Entire Front Row by **15%**."
-  - passive_category: innate
-    effect: "Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when a broken enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise BP recovery amount of Self by 1 when a broken enemy is present."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise BP recovery amount of **Paired Allies** by 1 and grant automatic SP recovery (amount: 10% of max SP) when a broken enemy is present."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Dagger and Elem. Wind attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Dagger/Wind Augment (Front/All)
+  unlock_tier: 1★
+  effect: Raise Dagger and Wind damage of Entire Front Row by 10%.
+  trigger: always
+  limit_break_upgrade: Raise Dagger and Wind damage of Entire Front Row by 15%.
+- passive_category: innate
+  name: Valore Style
+  unlock_tier: 3★
+  effect: 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when a broken enemy is present.'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: BP Recovery Boost during Break
+  effect: Raise BP recovery amount of Self by 1 when a broken enemy is present.
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise BP recovery amount of Paired Allies by 1 and grant automatic SP recovery (amount: 10% of max SP) when a broken enemy is present.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Dagger and Elem. Wind attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Cuffs of the Family"
-  passive_effect: "100 P.Atk, 40 SP; Gain Damage Limit Up (effect: 100,000); Grant All Allies automatic SP recovery (amount: 20) when a broken enemy is present"
+  name: Cuffs of the Family
+  passive_effect: '100 P.Atk, 40 SP; Gain Damage Limit Up (effect: 100,000); Grant All Allies automatic SP recovery (amount: 20) when a broken enemy is present'
 
 # Metadata
 data_confidence: incomplete

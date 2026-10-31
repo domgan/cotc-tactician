@@ -70,139 +70,182 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Awakening"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Awakening** Raise Phys"
-  - skill_category: active
-    name: "Chain Gust"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Take Command"
-    sp_cost: 18
-    skill_type: debuff
-    target: front_row
-    effects:
-      - "**Take Command (2★)** Provoke All Foes and impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Tempest Spear"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: active
-    name: "Stalwart Spear"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Attack count when raised: +1 **Lv.88 |** SP Saver: 32→26"
-  - skill_category: active
-    name: "Ultra Tempest Spear"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Polearm damage to All Foes 4 time(s) (potency: 4x45) and raise own potency by 50% (turns: 3)"
-  - skill_category: active
-    name: "Ultra Stalwart Spear"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "6x"
-    power: "6x30"
-    effects:
-      - "Polearm damage to Single Foe 6 time(s) (potency: 6x30) and raise own attack count by 1 (turns: 3)"
-  - skill_category: active
-    name: "Stalwart Tempest Spear"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Attack count when raised: +1 **Lv.100 |** SP Saver: 40→32"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: **290**)."
-  - skill_category: tp
-    name: "Double Pierce"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Polearm damage to Random Foe 2 time(s) (potency: 2x90) and lower Polearm Res"
-  - skill_category: ex
-    name: "Tempest’s Ultimate"
-    skill_type: buff
-    target: self
-    effects:
-      - "**Tempest’s Ultimate** Raise the potency of Self by 50% and attack count by 1 (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Recoup"
-    skill_type: buff
-    target: self
-    power: "3→4"
-    effects:
-      - "and Spd of Self by **10%→20%→30%** (turns: **3→4**) and restore own skill use count"
+- skill_category: active
+  name: Trifold Thrust
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Awakening
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. and Crit of Self by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Chain Gust
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Take Command
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: debuff
+  target: front_row
+  effects:
+  - 'Provoke All Foes and impart Entire Front Row with Phys. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Tempest Spear
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x95).'
+- skill_category: active
+  name: Stalwart Spear
+  unlock_tier: 3★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.88: SP Saver: 32→26'
+- skill_category: active
+  name: Ultra Tempest Spear
+  unlock_tier: 4★
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 4 time(s) (potency: 4x45) and raise own potency by 50% (turns: 3).'
+  - Affects Tempest Spear, Stalwart Spear and Stalwart Tempest Spear.
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.96: Potency Up: 45→55'
+- skill_category: active
+  name: Ultra Stalwart Spear
+  unlock_tier: 5★
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 6x
+  power: 6x30
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 6 time(s) (potency: 6x30) and raise own attack count by 1 (turns: 3).'
+  - Affects Tempest Spear, Stalwart Spear and Stalwart Tempest Spear.
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.99: Potency Up: 30→40'
+- skill_category: active
+  name: Stalwart Tempest Spear
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.100: SP Saver: 40→32'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Single Foe (potency: 290).'
+- skill_category: tp
+  name: Double Pierce
+  sp_cost: 37
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 2 time(s) (potency: 2x90) and lower Polearm Res. by 15% with every attack (turns: 2).'
+- skill_category: ex
+  name: Tempest’s Ultimate
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the potency of Self by 50% and attack count by 1 (turns: 2-5 based on Boost Lv.).'
+  - Affects Tempest Spear, Stalwart Spear and Stalwart Tempest Spear.
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 1'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Recoup
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk., Phys. Def. and Spd of Self by 10%→20%→30% (turns: 3→4) and restore own skill use count.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Polearm damage of Self by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "When near death: Grant Dead Aim to Self (guaranteed critical hits)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self Damage Limit Up (effect: 100,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Polearm Atk. Boost III
+  unlock_tier: 1★
+  effect: Raise Polearm damage of Self by 15%.
+  trigger: always
+- passive_category: innate
+  name: Desperate Critical Shot
+  unlock_tier: 3★
+  effect: 'When near death: Grant Dead Aim to Self (guaranteed critical hits).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Gale Stance
+  effect: 'Grant Self Damage Limit Up (effect: 100,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Indomitable Eyepatch"
-  passive_effect: "60 P.Atk, 40 Crit, 40 Spd; Raise Polearm damage by 15%; Start of battle: Lower Polearm Res. of all enemies by 15% (turns: 3)"
+  name: Indomitable Eyepatch
+  passive_effect: '60 P.Atk, 40 Crit, 40 Spd; Raise Polearm damage by 15%; Start of battle: Lower Polearm Res. of all enemies by 15% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Potency with augmentation
+  description: +50%
+- name: Attack count when raised
+  description: '+1'
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: verified

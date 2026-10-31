@@ -52,122 +52,171 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Guillotine"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Empowering Shield"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Empowering Shield** Impart Self with Phys"
-  - skill_category: active
-    name: "Shadow Impact"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Pugnacity"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Pugnacity** **(3★)** Impart Self with Phys"
-  - skill_category: active
-    name: "Shadow Reaver"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Crumbling Cut"
-    sp_cost: 43
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Sword damage to Single Foe (potency: 230) and impart Phys"
-  - skill_category: active
-    name: "Double Arching Blow"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: tp
-    name: "Once More"
-    sp_cost: 40
-    skill_type: buff
-    target: self
-    effects:
-      - "**Once More ** Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP)"
-      - "grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Chain of Demolition"
-    skill_type: mixed
-    damage_types: [sword, dark]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Sword damage to Random Foe 4 time(s) (potency: 4x65) and lower Phys"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Cave In"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Guillotine
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Empowering Shield
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 15% and Phys. Def. Up 15% (turns: 3).'
+- skill_category: active
+  name: Shadow Impact
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Stunning Strike
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - '(2★) Deal Phys. Sword damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Trifold Slash
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - '(2★) Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Pugnacity
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - '(3★) Impart Self with Phys. Atk. Up 20% and Phys. Def. Up 20% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 36→29'
+- skill_category: active
+  name: Shadow Reaver
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - '(4★) Deal Elem. Dark damage to All Foes (potency: 150).'
+  upgrades:
+  - 'Lv.96: SP Saver: 32→26'
+- skill_category: active
+  name: Crumbling Cut
+  sp_cost: 43
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - '(5★) Deal Phys. Sword damage to Single Foe (potency: 230) and impart Phys. Def. Down 20% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 43→34'
+- skill_category: active
+  name: Double Arching Blow
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - '(5★) Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x95).'
+  upgrades:
+  - 'Lv.100: SP Saver: 56→43'
+- skill_category: tp
+  name: Once More
+  sp_cost: 40
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP).'
+  - 'Also, grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.).'
+- skill_category: ex
+  name: Chain of Demolition
+  skill_type: debuff
+  damage_types:
+  - sword
+  - dark
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x65) and lower Phys. Def. by 10% with every attack (turns: 1).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  notes: 'Usage Condition: When there’s not a broken enemy; Uses: 4'
+  ex_trigger: When there’s not a broken enemy
+- skill_category: special
+  name: Cave In
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 500→600→750).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Phys. Atk. Up 20% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Self with Phys. Atk. Up 20%."
-  - passive_category: innate
-    effect: "At full HP: Raise Sword damage of Self by 20%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When broken enemy is present, raise own Phys. Atk. by 10% and Sword damage by 10% and grant Self Damage Limit Up (effect: 50,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Phys. Atk. Boost III
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Self with Phys. Atk. Up 20% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Self with Phys. Atk. Up 20%.
+- passive_category: innate
+  name: Hale Sword Atk. Boost III
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Sword damage of Self by 20%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Aspiration for Knighthood
+  effect: 'When broken enemy is present, raise own Phys. Atk. by 10% and Sword damage by 10% and grant Self Damage Limit Up (effect: 50,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Father's Memorial Vambrace"
-  passive_effect: "60 P.Atk, 40 P.Def, 40 E.Def; Raise Sword damage dealt by 10%; Raise Light and Dark Res. by 10%"
+  name: Father's Memorial Vambrace
+  passive_effect: 60 P.Atk, 40 P.Def, 40 E.Def; Raise Sword damage dealt by 10%; Raise Light and Dark Res. by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

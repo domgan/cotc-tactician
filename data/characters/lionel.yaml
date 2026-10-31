@@ -52,127 +52,183 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Guillotine"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Rime"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Level Slash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "120"
-  - skill_category: active
-    name: "Trifold Armor Break"
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: 3x55) and impart Phys"
-  - skill_category: active
-    name: "Protective Slash"
-    sp_cost: 34
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "2x90"
-    effects:
-      - "Sword damage to Single Foe (potency: 2x90) and impart Self with Phys"
-  - skill_category: active
-    name: "Spirited Slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Triple Glaciate"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Guardian Rage"
-    sp_cost: 45
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Self with Phys"
-  - skill_category: active
-    name: "Flash of Malice"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "210"
-    limit_break_upgrade: "Deal Phys. Sword damage to All Foes (potency: 210). 50% more potent when provoked enemy is present."
-  - skill_category: tp
-    name: "Dragon Slayer Sword"
-    sp_cost: 200
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "475"
-  - skill_category: ex
-    name: "Hymn of the Dragonslayer"
-    skill_type: mixed
-    target: self
-    power: "40% of user’s max HP/does not stack"
-    effects:
-      - "**Hymn of the Dragonslayer** Restore own HP (amount: 100% of max HP) and grant Self HP Barrier (potency: 40% of user’s max HP/does not stack)"
-      - "of Self by 30% and grant Damage Limit Up (effect: 50,000) (turns: 3)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Bold Knight’s Brandish"
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    power: "330→395→495"
-    effects:
-      - "provoke them (turns: 2) and impart Self with Phys"
+- skill_category: active
+  name: Guillotine
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Rime
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Level Slash
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 120).'
+- skill_category: active
+  name: Trifold Armor Break
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x55) and impart Phys. Def. Down 10% (turns: 2).'
+- skill_category: active
+  name: Protective Slash
+  unlock_tier: 2★
+  sp_cost: 34
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 2x90) and impart Self with Phys. Def. Up 15% (turns: 2).'
+- skill_category: active
+  name: Spirited Slash
+  unlock_tier: 3★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.88: SP Saver: 32→26'
+- skill_category: active
+  name: Triple Glaciate
+  unlock_tier: 4★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 38→30'
+- skill_category: active
+  name: Guardian Rage
+  unlock_tier: 5★
+  sp_cost: 45
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x120) and impart Self with Phys. Def. Up 20% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 45→36'
+- skill_category: active
+  name: Flash of Malice
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 210).'
+  upgrades:
+  - 'Lv.100: SP Saver: 52→42'
+  limit_break_upgrade: 'Deal Phys. Sword damage to All Foes (potency: 210). 50% more potent when provoked enemy is present.'
+- skill_category: tp
+  name: Dragon Slayer Sword
+  sp_cost: 200
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '475'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 475).'
+  - When Phys. Def. Up is active, potency is multiplied by 1.3.
+- skill_category: ex
+  name: Hymn of the Dragonslayer
+  skill_type: buff
+  target: self
+  power: 40% of user’s max HP/does not stack
+  effects:
+  - 'Restore own HP (amount: 100% of max HP) and grant Self HP Barrier (potency: 40% of user’s max HP/does not stack).'
+  - 'Raise Phys. Atk. of Self by 30% and grant Damage Limit Up (effect: 50,000) (turns: 3).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Bold Knight’s Brandish
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 330→395→495), provoke them (turns: 2) and impart Self with Phys. Def. Up 5%→10% (turns: 2).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Impart Self with Phys. Def. Up 15% when afflicted with certain status ailments."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of the battle: Raise BP recovery amount of Self by 1 (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At 50% HP or more: Provoke All Foes."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Def. Boost When Ailing II
+  unlock_tier: 1★
+  effect: Impart Self with Phys. Def. Up 15% when afflicted with certain status ailments.
+  trigger: always
+- passive_category: innate
+  name: BP Recovery Boost
+  unlock_tier: 3★
+  effect: 'Start of the battle: Raise BP recovery amount of Self by 1 (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Incite with 50% HP or more (All)
+  effect: 'At 50% HP or more: Provoke All Foes.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Crest of Breistadt"
-  passive_effect: "60 P.Atk, 40 P.Def, 400 HP; Raise Sword damage dealt by 15%; Raise own Phys. Atk. and Critical when afflicted with certain status ailments"
+  name: Crest of Breistadt
+  passive_effect: 60 P.Atk, 40 P.Def, 400 HP; Raise Sword damage dealt by 15%; Raise own Phys. Atk. and Critical when afflicted with certain status ailments
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

@@ -70,133 +70,179 @@ jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Emergency First Aid (All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Emergency First Aid (All)** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Plum Pill"
-    sp_cost: 1
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Plum Pill** Restore SP of Single Ally (amount: 10-?? based on Boost Lv.)"
-  - skill_category: active
-    name: "Quadruple Windbolt Slash"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Rehabilitate (All)"
-    sp_cost: 30
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Rehabilitate (All) (2★)** Cure some status ailments of Entire Front Row and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Mass Rejuvenate"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "120, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Mass Rejuvenate (2★)** Grant Entire Front Row automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Refined Plum Injection"
-    sp_cost: 300
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**Refined Plum Injection (3★)** Impart All Allies excluding Self with SP Stock (amount: 125-300 based on Boost Lv./does not stack)"
-  - skill_category: active
-    name: "Raging Windbolt Slash"
-    sp_cost: 66
-    skill_type: mixed
-    damage_types: [axe]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Axe damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Phys"
-  - skill_category: active
-    name: "Cura Salute"
-    sp_cost: 1
-    skill_type: heal
-    target: all_allies
-    hit_count: "3x"
-    power: "120, turns: 2"
-    effects:
-      - "Grant additional effects to All Allies based on the number of times SP is consumed"
-      - "[1 SP] ·1+ time(s): Grant automatic HP recovery (potency: 120, turns: 2)"
-      - "·2+ time(s): Also raise max HP of All Allies by 20% (turns: 2)"
-      - "·3 time(s): Also grant HP Barrier (potency: 20% of user’s max HP/does not stack)"
-  - skill_category: active
-    name: "Triple Windbolt Gash"
-    sp_cost: 81
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: tp
-    name: "Plum Injection"
-    sp_cost: 150
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Plum Injection ** Impart Entire Front Row excluding Self with SP Stock (amount: 50-150 based on Boost Lv./does not stack)"
-  - skill_category: tp
-    name: "Plum Injection Lv.2"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Plum Injection Lv.2** Impart Entire Front Row excluding Self with SP Stock (amount: 50-150 based on Boost Lv./does not stack)"
-  - skill_category: special
-    name: "Tritale Arcobaleno"
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "6x"
-    effects:
-      - "Impart Self with SP Stock (potency: **100%→200%→300%** of user’s max SP/does not stack)"
+- skill_category: active
+  name: Emergency First Aid (All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+- skill_category: active
+  name: Plum Pill
+  sp_cost: 1
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Restore SP of Single Ally (amount: 10-??'
+  - based on Boost Lv.).
+  - Recovery amount doubles if target is a Thief or a Scholar.
+  - '*Can be used three times per battle.'
+- skill_category: active
+  name: Quadruple Windbolt Slash
+  unlock_tier: 1★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 4 time(s) (potency: 4x45).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  name: Rehabilitate (All)
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure some status ailments of Entire Front Row and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  - Cure Can’t Switch, Comatose and Silence at Max Boost.
+- skill_category: active
+  name: Mass Rejuvenate
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '120, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Refined Plum Injection
+  unlock_tier: 3★
+  sp_cost: 300
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Impart All Allies excluding Self with SP Stock (amount: 125-300 based on Boost Lv./does not stack).'
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.88: SP Saver: 300→240'
+- skill_category: active
+  name: Raging Windbolt Slash
+  unlock_tier: 4★
+  sp_cost: 66
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Phys. Def. and Elem. Def. by 10% with every attack (turns: 2).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'When selecting this command at full SP: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.96: SP Saver: 66→53'
+- skill_category: active
+  name: Cura Salute
+  unlock_tier: 5★
+  sp_cost: 1
+  skill_type: heal
+  target: all_allies
+  hit_count: 3x
+  power: '120, turns: 2'
+  effects:
+  - Cure status ailments of Self, then consume 20% max SP of Self before SP drops below 20% (up to 3 times).
+  - Grant additional effects to All Allies based on the number of times SP is consumed.
+  - '·1+ time(s): Grant automatic HP recovery (potency: 120, turns: 2).'
+  - '·2+ time(s): Also raise max HP of All Allies by 20% (turns: 2).'
+  - '·3 time(s): Also grant HP Barrier (potency: 20% of user’s max HP/does not stack).'
+  upgrades:
+  - 'Lv.99: Duration Up: 2 turns→3 turns'
+- skill_category: active
+  name: Triple Windbolt Gash
+  unlock_tier: 5★
+  sp_cost: 81
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'When selecting this command at full SP: Activate skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.100: SP Saver: 81→65'
+- skill_category: tp
+  name: Plum Injection
+  sp_cost: 150
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row excluding Self with SP Stock (amount: 50-150 based on Boost Lv./does not stack).'
+  upgrades:
+  - 'Lv.2: Impart Entire Front Row excluding Self with SP Stock (amount: 50-150 based on Boost Lv./does not stack). [100 SP]'
+- skill_category: special
+  name: Tritale Arcobaleno
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 6x
+  power: 6x55→6x70→6x90
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 6 time(s) (potency: 6x55→6x70→6x90).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'Impart Self with SP Stock (potency: 100%→200%→300% of user’s max SP/does not stack).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart All Allies with SP Stock (amount: 20% of user’s max SP/does not stack)."
-    trigger: battle_start
-    limit_break_upgrade: "Start of battle: Impart All Allies with SP Stock (amount: **40%** of user’s max SP/does not stack)."
-  - passive_category: innate
-    effect: "When in front row and with SP Stock: Grant Entire Front Row an effect that recovers HP equal to 10% of damage. (With exceptions/Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self automatic SP recovery (amount: 5% of max SP). With SP Stock: Recovery amount doubles."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self automatic SP recovery (amount: 5% of max SP). With SP Stock: Recovery amount doubles. When switching to back row: Impart Self with SP Stock (amount: 10% of user’s max Sp/Does not stack)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Axe and Elem. Lightning and Wind attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial SP Stock (All) II
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart All Allies with SP Stock (amount: 20% of user’s max SP/does not stack).'
+  trigger: battle_start
+  limit_break_upgrade: 'Start of battle: Impart All Allies with SP Stock (amount: 40% of user’s max SP/does not stack).'
+- passive_category: innate
+  name: Shana’s Real-time Disposal
+  unlock_tier: 3★
+  effect: 'When in front row and with SP Stock: Grant Entire Front Row an effect that recovers HP equal to 10% of damage. (With exceptions/Does not stack with effects of the same type).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Shana Style SP Healing
+  effect: 'Grant Self automatic SP recovery (amount: 5% of max SP). With SP Stock: Recovery amount doubles.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Self automatic SP recovery (amount: 5% of max SP). With SP Stock: Recovery amount doubles. When switching to back row: Impart Self with SP Stock (amount: 10% of user’s max Sp/Does not stack).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Axe and Elem. Lightning and Wind attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Traveler’s Cape"
-  passive_effect: "140 SP; 100% chance of resisting some status ailments; Grant Self SP Stock when consuming 3 or more BP (amount: 10% of user’s max SP/does not stack)"
+  name: Traveler’s Cape
+  passive_effect: '140 SP; 100% chance of resisting some status ailments; Grant Self SP Stock when consuming 3 or more BP (amount: 10% of user’s max SP/does not stack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

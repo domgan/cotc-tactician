@@ -52,119 +52,174 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Lightning Bolt (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Analyze All"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Lightning Bolt (All) II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Dual Slam"
-    sp_cost: 26
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Lightning Blast (All) II"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Lightning Blast (Single) II"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x 90"
-  - skill_category: active
-    name: "Lightning Bolt (All) III"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Shocking Slam"
-    sp_cost: 36
-    skill_type: mixed
-    target: aoe
-    power: "150"
-    effects:
-      - "Tome damage to All Foes (potency: 150) and lower Lightning Res"
-  - skill_category: active
-    name: "Tonitrus Canere (All)"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: tp
-    name: "Massive Lightning Blast (All) II"
-    sp_cost: 72
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: ex
-    name: "Idle Burst"
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    power: "290"
-    effects:
-      - "**Idle Burst** Lower Lightning Res"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Bolts of Lightning"
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "3→5"
+- skill_category: active
+  name: Lightning Bolt (Single) II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Analyze All
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - Show 1-4 weak point(s) based on Boost Lv. of All Foes.
+- skill_category: active
+  name: Lightning Bolt (All) II
+  unlock_tier: 1★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Dual Slam
+  sp_cost: 26
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - '(2★) Deal Phys. Tome damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Lightning Blast (All) II
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(2★) Deal Elem. Lightning damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Lightning Blast (Single) II
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  hit_count: 2x
+  power: 2x 90
+  effects:
+  - '(3★) Deal Elem. Lightning damage to Single Foe 2 time(s) (potency: 2x 90).'
+  upgrades:
+  - 'Lv.88: SP Saver: 28→22'
+- skill_category: active
+  name: Lightning Bolt (All) III
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '180'
+  effects:
+  - '(4★) Deal Elem. Lightning damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.96: SP Saver: 46→37'
+- skill_category: active
+  name: Shocking Slam
+  sp_cost: 36
+  skill_type: debuff
+  target: aoe
+  power: '150'
+  effects:
+  - '(5★) Deal Phys. Tome damage to All Foes (potency: 150) and lower Lightning Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 36→29'
+- skill_category: active
+  name: Tonitrus Canere (All)
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x55).'
+  upgrades:
+  - 'Lv.100: SP Saver: 56→45'
+- skill_category: tp
+  name: Massive Lightning Blast (All) II
+  sp_cost: 72
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 4 time(s) (potency: 4x35).'
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: ex
+  name: Idle Burst
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Lower Lightning Res. of Single Foe by 15% (turns: 2) and deal Elem. Lightning damage (potency: 290).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Bolts of Lightning
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 5x
+  power: 3x85→5x100→5x125
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3→5 time(s) (potency: 3x85→5x100→5x125).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Elem. Atk. Up 30% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Start of battle: Impart Self with Elem. Atk. Up 30% (**turns: 9**)."
-  - passive_category: innate
-    effect: "Raise lightning damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Act faster when consuming 3 BP and grant Self the ability to deal critical hits when using elemental attacks."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Elem. Atk Boost V
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Self with Elem. Atk. Up 30% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: 'Start of battle: Impart Self with Elem. Atk. Up 30% (turns: 9).'
+- passive_category: innate
+  name: Lightning Augment V
+  unlock_tier: 3★
+  effect: Raise lightning damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Full Speed Ahead
+  effect: Act faster when consuming 3 BP and grant Self the ability to deal critical hits when using elemental attacks.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Mantle of House Shermot"
-  passive_effect: "60 E.Atk, 40 Speed, 40 SP; Start of battle: Lower Lightning Res. of all enemies by 15% (turns: 3); When breaking an enemy, lower their Lightning Res. by 15% (turns: 3)"
+  name: Mantle of House Shermot
+  passive_effect: '60 E.Atk, 40 Speed, 40 SP; Start of battle: Lower Lightning Res. of all enemies by 15% (turns: 3); When breaking an enemy, lower their Lightning Res. by 15% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

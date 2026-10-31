@@ -51,101 +51,131 @@ jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Sting"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Shackle Foe"
-    sp_cost: 6
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Shackle Foe** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Electrocute"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Mass Shackle Foe"
-    sp_cost: 12
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Mass Shackle Foe (2★)** Impart All Foes with Phys"
-  - skill_category: active
-    name: "Shackle Foe II"
-    sp_cost: 14
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Shackle Foe II (2★)** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Ripping Assault"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-  - skill_category: active
-    name: "Ripping Assault"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-  - skill_category: tp
-    name: "Double Strike Assault"
-    sp_cost: 41
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Dagger damage to All Foes 2 time(s) (potency: 2x80) and impart with Phys"
-  - skill_category: ex
-    name: "Owl Claws"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "**Owl Claws** Act faster during turn and deal Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Disarming Assault"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    power: "330→395→495"
-    effects:
-      - "Dagger damage to All Foes (potency: **330→395→495**) and impart Phys"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Sting
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Shackle Foe
+  sp_cost: 6
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Atk. Down 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Electrocute
+  unlock_tier: 1★
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Mass Shackle Foe
+  unlock_tier: 2★
+  sp_cost: 12
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Impart All Foes with Phys. Atk. Down 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Shackle Foe II
+  unlock_tier: 2★
+  sp_cost: 14
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Atk. Down 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Ripping Assault
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes potency: 140).'
+  upgrades:
+  - 'Lv.60: SP Saver: 30→24'
+  - 'Upgraded: Deal Phys. Dagger damage to All Foes potency: 170).'
+- skill_category: tp
+  name: Double Strike Assault
+  sp_cost: 41
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80) and impart with Phys. Atk. Down 10% (turns: 2).'
+- skill_category: ex
+  name: Owl Claws
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '230'
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Dagger damage to Single Foe (potency: 230).'
+  - 'Lower Phys. Def. by 10% (turns: 2).'
+  notes: 'Usage Condition: When there’s an enemy with Phys. Atk. Down; Uses: 2'
+  ex_trigger: When there’s an enemy with Phys. Atk. Down
+- skill_category: special
+  name: Disarming Assault
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 330→395→495) and impart Phys. Atk. Down 5%→10%→15% (turns: 2).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Start of battle: Raise Crit of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Wind Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When there are enemies with Phys. Atk. Down, raise critical damage of Entire Front Row by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Critical Boost (Joint)
+  effect: '(1★) Start of battle: Raise Crit of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Wind Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Wind Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Wind Resilience III
+  unlock_tier: 5★
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 4★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Adaptability
+  effect: When there are enemies with Phys. Atk. Down, raise critical damage of Entire Front Row by 10%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

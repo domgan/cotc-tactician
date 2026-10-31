@@ -51,139 +51,156 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Slice"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Stout Wall"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Stout Wall** Impart Self with Phys"
-  - skill_category: active
-    name: "Illuminate"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Protective Slash"
-    sp_cost: 34
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x85) and impart Self with Phys"
-  - skill_category: active
-    name: "Rampart"
-    sp_cost: 21
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Rampart** **(3★)** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Rampart"
-    sp_cost: 17
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Rampart** **(5★)** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Lightblast"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Lightblast"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "**175**"
-  - skill_category: tp
-    name: "Healing Assault"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
-  - skill_category: tp
-    name: "Healing Assault Lv.2"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
-  - skill_category: ex
-    name: "Fortress"
-    skill_type: buff
-    target: self
-    power: "50%-200% of user’s max HP based on Boost Lv./ Does not stack"
-    effects:
-      - "**Fortress** Grant Self a HP Barrier (potency: 50%-200% of user’s max HP based on Boost Lv./ Does not stack)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Guardian’s Blade"
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: **3x130→3x160→3x195**) and impart Self with Phys"
+- skill_category: active
+  name: Slice
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Stout Wall
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Illuminate
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Stunning Strike
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '145'
+  effects:
+  - '(2★) Deal Phys. Sword damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Protective Slash
+  sp_cost: 34
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - '(2★) Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x85) and impart Self with Phys. Def. Up 15% (turns: 2).'
+- skill_category: active
+  name: Rampart
+  sp_cost: 21
+  skill_type: buff
+  target: single_ally
+  effects:
+  - '(3★) Impart Single Ally with Phys. Def. Up 15% and Elem. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 21→17'
+  - 'Upgraded: (5★) Impart Single Ally with Phys. Def. Up 15% and Elem. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Lightblast
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '145'
+  effects:
+  - '(4★) Deal Elem. Light damage to All Foes (potency: 145).'
+  upgrades:
+  - 'Lv.80: SP Saver: 32→26'
+  - 'Upgraded: (5★) Deal Elem. Light damage to All Foes (potency: 175).'
+- skill_category: tp
+  name: Healing Assault
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Sword damage to Single Foe (potency: 230) and restore own HP (potency: 180). At Max Boost: Activate the skill twice.'
+- skill_category: ex
+  name: Fortress
+  skill_type: buff
+  target: self
+  power: 50%-200% of user’s max HP based on Boost Lv./ Does not stack
+  effects:
+  - 'Grant Self a HP Barrier (potency: 50%-200% of user’s max HP based on Boost Lv./ Does not stack).'
+  notes: 'Uses: 1'
+- skill_category: special
+  name: Guardian’s Blade
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x130→3x160→3x195
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x130→3x160→3x195) and impart Self with Phys. Def. Up 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP *Requires Ultimate Technique Awakening.; Overcharge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** While in back row: Impart Paired Ally with Phys. Def. Up 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "**(6★)** Impart Paired Allies with Phys. Def. Up 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** At full HP: Provoke All Foes."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Def. of Self by 20%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Def. of Self by 20%. At full HP: Raise the limits of Phys. Def. augments from support skills and equipment effects to 40%."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 8,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Rearguard Phys. Def. Boost (Front/Single) II
+  effect: '(1★) While in back row: Impart Paired Ally with Phys. Def. Up 15%.'
+  trigger: always
+- passive_category: innate
+  name: Phys. Def. Boost (Joint) II
+  effect: (6★) Impart Paired Allies with Phys. Def. Up 15%.
+  trigger: always
+- passive_category: innate
+  name: Hale Incite (All)
+  effect: '(3★) At full HP: Provoke All Foes.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Phys. Def. Boost III
+  effect: Raise Phys. Def. of Self by 20%.
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise Phys. Def. of Self by 20%. At full HP: Raise the limits of Phys. Def. augments from support skills and equipment effects to 40%.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword attacks of All Allies by 8,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Faded Knights Ardante Medal"
-  passive_effect: "30 P.Def, 300 HP, 10 SP; Raise Elem. Def. of Paired Allies by 10%"
+  name: Faded Knights Ardante Medal
+  passive_effect: 30 P.Def, 300 HP, 10 SP; Raise Elem. Def. of Paired Allies by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Condition
+  description: When there’s a provoked enemy
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

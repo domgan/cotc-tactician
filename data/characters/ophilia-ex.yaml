@@ -57,146 +57,218 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blizzard (Single)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Thunder (Single)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Firaga (All)"
-    sp_cost: 78
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-  - skill_category: active
-    name: "Blizzaga (All)"
-    sp_cost: 78
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-  - skill_category: active
-    name: "Thundaga (All)"
-    sp_cost: 78
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-  - skill_category: active
-    name: "Summon: Sylph"
-    sp_cost: 88
-    skill_type: mixed
-    damage_types: [wind]
-    target: front_row
-    hit_count: "3x"
-    power: "3x95"
-    effects:
-      - "Wind damage to All Foes 3 time(s) (potency: 3x95) and restore HP of Entire Front Row (potency: 65)"
-  - skill_category: active
-    name: "Flare (Single)"
-    sp_cost: 67
-    skill_type: attack
-    damage_types: [fire, light]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    name: "Summon: Asura"
-    sp_cost: 131
-    skill_type: heal
-    target: all_allies
-    power: "205"
-    effects:
-      - "**Summon: Asura (5★)** Restore HP of All Allies (potency: 205)"
-      - "by 15% (turns: 2-5 based on Boost Lv.) and have a 20% chance to grant each target automatic revival (revived at 50% of max HP)"
-  - skill_category: active
-    name: "Meteor"
-    sp_cost: 98
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "6x"
-    power: "6x45"
-  - skill_category: tp
-    name: "Summon: Leviathan"
-    sp_cost: 500
-    skill_type: mixed
-    target: aoe
-    hit_count: "2x"
-    power: "2x630"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-      - "Raise Damage Limit of this skill by 100,000"
-  - skill_category: ex
-    name: "Summon: Dragon"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "350"
-    effects:
-      - "Raise Damage Limit of this skill by 50,000"
-      - "Grant Self Eidolon’s Blessing (turns: 2/turn count overwrites)"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Summon: Bahamut"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "6x"
-    effects:
-      - "Grant Self Eidolon’s Blessing (turns: 2/granted as battle skill/turn count overwrites)"
+- skill_category: active
+  name: Blizzard (Single)
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Thunder (Single)
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Firaga (All)
+  unlock_tier: 1★
+  sp_cost: 78
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x95).'
+- skill_category: active
+  name: Blizzaga (All)
+  unlock_tier: 2★
+  sp_cost: 78
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x95).'
+- skill_category: active
+  name: Thundaga (All)
+  unlock_tier: 2★
+  sp_cost: 78
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x95).'
+- skill_category: active
+  name: 'Summon: Sylph'
+  unlock_tier: 3★
+  sp_cost: 88
+  skill_type: heal
+  damage_types:
+  - wind
+  target: front_row
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 3 time(s) (potency: 3x95) and restore HP of Entire Front Row (potency: 65).'
+  - Ignores effects that completely avoids or blocks attacks.
+  upgrades:
+  - 'Lv.88: SP Saver: 88→70'
+- skill_category: active
+  name: Flare (Single)
+  unlock_tier: 4★
+  sp_cost: 67
+  skill_type: utility
+  damage_types:
+  - fire
+  - light
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Exploits Light weakness (damage calculation based on Elem. Fire attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 67→54'
+- skill_category: active
+  name: 'Summon: Asura'
+  unlock_tier: 5★
+  sp_cost: 131
+  skill_type: heal
+  target: all_allies
+  power: '205'
+  effects:
+  - 'Restore HP of All Allies (potency: 205), raise Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.) and have a 20% chance to grant each target automatic revival (revived at 50% of max HP).'
+  - (Cannot target incapacitated allies/Count does not increase when stacked).
+  upgrades:
+  - 'Lv.99: SP Saver: 131→105'
+- skill_category: active
+  name: Meteor
+  unlock_tier: 5★
+  sp_cost: 98
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 6x
+  power: 6x45
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 6 time(s) (potency: 6x45).'
+  - 'At Max Boost: Attack count becomes 8.'
+  upgrades:
+  - 'Lv.100: Potency Up: 45→50'
+- skill_category: tp
+  name: 'Summon: Leviathan'
+  sp_cost: 500
+  skill_type: debuff
+  target: aoe
+  hit_count: 2x
+  power: 2x630
+  effects:
+  - 'Deal Elem. Non-elemental damage to All Foes 2 time(s) (potency: 2x630).'
+  - Lower Shield Points even when not striking weak points.
+  - Ignores effects that completely dodge or block attacks.
+  - Raise Damage Limit of this skill by 100,000.
+- skill_category: ex
+  name: 'Summon: Dragon'
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '350'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 350).'
+  - Ignores effects that completely avoids or blocks attacks.
+  - Raise Damage Limit of this skill by 50,000.
+  - 'Grant Self Eidolon’s Blessing (turns: 2/turn count overwrites).'
+  - 'Eidolon’s Blessing: Sets the reuse turns of Latent Power: Summon to 0.'
+  notes: 'Usage Condition: -; Uses: 3'
+  ex_trigger: '-'
+- skill_category: special
+  name: 'Summon: Bahamut'
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 6x
+  power: 6x50→6x60→6x75
+  effects:
+  - 'Deal Elem. Light damage to All Foes 6 time(s) (potency: 6x50→6x60→6x75).'
+  - Exploits Fire, Ice, Lightning, Wind and Dark weakness (damage calculation based on Elem. Light attack).
+  - Ignores effects that completely avoids or blocks attacks.
+  - 'Grant Self Eidolon’s Blessing (turns: 2/granted as battle skill/turn count overwrites).'
+  - 'Eidolon’s Blessing: Sets the reuse turns of Latent Power: Summon to 0.'
+  notes: 'Uses: 1→3 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise own Elem. Atk. by 30% and lower SP consumption by 30% (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise elemental damage by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise elemental damage by 30% and grant Self ability to trigger critical hits when using elemental attacks."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light and Dark Res. by 10%"
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, skill configuration changes to the following (turns: 1). ---"
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Fire damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Ice damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Lightning damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Eidolon’s Bonds
+  unlock_tier: 1★
+  effect: Raise own Elem. Atk. by 30% and lower SP consumption by 30% (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Eidolon King’s Boon
+  unlock_tier: 3★
+  effect: Raise elemental damage by 30%.
+  trigger: always
+  limit_break_upgrade: Raise elemental damage by 30% and grant Self ability to trigger critical hits when using elemental attacks.
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind
+  effect: Resilience Raise own Lightning and Wind Res. by 10%
+  trigger: always
+- passive_category: innate
+  name: Light/Dark
+  effect: Resilience Raise own Light and Dark Res. by 10%
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Summon'
+  effect: 'Upon activation, skill configuration changes to the following (turns: 1).'
+  trigger: always
+  notes: 'Preparation Turns: 3; Reuse Turns: 6'
+- passive_category: innate
+  name: 'Summon: Ifrit'
+  effect: 'Deal Elem. Fire damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks.'
+  trigger: always
+- passive_category: innate
+  name: 'Summon: Shiva'
+  effect: 'Deal Elem. Ice damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks.'
+  trigger: always
+- passive_category: innate
+  name: 'Summon: Ramuh'
+  effect: 'Deal Elem. Lightning damage to All Foes 6 time(s) (potency: 6x40). Ignores effects that completely dodge or block attacks.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Rydia’s Hair Ornament"
-  passive_effect: "40 E.Atk, 100 SP; Raise Elem. Atk. by 15%; Start of battle: Grant Entire Front Row the ability to dodge physical attacks (times: 2) and elemental attacks (times: 2) (Stacks with dodge counts from battle skills)"
+  name: Rydia’s Hair Ornament
+  passive_effect: '40 E.Atk, 100 SP; Raise Elem. Atk. by 15%; Start of battle: Grant Entire Front Row the ability to dodge physical attacks (times: 2) and elemental attacks (times: 2) (Stacks with dodge counts from battle skills)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

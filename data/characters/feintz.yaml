@@ -52,148 +52,204 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 32
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    power: "120"
-    effects:
-      - "With “Avoid Group Physical Attacks” lower than 2 times"
-      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Also lower Sword Res"
-  - skill_category: active
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**(1★)** Raise Phys"
-  - skill_category: active
-    sp_cost: 49
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70"
-    effects:
-      - "Also lower Sword Res"
-      - "With “Avoid Group Physical Attacks” lower than 2 times"
-      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
-  - skill_category: active
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    power: "180"
-    effects:
-      - "**(3★)** Grant Self the ability to counterattack physical and elemental attacks (turns: 3-6 based on Boost Lv.)"
-      - "Also lower Sword Res"
-  - skill_category: active
-    sp_cost: 96
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Also raise Sword Res"
-      - "With “Avoid Group Physical Attacks” lower than 2 times"
-      - "grant Self “Avoid Group Physical Attacks” (times: 1)"
-  - skill_category: active
-    sp_cost: 92
-    skill_type: mixed
-    target: self
-    effects:
-      - "**(5★)** Grant Self the ability to trigger battle skills 2 times (turns: 2-5 based on Boost Lv./Turns cannot be extended/Additional instances do not cost SP)"
-      - "Also raise Phys"
-  - skill_category: active
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [sword]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: tp
-    sp_cost: 30
-    skill_type: buff
-    target: self
-    effects:
-      - "**** Grant Self “Avoid Group Physical Attacks” (times: 1-4 based on Boost Lv.)"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 30
-    skill_type: buff
-    target: self
-    effects:
-      - "** Lv.2** Grant Self “Avoid Group Physical Attacks” (times: **3-6** based on Boost Lv.)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: utility
-    target: front_row
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**(EX)** Act faster during turn and provoke All Foes and grant Self “Attention” and Unsinkable (turns: 1)"
-      - "Also grant Self automatic revival (recovery amount: 100% of max HP) and automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "“Hidden Sword: Cait’s Claws”"
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    effects:
-      - "Act faster during turn and provoke All Foes (turns: 1)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 32
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 120).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 'With “Avoid Group Physical Attacks” lower than 2 times, grant Self “Avoid Group Physical Attacks” (times: 1).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 37
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x55).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 'Also lower Sword Res. by 10% (turns: 2).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 49
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x70).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 'Also lower Sword Res. by 20% (turns: 2).'
+  - 'With “Avoid Group Physical Attacks” lower than 2 times, grant Self “Avoid Group Physical Attacks” (times: 1).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 50% more potent when the target has Sword Res. Down.
+  - 'With “Avoid Group Physical Attacks”: Attack count becomes 4.'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  power: '180'
+  effects:
+  - 'Grant Self the ability to counterattack physical and elemental attacks (turns: 3-6 based on Boost Lv.).'
+  - 'Counterattack: Deal Phys. Sword damage to All Foes (potency: 180).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 'Also lower Sword Res. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 64→51'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 96
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 'Also raise Sword Res. Down limit from battle skills to 50% (turns: 2).'
+  - 'With “Avoid Group Physical Attacks” lower than 2 times, grant Self “Avoid Group Physical Attacks” (times: 1).'
+  upgrades:
+  - 'Lv.96: SP Saver: 96→77'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 92
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to trigger battle skills 2 times (turns: 2-5 based on Boost Lv./Turns cannot be extended/Additional instances do not cost SP).'
+  - 'Also raise Phys. Atk. and Sword damage of Self by 30% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 92→74'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 100% more potent when the target has Sword Res. Down.
+  - 'With “Avoid Group Physical Attacks”: Attack count becomes 5.'
+  upgrades:
+  - 'Lv.100: SP Saver: 64→51'
+- skill_category: tp
+  sp_cost: 30
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self “Avoid Group Physical Attacks” (times: 1-4 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Grant Self “Avoid Group Physical Attacks” (times: 3-6 based on Boost Lv.).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  target: aoe
+  power: '110, turns: 2-5 based on Boost Lv.'
+  priority: true
+  effects:
+  - 'Act faster during turn and provoke All Foes and grant Self “Attention” and Unsinkable (turns: 1).'
+  - 'Also grant Self automatic revival (recovery amount: 100% of max HP) and automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 1'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: 'Hidden Sword: Cait’s Claws'
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x130→3x150→3x185
+  priority: true
+  effects:
+  - 'Act faster during turn and provoke All Foes (turns: 1).'
+  - 'Also cast countdown on Self (count: 1).'
+  - 'Once the countdown ends, deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x130→3x150→3x185).'
+  - Exploits Polearm and Fire weaknesses (damage calculation based on Phys. Sword attack).
+  - 150% more potent with “Avoid Group Physical Attacks”.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: 1)"
-    trigger: always
-    limit_break_upgrade: "At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: **2**)"
-  - passive_category: innate
-    effect: "When consuming 3 BP, grant Self the special effect “Attention” (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "When switching to back row: Grant Entire Front Row the ability to dodge some physical attacks (times: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Grant Self Dead Aim (guaranteed critical hits). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "At full HP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Shut Epist
+  effect: 'At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: 1)'
+  trigger: always
+  limit_break_upgrade: 'At start of turn: If not active yet, grant Self “Avoid Group Physical Attacks” (times: 2)'
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'When consuming 3 BP, grant Self the special effect “Attention” (turns: 1).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When switching to back row: Grant Entire Front Row the ability to dodge some physical attacks (times: 1).'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'At full HP: Grant Self Dead Aim (guaranteed critical hits). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks.'
+  trigger: hp_condition
+  upgrades:
+  - 'Lv.2: At full HP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5). *Elemental attacks need to be granted the ability to trigger critical hits with elemental attacks.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Swordsman Cait’s Rose”"
-  passive_effect: "90 P.Atk, 100 SP; When in front row and with 2 BP or less: Raise BP recovery of Entire Front Row by 1; When in back row: Raise BP recovery of Self by 1"
+  name: Swordsman Cait’s Rose
+  passive_effect: '90 P.Atk, 100 SP; When in front row and with 2 BP or less: Raise BP recovery of Entire Front Row by 1; When in back row: Raise BP recovery of Self by 1'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Attention
+  description: When in front row, redirect multiple target attacks (with some exceptions) to Self.
+- name: Unsinkable
+  description: Survive an otherwise lethal attack with 1 HP (with some exceptions).
 
 # Metadata
 data_confidence: incomplete

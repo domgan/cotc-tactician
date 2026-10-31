@@ -26,9 +26,41 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, tank]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Dagger/Sword PDPS. Salamander Claw (1x dagger, hits Fire) stacks +500,000 Damage Limit
+  sources; Power x2 with an Atk Up buff. Self 30% Atk + Phys Damage Up skill, A1 passive
+  30% Atk/crit damage up + guaranteed crits. Latent "Law of Absorption" KOs a chosen ally to
+  absorb 10-50% of their stats and hit all weapon weaknesses (full ceiling needs one ally KO).
+  Taunt: A1 skill and EX nullify physical (EX: also elemental) attacks on self and taunt all
+  enemies for 1 turn, counter-attacking on block. Debuffs: 15% Atk/Def down, 15% Phys Res
+  down, 20% Dagger Res down. TP passive without Absorption: front row 15-20% Def + Phys Res up.
+
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 30
+    source_skill: "Self Atk + Phys Damage Up (self only)"
+  passive:
+  - type: phys_atk_up
+    value: 30
+    source_skill: "A1 passive (self only)"
+
+debuff_categories:
+  active:
+  - type: phys_atk_down
+    value: 15
+    source_skill: "3x sword single target (A3)"
+  - type: phys_def_down
+    value: 15
+    source_skill: "3x sword single target (A3)"
+  - type: weapon_res_down
+    value: 15
+    source_skill: "4x sword single target (A4, Phys Res down)"
+  - type: dagger_res_down
+    value: 20
+    source_skill: "5x AoE sword (A5)"
 
 # Stats (base level)
 hp: 3462
@@ -60,146 +92,217 @@ jp_tier: "S++ | 10.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 80
-    skill_type: mixed
-    target: single_enemy
-    effects:
-      - "**(Initial)** Raise Phys"
-  - skill_category: active
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "230-400 based on Boost Lv."
-    effects:
-      - "**(1★)** Grant Self the ability to completely block some physical attacks (turns: 1)"
-  - skill_category: active
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys"
-  - skill_category: active
-    sp_cost: 83
-    skill_type: mixed
-    damage_types: [sword, wind]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Sword damage to Single Foe 4 time(s) (potency: 4x45) and lower Phys"
-  - skill_category: active
-    name: "“Salamander Claw”"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [dagger, fire]
-    target: single_enemy
-    power: "230-400 based on Boost Lv."
-  - skill_category: active
-    sp_cost: 109
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "5x"
-    power: "5x35"
-    effects:
-      - "Sword damage to All Foes 5 time(s) (potency: 5x35) and lower Dagger Res"
-  - skill_category: tp
-    sp_cost: 119
-    skill_type: attack
-    damage_types: [sword, ice]
-    target: aoe
-    hit_count: "6x"
-    power: "6x25"
-    effects:
-      - "**** Act faster during turn and deal Phys"
-      - "Sword damage to All Foes 6 time(s) (potency: 6x25) and raise physical damage of Self by 15% (turns: 3)"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 119
-    skill_type: attack
-    damage_types: [sword, ice]
-    target: aoe
-    power: "**8x25**"
-    effects:
-      - "** Lv.2** Act faster during turn and deal Phys"
-      - "Sword damage to All Foes **8** time(s) (potency: **8x25**) and raise physical damage of Self by **30%** (turns: 3)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: aoe
-    power: "520-900 based on Boost Lv."
-    effects:
-      - "**(EX)** Grant Self the ability to completely block some physical and elemental attacks (turns: 1)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "“Red Dragon Wave”"
-    skill_type: attack
-    damage_types: [dagger, fire]
-    target: aoe
-    power: "700→850→1000"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170).'
+  - Ignores Phys. Def. and Elem. Def. augments and damage reductions.
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 80
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Raise Phys. Atk. and physical damage by 30% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  power: 230-400 based on Boost Lv.
+  effects:
+  - 'Grant Self the ability to completely block some physical attacks (turns: 1), provoke All Foes and counter with Phys. Dagger damage (potency: 230-400 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230) and have a moderate chance to stun them (turns: 2).'
+  - Ignores Phys. Def. and Elem. Def. augments and damage reductions.
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Bow and Wind weaknesses (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65) and lower Phys. Atk. and Phys. Def. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 54→43'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 83
+  skill_type: debuff
+  damage_types:
+  - sword
+  - wind
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x45) and lower Phys. Res. by 15% (turns: 2).'
+  - Exploits Wind weakness (damage calculation based on Phys. Sword attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 83→66'
+- skill_category: active
+  name: Salamander Claw
+  unlock_tier: 5★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - dagger
+  - fire
+  target: single_enemy
+  power: 230-400 based on Boost Lv.
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230-400 based on Boost Lv.).'
+  - Exploits Fire weakness (damage calculation based on Phys. Dagger attack).
+  - Damage Limit of this skill is increased by 500,000.
+  - 'With Phys. Atk. Up: Potency increases by 2.0x.'
+  - 'At Max Boost: Damage Limit of this skill is increased by 1,000,000 instead.'
+  upgrades:
+  - 'Lv.99: SP Saver: 45→36'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 109
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 5 time(s) (potency: 5x35) and lower Dagger Res. by 20% (turns: 2).'
+  - 'At Max Boost: Activate the skill twice.'
+  upgrades:
+  - 'Lv.100: SP Saver: 109→87'
+- skill_category: tp
+  sp_cost: 119
+  skill_type: utility
+  damage_types:
+  - sword
+  - ice
+  target: aoe
+  hit_count: 6x
+  power: 6x25
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Sword damage to All Foes 6 time(s) (potency: 6x25) and raise physical damage of Self by 15% (turns: 3).'
+  - Exploits Ice weakness (damage calculation based on Phys. Sword attack).
+  upgrades:
+  - 'Lv.2: Act faster during turn and deal Phys. Sword damage to All Foes 8 time(s) (potency: 8x25) and raise physical damage of Self by 30% (turns: 3). Exploits Ice weakness (damage calculation based on Phys. Sword attack).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: aoe
+  power: 520-900 based on Boost Lv.
+  effects:
+  - 'Grant Self the ability to completely block some physical and elemental attacks (turns: 1), provoke All Foes and counter with Phys. Dagger damage (potency: 520-900 based on Boost Lv.).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  - Ignores Phys. Def. and Elem. Def. augments and damage reductions.
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Red Dragon Wave
+  skill_type: utility
+  damage_types:
+  - dagger
+  - fire
+  target: aoe
+  power: 700→850→1000
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 700→850→1000).'
+  - Exploits Fire weakness (damage calculation based on Phys. Dagger attack).
+  - Damage Limit of this Ultimate Technique is increased by 100,000→175,000→350,000.
+  - 'With Phys. Atk. Up: Potency increases by 2.0x.'
+  - 'With Phys. Damage Up: Damage Limit of this Ultimate Technique is additionally increased by 100,000→175,000→350,000.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge: Damage Limit of this Ultimate Technique is additionally increased by 100,000→175,000→350,000.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Upon activation, grant Self the special effect “Absorption Method” (turns: 1). “Absorption Method”: Skill configuration changes to the following."
-    trigger: always
-  - passive_category: innate
-    effect: "Inflict the special effect “Impossible to Revive” to an ally (except Self) (turns: 5-2 based on Boost Lv.) and overkill that ally to gain “Absorption Effect” (amount: 10%-50% based on Boost Lv.)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Phys. Atk. of Self by 30% and Critical damage by 30% and gain Dead Aim (guaranteed critical hits). With “Absorption Method”: Also grant All Allies automatic SP recovery (amount: 5% of their max SP) and raise BP recovery by 1."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%."
-    trigger: always
-    limit_break_upgrade: "Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%. With “Absorption Effect”: Attack count of “Salamander Claw” and “Red Dragon Wave” becomes 2."
-  - passive_category: innate
-    effect: "Raise own Phys. Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by 100% (Effects of the same type do not stack). Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by **150%** (Effects of the same type do not stack) and raise Damage Limit by 750,000. Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by **20%**."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: 'Latent Power: “Absorption Method'
+  effect: 'Upon activation, grant Self the special effect “Absorption Method” (turns: 1). “Absorption Method”: Skill configuration changes to the following.'
+  trigger: always
+- passive_category: innate
+  name: Absorption Method
+  effect: 'Inflict the special effect “Impossible to Revive” to an ally (except Self) (turns: 5-2 based on Boost Lv.) and overkill that ally to gain “Absorption Effect” (amount: 10%-50% based on Boost Lv.).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Raise Phys. Atk. of Self by 30% and Critical damage by 30% and gain Dead Aim (guaranteed critical hits). With “Absorption Method”: Also grant All Allies automatic SP recovery (amount: 5% of their max SP) and raise BP recovery by 1.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%.
+  trigger: always
+  limit_break_upgrade: 'Raise the critical damage multiplier of Self (1.25→1.4) and raise the limit of Dagger damage augments from battle skills to 60%. With “Absorption Effect”: Attack count of “Salamander Claw” and “Red Dragon Wave” becomes 2.'
+- passive_category: innate
+  name: Physical Resilience II
+  effect: Raise own Phys. Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by 100% (Effects of the same type do not stack). Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by 15%.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: With “Absorption Effect”: Raise potency of Phys. Dagger attacks of Self by 150% (Effects of the same type do not stack) and raise Damage Limit by 750,000. Without “Absorption Effect”: Raise Phys. Def. and Phys. Res. of Entire Front Row by 20%.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Crest of Red Dragon Corps”"
-  passive_effect: "200 P.Atk, -50 E.Def, 40 SP; After dealing critical damage, grant all enemies a Dagger “Fragility” (times: 5)"
+  name: Crest of Red Dragon Corps
+  passive_effect: '200 P.Atk, -50 E.Def, 40 SP; After dealing critical damage, grant all enemies a Dagger “Fragility” (times: 5)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Impossible to Revive
+  description: Cannot be targeted by the revive effect and does not take effect.
+- name: Absorption Effect
+  description: Add a portion of overkilled ally’s stats to Self (excluding equipment attributes/the maximum value for each attribute is +4000 HP, +200 SP and +200 for the rest of attributes) and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack).
+- name: Preparation Turn
+  description: '0'
+- name: Reuse Turn
+  description: '4'
+- name: Stun
+  description: Low chance to miss some attacks and lower Shield Points by 1 after the taking an action (will not break the target).
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: '2026-05-31'
+data_confidence: complete
+data_source: "Kit: Notion Character Index export. Roles/notes: NiaDB https://meowdb.com/db/octopath-traveler-cotc/characters/noel"
+last_updated: '2026-10-31'

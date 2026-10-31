@@ -70,111 +70,172 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Fourfold Slash"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Daunting Look"
-    sp_cost: 20
-    skill_type: utility
-    target: random
-    hit_count: "2x"
-  - skill_category: active
-    name: "Brutal Sweep"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x55"
-  - skill_category: active
-    name: "Stormwind"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Intimidating Slash"
-    sp_cost: 43
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "290"
-  - skill_category: active
-    name: "Completed Scarlet Elixir"
-    sp_cost: 76
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Completed Scarlet Elixir (3★)** Raise Damage Limit of Self by 30,000, damage dealt by 20% and gain Dead Aim (guaranteed critical hits) (turns: 6-9 based on Boost Lv.)"
-  - skill_category: active
-    name: "Physical Interceptor Stance"
-    sp_cost: 55
-    skill_type: mixed
-    target: self
-    power: "230"
-    effects:
-      - "**Physical Interceptor Stance (4★)** Grant Self the ability to completely block some physical attacks (times: 1-4 based on Boost Lv.) and counter with Sword damage (potency: 230) and intimidation (turns: 2)"
-  - skill_category: active
-    name: "Quick as a Flash"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "5x"
-    power: "5x35"
-  - skill_category: active
-    name: "Merciless Slash"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Rule by Fear"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: special
-    name: "The Thunderblade’s Brutality"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Fourfold Slash
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x45).'
+- skill_category: active
+  name: Daunting Look
+  sp_cost: 20
+  skill_type: utility
+  target: random
+  hit_count: 2x
+  effects:
+  - 'Intimidate Random Foe 2 time(s) (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Brutal Sweep
+  unlock_tier: 1★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 4x
+  power: 4x55
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x55) and intimidate them (turns: 2).'
+- skill_category: active
+  name: Stormwind
+  unlock_tier: 2★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 150) and intimidate them (turns: 2).'
+- skill_category: active
+  name: Intimidating Slash
+  unlock_tier: 2★
+  sp_cost: 43
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 290) and intimidate them (turns: 2).'
+- skill_category: active
+  name: Completed Scarlet Elixir
+  unlock_tier: 3★
+  sp_cost: 76
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Raise Damage Limit of Self by 30,000, damage dealt by 20% and gain Dead Aim (guaranteed critical hits) (turns: 6-9 based on Boost Lv.), gain automatic revival at 100% of max HP and SP and intimidate All Foes (turns: 3).'
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  name: Physical Interceptor Stance
+  unlock_tier: 4★
+  sp_cost: 55
+  skill_type: buff
+  target: self
+  power: '230'
+  effects:
+  - 'Grant Self the ability to completely block some physical attacks (times: 1-4 based on Boost Lv.) and counter with Sword damage (potency: 230) and intimidation (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 55→44'
+- skill_category: active
+  name: Quick as a Flash
+  unlock_tier: 5★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 5 time(s) (potency: 5x35) and intimidate All Foes (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 58→46'
+- skill_category: active
+  name: Merciless Slash
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+  - 20% more potent if target is intimidated.
+  upgrades:
+  - 'Lv.100: Potency Up: 260→290'
+- skill_category: tp
+  name: Rule by Fear
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x65) and intimidate the target with every attack (turns: 2).'
+  - Attack count becomes 8 at Max Boost.
+- skill_category: special
+  name: The Thunderblade’s Brutality
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 500→600→750).'
+  - 50% more potent if target is intimidated.
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When an intimidated enemy is present, raise own Phys. Atk. by 20% and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks."
-    trigger: always
-    limit_break_upgrade: "When an intimidated enemy is present, raise own Phys. Atk. by 20% and Damage Limit by 70,000 and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks."
-  - passive_category: innate
-    effect: "Raise Sword damage of Self by 15% and critical damage by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 15% when an intimidated enemy is present."
-    trigger: always
-    limit_break_upgrade: "Grant Self Damage Limit by 30,000."
+- passive_category: innate
+  name: Tyrant’s High
+  unlock_tier: 1★
+  effect: When an intimidated enemy is present, raise own Phys. Atk. by 20% and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks.
+  trigger: always
+  limit_break_upgrade: When an intimidated enemy is present, raise own Phys. Atk. by 20% and Damage Limit by 70,000 and gain the ability to exploit Lightning weakness with some physical attacks other than the “Attack” action and exploit Sword weakness with some elemental attacks.
+- passive_category: innate
+  name: Sword Atk./Critical Force II
+  unlock_tier: 3★
+  effect: Raise Sword damage of Self by 15% and critical damage by 15%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Oppression
+  effect: 'When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 15% when an intimidated enemy is present.'
+  trigger: always
+  limit_break_upgrade: Grant Self Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Scarlet Wing Commander’s Crest"
-  passive_effect: "120 P.Atk, 20 Crit; Start of battle: Intimidate all enemies (turns: 6). Intimidate: Lower Phys. Def. and Elem. Def. by 5%"
+  name: Scarlet Wing Commander’s Crest
+  passive_effect: '120 P.Atk, 20 Crit; Start of battle: Intimidate all enemies (turns: 6). Intimidate: Lower Phys. Def. and Elem. Def. by 5%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Intimidate
+  description: Lower Phys. Def. and Elem. Def. by 5%.
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

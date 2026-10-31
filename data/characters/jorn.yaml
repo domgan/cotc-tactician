@@ -51,120 +51,158 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Slash"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Level Slash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "115"
-  - skill_category: active
-    name: "Heightened Reflexes"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Heightened Reflexes (1★)** Raise Crit of Self by 15% (turns: 3-6 based on Boost Lv.)"
-    limit_break_upgrade: "Raise **Phys. Atk.** and Crit of Self by 15% (turns: 3-6 based on Boost Lv.)."
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Wild Cut"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x50"
-  - skill_category: active
-    name: "Chain Shadow Impact"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Chain Shadow Impact"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x115**"
-  - skill_category: active
-    name: "Hazy Slash"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Hazy Slash"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "**3x90**"
-  - skill_category: tp
-    name: "Guilt Slash"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-  - skill_category: ex
-    name: "Twilight Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "5x"
-    power: "5x35"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Wild Condemning Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: random
+- skill_category: active
+  name: Repeated Slash
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Level Slash
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '115'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 115).'
+- skill_category: active
+  name: Heightened Reflexes
+  unlock_tier: 1★
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Crit of Self by 15% (turns: 3-6 based on Boost Lv.).'
+  limit_break_upgrade: 'Raise Phys. Atk. and Crit of Self by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Stunning Strike
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Wild Cut
+  unlock_tier: 2★
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x50
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x50).'
+- skill_category: active
+  name: Chain Shadow Impact
+  unlock_tier: 3★
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 2 time(s) (potency: 2x85).'
+  upgrades:
+  - 'Lv.72: SP Saver: 28→22'
+  - 'Upgraded: Deal Elem. Dark damage to Single Foe 2 time(s) (potency: 2x115).'
+- skill_category: active
+  name: Hazy Slash
+  unlock_tier: 4★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x80).'
+  upgrades:
+  - 'Lv.80: SP Saver: 52→42'
+  - 'Upgraded: Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x90).'
+- skill_category: tp
+  name: Guilt Slash
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+- skill_category: ex
+  name: Twilight Slash
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 5 time(s) (potency: 5x35).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Wild Condemning Slash
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  power: 4-6x85→4-6x100
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4-6 times (potency: 4-6x85→4-6x100).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise critical damage of Paired Allies by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise damage dealt to broken foes by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Rase own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Rase own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Critical of Paired Allies by 20% when broken enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Critical Force (Joint) III
+  unlock_tier: 1★
+  effect: Raise critical damage of Paired Allies by 20%.
+  trigger: always
+- passive_category: innate
+  name: Augmented Break III
+  unlock_tier: 3★
+  effect: Raise damage dealt to broken foes by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Rase own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 5★
+  effect: Rase own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Critical Boost (Joint) III
+  effect: Raise Critical of Paired Allies by 20% when broken enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hunter’s Pauldrons"
-  passive_effect: "70 Crit; When breaking an enemy, lower their Sword Res. by 10% (turns: 2)"
+  name: Hunter’s Pauldrons
+  passive_effect: '70 Crit; When breaking an enemy, lower their Sword Res. by 10% (turns: 2)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

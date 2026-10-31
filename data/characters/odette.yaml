@@ -53,124 +53,174 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Tornado (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Analyze All"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Blinding Light (All) II"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Maelstrom (All) II"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Random Grand Slam"
-    sp_cost: 38
-    skill_type: attack
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Raging Luminescence"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res"
-  - skill_category: active
-    name: "Raging Tornado"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [wind]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Wind damage to Random Foe 3 time(s) (potency: 3x55) and lower Wind Res"
-  - skill_category: active
-    name: "Tornado (Single) IV"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Luminescence (Single) IV"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Light Ventus Saltare (All) II"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [wind, light]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: ex
-    name: "Application of Knowledge"
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Application of Knowledge** Raise the potency of battle skills of Self by 50% (turns: 3/Cannot be extended/Does not stack with effects of the same type) and grant Self Damage Limit Up (effect 50,000, turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Ancient Winds"
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "500→600"
+- skill_category: active
+  name: Tornado (Single) II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Analyze All
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - Show 1-4 weak point(s) based on Boost Lv. of All Foes.
+- skill_category: active
+  name: Blinding Light (All) II
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(1★) Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Maelstrom (All) II
+  unlock_tier: 2★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Random Grand Slam
+  sp_cost: 38
+  skill_type: utility
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - '(2★) Deal Phys. Tome damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Raging Luminescence
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - '(3★) Deal Elem. Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Raging Tornado
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - '(4★) Deal Elem. Wind damage to Random Foe 3 time(s) (potency: 3x55) and lower Wind Res. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 38→30'
+- skill_category: active
+  name: Tornado (Single) IV
+  unlock_tier: 5★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.99: SP Saver: 42→34'
+- skill_category: active
+  name: Luminescence (Single) IV
+  unlock_tier: 5★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.100: SP Saver: 42→34'
+- skill_category: tp
+  name: Light Ventus Saltare (All) II
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - wind
+  - light
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 4 time(s) (potency: 4x35).'
+  - Exploits Light weakness (damage calculation based on Elem. Wind attack).
+- skill_category: ex
+  name: Application of Knowledge
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the potency of battle skills of Self by 50% (turns: 3/Cannot be extended/Does not stack with effects of the same type) and grant Self Damage Limit Up (effect 50,000, turns: 3-6 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 5; Uses: 1'
+  ex_trigger: After turn 5
+- skill_category: special
+  name: Ancient Winds
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: 500→600
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 500→600).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Wind and Light damage of Self by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Wind and Light damage of Self by 30% and grant Self ability to trigger critical hits with elemental attacks."
-  - passive_category: innate
-    effect: "When casting a Magic skill, 10% chance to cast the same skill again in a row."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind and Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When breaking an enemy or broken enemy is present, Self’s elemental battle skills activate 2 times. (Effects of the same type cannot be repeated/Additional activations do not consume SP)."
-    trigger: on_break
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Wind/Light Augment V
+  unlock_tier: 1★
+  effect: Raise Wind and Light damage of Self by 30%.
+  trigger: always
+  limit_break_upgrade: Raise Wind and Light damage of Self by 30% and grant Self ability to trigger critical hits with elemental attacks.
+- passive_category: innate
+  name: Chance Double Cast
+  unlock_tier: 3★
+  effect: When casting a Magic skill, 10% chance to cast the same skill again in a row.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind/Light Resilience
+  effect: Raise own Wind and Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Break Repeated Aria
+  effect: When breaking an enemy or broken enemy is present, Self’s elemental battle skills activate 2 times. (Effects of the same type cannot be repeated/Additional activations do not consume SP).
+  trigger: on_break
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Archaeologist's Glove"
-  passive_effect: "70 E.Atk, 700 HP; When breaking an enemy, lower their Wind and Light Res. by 15% (turns: 3)"
+  name: Archaeologist's Glove
+  passive_effect: '70 E.Atk, 700 HP; When breaking an enemy, lower their Wind and Light Res. by 15% (turns: 3)'
 
 # Metadata
 data_confidence: incomplete

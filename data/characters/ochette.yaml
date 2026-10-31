@@ -73,136 +73,207 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Shooting"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword, bow, lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "90"
-  - skill_category: active
-    name: "Rapid Fire"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "2x75/3x65/4x55/5x60"
-  - skill_category: active
-    name: "Chaotic Thunderbird"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [lightning]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Dismantle"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "grant Self automatic HP recovery (potency: 80, turns: 2) and raise Phys"
-  - skill_category: active
-    name: "Leghold Trap"
-    sp_cost: 45
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Indomitable Beast"
-    sp_cost: 120
-    skill_type: buff
-    target: self
-    effects:
-      - "**Indomitable Beast (3★)** Raise Phys"
-      - "and Speed of Self by 15% and raise BP recovery amount of Self by 1 (turns: 3-6 based on Boost Lv.) and grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Bow Shot"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [bow]
-    target: back_row
-    power: "170"
-    effects:
-      - "move to the back row (action does not count as switching) and act faster during next turn"
-  - skill_category: active
-    name: "Arc Shot"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-      - "Also lower Bow Res"
-  - skill_category: active
-    name: "Raging Arrow"
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "6x"
-    power: "6x40"
-  - skill_category: tp
-    name: "Hunting Capture"
-    sp_cost: 40
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Hunting Capture ** Raise Phys"
-  - skill_category: ex
-    name: "Rapid Rain of Arrows"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Rapid Rain of Arrows** Act faster during turn and deal Phys"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Thunder Phoenix Flash Bow"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "5x"
+- skill_category: active
+  name: Shooting
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  - bow
+  - lightning
+  target: single_enemy
+  hit_count: 2x
+  power: '90'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 90).'
+  - Carrying a specific keeper increases the attack.
+  - '·Akala: Summon Akala to deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Polearm and Axe weaknesses (damage calculation based on Phys. Sword attack).
+  - '·Mahina: Summon Mahina to deal Elem. Lightning damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Wind and Light weaknesses (damage calculation based on Elem. Lightning attack).
+- skill_category: active
+  name: Rapid Fire
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 2x75/3x65/4x55/5x60
+  effects:
+  - Deal Phys. Bow damage to Single Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 2x75/3x65/4x55/5x60).'
+- skill_category: active
+  name: Chaotic Thunderbird
+  unlock_tier: 1★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Dismantle
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 170).'
+  - 'Additionally, grant Self automatic HP recovery (potency: 80, turns: 2) and raise Phys. Atk. and Speed of Self by 15% (turns: 2).'
+  - 30% more potent if enemy is broken.
+- skill_category: active
+  name: Leghold Trap
+  unlock_tier: 2★
+  sp_cost: 45
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Place a Single Foe in a Leghold Trap (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Indomitable Beast
+  unlock_tier: 3★
+  sp_cost: 120
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. and Speed of Self by 15% and raise BP recovery amount of Self by 1 (turns: 3-6 based on Boost Lv.) and grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 120→100'
+- skill_category: active
+  name: Bow Shot
+  unlock_tier: 4★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - bow
+  target: back_row
+  power: '170'
+  priority: true
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170).'
+  - Afterwards, move to the back row (action does not count as switching) and act faster during next turn.
+  upgrades:
+  - 'Lv.96: SP Saver: 24→19'
+- skill_category: active
+  name: Arc Shot
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Lower Shield Points even when not striking weak points.
+  - 'Also lower Bow Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 60→48'
+- skill_category: active
+  name: Raging Arrow
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 6 time(s) (potency: 6x40).'
+  upgrades:
+  - 'Lv.100: SP Saver: 82→66'
+- skill_category: tp
+  name: Hunting Capture
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Critical of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Rapid Rain of Arrows
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Bow damage to All Foes 4 time(s) (potency: 4x45).'
+  notes: 'Usage Condition: When there’s no broken enemy; Uses: 4'
+  ex_trigger: When there’s no broken enemy
+- skill_category: special
+  name: Thunder Phoenix Flash Bow
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 5x
+  power: 5x65→5x75→5x95
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 5 time(s) (potency: 5x65→5x75→5x95).'
+  - Exploits Axe and Lightning weaknesses (damage calculation based on Phys. Bow attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP)."
-    trigger: on_break
-    limit_break_upgrade: "When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP) and lower Bow Res. by 15% (turns: 2)."
-  - passive_category: innate
-    effect: "Raise Phys. Attack and critical damage of Self by 15%. During skill consecutive strikes, raise potency of Self by 80% (Cannot be extended/Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect of Animal Instincts (turns: 1). Animal Instincts: Skill configuration changes to the following. ---"
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Phys. Bow damage to All Foes (potency: 240). At Max Boost: Guaranteed critical hit."
-    trigger: always
-  - passive_category: innate
-    effect: "Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.) and reduce 1 Shield Point. At Max Boost: Grant Self Damage Limit Up (effect: 40,000, turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Phys. Bow damage to Single Foe (potency: 290). At Max Boost: Guaranteed critical hit."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Salt the Wound
+  unlock_tier: 1★
+  effect: 'When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP).'
+  trigger: on_break
+  limit_break_upgrade: 'When breaking an enemy, grant Self an effect that activates attack skills twice (turns: 2/Cannot be extended/Follow-up attack will not consume SP) and lower Bow Res. by 15% (turns: 2).'
+- passive_category: innate
+  name: Deadly Hunter
+  unlock_tier: 3★
+  effect: Raise Phys. Attack and critical damage of Self by 15%. During skill consecutive strikes, raise potency of Self by 80% (Cannot be extended/Does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Animal Instincts'
+  effect: 'When selecting a command, grant Self the special effect of Animal Instincts (turns: 1). Animal Instincts: Skill configuration changes to the following.'
+  trigger: always
+  notes: 'Preparation Turns: 1; Reuse Turns: 4'
+- passive_category: innate
+  name: Beastly Claws
+  effect: 'Deal Phys. Bow damage to All Foes (potency: 240). At Max Boost: Guaranteed critical hit.'
+  trigger: always
+- passive_category: innate
+  name: Beastly Howl
+  effect: 'Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.) and reduce 1 Shield Point. At Max Boost: Grant Self Damage Limit Up (effect: 40,000, turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Beastly Tusk
+  effect: 'Deal Phys. Bow damage to Single Foe (potency: 290). At Max Boost: Guaranteed critical hit.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Beastling Armlet"
-  passive_effect: "60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. and Bow damage by 15%; 60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. by 15%"
+  name: Beastling Armlet
+  passive_effect: '60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. and Bow damage by 15%; 60 P.Atk, 40 Crit, 40 Spd; When breaking an enemy, lower Bow Res. by 15% (turns: 3); When there’s a broken enemy, raise Phys. Atk. by 15%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Leghold Trap
+  description: Reduce the bearer’s Speed attribute to 0.
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

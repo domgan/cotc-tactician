@@ -52,124 +52,168 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Wild Blow"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [fan]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Roaring Rhapsody II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Warrior's Waltz II"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Warrior's Waltz II (1★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Stout Blow"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Baleful Ballet II"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [fan]
-    target: aoe
-    power: "150"
-    effects:
-      - "Fan damage to All Foes (potency: 150) and impart with Phys"
-  - skill_category: active
-    name: "Stout Twofold Blow"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-  - skill_category: active
-    name: "Thunder's Refrain"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [lightning]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Warrior's Waltz III"
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Warrior's Waltz III** **(5★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Destructive Wild Blow"
-    sp_cost: 68
-    skill_type: mixed
-    damage_types: [fan]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to impart with Phys"
-  - skill_category: tp
-    name: "True Warlord’s Stance"
-    sp_cost: 89
-    skill_type: buff
-    target: self
-    power: "25% of user’s max HP/ does not stack"
-    effects:
-      - "**True Warlord’s Stance ** Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack) and raise own Phys"
-  - skill_category: ex
-    name: "Stout Blow: Blossoms"
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "260"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Dance of Death"
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    effects:
-      - "Fan damage to Single Foe 4-6 times (potency: **4-6x75→4-6x90**) and impart with Phys"
+- skill_category: active
+  name: Wild Blow
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - fan
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Roaring Rhapsody II
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Warrior's Waltz II
+  unlock_tier: 1★
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 15% and Phys. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Stout Blow
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Baleful Ballet II
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: aoe
+  power: '150'
+  effects:
+  - '(2★) Deal Phys. Fan damage to All Foes (potency: 150) and impart with Phys. Def. Down 15% (turns: 2).'
+- skill_category: active
+  name: Stout Twofold Blow
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - '(3★) Deal Phys. Fan damage to Single Foes 2 time(s) (potency: 2x120).'
+  upgrades:
+  - 'Lv.88: SP Saver: 40→32'
+- skill_category: active
+  name: Thunder's Refrain
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 52→42'
+- skill_category: active
+  name: Warrior's Waltz III
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - '(5★) Impart Entire Front Row with Phys. Atk. Up 20% and Phys. Def. Up 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 54→43'
+- skill_category: active
+  name: Destructive Wild Blow
+  unlock_tier: 5★
+  sp_cost: 68
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to impart with Phys. Def. Down 20% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 60→48'
+- skill_category: tp
+  name: True Warlord’s Stance
+  sp_cost: 89
+  skill_type: buff
+  target: self
+  power: 25% of user’s max HP/ does not stack
+  effects:
+  - 'Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack) and raise own Phys. Atk., Elem. Atk. and Speed by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: 'Stout Blow: Blossoms'
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 260).'
+  - 50% more potent at Max Boost.
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Dance of Death
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  power: 4-6x75→4-6x90
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 4-6 times (potency: 4-6x75→4-6x90) and impart with Phys. Def. Down 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When near death: Raise Spd of Self by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Speed of Self by 20% and raise Fan damage by 15%."
-  - passive_category: innate
-    effect: "Grant Self automatic HP recovery (potency: 85)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When Self has HP Barrier, activate attack skills twice (the follow-up attack will not consume SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Desperate Speed Boost III
+  unlock_tier: 1★
+  effect: 'When near death: Raise Spd of Self by 20%.'
+  trigger: always
+  limit_break_upgrade: Raise Speed of Self by 20% and raise Fan damage by 15%.
+- passive_category: innate
+  name: HP Restoration
+  unlock_tier: 3★
+  effect: 'Grant Self automatic HP recovery (potency: 85).'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Radiant Spirit
+  effect: When Self has HP Barrier, activate attack skills twice (the follow-up attack will not consume SP).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dancer’s Hair Clip"
-  passive_effect: "60 P.Atk, 40 Crit, 400 HP; Increase Fan Damage by 15%; At 75% HP or less: Raise Phys. Atk. and Elem. Atk. by 15%; 100 P.Atk, -100 E.Atk; With Dance Duelist’s Wristband equipped: Extend duration of augmenting effects granted by Self by 1 turn. (Does not stack).; With Dance Duelist’s Wristband equipped: Extend duration of enfeebling effects (excluding status ailments) by 1 turn. (Does not stack)."
+  name: Dancer’s Hair Clip
+  passive_effect: '60 P.Atk, 40 Crit, 400 HP; Increase Fan Damage by 15%; At 75% HP or less: Raise Phys. Atk. and Elem. Atk. by 15%; 100 P.Atk, -100 E.Atk; With Dance Duelist’s Wristband equipped: Extend duration of augmenting effects granted by Self by 1 turn. (Does not stack).; With Dance Duelist’s Wristband equipped: Extend duration of enfeebling effects (excluding status ailments) by 1 turn. (Does not stack).'
 
 # Metadata
 data_confidence: incomplete

@@ -71,130 +71,182 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Triple Edge"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Trifold Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Incite and Empower"
-    sp_cost: 22
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Incite and Empower (1★)** Provoke All Foes (turns: 2-5 based on Boost Lv.) and raise Phys"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Double Wide Burst"
-    sp_cost: 52
-    skill_type: debuff
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Berserk Mode"
-    sp_cost: 50
-    skill_type: mixed
-    target: single_enemy
-    effects:
-      - "**Berserk Mode (3★)** Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys"
-    limit_break_upgrade: "Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys. Atk., Critical, Speed and damage dealt by 15%. When in Berserk Mode, take 40% of max HP as damage at the end of each turn. *Can be used **twice per battle**."
-  - skill_category: active
-    name: "Crushing Strike"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Piercing Strike"
-    sp_cost: 43
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Dagger damage to Single Foe (potency: 230) and impart with Phys"
-  - skill_category: active
-    name: "Hindering Strike"
-    sp_cost: 43
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Sword damage to Single Foe (potency: 230) and lower Spd by 20% (turns: 2)"
-  - skill_category: tp
-    name: "Aerial Armor Break"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    power: "150"
-    effects:
-      - "Dagger damage to All Foes (potency: 150) and lower Phys"
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Neutralize: Lethal Blade"
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "5x"
-    power: "5x35"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Neutralize: Spheric Strike"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Dagger damage to Single Foe (potency: **440→525→655**) and impart with Phys"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Triple Edge
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Trifold Cleave
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Incite and Empower
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Provoke All Foes (turns: 2-5 based on Boost Lv.) and raise Phys. Atk. and Critical of Self by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Trifold Slash
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65)'
+- skill_category: active
+  name: Double Wide Burst
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: debuff
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger to All Foes 2 time(s) (potency: 2x80).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Berserk Mode
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys. Atk., Critical, Speed and damage dealt by 15%.'
+  - When in Berserk Mode, take 40% of max HP as damage at the end of each turn.
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+  limit_break_upgrade: 'Activate Berserk Mode (turns: 6-9 based on Boost Lv.) to raise own Phys. Atk., Critical, Speed and damage dealt by 15%. When in Berserk Mode, take 40% of max HP as damage at the end of each turn. *Can be used twice per battle.'
+- skill_category: active
+  name: Crushing Strike
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.96: SP Saver: 40→32'
+- skill_category: active
+  name: Piercing Strike
+  unlock_tier: 5★
+  sp_cost: 43
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230) and impart with Phys. Def. Down 20% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 43→34'
+- skill_category: active
+  name: Hindering Strike
+  unlock_tier: 5★
+  sp_cost: 43
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230) and lower Spd by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 43→34'
+- skill_category: tp
+  name: Aerial Armor Break
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 150) and lower Phys. Res. by 10% (turns: 2).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: ex
+  name: 'Neutralize: Lethal Blade'
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 5 time(s) (potency: 5x35).'
+  - Exploits Sword and Axe weaknesses (damage calculation based on Phys. Dagger attack).
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: 'Neutralize: Spheric Strike'
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 440→525→655) and impart with Phys. Def. Down 10%→15%→20% (turns: 2).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
-    trigger: always
-  - passive_category: innate
-    effect: "When in Berserk Mode, activate an attack skill twice. (The follow-up attack will not consume SP)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "While in Berserk Mode: Raise critical damage of Self by 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hang Tough
+  unlock_tier: 1★
+  effect: Survive an otherwise lethal attack with 1 HP remaining once per battle.
+  trigger: always
+- passive_category: innate
+  name: Animus Might
+  unlock_tier: 3★
+  effect: When in Berserk Mode, activate an attack skill twice. (The follow-up attack will not consume SP).
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Critical Up
+  effect: 'While in Berserk Mode: Raise critical damage of Self by 15%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Number 4’s Goggles"
-  passive_effect: "70 P.Atk, 700 HP; Raise damage of Self by 10% when exploiting enemy weakness; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+  name: Number 4’s Goggles
+  passive_effect: 70 P.Atk, 700 HP; Raise damage of Self by 10% when exploiting enemy weakness; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

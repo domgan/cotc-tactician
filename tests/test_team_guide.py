@@ -32,6 +32,13 @@ def test_load_team_building_guide_includes_skill_loadout_rules():
     assert len(loadout["format_example"]["equipped_skills"]) >= 1
 
 
+def test_load_team_building_guide_exposes_core_principles():
+    principles = load_team_building_guide(DATA_DIR)["core_principles"]
+
+    assert "Player Roster" in principles
+    assert "search_skill_effects" in principles["Effect-Level Search"]
+
+
 def test_load_team_building_guide_cached():
     _load_llm_guidelines_yaml.cache_clear()
     load_team_building_guide(DATA_DIR)

@@ -19,9 +19,52 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, buffer, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Fire/Wind/Light tome EDPS + elemental support via "Techniques". Front-row allies using a
+  Fire/Wind/Light attack gain that Technique: 10% E.Atk, 20% matching element damage up, and
+  their attacks hit that weakness. Skills grant Light/Wind/Fire Technique to all allies.
+  A1 passive: in front row, all allies get Priority next turn. A3 passive scales with allies
+  alive (6+: self 30% E.Atk/elem damage up, caps 50%; 7+: doublecast; 8+: +Damage Limit).
+  TP skill: 3x fire with 30% Elem Res down (Lv2: cap 50%). Ultimate: up to 30% E.Def down and
+  30% Fire/Wind/Light Res down, 2-6 hits by Technique count. Front-row regen skill and
+  15% Def/MDef up. Needs setup turns; skill slots fill quickly.
+
+buff_categories:
+  passive:
+  - type: elem_atk_up
+    value: 10
+    source_skill: "Fire/Wind/Light Technique"
+  - type: elem_damage_up
+    value: 20
+    source_skill: "Fire/Wind/Light Technique (matching element)"
+  active:
+  - type: phys_def_up
+    value: 15
+    source_skill: "Front row Def/MDef up (A2 skill)"
+  - type: elem_def_up
+    value: 15
+    source_skill: "Front row Def/MDef up (A2 skill)"
+
+debuff_categories:
+  active:
+  - type: elem_res_down
+    value: 30
+    source_skill: "TP skill (Lv2: cap 50%)"
+  ultimate:
+  - type: elem_def_down
+    value: 30
+    source_skill: "Crimson Flare (max level)"
+  - type: fire_res_down
+    value: 30
+    source_skill: "Crimson Flare (max level)"
+  - type: wind_res_down
+    value: 30
+    source_skill: "Crimson Flare (max level)"
+  - type: light_res_down
+    value: 30
+    source_skill: "Crimson Flare (max level)"
 
 # Stats (base level)
 hp: 3276
@@ -53,199 +96,227 @@ jp_tier: "S++ | 10.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    sp_cost: 50
-    skill_type: heal
-    target: front_row
-    power: "110/turns: 2-5 based on Boost Lv."
-    effects:
-      - "**(2★)** Grant Entire Front Row automatic HP recovery (potency: 110/turns: 2-5 based on Boost Lv.)"
-      - "cure blindness and grant All Allies “Light Technique”"
-      - "At Max Boost: Also raise BP recovery by 1"
-  - skill_category: active
-    name: "“"
-    skill_type: mixed
-    damage_types: [light]
-    target: single_enemy
-    effects:
-      - "**“**Light Technique”: Raise Elem"
-  - skill_category: active
-    sp_cost: 64
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(2★)** Raise Phys"
-      - "grant All Allies “Wind Technique” and raise Elem"
-  - skill_category: active
-    name: "“"
-    skill_type: mixed
-    damage_types: [wind]
-    target: single_enemy
-    effects:
-      - "**“**Wind Technique”: Raise Elem"
-  - skill_category: active
-    sp_cost: 77
-    skill_type: attack
-    damage_types: [wind, fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Also raise Elem"
-      - "damage of Self by 20% (turns: 2) and grant All Allies “Fire Technique”"
-  - skill_category: active
-    name: "“"
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    effects:
-      - "**“**Fire Technique”: Raise Elem"
-  - skill_category: active
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [fire, wind, light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x40"
-  - skill_category: active
-    sp_cost: 154
-    skill_type: attack
-    damage_types: [light, wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80-2x130 based on Boost Lv."
-    effects:
-      - "Also grant Self “Wind Technique”"
-  - skill_category: active
-    name: "“"
-    skill_type: mixed
-    damage_types: [wind]
-    target: single_enemy
-    effects:
-      - "**“**Wind Technique”: Raise Elem"
-  - skill_category: active
-    sp_cost: 139
-    skill_type: mixed
-    damage_types: [light, fire]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Also grant Self “Fire Technique”"
-      - "When the target is broken: Potency increases by 1.5x and lower their Elem"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: tp
-    sp_cost: 300
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x180"
-    effects:
-      - "Fire damage to Single Foe 3 time(s) (potency: 3x180) and lower Elem"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 300
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x180"
-    effects:
-      - "raise the limit of Elem"
-      - "reductions from battle skills on All Foes to 50% and lower Elem"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "240-380 based on Boost Lv."
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "“Crimson Flare”"
-    skill_type: mixed
-    damage_types: [light, fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "4→5→6"
-    effects:
-      - "Light damage to Single Foe 2 time(s) (potency: **2x240→2x285→2x355**) and lower Elem"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90).'
+  - 'At Max Boost: Reaches All Foes.'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x70) and have a moderate chance to inflict blindness (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: heal
+  target: front_row
+  power: '110/turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110/turns: 2-5 based on Boost Lv.), cure blindness and grant All Allies “Light Technique”.'
+  - 'At Max Boost: Also raise BP recovery by 1.'
+  upgrades:
+  - 'Upgraded: Light Technique”: Raise Elem. Atk. by 10% and Light damage by 20% and gain the ability to exploit Light weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.), grant All Allies “Wind Technique” and raise Elem. damage of Self by 20% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Upgraded: Wind Technique”: Raise Elem. Atk. by 10% and Wind damage by 20% and gain the ability to exploit Wind weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 77
+  skill_type: utility
+  damage_types:
+  - wind
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Fire weakness (damage calculation based on Elem. Wind attack).
+  - 'Also raise Elem. damage of Self by 20% (turns: 2) and grant All Allies “Fire Technique”.'
+  upgrades:
+  - 'Lv.88: SP Saver: 77→62'
+  - 'Upgraded: Fire Technique”: Raise Elem. Atk. by 10% and Fire damage by 20% and gain the ability to exploit Fire weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - fire
+  - wind
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x40
+  effects:
+  - 'Deal Elem. Fire damage 2 time(s) (potency: 2x40), Elem. Wind damage 2 time(s) (potency: 2x40) and Elem. Light damage 2 time(s) (potency: 2x40) to Single Foe.'
+  - 'At Max Boost: Attack count becomes 3 for Fire, Wind and Light attacks.'
+  upgrades:
+  - 'Lv.96: SP Saver: 56→45'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 154
+  skill_type: utility
+  damage_types:
+  - light
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80-2x130 based on Boost Lv.
+  effects:
+  - 'Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x80-2x130 based on Boost Lv.).'
+  - Exploits Wind weakness (damage calculation based on Elem. Light attack).
+  - Also grant Self “Wind Technique”.
+  - 'From the turn after this skill is used, perform the following action for 2-5 turns based on Boost Lv.: Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x70).'
+  - Exploits Wind weakness (damage calculation based on Elem. Light attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 154→123'
+  - 'Upgraded: Wind Technique”: Raise Elem. Atk. by 10% and Wind damage by 20% and gain the ability to exploit Wind weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 139
+  skill_type: debuff
+  damage_types:
+  - light
+  - fire
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Light damage to All Foes 4 time(s) (potency: 4x45) and cause them to combust (turns: 2).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - Also grant Self “Fire Technique”.
+  - 'When the target is broken: Potency increases by 1.5x and lower their Elem. Res. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 139→111'
+- skill_category: tp
+  sp_cost: 300
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x180
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x180) and lower Elem. Res. by 30% (turns: 2).'
+  upgrades:
+  - 'Lv.2: Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x180), raise the limit of Elem. Res. reductions from battle skills on All Foes to 50% and lower Elem. Res. by 30% (turns: 2). Damage Limit of this skill is increased by 500,000.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: 240-380 based on Boost Lv.
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 240-380 based on Boost Lv.).'
+  - Damage Limit of this skill is increased by 500,000.
+  - Ignores Phys. Def. and Elem. Def. augments and damage reductions.
+  - 'With “Fire Technique”, “Wind Technique” and “Light Technique”: Potency is increased by 1.2x and attack count becomes 3.'
+  notes: 'Usage Condition: With 2+ “Techniques”; Uses: 3'
+  ex_trigger: With 2+ “Techniques”
+- skill_category: special
+  name: Crimson Flare
+  skill_type: debuff
+  damage_types:
+  - light
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x240→2x285→2x355
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x240→2x285→2x355) and lower Elem. Def. by 10%→20%→30% and Fire Res., Wind Res. and Light Res. by 10%→20%→30% (turns: 4→5→6).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - Damage Limit of this Ultimate Technique is increased by 100,000→200,000→300,000.
+  - 'With 1+ “Technique”: Attack count becomes 4.'
+  - 'With 3 “Techniques”: Attack count becomes 6.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When an ally in front row deals Elem. Fire/Wind/Light damage, grant them “Fire Technique”/”Wind Technique”/”Light Technique”.that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200)."
-    trigger: always
-  - passive_category: innate
-    effect: "Fire Technique”: Raise Elem. Atk. by 10% and Fire damage by 20% and gain the ability to exploit Fire weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Wind Technique”: Raise Elem. Atk. by 10% and Wind damage by 20% and gain the ability to exploit Wind weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Light Technique”: Raise Elem. Atk. by 10% and Light damage by 20% and gain the ability to exploit Light weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack). *Elem. Atk. Up and Damage Up of these effects do not stack."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row at the end of turn, allow All Allies to act faster during next turn."
-    trigger: always
-  - passive_category: innate
-    effect: "Augment Self based on number of alive allies in party. ·5+: Lower SP consumption by 30%. ·6+: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·7+: Gain the ability to activate attack skills twice. ·8: Raise Damage Limit of Self by 50,000."
-    trigger: always
-    limit_break_upgrade: "Augment Self based on number of alive allies in party. ·**4+**: Lower SP consumption by 30%. ·**5+**: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·**6+**: Gain the ability to activate attack skills twice. ·**7+**: Raise Damage Limit of Self by **100,000**."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe (potency: 100). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. Up, Elem. Def. Up and damage reductions."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe **2** time(s) (potency: **2x100**). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. and Elem. Def. augments and damage reductions."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Empress’ Magic
+  effect: 'When an ally in front row deals Elem. Fire/Wind/Light damage, grant them “Fire Technique”/”Wind Technique”/”Light Technique”.that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200). *Elem. Atk. Up and Damage Up of these effects do not stack.'
+  trigger: always
+  upgrades:
+  - 'Upgraded: Fire Technique”: Raise Elem. Atk. by 10% and Fire damage by 20% and gain the ability to exploit Fire weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+  - 'Upgraded: Wind Technique”: Raise Elem. Atk. by 10% and Wind damage by 20% and gain the ability to exploit Wind weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+  - 'Upgraded: Light Technique”: Raise Elem. Atk. by 10% and Light damage by 20% and gain the ability to exploit Light weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+- passive_category: innate
+  unlock_tier: 1★
+  effect: When in front row at the end of turn, allow All Allies to act faster during next turn.
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'Augment Self based on number of alive allies in party. ·5+: Lower SP consumption by 30%. ·6+: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·7+: Gain the ability to activate attack skills twice. ·8: Raise Damage Limit of Self by 50,000.'
+  trigger: always
+  limit_break_upgrade: 'Augment Self based on number of alive allies in party. ·4+: Lower SP consumption by 30%. ·5+: Raise Elem. Atk. and Elem. Damage of Self by 30% and raise the limits of Elem. Atk. and Elem. damage augments from support skills and equipment effects to 50%. ·6+: Gain the ability to activate attack skills twice. ·7+: Raise Damage Limit of Self by 100,000.'
+- passive_category: innate
+  name: Fire and Ice Resilience II
+  effect: Raise own Fire and Ice Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Lightning and Wind Resilience II
+  effect: Raise own Lightning and Wind Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience II
+  effect: Raise own Light Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe (potency: 100). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. Up, Elem. Def. Up and damage reductions.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Self the ability to trigger a follow-up attack when an ally in the Entire Front Row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Non-Elemental damage to Single Foe 2 time(s) (potency: 2x100). Augment this follow-up attack based on number of allies with at least 1 “Technique”. ·4+: Potency is increased by 1.5x. ·6+: Ignores Phys. Def. and Elem. Def. augments and damage reductions.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Scarlet Imperial Emblem”"
-  passive_effect: "200 E.Atk, -50 Spd, 40 SP; Gain the ability to trigger critical hits with elemental attacks; Start of battle: When equipped by a Cleric, Scholar or Dancer, gain “Fire Technique”, “Wind Technique” and “Light Technique”"
+  name: Scarlet Imperial Emblem
+  passive_effect: '200 E.Atk, -50 Spd, 40 SP; Gain the ability to trigger critical hits with elemental attacks; Start of battle: When equipped by a Cleric, Scholar or Dancer, gain “Fire Technique”, “Wind Technique” and “Light Technique”'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: '2026-05-31'
+data_confidence: complete
+data_source: "Kit: Notion Character Index export. Roles/notes: NiaDB https://meowdb.com/db/octopath-traveler-cotc/characters/final-empress"
+last_updated: '2026-10-31'

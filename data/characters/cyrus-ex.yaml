@@ -53,183 +53,231 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Flame Slash"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [sword, fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Lightning Slash"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [sword, lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Dodgy Dance"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Dodgy Dance (1★)** Grant Self the ability to dodge some physical attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Sizzle"
-    sp_cost: 83
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "lower their Fire Res"
-      - "by 15% (turns 2) and grant them a Fire weakness (times: 2)"
-      - "At Max Boost: Grant a Fire weakness for 5 times instead"
-  - skill_category: active
-    name: "Zapple"
-    sp_cost: 77
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "lower their Lightning Res"
-      - "by 15% (turns 2) and grant them a Lightning weakness (times: 2)"
-      - "At Max Boost: Grant a Lightning weakness for 5 times instead"
-  - skill_category: active
-    name: "Sage’s Elixir"
-    sp_cost: 1
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Sage’s Elixir (3★)** Restore SP of Single Ally (amount: 25%-100% of max SP"
-  - skill_category: active
-    name: "Falcon Slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x65"
-  - skill_category: active
-    name: "Kasizz"
-    sp_cost: 83
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "lower their Fire Res"
-      - "by 15% (turns: 2) and grant them a Fire Weakness (times: 2)"
-      - "At Max Boost: Attack count becomes 5 and grant a Fire weakness 5 times instead"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Kazap"
-    sp_cost: 108
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "lower thier Lightning Res"
-      - "by 15% (turns: 2) and grant them a Lightning weakness (times: 2)"
-      - "At Max Boost: Attack count becomes 4 and grant a Lightning weakness 5 times instead"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    effects:
-      - "Shock: Lower Shield Points by 1 when taking Elem"
-  - skill_category: tp
-    name: "Gust Slash"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [sword, wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "At Max Boost: Guaranteed critical hits"
-  - skill_category: tp
-    name: "Gust Slash Lv.2"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [sword, wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Grant Wind weakness to the same target (times: 2)"
-      - "At Max Boost: Guaranteed critical hits"
-  - skill_category: ex
-    name: "Omniheal"
-    skill_type: heal
-    target: all_allies
-    power: "10%-40% of user’s max HP based on Boost Lv./Does not stack"
-    effects:
-      - "**Omniheal** Restore HP of All Allies (amount: 100% of max HP) and grant them an HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv./Does not stack)"
-      - "also raise Max HP of All Allies by 30% (turns: 2-5 based on Boost Lv.) before restoring their HP"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Gigaslash"
-    skill_type: attack
-    damage_types: [lightning, sword]
-    target: aoe
-    power: "375→450→565"
-    effects:
-      - "Raise potency of Self by 100% (turns: 1/Cannot be extended/Does not stack with effects of the same type)"
-      - "Lightning damage to All Foes (potency: **375→450→565**) and grant them a Lightning weakness (times: 6)"
+- skill_category: active
+  name: Flame Slash
+  sp_cost: 29
+  skill_type: utility
+  damage_types:
+  - sword
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Fire weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Lightning Slash
+  sp_cost: 29
+  skill_type: utility
+  damage_types:
+  - sword
+  - lightning
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Dodgy Dance
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to dodge some physical attacks (times: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Sizzle
+  unlock_tier: 2★
+  sp_cost: 83
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x55), lower their Fire Res. by 15% (turns 2) and grant them a Fire weakness (times: 2).'
+  - 'If 4+ allies have Soul Sigil, cause the target to combust (turns: 2).'
+  - 'At Max Boost: Grant a Fire weakness for 5 times instead.'
+- skill_category: active
+  name: Zapple
+  unlock_tier: 2★
+  sp_cost: 77
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe 3 time(s) (potency: 3x65), lower their Lightning Res. by 15% (turns 2) and grant them a Lightning weakness (times: 2).'
+  - 'If 4+ allies have Soul Sigil, also shock the targets (turns: 2).'
+  - 'At Max Boost: Grant a Lightning weakness for 5 times instead.'
+- skill_category: active
+  name: Sage’s Elixir
+  unlock_tier: 3★
+  sp_cost: 1
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Restore SP of Single Ally (amount: 25%-100% of max SP, based on Boost Lv.).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.88: Uses Up: 3 times→5 times'
+- skill_category: active
+  name: Falcon Slash
+  unlock_tier: 4★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x65).'
+  - 'With Soul Sigil: Activate skill twice (the follow-up attack will not consume SP).'
+  - If 4+ allies including Self have Soul Sigil, activate skill 3 times instead (the follow-up attacks will not consume SP).
+  upgrades:
+  - 'Lv.96: SP Saver: 2x65→2x85'
+- skill_category: active
+  name: Kasizz
+  unlock_tier: 5★
+  sp_cost: 83
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 4 time(s) (potency: 4x45), lower their Fire Res. by 15% (turns: 2) and grant them a Fire Weakness (times: 2).'
+  - 'If 4+ allies have Soul Sigil, cause the target to combust (turns: 2).'
+  - 'At Max Boost: Attack count becomes 5 and grant a Fire weakness 5 times instead.'
+  upgrades:
+  - 'Lv.99: SP Saver: 104→83'
+- skill_category: active
+  name: Kazap
+  unlock_tier: 5★
+  sp_cost: 108
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x80), lower thier Lightning Res. by 15% (turns: 2) and grant them a Lightning weakness (times: 2).'
+  - 'If 4+ allies have Soul Sigil, also shock the targets (turs: 2).'
+  - 'At Max Boost: Attack count becomes 4 and grant a Lightning weakness 5 times instead.'
+  upgrades:
+  - 'Lv.100: SP Saver: 108→86'
+- skill_category: tp
+  name: Gust Slash
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - sword
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Exploits Wind weakness (damage calculation based on Phys. Sword attack).
+  - 'At Max Boost: Guaranteed critical hits.'
+  upgrades:
+  - 'Lv.2: Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85). Exploits Wind weakness (damage calculation based on Phys. Sword attack). Grant Wind weakness to the same target (times: 2). At Max Boost: Guaranteed critical hits.'
+- skill_category: ex
+  name: Omniheal
+  skill_type: heal
+  target: all_allies
+  power: 10%-40% of user’s max HP based on Boost Lv./Does not stack
+  effects:
+  - 'Restore HP of All Allies (amount: 100% of max HP) and grant them an HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv./Does not stack).'
+  - 'If 4+ allies have Soul Sigil, also raise Max HP of All Allies by 30% (turns: 2-5 based on Boost Lv.) before restoring their HP.'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 1'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Gigaslash
+  skill_type: utility
+  damage_types:
+  - lightning
+  - sword
+  target: aoe
+  power: 375→450→565
+  effects:
+  - 'Raise potency of Self by 100% (turns: 1/Cannot be extended/Does not stack with effects of the same type), deal Elem. Lightning damage to All Foes (potency: 375→450→565) and grant them a Lightning weakness (times: 6).'
+  - Exploits Sword weakness (damage calculation based on Elem. Lightning attack).
+  - Damage Limit of this Ultimate Technique is increased by 400,000.
+  - Potency increases by 2x if target is broken.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support skill/Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Add 30% of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: 30% of own max SP/Does not stack)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Add **50%** of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: **50%** of own max SP/Does not stack)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15%, their Sword damage by 15% and their Fire and Lightning damage by 15%. Gain the ability to trigger critical hits with elemental attacks and raise own Damage Limit by 100,000."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire and Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP)."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP) and the ability to activate attacking elemental skills and Ultimate Technique twice in a row (Follow-up attack will not consume SP)."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blessing of Rubiss
+  effect: 'Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support skill/Does not stack).'
+  trigger: always
+- passive_category: innate
+  name: Genius
+  unlock_tier: 1★
+  effect: 'Add 30% of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: 30% of own max SP/Does not stack).'
+  trigger: battle_start
+  upgrades:
+  - 'Upgraded: Add 50% of your own P.Atk attribute to E.Atk (including equipment attributes/The maximum value for each attribute takes effect) and, at the start of battle, gain SP Stock (amount: 50% of own max SP/Does not stack).'
+- passive_category: innate
+  name: Hero’s Might
+  unlock_tier: 3★
+  effect: 'When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15%, their Sword damage by 15% and their Fire and Lightning damage by 15%. Gain the ability to trigger critical hits with elemental attacks and raise own Damage Limit by 100,000.'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice
+  effect: Resilience III Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire/Lightning
+  effect: Resilience Raise own Fire and Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Hero’s Guard
+  effect: 'Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Self automatic HP recovery (potency: 90) and raise Phys. Def. and Elem. Def. by 15%. If 4+ allies have Soul Sigil, also gain automatic SP recovery (amount: 10% of max SP) and the ability to activate attacking elemental skills and Ultimate Technique twice in a row (Follow-up attack will not consume SP).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hero’s Circlet"
-  passive_effect: "140 E.Atk; Grant the ability to trigger a follow-up attack when dealing Elem. Lightning damage (only activates once per action).; Start of battle: Grant Entire Front Row Soul Sigil (turns: 2/Does not stack)."
+  name: Hero’s Circlet
+  passive_effect: '140 E.Atk; Grant the ability to trigger a follow-up attack when dealing Elem. Lightning damage (only activates once per action).; Start of battle: Grant Entire Front Row Soul Sigil (turns: 2/Does not stack).'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Soul Sigil
+  description: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%.
+- name: Granted Fire Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Fire, increase damage taken from Fire by 20%.'
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Granted Lightning Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Lightning, increase damage taken from Lightning by 20%.'
+- name: Shock
+  description: Lower Shield Points by 1 when taking Elem. Lightning damage (will not break the target).
+- name: Granted Wind Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Wind, increase damage taken from Wind by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

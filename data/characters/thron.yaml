@@ -68,135 +68,183 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Sting"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Nightly Strike"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Lifesteal Dagger"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Fresh Triple Blade"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "the more SP will be restored"
-  - skill_category: active
-    name: "Snake"
-    sp_cost: 22
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Snake (2★)** Lower Phys"
-  - skill_category: active
-    name: "Trifold Wide Stab"
-    sp_cost: 76
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Dark Curtain"
-    sp_cost: 77
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    hit_count: "3x"
-    power: "65"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: attack
-    target: single_enemy
-  - skill_category: active
-    name: "Surprise Attack"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: **230**). The faster you act during turn, the greater the potency. Potency doubles when acting first."
-  - skill_category: active
-    name: "Stealth Attack"
-    sp_cost: 84
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: tp
-    name: "Stealth Assault"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [dagger]
-    target: random
-    hit_count: "3x"
-    power: "3x30"
-    effects:
-      - "Dagger damage to Random Foe 3 time(s) (potency: 3x30) and have a moderate chance to lower Dagger Res"
-  - skill_category: ex
-    name: "Quadruple Slash"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "restore 2 BP"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Shadow Strike"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "5x"
+- skill_category: active
+  name: Trifold Sting
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Nightly Strike
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Lifesteal Dagger
+  unlock_tier: 1★
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75) and absorb 30% of damage dealt as HP.'
+- skill_category: active
+  name: Fresh Triple Blade
+  unlock_tier: 2★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x55).'
+  - The earlier the action order, the more SP will be restored.
+  - 'Recovery amount: 1st place: 60 SP/ 2nd place: 40 SP/ 3rd place: 20 SP/ 4th or later: No recovery.'
+- skill_category: active
+  name: Snake
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Phys. Def. and Speed of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Trifold Wide Stab
+  unlock_tier: 3★
+  sp_cost: 76
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x65).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  name: Dark Curtain
+  unlock_tier: 4★
+  sp_cost: 77
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: '65'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 65).'
+  - 'At Max Boost: Inflict “Miss Phys. Attacks” (times: 1).'
+  upgrades:
+  - 'Lv.96: SP Saver: 77→62'
+- skill_category: active
+  name: Stealth Attack
+  unlock_tier: 5★
+  sp_cost: 84
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x80).'
+  - 'When self action is in 1st place, lower Phys. Atk. and Phys. Def. of the target by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 84→67'
+- skill_category: tp
+  name: Stealth Assault
+  sp_cost: 55
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 3x
+  power: 3x30
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x30) and have a moderate chance to lower Dagger Res. by 15% with every attack (turns: 2).'
+  - The earlier the action order, the more additional times you attack.
+  - 'Additional attack times: 1st place: +3 times/ 2nd place: +2 times/ 3rd place: +1 time/ 4th or later: No additional attacks.'
+- skill_category: ex
+  name: Quadruple Slash
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 4 time(s) (potency: 4x65).'
+  - When self action order is 1st place, restore 2 BP.
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 2'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Shadow Strike
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 5x
+  power: 5x75→5x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 5 time(s) (potency: 5x75→5x90).'
+  - The faster you act during turn, the greater the potency.
+  - Potency doubles when acting first.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Dagger damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) when broken enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect “Leave No Trace” (turns: 1). Leave No Trace: Activate the skill twice (additional activation does not consume SP). ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Dagger Atk. Boost V
+  unlock_tier: 1★
+  effect: Raise Dagger damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Fatal Sentence
+  unlock_tier: 3★
+  effect: 'Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) when broken enemy is present.'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Leave No Trace'
+  effect: 'When selecting a command, grant Self the special effect “Leave No Trace” (turns: 1). Leave No Trace: Activate the skill twice (additional activation does not consume SP).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+  notes: 'Preparation Turns: 3; Reuse Turns: 5'
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Night Dew Earrings"
-  passive_effect: "60 P.Atk, 80 Spd; Grant Self Phys. Atk. Up 15%; When breaking an enemy, inflict Miss Phys. Attacks (times: 1)"
+  name: Night Dew Earrings
+  passive_effect: '60 P.Atk, 80 Spd; Grant Self Phys. Atk. Up 15%; When breaking an enemy, inflict Miss Phys. Attacks (times: 1)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Miss Phys. Attacks
+  description: Target fails their next physical hit. This effect can stack and is consumed only when the enemy tries to deal physical damage. If the enemy uses a multi-hit physical attack, it will miss as many hits as stacks of this status had been inflicted.
 
 # Metadata
 data_confidence: verified

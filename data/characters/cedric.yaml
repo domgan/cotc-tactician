@@ -51,127 +51,153 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Fireball (Single)"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Healing Breath"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    power: "100, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Healing Breath** Grant Self automatic HP recovery (potency: 100, turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Transgress"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Medica (Single)"
-    sp_cost: 28
-    skill_type: heal
-    target: single_ally
-    power: "95"
-    effects:
-      - "**Medica (Single) (2★)** Restore HP of Single Ally (potency: 95) and grant automatic HP recovery (potency: 70, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Scorching Sacred Flame"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    power: "160"
-    effects:
-      - "Fire damage to Single Foe (potency: 160) and impart Phys"
-  - skill_category: active
-    name: "Medica (All) II"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "50"
-    effects:
-      - "**Medica (All) II (3★)** Restore HP of Entire Front Row (potency: 50) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Medica (All) II"
-    sp_cost: 34
-    skill_type: heal
-    target: front_row
-    power: "**60**"
-    effects:
-      - "**Medica (All) II (5★)** Restore HP of Entire Front Row (potency: **60**) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Defiant Strike"
-    sp_cost: 36
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Defiant Strike"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "**175**"
-    limit_break_upgrade: "Deal Phys. Staff damage to All Foes (potency: 175) and have a high chance to inflict bleeding (turns: 2) and lower Staff Res. by 15% (turns: 2)."
-  - skill_category: tp
-    name: "Trinity Transgress"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [staff]
-    target: random
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: ex
-    name: "Armor-breaking Charger Hammer"
-    skill_type: mixed
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-    effects:
-      - "Staff damage to Single Foe 2 time(s) (potency: 2x135) and lower Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Bloody Burial"
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    power: "330→395→495"
-    effects:
-      - "impart with Elem"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Fireball (Single)
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Healing Breath
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  power: '100, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Grant Self automatic HP recovery (potency: 100, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Transgress
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 160) and have a moderate chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Medica (Single)
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: heal
+  target: single_ally
+  power: '95'
+  effects:
+  - 'Restore HP of Single Ally (potency: 95) and grant automatic HP recovery (potency: 70, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Scorching Sacred Flame
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 160) and impart Phys. Def. Down 15% (turns: 2).'
+- skill_category: active
+  name: Medica (All) II
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '50'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 50) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 42→34'
+  - 'Upgraded: Restore HP of Entire Front Row (potency: 60) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Defiant Strike
+  unlock_tier: 4★
+  sp_cost: 36
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 145) and have a moderate chance to inflict bleeding (turns: 2).'
+  upgrades:
+  - 'Lv.80: SP Saver: 36→29'
+  - 'Upgraded: Deal Phys. Staff damage to All Foes (potency: 175) and have a moderate chance to inflict bleeding (turns: 2).'
+  limit_break_upgrade: 'Deal Phys. Staff damage to All Foes (potency: 175) and have a high chance to inflict bleeding (turns: 2) and lower Staff Res. by 15% (turns: 2).'
+- skill_category: tp
+  name: Trinity Transgress
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - staff
+  target: random
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 3 time(s) (potency: 3x85) and have a low chance to inflict bleeding with every attack (turns: 2).'
+- skill_category: ex
+  name: Armor-breaking Charger Hammer
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x135) and lower Phys. Def. by 15% (turns: 2).'
+  notes: 'Usage Condition: When there’s a bleeding enemy; Uses: 2'
+  ex_trigger: When there’s a bleeding enemy
+- skill_category: special
+  name: Bloody Burial
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: aoe
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 330→395→495), impart with Elem. Def. Down 5%→10%→15% (turns: 2) and have a moderate chance to inflict bleeding (turns: 2).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of some status ailments inflicted by Front or Back Row by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own damage by 30% when bleeding enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 100)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Ailment (Joint/Give)
+  unlock_tier: 1★
+  effect: Extend duration of some status ailments inflicted by Front or Back Row by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Bloodlust
+  unlock_tier: 3★
+  effect: Raise own damage by 30% when bleeding enemy is present.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  unlock_tier: 5★
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard HP Restoration (Front/Single)
+  effect: 'When in back row: Grant Front Row automatic HP recovery (potency: 100).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hornburgian Church Censer"
-  passive_effect: "40 P.Atk, 10 E.Def, 20 Crit; Start of the battle: Moderate chance to inflict all enemies with bleeding (turns: 3)"
+  name: Hornburgian Church Censer
+  passive_effect: '40 P.Atk, 10 E.Def, 20 Crit; Start of the battle: Moderate chance to inflict all enemies with bleeding (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

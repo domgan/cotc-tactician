@@ -68,136 +68,186 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Triple Arrow of Vigor"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Bow damage to Single Foe 3 time(s) (potency: 3x65) and restore 1 BP to Self"
-  - skill_category: active
-    name: "Donate BP"
-    sp_cost: 60
-    skill_type: utility
-    target: single_ally
-    effects:
-      - "**Donate BP** **(1★)** Restore BP of Single Ally"
-  - skill_category: active
-    name: "Swift Arrow Boost"
-    sp_cost: 77
-    skill_type: mixed
-    damage_types: [bow]
-    target: front_row
-    hit_count: "4x"
-    power: "4x25"
-    effects:
-      - "Bow damage to All Foes 4 time(s) (potency: 4x25) and restore SP of Entire Front Row (amount: 20)"
-  - skill_category: active
-    name: "Solid Business Plan"
-    sp_cost: 70
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Solid Business Plan (2★)** Raise Phys"
-      - "of Entire Front Row by 20% and raise Polearm damage by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Cooperation"
-    sp_cost: 10
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x45"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: **2x65**). At Max Boost: Consume 1 BP for each ally. The more allies that consume BP, the greater the potency will be. Potency x5 at max (when 8 allies consume BP). Raise Damage Limit of this skill by 50,000."
-  - skill_category: active
-    name: "Merchant’s Valiant Charge"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: active
-    name: "Triple Polearm of Double Benefit"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Polearm damage to Single Foe 3 time(s) (potency: 3x85) and grant Entire Front Row HP absorption (amount: 30% of damage dealt)"
-      - "At Max Boost: Raise Phys"
-  - skill_category: active
-    name: "Boar Rush"
-    sp_cost: 73
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x105"
-    effects:
-      - "Polearm damage to All Foes 2 time(s) (potency: 2x105) and lower their Phys"
-  - skill_category: tp
-    name: "Rage Thrust"
-    sp_cost: 73
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: ex
-    name: "Hired Help"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "5x"
-    power: "5x30, times: 2-5 based on Boost Lv."
-    effects:
-      - "once per turn lower Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Early Investment"
-    skill_type: buff
-    target: all_allies
-    power: "1→5"
-    effects:
-      - "Restore **1→5** BP to All Allies and raise Polearm damage by **10%→15%** (turns: **2→3**)"
+- skill_category: active
+  name: Trifold Thrust
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Triple Arrow of Vigor
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65) and restore 1 BP to Self.'
+- skill_category: active
+  name: Donate BP
+  sp_cost: 60
+  skill_type: utility
+  target: single_ally
+  effects:
+  - '(1★) Restore BP of Single Ally, excluding Self (amount: 1-4 based on Boost Lv.), but delay actions during turn.'
+- skill_category: active
+  name: Swift Arrow Boost
+  unlock_tier: 2★
+  sp_cost: 77
+  skill_type: heal
+  damage_types:
+  - bow
+  target: front_row
+  hit_count: 4x
+  power: 4x25
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 4 time(s) (potency: 4x25) and restore SP of Entire Front Row (amount: 20).'
+- skill_category: active
+  name: Solid Business Plan
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Phys. Def. and Elem. Def. of Entire Front Row by 20% and raise Polearm damage by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Cooperation
+  unlock_tier: 3★
+  sp_cost: 10
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x45
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x45).'
+  - 'At Max Boost: Consume 1 BP for each ally.'
+  - The more allies that consume BP, the greater the potency will be.
+  - Potency x5 at max (when 8 allies consume BP).
+  upgrades:
+  - 'Lv.88: Potency Up: 2x45→2x55'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x65). At Max Boost: Consume 1 BP for each ally. The more allies that consume BP, the greater the potency will be. Potency x5 at max (when 8 allies consume BP). Raise Damage Limit of this skill by 50,000.'
+- skill_category: active
+  name: Merchant’s Valiant Charge
+  unlock_tier: 4★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 4 time(s) (potency: 4x35).'
+  - 'At Max Boost: Attack 6 times instead.'
+  upgrades:
+  - 'Lv.96: SP Saver: 70→56'
+- skill_category: active
+  name: Triple Polearm of Double Benefit
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x85) and grant Entire Front Row HP absorption (amount: 30% of damage dealt).'
+  - 'At Max Boost: Raise Phys. Def. and Elem. Def. of the target by 10% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 74→59'
+- skill_category: active
+  name: Boar Rush
+  unlock_tier: 5★
+  sp_cost: 73
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x105
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x105) and lower their Phys. Def. and Polearm Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 73→58'
+- skill_category: tp
+  name: Rage Thrust
+  sp_cost: 73
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Attack Random Foe 4 time(s), dealing Phys. Polearm damage (potency: 4x65).'
+  - 'Each attack has a small chance to inflict Polearm Res. Down 15% (turns: 2).'
+- skill_category: ex
+  name: Hired Help
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 5x
+  power: '5x30, times: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, once per turn lower Phys. Def. and Polearm Res. of All Foes by 5% (turns: 2) and deal Phys. Polearm damage to Random Foe 5 time(s) before some allies act (potency: 5x30, times: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 2; Uses: 2'
+  ex_trigger: After turn 2
+- skill_category: special
+  name: Early Investment
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Restore 1→5 BP to All Allies and raise Polearm damage by 10%→15% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 20%/BP→25%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Impart Self with Phys. Atk. by 15% and raise Polearm and Bow damage by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant effects to the Entire Front Row based on the number of Merchants in the party. 2 or more: Raise Polearm damage by 15%. 3 or more: Additionally grant automatic SP recovery (amount: 3% of max SP). 4 or more: Additionally impart with Phys. Atk. Up 15% and raise Damage Limit by 30,000."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When selecting a command, to all front row and back row Merchants, grant the special effect Hoot and Holler (turns: 1). Hoot and Holler: BP does not decrease (including during consumption/with some exceptions). *But sufficient BP must be stored for boosts. Effects that consume BP will be activated. ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Weapon Mastery (Polearm/Bow) II
+  unlock_tier: 1★
+  effect: Impart Self with Phys. Atk. by 15% and raise Polearm and Bow damage by 15%.
+  trigger: always
+- passive_category: innate
+  name: Merchant’s Mutual Aid
+  unlock_tier: 3★
+  effect: 'Grant effects to the Entire Front Row based on the number of Merchants in the party. 2 or more: Raise Polearm damage by 15%. 3 or more: Additionally grant automatic SP recovery (amount: 3% of max SP). 4 or more: Additionally impart with Phys. Atk. Up 15% and raise Damage Limit by 30,000.'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Hoot and Holler'
+  effect: 'When selecting a command, to all front row and back row Merchants, grant the special effect Hoot and Holler (turns: 1). Hoot and Holler: BP does not decrease (including during consumption/with some exceptions). *But sufficient BP must be stored for boosts. Effects that consume BP will be activated.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Sanguine Sorcery Striped Tie"
-  passive_effect: "80 P.Atk, 60 Crit; 100% chance to resist some status ailments; When consuming 3 or more BP to use a skill, raise own BP recovery by 1 (turns: 1)"
+  name: Sanguine Sorcery Striped Tie
+  passive_effect: '80 P.Atk, 60 Crit; 100% chance to resist some status ailments; When consuming 3 or more BP to use a skill, raise own BP recovery by 1 (turns: 1)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Preparation Turn
+  description: '2'
+- name: Reuse Turn
+  description: '6'
 
 # Metadata
 data_confidence: verified

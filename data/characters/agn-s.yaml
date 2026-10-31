@@ -53,69 +53,99 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: special
-    name: "Prayer of Winds"
-    skill_type: buff
-    target: front_row
-    power: "2→3"
-    effects:
-      - "Raise Spd of Entire Front Row by **10%→20%→30%** (turns: **2→3**)"
-      - "Grant automatic HP recovery (potency: **100→125→150**"
+- skill_category: special
+  name: Prayer of Winds
+  skill_type: buff
+  target: front_row
+  power: '100→125→150, turns: 2→3'
+  effects:
+  - 'Raise Spd of Entire Front Row by 10%→20%→30% (turns: 2→3).'
+  - 'Grant automatic HP recovery (potency: 100→125→150, turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "30% chance to recover 50% of damage taken when hit (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "30% chance of lowering speed of a single enemy by 15% when hit (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When consuming 3 BP to use a skill, raise BP recovery of Self by 1 (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000. ## Battle S**kills**"
-  - passive_category: innate
-    effect: "Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180)."
-    trigger: always
-  - passive_category: innate
-    effect: "Restore HP of Entire Front Row (potency: 130/150/180/220)."
-    trigger: always
-  - passive_category: innate
-    effect: "Impart Entire Front Row with Phys. Def. Up 15% (turns: 2/3/4/5)."
-    trigger: always
-  - passive_category: innate
-    effect: "**(2★)** Deal Phys. Staff damage to Single Foe (potency: 170/200/240/350) and lower their Elem. Def. by 15% (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "**(2★)** Raise Speed of Single Ally by 15% (turns: 2/3/4/5). Reaches Entire Front Row at Max Boost."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x80/2x95/2x115/2x130)."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Single Ally automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches Entire Front Row at Max Boost."
-    trigger: always
-    limit_break_upgrade: "Grant **Entire Front Row** automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches **All Allies** at Max Boost."
-  - passive_category: innate
-    effect: "**(5★)** Deal Elem. Light damage to Single Foe (potency: 260/290/340/450)."
-    trigger: always
-  - passive_category: innate
-    effect: "Revive a fallen ally (recovery amount: 25%/50%/75%/100% of max HP). *Can be used 3 times per battle."
-    trigger: always
-  - passive_category: tp
-    effect: "Impart Entire Front Row with Elem. Def. Up 15% (turns: 2/3/4/5). At Max Boost: Also grant the ability to completely block some elemental attacks (times: 1) and counter with Elem. Light damage (potency: 200)."
-    trigger: always
+- passive_category: innate
+  name: Angelic Ward
+  unlock_tier: 1★
+  effect: 30% chance to recover 50% of damage taken when hit (Does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Counter Slow
+  unlock_tier: 3★
+  effect: '30% chance of lowering speed of a single enemy by 15% when hit (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Remaining Strength
+  effect: 'When consuming 3 BP to use a skill, raise BP recovery of Self by 1 (turns: 2).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+- passive_category: innate
+  name: Aero (Single)
+  effect: 'Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+  trigger: always
+- passive_category: innate
+  name: Cure (Front/All)
+  effect: 'Restore HP of Entire Front Row (potency: 130/150/180/220).'
+  trigger: always
+- passive_category: innate
+  name: Protect
+  unlock_tier: 1★
+  effect: 'Impart Entire Front Row with Phys. Def. Up 15% (turns: 2/3/4/5).'
+  trigger: always
+- passive_category: innate
+  name: Elemental Break
+  effect: '(2★) Deal Phys. Staff damage to Single Foe (potency: 170/200/240/350) and lower their Elem. Def. by 15% (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Haste
+  effect: '(2★) Raise Speed of Single Ally by 15% (turns: 2/3/4/5). Reaches Entire Front Row at Max Boost.'
+  trigger: always
+- passive_category: innate
+  name: Repeated Brutal Bludgeon
+  unlock_tier: 3★
+  effect: 'Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x80/2x95/2x115/2x130).'
+  trigger: always
+  upgrades:
+  - 'Lv.88: SP Saver: 35→28'
+- passive_category: innate
+  name: Regen
+  unlock_tier: 4★
+  effect: 'Grant Single Ally automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches Entire Front Row at Max Boost.'
+  trigger: always
+  upgrades:
+  - 'Lv.96: SP Saver: 36→29'
+  limit_break_upgrade: 'Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2/3/4/5). Reaches All Allies at Max Boost.'
+- passive_category: innate
+  name: Holy
+  effect: '(5★) Deal Elem. Light damage to Single Foe (potency: 260/290/340/450).'
+  trigger: always
+  upgrades:
+  - 'Lv.99: SP Saver: 42→34'
+- passive_category: innate
+  name: Raise
+  unlock_tier: 5★
+  effect: 'Revive a fallen ally (recovery amount: 25%/50%/75%/100% of max HP). *Can be used 3 times per battle.'
+  trigger: always
+  upgrades:
+  - 'Lv.100: SP Saver: 50→40'
+- passive_category: tp
+  name: Shell
+  effect: 'Impart Entire Front Row with Elem. Def. Up 15% (turns: 2/3/4/5). At Max Boost: Also grant the ability to completely block some elemental attacks (times: 1) and counter with Elem. Light damage (potency: 200).'
+  trigger: always
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Maiden’s Pendant"
-  passive_effect: "100 E.Atk, 40 Speed; Grant automatic revival once per battle (revived at 25% of max HP). (Stacks with battle skills); Raise Lightning Res. by 10%"
+  name: Maiden’s Pendant
+  passive_effect: 100 E.Atk, 40 Speed; Grant automatic revival once per battle (revived at 25% of max HP). (Stacks with battle skills); Raise Lightning Res. by 10%
 
 # Metadata
 data_confidence: incomplete

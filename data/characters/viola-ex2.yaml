@@ -57,134 +57,186 @@ jp_tier: "S++ | 10.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55/3x65/3x80/3x100"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 80
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(Initial)** Raise Phys"
-  - skill_category: active
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "180/205/245/300"
-  - skill_category: active
-    sp_cost: 180
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x220/3x240/3x270/3x320"
-    effects:
-      - "Sword damage to All Foes 3 time(s) (potency: 3x220/3x240/3x270/3x320) and restore 2 BP to Self"
-  - skill_category: active
-    sp_cost: 67
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80/2x95/2x115/2x130"
-    effects:
-      - "Also restore 1 BP to All Allies"
-  - skill_category: active
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "5x"
-    power: "5x35/5x45/5x55/5x80"
-  - skill_category: active
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x150/2x165/2x195/2x260"
-    effects:
-      - "Potency and Damage Limit Up increase based on target’s revealed weak points (including granted ones)"
-  - skill_category: active
-    sp_cost: 98
-    skill_type: mixed
-    damage_types: [bow]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45/4x55/4x65/4x80"
-    effects:
-      - "**(5★)** Act faster during turn"
-      - "Bow damage to All Foes 4 time(s) (potency: 4x45/4x55/4x65/4x80) and lower their Phys"
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    sp_cost: 61
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "290/320/380/500"
-  - skill_category: tp
-    sp_cost: 88
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**** Lower Phys"
-      - "At Max Boost: Also lower their Phys"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 88
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "** Lv.2** Lower Phys"
-      - "of All Foes by 30% and raise the limit of Phys"
-      - "At Max Boost: Also lower their Phys"
-  - skill_category: special
-    name: "“Shield of Obstruction”"
-    skill_type: debuff
-    target: aoe
-    power: "5→6→7"
-    effects:
-      - "Act faster during turn"
-      - "lower Shield Points of All Foes by **5→6→7** regardless of the weakness and grant them a Sword"
-      - "Afterwards grant All Allies an HP Barrier (potency: **30%→40%→50%** of user’s max HP/Does not stack) and the ability not to consume times of granted weaknesses when attacking (turns: **3→4→5**)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55/3x65/3x80/3x100
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x55/3x65/3x80/3x100).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 80
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Physical damage of Self by 30% (turns: 3/4/5/6).'
+  - 'At Max Boost: Reaches Entire Front Row.'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: 180/205/245/300
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 180/205/245/300).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 180
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x220/3x240/3x270/3x320
+  effects:
+  - 'Start a countdown (turns: 3/turn count overwritten).'
+  - 'Once the countdown ends, deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x220/3x240/3x270/3x320) and restore 2 BP to Self.'
+  - Damage Limit of this skill is increased by 150,000.
+  - If the target is broken, Damage Limit is increased by 750,000 instead.
+  - 'At Max Boost: Attack count becomes 6.'
+  - '*This attack cannot be triggered again by the support ability “The Essence of the Divine Artifact (6★)”.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 67
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x80/2x95/2x115/2x130
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x80/2x95/2x115/2x130).'
+  - Damage Limit of this skill is increased by 50,000.
+  - Also restore 1 BP to All Allies.
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 5x
+  power: 5x35/5x45/5x55/5x80
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 5 time(s) (potency: 5x35/5x45/5x55/5x80) and have a moderate chance to inflict poison, bleeding or blindness with every attack (turns: 3).'
+  upgrades:
+  - 'Lv.88: Duration Up: 82→66'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x150/2x165/2x195/2x260
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x150/2x165/2x195/2x260).'
+  - Damage Limit of this skill is increased by 100,000.
+  - Potency and Damage Limit Up increase based on target’s revealed weak points (including granted ones).
+  - When there’s a broken enemy or when breaking an enemy with this skill, attack count becomes 3 and Damage Limit of this skill is increased by 500,000 instead.
+  - '·4+: Potency and Damage Limit Up are increased by 1.3x.'
+  - '·6+: Potency and Damage Limit Up are increased by 1.5x.'
+  - '·8+: Potency and Damage Limit Up are increased by 2.0x.'
+  - '*Only the higher value will be applied.'
+  upgrades:
+  - 'Lv.96: SP Saver: 78→62'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 98
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 4x
+  power: 4x45/4x55/4x65/4x80
+  priority: true
+  effects:
+  - 'Act faster during turn, deal Phys. Bow damage to All Foes 4 time(s) (potency: 4x45/4x55/4x65/4x80) and lower their Phys. Atk. and Elem. Atk. by 15% (turns: 2).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.99: SP Saver: 123→98'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 61
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: 290/320/380/500
+  effects:
+  - 'Gain an effect that adds 50% of E.Atk to P.Atk (turns: 2/3/4/5/including equipment attributes/The maximum value for each attribute takes effect), deal Phys. Staff damage to Single Foe (potency: 290/320/380/500) and absorb 1% of damage dealt as SP.'
+  - Damage Limit of this skill is increased by 100,000.
+  - When there’s a broken enemy or when breaking an enemy with this skill, attack count becomes 2 and Damage Limit of this skill is increased by 500,000 instead.
+  upgrades:
+  - 'Lv.100: Potency Up: 76→61'
+- skill_category: tp
+  sp_cost: 88
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Def. of All Foes by 30% (turns: 2/3/4/5).'
+  - 'At Max Boost: Also lower their Phys. Res. by 30% (turns: 5).'
+  upgrades:
+  - 'Lv.2: Lower Phys. Def. of All Foes by 30% and raise the limit of Phys. Def. reductions from battle skills to 50% (turns: 2/3/4/5). At Max Boost: Also lower their Phys. Res. by 30% (turns: 5).'
+- skill_category: special
+  name: Shield of Obstruction
+  skill_type: debuff
+  target: aoe
+  power: 30%→40%→50% of user’s max HP/Does not stack
+  priority: true
+  effects:
+  - 'Act faster during turn, lower Shield Points of All Foes by 5→6→7 regardless of the weakness and grant them a Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness (times: 9 each).'
+  - 'Afterwards grant All Allies an HP Barrier (potency: 30%→40%→50% of user’s max HP/Does not stack) and the ability not to consume times of granted weaknesses when attacking (turns: 3→4→5).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "During battle: Your job is also considered to be Merchant, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer."
-    trigger: always
-  - passive_category: innate
-    effect: "Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by 50% (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by 75% (Does not stack with effects of the same type). *Only the higher value is applied."
-    trigger: always
-    limit_break_upgrade: "Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by **100%** (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by **150%** (Does not stack with effects of the same type). ·When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP). *Only the higher value is applied."
-  - passive_category: innate
-    effect: "Raise Phys. Atk. and Physical damage of Self by 30% and raise the limits of Phys. Atk. and Physical damage augments from support skills and equipment effects to 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Phys. Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "When there’s a broken enemy, raise Phys. Atk. and Physical damage of Self by 15% and gain Dead Aim (guaranteed critical hits)."
-    trigger: always
-  - passive_category: tp
-    effect: "When there’s a broken enemy, raise BP recovery by 2 and Phys. Atk. and Physical damage of Self by **20%** and gain Dead Aim (guaranteed critical hits)."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Weapon Master
+  effect: 'During battle: Your job is also considered to be Merchant, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer.'
+  trigger: always
+- passive_category: innate
+  name: Essence of the Divine Artifact
+  unlock_tier: 1★
+  effect: 'Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by 50% (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by 75% (Does not stack with effects of the same type). *Only the higher value is applied.'
+  trigger: always
+  limit_break_upgrade: 'Gain effects when consuming BP to use an attacking skill: ·When consuming 1+ BP: Raise potency of Self by 100% (Does not stack with effects of the same type). ·When consuming 2+ BP: Raise potency of Self by 150% (Does not stack with effects of the same type). ·When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP). *Only the higher value is applied.'
+- passive_category: innate
+  unlock_tier: 3★
+  effect: Raise Phys. Atk. and Physical damage of Self by 30% and raise the limits of Phys. Atk. and Physical damage augments from support skills and equipment effects to 50%.
+  trigger: always
+- passive_category: innate
+  name: Physical Resilience II
+  effect: Raise own Phys. Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: When there’s a broken enemy, raise Phys. Atk. and Physical damage of Self by 15% and gain Dead Aim (guaranteed critical hits).
+  trigger: always
+  upgrades:
+  - 'Lv.2: When there’s a broken enemy, raise BP recovery by 2 and Phys. Atk. and Physical damage of Self by 20% and gain Dead Aim (guaranteed critical hits).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Secrets of the Armsmaster”"
-  passive_effect: "300 P.Atk, -30 P.Def, -50 E.Atk, -30 E.Def; When consuming 3 BP or more to use a skill, raise BP recovery by 1 (turns: 2); Start of battle: Gain 5 BP"
+  name: Secrets of the Armsmaster
+  passive_effect: '300 P.Atk, -30 P.Def, -50 E.Atk, -30 E.Def; When consuming 3 BP or more to use a skill, raise BP recovery by 1 (turns: 2); Start of battle: Gain 5 BP'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to a weak point, increase damage taken from that weak point by 20%.'
 
 # Metadata
 data_confidence: incomplete

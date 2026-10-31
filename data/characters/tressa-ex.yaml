@@ -60,143 +60,175 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Torch"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Arrow Trap"
-    sp_cost: 10
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "35"
-  - skill_category: active
-    name: "Rest"
-    sp_cost: 42
-    skill_type: heal
-    target: self
-    power: "105"
-    effects:
-      - "**Rest (1★)** Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self"
-  - skill_category: active
-    name: "Double Sturdy Shot"
-    sp_cost: 31
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Set Bow Trap"
-    sp_cost: 40
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "**Set Bow Trap (2★)** Raise Bow Trap points by 3-6 based on Boost Lv"
-  - skill_category: active
-    name: "Crippling Sturdy Shot"
-    sp_cost: 35
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Bow damage to Single Foe (potency: 170) and lower Phys"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Bow Trap points: Raise attack count of some skills"
-  - skill_category: active
-    name: "Sweeping Fatal Shot"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Bow Trap points: Raise attack count of some skills"
-  - skill_category: active
-    name: "Chain Sear"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-  - skill_category: active
-    name: "Lv.99:"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Bow Trap points: Raise attack count of some skills"
-  - skill_category: active
-    name: "Swift Triple Shot"
-    sp_cost: 59
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "**Swift Triple Shot (5★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Bow Trap points: Raise attack count of some skills"
-    limit_break_upgrade: "Act faster during turn and deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65)."
-  - skill_category: active
-    name: "2"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Camo: Raise own Bow Trap points by **2**"
-  - skill_category: tp
-    name: "Burning Trap (All)"
-    sp_cost: 31
-    skill_type: utility
-    target: aoe
-  - skill_category: special
-    name: "Shower of Arrows Trap"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "60→70→90"
+- skill_category: active
+  name: Torch
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Arrow Trap
+  sp_cost: 10
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '35'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 35) and consume up to 9 Bow Trap points to deal the same number of physical Bow attacks (potency: 35).'
+- skill_category: active
+  name: Rest
+  unlock_tier: 1★
+  sp_cost: 42
+  skill_type: heal
+  target: self
+  power: '105'
+  effects:
+  - 'Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self.'
+- skill_category: active
+  name: Double Sturdy Shot
+  unlock_tier: 2★
+  sp_cost: 31
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Set Bow Trap
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - Raise Bow Trap points by 3-6 based on Boost Lv..
+- skill_category: active
+  name: Crippling Sturdy Shot
+  unlock_tier: 3★
+  sp_cost: 35
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and lower Phys. Atk. and Phys. Def. by 10% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 35→28'
+- skill_category: active
+  name: Sweeping Fatal Shot
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.96: SP Saver: 54→43'
+- skill_category: active
+  name: Chain Sear
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x120).'
+  - 'Lv.99: SP saver 52→42'
+- skill_category: active
+  name: Swift Triple Shot
+  unlock_tier: 5★
+  sp_cost: 59
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.100: SP Saver: 59→47'
+  limit_break_upgrade: 'Act faster during turn and deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: '2'
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - .
+- skill_category: tp
+  name: Burning Trap (All)
+  sp_cost: 31
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Cause All Foes to combust (turns: 2-5 based on Boost Lv.).'
+- skill_category: special
+  name: Shower of Arrows Trap
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: 60→70→90
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 60→70→90) and consume up to 9 Bow Trap points to deal the same number of physical Bow attacks (potency: 60→70→90).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "If Camo is not active, grant Self Camo when using a skill (times: 2). Camo: Dodge physical attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "With Camo: Raise Bow Damage of Self by 15% and lower SP consumption by 30%. (Effects do not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When breaking an enemy, raise own Bow Trap points by 4."
-    trigger: on_break
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Fluffy Camouflage
+  unlock_tier: 1★
+  effect: 'If Camo is not active, grant Self Camo when using a skill (times: 2). Camo: Dodge physical attacks.'
+  trigger: always
+- passive_category: innate
+  name: Stealthy Shot
+  unlock_tier: 3★
+  effect: 'With Camo: Raise Bow Damage of Self by 15% and lower SP consumption by 30%. (Effects do not stack).'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Meticulous Set-Up
+  effect: When breaking an enemy, raise own Bow Trap points by 4.
+  trigger: on_break
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Wolf-Hunting Kit"
-  passive_effect: "50 P.Atk, 30 Crit, 60 SP; Raise Bow damage dealt by 15%; Grant automatic SP recovery (amount: 20)"
+  name: Wolf-Hunting Kit
+  passive_effect: '50 P.Atk, 30 Crit, 60 SP; Raise Bow damage dealt by 15%; Grant automatic SP recovery (amount: 20)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: With Camo
+  description: Raise own Bow Trap points by 1.
+- name: Bow Trap points
+  description: Raise attack count of some skills.
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

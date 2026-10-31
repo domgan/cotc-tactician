@@ -50,152 +50,198 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Hack and Slash"
-    sp_cost: 39
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Raven’s Claws"
-    sp_cost: 30
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Raven’s Claws** Raise Dagger damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Cruelty"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "80"
-  - skill_category: active
-    name: "Red Blade"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x35"
-  - skill_category: active
-    name: "Green Blade"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Raven’s Flight"
-    sp_cost: 41
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Raven’s Flight (3★)** Lower Phys"
-  - skill_category: active
-    name: "Grim Carve"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Blue Blade"
-    sp_cost: 114
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-    effects:
-      - "lower their Phys"
-      - "At Max Boost: Also lower their Phys"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Violet Blade"
-    sp_cost: 114
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-    effects:
-      - "lower their Elem"
-      - "At Max Boost: Also lower their Elem"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: tp
-    name: "Mark of the Crow"
-    sp_cost: 28
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Mark of the Crow ** Grant Single Foe a Dagger weakness (times: 4-7 based on Boost Lv.)"
-  - skill_category: tp
-    name: "Mark of the Crow Lv.2"
-    sp_cost: 28
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Mark of the Crow Lv.2** Grant Single Foe a Dagger weakness (times: **6-9** based on Boost Lv.) and lower their Dagger Res"
-  - skill_category: special
-    name: "Blossom Carving"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "6x"
-    effects:
-      - "Grant Single Foe a Dagger weakness (times: 6)"
+- skill_category: active
+  name: Hack and Slash
+  sp_cost: 39
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x55), afflict them with 2 Lacerations and have a low chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Raven’s Claws
+  sp_cost: 30
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Dagger damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Cruelty
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  power: '80'
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 80) and afflict them 2 Lacerations.'
+  - If the target is bleeding, potency increases by 1.2x.
+  - If a target has Deep Wound, attack count becomes 2.
+- skill_category: active
+  name: Red Blade
+  unlock_tier: 2★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x35
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x35), afflict them 1 Laceration and have a low chance to inflict bleeding (turns: 2).'
+  - If the target has Deep Wound, attack count becomes 6.
+- skill_category: active
+  name: Green Blade
+  unlock_tier: 2★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65) and afflict them with 3 Lacerations.'
+  - If the target is bleeding, potency increases by 1.2x.
+- skill_category: active
+  name: Raven’s Flight
+  unlock_tier: 3★
+  sp_cost: 41
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Def. and Elem. Def. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 41→33'
+- skill_category: active
+  name: Grim Carve
+  unlock_tier: 4★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x65), afflict them with 1 Laceration and have a low chance to inflict bleeding with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 45→45'
+- skill_category: active
+  name: Blue Blade
+  unlock_tier: 5★
+  sp_cost: 114
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x85), lower their Phys. Res. by 20% (turns: 2), afflict them with 1 Laceration and have a low chance to inflict bleeding (turns: 2).'
+  - 'At Max Boost: Also lower their Phys. Atk. by 20% (turns: 2).'
+  - If the target has Deep Wound, attack count becomes 4.
+  upgrades:
+  - 'Lv.99: SP Saver: 114→91'
+- skill_category: active
+  name: Violet Blade
+  unlock_tier: 5★
+  sp_cost: 114
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x85), lower their Elem. Res. by 20% (turns: 2), afflict them with 1 Laceration and have a low chance to inflict bleeding (turns: 2).'
+  - 'At Max Boost: Also lower their Elem. Atk. by 20% (turns: 2).'
+  - If the target has Deep Wound, attack count becomes 4.
+  upgrades:
+  - 'Lv.100: SP Saver: 114→91'
+- skill_category: tp
+  name: Mark of the Crow
+  sp_cost: 28
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Grant Single Foe a Dagger weakness (times: 4-7 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Grant Single Foe a Dagger weakness (times: 6-9 based on Boost Lv.) and lower their Dagger Res. by 10% (turns: 2).'
+- skill_category: special
+  name: Blossom Carving
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 6x
+  power: 6x65→6x80→6x100
+  effects:
+  - 'Grant Single Foe a Dagger weakness (times: 6), deal Phys. Dagger damage to them 6 time(s) (potency: 6x65→6x80→6x100), afflict them with 1 Laceration and have a moderate chance to inflict bleeding (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "The “Attack” action afflicts targets with 1 Laceration Point. Raise potency by 30% if an enemy with Deep Wound is present (does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "When an ally breaks an enemy, afflict the foe with 1 Laceration. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration."
-    trigger: always
-    limit_break_upgrade: "When an ally breaks an enemy, afflict the foe with 1 Laceration and restore Esmerlada’s BP by 3. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration."
-  - passive_category: innate
-    effect: "Cast countdown on Self (count: 1) after consuming 1+ BP to act. Once the countdown ends, deal Phys. Dagger damage to All Foes (potency: 100) and afflict them with 1 Laceration. *This attack cannot break enemies."
-    trigger: always
-  - passive_category: tp
-    effect: "When an enemy with Deep Wound is present, gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated)."
-    trigger: always
-  - passive_category: tp
-    effect: "When an enemy with Deep Wound is present, raise Dagger damage by 30% and gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blade of Agony
+  effect: The “Attack” action afflicts targets with 1 Laceration Point. Raise potency by 30% if an enemy with Deep Wound is present (does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Gouge
+  unlock_tier: 1★
+  effect: When an ally breaks an enemy, afflict the foe with 1 Laceration. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration.
+  trigger: always
+  limit_break_upgrade: When an ally breaks an enemy, afflict the foe with 1 Laceration and restore Esmerlada’s BP by 3. Afterward, if the foe has 9+ Lacerations but does not have Deep Wound, afflict them with Deep Wound (granted as a battle skill) and reduce them to 1 Laceration.
+- passive_category: innate
+  name: Murky Ambush
+  unlock_tier: 3★
+  effect: 'Cast countdown on Self (count: 1) after consuming 1+ BP to act. Once the countdown ends, deal Phys. Dagger damage to All Foes (potency: 100) and afflict them with 1 Laceration. *This attack cannot break enemies.'
+  trigger: always
+- passive_category: tp
+  name: Excruciating Feat
+  effect: When an enemy with Deep Wound is present, gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated).
+  trigger: always
+- passive_category: tp
+  name: Excriciating Feat
+  effect: When an enemy with Deep Wound is present, raise Dagger damage by 30% and gain the ability to activate attack skills twice (follow-up attack will not consume SP and still be activated even if the enemy with Deep Wound is defeated).
+  trigger: always
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Malicious Accessory"
-  passive_effect: "50 P.Atk, -60 P.Def, 100 Crit, 50 Spd; When an enemy with certain status ailments is present, lower Phys. Def. of All Foes by 10% and raise Damage Limit of Entire Front Row by 30,000."
+  name: Malicious Accessory
+  passive_effect: 50 P.Atk, -60 P.Def, 100 Crit, 50 Spd; When an enemy with certain status ailments is present, lower Phys. Def. of All Foes by 10% and raise Damage Limit of Entire Front Row by 30,000.
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Laceration
+  description: Status that qualifies as Bleeding for conditional effects and allows attacks that inflict bleeding or increase their potency against a bleeding enemy to exploit any of the bearer’s weaknesses. *Excluding additional effects from support skills or equipment. The exploit effect works only if Laceration was already present before the action.
+- name: Deep Wound
+  description: Causes the bearer to take 20x damage from Bleeding and raises the potency of some attacks they receive by 15% (does not stack with effects of the same type).
+- name: Granted Dagger Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Dagger, increase damage taken from Dagger by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

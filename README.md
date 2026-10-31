@@ -86,11 +86,23 @@ uv run python scripts/merge_character_stats_from_csv.py
 # 3. Import skills/passives from markdown (supports ## Support Skills sections)
 uv run python scripts/import_skills_from_markdown.py
 
-# 4. Reindex
+# 4. Check data quality (junk skill names, truncated effects, empty roles)
+uv run python scripts/audit_character_data.py
+
+# 5. Reindex (optional: the MCP server reindexes automatically when data/ changes)
 uv run cotc-tactician index --force
 ```
 
 Use `--dry-run` on any script to preview changes first.
+
+The skill importer only rewrites the block from `# Skills - parsed from markdown` down to
+the metadata section. Roles, notes and stacking categories above it are preserved. If you
+edit a kit by hand, delete that marker line so re-imports skip the file.
+
+**Character pages on [NiaDB](https://meowdb.com/db/octopath-traveler-cotc)** are a good
+reference for curating roles and notes on single units. Their
+[reuse policy](https://meowdb.com/reuse) allows facts and excerpts with a link to the exact
+page; crawling or bulk import needs their permission. Put the page URL in `data_source`.
 
 ### 3. Index the Data
 
@@ -197,16 +209,18 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 
 ### MCP Tools (when using `mcp-serve`)
 
-**Character Tools:**
+**Character Tools** (list tools use your saved roster unless `available_characters` is passed,
+and report `roster_applied` / `recommendation_pool`):
 | Tool | Description |
 |------|-------------|
-| `search_characters` | Semantic search for characters by description |
-| `get_character` | Get full character details (skills, passives, stats) |
-| `find_by_weakness` | Find characters covering specific weaknesses |
-| `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
-| `list_by_role` | Exact match on character roles (tank, healer, debuffer, etc.) |
+| `search_skill_effects` | Regex search over kit text (skills, EX, ultimate, passives, A4), e.g. "who in my roster lowers Elem. Def" |
+| `search_characters` | Semantic search over names, roles, notes, weakness coverage |
+| `get_character` | Full kit: every skill, passive, EX, ultimate, A4, glossary, buff/debuff categories |
+| `find_by_weakness` | Characters covering specific weaknesses (strongest JP tier first) |
+| `list_by_tier` | Characters by tier rating (S+, S, A, etc.) |
+| `list_by_role` | Exact match on curated roles (tank, healer, debuffer, etc.) |
 | `list_all_character_ids` | List all available character IDs |
-| `find_tanks_by_type` | Find tanks by type (provoke, dodge, cover, hp_barrier) |
+| `find_tanks_by_type` | Curated tanks by type (provoke, dodge, cover, hp_barrier) |
 
 **Boss Tools:**
 | Tool | Description |
@@ -220,7 +234,6 @@ uv run cotc-tactician compose --boss example-boss --llm openai
 | Tool | Description |
 |------|-------------|
 | `get_team_building_guide` | **CALL FIRST** - Party structure, roles, EX scaling (from reference YAML) |
-| `get_team_suggestions` | Suggest characters for a boss fight by weaknesses |
 | `get_proven_teams` | Human-curated proven team comps; roster feasibility when configured |
 | `plan_team_for_boss` | Team planning with roster filtering, proven_teams, weakness/role gaps |
 | `check_buff_coverage` | Analyze buff/debuff stacking categories for a team |
@@ -359,8 +372,11 @@ sequenceDiagram
 # Sync dev dependencies
 uv sync --extra dev
 
-# Run tests
+# Run tests (includes MCP scenarios over a real stdio server, ~1 min)
 uv run pytest
+
+# Only the MCP scenarios (tests/mcp_scenarios/*.yaml)
+uv run pytest tests/test_mcp_scenarios.py
 
 # Lint (with autofix) + format
 uv run ruff check --fix

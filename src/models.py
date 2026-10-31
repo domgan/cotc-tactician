@@ -306,6 +306,7 @@ class Skill(BaseModel):
 
     name: str | None = None  # Some skills are unnamed
     skill_category: SkillCategory  # active, tp, ex, or special
+    unlock_tier: str | None = None  # Source tier tag: "Initial", "1★".."5★", "EX"
     sp_cost: int | None = None
     skill_type: SkillType
     damage_types: list[str] = Field(default_factory=list)  # Weapons/elements this skill can hit
@@ -317,6 +318,7 @@ class Skill(BaseModel):
     priority: bool = False  # Has [Priority]?
     ex_trigger: str | None = None  # For EX skills
     limit_break_upgrade: str | None = None  # 6★ upgrade (shown as "6*" in spreadsheet)
+    upgrades: list[str] = Field(default_factory=list)  # Level / TP Lv.2 upgrades
     notes: str | None = None
 
 
@@ -324,9 +326,13 @@ class Passive(BaseModel):
     """Character passive ability."""
 
     passive_category: PassiveCategory  # innate, tp, or basic
+    name: str | None = None
+    unlock_tier: str | None = None
     effect: str  # What the passive does
     trigger: str | None = None  # When it activates
     limit_break_upgrade: str | None = None  # 6★ upgrade (shown as "6*" in spreadsheet)
+    upgrades: list[str] = Field(default_factory=list)
+    notes: str | None = None
 
 
 class A4Accessory(BaseModel):

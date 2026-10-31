@@ -53,127 +53,186 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Swift Sword"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x75) and raise Speed of Self by 15% (turns: 2)"
-  - skill_category: active
-    name: "Empowering Shield"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Empowering Shield** Impart Self with Phys"
-  - skill_category: active
-    name: "Wild Triple Shadow Impact"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [dark]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Take Command"
-    sp_cost: 18
-    skill_type: debuff
-    target: front_row
-    effects:
-      - "**Take Command (2★)** Provoke All Foes and impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Summon Gakko"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Dispelling Shadow Reaver"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-    effects:
-      - "Dark damage to All Foes (potency: 150) and impart with Elem"
-  - skill_category: active
-    name: "Summon Wappa"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [axe]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "At full HP: Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Shadowy Seaslash"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Darkmoon"
-    sp_cost: 43
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "230"
-    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 260). Exploits Dark weakness (damage calculation based on Phys. Sword attack)."
-  - skill_category: tp
-    name: "Raging Command"
-    sp_cost: 57
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Raging Command ** Raise Phys"
-      - "of Entire Front Row by 15% and raise their Sword and Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Abyssal Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "4x"
-    power: "4x55"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Grandport’s Fury"
-    skill_type: mixed
-    damage_types: [sword, axe]
-    target: single_enemy
-    hit_count: "2x"
-    effects:
-      - "Lower Shield Points with Phys"
+- skill_category: active
+  name: Swift Sword
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x75) and raise Speed of Self by 15% (turns: 2).'
+- skill_category: active
+  name: Empowering Shield
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 15% and Phys. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Wild Triple Shadow Impact
+  unlock_tier: 1★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - dark
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Take Command
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: debuff
+  target: front_row
+  effects:
+  - 'Provoke All Foes and impart Entire Front Row with Phys. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Summon Gakko
+  unlock_tier: 2★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 150).'
+  - 'At full HP: Recover 2 BP.'
+- skill_category: active
+  name: Dispelling Shadow Reaver
+  unlock_tier: 3★
+  sp_cost: 40
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150) and impart with Elem. Atk. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 40→32'
+- skill_category: active
+  name: Summon Wappa
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 4 time(s) (potency: 4x45).'
+  - 'At full HP: Lower Shield Points even when not striking weak points.'
+  upgrades:
+  - 'Lv.96: SP Saver: 54→43'
+- skill_category: active
+  name: Shadowy Seaslash
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 180).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 'At full HP: 20% more potent.'
+  upgrades:
+  - 'Lv.99: SP Saver: 55→44'
+- skill_category: active
+  name: Darkmoon
+  unlock_tier: 5★
+  sp_cost: 43
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - 'At full HP: 20% more potent.'
+  upgrades:
+  - 'Lv.100: Potency Up: 230→260'
+  limit_break_upgrade: 'Deal Phys. Sword damage to Single Foe (potency: 260). Exploits Dark weakness (damage calculation based on Phys. Sword attack). At full HP: 50% more potent.'
+- skill_category: tp
+  name: Raging Command
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Entire Front Row by 15% and raise their Sword and Axe damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Abyssal Slash
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 4x
+  power: 4x55
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x55).'
+  - Exploits Axe and Dark weaknesses (damage calculation based on Phys. Sword attack).
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Grandport’s Fury
+  skill_type: debuff
+  damage_types:
+  - sword
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x125→2x150→2x175
+  effects:
+  - 'Deal Phys. Axe damage 2 time(s) (potency: 2x125→2x150→2x175) and Phys. Sword damage 3 time(s) (potency: 3x125→3x150→3x175) to Single Foe.'
+  - Lower Shield Points with Phys. Axe attacks even when not striking weak points.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in front row and at full HP: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and lower SP consumption by 20%. (Effects do not stack)."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "When consuming 3 BP to use a skill, grant Self HP Barrier (potency: 75% of user’s max HP/ does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Activate attack skills twice when consuming 3 BP (the follow-up attack will not consume SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Prestige of the Stormy Seas
+  unlock_tier: 1★
+  effect: 'When in front row and at full HP: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and lower SP consumption by 20%. (Effects do not stack).'
+  trigger: hp_condition
+- passive_category: innate
+  name: Summon Ivri
+  unlock_tier: 3★
+  effect: 'When consuming 3 BP to use a skill, grant Self HP Barrier (potency: 75% of user’s max HP/ does not stack).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Lord’s Dignity
+  effect: Activate attack skills twice when consuming 3 BP (the follow-up attack will not consume SP).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Grandport Lord’s Crest"
-  passive_effect: "60 P.Atk, 800 HP; Start of battle: Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack); At Full HP: Raise own Phys. Atk. by 10%"
+  name: Grandport Lord’s Crest
+  passive_effect: '60 P.Atk, 800 HP; Start of battle: Grant Self HP Barrier (potency: 25% of user’s max HP/ does not stack); At Full HP: Raise own Phys. Atk. by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

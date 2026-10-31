@@ -1,0 +1,21 @@
+id: damage-limit-sources
+goal: Source filters narrow effect search to ultimates/passives/A4 accessories.
+roster: fixture
+
+agent_prompt: |
+  Who in my roster raises allies' Damage Limit, and through which part of their kit
+  (ultimate, passive, A4 accessory)?
+agent_checks:
+  - Uses search_skill_effects with a sources filter or reports each match's source.
+  - Distinguishes self-only Damage Limit from party-wide effects using the quoted text.
+
+steps:
+  - tool: search_skill_effects
+    args:
+      terms: [Damage Limit]
+      sources: [special, passive, a4]
+    expect:
+      includes_ids:
+        results: [rocbouquet]
+      ids_owned: [results]
+      not_contains_text: ['"source": "active"']

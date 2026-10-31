@@ -51,119 +51,139 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Pierce"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Tease"
-    sp_cost: 5
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Gust"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Counter Position"
-    sp_cost: 24
-    skill_type: buff
-    target: self
-    power: "150, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Counter Position (2★)** Grant Self counter to physical attacks (potency: 150, turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Dust Devil"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Dust Devil"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    power: "**175**"
-  - skill_category: active
-    name: "Desperate Resolve"
-    sp_cost: 22
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Desperate Resolve** **(4★)** Provoke All Foes and raise Phys"
-  - skill_category: active
-    name: "Desperate Resolve"
-    sp_cost: 18
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Desperate Resolve** **(5★)** Provoke All Foes and raise Phys"
-  - skill_category: tp
-    name: "Wooden Spear"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "260"
-  - skill_category: ex
-    name: "Great Tree Spear"
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Polearm damage to All Foes 2 time(s) (potency: 2x95) and grant Self the ability to dodge physical attacks (times: 2)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Oaken Stance"
-    skill_type: buff
-    target: self
-    power: "3→4"
-    effects:
-      - "Impart Self with Phys"
-      - "Up **10%→20%→30%** (turns: **3→4**) and grant Self automatic HP recovery (potency: **100→125→150**"
+- skill_category: active
+  name: Pierce
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Tease
+  sp_cost: 5
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Provoke a single enemy (turns: 3-6 based on Boost LV.).'
+- skill_category: active
+  name: Gust
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '130'
+  effects:
+  - '(1★) Deal Elem. Wind damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Counter Position
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: buff
+  target: self
+  power: '150, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Grant Self counter to physical attacks (potency: 150, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Repeated Thrust
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x85).'
+- skill_category: active
+  name: Dust Devil
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  power: '145'
+  effects:
+  - '(3★) Deal Elem. Wind damage to All Foes (potency: 145).'
+  upgrades:
+  - 'Lv.72: SP Saver: 32→26'
+  - 'Upgraded: (5★) Deal Elem. Wind damage to All Foes (potency: 175).'
+- skill_category: active
+  name: Desperate Resolve
+  sp_cost: 22
+  skill_type: utility
+  target: aoe
+  effects:
+  - '(4★) Provoke All Foes and raise Phys. Def. and Elem. Def. of Self by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.80: SP Saver: 22→18'
+  - 'Upgraded: (5★) Provoke All Foes and raise Phys. Def. and Elem. Def. of Self by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: tp
+  name: Wooden Spear
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 260) and provoke the target (turns: 2).'
+- skill_category: ex
+  name: Great Tree Spear
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x95) and grant Self the ability to dodge physical attacks (times: 2).'
+  notes: 'Usage Condition: When there’s a provoked enemy; Uses: 2'
+  ex_trigger: When there’s a provoked enemy
+- skill_category: special
+  name: Oaken Stance
+  skill_type: buff
+  target: self
+  power: '100→125→150, turns: 2→3'
+  effects:
+  - 'Impart Self with Phys. Def. Up 10%→20%→30% and Elem. Def. Up 10%→20%→30% (turns: 3→4) and grant Self automatic HP recovery (potency: 100→125→150, turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP *Requires Ultimate Technique Awakening.; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Grant Self automatic HP recovery (potency: 85)."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Phys. Def Up 15% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Self with Phys. Def Up 15%."
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self Max HP Up 15% when provoked enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: HP Restoration
+  effect: '(1★) Grant Self automatic HP recovery (potency: 85).'
+  trigger: always
+- passive_category: innate
+  name: Initial Phys. Def. Boost II
+  unlock_tier: 3★
+  effect: 'Start of battle: Impart Self with Phys. Def Up 15% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Self with Phys. Def Up 15%.
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  unlock_tier: 5★
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Merchant’s Magnanimity
+  effect: Grant Self Max HP Up 15% when provoked enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hand-Carved Woodwork"
-  passive_effect: "20 P.Def, 20 E.Def, 300 HP; Raise own Phys. Def. by 10% when provoked enemy is present"
+  name: Hand-Carved Woodwork
+  passive_effect: 20 P.Def, 20 E.Def, 300 HP; Raise own Phys. Def. by 10% when provoked enemy is present
 
 # Metadata
 data_confidence: incomplete

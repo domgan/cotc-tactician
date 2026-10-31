@@ -52,145 +52,208 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "One-footed Thrust"
-    sp_cost: 17
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    power: "140"
-    effects:
-      - "Polearm damage to Single Foe (potency: 140) and lower Spd by 15% (turns: 2)"
-  - skill_category: active
-    name: "Wild Spear"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [polearm, staff]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Grant Self Multi-strike"
-  - skill_category: active
-    name: "Mind’s Eye"
-    sp_cost: 30
-    skill_type: buff
-    target: self
-    effects:
-      - "**Mind’s Eye (1★)** Grant Dead Aim (guaranteed critical hits) to Self (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Defensive Thrust"
-    sp_cost: 33
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Polearm damage to Single Foe (potency: 170) and impart Self with Phys"
-  - skill_category: active
-    name: "Twofold Mighty Charge"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Grant Self Multi-strike"
-  - skill_category: active
-    name: "Snake Fangs"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [polearm, staff]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Lower Polearm and Staff Res"
-  - skill_category: active
-    name: "Ramming Thrust"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [polearm, staff]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Fierce Thrust"
-    sp_cost: 69
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Divine Fivefold Thrust"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x55"
-    effects:
-      - "Grant Self Multi-strike"
-  - skill_category: active
-    name: "Divine Fivefold Thrust (6★)
-Act faster during turn"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [polearm, staff]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x55"
-    effects:
-      - "**Divine Fivefold Thrust (6★) Act faster during turn** and deal Phys"
-      - "Polearm attack).** Grant Self Multi-strike"
-  - skill_category: tp
-    name: "Command of the Great Pirate"
-    sp_cost: 69
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Command of the Great Pirate ** Raise Polearm damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.)"
-      - "[69 SP] With Multi-strike: Also raise Phys"
-  - skill_category: ex
-    name: "Keelbreaker Plunge"
-    skill_type: attack
-    damage_types: [polearm, staff]
-    target: single_enemy
-    power: "350"
-    effects:
-      - "Raise the Damage Limit of this skill by 50,000"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Sea Serpent’s Spear"
-    skill_type: attack
-    damage_types: [polearm, staff]
-    target: front_row
-    hit_count: "2x"
-    effects:
-      - "Raise BP recovery amount of Entire Front Row by 1 (turns: 2)"
+- skill_category: active
+  name: One-footed Thrust
+  sp_cost: 17
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '140'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 140) and lower Spd by 15% (turns: 2).'
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP), then terminate Multi-strike effect.'
+- skill_category: active
+  name: Wild Spear
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - polearm
+  - staff
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x55).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - Grant Self Multi-strike.
+  - 'Multi-strike: Activate some skills twice (the follow-up attack will not consume SP).'
+- skill_category: active
+  name: Mind’s Eye
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Dead Aim (guaranteed critical hits) to Self (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Defensive Thrust
+  unlock_tier: 2★
+  sp_cost: 33
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170) and impart Self with Phys. Def. Up 20% (turns: 2).'
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP), then terminate Multi-strike effect.'
+- skill_category: active
+  name: Twofold Mighty Charge
+  unlock_tier: 2★
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x80).'
+  - Grant Self Multi-strike.
+  - 'Multi-strike: Activate some skills twice (the follow-up attack will not consume SP).'
+- skill_category: active
+  name: Snake Fangs
+  unlock_tier: 3★
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - staff
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - 'Lower Polearm and Staff Res. by 10% (turns: 2).'
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP), then terminate Multi-strike effect.'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+- skill_category: active
+  name: Ramming Thrust
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - staff
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - 'Lower Phys. Def. and Elem. Def. by 15% (turns: 2).'
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP), then terminate Multi-strike effect.'
+  upgrades:
+  - 'Lv.96: SP Saver: 54→43'
+- skill_category: active
+  name: Fierce Thrust
+  unlock_tier: 5★
+  sp_cost: 69
+  skill_type: mixed
+  damage_types:
+  - staff
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Polearm damage to All Foes (potency: 180).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - 'Lower Phys. Atk. and Elem. Atk. by 15% (turns: 2).'
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP), then terminate Multi-strike effect.'
+  upgrades:
+  - 'Lv.99: SP Saver: 69→55'
+- skill_category: active
+  name: Divine Fivefold Thrust
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 5 time(s) (potency: 5x55).'
+  - Grant Self Multi-strike.
+  - 'Multi-strike: Activate some skills twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+  notes: 'Divine Fivefold Thrust (6★) Act faster during turn and deal Phys. Polearm damage to Single Foe 5 time(s) (potency: 5x55). Exploits Staff weakness (damage calculation based on Phys. Polearm attack). Grant Self Multi-strike. [56 SP] Multi-strike: Activate some skills twice (the follow-up attack will not consume SP).'
+- skill_category: tp
+  name: Command of the Great Pirate
+  sp_cost: 69
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Polearm damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.).'
+  - 'With Multi-strike: Also raise Phys. Atk. of the same target by 30% (turns: 2-5 based on Boost Lv.).'
+  - '*Does not terminate Multi-strike effect.'
+- skill_category: ex
+  name: Keelbreaker Plunge
+  skill_type: utility
+  damage_types:
+  - polearm
+  - staff
+  target: single_enemy
+  power: '350'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 350).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - Raise the Damage Limit of this skill by 50,000.
+  - 'With Multi-strike: Activate skill twice (the follow-up attack will not consume SP).'
+  - '*Does not terminate Multi-strike effect.'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Sea Serpent’s Spear
+  skill_type: utility
+  damage_types:
+  - polearm
+  - staff
+  target: front_row
+  hit_count: 2x
+  power: 2x210→2x250→2x290
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x210→2x250→2x290).'
+  - Exploits Staff weakness (damage calculation based on Phys. Polearm attack).
+  - 'Raise BP recovery amount of Entire Front Row by 1 (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "With Multi-strike: Raise Polearm damage of Self by 20% and lower SP consumption by 20%. (Effects do not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Raise Elem. Res. of Entire Front Row by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise own Phys. Atk. by 20% and BP recovery amount of Self by 1 when a broken enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Cerulean Snake
+  unlock_tier: 1★
+  effect: 'With Multi-strike: Raise Polearm damage of Self by 20% and lower SP consumption by 20%. (Effects do not stack).'
+  trigger: always
+- passive_category: innate
+  name: Vanguard Elem. Res. Boost (Front/All) III
+  unlock_tier: 3★
+  effect: 'When in front row: Raise Elem. Res. of Entire Front Row by 20%.'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Sea Serpent’s Gaze
+  effect: Raise own Phys. Atk. by 20% and BP recovery amount of Self by 1 when a broken enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Sea Serpent’s Brooch"
-  passive_effect: "100 P.Atk, 400 HP; Raise own Phys. Atk. by 10% when a broken enemy is present; Grant automatic SP recovery (amount: 50) when a broken enemy is present"
+  name: Sea Serpent’s Brooch
+  passive_effect: '100 P.Atk, 400 HP; Raise own Phys. Atk. by 10% when a broken enemy is present; Grant automatic SP recovery (amount: 50) when a broken enemy is present'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

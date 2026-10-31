@@ -183,9 +183,7 @@ def load_roster_with_meta(
         "owned_count": len(roster.characters),
         "schema_version": roster.schema_version,
         "last_updated": roster.last_updated.isoformat() if roster.last_updated else None,
-        "characters": {
-            cid: entry.model_dump() for cid, entry in roster.characters.items()
-        },
+        "characters": {cid: entry.model_dump() for cid, entry in roster.characters.items()},
         "skipped_invalid_ids": skipped,
     }
 

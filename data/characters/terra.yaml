@@ -62,138 +62,213 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Cure (Front/All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Cure (Front/All)** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Fire (Single)"
-    sp_cost: 23
-    skill_type: attack
-    damage_types: [fire, wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Fira Aspir (Single)"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [fire, wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Fira (Single)"
-    sp_cost: 57
-    skill_type: attack
-    damage_types: [fire, wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Dispel"
-    sp_cost: 15
-    skill_type: heal
-    target: front_row
-    effects:
-      - "grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.) and restore Phys"
-  - skill_category: active
-    name: "Firaga"
-    sp_cost: 89
-    skill_type: mixed
-    damage_types: [fire, wind]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Lower Fire Res"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Summon: Maduin"
-    sp_cost: 77
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Riot Sword"
-    sp_cost: 240
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x180"
-    effects:
-      - "At Max Boost: Raise Damage Limit of this skill by 300,000"
-  - skill_category: active
-    name: "Meltdown"
-    sp_cost: 78
-    skill_type: mixed
-    damage_types: [fire, wind]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-    effects:
-      - "Lower Fire Res"
-      - "Raise Damage Limit of this skill by 100,000"
-  - skill_category: tp
-    name: "Summon: Seraphim"
-    sp_cost: 99
-    skill_type: heal
-    target: all_allies
-    power: "65-155 based on Boost Lv."
-    effects:
-      - "**Summon: Seraphim ** Restore HP of All Allies (potency: 65-155 based on Boost Lv.)"
-      - "Restore own SP (amount: 25%-100% of max SP based on Boost Lv.)"
-  - skill_category: special
-    name: "Ultima"
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "4x"
-    effects:
-      - "Raise Damage Limit of this Ultimate Technique by **10,000→50,000→100,000**"
+- skill_category: active
+  name: Cure (Front/All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+  - Reaches All Allies during Max Boost.
+- skill_category: active
+  name: Fire (Single)
+  sp_cost: 23
+  skill_type: utility
+  damage_types:
+  - fire
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x75).'
+  - Exploits Wind weakness (damage calculation based on Elem. Fire attack).
+- skill_category: active
+  name: Fira Aspir (Single)
+  unlock_tier: 1★
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - fire
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Wind weakness (damage calculation based on Elem. Fire attack).
+  - Absorbs 2% of damage dealt as SP.
+- skill_category: active
+  name: Fira (Single)
+  unlock_tier: 2★
+  sp_cost: 57
+  skill_type: utility
+  damage_types:
+  - fire
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Wind weakness (damage calculation based on Elem. Fire attack).
+  - 'Cause target to combust (turns: 2).'
+  notes: 'With “Trance”: Combust duration becomes 3 turns.'
+- skill_category: active
+  name: Dispel
+  unlock_tier: 2★
+  sp_cost: 15
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure status ailments of Entire Front Row, grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
+  - and Speed.
+  - Reaches All Allies at Max Boost.
+- skill_category: active
+  name: Firaga
+  unlock_tier: 3★
+  sp_cost: 89
+  skill_type: debuff
+  damage_types:
+  - fire
+  - wind
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Exploits Wind weakness (damage calculation based on Elem. Fire attack).
+  - 'Lower Fire Res. by 15% (turns: 2) and cause target to combust (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 89→71'
+  notes: 'With “Trance”: Fire Res. Down and Combust duration becomes 3 turns.'
+- skill_category: active
+  name: 'Summon: Maduin'
+  unlock_tier: 4★
+  sp_cost: 77
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Ice, Wind, Lightning, Wind, Light and Dark weaknesses (damage calculation based on Elem. Fire attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 77→62'
+- skill_category: active
+  name: Riot Sword
+  unlock_tier: 5★
+  sp_cost: 240
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x180
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x180).'
+  - Exploits Sword and Wind weaknesses (damage calculation based on Elem. Fire attack).
+  - 50% more potent when target is combusted.
+  - 'At Max Boost: Raise Damage Limit of this skill by 300,000.'
+  upgrades:
+  - 'Lv.99: SP Saver: 300→240'
+- skill_category: active
+  name: Meltdown
+  unlock_tier: 5★
+  sp_cost: 78
+  skill_type: debuff
+  damage_types:
+  - fire
+  - wind
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x95).'
+  - Exploits Wind weakness (damage calculation based on Elem. Fire attack).
+  - 'Lower Fire Res. by 10% (turns: 2).'
+  - Ignores effects that completely dodge or block attacks.
+  - 50% more potent when target is combusted.
+  - Raise Damage Limit of this skill by 100,000.
+  - 'At Max Boost: Attack count becomes 4.'
+  upgrades:
+  - 'Lv.100: SP Saver: 97→78'
+- skill_category: tp
+  name: 'Summon: Seraphim'
+  sp_cost: 99
+  skill_type: heal
+  target: all_allies
+  power: 65-155 based on Boost Lv.
+  effects:
+  - 'Restore HP of All Allies (potency: 65-155 based on Boost Lv.).'
+  - 'Restore own SP (amount: 25%-100% of max SP based on Boost Lv.), increase the uses of Self’s Ultimate Technique and EX skill by 1 and fill the Ultimate Technique gauge by 25%-100% based on Boost Lv. *Can be used 3 times per battle.'
+- skill_category: special
+  name: Ultima
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 4x
+  power: 4x85→4x105→4x125
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 4 time(s) (potency: 4x85→4x105→4x125).'
+  - Exploits Ice, Wind, Lightning, Wind, Light and Dark weaknesses (damage calculation based on Elem. Fire attack).
+  - Ignores effects that completely dodge or block attacks.
+  - Raise Damage Limit of this Ultimate Technique by 10,000→50,000→100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge: Attack count becomes 5.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in “Magitek Knight” style: Gain 1 “Magitek Point” when using elemental skills."
-    trigger: always
-  - passive_category: innate
-    effect: "With 1 or more “Magitek Points”, when selecting a command, switch between “Magitek Knight” and “Trance” styles."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits)."
-    trigger: always
-    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) and automatic SP recovery (amount: 5% of max SP)."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Lightning Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Wind Res. by 10%"
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Fire and Wind damage of Entire Front Row by 15% and raise Damage Limit of Elem. Fire and Wind battle skills by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Esper’s Blood
+  effect: 'When in “Magitek Knight” style: Gain 1 “Magitek Point” when using elemental skills.'
+  trigger: always
+- passive_category: innate
+  name: 'Styleshift: Trance'
+  effect: With 1 or more “Magitek Points”, when selecting a command, switch between “Magitek Knight” and “Trance” styles.
+  trigger: always
+- passive_category: innate
+  name: Magitek Power
+  unlock_tier: 3★
+  effect: Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits).
+  trigger: always
+  limit_break_upgrade: 'Raise Elem. Atk. of Self by 15%, Fire damage by 15% and Damage Limit by 100,000. Additionally, gain the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) and automatic SP recovery (amount: 5% of max SP).'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience III Raise own Lightning Res. by 20%
+  trigger: always
+- passive_category: innate
+  name: Fire/Wind Resilience
+  effect: Raise own Fire and Wind Res. by 10%
+  trigger: always
+- passive_category: tp
+  name: Heart to Love
+  effect: 'When in front row: Raise Fire and Wind damage of Entire Front Row by 15% and raise Damage Limit of Elem. Fire and Wind battle skills by 50,000.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Broken Magic Stone Fragment”"
-  passive_effect: "-30 P.Def, 200 E.Atk, -30 E.Def, 20 SP; After using Ultimate Technique for the first time, restore 1 use and fill the Ultimate Technique gauge by 200% (once per battle)"
+  name: Broken Magic Stone Fragment
+  passive_effect: -30 P.Def, 200 E.Atk, -30 E.Def, 20 SP; After using Ultimate Technique for the first time, restore 1 use and fill the Ultimate Technique gauge by 200% (once per battle)
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Magitek Points
+  description: 'Enable the support skill “Styleshift: Trance”.'
+- name: Trance
+  description: Raise Elem. Atk. of Self by 20%, raise Fire damage by 20% and raise the Elem. Atk. and Fire damage limits from support and equipment effects to 50%. Additionally, Self’s elemental battle skills and Ultimate Technique activate 2 times (additional activations do not consume SP) and consume 1 “Magitek Point” at the end of turn. However, terminate “Trance” style when “Magitek Points” becomes 0.
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

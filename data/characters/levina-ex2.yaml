@@ -52,141 +52,193 @@ jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 39
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    sp_cost: 40
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(2★)** Lower Phys"
-      - "of All Foes by 10% (turns: 2-5 based on Boost Lv.) and grant Dagger “Fragility” (times: 2)"
-  - skill_category: active
-    sp_cost: 90
-    skill_type: utility
-    target: front_row
-  - skill_category: active
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [dagger]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x315"
-  - skill_category: active
-    sp_cost: 58
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(5★)** Raise Phys"
-  - skill_category: active
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [dagger]
-    target: front_row
-    hit_count: "5x"
-    power: "5x30"
-    effects:
-      - "At Max Boost: Restore 1 BP to Entire Front Row and this attack will not consume times of granted weaknesses"
-  - skill_category: tp
-    sp_cost: 98
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "Also lower Phys"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 98
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "Also lower Phys"
-      - "At Max Boost: Restore SP of All Allies (amount: 30)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "**(EX)** Act faster during turn and lower 1-4 Shield Points (based on Boost Lv.) regardless of the weak points"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "“Dolce Vita”"
-    skill_type: mixed
-    target: all_allies
-    power: "2→3"
-    effects:
-      - "Act faster during turn"
-      - "grant Dagger “Fragility” to all enemies (times: 9) and raise Phys"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 39
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x55).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - Absorb 2% of damage dealt as SP.
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Def. and Elem. Def. of All Foes by 10% (turns: 2-5 based on Boost Lv.) and grant Dagger “Fragility” (times: 2).'
+  notes: 'Dagger “Fragility”: Regardless of the source, weakness count adds up (max: 9). When exploting Dagger weakness, reduce 1 additional Shield Point(s). If the target was already vulnerable to Dagger, increase damage taken from Phys. Dagger by 50%. It is not triggered by effects that can exploit Dagger weakness.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 90
+  skill_type: utility
+  target: front_row
+  effects:
+  - Fill the Ultimate Technique gauge of Entire Front Row by 25%-200% based on Boost Lv..
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 62
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.88: SP Saver: 62→50'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x315
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x315).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - Damage Limit of this skill is increased by 200,000.
+  - When there’s an enemy with “Break Turn Extension”, Damage Limit of this skill is increased by 600,000 and reactivate the effect (the follow-up attack will not consume SP).
+  upgrades:
+  - 'Lv.96: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 58
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Dagger damage and Critical damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: Reaches All Allies.'
+  upgrades:
+  - 'Lv.99: SP Saver: 58→46'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: front_row
+  hit_count: 5x
+  power: 5x30
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 5 time(s) (potency: 5x30).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - 'At Max Boost: Restore 1 BP to Entire Front Row and this attack will not consume times of granted weaknesses.'
+  upgrades:
+  - 'Lv.100: SP Saver: 56→45'
+- skill_category: tp
+  sp_cost: 98
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x35).'
+  - Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - 'Also lower Phys. Def. and Dagger Res. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x35). Exploits Lightning and Wind weaknesses (damage calculation based on Phys. Dagger attack). Also lower Phys. Def. and Dagger Res. by 20% (turns: 2-5 based on Boost Lv.). At Max Boost: Restore SP of All Allies (amount: 30).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  target: single_enemy
+  priority: true
+  effects:
+  - Act faster during turn and lower 1-4 Shield Points (based on Boost Lv.) regardless of the weak points.
+  - When the target is broken, also inflict “Break Turn Extension”.
+  notes: 'Usage Condition: Before Turn 9; Uses: 1'
+  ex_trigger: Before Turn 9
+- skill_category: special
+  name: Dolce Vita
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn, grant Dagger “Fragility” to all enemies (times: 9) and raise Phys. Atk. and Dagger damage of All Allies by 10%→15%→20% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; Dagger “Fragility”: Regardless of the source, weakness count adds up (max: 9). When exploting Dagger weakness, reduce 1 additional Shield Point(s). If the target was already vulnerable to Dagger, increase damage taken from Phys. Dagger by 50%. It is not triggered by effects that can exploit Dagger weakness.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Grant Dagger “Fragility” to all enemies (times: 9)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Grant Dead Aim (guaranteed critical hits) to allies in Entire Front Row at full HP."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Grant Self the ability to trigger a follow-up attack when allies in Entire Front Row exploit a weakness (only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 100). Exploits Lightning and Wind weakness (damage calculation based on Phys. Dagger attack). Also restore 1 BP. When the target is broken, grant them Dagger “Fragility” (times: 4). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: 3/shorter turn counts overwritten)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: **4**/shorter turn counts overwritten)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Dagger Fragility V
+  effect: 'Start of battle: Grant Dagger “Fragility” to all enemies (times: 9).'
+  trigger: battle_start
+  notes: 'Dagger “Fragility”: Regardless of the source, weakness count adds up (max: 9). When exploting Dagger weakness, reduce 1 additional Shield Point(s). If the target was already vulnerable to Dagger, increase damage taken from Phys. Dagger by 50%. It is not triggered by effects that can exploit Dagger weakness.'
+- passive_category: innate
+  unlock_tier: 1★
+  effect: Grant Dead Aim (guaranteed critical hits) to allies in Entire Front Row at full HP.
+  trigger: hp_condition
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'Grant Self the ability to trigger a follow-up attack when allies in Entire Front Row exploit a weakness (only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 100). Exploits Lightning and Wind weakness (damage calculation based on Phys. Dagger attack). Also restore 1 BP. When the target is broken, grant them Dagger “Fragility” (times: 4). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break.'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: 3/shorter turn counts overwritten).'
+  trigger: battle_start
+  upgrades:
+  - 'Lv.2: Start of battle: Grant Entire Front Row the special effect “Misfortune Ward” (turns: 4/shorter turn counts overwritten).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Camellia Patterned Drawstring Bag”"
-  passive_effect: "50 Spd, 140 SP; Grant automatic SP recovery to All Allies with “Talisman” (amount: 100)"
+  name: Camellia Patterned Drawstring Bag
+  passive_effect: '50 Spd, 140 SP; Grant automatic SP recovery to All Allies with “Talisman” (amount: 100)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Misfortune Ward
+  description: 'Grant the ability to survive an otherwise lethal attack with 1 HP (with some exceptions). At the end of turn, if the remaining HP is 1 even temporarily, restore HP (amount: 100% of max HP) and terminate “Misfortune Ward”. *The status persists even after incapacitation. *This effect is terminated if the granter is incapacitated due to an exceptional effect.'
+- name: Break Turn Extension
+  description: Break Turns are extended by 1 turn (Does not stack/Resets to 1 upon recovery from break).Break-Turn
 
 # Metadata
 data_confidence: incomplete

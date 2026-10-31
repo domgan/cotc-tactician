@@ -51,152 +51,173 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65/3x75/3x120/3x210"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 28
-    skill_type: buff
-    target: front_row
-    power: "80, turns: 2/3/5/7"
-    effects:
-      - "**(Initial)** Grant Entire Front Row automatic HP recovery (potency: 80, turns: 2/3/5/7) and an HP Barrier (amount: 10% of user’s max HP/Does not stack)"
-  - skill_category: active
-    sp_cost: 50
-    skill_type: utility
-    target: single_ally
-    effects:
-      - "**(1★)** Allow Single Ally to act faster during next turns (turns: 2/3/5/7)"
-  - skill_category: active
-    sp_cost: 15
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**(2★)** Grant Single Ally immunity to some status ailments (turns: 1/3/4/6)"
-  - skill_category: active
-    sp_cost: 55
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**(2★)** Act faster during turn and grant Single Foe a Fire and a Wind weakness (times: 4/5/7/9)"
-  - skill_category: active
-    sp_cost: 74
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**(3★)** Act faster during turn and raise Fire and Wind damage of Entire Front Row by 20% (turns: 2/3/5/7)"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to 50% (turns: 2/3/5/7)"
-    limit_break_upgrade: "Act faster during turn and raise Fire and Wind damage of Entire Front Row by **30%** (turns: 2/3/5/7)."
-  - skill_category: active
-    name: "60%"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to **60%** (turns: 2/3/5/7)"
-  - skill_category: active
-    sp_cost: 74
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(4★)** Act faster during turn and lower Fire and Wind Res"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "With “Succor”: Also raise Fire and Wind damage of All Allies by 30% (turns: 2/3/5/7)"
-  - skill_category: active
-    name: "“Invigorating Prayer”"
-    sp_cost: 80
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**“Invigorating Prayer” (5★)** Grant “Invigorating Prayer” to All Allies until another action is taken or being unable to act (continuously consume 200/160/100/80 SP per turn"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "“Invigorating Prayer”: Grant the ability to trigger critical hits with elemental attacks and raise the potency of Elem"
-  - skill_category: active
-    name: "“Refreshing Flower’s Prayer”"
-    sp_cost: 80
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**“Refreshing Flower’s Prayer” (5★)** Grant “Invigorating Prayer” to All Allies until another action is taken or being unable to act (continuously consume 200/160/100/80 SP per turn"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: attack
-    target: single_enemy
-    effects:
-      - "“Refreshing Flower’s Prayer”: Gain the ability to lower 1 more Shield Point when exploiting weaknesses with Elem"
-  - skill_category: tp
-    sp_cost: 52
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**** Act faster during turn and force a Single Foe to always receive critical damage (turns: 1/2/4/6 /Shorter turn counts overwritten/Elemental attacks need to have critical damage enabled to hit critically)"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 52
-    skill_type: mixed
-    target: single_enemy
-    effects:
-      - "** Lv.2** Act faster during turn"
-      - "force a Single Foe to always receive critical damage (turns: 1/2/4/6 /Shorter turn counts overwritten/Elemental attacks need to have critical damage enabled to hit critically) and lower their Phys"
-  - skill_category: special
-    name: "“Refreshing Reed”"
-    skill_type: buff
-    target: all_allies
-    power: "4→5→6"
-    effects:
-      - "Act faster during turn"
-      - "raise Damage Limit of All Allies by **10,000→50,000→100,000** (turns: 6) and grant them the special effect “Refreshing” (turns: **4→5→6**/Granted as a support skill)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65/3x75/3x120/3x210
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x65/3x75/3x120/3x210).'
+  notes: 'With “Succor”: Reaches All Foes.'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 28
+  skill_type: buff
+  target: front_row
+  power: '80, turns: 2/3/5/7'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 80, turns: 2/3/5/7) and an HP Barrier (amount: 10% of user’s max HP/Does not stack).'
+  notes: 'With “Succor”: Reaches All Allies.'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: utility
+  target: single_ally
+  priority: true
+  effects:
+  - 'Allow Single Ally to act faster during next turns (turns: 2/3/5/7).'
+  notes: 'With “Succor”: Reaches Entire Front Row.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 15
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Grant Single Ally immunity to some status ailments (turns: 1/3/4/6).'
+  notes: 'With “Succor”: Reaches Entire Front Row.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 55
+  skill_type: utility
+  target: single_enemy
+  priority: true
+  effects:
+  - 'Act faster during turn and grant Single Foe a Fire and a Wind weakness (times: 4/5/7/9).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 74
+  skill_type: buff
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster during turn and raise Fire and Wind damage of Entire Front Row by 20% (turns: 2/3/5/7).'
+  upgrades:
+  - 'Lv.88: SP Saver: 92→74'
+  limit_break_upgrade: 'Act faster during turn and raise Fire and Wind damage of Entire Front Row by 30% (turns: 2/3/5/7).'
+  notes: 'With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to 50% (turns: 2/3/5/7).'
+- skill_category: active
+  name: 60%
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - '(turns: 2/3/5/7).'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 74
+  skill_type: debuff
+  target: aoe
+  priority: true
+  effects:
+  - 'Act faster during turn and lower Fire and Wind Res. of All Foes by 30% (turns: 2/3/5/7).'
+  upgrades:
+  - 'Lv.96: SP Saver: 93→74'
+  notes: 'With “Succor”: Also raise Fire and Wind damage of All Allies by 30% (turns: 2/3/5/7).'
+- skill_category: active
+  name: Invigorating Prayer
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Grant “Invigorating Prayer” to All Allies until another action is taken or being unable to act (continuously consume 200/160/100/80 SP per turn.
+  - Effect ends when there is insufficient SP).
+  upgrades:
+  - 'Lv.99: SP Saver: 100→80'
+- skill_category: active
+  name: Refreshing Flower’s Prayer
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Grant “Invigorating Prayer” to All Allies until another action is taken or being unable to act (continuously consume 200/160/100/80 SP per turn.
+  - Effect ends when there is insufficient SP).
+  upgrades:
+  - 'Lv.100: SP Saver: 100→80'
+- skill_category: tp
+  sp_cost: 52
+  skill_type: utility
+  target: single_enemy
+  priority: true
+  effects:
+  - 'Act faster during turn and force a Single Foe to always receive critical damage (turns: 1/2/4/6 /Shorter turn counts overwritten/Elemental attacks need to have critical damage enabled to hit critically).'
+  upgrades:
+  - 'Lv.2: Act faster during turn, force a Single Foe to always receive critical damage (turns: 1/2/4/6 /Shorter turn counts overwritten/Elemental attacks need to have critical damage enabled to hit critically) and lower their Phys. Atk and Elem. Atk. by 15% (turns: 2/3/5/7).'
+- skill_category: special
+  name: Refreshing Reed
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn, raise Damage Limit of All Allies by 10,000→50,000→100,000 (turns: 6) and grant them the special effect “Refreshing” (turns: 4→5→6/Granted as a support skill).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Also impart All Allies with 3 BP Stock. BP Stock: When boosting, BP Stock is consumed instead of BP.; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "“Attack” action becomes Elem. Wind damage. Enhance Boost Levels to Boost Lv.2/Lv.4/Lv.6 when consuming 1, 3 or 5 BP, respectively. When consuming 5 BP, gain “Succor” (turns: 6)."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Gain “Succor” (turns: 1) and grant All Allies the special effect “Refreshing” (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "When an ally breaks an enemy, grant Entire Front Row the special effect “Refreshing” (turns: 3) and recover 1 BP."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "With “Succor”: After an ally in Entire Front Row acts, deal Elem. Wind damage to All Foes (potency: 50). Exploits Fan weakness (damage calculation based on Elem. Wind attack)."
-    trigger: always
-  - passive_category: tp
-    effect: "With “Succor”: After an ally in Entire Front Row acts, deal Elem. Wind damage to All Foes (potency: 50) and restore 1 BP to Self. Exploits Fan weakness (damage calculation based on Elem. Wind attack). Potency is increased by 4.00x when the target is broken."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Refreshing Diva
+  effect: '“Attack” action becomes Elem. Wind damage. Enhance Boost Levels to Boost Lv.2/Lv.4/Lv.6 when consuming 1, 3 or 5 BP, respectively. When consuming 5 BP, gain “Succor” (turns: 6).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Start of battle: Gain “Succor” (turns: 1) and grant All Allies the special effect “Refreshing” (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When an ally breaks an enemy, grant Entire Front Row the special effect “Refreshing” (turns: 3) and recover 1 BP.'
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'With “Succor”: After an ally in Entire Front Row acts, deal Elem. Wind damage to All Foes (potency: 50). Exploits Fan weakness (damage calculation based on Elem. Wind attack).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: With “Succor”: After an ally in Entire Front Row acts, deal Elem. Wind damage to All Foes (potency: 50) and restore 1 BP to Self. Exploits Fan weakness (damage calculation based on Elem. Wind attack). Potency is increased by 4.00x when the target is broken.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Refreshing White Flower”"
-  passive_effect: "50 E.Atk, 500 HP, 90 SP; Extend duration of augmenting effects granted by Self by 1 turn. (Does not stack); When in back row: Lower Wind Res. of all enemies by 10%"
+  name: Refreshing White Flower
+  passive_effect: '50 E.Atk, 500 HP, 90 SP; Extend duration of augmenting effects granted by Self by 1 turn. (Does not stack); When in back row: Lower Wind Res. of all enemies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Succor
+  description: Lower received damage by 20% and gain immunity to some status ailments.
+- name: Refreshing
+  description: Damage Limit of Elem. Fire and Wind attacks is increased by 150,000.
+- name: Granted Fire Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Fire, increase damage taken from Fire by 20%.'
+- name: Granted Wind Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Wind, increase damage taken from Wind by 20%.'
+- name: Invigorating Prayer
+  description: Grant the ability to trigger critical hits with elemental attacks and raise the potency of Elem. Fire and Wind attacks by 100% (Does not stack with effects of the same type).
+- name: Refreshing Flower’s Prayer
+  description: Gain the ability to lower 1 more Shield Point when exploiting weaknesses with Elem. Fire or Wind damage (Does not stack with effects of the same type).
 
 # Metadata
 data_confidence: incomplete

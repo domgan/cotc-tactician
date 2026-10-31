@@ -51,119 +51,155 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Quickshot"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Electrocute"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Quicken"
-    sp_cost: 14
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Quicken (1★)** Raise Spd of Single Ally by 15% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Lightning Arrow"
-    sp_cost: 21
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    power: "85"
-    effects:
-      - "Lightning damage to All Foes (potency: 85) and lower Lightning Res"
-  - skill_category: active
-    name: "Fulmen"
-    sp_cost: 30
-    skill_type: attack
-    target: random
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Wild Shot"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x50"
-  - skill_category: active
-    name: "Wild Shot"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x50"
-  - skill_category: active
-    name: "Fulgor"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Fulgor"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "**250**"
-    limit_break_upgrade: "Deal Elem. Lightning damage to Single Foe (potency: 250). 50% more potent if target is paralyzed."
-  - skill_category: tp
-    name: "Hundred Thunder"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: ex
-    name: "Roaring Thunder Bird"
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "210"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "White’s Thrush"
-    skill_type: attack
-    damage_types: [lightning]
-    target: random
-    hit_count: "4x"
+- skill_category: active
+  name: Quickshot
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Electrocute
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Quicken
+  unlock_tier: 1★
+  sp_cost: 14
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Spd of Single Ally by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Lightning Arrow
+  unlock_tier: 2★
+  sp_cost: 21
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  power: '85'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 85) and lower Lightning Res. by 20% (turns: 2).'
+- skill_category: active
+  name: Fulmen
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: utility
+  target: random
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Lightining damage to Random Foe 2 time(s) (potency: 2x70) and have a low chance to inflict paralysis with every attack (turns: 2).'
+- skill_category: active
+  name: Wild Shot
+  unlock_tier: 3★
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x50
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x50).'
+  upgrades:
+  - 'Lv.72: SP Saver 25→20'
+  - 'Upgraded: Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x50).'
+- skill_category: active
+  name: Fulgor
+  unlock_tier: 4★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.80: SP Saver: 34→27'
+  - 'Upgraded: Deal Elem. Lightning damage to Single Foe (potency: 250).'
+  limit_break_upgrade: 'Deal Elem. Lightning damage to Single Foe (potency: 250). 50% more potent if target is paralyzed.'
+- skill_category: tp
+  name: Hundred Thunder
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x65) and have a low chance to inflict paralysis (turns: 2).'
+- skill_category: ex
+  name: Roaring Thunder Bird
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 210) and inflict paralysis (turns: 2).'
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 1'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: White’s Thrush
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: random
+  hit_count: 4x
+  power: 4x95→4x115→4x140
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 4 time(s) (potency: 4x95→4x115→4x140) and have a moderate chance to inflict paralysis with every attack (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Lower Lightning Res. of All Foes by 15% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Grant Front and Back Row immunity to paralysis."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When paralyzed enemy is present, grant Self the ability to trigger critical hits when using elemental attacks and Dead Aim (guaranteed critical hits)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Lightning Res Drain (All) II
+  unlock_tier: 1★
+  effect: 'Start of battle: Lower Lightning Res. of All Foes by 15% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Null Paralysis (Joint)
+  unlock_tier: 3★
+  effect: Grant Front and Back Row immunity to paralysis.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 5★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Paralysis Lock
+  effect: When paralyzed enemy is present, grant Self the ability to trigger critical hits when using elemental attacks and Dead Aim (guaranteed critical hits).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Virid Mantle"
-  passive_effect: "40 E.Atk, 10 Spd, 20 SP; Raise own Phys. Atk. by 10% when paralyzed enemy is present"
+  name: Virid Mantle
+  passive_effect: 40 E.Atk, 10 Spd, 20 SP; Raise own Phys. Atk. by 10% when paralyzed enemy is present
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

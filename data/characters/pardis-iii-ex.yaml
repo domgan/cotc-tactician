@@ -50,149 +50,183 @@ jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 34
-    skill_type: mixed
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Light damage to Single Foe 2 time(s) (potency: 2x90) and lower Elem"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "55"
-    effects:
-      - "**(Initial)** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
-  - skill_category: active
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "2x"
-    power: "2x70"
-    effects:
-      - "Light damage to All Foes 2 time(s) (potency: 2x70) and also raise Phys"
-  - skill_category: active
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Light damage to Random Foe 3 time(s) (potency: 3x65) and lower Light Res"
-  - skill_category: active
-    sp_cost: 55
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**(2★)** Raise Light damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 72
-    skill_type: mixed
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Light damage to Single Foe 4 time(s) (potency: 4x45) and lower Phys"
-  - skill_category: active
-    sp_cost: 123
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "restore HP of Entire Front Row (potency: 205) at the beginning of every turn (turns: 2-5 based on Boost Lv.)"
-      - "also restore 1 BP and cure status ailments of targets"
-  - skill_category: active
-    sp_cost: 107
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Light damage to All Foes 3 time(s) (potency: 3x65) and raise Phys"
-      - "At Max Boost: Also grant HP Barrier (amount: 1000/Does not stack)"
-  - skill_category: active
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "530"
-    effects:
-      - "Raise Damage Limit of this skill by 200,000"
-  - skill_category: tp
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [light]
-    target: back_row
-    hit_count: "4x"
-    power: "65"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [light]
-    target: back_row
-    hit_count: "4x"
-    power: "65"
-    effects:
-      - "Raise Damage Limit of this skill by 100,000"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: heal
-    target: all_allies
-    effects:
-      - "**(EX)** Restore SP of All Allies (amount: 50-150 based on Boost Lv.)"
-      - "of Self by 20% (turns: 3-6 based on Boost Lv.) and grant Self the ability to trigger attacking battle skills 3 times (times: 2/Additional instances do not cost SP)"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "“Holy King’s Command”"
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "Act faster during turn"
-      - "raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and Damage Limit by **10,000→50,000→100,000** (turns: 1)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 34
+  skill_type: debuff
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x90) and lower Elem. Def. by 10% (turns: 2).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '55'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x70) and also raise Phys. Atk. and Elem. Atk. of Entire Front Row by 10% (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 3 time(s) (potency: 3x65) and lower Light Res. by 15% with every attack (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 55
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Light damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: Also fill their Ultimate Technique gauge by 50%.'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 72
+  skill_type: debuff
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 4 time(s) (potency: 4x45) and lower Phys. Atk. and Elem. Atk. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 72→58'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 123
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'From the turn after this skill is used, restore HP of Entire Front Row (potency: 205) at the beginning of every turn (turns: 2-5 based on Boost Lv.).'
+  - If the user is in front row during the healing, also restore 1 BP and cure status ailments of targets.
+  upgrades:
+  - 'Lv.96: SP Saver: 123→98'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 107
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to All Foes 3 time(s) (potency: 3x65) and raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+  - 'At Max Boost: Also grant HP Barrier (amount: 1000/Does not stack).'
+  upgrades:
+  - 'Lv.99: SP Saver: 107→86'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 530).'
+  - Ignores effects that completely dodge or block attacks.
+  - Raise Damage Limit of this skill by 200,000.
+  upgrades:
+  - 'Lv.100: Potency Up: 530→630'
+- skill_category: tp
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - light
+  target: back_row
+  hit_count: 4x
+  power: '65'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 65).'
+  - At Max Boost, consume 50 SP each from Entire Back Row.
+  - Attack count increases up to 4 time(s) with each ally affected.
+  upgrades:
+  - 'Lv.2: Deal Elem. Light damage to Single Foe (potency: 65). Ignores effects that completely dodge or block attacks. Raise Damage Limit of this skill by 100,000. At Max Boost, consume 50 SP each from Entire Back Row. Attack count increases up to 4 time(s) with each ally affected.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: heal
+  target: all_allies
+  effects:
+  - 'Restore SP of All Allies (amount: 50-150 based on Boost Lv.), raise Elem. Atk. of Self by 20% (turns: 3-6 based on Boost Lv.) and grant Self the ability to trigger attacking battle skills 3 times (times: 2/Additional instances do not cost SP).'
+  notes: 'Usage Condition: Turn 2 onwards; Uses: 3'
+  ex_trigger: Turn 2 onwards
+- skill_category: special
+  name: Holy King’s Command
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn, raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and Damage Limit by 10,000→50,000→100,000 (turns: 1).'
+  - If targeting Self, the duration of Potency Up and Damage Limit Up becomes 3 turns.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge: Potency Up effect is 150% instead.; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "“Attack” action becomes Elem. Light damage. Exploits Ice and Wind weakness (damage calculation based on Elem. Light attack). Additionally, gain the ability to exploit Ice and Wind weakness with some elemental attacks (damage calculation based on original attack) and grant Self ability to trigger critical hits when using elemental attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Elem. Atk. and Light damage of Self by 20% and Damage Limit by 200,000. Also raise the limit of Elem. Atk. and Light damage of Self from battle skills and support skills and equipment effects to 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and reduce received damage by 25% (with some exceptions/Does not stack with effects of the same type). Also grant Entire Back Row automatic SP recovery (amount: 25) and reduce received damage by 50% (with some exceptions/Does not stack with effects of the same type)."
-    trigger: always
-    limit_break_upgrade: "When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15%, raise the limit of Phys. Atk. and Elem. Atk. from battle skills to 50% and reduce received damage by 25% (with some exceptions/Does not stack with effects of the same type). Also grant Entire Back Row automatic SP recovery (amount: 25) and reduce received damage by 50% (with some exceptions/Does not stack with effects of the same type)."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack). Start of battle: Fill the Ultimate Technique gauge of Self to 200%."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Sceptre of the Holy King
+  effect: “Attack” action becomes Elem. Light damage. Exploits Ice and Wind weakness (damage calculation based on Elem. Light attack). Additionally, gain the ability to exploit Ice and Wind weakness with some elemental attacks (damage calculation based on original attack) and grant Self ability to trigger critical hits when using elemental attacks.
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: Raise Elem. Atk. and Light damage of Self by 20% and Damage Limit by 200,000. Also raise the limit of Elem. Atk. and Light damage of Self from battle skills and support skills and equipment effects to 50%.
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and reduce received damage by 25% (with some exceptions/Does not stack with effects of the same type). Also grant Entire Back Row automatic SP recovery (amount: 25) and reduce received damage by 50% (with some exceptions/Does not stack with effects of the same type).'
+  trigger: always
+  limit_break_upgrade: 'When in front row: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15%, raise the limit of Phys. Atk. and Elem. Atk. from battle skills to 50% and reduce received damage by 25% (with some exceptions/Does not stack with effects of the same type). Also grant Entire Back Row automatic SP recovery (amount: 25) and reduce received damage by 50% (with some exceptions/Does not stack with effects of the same type).'
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Augment/Enfeeblement (Give)
+  effect: Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack).
+  trigger: always
+  upgrades:
+  - 'Lv.2: Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack). Start of battle: Fill the Ultimate Technique gauge of Self to 200%.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Crown of a Great King”"
-  passive_effect: "-40 P.Def, 300 E.Atk, -40 E.Def, -30 Spd; Grant Damage Limit Up (effect: 100,000); When in front row: Lower Light Res. of all enemies by 10%"
+  name: Crown of a Great King
+  passive_effect: '-40 P.Def, 300 E.Atk, -40 E.Def, -30 Spd; Grant Damage Limit Up (effect: 100,000); When in front row: Lower Light Res. of all enemies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

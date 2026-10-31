@@ -52,140 +52,182 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [fan]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    sp_cost: 64
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(2★)** Raise Elem"
-  - skill_category: active
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Raise Damage Limit of this skill by 100,000"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    sp_cost: 82
-    skill_type: buff
-    target: paired_ally
-    effects:
-      - "**(5★)** Raise potency of Self by 30%-100% based on Boost Lv"
-      - "Also restore 2 BP to Paired Allies"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: self
-    effects:
-      - "With Lion: Also grant Self Damage Limit Up (effect: 150,000, turns: 3)"
-  - skill_category: active
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: tp
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "530"
-    effects:
-      - "Raise Damage Limit of this skill by 200,000 when target is broken"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "**630**"
-    effects:
-      - "Raise Damage Limit of this skill by **400,000** when target is broken"
-  - skill_category: special
-    name: "“Edoras Festival”"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "Raise potency of Entire Front Row by **25%→50%→75%** (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and grant HP Barrier (potency: 100% of user’s Max HP/Does not stack)"
-      - "Also grant “Lion” to Entire Front Row (turns: 3/Granted as support skill/Does not stack)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 170).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 150).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - fan
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Phys. Fan attack).
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk. and Light damage of Self by 30% (turns: 3-6 based on Boost Lv.).'
+  - Reaches Entire Front Row at Max Boost.
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Light damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 260).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+  - Raise Damage Limit of this skill by 100,000.
+  upgrades:
+  - 'Lv.96: SP Saver: 48→38'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: buff
+  target: paired_ally
+  effects:
+  - 'Raise potency of Self by 30%-100% based on Boost Lv. (turns: 3/Turns cannot be extended/Does not stack with effects of the same type).'
+  - Also restore 2 BP to Paired Allies.
+  upgrades:
+  - 'Lv.99: SP Saver: 82→66'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x65).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 530).'
+  - Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack).
+  - Raise Damage Limit of this skill by 200,000 when target is broken.
+  upgrades:
+  - 'Lv.2: Deal Elem. Light damage to Single Foe (potency: 630). Exploits Sword and Lightning weakness (damage calculation based on Elem. Light attack). Raise Damage Limit of this skill by 400,000 when target is broken.'
+- skill_category: special
+  name: Edoras Festival
+  skill_type: buff
+  target: front_row
+  power: 100% of user’s Max HP/Does not stack
+  effects:
+  - 'Raise potency of Entire Front Row by 25%→50%→75% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and grant HP Barrier (potency: 100% of user’s Max HP/Does not stack).'
+  - 'Also grant “Lion” to Entire Front Row (turns: 3/Granted as support skill/Does not stack).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "“Attack” action becomes Elem. Light damage and grant Self ability to trigger critical hits when using elemental attacks. During battle: Your job is also considered to be Warrior."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Grant Light “Fragility” to all enemies (times: 9)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise Elem. Atk. and Light damage of Self by 20% and raise the limit of Elem. Atk. and Light damage of Self from support skills and equipment effects to 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Potency Up effects received by Warriors in party by 50% (Does not stack)."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Potency Up and HP Barrier effects received by Warriors in party by 50% (Does not stack)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Bride of the Sacred Heart
+  effect: '“Attack” action becomes Elem. Light damage and grant Self ability to trigger critical hits when using elemental attacks. During battle: Your job is also considered to be Warrior.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Start of battle: Grant Light “Fragility” to all enemies (times: 9).'
+  trigger: battle_start
+  notes: 'Light “Fragility”: Regardless of the source, weakness count adds up (max: 9). When exploting Light weakness, reduce 1 additional Shield Point(s). If the target was already vulnerable to Light, increase damage taken from Elem. Light by 50%. It is not triggered by effects that can exploit Light weakness.'
+- passive_category: innate
+  unlock_tier: 3★
+  effect: Raise Elem. Atk. and Light damage of Self by 20% and raise the limit of Elem. Atk. and Light damage of Self from support skills and equipment effects to 50%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'When in front row: Raise Potency Up effects received by Warriors in party by 50% (Does not stack).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When in front row: Raise Potency Up and HP Barrier effects received by Warriors in party by 50% (Does not stack).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“White Bouquet of Eternal Promise”"
-  passive_effect: "-50 P.Def, 200 E.Atk, -50 E.Def, 90 SP; Grant Damage Limit Up (effect: 150,000); Start of battle: Grant the special effect “Lion” (turns: 3)"
+  name: White Bouquet of Eternal Promise
+  passive_effect: '-50 P.Def, 200 E.Atk, -50 E.Def, 90 SP; Grant Damage Limit Up (effect: 150,000); Start of battle: Grant the special effect “Lion” (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: With Lion
+  description: Add 30% of P.Atk to E.Atk (including equipment stats/Cannot be stacked).
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
+- name: Lion
+  description: Raise Phys. Atk., Elem. Atk. and Critical by 10% and enhances certain skills.
 
 # Metadata
 data_confidence: incomplete

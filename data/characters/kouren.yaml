@@ -52,119 +52,177 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Swallow Slash"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Paraselene"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Full Moon"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Armor Piercer"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "140"
-  - skill_category: active
-    name: "Warm Up"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Warm Up** **(2★)** Impart Self with Phys"
-  - skill_category: active
-    name: "Boosting Blade"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Cloudy Moon"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Peacock Slash"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "4x"
-    power: "4x55"
-  - skill_category: active
-    name: "Arrhythmic Slash"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 290). Results 20% more potent if target has not yet acted. Raise Damage Limit of this skill by 100,000."
-  - skill_category: tp
-    name: "Counter Blade"
-    sp_cost: 40
-    skill_type: buff
-    target: self
-    effects:
-      - "**Counter Blade ** Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP)"
-      - "grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Peacock’s Radiant"
-    skill_type: attack
-    damage_types: [sword, light]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Blade of the End"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "440→525→655"
+- skill_category: active
+  name: Swallow Slash
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Paraselene
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Full Moon
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '150'
+  effects:
+  - '(1★) Deal Elem. Light damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Armor Piercer
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '140'
+  effects:
+  - '(2★) Deal Phys. Sword damage to Single Foe (potency: 140).'
+  - Potency doubles if target has 10 or more Shield Points.
+- skill_category: active
+  name: Warm Up
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - '(2★) Impart Self with Phys. Atk. Up 15% and Spd by 15% (turns: 3-6, based on Boost).'
+- skill_category: active
+  name: Boosting Blade
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - '(3★) Deal Phys. Sword damage to Single Foe (potency: 230) and recover 1 BP.'
+  upgrades:
+  - 'Lv.88: Potency Up: 230→260'
+- skill_category: active
+  name: Cloudy Moon
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '230'
+  effects:
+  - '(4★) Deal Elem. Light damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.96: Potency Up: 230→260'
+- skill_category: active
+  name: Peacock Slash
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x55
+  effects:
+  - '(5★) Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x55).'
+  upgrades:
+  - 'Lv.99: Potency Up: 55→85'
+- skill_category: active
+  name: Arrhythmic Slash
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+  - Results 20% more potent if target has not yet acted.
+  upgrades:
+  - 'Lv.100: Potency Up: 260→290'
+  limit_break_upgrade: 'Deal Phys. Sword damage to Single Foe (potency: 290). Results 20% more potent if target has not yet acted. Raise Damage Limit of this skill by 100,000.'
+- skill_category: tp
+  name: Counter Blade
+  sp_cost: 40
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to trigger battle skills 2 times (turns: 2/Cannot be extended/Additional instances do not cost SP).'
+  - 'Also, grant Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.).'
+- skill_category: ex
+  name: Peacock’s Radiant
+  skill_type: utility
+  damage_types:
+  - sword
+  - light
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x45).'
+  - Exploits Light weakness (damage calculation based on Phys. Sword attack).
+  - 'If target has 4 or more Shield Points: Reactivate the skill.'
+  notes: 'Usage Condition: At full HP; Uses: 3'
+  ex_trigger: At full HP
+- skill_category: special
+  name: Blade of the End
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 440→525→655) and recover 1→2 BP.'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Raise some status ailments of Self by 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant self 15% chance of dodging some physical attacks and raise speed by 15% with a successful dodge from this skill’s effects (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Raise Sword damage of Self by 30%."
-    trigger: hp_condition
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Ailment Res. Boost
+  effect: (1★) Raise some status ailments of Self by 50%.
+  trigger: always
+- passive_category: innate
+  name: Perception
+  unlock_tier: 3★
+  effect: 'Grant self 15% chance of dodging some physical attacks and raise speed by 15% with a successful dodge from this skill’s effects (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Hale Sword Atk. Boost V
+  effect: 'At full HP: Raise Sword damage of Self by 30%.'
+  trigger: hp_condition
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Eastern Carving"
-  passive_effect: "40 P.Atk, 60 Crit, 40 SP; Raise Sword and Light damage dealt by 15%"
+  name: Eastern Carving
+  passive_effect: 40 P.Atk, 60 Crit, 40 SP; Raise Sword and Light damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

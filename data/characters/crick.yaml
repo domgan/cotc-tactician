@@ -52,148 +52,202 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Twofold Radiant Slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Guard"
-    sp_cost: 40
-    skill_type: utility
-    target: front_row
-    effects:
-      - "**Guard** Act faster during turn"
-  - skill_category: active
-    name: "Godsblade’s Shield"
-    sp_cost: 23
-    skill_type: buff
-    target: self
-    power: "10%-40% of max HP based on Boost Lv./Does not stack"
-    effects:
-      - "**Godsblade’s Shield (1★)** Grant Self an HP Barrier (potency: 10%-40% of max HP based on Boost Lv./Does not stack) and raise Phys"
-  - skill_category: active
-    name: "Wild Radiant Strike"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [staff]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Have a low chance to lower Phys"
-  - skill_category: active
-    name: "Novice Knight’s Support"
-    sp_cost: 70
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Novice Knight’s Support (2★)** Raise Sword"
-  - skill_category: active
-    name: "Sacred Slash"
-    sp_cost: 88
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "also lower their Elem"
-  - skill_category: active
-    name: "Bashing Break (Front/All)"
-    sp_cost: 45
-    skill_type: mixed
-    damage_types: [staff]
-    target: front_row
-    effects:
-      - "**Bashing Break (Front/All) (4★)** Act faster during turn and grant Entire Front Row the ability to reduce 1 additional Shield Point(s) when exploiting weaknesses with Phys"
-  - skill_category: active
-    name: "Triple Effulgent Strike"
-    sp_cost: 74
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Twofold Effulgent Slash"
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-  - skill_category: tp
-    name: "Sanctifying Oracle (All) II"
-    sp_cost: 72
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Sanctifying Oracle (All) II ** Lower Phys"
-  - skill_category: tp
-    name: "Sanctifying Oracle (All) II Lv.2"
-    sp_cost: 72
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Sanctifying Oracle (All) II Lv.2** Lower Phys"
-  - skill_category: ex
-    name: "Heartfire Slash"
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "**Heartfire Slash** Lower Phys"
-      - "of All Foes by 15% and lower Sword"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Godsblade’s Crusade"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "500→600→750"
-    effects:
-      - "Grant Self an HP Barrier (potency: 10% of max HP/Does not stack)"
-      - "raise own potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and deal Phys"
+- skill_category: active
+  name: Twofold Radiant Slash
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Guard
+  sp_cost: 40
+  skill_type: utility
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster during turn, reduce some damage taken from enemies by 10%-40% based on Boost Lv. (turns: 1-4 based on Boost Lv./shorter turn counts overwritten) and take damage for single-target attack in place of ally in the front row (turns: 2/Trigger even in back row).'
+- skill_category: active
+  name: Godsblade’s Shield
+  unlock_tier: 1★
+  sp_cost: 23
+  skill_type: buff
+  target: self
+  power: 10%-40% of max HP based on Boost Lv./Does not stack
+  effects:
+  - 'Grant Self an HP Barrier (potency: 10%-40% of max HP based on Boost Lv./Does not stack) and raise Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Wild Radiant Strike
+  unlock_tier: 2★
+  sp_cost: 55
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Sword and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'Have a low chance to lower Phys. Def. and Elem. Def. by 15% with every attack (turns: 2).'
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: active
+  name: Novice Knight’s Support
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Sword, Staff and Light damage of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Sacred Slash
+  unlock_tier: 3★
+  sp_cost: 88
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x55).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'Lower Phys. Def. and Elem. Def. by 15% (turns: 2).'
+  - 'If the target’s Elem. Def. Down has a duration of 9+ turns afterwards, also lower their Elem. Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 88→70'
+- skill_category: active
+  name: Bashing Break (Front/All)
+  unlock_tier: 4★
+  sp_cost: 45
+  skill_type: buff
+  damage_types:
+  - staff
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster during turn and grant Entire Front Row the ability to reduce 1 additional Shield Point(s) when exploiting weaknesses with Phys. Staff damage (turns: 1-4/Does not stack with effects of the same type).'
+  upgrades:
+  - 'Lv.96: SP Saver: 45→36'
+- skill_category: active
+  name: Triple Effulgent Strike
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+  - Attack count becomes 5 if enemy with Elem. Def. Down is present when selecting this action.
+  upgrades:
+  - 'Lv.99: SP Saver: 74→59'
+- skill_category: active
+  name: Twofold Effulgent Slash
+  unlock_tier: 5★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x120).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+  - If the target has Elem. Res. Down, activate the skill twice (the follow-up attack will not consume SP).
+  upgrades:
+  - 'Lv.100: SP Saver: 51→41'
+- skill_category: tp
+  name: Sanctifying Oracle (All) II
+  sp_cost: 72
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Res. and Elem. Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Lower Phys. Res. and Elem. Res. of All Foes by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: ex
+  name: Heartfire Slash
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Lower Phys. Def. and Elem. Def. of All Foes by 15% and lower Sword, Staff and Light Res. by 15% (turns: 2) and deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'With Potency Up: Activate the skill twice (the follow-up attack will not consume SP).'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Godsblade’s Crusade
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 10% of max HP/Does not stack
+  effects:
+  - 'Grant Self an HP Barrier (potency: 10% of max HP/Does not stack), raise own potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and deal Phys. Sword damage to Single Foe (potency: 500→600→750).'
+  - Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "During battle: You are also counted as a Cleric."
-    trigger: always
-  - passive_category: innate
-    effect: "If Paired Ally is a Cleric, trigger a follow-up attack after any ally in Entire Front Row acts (only activates once per action). *If the follow-up attack breaks the enemy, only the ally who initiated the attack will qualify for the break. Follow-up attack: Deal Phys. Sword damage to All Foes (potency: 200). Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Allow all Clerics in the party to receive 1.5x greater HP Barrier durabilities and Potency augments (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Allow all Clerics in the party to receive **2.0x** greater HP Barrier durabilities and Potency augments (Does not stack)."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Sword and Staff damage of Self by 15%. With an HP Barrier: Raise Damage Limit of Self by 70,000."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Sword and Staff damage and Light damage of Paired Allies by 15%. With an HP Barrier: Raise Damage Limit of Paired Allies by 70,000 and additionally raise Damage Limit of Paired Ally by 20,000."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword and Staff and Elem. Light attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Sanctum Knight
+  effect: 'During battle: You are also counted as a Cleric.'
+  trigger: always
+- passive_category: innate
+  name: Cleric’s Companion
+  unlock_tier: 1★
+  effect: 'If Paired Ally is a Cleric, trigger a follow-up attack after any ally in Entire Front Row acts (only activates once per action). *If the follow-up attack breaks the enemy, only the ally who initiated the attack will qualify for the break. Follow-up attack: Deal Phys. Sword damage to All Foes (potency: 200). Exploits Staff and Light weakness (damage calculation based on Phys. Sword attack).'
+  trigger: always
+- passive_category: innate
+  name: Pure-Hearted Paladin
+  unlock_tier: 3★
+  effect: Allow all Clerics in the party to receive 1.5x greater HP Barrier durabilities and Potency augments (Does not stack).
+  trigger: always
+  limit_break_upgrade: Allow all Clerics in the party to receive 2.0x greater HP Barrier durabilities and Potency augments (Does not stack).
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Blameless Blade
+  effect: 'Raise Sword and Staff damage of Self by 15%. With an HP Barrier: Raise Damage Limit of Self by 70,000.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise Sword and Staff damage and Light damage of Paired Allies by 15%. With an HP Barrier: Raise Damage Limit of Paired Allies by 70,000 and additionally raise Damage Limit of Paired Ally by 20,000.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword and Staff and Elem. Light attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Wellsley Crest"
-  passive_effect: "80 P.Atk, 600 HP; With an HP Barrier: Raise potency by 40% (Does not stack with effects of the same type) and Damage Limit by 30,000.; Start of battle: Grant HP Barrier (potency: 50% of wearer’s max HP/Does not stack); 50 P.Atk, 500 HP, 40 SP; With an HP Barrier: Raise potency by **20%** (Does not stack with effects of the same type) ~~and Damage Limit by 30,000~~.; Start of battle: Grant HP Barrier (potency: **25%** of wearer’s max HP/Does not stack)"
+  name: Wellsley Crest
+  passive_effect: '80 P.Atk, 600 HP; With an HP Barrier: Raise potency by 40% (Does not stack with effects of the same type) and Damage Limit by 30,000.; Start of battle: Grant HP Barrier (potency: 50% of wearer’s max HP/Does not stack); 50 P.Atk, 500 HP, 40 SP; With an HP Barrier: Raise potency by **20%** (Does not stack with effects of the same type) ~~and Damage Limit by 30,000~~.; Start of battle: Grant HP Barrier (potency: **25%** of wearer’s max HP/Does not stack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

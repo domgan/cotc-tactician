@@ -59,143 +59,210 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Thunder Slash"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Shield of Edoras"
-    sp_cost: 52
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Shield of Edoras** Raise Phys"
-      - "of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.) and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack)"
-      - "raise the Phys"
-      - "of any rearguard Warriors by 10% (turns: 2-5 based on Boost Lv.) and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack)"
-  - skill_category: active
-    name: "Wild Stalwart Slash"
-    sp_cost: 56
-    skill_type: mixed
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Sword damage to Random Foe 3 time(s) (potency: 3x65) and lower their Phys"
-  - skill_category: active
-    name: "Lightning Slash"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: active
-    name: "Energizing Surge"
-    sp_cost: 40
-    skill_type: buff
-    target: back_row
-    effects:
-      - "**Energizing Surge (2★)** Raise BP recovery of Self by 1 (turns: 2-5 based on Boost Lv.)"
-      - "raise BP recovery of all Warriors in the back row by 1 (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Sword of Edoras"
-    sp_cost: 67
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sword of Edoras (3★)** Raise Phys"
-      - "of Entire Front Row by 15% and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack)"
-      - "of all Warriors in the back row by 15% and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack)"
-  - skill_category: active
-    name: "Devastating Slash"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "**Devastating Slash (4★)** Act faster during turn and deal Phys"
-      - "Sword damage to Single Foe 4 time(s) (potency: 4x35) and grant them a Sword weakness (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Sword Weakness: Regardless of the source"
-  - skill_category: active
-    name: "Regal Slash"
-    sp_cost: 86
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Regal Judgement"
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-  - skill_category: tp
-    name: "Lion King’s Multi-Slash"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Sword damage to Random Foe 4 time(s) (potency: 4x45) and grant Lion’s Pride to Entire Front Row"
-  - skill_category: special
-    name: "Secret Sword: Thunderclap Skyfang"
-    skill_type: utility
-    target: aoe
-    hit_count: "3x"
-    effects:
-      - "grant Lion’s Pride to All Allies (turns: 3/Granted as a support skill/Does not stack) and fully refresh your Latent Power"
+- skill_category: active
+  name: Thunder Slash
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x80).'
+  - Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Shield of Edoras
+  sp_cost: 52
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.) and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack).'
+  - 'Additionally, raise the Phys. Def. and Elem. Def. of any rearguard Warriors by 10% (turns: 2-5 based on Boost Lv.) and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack).'
+- skill_category: active
+  name: Wild Stalwart Slash
+  unlock_tier: 1★
+  sp_cost: 56
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x65) and lower their Phys. Atk. and Elem. Atk. by 10% with every attack (turns: 2).'
+  - Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Lightning Slash
+  unlock_tier: 2★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Exploits Lightning and Light weakness (damage calculation based on Phys. Sword attack).
+  - Extend the duration of Lion’s Pride of All Allies by 2 turns.
+- skill_category: active
+  name: Energizing Surge
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: buff
+  target: back_row
+  effects:
+  - 'Raise BP recovery of Self by 1 (turns: 2-5 based on Boost Lv.).'
+  - 'Additionally, raise BP recovery of all Warriors in the back row by 1 (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Sword of Edoras
+  unlock_tier: 3★
+  sp_cost: 67
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack).'
+  - 'Additionally, raise Phys. Atk. and Elem. Atk. of all Warriors in the back row by 15% and grant them Lion’s Pride (turns: 2-5 based on Boost Lv./Granted as a support skill/Does not stack).'
+  upgrades:
+  - 'Lv.88: SP Saver: 67→54'
+- skill_category: active
+  name: Devastating Slash
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 4x
+  power: 4x35
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x35) and grant them a Sword weakness (times: 1-4 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 62→50'
+- skill_category: active
+  name: Regal Slash
+  unlock_tier: 5★
+  sp_cost: 86
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack) and is enhanced based on the number of allies with Lion’s Pride.
+  - '·6+: Attack count becomes 5.'
+  - '·7+: Additionally, before attacking, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks except for “Attack” action (turns: 1/damage calculation based on corresponding attack).'
+  - '·8: Attack count becomes 6 instead.'
+  upgrades:
+  - 'Lv.99: SP Saver: 86→69'
+- skill_category: active
+  name: Regal Judgement
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x135).'
+  - Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).
+  - Damage Limit of this skill is increased by 100,000 and skill is enhanced based on the number of allies with Lion’s Pride.
+  - '·6+: Attack count becomes 3.'
+  - '·7+: Additionally, before attacking, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks except for “Attack” action (turns: 1/damage calculation based on corresponding attack).'
+  - '·8: Potency increases by 1.5x.'
+  upgrades:
+  - 'Lv.100: SP Saver: 82→66'
+- skill_category: tp
+  name: Lion King’s Multi-Slash
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x45) and grant Lion’s Pride to Entire Front Row.'
+  - Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).
+  - With 6 allies with Lion’s Pride, attack count becomes 6.
+- skill_category: special
+  name: 'Secret Sword: Thunderclap Skyfang'
+  skill_type: utility
+  target: aoe
+  hit_count: 3x
+  power: 3x115→3x150→3x185
+  effects:
+  - 'Deal Phys. Sword to All Foes 3 time(s) (potency: 3x115→3x150→3x185), grant Lion’s Pride to All Allies (turns: 3/Granted as a support skill/Does not stack) and fully refresh your Latent Power.'
+  - Potency doubles if target is broken.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When selecting the command, grant Self the special effect Lion’s Battle Technique (turns: 1). Lion’s Battle Technique: Skill configuration changes to the following. ---"
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x65) and gain Lion Claws. Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x65) and gain Lion Fangs. Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise the limit of Phys. Atk. and Sword damage augments from battle skills of All Allies to 50% (turns: 2-5 based on Boost Lv.), raise Sword damage of any target Warriors by 20% (turns: 2-5 based on Boost Lv.) and gain Lion’s Heart."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Lion’s Pride to allies after they use a battle skill (turns: 2/Does not stack), grant them Lion’s Might if Lion Claws is active (turns: 2/Cannot be extended), raise their critical hit multiplier (1.25→1.4) if Lion Fangs is active (turns: 2) and raise their weakness damage multiplier by 20% for Phys. Sword attacks if Lion’s Heart is active (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Grant Lion’s Pride to allies after they use a battle skill (turns: **3**/Does not stack), grant them Lion’s Might if Lion Claws is active (turns: 2/Cannot be extended), raise their critical hit multiplier (1.25→1.4) if Lion Fangs is active (turns: 2) and raise their weakness damage multiplier by 20% for Phys. Sword attacks if Lion’s Heart is active (turns: 2)."
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant All Allies effects based on the number of Warriors in party. ·2+: Raise Phys. Atk. and Sword damage by 15%. ·3+: Also lower SP consumption by 30% (Does not stack). ·4+: Also raise the limit of Phys. Atk. and Sword damage augments from support skills and equipment effects of All Allies to 50%. ·6+: Also raise Damage Limit by 100,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: 'Latent Power: The Lion’s Hunt'
+  unlock_tier: 1★
+  effect: 'When selecting the command, grant Self the special effect Lion’s Battle Technique (turns: 1). Lion’s Battle Technique: Skill configuration changes to the following.'
+  trigger: always
+  notes: 'Preparation Turns: 2; Reuse Turns: 4'
+- passive_category: innate
+  name: Lion’s Thunderclap Claw
+  effect: 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x65) and gain Lion Claws. Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).'
+  trigger: always
+- passive_category: innate
+  name: Lion’s Thunderclap Fang
+  effect: 'Deal Phys. Sword damage to Single Foe 4 time(s) (potency: 4x65) and gain Lion Fangs. Exploits Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).'
+  trigger: always
+- passive_category: innate
+  name: Lion’s Roaring Command
+  effect: 'Raise the limit of Phys. Atk. and Sword damage augments from battle skills of All Allies to 50% (turns: 2-5 based on Boost Lv.), raise Sword damage of any target Warriors by 20% (turns: 2-5 based on Boost Lv.) and gain Lion’s Heart.'
+  trigger: always
+- passive_category: innate
+  name: Lion’s Command
+  unlock_tier: 3★
+  effect: 'Grant Lion’s Pride to allies after they use a battle skill (turns: 2/Does not stack), grant them Lion’s Might if Lion Claws is active (turns: 2/Cannot be extended), raise their critical hit multiplier (1.25→1.4) if Lion Fangs is active (turns: 2) and raise their weakness damage multiplier by 20% for Phys. Sword attacks if Lion’s Heart is active (turns: 2).'
+  trigger: always
+  limit_break_upgrade: 'Grant Lion’s Pride to allies after they use a battle skill (turns: 3/Does not stack), grant them Lion’s Might if Lion Claws is active (turns: 2/Cannot be extended), raise their critical hit multiplier (1.25→1.4) if Lion Fangs is active (turns: 2) and raise their weakness damage multiplier by 20% for Phys. Sword attacks if Lion’s Heart is active (turns: 2).'
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Pride of Edoras
+  effect: 'Grant All Allies effects based on the number of Warriors in party. ·2+: Raise Phys. Atk. and Sword damage by 15%. ·3+: Also lower SP consumption by 30% (Does not stack). ·4+: Also raise the limit of Phys. Atk. and Sword damage augments from support skills and equipment effects of All Allies to 50%. ·6+: Also raise Damage Limit by 100,000.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Proof of the Lion"
-  passive_effect: "80 P.Atk, 600 HP; When an ally breaks an enemy, advance the equipping character’s Latent Power reuse by 4 turns; At the start of battle, shorten the preparation of the equipping character’s Latent Power by 2 turns"
+  name: Proof of the Lion
+  passive_effect: 80 P.Atk, 600 HP; When an ally breaks an enemy, advance the equipping character’s Latent Power reuse by 4 turns; At the start of battle, shorten the preparation of the equipping character’s Latent Power by 2 turns
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Lion Claws
+  description: Raise Sword damage by 30%.
+- name: Lion Fangs
+  description: Grants Dead Aim (guaranteed critical hits).
+- name: Lion’s Heart
+  description: Raise Damage Limit by 50,000.
+- name: Lion’s Pride
+  description: Raise Phys. Atk., Elem. Atk. and Critical by 10% and enhances certain skills.
+- name: Lion’s Might
+  description: Raise potency by 50% (Does not stack).
+- name: Granted Sword Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Sword, increase damage taken from Sword by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

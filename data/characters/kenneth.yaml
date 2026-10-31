@@ -51,119 +51,155 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Icewind (Single)"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Analyze"
-    sp_cost: 1
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Icewind (All)"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "115"
-  - skill_category: active
-    name: "Blizzard (Single)"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Triple Slam"
-    sp_cost: 25
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x50"
-  - skill_category: active
-    name: "Iceprone (Single) II"
-    sp_cost: 8
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Iceprone (Single) II (3★)** Lower Ice Res"
-  - skill_category: active
-    name: "Iceprone (Single) II"
-    sp_cost: 8
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Iceprone (Single) II (5★)** Lower Ice Res"
-  - skill_category: active
-    name: "Blizzard (All) II"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Blizzard (All) II"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "2x"
-    power: "**2x90**"
-    limit_break_upgrade: "Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x90) and inflict frostbite (turns: 2)."
-  - skill_category: tp
-    name: "Icewind (Single) IV"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "260"
-  - skill_category: ex
-    name: "Frozen Fang Surge"
-    skill_type: mixed
-    damage_types: [ice]
-    target: front_row
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Restore SP of Entire Front Row (amount: 10% of max SP)"
-      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Drunken Icewind"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "5x"
+- skill_category: active
+  name: Icewind (Single)
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Analyze
+  sp_cost: 1
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - Show 1-4 weak point(s) of Single Foe based on Boost Lv..
+- skill_category: active
+  name: Icewind (All)
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '115'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 115).'
+- skill_category: active
+  name: Blizzard (Single)
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - '(2★) Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Triple Slam
+  unlock_tier: 2★
+  sp_cost: 25
+  skill_type: utility
+  target: single_enemy
+  hit_count: 3x
+  power: 3x50
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 3 time(s) (potency: 3x50).'
+- skill_category: active
+  name: Iceprone (Single) II
+  unlock_tier: 3★
+  sp_cost: 8
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Ice Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: Duration Up: 2-5 turns→3-6 turns'
+  - 'Upgraded: Lower Ice Res. of Single Foe by 15% (turns: 4-7 based on Boost Lv.).'
+- skill_category: active
+  name: Blizzard (All) II
+  unlock_tier: 4★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x75).'
+  upgrades:
+  - 'Lv.80: SP Saver: 37→30'
+  - 'Upgraded: Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x90).'
+  limit_break_upgrade: 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x90) and inflict frostbite (turns: 2).'
+- skill_category: tp
+  name: Icewind (Single) IV
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Ice damage to SingleFoe (potency: 260).'
+- skill_category: ex
+  name: Frozen Fang Surge
+  skill_type: heal
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x90) and inflict frostbite (turns: 2).'
+  - 'Restore SP of Entire Front Row (amount: 10% of max SP).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Drunken Icewind
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 5x
+  power: 3-5x85→3-5x100→3-5x125
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3-5 time(s) (potency: 3-5x85→3-5x100→3-5x125).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in back row: Grant Front Row automatic SP recovery (potency: 5)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Ice damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise own Elem. Atk. by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Rearguard SP Restoration (Front/Single)
+  unlock_tier: 1★
+  effect: 'When in back row: Grant Front Row automatic SP recovery (potency: 5).'
+  trigger: always
+- passive_category: innate
+  name: Ice Augment V
+  unlock_tier: 3★
+  effect: Raise Ice damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  unlock_tier: 5★
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Elem. Atk. Boost III
+  effect: Raise own Elem. Atk. by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Improved Fishing Rod"
-  passive_effect: "40 E.Atk, 30 SP; Start of the battle: Lower Ice Res. of All Foes by 10% (turns: 3)"
+  name: Improved Fishing Rod
+  passive_effect: '40 E.Atk, 30 SP; Start of the battle: Lower Ice Res. of All Foes by 10% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

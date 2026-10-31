@@ -72,128 +72,205 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Bold Cut"
-    sp_cost: 15
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "140"
-  - skill_category: active
-    name: "Valorous Slash"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Crushing Blow"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [sword, staff]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Also impart Phys"
-  - skill_category: active
-    name: "Wave Slash"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [sword, wind]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Thousand Cuts"
-    sp_cost: 61
-    skill_type: mixed
-    damage_types: [sword, wind]
-    target: aoe
-    power: "120"
-    effects:
-      - "**Thousand Cuts (2★)** Act faster during turn"
-      - "Sword damage to All Foes (potency: 120) and lower Phys"
-  - skill_category: active
-    name: "Flourish"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [sword, wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Impart with Phys"
-  - skill_category: active
-    name: "Blade Rain"
-    sp_cost: 83
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: active
-    name: "Windbite"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Heavenly Strike"
-    sp_cost: 53
-    skill_type: attack
-    damage_types: [sword, polearm]
-    target: single_enemy
-    power: "230"
-    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 230). Exploits Polearm weakness (damage calculation based on Phys. Sword attack). **50%** more potent if target is broken."
-  - skill_category: tp
-    sp_cost: 76
-    skill_type: buff
-    target: self
-    power: "140, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**** Grant Self automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.) and SP recovery (amount: 5% of max SP"
-      - "With 4+ Valor Points: Restore Phys"
-      - "With 8+ Valor Points: Raise BP recovery by 1 (turns: 3)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "8x"
-    power: "8x20"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Dragonsoul"
-    skill_type: attack
-    damage_types: [sword, fire]
-    target: single_enemy
-    power: "440→525"
+- skill_category: active
+  name: Bold Cut
+  sp_cost: 15
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '140'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 140).'
+- skill_category: active
+  name: Valorous Slash
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Attack count becomes 4 and exploits Dark weakness (damage calculation based on Phys. Sword attack) if you are the only one alive when selecting this action.
+- skill_category: active
+  name: Crushing Blow
+  unlock_tier: 1★
+  sp_cost: 40
+  skill_type: debuff
+  damage_types:
+  - sword
+  - staff
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170).'
+  - Exploits Staff weakness (damage calculation based on Phys. Sword attack).
+  - 'Also impart Phys. Def. Down 20% (turns: 2).'
+- skill_category: active
+  name: Wave Slash
+  unlock_tier: 2★
+  sp_cost: 29
+  skill_type: utility
+  damage_types:
+  - sword
+  - wind
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170).'
+  - Exploits Wind weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Thousand Cuts
+  unlock_tier: 2★
+  sp_cost: 61
+  skill_type: debuff
+  damage_types:
+  - sword
+  - wind
+  target: aoe
+  power: '120'
+  priority: true
+  effects:
+  - 'Act faster during turn, deal Phys. Sword damage to All Foes (potency: 120) and lower Phys. Atk. and Spd by 10% (turns: 2).'
+  - Exploits Wind weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Flourish
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - sword
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x80).'
+  - Exploits Wind weakness (damage calculation based on Phys. Sword attack).
+  - 'Impart with Phys. Atk. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 54→43'
+- skill_category: active
+  name: Blade Rain
+  unlock_tier: 4★
+  sp_cost: 83
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x35).'
+  upgrades:
+  - 'Lv.96: SP Saver: 83→66'
+- skill_category: active
+  name: Windbite
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Wind damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to inflict paralysis with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver 64→51'
+- skill_category: active
+  name: Heavenly Strike
+  unlock_tier: 5★
+  sp_cost: 53
+  skill_type: utility
+  damage_types:
+  - sword
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - Exploits Polearm weakness (damage calculation based on Phys. Sword attack).
+  - 20% more potent if target is broken.
+  upgrades:
+  - 'Lv.100: SP Saver: 53→42'
+  limit_break_upgrade: 'Deal Phys. Sword damage to Single Foe (potency: 230). Exploits Polearm weakness (damage calculation based on Phys. Sword attack). 50% more potent if target is broken.'
+- skill_category: tp
+  sp_cost: 76
+  skill_type: buff
+  target: self
+  power: '140, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Grant Self automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.) and SP recovery (amount: 5% of max SP, turns: 3-6 based on Boost Lv.).'
+  - 'With 3- Valor Points: Gain 3 Valor Points.'
+  - 'With 4+ Valor Points: Restore Phys. Atk. and Critical.'
+  - 'With 8+ Valor Points: Raise BP recovery by 1 (turns: 3).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 8x
+  power: 8x20
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 8 time(s) (potency: 8x20).'
+  - Exploits Polearm, Staff, Fire, Wind and Dark weaknesses (damage calculation based on Phys. Sword attack).
+  notes: 'Usage Condition: With 6 or more Valor Points; Uses: 1'
+  ex_trigger: With 6 or more Valor Points
+- skill_category: special
+  name: Dragonsoul
+  skill_type: utility
+  damage_types:
+  - sword
+  - fire
+  target: single_enemy
+  power: 440→525
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 440→525).'
+  - Exploits Fire weakness (damage calculation based on Phys. Sword attack).
+  - 'Cause target to combust (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain 1 Valor Point when attacking using a battle skill."
-    trigger: always
-  - passive_category: innate
-    effect: "When consuming 3 BP, counter physical and elemental attacks (turns: 1). Counter: Dealing Phys. Sword damage to All Foes (potency: 90). Exploits Wind weakness (damage calculation based on Phys. Sword attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%"
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self effects based on Valor Points. ·With 4+: Raise max HP by 10%. ·With 6+: Raise Phys. Atk. by 10%. ·With 8+: Raise Sword damage by 10% and grant Damage Limit Up (effect: 30,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Heroic Nature
+  unlock_tier: 1★
+  effect: Gain 1 Valor Point when attacking using a battle skill.
+  trigger: always
+- passive_category: innate
+  name: Mirrored Strike
+  unlock_tier: 3★
+  effect: 'When consuming 3 BP, counter physical and elemental attacks (turns: 1). Counter: Dealing Phys. Sword damage to All Foes (potency: 90). Exploits Wind weakness (damage calculation based on Phys. Sword attack).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 20%
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%
+  trigger: always
+- passive_category: tp
+  effect: 'Grant Self effects based on Valor Points. ·With 4+: Raise max HP by 10%. ·With 6+: Raise Phys. Atk. by 10%. ·With 8+: Raise Sword damage by 10% and grant Damage Limit Up (effect: 30,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hero’s Bracer"
-  passive_effect: "70 P.Atk, 70 P.Def; Reduce SP consumption by 20%"
+  name: Hero’s Bracer
+  passive_effect: 70 P.Atk, 70 P.Def; Reduce SP consumption by 20%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Valor Points
+  description: Raise Oersted’s potency by 5% for every Valor Point (max 45%/Does not stack with effect of the same type).
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: verified

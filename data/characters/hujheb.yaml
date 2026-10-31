@@ -67,145 +67,212 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Wisdom Arrow Volley"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "70"
-    effects:
-      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
-  - skill_category: active
-    name: "Chaotic Arrows"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "2x"
-  - skill_category: active
-    name: "Hunting Tricks"
-    sp_cost: 26
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Hunting Tricks (1★)** Raise Phys"
-      - "raise their Bow damage by 10% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Triple Wisdom Arrows"
-    sp_cost: 49
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "[49 SP] ·With 2+ Wisdom Arrows: Lower Phys"
-      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
-  - skill_category: active
-    name: "Triple Paralyzing Arrows"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "·With 3+ Wisdom Arrows: Also raise potency by 20%"
-  - skill_category: active
-    name: "Tricks of the Trade"
-    sp_cost: 50
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Tricks of the Trade (3★)** Impart Entire Front Row with Phys"
-      - "[50 SP] ·With 2+ Wisdom Arrows: Raise Bow damage of the target by 20% (turns: 2-5 based on Boost Lv.)"
-      - "·With 3+ Wisdom Arrows: Also lower SP consumption by 20%"
-  - skill_category: active
-    name: "Wisdom Arrow Flurry"
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "[62 SP] ·With 2+ Wisdom Arrows: Lower Phys"
-  - skill_category: active
-    name: "Swift Wisdom Arrows"
-    sp_cost: 96
-    skill_type: mixed
-    damage_types: [bow]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "**Swift Wisdom Arrows (5★)** Act faster during turn and deal Phys"
-      - "[96 SP] ·With 2+ Wisdom Arrows: Raise potency by 20%"
-      - "·With 3+ Wisdom Arrows: Also lower Phys"
-  - skill_category: active
-    name: "Peerless Wisdom Arrows"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-    effects:
-      - "Bow damage to Single Foe 2 time(s) (potency: 2x135) and lower Bow Res"
-      - "[70 SP] ·With 2+ Wisdom Arrows: Raise potency by 10%"
-      - "·With 3+ Wisdom Arrows: Raise potency by 30%"
-  - skill_category: tp
-    name: "Starless Void"
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Starless Void ** Raise the potency of Self by 100% (turns: 2/turns cannot be extended/does not stack with effects of the same type)"
-      - "Also grant Self Damage Limit Up (effect: 50,000, turns: 2-5 based on Boost Lv.) and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Disillusionment Bow"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Nightshade Arrow"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "440→525"
-    effects:
-      - "Grant all Hunters effects based on the number of Hunters in party (turns: 2)"
-      - "·1 or more: Raise Bow damage by **10%→15%**"
-      - "·2 or more: Also grant Damage Limit Up (effect: **10,000→50,000**)"
-      - "·3 or more: Also grant Dead Aim (guaranteed critical hits)"
+- skill_category: active
+  name: Wisdom Arrow Volley
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '70'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 70).'
+  - '·With 2+ Wisdom Arrows: Attack count becomes 2.'
+  - '·With 3+ Wisdom Arrows: Also raise potency by 20%.'
+  - Consume 1 Wisdom Arrow after using the skill.
+- skill_category: active
+  name: Chaotic Arrows
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 2x
+  effects:
+  - Deal Phys. Bow damage to Random Foe 2 time(s).
+  - '·With 2+ Wisdom Arrows: Attack count becomes 4.'
+  - '·With 3+ Wisdom Arrows: Attack count becomes 6.'
+  - Consume 1 Wisdom Arrow after using the skill.
+- skill_category: active
+  name: Hunting Tricks
+  unlock_tier: 1★
+  sp_cost: 26
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Phys. Def. of Single Ally by 10% (turns: 2-5 based on Boost Lv.).'
+  - '·With 2+ Wisdom Arrows: Reaches Entire Front Row.'
+  - '·With 3+ Wisdom Arrows: Additionally, if the target is a Hunter, raise their Bow damage by 10% (turns: 2-5 based on Boost Lv.).'
+  - '*The skill does not consume Wisdom Arrows.'
+- skill_category: active
+  name: Triple Wisdom Arrows
+  unlock_tier: 2★
+  sp_cost: 49
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x55).'
+  - '·With 2+ Wisdom Arrows: Lower Phys. Res. of the target by 10% (turns: 2).'
+  - '·With 3+ Wisdom Arrows: Also raise potency by 20%.'
+  - Consume 1 Wisdom Arrow after using the skill.
+- skill_category: active
+  name: Triple Paralyzing Arrows
+  unlock_tier: 2★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x55) and have a moderate chance to inflict paralysis (turns: 2).'
+  - '·With 2+ Wisdom Arrows: Reaches all enemies.'
+  - '·With 3+ Wisdom Arrows: Also raise potency by 20%.'
+  - Consume 1 Wisdom Arrow after using the skill.
+- skill_category: active
+  name: Tricks of the Trade
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 20% (turns: 2-5 based on Boost Lv.).'
+  - '·With 2+ Wisdom Arrows: Raise Bow damage of the target by 20% (turns: 2-5 based on Boost Lv.).'
+  - '·With 3+ Wisdom Arrows: Also lower SP consumption by 20%.'
+  - '(turns: 2-5 based on Boost Lv./effects do not stack).'
+  - '*The skill does not consume Wisdom Arrows.'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Wisdom Arrow Flurry
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 4 time(s) (potency: 4x65).'
+  - '·With 2+ Wisdom Arrows: Lower Phys. Def. and Elem. Def. by 15% (turns: 2).'
+  - '·With 3+ Wisdom Arrows: Additionally, attack count becomes 6.'
+  - Consume 1 Wisdom Arrow after using the skill.
+  upgrades:
+  - 'Lv.96: SP Saver: 62→50'
+- skill_category: active
+  name: Swift Wisdom Arrows
+  unlock_tier: 5★
+  sp_cost: 96
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Bow damage to All Foes 4 time(s) (potency: 4x35).'
+  - '·With 2+ Wisdom Arrows: Raise potency by 20%.'
+  - '·With 3+ Wisdom Arrows: Also lower Phys. Res. by 10% (turns: 2).'
+  - Consume 1 Wisdom Arrow after using the skill.
+  upgrades:
+  - 'Lv.99: SP Saver: 96→77'
+- skill_category: active
+  name: Peerless Wisdom Arrows
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 2 time(s) (potency: 2x135) and lower Bow Res. by 10% (turns: 2).'
+  - '·With 2+ Wisdom Arrows: Raise potency by 10%.'
+  - '·With 3+ Wisdom Arrows: Raise potency by 30%.'
+  - '*Only the higher value will be applied.'
+  - Consume 1 Wisdom Arrow after using the skill.
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Starless Void
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the potency of Self by 100% (turns: 2/turns cannot be extended/does not stack with effects of the same type).'
+  - 'Also grant Self Damage Limit Up (effect: 50,000, turns: 2-5 based on Boost Lv.) and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.), but reset own Wisdom Arrows to 0.'
+- skill_category: ex
+  name: Disillusionment Bow
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x55) and consume up to 6 Wisdom Arrows to deal the same number of Phys. Bow attacks (potency: 55).'
+  notes: 'Usage Condition: After turn 3; Uses: 2'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Nightshade Arrow
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 440→525
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 440→525).'
+  - 'Grant all Hunters effects based on the number of Hunters in party (turns: 2).'
+  - '·1 or more: Raise Bow damage by 10%→15%.'
+  - '·2 or more: Also grant Damage Limit Up (effect: 10,000→50,000).'
+  - '·3 or more: Also grant Dead Aim (guaranteed critical hits).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "After using a battle skill, if Wisdom Arrows are at 0, gain 3 Wisdom Arrows."
-    trigger: always
-    limit_break_upgrade: "After using a battle skill, if Wisdom Arrows are at 0, gain **6** Wisdom Arrows."
-  - passive_category: innate
-    effect: "Grant Entire Front Row effects based on the number of hunters in party. ·2 or more: Raise Bow damage by 15%. ·3 or more: Also raise Phys. Atk. by 15%. ·4 or more: Also grant Damage Limit Up (effect: 20,000)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%"
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Entire Front Row the ability to trigger a follow-up strike when dealing Phys. Bow damage (only activates once per action). Follow-up attack: Phys. Bow damage to All Foes (potency: 100) and have a low chance to inflict corrosion (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Quiver of Discernment
+  unlock_tier: 1★
+  effect: After using a battle skill, if Wisdom Arrows are at 0, gain 3 Wisdom Arrows.
+  trigger: always
+  limit_break_upgrade: After using a battle skill, if Wisdom Arrows are at 0, gain 6 Wisdom Arrows.
+- passive_category: innate
+  name: Manhunt Formation
+  unlock_tier: 3★
+  effect: 'Grant Entire Front Row effects based on the number of hunters in party. ·2 or more: Raise Bow damage by 15%. ·3 or more: Also raise Phys. Atk. by 15%. ·4 or more: Also grant Damage Limit Up (effect: 20,000).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 20%
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%
+  trigger: always
+- passive_category: tp
+  name: Night Rain
+  effect: 'Grant Entire Front Row the ability to trigger a follow-up strike when dealing Phys. Bow damage (only activates once per action). Follow-up attack: Phys. Bow damage to All Foes (potency: 100) and have a low chance to inflict corrosion (turns: 2).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Rusted Knight’s Emblem"
-  passive_effect: "60 P.Atk, 80 SP; Raise Bow damage dealt by 15%; When equipped by a Hunter: When dealing some physical attacks other than “Attack”, exploit Dark weakness (damage calculation based on each attack)"
+  name: Rusted Knight’s Emblem
+  passive_effect: '60 P.Atk, 80 SP; Raise Bow damage dealt by 15%; When equipped by a Hunter: When dealing some physical attacks other than “Attack”, exploit Dark weakness (damage calculation based on each attack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Wisdom Arrows
+  description: Enhance certain skills.
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: verified

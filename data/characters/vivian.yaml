@@ -51,107 +51,144 @@ jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Quickshot"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Wild Shot"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x45"
-  - skill_category: active
-    name: "Lightstrike"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Target"
-    sp_cost: 5
-    skill_type: buff
-    target: self
-    effects:
-      - "**Target (2★)** Raise Crit of Self by 10% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Sturdy Shot"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Wild Sturdy Shot"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Wild Sturdy Shot"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "**3x75**"
-  - skill_category: tp
-    name: "Arrow to the Mark"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Guaranteed critical hit [38 SP]"
-  - skill_category: ex
-    name: "Reckless Arrow"
-    skill_type: mixed
-    damage_types: [bow]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Bow damage to All Foes 2 time(s) (potency: 2x95) and lower Bow Res"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Vivian Bolts"
-    skill_type: attack
-    damage_types: [bow]
-    target: random
+- skill_category: active
+  name: Quickshot
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Wild Shot
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x45
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x45).'
+- skill_category: active
+  name: Lightstrike
+  unlock_tier: 1★
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Target
+  unlock_tier: 2★
+  sp_cost: 5
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Crit of Self by 10% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Sturdy Shot
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Wild Sturdy Shot
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x55).'
+  upgrades:
+  - 'Lv.60: SP Saver: 38→30'
+  - 'Upgraded: Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x75).'
+- skill_category: tp
+  name: Arrow to the Mark
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 230).'
+  - Guaranteed critical hit
+- skill_category: ex
+  name: Reckless Arrow
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x95) and lower Bow Res. by 10% (turns: 2).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Vivian Bolts
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  power: 4-6x85→4-6x100→4-6x125
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 4-6 times (potency: 4-6x85→4-6x100→4-6x125).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise Crit of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Dark Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "**("
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Crit Boost (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise Crit of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Dark Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Dark Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Dark Resilience III
+  unlock_tier: 5★
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 4★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Critical Boost (Joint)
+  effect: Raise critical damage of Paired Allies by 10%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Memoir of Fleeting Memories"
-  passive_effect: "20 P.Atk, 20 Crit; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Vivian: Raise Critical and Bow damage of Paired Allies by 10%"
+  name: Memoir of Fleeting Memories
+  passive_effect: '20 P.Atk, 20 Crit; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Vivian: Raise Critical and Bow damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

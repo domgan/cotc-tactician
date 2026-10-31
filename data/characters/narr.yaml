@@ -51,120 +51,156 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Sturdy Shot"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Veteran’s Bearing"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Veteran’s Bearing** Impart Self with Phys"
-  - skill_category: active
-    name: "Shadow Impact"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "True Strike"
-    sp_cost: 21
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "160"
-    effects:
-      - "Guaranteed critical hit"
-  - skill_category: active
-    name: "Ebony Arrow"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Sweeping Sturdy Shot"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Sweeping Sturdy Shot"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "**175**"
-  - skill_category: active
-    name: "Fatal Shot"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "220"
-  - skill_category: active
-    name: "Fatal Shot"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "**250**"
-  - skill_category: tp
-    name: "Arrow of Ignorance"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "290"
-  - skill_category: ex
-    name: "Seamless Arrow to All"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "240"
-    effects:
-      - "Guaranteed critical hit"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Abyssal Arrow"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Sturdy Shot
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Veteran’s Bearing
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Shadow Impact
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: True Strike
+  unlock_tier: 2★
+  sp_cost: 21
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 160).'
+  - Guaranteed critical hit.
+- skill_category: active
+  name: Ebony Arrow
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 160) and have a moderate chance to inflict blind (turns: 2).'
+- skill_category: active
+  name: Sweeping Sturdy Shot
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 145).'
+  upgrades:
+  - 'Lv.72: SP Saver: 30→24'
+  - 'Upgraded: Deal Phys. Bow damage to All Foes (potency: 175).'
+- skill_category: active
+  name: Fatal Shot
+  unlock_tier: 4★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '220'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 220).'
+  upgrades:
+  - 'Lv.80: SP Saver: 32→26'
+  - 'Upgraded: Deal Phys. Bow damage to Single Foe (potency: 250).'
+- skill_category: tp
+  name: Arrow of Ignorance
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 290) and have a high chance to inflict blindness (turns: 2).'
+- skill_category: ex
+  name: Seamless Arrow to All
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '240'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 240).'
+  - Guaranteed critical hit.
+  notes: 'Usage Condition: When there’s a blind enemy; Uses: 2'
+  ex_trigger: When there’s a blind enemy
+- skill_category: special
+  name: Abyssal Arrow
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 440→525→655) and have a moderate chance to inflict blindness (turns: 2).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At Full HP: Lower own SP consumption by 50%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise damage dealt to broken foes of Paired Allies by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise damage dealt to broken foes of Paired Allies by **20%**."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When blind enemy is present, impart Self with Phys. Atk. Up 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Half SP
+  unlock_tier: 1★
+  effect: 'At Full HP: Lower own SP consumption by 50%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Augmented Break (Joint)
+  unlock_tier: 3★
+  effect: Raise damage dealt to broken foes of Paired Allies by 10%.
+  trigger: always
+  limit_break_upgrade: Raise damage dealt to broken foes of Paired Allies by 20%.
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 5★
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Dark Assault
+  effect: When blind enemy is present, impart Self with Phys. Atk. Up 30%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Contract of Payment"
-  passive_effect: "40 P.Atk, 30 Spd; Raise own critical damage by 10%"
+  name: Contract of Payment
+  passive_effect: 40 P.Atk, 30 Spd; Raise own critical damage by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

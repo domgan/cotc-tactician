@@ -69,133 +69,199 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Luminescence (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Maiden’s Favor"
-    sp_cost: 52
-    skill_type: buff
-    target: front_row
-    power: "80, turns: 2"
-    effects:
-      - "**Maiden’s Favor** Grant Entire Front Row automatic HP recovery (potency: 80, turns: 2) and raise Phys"
-  - skill_category: active
-    name: "Maiden’s Spirit"
-    sp_cost: 60
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Maiden’s Spirit (1★)** Raise BP recovery amount of Single Ally by 1 (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Guardian’s Elegy"
-    sp_cost: 30
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Guardian’s Elegy (2★)** Lower Sword"
-  - skill_category: active
-    name: "Sacred Blaze Ode: Flurry"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x30"
-  - skill_category: active
-    name: "Corroding Nocturne"
-    sp_cost: 72
-    skill_type: debuff
-    target: aoe
-    limit_break_upgrade: "Cast countdown on Self (**count: 3**). Once the countdown ends, lower Phys. and Elem. Res. of All Foes by 15% (turns: 3-6 based on Boost Lv.)."
-  - skill_category: active
-    name: "Sacred Blaze Ode: Divinity"
-    sp_cost: 53
-    skill_type: mixed
-    damage_types: [light, fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "[53 SP] ·6+ effects: Lower Phys"
-      - "·12+ effects: Also lower Phys"
-  - skill_category: active
-    name: "Sacred Blaze Ode: Round"
-    sp_cost: 80
-    skill_type: attack
-    damage_types: [light, fire]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Sacred Blaze Ode: Penance"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [light, fire]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Sacred Blaze Ode: Finale"
-    sp_cost: 67
-    skill_type: attack
-    damage_types: [light, fire]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: tp
-    name: "Sacred Blaze Ode: Finale Lv.2"
-    sp_cost: 67
-    skill_type: attack
-    damage_types: [light, fire]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: ex
-    name: "Debilitating Cantata"
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Debilitating Cantata** Lower Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Debilitating Oratorio"
-    skill_type: debuff
-    target: aoe
-    power: "2→3"
+- skill_category: active
+  name: Luminescence (Single) II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Maiden’s Favor
+  sp_cost: 52
+  skill_type: buff
+  target: front_row
+  power: '80, turns: 2'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 80, turns: 2) and raise Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Maiden’s Spirit
+  unlock_tier: 1★
+  sp_cost: 60
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise BP recovery amount of Single Ally by 1 (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Guardian’s Elegy
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Sword, Fire and Light Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: 'Sacred Blaze Ode: Flurry'
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 2x
+  power: 2x30
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 2 time(s) (potency: 2x30).'
+  - Attack count changes based on the number of each target’s status effect icons.
+  - '·6+ effects: Attack count becomes 4.'
+  - '·12+ effects: Attack count becomes 6.'
+- skill_category: active
+  name: Corroding Nocturne
+  unlock_tier: 3★
+  sp_cost: 72
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Cast countdown on Self (count: 4).'
+  - 'Once the countdown ends, lower Phys. and Elem. Res. of All Foes by 15% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 72→58'
+  limit_break_upgrade: 'Cast countdown on Self (count: 3). Once the countdown ends, lower Phys. and Elem. Res. of All Foes by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: 'Sacred Blaze Ode: Divinity'
+  unlock_tier: 4★
+  sp_cost: 53
+  skill_type: debuff
+  damage_types:
+  - light
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x95).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - 'Inflict each target with effects based on the number of their status effect icons (turns: 2).'
+  - '·6+ effects: Lower Phys. Atk. and Elem. Atk. by 15%.'
+  - '·12+ effects: Also lower Phys. Def. and Elem. Def. by 15%.'
+  upgrades:
+  - 'Lv.96: SP Saver: 53→42'
+- skill_category: active
+  name: 'Sacred Blaze Ode: Round'
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: utility
+  damage_types:
+  - light
+  - fire
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Light damage to All Foes 4 time(s) (potency: 4x45).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - Attack count changes based on the number of each target’s status effect icons.
+  - '·6+ effects: Attack count becomes 5.'
+  - '·12+ effects: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.99: SP Saver: 80→64'
+- skill_category: active
+  name: 'Sacred Blaze Ode: Penance'
+  unlock_tier: 5★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - light
+  - fire
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 260).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - Potency changes based on the number of target’s status effect icons.
+  - '·6+ effects: 50% more potent.'
+  - '·12+ effects: 100% more potent.'
+  - '*Only the higher value will be applied.'
+  upgrades:
+  - 'Lv.100: SP Saver: 45→36'
+- skill_category: tp
+  name: 'Sacred Blaze Ode: Finale'
+  sp_cost: 67
+  skill_type: utility
+  damage_types:
+  - light
+  - fire
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Exploits Fire weakness (damage calculation based on Elem. Light attack).
+  - Inflict status ailments based on the number of target’s status effect icons.
+  - '·6 or more: Moderate chance to inflict blindness (turns: 2).'
+  - '·12 or more: Additionally, moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.2: Deal Elem. Light damage to Single Foe 4 time(s) (potency: 4x65). Exploits Fire weakness (damage calculation based on Elem. Light attack). Inflict status ailments based on the number of target’s status effect icons. ·6 or more: Moderate chance to inflict blindness and poison (turns: 2). ·12 or more: Additionally, moderate chance to inflict paralysis and stun them (turns: 2).'
+- skill_category: ex
+  name: Debilitating Cantata
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Critical and Speed of All Foes by 10% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Debilitating Oratorio
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 5%."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At 50% SP or more: Lower Speed and Critical of All Foes by 5%."
-    trigger: always
-  - passive_category: tp
-    effect: "At 50% SP or more: Lower Speed and Critical of All Foes by 5%. At 50% HP or more: Lower Light Res. of All Foes by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword and Elem. Light attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Diminishing Guard
+  unlock_tier: 1★
+  effect: 'When in front row: Lower Phys. Def. and Elem. Def. of All Foes by 5%.'
+  trigger: always
+- passive_category: innate
+  name: Diminishing Might
+  unlock_tier: 3★
+  effect: 'When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%.'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Diminishing Reduction
+  effect: 'At 50% SP or more: Lower Speed and Critical of All Foes by 5%.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: At 50% SP or more: Lower Speed and Critical of All Foes by 5%. At 50% HP or more: Lower Light Res. of All Foes by 10%.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword and Elem. Light attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Little Finger’s Hair Accessory"
-  passive_effect: "60 E.Atk, 400 HP, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5% (turns: 3)"
+  name: Little Finger’s Hair Accessory
+  passive_effect: '60 E.Atk, 400 HP, 40 SP; Raise Elem. Atk. by 15%; Start of battle: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Stun
+  description: Low chance to miss some attacks and lower Shield Points by 1 after the taking an action (will not break the target).
 
 # Metadata
 data_confidence: verified

@@ -70,114 +70,173 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Shadow Impact"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Spearhead"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Polearm damage to Single Foe (potency: 170) and act faster during next turn"
-  - skill_category: active
-    name: "Blinding Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Healing Thrust"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Polearm damage to Single Foe (potency: 230) and restore own HP (potency: 180)"
-  - skill_category: active
-    name: "Impenetrable Gloom"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [dark]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Valiant Charge"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Tetra Spear"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Javelin Rush"
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-  - skill_category: tp
-    name: "Sixfold Pierce"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
-    hit_count: "6x"
-    power: "6x25"
-  - skill_category: special
-    name: "Hydra Pierce"
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
+- skill_category: active
+  name: Repeated Thrust
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Shadow Impact
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Spearhead
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '170'
+  priority: true
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170) and act faster during next turn.'
+- skill_category: active
+  name: Blinding Thrust
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150) and have a moderate chance to inflict blindness (turns: 2).'
+- skill_category: active
+  name: Healing Thrust
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230) and restore own HP (potency: 180).'
+- skill_category: active
+  name: Impenetrable Gloom
+  unlock_tier: 3★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - dark
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to inflict blindness with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 46→37'
+- skill_category: active
+  name: Valiant Charge
+  unlock_tier: 4★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.96: SP Saver: 44→35'
+- skill_category: active
+  name: Tetra Spear
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.99: SP Saver: 48→38'
+- skill_category: active
+  name: Javelin Rush
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '180, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Polearm damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.100: SP Saver: 82→66'
+- skill_category: tp
+  name: Sixfold Pierce
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 6x
+  power: 6x25
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 6 time(s) (potency: 6x25).'
+- skill_category: special
+  name: Hydra Pierce
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  power: 5-8x60→5-8x70→5-8x80
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 5-8 times (potency: 5-8x60→5-8x70→5-8x80).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At full HP: Raise Polearm damage of Self by 30%."
-    trigger: hp_condition
-    limit_break_upgrade: "**At 50% HP or more**: Raise Polearm damage of Self by 30% and extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
-  - passive_category: innate
-    effect: "When near death: Grant Self automatic HP recovery (potency: 90)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "**("
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Polearm Atk Boost V
+  unlock_tier: 1★
+  effect: 'At full HP: Raise Polearm damage of Self by 30%.'
+  trigger: hp_condition
+  limit_break_upgrade: 'At 50% HP or more: Raise Polearm damage of Self by 30% and extend duration of some status ailments inflicted by Self by 1 turn (Does not stack).'
+- passive_category: innate
+  name: Desperate HP Restoration
+  unlock_tier: 3★
+  effect: 'When near death: Grant Self automatic HP recovery (potency: 90).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Critical Shot on Break
+  effect: Grant Dead Aim to Self (guaranteed critical hits) when broken enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "W’ludai’s Satchel"
-  passive_effect: "80 P.Atk, 60 SP; When breaking an enemy, lower their Polearm Res. by 15% (turns: 3); Grant automatic HP recovery (amount: 500)"
+  name: W’ludai’s Satchel
+  passive_effect: '80 P.Atk, 60 SP; When breaking an enemy, lower their Polearm Res. by 15% (turns: 3); Grant automatic HP recovery (amount: 500)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

@@ -1,0 +1,25 @@
+id: no-roster-fallback
+goal: Without a roster file, tools say they searched the full database.
+roster: none
+
+agent_prompt: |
+  (Run with roster temporarily unset.) Find wind attackers with the cotc-tactician MCP.
+agent_checks:
+  - Notices roster_applied false / recommendation_pool full_database and tells the user
+    the picks may include units they do not own.
+
+steps:
+  - tool: find_by_weakness
+    args:
+      weakness_types: [wind]
+    expect:
+      equals:
+        roster_applied: false
+        recommendation_pool: full_database
+      min_items:
+        characters: 3
+  - tool: get_my_roster
+    args: {}
+    expect:
+      equals:
+        configured: false

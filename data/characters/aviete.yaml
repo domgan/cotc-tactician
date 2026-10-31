@@ -78,153 +78,200 @@ jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Heal More (Single)"
-    sp_cost: 24
-    skill_type: heal
-    target: front_row
-    power: "160/180/220/280"
-    effects:
-      - "**Heal More (Single)** Restore HP of Single Ally (potency: 160/180/220/280)"
-  - skill_category: active
-    name: "Advent of Stollenwurm"
-    sp_cost: 39
-    skill_type: mixed
-    damage_types: [wind, sword]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70/2x80/2x100/2x120"
-    effects:
-      - "·6+: Also lower Phys"
-  - skill_category: active
-    name: "Advent of Lykaon"
-    sp_cost: 39
-    skill_type: mixed
-    damage_types: [dark, dagger]
-    target: random
-    hit_count: "3x"
-    power: "3x55/3x65/3x80/3x100"
-    effects:
-      - "·6+: Also have a low chance to lower Phys"
-  - skill_category: active
-    name: "Rehabillitate Magic (Front/All)"
-    sp_cost: 30
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Rehabillitate Magic (Front/All) (2★)** Cure status ailments of Entire Front Row and grant them immunity to some status ailments (turns: 1/2/3/4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Advent of Simurgh"
-    sp_cost: 120
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Advent of Simurgh (2★)** Grant Entire Front Row automatic revival at 25%/50%/75%/100% of their max HP based on Boost Lv"
-  - skill_category: active
-    name: "Advent of Yuetu"
-    sp_cost: 91
-    skill_type: attack
-    damage_types: [light, fan]
-    target: front_row
-    hit_count: "4x"
-    power: "4x35/4x45/4x55/4x75"
-    effects:
-      - "Light damage to Random Foe 4 time(s) (potency: 4x35/4x45/4x55/4x75) and raise elemental damage of Entire Front Row by 15% (turns: 2)"
-      - "·6+: Also raise physical damage of Entire Front Row by 15% (turns: 2)"
-  - skill_category: active
-    name: "Medica (Front/All) III"
-    sp_cost: 55
-    skill_type: heal
-    target: front_row
-    power: "65/80/110/150"
-    effects:
-      - "**Medica (Front/All) III (4★)** Restore HP of Entire Front Row (potency: 65/80/110/150) and grant automatic HP recovery (potency: 90, turns: 2)"
-  - skill_category: active
-    name: "Advent of Svadilfari"
-    sp_cost: 93
-    skill_type: attack
-    damage_types: [lightning, staff]
-    target: front_row
-    hit_count: "3x"
-    power: "3x55/3x65/3x75/3x100"
-    effects:
-      - "Lightning damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys"
-      - "·6+: Raise Phys"
-  - skill_category: active
-    name: "Advent of Lutiya"
-    sp_cost: 93
-    skill_type: attack
-    damage_types: [ice, tome]
-    target: front_row
-    hit_count: "3x"
-    power: "3x55/3x65/3x75/3x100"
-    effects:
-      - "Ice damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys"
-      - "·6+: Raise Phys"
-  - skill_category: tp
-    name: "Advent of the Divine"
-    sp_cost: 97
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x110/3x120/3x140/3x180"
-  - skill_category: tp
-    name: "Advent of the Divine Lv.2"
-    sp_cost: 97
-    skill_type: attack
-    damage_types: [fire]
-    target: front_row
-    hit_count: "3x"
-    power: "3x110/3x120/3x140/3x180"
-    effects:
-      - "Fire attack) and is enhanced with Reverence Points: [97 SP] ·6+: Also raise Phys"
-  - skill_category: special
-    name: "Sacred Tree’s Grace"
-    skill_type: heal
-    target: all_allies
-    power: "3→4"
-    effects:
-      - "Restore HP of All Allies (amount: **10%→20%→30%** of target’s max HP)"
-      - "raise their Phys"
-      - "Uses of this Ultimate Technique cannot be restored"
+- skill_category: active
+  name: Heal More (Single)
+  sp_cost: 24
+  skill_type: heal
+  target: front_row
+  power: 160/180/220/280
+  effects:
+  - 'Restore HP of Single Ally (potency: 160/180/220/280).'
+  - Reaches the Entire Front Row during Max Boost.
+- skill_category: active
+  name: Advent of Stollenwurm
+  sp_cost: 39
+  skill_type: debuff
+  damage_types:
+  - wind
+  - sword
+  target: aoe
+  hit_count: 2x
+  power: 2x70/2x80/2x100/2x120
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x70/2x80/2x100/2x120).'
+  - Exploits Sword weakness (damage calculation based on Elem. Wind attack) and is enhanced with Reverence Points.
+  - '·3+: Attack count becomes 3.'
+  - '·6+: Also lower Phys. Atk. and Elem. Atk. by 10% (turns: 2).'
+- skill_category: active
+  name: Advent of Lykaon
+  unlock_tier: 1★
+  sp_cost: 39
+  skill_type: debuff
+  damage_types:
+  - dark
+  - dagger
+  target: random
+  hit_count: 3x
+  power: 3x55/3x65/3x80/3x100
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x55/3x65/3x80/3x100).'
+  - 'Exploits Dagger weakness (damage calculation based on Elem. Dark attack) and is enhanced with Reverence Points: ·3+: Attack count becomes 4.'
+  - '·6+: Also have a low chance to lower Phys. Def. and Elem. Def. by 10% with every attack (turns: 2).'
+- skill_category: active
+  name: Rehabillitate Magic (Front/All)
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure status ailments of Entire Front Row and grant them immunity to some status ailments (turns: 1/2/3/4 based on Boost Lv.).'
+  - Reaches All Allies at Max Boost.
+- skill_category: active
+  name: Advent of Simurgh
+  unlock_tier: 2★
+  sp_cost: 120
+  skill_type: buff
+  target: front_row
+  effects:
+  - Grant Entire Front Row automatic revival at 25%/50%/75%/100% of their max HP based on Boost Lv. (triggers instantly if incapacitated/Does not stack).
+  - Reaches All Allies at Max Boost.
+  - '*Can be used twice per battle.'
+- skill_category: active
+  name: Advent of Yuetu
+  unlock_tier: 3★
+  sp_cost: 91
+  skill_type: utility
+  damage_types:
+  - light
+  - fan
+  target: front_row
+  hit_count: 4x
+  power: 4x35/4x45/4x55/4x75
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x35/4x45/4x55/4x75) and raise elemental damage of Entire Front Row by 15% (turns: 2).'
+  - 'Exploits Fan weakness (damage calculation based on Elem. Light attack) and is enchanced with Reverence Points: ·3+: Attack count becomes 5.'
+  - '·6+: Also raise physical damage of Entire Front Row by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 91→73'
+- skill_category: active
+  name: Medica (Front/All) III
+  unlock_tier: 4★
+  sp_cost: 55
+  skill_type: heal
+  target: front_row
+  power: 65/80/110/150
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65/80/110/150) and grant automatic HP recovery (potency: 90, turns: 2).'
+  - Reaches All Allies at Max Boost.
+  upgrades:
+  - 'Lv.96: SP Saver: 55→44'
+- skill_category: active
+  name: Advent of Svadilfari
+  unlock_tier: 5★
+  sp_cost: 93
+  skill_type: utility
+  damage_types:
+  - lightning
+  - staff
+  target: front_row
+  hit_count: 3x
+  power: 3x55/3x65/3x75/3x100
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+  - 'Exploits Staff weakness (damage calculation based on Elem. Lightning attack) and is enchanced with Reverence Points: ·3+: Attack count becomes 4.'
+  - '·6+: Raise Phys. Atk. and Elem. Atk. for 3 turns instead.'
+  upgrades:
+  - 'Lv.99: SP Saver: 93→74'
+- skill_category: active
+  name: Advent of Lutiya
+  unlock_tier: 5★
+  sp_cost: 93
+  skill_type: utility
+  damage_types:
+  - ice
+  - tome
+  target: front_row
+  hit_count: 3x
+  power: 3x55/3x65/3x75/3x100
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100) and raise Phys. Def. and Elem. Def. of Entire Front Row by 15% (turns: 2).'
+  - 'Exploits Tome weakness (damage calculation based on Elem. Ice attack) and is enhanced with Reverence Points: ·3+: Attack count becomes 4.'
+  - '·6+: Raise Phys. Def. and Elem. Def. for 3 turns instead.'
+  upgrades:
+  - 'Lv.100: SP Saver: 93→74'
+- skill_category: tp
+  name: Advent of the Divine
+  sp_cost: 97
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x110/3x120/3x140/3x180
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x110/3x120/3x140/3x180).'
+  - Exploits Ice, Lightning, Wind, Light and Dark weaknesses (damage calculation based on Elem. Fire attack).
+  upgrades:
+  - 'Lv.2: Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x110/3x120/3x140/3x180). Exploits Ice, Lightning, Wind, Light and Dark weakness (damage calculation based on Elem. Fire attack) and is enhanced with Reverence Points: ·6+: Also raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of Entire Front Row by 10% (turns: 2).'
+- skill_category: special
+  name: Sacred Tree’s Grace
+  skill_type: heal
+  target: all_allies
+  effects:
+  - 'Restore HP of All Allies (amount: 10%→20%→30% of target’s max HP), raise their Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%→15%→20% (turns: 2→3) and advance the reuse period of their keepers by 3→4 turns.'
+  - Uses of this Ultimate Technique cannot be restored.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Also raise their potency by 50% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type) and their Damage Limit by 50,000 (turns: 3).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain 1 Reverence Point after using Advent skills, and 3 Reverence Points after using Ultimate Technique or EX Skill."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP). ·9+: Activate Divine Beast skills twice in a row (Does not stack)."
-  - passive_category: innate
-    effect: "Augment Entire Front Row according to own Reverence Points: ·3+: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%. ·6+: Also grant automatic HP recovery (potency: 50). ·9+: Also raise Damage Limit by 50,000."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by 100%, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by **200%**, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Fire, Ice, Lightning, Wind, Light and Dark attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Cait Sage Guardian of the Sacred Springs
+  effect: Gain 1 Reverence Point after using Advent skills, and 3 Reverence Points after using Ultimate Technique or EX Skill.
+  trigger: always
+- passive_category: innate
+  name: Favor of the Beasts
+  unlock_tier: 1★
+  effect: 'Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP).'
+  trigger: always
+  limit_break_upgrade: 'Raise Elem. Atk. of Self by 15%, gain the ability to trigger critical hits with elemental attacks and gain further augments with Reverence Points: ·3+: Halve your equipped Keeper’s reuse period to a minimum of 1 turn, rounded up (Does not stack). ·6+: Gain automatic SP recovery (amount: 5% of max SP). ·9+: Activate Divine Beast skills twice in a row (Does not stack).'
+- passive_category: innate
+  name: Aviete’s Devotion
+  unlock_tier: 3★
+  effect: 'Augment Entire Front Row according to own Reverence Points: ·3+: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%. ·6+: Also grant automatic HP recovery (potency: 50). ·9+: Also raise Damage Limit by 50,000.'
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Cait Cleric’s Wisdom
+  effect: 'Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by 100%, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns.'
+  trigger: battle_start
+  upgrades:
+  - 'Lv.2: Start of battle: Gain an HP Barrier (amount: 50% of max HP/Does not stack), fill own Ultimate Technique gauge by 200%, fill the Arcanastone gauge by 5.0 and shorten every front-row ally’s Keeper preaparation period by 3 turns.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Fire, Ice, Lightning, Wind, Light and Dark attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Cait Cleric’s Floral Ornament"
-  passive_effect: "600 HP, 80 SP; Start of battle: Lower preparation turns of Paired Ally’s keeper by 2 turns; Halve the reuse turns of Paired Ally’s keeper"
+  name: Cait Cleric’s Floral Ornament
+  passive_effect: '600 HP, 80 SP; Start of battle: Lower preparation turns of Paired Ally’s keeper by 2 turns; Halve the reuse turns of Paired Ally’s keeper'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Reverence Points
+  description: Enhances certain skills.
 
 # Metadata
 data_confidence: complete

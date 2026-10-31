@@ -56,137 +56,194 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blade of Ruin"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Unyielding Blade of the Absolute"
-    sp_cost: 39
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Wild Infernal Blade"
-    sp_cost: 47
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Despotic Megalomania"
-    sp_cost: 64
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Despotic Megalomania (2★)** Raise Phys"
-  - skill_category: active
-    name: "Unyielding Blade of Devastation"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Fame’s Claws"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    power: "290"
-  - skill_category: active
-    name: "Power’s Brutality"
-    sp_cost: 10
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    hit_count: "2x"
-    power: "2x55"
-  - skill_category: active
-    name: "Wealth’s Anguish"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    power: "70"
-  - skill_category: active
-    name: "Godblow"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "530"
-    effects:
-      - "raise Damage Limit of this skill by 100,000"
-    limit_break_upgrade: "Deal Phys. Sword damage to Single Foe (potency: 630). Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack). When a broken enemy is present, raise Damage Limit of this skill by **300,000**."
-  - skill_category: tp
-    name: "Barrier of the Absolute"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [sword]
-    target: self
-    power: "230"
-    effects:
-      - "**Barrier of the Absolute ** Grant Self the ability to completely block some attacks (turns: 2) and counter with Phys"
-  - skill_category: tp
-    name: "Barrier of the Absolute Lv.2"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [sword]
-    target: self
-    power: "**290**"
-    effects:
-      - "**Barrier of the Absolute Lv.2** Act faster during turn and grant Self the ability to completely block some attacks (turns: 2) and counter with Phys"
-      - "At Max Boost: Raise BP recovery by 3 (turns: 2)"
-  - skill_category: ex
-    name: "Tyrant’s Decree"
-    skill_type: buff
-    target: self
-    effects:
-      - "**Tyrant’s Decree** Grant Self Dead Aim (guaranteed critical hits) and gain the ability to exploit Dagger and Bow weaknesses with some physical attacks (damage calculation based on original attack) and grant Damage Limit Up (effect: 100,000) (turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "The Scholarking’s Machinations"
-    skill_type: mixed
-    target: single_enemy
-    power: "3→4"
-    effects:
-      - "then restore own HP (potency: 100% of max HP) and SP (amount: **50%→75%→100%** of max SP) and gain the ability to activate attack skills twice (turns: **3→4**/Turns cannot be extended/the follow-up attack will not consume SP)"
+- skill_category: active
+  name: Blade of Ruin
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Unyielding Blade of the Absolute
+  sp_cost: 39
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 150).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Wild Infernal Blade
+  unlock_tier: 1★
+  sp_cost: 47
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Despotic Megalomania
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Self by 30% and Sword damage by 30% (turns: 3-6 based on Boost Lv.).'
+  - Reaches Entire Front Row during Max Boost.
+- skill_category: active
+  name: Unyielding Blade of Devastation
+  unlock_tier: 2★
+  sp_cost: 55
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 150).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - 'Lower Phys. Def. and Sword Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Fame’s Claws
+  unlock_tier: 3★
+  sp_cost: 45
+  skill_type: attack
+  damage_types:
+  - sword
+  target: front_row
+  power: '290'
+  effects:
+  - 'Deal damage to Entire Front Row (effect: 50% of target’s max HP) and then deal Phys. Sword damage to Single Foe (potency: 290).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - '*Cannot incapacitate allies with this skill.'
+  upgrades:
+  - 'Lv.88: SP Saver: 45→36'
+- skill_category: active
+  name: Power’s Brutality
+  unlock_tier: 4★
+  sp_cost: 10
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  hit_count: 2x
+  power: 2x55
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x55).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - 'At Max Boost: Up to 250% more potent after taking 1 BP from each ally in front row excluding Self.'
+  upgrades:
+  - 'Lv.96: Potency Up: 55→65'
+- skill_category: active
+  name: Wealth’s Anguish
+  unlock_tier: 5★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  power: '70'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 70).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - At Max Boost, consume 50 SP each from each ally in front row excluding Self.
+  - 'Attack count increases with each ally affected (max: 3).'
+  upgrades:
+  - 'Lv.99: Potency Up: 70→80'
+- skill_category: active
+  name: Godblow
+  unlock_tier: 5★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 530).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - When a broken enemy is present, raise Damage Limit of this skill by 100,000.
+  upgrades:
+  - 'Lv.100: Potency Up: 530→630'
+  limit_break_upgrade: 'Deal Phys. Sword damage to Single Foe (potency: 630). Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack). When a broken enemy is present, raise Damage Limit of this skill by 300,000.'
+- skill_category: tp
+  name: Barrier of the Absolute
+  sp_cost: 55
+  skill_type: buff
+  damage_types:
+  - sword
+  target: self
+  power: '230'
+  effects:
+  - 'Grant Self the ability to completely block some attacks (turns: 2) and counter with Phys. Sword damage (potency: 230).'
+  - Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack).
+  - '*Can be used twice per battle.'
+  upgrades:
+  - 'Lv.2: Act faster during turn and grant Self the ability to completely block some attacks (turns: 2) and counter with Phys. Sword damage (potency: 290). Exploits Fire, Lightning and Dark weakness (damage calculation based on Phys. Sword attack). At Max Boost: Raise BP recovery by 3 (turns: 2), but delay actions during turn while Barrier of the Absolute is active. *Can be used twice per battle.'
+- skill_category: ex
+  name: Tyrant’s Decree
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self Dead Aim (guaranteed critical hits) and gain the ability to exploit Dagger and Bow weaknesses with some physical attacks (damage calculation based on original attack) and grant Damage Limit Up (effect: 100,000) (turns: 3-6 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 1'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: The Scholarking’s Machinations
+  skill_type: mixed
+  target: single_enemy
+  power: 30% of target’s max HP
+  effects:
+  - 'Deal damage to every other ally (potency: 30% of target’s max HP), then restore own HP (potency: 100% of max HP) and SP (amount: 50%→75%→100% of max SP) and gain the ability to activate attack skills twice (turns: 3→4/Turns cannot be extended/the follow-up attack will not consume SP).'
+  - '*Cannot incapacitate allies with this skill.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "The “Attack” action deals Phys. Sword damage that exploits Fire, Lightning and Dark weaknesses (damage calculation based on Phys. Sword attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "At full HP: Raise own Phys. Atk. by 30%, Sword damage by 30% and Damage Limit by 100,000."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "When consuming 3 BP, raise potency of Self by 200% (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 30%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%. Gain immunity to Terror, Enchant, Dread, Charm and Cannot Switch. With Dead Aim (guaranteed critical hits): Raise Damage Limit by 300,000."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Ruler’s Greatsword
+  effect: The “Attack” action deals Phys. Sword damage that exploits Fire, Lightning and Dark weaknesses (damage calculation based on Phys. Sword attack).
+  trigger: always
+- passive_category: innate
+  name: Path of Supremacy
+  unlock_tier: 1★
+  effect: 'At full HP: Raise own Phys. Atk. by 30%, Sword damage by 30% and Damage Limit by 100,000.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Fury of the Absolute
+  unlock_tier: 3★
+  effect: When consuming 3 BP, raise potency of Self by 200% (Does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience V
+  effect: Raise own Dark Res. by 30%.
+  trigger: always
+- passive_category: tp
+  name: Master of All
+  effect: Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%.
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise the limit of Phys. Atk. augments from battle skills and support skills and equipment effects to 50%. Gain immunity to Terror, Enchant, Dread, Charm and Cannot Switch. With Dead Aim (guaranteed critical hits): Raise Damage Limit by 300,000.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Tyrant’s Crown"
-  passive_effect: "250 P.Atk, -40 P.Def, -40 E.Def, -30 Spd; Grant Damage Limit Up: (effect: 100,000); When in front row: Lower Sword Res. of all enemies by 10%"
+  name: Tyrant’s Crown
+  passive_effect: '250 P.Atk, -40 P.Def, -40 E.Def, -30 Spd; Grant Damage Limit Up: (effect: 100,000); When in front row: Lower Sword Res. of all enemies by 10%'
 
 # Metadata
 data_confidence: complete

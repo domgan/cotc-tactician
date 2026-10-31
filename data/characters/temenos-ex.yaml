@@ -55,140 +55,178 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 40
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 37
-    skill_type: attack
-    target: aoe
-    power: "80"
-  - skill_category: active
-    sp_cost: 45
-    skill_type: mixed
-    target: aoe
-    power: "80"
-    effects:
-      - "**(1★)** Deal elemental damage to All Foes (potency: 80) and lower their Elem"
-  - skill_category: active
-    sp_cost: 90
-    skill_type: attack
-    target: front_row
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "**(2★)** Deal elemental damage to All Foes 3 time(s) (potency: 3x80) and raise that element damage of Entire Front Row by 20% (turns: 2)"
-  - skill_category: active
-    sp_cost: 94
-    skill_type: attack
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    sp_cost: 57
-    skill_type: mixed
-    target: random
-    hit_count: "5x"
-    power: "5x30"
-    effects:
-      - "**(3★)** Deal elemental damage to Random Foe 5 time(s) (potency: 5x30) and lower that element’s resistance by 15% with every attack (turns: 1)"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    effects:
-      - "Lightning damage and lowers Lightning Res"
-  - skill_category: active
-    sp_cost: 79
-    skill_type: attack
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-  - skill_category: active
-    sp_cost: 62
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**(5★)** Raise Elem"
-      - "of Entire Front Row by 20% and raise their BP recovery by 1 (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 500
-    skill_type: mixed
-    target: aoe
-    hit_count: "2x"
-    power: "2x260"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-  - skill_category: tp
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**** Grant Entire Front Row the ability to exploit Wind"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    effects:
-      - "** Lv.2** Grant Entire Front Row the ability to exploit Wind"
-  - skill_category: special
-    name: "Dreisang’s Spell"
-    skill_type: mixed
-    target: self
-    effects:
-      - "Raise potency of Self by 200% (turns: 4/Turns cannot be extended/Does not stack with effeects of the same type)"
-      - "raise elemental damage by **10%→15%→20%** (turns: 4) and gain the ability to deal critical damage with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 9)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 40
+  skill_type: attack
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal elemental damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Element varies depending on selected style.
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 37
+  skill_type: attack
+  target: aoe
+  power: '80'
+  effects:
+  - 'Deal elemental damage to All Foes (potency: 80).'
+  - Element varies depending on selected style.
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 45
+  skill_type: mixed
+  target: aoe
+  power: '80'
+  effects:
+  - 'Deal elemental damage to All Foes (potency: 80) and lower their Elem. Res. by 15% (turns: 2).'
+  - Element varies depending on selected style.
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 90
+  skill_type: attack
+  target: front_row
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal elemental damage to All Foes 3 time(s) (potency: 3x80) and raise that element damage of Entire Front Row by 20% (turns: 2).'
+  - Element and effect vary depending on selected style.
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 94
+  skill_type: attack
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal elemental damage to Single Foe 4 time(s) (potency: 4x65) and absorb 2% of damage dealt as SP.'
+  - Element varies depending on selected style.
+  - When there’s a broken enemy, also recover 5 BP.
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 57
+  skill_type: mixed
+  target: random
+  hit_count: 5x
+  power: 5x30
+  effects:
+  - 'Deal elemental damage to Random Foe 5 time(s) (potency: 5x30) and lower that element’s resistance by 15% with every attack (turns: 1).'
+  - Element and effect vary depending on selected style.
+  upgrades:
+  - 'Lv.88: SP Saver: 57→46'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 79
+  skill_type: attack
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal elemental damage to All Foes 4 time(s) (potency: 4x35).'
+  - 'At Max Boost: Activate the skill twice.'
+  - Element varies depending on selected style.
+  upgrades:
+  - 'Lv.96: SP Saver: 79→63'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 62
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk. of Entire Front Row by 20% and raise their BP recovery by 1 (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 62→50'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 500
+  skill_type: mixed
+  target: aoe
+  hit_count: 2x
+  power: 2x260
+  effects:
+  - 'Deal elemental damage to All Foes 2 time(s) (potency: 2x260).'
+  - Element varies depending on selected style.
+  - This skill’s Damage Limit is increased by 300,000 and has boost levels enhanced to Lv.2/Lv.4/Lv.6 when consuming 1, 3 and 5 BP, respectively.
+  - '·With Boost Lv.4+: Also cast a countdown on Self (count: 1).'
+  - 'When countdown reaches 0, deal elemental damage to All Foes 2 time(s) (potency: 2x300).'
+  - '·With Boost Lv.6: Also gain an effect to perform an action at the start of turn 2 time(s).'
+  - 'Action: Deal elemental damage to All Foes 2 time(s) (potency: 2x300).'
+  upgrades:
+  - 'Lv.100: SP Saver: 500→400'
+- skill_category: tp
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row the ability to exploit Wind, Light and Dark weaknesses with some elemental attacks (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Grant Entire Front Row the ability to exploit Wind, Light and Dark weaknesses with some elemental attacks (turns: 2-5 based on Boost Lv.). At Max Boost: Reaches All Allies.'
+- skill_category: special
+  name: Dreisang’s Spell
+  skill_type: mixed
+  target: self
+  effects:
+  - 'Raise potency of Self by 200% (turns: 4/Turns cannot be extended/Does not stack with effeects of the same type), raise elemental damage by 10%→15%→20% (turns: 4) and gain the ability to deal critical damage with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 9).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Also raise critical damage multiplier (1.25→1.5) (turns: 9).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When selecting a command, switch between Flam, Ice and Thunder styles. Depending on the style, raise Fire, Ice or Lightning damage and change the effects of some skills."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise damage of Self by 30% when exploting enemy weakness and raise the limits of damage augments from support skills and equipments effects to 50%. When there’s a broken enemy: Raise Damage Limit of Self by 300,000."
-    trigger: always
-  - passive_category: innate
-    effect: "When an ally breaks an enemy, lower their Fire, Ice or Ligthning Res. by 20% depending on selected style."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "When attacking, have a low chance to lower an elemental resistance and inflict a status ailment depending on selected style. ·Fire style: Lower Fire Res. by 15% and cause them to combust (turns: 2). ·Ice style: Lower Ice Res. by 15% and inflict them frostbite (turns: 2). ·Lightning style: Lower Lightning Res. by 15% and shock them (turns: 2)."
-    trigger: always
-  - passive_category: tp
-    effect: "When attacking, have a low chance to lower an elemental resistance and inflict a status ailment depending on selected style. ·Fire style: Lower Fire Res. by **20%** and cause them to combust (turns: 2). ·Ice style: Lower Ice Res. by **20%** and inflict them frostbite (turns: 2). ·Lightning style: Lower Lightning Res. by **20%** and shock them (turns: 2)."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: 'Styleshift: Three Elements'
+  effect: When selecting a command, switch between Flam, Ice and Thunder styles. Depending on the style, raise Fire, Ice or Lightning damage and change the effects of some skills.
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Raise damage of Self by 30% when exploting enemy weakness and raise the limits of damage augments from support skills and equipments effects to 50%. When there’s a broken enemy: Raise Damage Limit of Self by 300,000.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: When an ally breaks an enemy, lower their Fire, Ice or Ligthning Res. by 20% depending on selected style.
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience II
+  effect: Raise own Fire and Ice Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience II
+  effect: Raise own Lightning and Wind Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience II
+  effect: Raise own Light and Dark Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'When attacking, have a low chance to lower an elemental resistance and inflict a status ailment depending on selected style. ·Fire style: Lower Fire Res. by 15% and cause them to combust (turns: 2). ·Ice style: Lower Ice Res. by 15% and inflict them frostbite (turns: 2). ·Lightning style: Lower Lightning Res. by 15% and shock them (turns: 2).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When attacking, have a low chance to lower an elemental resistance and inflict a status ailment depending on selected style. ·Fire style: Lower Fire Res. by 20% and cause them to combust (turns: 2). ·Ice style: Lower Ice Res. by 20% and inflict them frostbite (turns: 2). ·Lightning style: Lower Lightning Res. by 20% and shock them (turns: 2).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“The Secrets of Sorcery”"
-  passive_effect: "-200 P.Atk, 200 E.Atk, 900 HP, 100 SP; Raise Damage Limit by 100,000; At full HP: Raise Elem. Atk. by 30%"
+  name: The Secrets of Sorcery
+  passive_effect: '-200 P.Atk, 200 E.Atk, 900 HP, 100 SP; Raise Damage Limit by 100,000; At full HP: Raise Elem. Atk. by 30%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Shock
+  description: Lower Shield Points by 1 when taking Elem. Lightning damage (will not break the target).
+- name: Flame style
+  description: Deals Elem. Fire damage.
+- name: Ice style
+  description: Deals Elem. Ice damage.
+- name: Thunder style
+  description: Deals Elem. Lightning damage.
 
 # Metadata
 data_confidence: incomplete

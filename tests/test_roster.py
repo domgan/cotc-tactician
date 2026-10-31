@@ -176,14 +176,38 @@ def test_score_team_feasibility_unavailable(crickari_team: Team) -> None:
 
 def test_sort_teams_by_roster_feasibility() -> None:
     scored = [
-        {"feasibility": "unavailable", "owned_count": 0, "investment_gap_count": 0,
-         "has_owned_substitutes": False, "investment_level": "whale", "team_id": "z"},
-        {"feasibility": "full", "owned_count": 8, "investment_gap_count": 0,
-         "has_owned_substitutes": False, "investment_level": "low", "team_id": "a"},
-        {"feasibility": "partial", "owned_count": 6, "investment_gap_count": 1,
-         "has_owned_substitutes": True, "investment_level": "medium", "team_id": "b"},
-        {"feasibility": "partial", "owned_count": 5, "investment_gap_count": 0,
-         "has_owned_substitutes": False, "investment_level": "low", "team_id": "c"},
+        {
+            "feasibility": "unavailable",
+            "owned_count": 0,
+            "investment_gap_count": 0,
+            "has_owned_substitutes": False,
+            "investment_level": "whale",
+            "team_id": "z",
+        },
+        {
+            "feasibility": "full",
+            "owned_count": 8,
+            "investment_gap_count": 0,
+            "has_owned_substitutes": False,
+            "investment_level": "low",
+            "team_id": "a",
+        },
+        {
+            "feasibility": "partial",
+            "owned_count": 6,
+            "investment_gap_count": 1,
+            "has_owned_substitutes": True,
+            "investment_level": "medium",
+            "team_id": "b",
+        },
+        {
+            "feasibility": "partial",
+            "owned_count": 5,
+            "investment_gap_count": 0,
+            "has_owned_substitutes": False,
+            "investment_level": "low",
+            "team_id": "c",
+        },
     ]
     ordered = sort_teams_by_roster_feasibility(scored)
     assert [s["team_id"] for s in ordered] == ["a", "b", "c", "z"]

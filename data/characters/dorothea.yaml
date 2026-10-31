@@ -69,130 +69,195 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Scorch"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "4x"
-    power: "1-4x45"
-  - skill_category: active
-    name: "Mighty Charge"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Torch"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Trade-off"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Peerless Strike"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Sear"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Reckless Exchange"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "290"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: attack
-    target: self
-  - skill_category: tp
-    name: "Reversal Lance"
-    sp_cost: 180
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "1-2x325"
-  - skill_category: ex
-    name: "Ruined Spear"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "10x"
-    power: "4-10x30"
-    effects:
-      - "**Ruined Spear** Act faster during turn and deal Phys"
-      - "lower Polearm Res"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Hard Eight"
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "500→600"
-    effects:
-      - "Restore **1→2** BP and 3 Luck to Self"
+- skill_category: active
+  name: Repeated Thrust
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Scorch
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 4x
+  power: 1-4x45
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 1-4 time(s) (potency: 1-4x45).'
+- skill_category: active
+  name: Mighty Charge
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Torch
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Trade-off
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 260), but take up to 15% damage of max HP from Self.'
+- skill_category: active
+  name: Peerless Strike
+  unlock_tier: 3★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.88: SP Saver: 32→26'
+- skill_category: active
+  name: Sear
+  unlock_tier: 4★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.96: SP Saver: 34→27'
+- skill_category: active
+  name: Trifold Thrust
+  unlock_tier: 5★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.99: SP Saver: 38→30'
+- skill_category: active
+  name: Reckless Exchange
+  unlock_tier: 5★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 290), but take up to 20% of max HP from Self.'
+  upgrades:
+  - 'Lv.100: SP Saver: 37→30'
+- skill_category: tp
+  name: Reversal Lance
+  sp_cost: 180
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 1-2x325
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 1-2 time(s) (potency: 1-2x325).'
+- skill_category: ex
+  name: Ruined Spear
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 10x
+  power: 4-10x30
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to Single Foe 4-10 time(s) (potency: 4-10x30), but have a 30% chance to take up to 80% of max HP from Self.'
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 3'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Hard Eight
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: 500→600
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 500→600).'
+  - Restore 1→2 BP and 3 Luck to Self.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→40% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** At full HP: Raise Polearm damage of Entire Front Row by 15%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "**(6★)** At full HP: Impart Entire Front Row with Phys. Atk. Up 15% and raise Polearm damage by 15%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "**(3★)** At the end of each turn: Recover HP (potency: 100) and restore 1 Luck."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Activate a skill twice when consuming 3 BP (the follow-up attack will not consume SP). *If your remaining Luck points do not meet the Skill Change condition after using a changed skill, the follow-up attack will not be activated."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Polearm Atk. Boost (Front/All) II
+  effect: '(1★) At full HP: Raise Polearm damage of Entire Front Row by 15%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Maverick
+  effect: '(6★) At full HP: Impart Entire Front Row with Phys. Atk. Up 15% and raise Polearm damage by 15%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Luck Recovery
+  effect: '(3★) At the end of each turn: Recover HP (potency: 100) and restore 1 Luck.'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Second Transaction
+  effect: Activate a skill twice when consuming 3 BP (the follow-up attack will not consume SP). *If your remaining Luck points do not meet the Skill Change condition after using a changed skill, the follow-up attack will not be activated.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Bird Statuette"
-  passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Polearm and Fire damage dealt by 15%"
+  name: Bird Statuette
+  passive_effect: 60 P.Atk, 40 Crit, 400 HP; Raise Polearm and Fire damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Luck
+  description: When reaching a certain value, some skills undergo Skill Change.
+- name: With 1 or more Luck
+  description: When using BP, consume 1 Luck to guarantee 4 attacks.
+- name: With 2 or more Luck
+  description: When using BP, consume 2 Luck to guarantee 6 hits.
+- name: With 3 or more Luck
+  description: When using BP, consume 3 Luck to increase potency and avoid dealing damage to Self.
+- name: ~~With 3 or more Luck
+  description: When using BP, consume 3 Luck to guarantee 2 attacks and raise Damage Limit of this skill by 50,000.~~
 
 # Metadata
 data_confidence: verified

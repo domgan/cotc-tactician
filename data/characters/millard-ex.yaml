@@ -52,144 +52,178 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Twofold Thrust"
-    sp_cost: 13
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Chain Ice Blast"
-    sp_cost: 14
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Debilitating Thrust"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Polearm damage to Single Foe (potency: 170) and lower Phys"
-  - skill_category: active
-    name: "Sacred Night’s Radiance"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    power: "10%-40% of user’s max HP based on Boost Lv./does not stack"
-    effects:
-      - "**Sacred Night’s Radiance (2★)** Act faster during turn and grant an ally excluding Self HP barrier (potency: 10%-40% of user’s max HP based on Boost Lv./does not stack)"
-  - skill_category: active
-    name: "Sacred Night’s Exaltation"
-    sp_cost: 70
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Sacred Night’s Exaltation (2★)** Raise Phys"
-      - "also raise their damage by 15% (turns: 2-5 based on Boost Lv.)"
-    limit_break_upgrade: "Raise Phys. Atk. and Elem. Atk. of **All Allies** by 15% (turns: 2-5 based on Boost Lv.). If target has an HP Barrier, also raise their damage by 15% (turns: 2-5 based on Boost Lv.)."
-  - skill_category: active
-    name: "Faith Splendor"
-    sp_cost: 46
-    skill_type: buff
-    target: single_enemy
-    power: "140, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Faith Splendor (3★)** Raise max HP by 20% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Healing Triple Icestorm"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [ice]
-    target: front_row
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Ice damage to All Foes 3 time(s) (potency: 3x80) and restore HP of Entire Front Row (potency: 90)"
-  - skill_category: active
-    name: "Red Hat Apprentice’s Gift"
-    sp_cost: 55
-    skill_type: heal
-    target: self
-    effects:
-      - "**Red Hat Apprentice’s Gift (5★)** Restore SP of an ally excluding Self (amount: 25-100 based on Boost Lv.)"
-      - "Restore BP by 1 if target is granted HP barrier"
-      - "Restored BP increased to 4 at Max Boost"
-  - skill_category: active
-    name: "Sacred Night’s Celebration"
-    sp_cost: 74
-    skill_type: mixed
-    target: self
-    power: "35% of user’s max HP/does not stack"
-    effects:
-      - "**Sacred Night’s Celebration (5★)** Grant an ally excluding Self HP barrier (potency: 35% of user’s max HP/does not stack) and raise Phys"
-  - skill_category: tp
-    name: "Frost Blessing"
-    sp_cost: 100
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x75"
-    effects:
-      - "**Frost Blessing ** Raise Phys"
-      - "also raise their damage by 15% (turns: 3)"
-  - skill_category: tp
-    name: "Frost Blessing Lv. 2"
-    sp_cost: 100
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "**6**x75"
-    effects:
-      - "2** Raise Phys"
-      - "also raise their damage by 15% (turns: 3)"
-  - skill_category: ex
-    name: "Silver Flash"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "5x"
-    power: "5x30"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Blessed Light"
-    skill_type: buff
-    target: front_row
-    power: "2→3"
-    effects:
-      - "Act faster during turn"
-      - "grant Entire Front Row HP Barrier (potency: **40%→50%→60%** of user’s max HP) and raise Phys"
+- skill_category: active
+  name: Twofold Thrust
+  sp_cost: 13
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Chain Ice Blast
+  sp_cost: 14
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Debilitating Thrust
+  unlock_tier: 1★
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170) and lower Phys. Atk. and Elem. Atk. by 15% (turns: 2).'
+- skill_category: active
+  name: Sacred Night’s Radiance
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  power: 10%-40% of user’s max HP based on Boost Lv./does not stack
+  priority: true
+  effects:
+  - 'Act faster during turn and grant an ally excluding Self HP barrier (potency: 10%-40% of user’s max HP based on Boost Lv./does not stack).'
+  - Reaches Entire Front Row at Max Boost.
+- skill_category: active
+  name: Sacred Night’s Exaltation
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'If target has an HP Barrier, also raise their damage by 15% (turns: 2-5 based on Boost Lv.).'
+  limit_break_upgrade: 'Raise Phys. Atk. and Elem. Atk. of All Allies by 15% (turns: 2-5 based on Boost Lv.). If target has an HP Barrier, also raise their damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Faith Splendor
+  unlock_tier: 3★
+  sp_cost: 46
+  skill_type: buff
+  target: single_enemy
+  power: '140, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Raise max HP by 20% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 46→38'
+- skill_category: active
+  name: Healing Triple Icestorm
+  unlock_tier: 4★
+  sp_cost: 60
+  skill_type: heal
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x80) and restore HP of Entire Front Row (potency: 90).'
+  upgrades:
+  - 'Lv.96: SP Saver: 60→48'
+- skill_category: active
+  name: Red Hat Apprentice’s Gift
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: heal
+  target: self
+  effects:
+  - 'Restore SP of an ally excluding Self (amount: 25-100 based on Boost Lv.), but delay actions during turn.'
+  - Restore BP by 1 if target is granted HP barrier.
+  - Restored BP increased to 4 at Max Boost.
+  upgrades:
+  - 'Lv.99: SP Saver: 55→44'
+- skill_category: active
+  name: Sacred Night’s Celebration
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: buff
+  target: self
+  power: 35% of user’s max HP/does not stack
+  effects:
+  - 'Grant an ally excluding Self HP barrier (potency: 35% of user’s max HP/does not stack) and raise Phys. Def. and Elem. Def. by 30% (turns: 2).'
+  - Reduce damage taken from some attacks once by 50% at Max Boost.
+  - (Does not stack with effects of the same type.
+  - Effect only triggers once.).
+  upgrades:
+  - 'Lv.100: Potency Up: 35%→40% (HP barrier)'
+- skill_category: tp
+  name: Frost Blessing
+  sp_cost: 100
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 5x
+  power: 5x75
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of All Allies by 15% (turns: 3).'
+  - 'If target has an HP Barrier, also raise their damage by 15% (turns: 3).'
+  - 'Then deal Elem. Ice damage to Single Foe 5 time(s) (potency: 5x75).'
+  upgrades:
+  - 'Lv.2: Raise Phys. Atk. and Elem. Atk. of All Allies by 15% (turns: 3). If target has an HP Barrier, also raise their damage by 15% (turns: 3). Then deal Elem. Ice damage to Single Foe 6 time(s) (potency: 6x75).'
+- skill_category: ex
+  name: Silver Flash
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 5x
+  power: 5x30
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 5 time(s) (potency: 5x30) and recover 5 BP.'
+  notes: 'Usage Condition: When Self has Ice Damage Up; Uses: 4'
+  ex_trigger: When Self has Ice Damage Up
+- skill_category: special
+  name: Blessed Light
+  skill_type: buff
+  target: front_row
+  power: 40%→50%→60% of user’s max HP
+  priority: true
+  effects:
+  - 'Act faster during turn, grant Entire Front Row HP Barrier (potency: 40%→50%→60% of user’s max HP) and raise Phys. Def. and Elem. Def. by 15% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Increase max HP of Self by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Grant Entire Front Row an HP barrier (potency: 15% of user’s max HP/does not stack)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Ice damage of Self by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Max HP Boost II
+  unlock_tier: 1★
+  effect: Increase max HP of Self by 15%.
+  trigger: always
+- passive_category: innate
+  name: Bestow Barrier
+  unlock_tier: 3★
+  effect: 'Start of battle: Grant Entire Front Row an HP barrier (potency: 15% of user’s max HP/does not stack).'
+  trigger: battle_start
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Ice Augment V
+  effect: Raise Ice damage of Self by 30%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Stuffed Toy Gift"
-  passive_effect: "30 P.Def, 30 E.Def, 600 HP; Grants automatic HP recovery (amount: 500); Start of battle: Raise own max HP by 15% (turns: 5)"
+  name: Stuffed Toy Gift
+  passive_effect: '30 P.Def, 30 E.Def, 600 HP; Grants automatic HP recovery (amount: 500); Start of battle: Raise own max HP by 15% (turns: 5)'
 
 # Metadata
 data_confidence: incomplete

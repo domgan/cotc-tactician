@@ -68,135 +68,186 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Throw Dagger"
-    sp_cost: 15
-    skill_type: mixed
-    damage_types: [dagger]
-    target: back_row
-    power: "140"
-    effects:
-      - "Dagger damage to Single Foe (potency: 140) and lower Spd by 15% (turns: 2)"
-  - skill_category: active
-    name: "Espionage"
-    sp_cost: 35
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**Espionage** Lower Phys"
-  - skill_category: active
-    name: "Quick Aid (All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Quick Aid (All) (1★)** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Flameblade Scheme"
-    sp_cost: 30
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**Flameblade Scheme (2★)** Lower Sword"
-  - skill_category: active
-    name: "Triple Burst"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Backdraft"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [fire]
-    target: back_row
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Afterburner"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [fire]
-    target: back_row
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Fire damage to Random Foe 3 time(s) (potency: 3x55) and lower Spd by 15% with every attack (turns: 2)"
-  - skill_category: active
-    name: "Double Wide Burst"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Burst Step"
-    sp_cost: 58
-    skill_type: mixed
-    damage_types: [dagger]
-    target: back_row
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: tp
-    name: "Maid’s Universal Healing"
-    sp_cost: 25
-    skill_type: heal
-    target: back_row
-    effects:
-      - "**Maid’s Universal Healing ** Cure status ailments of Paired Allies and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Skilled Maiden’s Preparation"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Skilled Maiden’s Preparation** Raise Phys"
-      - "of Entire Front Row and Paired Ally by 15% (turns: 2-5 based on Boost Lv.) and grant Dead Aim (guaranteed critical hits) (turns: 2)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Heavenly Gift"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: back_row
-    hit_count: "5x"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
+- skill_category: active
+  name: Throw Dagger
+  sp_cost: 15
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: back_row
+  power: '140'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 140) and lower Spd by 15% (turns: 2).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Espionage
+  sp_cost: 35
+  skill_type: debuff
+  target: back_row
+  effects:
+  - 'Lower Phys. Atk. and Elem. Atk. of Single Foe by 20% (turns: 2-5 based on Boost Lv.) and show 1 weak point(s).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Quick Aid (All)
+  unlock_tier: 1★
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Flameblade Scheme
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  target: back_row
+  effects:
+  - 'Lower Sword, Dagger and Fire Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Triple Burst
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Backdraft
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: back_row
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Subsequently move to the back row (action does not count as switching).
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Afterburner
+  unlock_tier: 4★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: back_row
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x55) and lower Spd by 15% with every attack (turns: 2).'
+  - Subsequently move to the back row (action does not count as switching).
+  upgrades:
+  - 'Lv.96: SP Saver: 38→30'
+- skill_category: active
+  name: Double Wide Burst
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.99: SP Saver: 52→42'
+- skill_category: active
+  name: Burst Step
+  unlock_tier: 5★
+  sp_cost: 58
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: back_row
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Subsequently move to the back row (action does not count as switching).
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.100: SP Saver: 58→46'
+- skill_category: tp
+  name: Maid’s Universal Healing
+  sp_cost: 25
+  skill_type: heal
+  target: back_row
+  effects:
+  - 'Cure status ailments of Paired Allies and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: ex
+  name: Skilled Maiden’s Preparation
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk and Elem. Atk. of Entire Front Row and Paired Ally by 15% (turns: 2-5 based on Boost Lv.) and grant Dead Aim (guaranteed critical hits) (turns: 2).'
+  - Subsequently move to the back row (action does not count as switching).
+  notes: 'Usage Condition: After turn 6; Uses: 1'
+  ex_trigger: After turn 6
+- skill_category: special
+  name: Heavenly Gift
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: back_row
+  hit_count: 5x
+  power: 5x85→5x100→5x125
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 5 time(s) (potency: 5x85→5x100→5x125).'
+  - Subsequently move to the back row.
+  - Lower Shield Points even when not striking weak points.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in back row: Grant Front Row automatic SP recovery (potency: 5)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Raise Phys. Atk. of Paired Ally by 15%."
-    trigger: always
-    limit_break_upgrade: "When in back row: Raise Phys. Atk. and Elem. Atk. of Paired Ally by 15%."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Raise damage dealt to broken foes by Paired Ally by 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Rearguard SP Restoration (Front/Single)
+  unlock_tier: 1★
+  effect: 'When in back row: Grant Front Row automatic SP recovery (potency: 5).'
+  trigger: always
+- passive_category: innate
+  name: Rearguard Phys. Atk. Boost (Front/Single) II
+  unlock_tier: 3★
+  effect: 'When in back row: Raise Phys. Atk. of Paired Ally by 15%.'
+  trigger: always
+  limit_break_upgrade: 'When in back row: Raise Phys. Atk. and Elem. Atk. of Paired Ally by 15%.'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard Augmented Break (Front/Single) II
+  effect: 'When in back row: Raise damage dealt to broken foes by Paired Ally by 15%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Multitalented Maid’s Eyeshade"
-  passive_effect: "40 P.Atk, 40 E.Atk, 60 Spd; When in back row: Grant Paired Ally automatic HP recovery (amount: 500); Raise Crit. of Paired Ally by 20%"
+  name: Multitalented Maid’s Eyeshade
+  passive_effect: '40 P.Atk, 40 E.Atk, 60 Spd; When in back row: Grant Paired Ally automatic HP recovery (amount: 500); Raise Crit. of Paired Ally by 20%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

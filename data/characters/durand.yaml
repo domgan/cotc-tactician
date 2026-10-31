@@ -51,130 +51,157 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Double Sting"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Chain Lightstrike"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "HP Snatch"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Backstab"
-    sp_cost: 20
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "160"
-    effects:
-      - "Dagger damage to Single Foe (potency: 160) and impart Phys"
-  - skill_category: active
-    name: "Double Break"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Chain Illuminate"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Chain Illuminate"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x115**"
-  - skill_category: active
-    name: "HP Thief"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "HP Thief"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x85**"
-  - skill_category: tp
-    name: "Magic Thief Dagger"
-    sp_cost: 36
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: ex
-    name: "Radiant Thrust"
-    skill_type: attack
-    damage_types: [dagger, light]
-    target: random
-    hit_count: "4x"
-    power: "4x85"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Pirate Riot"
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "330→395→495"
-    effects:
-      - "Dagger damage to All Foes (potency: **330→395→495**) and restore own HP (potency: **250→300→350**)"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Chain Lightstrike
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: HP Snatch
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 160) and absorb 20% of damage dealt as HP.'
+- skill_category: active
+  name: Backstab
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 160) and impart Phys. Def. Down 15% (turns: 2).'
+- skill_category: active
+  name: Double Break
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x70).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Chain Illuminate
+  unlock_tier: 3★
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x85).'
+  upgrades:
+  - 'Lv.72: SP Saver: 28→22'
+  - 'Upgraded: Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x115).'
+- skill_category: active
+  name: HP Thief
+  unlock_tier: 4★
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x70) and absorb 30% of damage dealt as HP.'
+  upgrades:
+  - 'Lv.80: SP Saver: 27→22'
+  - 'Upgraded: Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x85) and absorb 30% of damage dealt as HP.'
+- skill_category: tp
+  name: Magic Thief Dagger
+  sp_cost: 36
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90) and absorb 2% of damage dealt as SP.'
+- skill_category: ex
+  name: Radiant Thrust
+  skill_type: utility
+  damage_types:
+  - dagger
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x85
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x85).'
+  - Exploits Light weakness (damage calculation based on Phys. Dagger attack).
+  notes: 'Uses: 3'
+- skill_category: special
+  name: Pirate Riot
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 330→395→495) and restore own HP (potency: 250→300→350).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise Spd of Paired Allies by 20% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Impart Paired Allies with Phys. Atk. Up 20% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Paired Allies with Phys. Atk. Up 20%."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Raise Critical of Paired Allies by 20% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Speed Boost III (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise Spd of Paired Allies by 20% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Phys. Atk Boost III (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Impart Paired Allies with Phys. Atk. Up 20% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Paired Allies with Phys. Atk. Up 20%.
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Initial Critical Boost III (Joint)
+  effect: 'Start of battle: Raise Critical of Paired Allies by 20% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Seamonster Tusk"
-  passive_effect: "30 P.Atk, 20 Spd, 20 SP; Start of battle: lower Spd of all enemies by 10% (turns: 3)"
+  name: Seamonster Tusk
+  passive_effect: '30 P.Atk, 20 Spd, 20 SP; Start of battle: lower Spd of all enemies by 10% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Condition
+  description: At full HP
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

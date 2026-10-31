@@ -52,121 +52,176 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Duskblight (Single) II"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Analyze All"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Duskfall (All) II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Triple Beat"
-    sp_cost: 38
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Prowling Darkness"
-    sp_cost: 22
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Dark damage to Single Foe (potency: 170) and impart with Elem"
-  - skill_category: active
-    name: "Duskfall (Single) IV"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Raging Duskfall"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [dark]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Dark damage to Random Foe 3 time(s) (potency: 3x55) and lower Dark Res"
-  - skill_category: active
-    name: "Festing Darkness"
-    sp_cost: 48
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Dark damage to Single Foe (potency: 230) and lower Elem"
-  - skill_category: active
-    name: "Tenebrae Operire (All) III"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: tp
-    name: "Forbidden Duskfall (Single)"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "530"
-  - skill_category: ex
-    name: "Dark Augment (Front/All) V"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Dark Augment (Front/All) V** Raise Dark damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Ancient Duskfall"
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Duskblight (Single) II
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Analyze All
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - Show 1-4 weak points based on Boost Lv. of All Foes.
+- skill_category: active
+  name: Duskfall (All) II
+  unlock_tier: 1★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Triple Beat
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Prowling Darkness
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 170) and impart with Elem. Def. Down 15% (turns: 2).'
+- skill_category: active
+  name: Duskfall (Single) IV
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.88: SP Saver: 42→34'
+- skill_category: active
+  name: Raging Duskfall
+  unlock_tier: 4★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x55) and lower Dark Res. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 38→30'
+- skill_category: active
+  name: Festing Darkness
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 230) and lower Elem. Def. and Dark Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 48→38'
+- skill_category: active
+  name: Tenebrae Operire (All) III
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x80).'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Forbidden Duskfall (Single)
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 530).'
+- skill_category: ex
+  name: Dark Augment (Front/All) V
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Dark damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 3; Uses: 2'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Ancient Duskfall
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 500→600→750).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Dark damage of Self by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Critical of Self by 15%, raise Dark damage by 30% and grant the ability to trigger critical hits when using elemental attacks."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Elem. Atk. of Self by 15% and grant Self Damage Limit Up (effect: 50,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Enfeeblement (Joint/Give)
+  unlock_tier: 1★
+  effect: Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Dark Augment V
+  unlock_tier: 3★
+  effect: Raise Dark damage of Self by 30%.
+  trigger: always
+  limit_break_upgrade: Raise Critical of Self by 15%, raise Dark damage by 30% and grant the ability to trigger critical hits when using elemental attacks.
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Ancient Sorcery
+  effect: 'Raise Elem. Atk. of Self by 15% and grant Self Damage Limit Up (effect: 50,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Map of an Ancient Kingdom"
-  passive_effect: "60 E.Atk, 40 E.Def, 400 HP; Raise Tome damage dealt by 15%; When breaking an enemy, lower their Dark Res. by 15% (turns: 3)"
+  name: Map of an Ancient Kingdom
+  passive_effect: '60 E.Atk, 40 E.Def, 400 HP; Raise Tome damage dealt by 15%; When breaking an enemy, lower their Dark Res. by 15% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

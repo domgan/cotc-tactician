@@ -25,21 +25,22 @@ os.environ["TQDM_DISABLE"] = "1"  # Disable tqdm progress bars
 os.environ["TRANSFORMERS_VERBOSITY"] = "error"  # Suppress transformers logging
 
 from mcp.server.fastmcp import FastMCP
-
 from pydantic import ValidationError
 
 from .models import RolePriority, RosterEntry
-from .retrieval import RetrievalService, _normalize_weakness
+from .retrieval import RetrievalService, _normalize_weakness, strength_sort_key
 from .roster import (
     import_roster_yaml,
     known_character_ids,
     load_roster_with_meta,
-    remove_roster_characters as remove_chars_from_roster,
     resolve_roster,
     roster_entry_for_character,
     roster_path,
     teams_for_roster,
     upsert_roster_characters,
+)
+from .roster import (
+    remove_roster_characters as remove_chars_from_roster,
 )
 from .team_guide import load_team_building_guide
 from .vector_store import VectorStore
@@ -69,8 +70,6 @@ _retrieval: RetrievalService | None = None
 
 def get_data_dir() -> Path:
     """Get the data directory path."""
-    import os
-
     if env_path := os.environ.get("COTC_DATA_DIR"):
         return Path(env_path)
     # Default to ./data relative to project root
@@ -79,71 +78,42 @@ def get_data_dir() -> Path:
 
 def get_vector_store_dir() -> Path:
     """Get the vector store directory path."""
-    import os
-
     if env_path := os.environ.get("COTC_VECTOR_DIR"):
         return Path(env_path)
     return Path(__file__).parent.parent / ".vectordb"
 
 
 def get_retrieval() -> RetrievalService:
-    """Get or create the retrieval service (lazy initialization)."""
+    """Get the retrieval service, reloading data when YAML files changed on disk."""
     global _retrieval
     if _retrieval is None:
-        data_dir = get_data_dir()
-        vector_dir = get_vector_store_dir()
-
-        vector_store = VectorStore(persist_directory=vector_dir)
         _retrieval = RetrievalService(
-            data_dir=data_dir,
-            vector_store=vector_store,
+            data_dir=get_data_dir(),
+            vector_store=VectorStore(persist_directory=get_vector_store_dir()),
         )
-        _retrieval.initialize()
-
+    _retrieval.initialize()
     return _retrieval
 
 
 def character_to_dict(char: Any) -> dict:
-    """Convert a Character model to a clean dictionary for JSON output."""
-    skills_summary = []
-    for skill in char.skills[:8]:  # Limit to 8 most important skills
-        skill_info = {
-            "name": skill.name or "(unnamed)",
-            "category": skill.skill_category.value,
-            "type": skill.skill_type.value,
-            "target": skill.target.value,
-        }
-        if skill.damage_types:
-            skill_info["damage_types"] = skill.damage_types
-        if skill.sp_cost:
-            skill_info["sp_cost"] = skill.sp_cost
-        if skill.hit_count:
-            skill_info["hit_count"] = skill.hit_count
-        if skill.power:
-            skill_info["power"] = skill.power
-        if skill.effects:
-            skill_info["effects"] = skill.effects[:2]  # First 2 effects
-        skills_summary.append(skill_info)
-
-    passives_summary = []
-    for passive in char.passives[:5]:  # Limit to 5 passives
-        passives_summary.append(
-            {
-                "category": passive.passive_category.value,
-                "effect": passive.effect[:150] + "..."
-                if len(passive.effect) > 150
-                else passive.effect,
-            }
-        )
-
-    result = {
+    """Full character kit for JSON output (every skill, passive and stacking category)."""
+    kit_fields = {
+        "skills",
+        "passives",
+        "a4_accessory",
+        "unique_mechanics",
+        "buff_categories",
+        "debuff_categories",
+    }
+    return {
         "id": char.id,
         "display_name": char.display_name,
         "job": char.job.value,
         "rarity": char.rarity,
         "weakness_coverage": char.weakness_coverage,
-        "roles": [r.value for r in char.roles] if char.roles else [],
+        "roles": [r.value for r in char.roles],
         "role_notes": char.role_notes,
+        "tank_type": char.tank_type.value if char.tank_type else None,
         "gl_tier": char.gl_tier,
         "jp_tier": char.jp_tier,
         "stats": {
@@ -152,30 +122,43 @@ def character_to_dict(char: Any) -> dict:
             "e_atk": char.e_atk,
             "speed": char.speed,
         },
-        "skills": skills_summary,
-        "passives": passives_summary,
+        **char.model_dump(
+            mode="json", include=kit_fields, exclude_none=True, exclude_defaults=True
+        ),
         "data_confidence": char.data_confidence.value,
+        "data_source": char.data_source,
     }
 
-    if char.a4_accessory:
-        result["a4_accessory"] = {
-            "name": char.a4_accessory.name,
-            "effect": char.a4_accessory.passive_effect,
-        }
 
-    return result
-
-
-def character_summary(char: Any) -> dict:
+def character_summary(char: Any, roster: Any = None) -> dict:
     """Create a brief summary of a character for list results."""
-    return {
+    summary = {
         "id": char.id,
         "display_name": char.display_name,
         "job": char.job.value,
         "weakness_coverage": char.weakness_coverage,
-        "roles": [r.value for r in char.roles] if char.roles else [],
+        "roles": [r.value for r in char.roles],
         "gl_tier": char.gl_tier,
         "jp_tier": char.jp_tier,
+    }
+    investment = roster_entry_for_character(roster, char.id)
+    if investment:
+        summary["investment"] = investment
+    return summary
+
+
+def resolve_pool(available_characters: list[str] | None) -> tuple[Any, list[str] | None, Any]:
+    """(retrieval, filter_ids, roster) for a tool call; filter_ids None = full database."""
+    retrieval = get_retrieval()
+    ids, roster = resolve_roster(available_characters, known_ids=known_character_ids(retrieval))
+    return retrieval, ids, roster
+
+
+def pool_meta(filter_ids: list[str] | None) -> dict:
+    """Tell the caller whether results are limited to owned characters."""
+    return {
+        "roster_applied": filter_ids is not None,
+        "recommendation_pool": "roster" if filter_ids is not None else "full_database",
     }
 
 
@@ -228,9 +211,7 @@ def team_to_dict(team: Any) -> dict:
     if team.minimum_hp_recommended is not None:
         result["minimum_hp_recommended"] = team.minimum_hp_recommended
     if team.buff_category_coverage:
-        result["buff_category_coverage"] = team.buff_category_coverage.model_dump(
-            exclude_none=True
-        )
+        result["buff_category_coverage"] = team.buff_category_coverage.model_dump(exclude_none=True)
     return result
 
 
@@ -240,47 +221,53 @@ def team_to_dict(team: Any) -> dict:
 
 
 @mcp.tool()
-def search_characters(query: str, limit: int = 8) -> list[dict]:
+def search_characters(
+    query: str,
+    available_characters: list[str] | None = None,
+    limit: int = 8,
+) -> dict:
     """
-    Search for characters using semantic search.
+    Semantic search over character names, roles, role notes and weakness coverage.
 
-    Use this to find characters matching a description like:
-    - "fire damage dealers"
-    - "sword buffer"
-    - "healer with regen"
-    - "high shield break"
+    Good for fuzzy discovery ("wind fan support"). Embeddings do NOT include skill
+    text — to find a specific effect (Def down, Damage Limit up, taunt) use
+    search_skill_effects instead.
 
     Args:
         query: Natural language description of what you're looking for.
-        limit: Maximum number of results to return (default: 8, max party size).
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
+        limit: Maximum number of results (default: 8).
 
     Returns:
-        List of matching characters with basic info (id, name, job, weaknesses, roles, tier).
+        roster_applied, recommendation_pool, characters (summaries + investment).
     """
-    retrieval = get_retrieval()
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    meta = pool_meta(filter_ids)
+    if filter_ids is not None and not filter_ids:
+        return {**meta, "characters": []}
 
     results = retrieval.vector_store.search_characters(
         query=query,
         n_results=limit,
+        where={"id": {"$in": filter_ids}} if filter_ids is not None else None,
     )
-
-    characters = []
-    for result in results:
-        char = retrieval.get_character_by_id(result["id"])
-        if char:
-            characters.append(character_summary(char))
-
-    return characters
+    characters = [
+        character_summary(char, roster)
+        for result in results
+        if (char := retrieval.get_character_by_id(result["id"]))
+    ]
+    return {**meta, "characters": characters}
 
 
 @mcp.tool()
 def get_character(character_id: str) -> dict | str:
     """
-    Get full details for a specific character.
+    Get the full kit for one character.
 
-    Use this after search_characters to get complete information including
-    skills, passives, stats, and A4 accessory. When a roster is configured,
-    includes investment (awakening, battle_skill_slots) for loadout planning.
+    Includes every skill (with unlock_tier, SP, effects, level/TP upgrades, 6★ upgrade),
+    passives, EX, ultimate, A4 accessory, glossary terms (unique_mechanics) and curated
+    buff/debuff stacking categories. With a saved roster, includes investment
+    (awakening, battle_skill_slots) for loadout planning.
 
     Args:
         character_id: The character's unique ID (e.g., "richard", "primrose-ex").
@@ -288,14 +275,12 @@ def get_character(character_id: str) -> dict | str:
     Returns:
         Full character details or error message if not found.
     """
-    retrieval = get_retrieval()
-
+    retrieval, _, roster = resolve_pool(None)
     char = retrieval.get_character_by_id(character_id)
     if char is None:
         return f"Character '{character_id}' not found."
 
     result = character_to_dict(char)
-    _, roster = resolve_roster(None, known_ids=known_character_ids(retrieval))
     investment = roster_entry_for_character(roster, character_id)
     if investment:
         result["investment"] = investment
@@ -307,78 +292,121 @@ def get_character(character_id: str) -> dict | str:
 
 
 @mcp.tool()
-def find_by_weakness(weakness_types: list[str], limit: int = 8) -> list[dict]:
+def search_skill_effects(
+    terms: list[str],
+    sources: list[str] | None = None,
+    match_all: bool = False,
+    available_characters: list[str] | None = None,
+    limit: int = 15,
+) -> dict:
     """
-    Find characters that can hit specific enemy weaknesses.
+    Find characters whose kit text matches effect terms. Main tool for "who in my
+    roster can do X" when building teams for hard fights.
 
-    Use this when you know what weaknesses a boss has and want to find
-    characters that can exploit them.
+    Searches skills, TP skills, EX, ultimate, passives and A4 accessories using the
+    game's own wording. Terms are case-insensitive regexes matched per effect
+    sentence. Useful phrasings:
+    - Def down: "lower.*Phys\\. Def", "lower.*Elem\\. Def"
+    - Res down: "lower.*Elem\\. Res", "lower.*Sword Res", "lower.*Fire Res"
+    - Atk buffs: "raise.*Phys\\. Atk", "raise.*Elem\\. Atk", "potency"
+    - Damage cap: "Damage Limit"
+    - Survival: "taunt|provoke", "Sidestep|evade|avoid", "cover", "HP barrier|shield of"
+    - Utility: "BP", "Act faster", "Reduce Shield Points"
 
     Args:
-        weakness_types: List of weakness types to search for.
-                       Valid values: sword, polearm, dagger, axe, bow, staff,
-                                    fire, ice, lightning, wind, light, dark
-        limit: Maximum number of results (default: 8, max party size).
+        terms: Regex terms; an entry matches if any term hits (all, with match_all).
+        sources: Optional filter: active, tp, ex, special (ultimate), passive, a4.
+        match_all: Require every term within the same skill/passive.
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
+        limit: Max characters returned (strongest JP tier first).
 
     Returns:
-        List of characters that cover at least one of the specified weaknesses.
+        roster_applied, recommendation_pool, count, results: [{id, display_name, job,
+        jp_tier, investment?, matches: [{source, name?, unlock_tier?, sp_cost?, matched}]}]
     """
-    retrieval = get_retrieval()
-
-    seen: set[str] = set()
-    characters = []
-    requested = {_normalize_weakness(w) for w in weakness_types}
-
-    for weakness in weakness_types:
-        for char in retrieval.find_characters_by_weakness(weakness, limit=limit * 2):
-            if char.id in seen:
-                continue
-            coverage = {_normalize_weakness(w) for w in char.weakness_coverage}
-            matching = requested & coverage
-            if not matching:
-                continue
-            summary = character_summary(char)
-            summary["matching_weaknesses"] = sorted(matching)
-            characters.append(summary)
-            seen.add(char.id)
-            if len(characters) >= limit:
-                return characters
-
-    return characters
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    found = retrieval.search_kit_effects(
+        terms, character_ids=filter_ids, sources=sources, match_all=match_all
+    )
+    results = []
+    for char, matches in found[:limit]:
+        entry = {
+            "id": char.id,
+            "display_name": char.display_name,
+            "job": char.job.value,
+            "jp_tier": char.jp_tier,
+            "matches": matches,
+        }
+        investment = roster_entry_for_character(roster, char.id)
+        if investment:
+            entry["investment"] = investment
+        results.append(entry)
+    return {**pool_meta(filter_ids), "count": len(found), "results": results}
 
 
 @mcp.tool()
-def list_by_tier(tier: str = "S", server: str = "jp", limit: int = 20) -> list[dict]:
+def find_by_weakness(
+    weakness_types: list[str],
+    available_characters: list[str] | None = None,
+    limit: int = 8,
+) -> dict:
     """
-    List characters by their tier rating.
+    Find characters that can hit specific enemy weaknesses (strongest JP tier first).
 
-    Tier ratings come from community sources and indicate general strength.
+    Args:
+        weakness_types: sword, polearm, dagger, axe, bow, staff, tome, fan,
+                        fire, ice, lightning, wind, light, dark.
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
+        limit: Maximum number of results (default: 8).
+
+    Returns:
+        roster_applied, recommendation_pool, characters with matching_weaknesses.
+    """
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    requested = {_normalize_weakness(w) for w in weakness_types}
+
+    characters = []
+    for char in retrieval.find_characters_by_weakness_any(requested, character_ids=filter_ids):
+        summary = character_summary(char, roster)
+        summary["matching_weaknesses"] = sorted(
+            requested & {_normalize_weakness(w) for w in char.weakness_coverage}
+        )
+        characters.append(summary)
+    return {**pool_meta(filter_ids), "characters": characters[:limit]}
+
+
+@mcp.tool()
+def list_by_tier(
+    tier: str = "S",
+    server: str = "jp",
+    available_characters: list[str] | None = None,
+    limit: int = 20,
+) -> dict:
+    """
+    List characters whose community tier label contains the given tier.
+
     JP tiers are more up-to-date; GL tiers reflect Global server meta.
 
     Args:
-        tier: Tier to filter by. Common values: "S+", "S", "A", "B", "C", "D", "H".
-        server: Which tier rating to use - "jp" or "gl" (default: "jp").
+        tier: e.g. "S+", "S", "A", "B", "C", "D", "H" (substring match on the label).
+        server: "jp" or "gl" (default: "jp").
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
         limit: Maximum number of results (default: 20).
 
     Returns:
-        List of characters at the specified tier.
+        roster_applied, recommendation_pool, characters (strongest first).
     """
-    retrieval = get_retrieval()
-
-    # Get all characters and filter by tier
-    if not retrieval._characters_cache:
-        retrieval.initialize()
-
-    matching = []
-    for char in retrieval._characters_cache.values():
-        tier_value = char.jp_tier if server == "jp" else char.gl_tier
-        if tier_value and tier.upper() in tier_value.upper():
-            matching.append(character_summary(char))
-
-        if len(matching) >= limit:
-            break
-
-    return matching
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    matching = [
+        char
+        for char in retrieval.character_pool(filter_ids)
+        if tier.upper() in ((char.jp_tier if server == "jp" else char.gl_tier) or "").upper()
+    ]
+    matching.sort(key=strength_sort_key)
+    return {
+        **pool_meta(filter_ids),
+        "characters": [character_summary(c, roster) for c in matching[:limit]],
+    }
 
 
 @mcp.tool()
@@ -386,96 +414,24 @@ def list_by_role(
     role: str,
     available_characters: list[str] | None = None,
     limit: int = 20,
-) -> list[dict]:
+) -> dict:
     """
-    List characters by team role using exact match on the roles field.
+    List characters by team role using exact match on the curated roles field.
 
-    Unlike semantic search, this only returns characters whose YAML data
-    explicitly lists the role. Empty results usually mean incomplete data,
-    not that no such character exists.
+    Many characters still have no curated roles; empty results usually mean
+    incomplete data. Fall back to search_skill_effects for effect-level needs.
 
     Args:
-        role: Role to filter by. Valid values: tank, healer, buffer,
-              debuffer, breaker, dps (case-insensitive).
-        available_characters: Optional roster filter — only these character IDs.
+        role: tank, healer, buffer, debuffer, breaker, dps (case-insensitive).
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
         limit: Maximum number of results (default: 20).
 
     Returns:
-        List of character summaries matching the role.
+        roster_applied, recommendation_pool, characters (strongest first).
     """
-    retrieval = get_retrieval()
-    known = known_character_ids(retrieval)
-    roster_ids, _ = resolve_roster(available_characters, known_ids=known)
-    chars = retrieval.find_characters_by_role_exact(
-        role,
-        character_ids=roster_ids,
-        limit=limit,
-    )
-    return [character_summary(c) for c in chars]
-
-
-@mcp.tool()
-def get_team_suggestions(
-    weaknesses: list[str],
-    roles_needed: list[str] | None = None,
-    available_characters: list[str] | None = None,
-    limit: int = 8,
-) -> dict:
-    """
-    Get character suggestions for building a team against a boss.
-
-    Provide the boss's weaknesses and optionally the roles you need,
-    and this will suggest characters that fit.
-
-    COTC teams have 8 slots: 4 front row (active) + 4 back row (swap in).
-
-    Args:
-        weaknesses: Boss weaknesses to exploit (e.g., ["fire", "sword"]).
-        roles_needed: Optional roles you need (e.g., ["healer", "buffer", "dps"]).
-                     Valid roles: tank, healer, buffer, debuffer, breaker, dps
-                     From meowdb: PDPS, EDPS, Tankiness, Healer, Buffer, Debuffer, Breaker
-        available_characters: Optional roster filter — only these character IDs.
-                          If omitted, uses saved roster when configured.
-        limit: Max characters per category (default: 8, full party).
-
-    Returns:
-        Dictionary with character suggestions organized by weakness coverage
-        and optionally by role.
-    """
-    retrieval = get_retrieval()
-    known = known_character_ids(retrieval)
-    roster_ids, roster = resolve_roster(available_characters, known_ids=known)
-
-    result = {
-        "by_weakness": {},
-        "roster_applied": roster_ids is not None,
-        "summary": {
-            "total_weaknesses": weaknesses,
-            "roles_requested": roles_needed or [],
-        },
-    }
-
-    # Find characters for each weakness
-    for weakness in weaknesses:
-        chars = retrieval.find_characters_by_weakness(
-            weakness, character_ids=roster_ids, limit=limit
-        )
-        result["by_weakness"][weakness] = [
-            plan_team_character_entry(c, roster) for c in chars
-        ]
-
-    # If roles requested, add role-based suggestions
-    if roles_needed:
-        result["by_role"] = {}
-        for role in roles_needed:
-            chars_for_role = retrieval.find_characters_by_role_exact(
-                role, character_ids=roster_ids, limit=max(limit // 2, 1)
-            )
-            result["by_role"][role] = [
-                plan_team_character_entry(c, roster) for c in chars_for_role
-            ]
-
-    return result
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    chars = retrieval.find_characters_by_role_exact(role, character_ids=filter_ids, limit=limit)
+    return {**pool_meta(filter_ids), "characters": [character_summary(c, roster) for c in chars]}
 
 
 @mcp.tool()
@@ -489,12 +445,7 @@ def list_all_character_ids() -> list[str]:
     Returns:
         List of all character IDs (sorted alphabetically).
     """
-    retrieval = get_retrieval()
-
-    if not retrieval._characters_cache:
-        retrieval.initialize()
-
-    return sorted(retrieval._characters_cache.keys())
+    return get_retrieval().list_character_ids()
 
 
 @mcp.tool()
@@ -698,12 +649,7 @@ def list_all_boss_ids() -> list[str]:
     Returns:
         List of all boss IDs (sorted alphabetically).
     """
-    retrieval = get_retrieval()
-
-    if not retrieval._bosses_cache:
-        retrieval.initialize()
-
-    return sorted(retrieval._bosses_cache.keys())
+    return get_retrieval().list_boss_ids()
 
 
 @mcp.tool()
@@ -753,7 +699,9 @@ def plan_team_for_boss(
     role_coverage_gaps, recommendation_pool ("roster" or "full_database"), and
     skill_loadout_guidance. Check roster_applied before using recommendations — when
     false, recommended_* lists the entire character database, not owned units.
-    Prioritize proven_teams when non-empty.
+    Prioritize proven_teams when non-empty. Recommendations are ranked by JP tier.
+    Many characters lack curated roles: fill role/effect needs (Def down, Damage
+    Limit, taunt, BP) with search_skill_effects over the same pool.
     Do not invent characters to fill empty weakness or role slots.
 
     Args:
@@ -771,7 +719,9 @@ def plan_team_for_boss(
     if boss is None:
         return {"error": f"Boss '{boss_id}' not found."}
 
-    roster_ids, roster = resolve_roster(available_characters, known_ids=known_character_ids(retrieval))
+    roster_ids, roster = resolve_roster(
+        available_characters, known_ids=known_character_ids(retrieval)
+    )
     weaknesses = retrieval.get_boss_weaknesses(boss)
 
     teams = retrieval.get_teams_for_boss(boss_id)
@@ -868,9 +818,7 @@ def plan_team_for_boss(
             character_ids=roster_ids,
             limit=5,
         )
-        result["recommended_by_role"][role] = [
-            plan_team_character_entry(c, roster) for c in chars
-        ]
+        result["recommended_by_role"][role] = [plan_team_character_entry(c, roster) for c in chars]
 
     result["role_coverage_gaps"] = [
         rr.role.value
@@ -941,35 +889,39 @@ def get_ex_variants(boss_id: str) -> dict | str:
 
 
 @mcp.tool()
-def find_tanks_by_type(tank_type: str) -> list[dict]:
+def find_tanks_by_type(
+    tank_type: str,
+    available_characters: list[str] | None = None,
+) -> dict:
     """
-    Find characters by tank type (provoke, dodge, cover, hp_barrier).
+    Find characters by curated tank type (provoke, dodge, cover, hp_barrier).
 
-    Use this when building teams for EX fights to find appropriate tanks.
+    Only curated characters carry tank_type; also try search_skill_effects with
+    "taunt|provoke", "Sidestep|evade", "cover" to catch uncurated kits.
 
     Args:
-        tank_type: Type of tank to find.
-                  Valid values: provoke, dodge, cover, hp_barrier
+        tank_type: provoke, dodge, cover, hp_barrier.
+        available_characters: Optional ID filter. If omitted, the saved roster applies.
 
     Returns:
-        List of characters with the specified tank type.
+        roster_applied, recommendation_pool, characters with tank details.
     """
-    retrieval = get_retrieval()
+    retrieval, filter_ids, roster = resolve_pool(available_characters)
+    matching = [
+        char
+        for char in retrieval.character_pool(filter_ids)
+        if char.tank_type and char.tank_type.value == tank_type
+    ]
+    matching.sort(key=strength_sort_key)
 
-    if not retrieval._characters_cache:
-        retrieval.initialize()
-
-    matching = []
-    for char in retrieval._characters_cache.values():
-        if hasattr(char, "tank_type") and char.tank_type:
-            if char.tank_type.value == tank_type:
-                summary = character_summary(char)
-                summary["tank_type"] = char.tank_type.value
-                summary["recommended_min_hp"] = getattr(char, "recommended_min_hp", None)
-                summary["role_notes"] = char.role_notes
-                matching.append(summary)
-
-    return matching
+    characters = []
+    for char in matching:
+        summary = character_summary(char, roster)
+        summary["tank_type"] = char.tank_type.value
+        summary["recommended_min_hp"] = char.recommended_min_hp
+        summary["role_notes"] = char.role_notes
+        characters.append(summary)
+    return {**pool_meta(filter_ids), "characters": characters}
 
 
 @mcp.tool()

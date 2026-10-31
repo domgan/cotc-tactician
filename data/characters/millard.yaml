@@ -52,120 +52,157 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Luminescene (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Heal More (All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Heal More (All)** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Guardian Aura II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Guardian Aura II (1★)** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Luminescence (All) II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Crippling Bash"
-    sp_cost: 20
-    skill_type: mixed
-    damage_types: [staff]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Staff damage to Single Foe (potency: 170) and impart Phys"
-  - skill_category: active
-    name: "Ethereal Healing (Single) III"
-    sp_cost: 36
-    skill_type: buff
-    target: single_ally
-    power: "140, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Ethereal Healing (Single) III (3★)** Grant Single Ally automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Flamebringer's Favor"
-    sp_cost: 35
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Flamebringer's Favor (4★)** Impart Single Ally with Phys"
-    limit_break_upgrade: "Impart **Entire Front Row** with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 2-5 based on Boost Lv.)."
-  - skill_category: active
-    name: "Enhanced Healing (All)"
-    sp_cost: 55
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**Enhanced Healing (All) (5★)** Restore HP of Entire Front Row (potency: 205)"
-  - skill_category: active
-    name: "Luminescence (All) III"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "180"
-  - skill_category: tp
-    name: "Sustained Glow (All)"
-    sp_cost: 84
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-  - skill_category: ex
-    name: "Holy Fire of Hope"
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Holy Fire of Hope** Raise max HP of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.) and restore HP (amount: 25% of target max HP)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Light of Heaven"
-    skill_type: heal
-    target: all_allies
-    power: "200→250→300"
-    effects:
-      - "Restore HP of All Allies (potency: **200→250→300**) and raise Light Res"
+- skill_category: active
+  name: Luminescene (Single) II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Heal More (All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+- skill_category: active
+  name: Guardian Aura II
+  unlock_tier: 1★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Luminescence (All) II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Crippling Bash
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 170) and impart Phys. Atk. Down 15% (turns: 2).'
+- skill_category: active
+  name: Ethereal Healing (Single) III
+  unlock_tier: 3★
+  sp_cost: 36
+  skill_type: buff
+  target: single_ally
+  power: '140, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Single Ally automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 36→28'
+- skill_category: active
+  name: Flamebringer's Favor
+  unlock_tier: 4★
+  sp_cost: 35
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 35→28'
+  limit_break_upgrade: 'Impart Entire Front Row with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Enhanced Healing (All)
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205).'
+  upgrades:
+  - 'Lv.99: SP Saver: 55→44'
+- skill_category: active
+  name: Luminescence (All) III
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.100: SP Saver: 46→37'
+- skill_category: tp
+  name: Sustained Glow (All)
+  sp_cost: 84
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '180, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Light damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Holy Fire of Hope
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Raise max HP of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.) and restore HP (amount: 25% of target max HP).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Light of Heaven
+  skill_type: heal
+  target: all_allies
+  power: 200→250→300
+  effects:
+  - 'Restore HP of All Allies (potency: 200→250→300) and raise Light Res. by 10%→20%→30% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise HP recovery skill potency of Self by 20% (excludes automatic healing skills)."
-    trigger: always
-  - passive_category: innate
-    effect: "Recover 3% of SP when taking damage from enemies."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Grant Paired Ally automatic HP recovery (potency: 100)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Enhanced Healing III
+  unlock_tier: 1★
+  effect: Raise HP recovery skill potency of Self by 20% (excludes automatic healing skills).
+  trigger: always
+- passive_category: innate
+  name: SP Recovery
+  unlock_tier: 3★
+  effect: Recover 3% of SP when taking damage from enemies.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Vanguard HP Restoration (Front/Single)
+  effect: 'When in front row: Grant Paired Ally automatic HP recovery (potency: 100).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Ritual Equipment"
-  passive_effect: "40 E.Atk, 40 P.Def, 60 E.Def; Raise Staff damage dealt by 15%; Raise Dark Res. by 10%"
+  name: Ritual Equipment
+  passive_effect: 40 E.Atk, 40 P.Def, 60 E.Def; Raise Staff damage dealt by 15%; Raise Dark Res. by 10%
 
 # Metadata
 data_confidence: incomplete

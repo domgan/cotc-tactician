@@ -53,132 +53,180 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Maelstrom (Single)"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Withering Wind II"
-    sp_cost: 38
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Withering Wind II** Impart Single Foe with Elem"
-      - "Down 20% and lower Wind Res"
-  - skill_category: active
-    name: "Tornado (All) II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Triple Burst"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Ventus Saltare (All) III"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Double Bind"
-    sp_cost: 58
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Calming Breath"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Calming Breath (4★)** Grant Self automatic SP recovery (amount: 10% of max SP"
-  - skill_category: active
-    name: "Magnus Ventus (Single) III"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    name: "Forbidden Windbolt (Single)"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [wind, lightning]
-    target: single_enemy
-    power: "530"
-    limit_break_upgrade: "Deal Elem. Wind damage to Single Foe (potency: **730**). Exploits Lightning weakness (damage calculation based on Elem. Wind attack)."
-  - skill_category: tp
-    name: "Alluring Charm"
-    sp_cost: 40
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Alluring Charm ** Impart All Allies with Elem"
-      - "Up 15% (turns: 2-5 based on Boost Lv.) and lower Elem"
-  - skill_category: tp
-    name: "Alluring Charm Lv.2"
-    sp_cost: 40
-    skill_type: mixed
-    target: aoe
-    effects:
-      - "**Alluring Charm Lv.2** Raise Elem"
-      - "and Wind damage of All Allies by 15% (turns: 2-5 based on Boost Lv.) and lower Elem"
-  - skill_category: special
-    name: "Electric Tornado"
-    skill_type: attack
-    damage_types: [wind, lightning]
-    target: aoe
-    hit_count: "4x"
+- skill_category: active
+  name: Maelstrom (Single)
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Withering Wind II
+  sp_cost: 38
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Elem. Def. Down 20% and lower Wind Res. by 20% (turns: 2-5 based on Boost Lv.).'
+  - 'Have a high chance to inflict paralysis (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Tornado (All) II
+  unlock_tier: 1★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Wind damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Triple Burst
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Ventus Saltare (All) III
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 3 time(s) (potency: 3x80).'
+- skill_category: active
+  name: Double Bind
+  unlock_tier: 3★
+  sp_cost: 58
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80) and have a low chance to inflict paralysis (turns: 2).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.88: SP Saver: 58→46'
+- skill_category: active
+  name: Calming Breath
+  unlock_tier: 4★
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self automatic SP recovery (amount: 10% of max SP, turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 3-6 turns→4-7 turns'
+- skill_category: active
+  name: Magnus Ventus (Single) III
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 4 time(s) (potency: 4x65).'
+  upgrades:
+  - 'Lv.99: SP Saver: 64→51'
+- skill_category: active
+  name: Forbidden Windbolt (Single)
+  unlock_tier: 5★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - wind
+  - lightning
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 530).'
+  - Exploits Lightning weakness (damage calculation based on Elem. Wind attack).
+  upgrades:
+  - 'Lv.100: Potency Up: 530→630'
+  limit_break_upgrade: 'Deal Elem. Wind damage to Single Foe (potency: 730). Exploits Lightning weakness (damage calculation based on Elem. Wind attack).'
+- skill_category: tp
+  name: Alluring Charm
+  sp_cost: 40
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Impart All Allies with Elem. Atk. Up 15% (turns: 2-5 based on Boost Lv.) and lower Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Raise Elem. Atk. and Wind damage of All Allies by 15% (turns: 2-5 based on Boost Lv.) and lower Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: special
+  name: Electric Tornado
+  skill_type: utility
+  damage_types:
+  - wind
+  - lightning
+  target: aoe
+  hit_count: 4x
+  power: 4x85→4x100→4x125
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 4 time(s) (potency: 4x85→4x100→4x125).'
+  - Exploits Lightning weakness (damage calculation based on Elem. Wind attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Dagger and Wind damage of Self by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Self automatic SP recovery (potency: 10) when paralyzed enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: 70,000) when a broken enemy is present."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: **100,000**) when a broken enemy is present. Damage Limit of Forbidden Windbolt is increased by 400,000."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Dagger/Wind Augment III
+  unlock_tier: 1★
+  effect: Raise Dagger and Wind damage of Self by 20%.
+  trigger: always
+- passive_category: innate
+  name: Binding Delight
+  unlock_tier: 3★
+  effect: 'Grant Self automatic SP recovery (potency: 10) when paralyzed enemy is present.'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Trickster
+  effect: 'Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: 70,000) when a broken enemy is present.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Self the ability to trigger critical hits with elemental attacks and Damage Limit Up (effect: 100,000) when a broken enemy is present. Damage Limit of Forbidden Windbolt is increased by 400,000.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Archaeologist’s Hidden Knife"
-  passive_effect: "70 E.Atk, 70 SP; Raise Dagger and Wind damage dealt by 10%; Grant automatic SP recovery (amount: 15)"
+  name: Archaeologist’s Hidden Knife
+  passive_effect: '70 E.Atk, 70 SP; Raise Dagger and Wind damage dealt by 10%; Grant automatic SP recovery (amount: 15)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

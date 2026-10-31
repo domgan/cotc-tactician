@@ -51,153 +51,211 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Jackal Punch"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [dagger, staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-    effects:
-      - "Lower Speed of the target by 15% (turns: 2)"
-  - skill_category: active
-    name: "Gryphon Talon"
-    sp_cost: 57
-    skill_type: attack
-    damage_types: [dagger, staff]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55/3x65/3x75/3x100"
-  - skill_category: active
-    name: "Owl Punch"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [dagger, staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Oomphle"
-    sp_cost: 64
-    skill_type: buff
-    target: self
-    effects:
-      - "**Oomphle (2★)** Raise Phys"
-  - skill_category: active
-    name: "Hawkeye Claw"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger, staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x120/3x135/3x155/3x210"
-  - skill_category: active
-    name: "Roundhouse Kick"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [dagger, staff]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95/3x110/3x130/3x150"
-    effects:
-      - "**Roundhouse Kick (3★)** Lower Dagger and Staff Res"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Ripple of Destruction"
-    sp_cost: 34
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Ripple of Destruction (4★)** Raise Phys"
-      - "Critical and Speed of Single Ally by 10% (turns: 2/3/4/5) and restore their Phys"
-  - skill_category: active
-    name: "Multifists"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [dagger, staff]
-    target: random
-    hit_count: "8x"
-    power: "8x40/8x50/8x60/8x80"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Knuckle Sandwich"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [dagger, staff]
-    target: single_enemy
-    power: "290/320/380/1250"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe (potency: 290/320/380/1250). Exploits Staff weakness (damage calculation based on Phys. Dagger attack). At Max Boost: Potency increases by 2.5x (reflected in potency value)."
-  - skill_category: active
-    name: "500,000"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: tp
-    name: "Dragon’s Stance"
-    sp_cost: 48
-    skill_type: buff
-    target: self
-    effects:
-      - "**Dragon’s Stance ** Raise Dagger damage of Self by 30% and Damage Limit by 30,000 (turns: 3/4/5/6)"
-  - skill_category: tp
-    name: "Dragon’s Stance Lv.2"
-    sp_cost: 48
-    skill_type: buff
-    target: self
-    effects:
-      - "**Dragon’s Stance Lv.2** Raise Dagger damage of Self by 30%"
-  - skill_category: special
-    name: "Martial Aura"
-    skill_type: mixed
-    target: self
-    effects:
-      - "and Dagger damage of Self by **10%→15%→20%** and gain Dead Aim (guaranteed critical hits) (turns: 3)"
+- skill_category: active
+  name: Jackal Punch
+  sp_cost: 37
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).Exploits Staff weakness (damage calculation based on Phys. Dagger attack).'
+  - 'Lower Speed of the target by 15% (turns: 2).'
+- skill_category: active
+  name: Gryphon Talon
+  sp_cost: 57
+  skill_type: utility
+  damage_types:
+  - dagger
+  - staff
+  target: aoe
+  hit_count: 3x
+  power: 3x55/3x65/3x75/3x100
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x55/3x65/3x75/3x100).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+- skill_category: active
+  name: Owl Punch
+  unlock_tier: 1★
+  sp_cost: 37
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+  - 'Lower Phys. Def. of the target by 15% (turns: 2).'
+- skill_category: active
+  name: Oomphle
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: buff
+  target: self
+  effects:
+  - Raise Phys. Atk. and Crit.
+  - 'of Self by 30% (turns: 3/4/5/6).'
+- skill_category: active
+  name: Hawkeye Claw
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: heal
+  damage_types:
+  - dagger
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x120/3x135/3x155/3x210
+  effects:
+  - 'Cure Self of blindness and deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x120/3x135/3x155/3x210).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+  - Ignores effects that completely dodges or blocks attacks.
+- skill_category: active
+  name: Roundhouse Kick
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - staff
+  target: aoe
+  hit_count: 3x
+  power: 3x95/3x110/3x130/3x150
+  effects:
+  - 'Lower Dagger and Staff Res. of All Foes by 15% (turns: 2) and deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x95/3x110/3x130/3x150).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.88: SP Saver: 67→54'
+- skill_category: active
+  name: Ripple of Destruction
+  unlock_tier: 4★
+  sp_cost: 34
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Critical and Speed of Single Ally by 10% (turns: 2/3/4/5) and restore their Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Critical and Speed.'
+  - Reaches Entire Front Row at Max Boost.
+  upgrades:
+  - 'Lv.96: SP Saver: 43→34'
+- skill_category: active
+  name: Multifists
+  unlock_tier: 5★
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - dagger
+  - staff
+  target: random
+  hit_count: 8x
+  power: 8x40/8x50/8x60/8x80
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 8 time(s) (potency: 8x40/8x50/8x60/8x80).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 51→41'
+- skill_category: active
+  name: Knuckle Sandwich
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - dagger
+  - staff
+  target: single_enemy
+  power: 290/320/380/1250
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 290/320/380/1250).'
+  - Exploits Staff weakness (damage calculation based on Phys. Dagger attack).
+  - 'At Max Boost: Potency increases by 2.5x (reflected in potency value).'
+  upgrades:
+  - 'Lv.100: SP Saver: 69→55'
+  limit_break_upgrade: 'Deal Phys. Dagger damage to Single Foe (potency: 290/320/380/1250). Exploits Staff weakness (damage calculation based on Phys. Dagger attack). At Max Boost: Potency increases by 2.5x (reflected in potency value).'
+- skill_category: active
+  name: 500,000
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - .
+- skill_category: tp
+  name: Dragon’s Stance
+  sp_cost: 48
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Dagger damage of Self by 30% and Damage Limit by 30,000 (turns: 3/4/5/6).'
+  upgrades:
+  - 'Lv.2: Raise Dagger damage of Self by 30%, Damage Limit by 100,000 and gain Fighting Spirit (turns: 3/4/5/6).'
+- skill_category: special
+  name: Martial Aura
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. and Dagger damage of Self by 10%→15%→20% and gain Dead Aim (guaranteed critical hits) (turns: 3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Each effect lasts for 4 turns instead.; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain the ability to exploit Staff weakness (damage calculation based on Phys. Dagger attack) with the “Attack” action. After consuming 1+ BP to use a skill, grant Entire Front Row Soul Sigil (turns: 2/Granted as a support skill/Does not stack). After consuming 2+ BP to use a skill, grant Self automatic HP recovery (potency: 80/turns: 2). After consuming 3+ BP to use a skill, raise own Damage Limit by 50,000 (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "If you deal critical damage during your action, gain Sun Sigil after that action."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own critical damage multiplier (1.25→1.4). With Soul Sigil: Raise the multiplier to 2.0x instead. *Only the higher value will be applied."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Atk. by 30%. At full HP: Add 30% of Crit attribute to P.Atk (including equipment attributes/The maximum value for each attribute takes effect)."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Phys. Atk. by 30%. At full HP: Raise the limit of Phys. Atk. augments from equipment and support skills to 50% and add 30% of Crit attribute to P.Atk (including equipment attributes/The maximum value for each attribute takes effect)."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blessing of Rubiss
+  effect: 'Gain the ability to exploit Staff weakness (damage calculation based on Phys. Dagger attack) with the “Attack” action. After consuming 1+ BP to use a skill, grant Entire Front Row Soul Sigil (turns: 2/Granted as a support skill/Does not stack). After consuming 2+ BP to use a skill, grant Self automatic HP recovery (potency: 80/turns: 2). After consuming 3+ BP to use a skill, raise own Damage Limit by 50,000 (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Sun Sigil
+  unlock_tier: 1★
+  effect: If you deal critical damage during your action, gain Sun Sigil after that action.
+  trigger: always
+- passive_category: innate
+  name: Critical Blow
+  unlock_tier: 3★
+  effect: 'Raise own critical damage multiplier (1.25→1.4). With Soul Sigil: Raise the multiplier to 2.0x instead. *Only the higher value will be applied.'
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind
+  effect: Resilience Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark
+  effect: Resilience Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Meathead
+  effect: 'Raise Phys. Atk. by 30%. At full HP: Add 30% of Crit attribute to P.Atk (including equipment attributes/The maximum value for each attribute takes effect).'
+  trigger: hp_condition
+  upgrades:
+  - 'Lv.2: Raise Phys. Atk. by 30%. At full HP: Raise the limit of Phys. Atk. augments from equipment and support skills to 50% and add 30% of Crit attribute to P.Atk (including equipment attributes/The maximum value for each attribute takes effect).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Martial Artist’s Belt"
-  passive_effect: "100 P.Atk, -60 E.Atk, 100 Crit; When dealing critical damage during your action, raise Dagger damage by 30% and the limit of Dagger damage augments from support skills and equipment effects to 50% (turns: 2) after that action; When an ally breaks an enemy, grant Entire Front Row Soul Sigil (turns: 2/Does not stack)"
+  name: Martial Artist’s Belt
+  passive_effect: '100 P.Atk, -60 E.Atk, 100 Crit; When dealing critical damage during your action, raise Dagger damage by 30% and the limit of Dagger damage augments from support skills and equipment effects to 50% (turns: 2) after that action; When an ally breaks an enemy, grant Entire Front Row Soul Sigil (turns: 2/Does not stack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Soul Sigil
+  description: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%.
+- name: Sun Sigil
+  description: Raise Critical of Self by 30%, BP recovery by 1 and Damage Limit by 100,000.
+- name: With Sun Sigil
+  description: Attack count becomes 3, and terminate Sun Sigil afterwards.
+- name: With Soul Sigil
+  description: Guaranteed critical hits.
+- name: Fighting Spirit
+  description: BP does not decrease (even during consumption/with some exceptions). *Effects that require BP will still be activated.
 
 # Metadata
 data_confidence: incomplete

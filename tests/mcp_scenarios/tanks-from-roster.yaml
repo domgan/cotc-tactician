@@ -1,0 +1,28 @@
+id: tanks-from-roster
+goal: Tank lookup and taunt text search both respect the roster.
+roster: fixture
+
+agent_prompt: |
+  Which of my characters can taunt or provoke enemies? Use cotc-tactician MCP data only.
+agent_checks:
+  - Combines find_tanks_by_type with search_skill_effects ("taunt|provoke") because
+    tank_type is only curated for some characters.
+  - Only owned characters are listed; each has quoted kit text or a curated tank_type.
+
+steps:
+  - tool: find_tanks_by_type
+    args:
+      tank_type: provoke
+    expect:
+      equals:
+        roster_applied: true
+      includes_ids:
+        characters: [noel]
+      ids_owned: [characters]
+  - tool: search_skill_effects
+    args:
+      terms: ['taunt|provoke']
+    expect:
+      includes_ids:
+        results: [noel]
+      ids_owned: [results]

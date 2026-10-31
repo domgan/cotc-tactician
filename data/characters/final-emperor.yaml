@@ -26,9 +26,45 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, healer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Sword/Axe/Staff PDPS. Boost levels become 2/4/6; spending 3+ BP gives guaranteed crits and
+  x1.5 crit multiplier. Physical skills also hit Sword/Polearm/Dagger/Bow weaknesses.
+  Boost 6 "Glimmers" several skills into stronger versions for the rest of battle.
+  Debuffs (glimmered): 30% Atk/Def down (Def down cap 50%), 30% Sword/Axe/Staff Res down
+  (cap 50%). Front-row heal + 1 BP regen; A1 passive (3+ front-row allies alive) gives front
+  row 20% P.Def/E.Def up, 10% damage taken reduction, HP/SP regen. TP passive: once-per-battle
+  front-row auto-revive with 2+ glimmered skills. Ultimate: 6x sword with +100,000-300,000
+  Damage Limit and self 5 BP regen; gauge builds slowly. Ally-count passives favor full parties.
+
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 30
+    source_skill: "Self Atk Up (A3 skill, self only)"
+  - type: sword_damage_up
+    value: 30
+    source_skill: "Self Atk Up at Boost 2+ (self only)"
+  passive:
+  - type: phys_def_up
+    value: 20
+    source_skill: "A1 passive (front row)"
+  - type: elem_def_up
+    value: 20
+    source_skill: "A1 passive (front row)"
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 30
+    source_skill: "A5 staff skill (glimmered, cap 50%)"
+  - type: phys_atk_down
+    value: 30
+    source_skill: "A5 staff skill (glimmered)"
+  - type: weapon_res_down
+    value: 30
+    source_skill: "A4 countdown staff skill (glimmered, Sword/Axe/Staff, cap 50%)"
 
 # Stats (base level)
 hp: 3782
@@ -60,170 +96,211 @@ jp_tier: "S++ | 10.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    sp_cost: 87
-    skill_type: buff
-    target: self
-    effects:
-      - "**(1★)** Grant Self the ability to completely block some physical attacks (turns: 2) and restore 2 BP when blocking an attack from this skill"
-  - skill_category: active
-    sp_cost: 81
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**(2★)** Restore HP of Entire Front Row (potency: 205)"
-      - "cure some status ailments and raise their BP recovery by 1 (turns: 2)"
-  - skill_category: active
-    sp_cost: 71
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: 3x55) and lower Phys"
-  - skill_category: active
-    sp_cost: 72
-    skill_type: mixed
-    target: self
-    effects:
-      - "**(3★)** Raise Phys"
-      - "When consuming 1 BP or more: Also raise Sword"
-  - skill_category: active
-    sp_cost: 129
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    power: "240-380 based on Boost Lv."
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    power: "290-875 based on Boost Lv."
-    effects:
-      - "raise the limits of Sword"
-      - "reductions from battle skills on All Foes to 50% and lower their Sword"
-  - skill_category: active
-    sp_cost: 105
-    skill_type: mixed
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Staff damage to Single Foe 3 time(s) (potency: 3x85) and lower Phys"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    hit_count: "4x"
-    power: "4x85"
-    effects:
-      - "raise the limit of Phys"
-      - "reductions from battle skills on All Foes to 50% and lower their Phys"
-  - skill_category: active
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "260"
-  - skill_category: tp
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "**3x95**"
-  - skill_category: active
-    name: "3x95"
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "**3x95**"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    hit_count: "6x"
-    power: "6x25"
-    effects:
-      - "**(EX)** Act faster during turn and deal Phys"
-      - "Lower Shield Points even when not striking weak points and lower 1 additional Shield Point"
-      - "Also restore own SP (amount: 100% of max SP)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "“Disturbing Snow, Moon and Flowers”"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "6x"
-    effects:
-      - "Raise the critical damage multiplier of Self (1.25→1.5) (turns: 3) and deal Phys"
-      - "Guaranteed critical hits"
-      - "Also raise BP recovery of Self by 5 (turns: 3)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170) and have a low chance to inflict paralysis (turns: 2).'
+  - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
+  notes: 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x55).'
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 87
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to completely block some physical attacks (turns: 2) and restore 2 BP when blocking an attack from this skill.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 81
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205), cure some status ailments and raise their BP recovery by 1 (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 71
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x55) and lower Phys. Def. by 10% (turns: 2/stacks with “Glimmered” skill change).'
+  - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
+  notes: 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x55) and lower Phys. Atk. and Phys. Def. by 15% (turns: 2). Exploits Ice weakness (damage calculation based on Phys. Sword attack).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 72
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. of Self by 30% (turns: 3-8 based on Boost Lv.).'
+  - 'When consuming 1 BP or more: Also raise Sword, Axe and Staff damage by 30% (turns: 3-8 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 72→58'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 129
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: aoe
+  power: 240-380 based on Boost Lv.
+  effects:
+  - 'Cast countdown on Self (count: 1).'
+  - 'Once the countdown ends, deal Phys. Staff damage to All Foes (potency: 240-380 based on Boost Lv.).'
+  - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
+  upgrades:
+  - 'Lv.96: SP Saver: 129→103'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 105
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x85) and lower Phys. Atk. by 15% (turns: 2/stacks with “Glimmered” skill change).'
+  - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
+  upgrades:
+  - 'Lv.99: SP Saver: 105→84'
+  notes: 'Deal Phys. Staff damage to Single Foe 4 time(s) (potency: 4x85), raise the limit of Phys. Def. reductions from battle skills on All Foes to 50% and lower their Phys. Def. by 30% (turns: 4). Ignores Phys. Def. and Elem. Def. augments and damage reductions.'
+- skill_category: active
+  unlock_tier: 5★
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 260) and absorb 10% of damage dealt as HP and 1% of damage dealt as SP.'
+  - Ignores effects that completely dodge or block attacks.
+  upgrades:
+  - 'Lv.100: SP Saver: 97→78'
+- skill_category: tp
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x85).'
+  - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
+  upgrades:
+  - 'Lv.2: Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x95). When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.'
+  notes: 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x85). Ignores effects that completely dodge or block attacks. When consuming 3 BP or more: Reactivate this skill.'
+- skill_category: active
+  name: 3x95
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - ).
+  - Ignores effects that completely dodge or block attacks.
+  - Damage Limit of this skill is increased by 500,000.
+  - 'When consuming 3 BP or more: Reactivate this skill.'
+  - 'When consuming 5 BP: Potency is increased by 1.5x.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 6x
+  power: 6x25
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Sword damage to All Foes 6 time(s) (potency: 6x25).'
+  - Lower Shield Points even when not striking weak points and lower 1 additional Shield Point.
+  - 'Also restore own SP (amount: 100% of max SP).'
+  notes: 'Usage Condition: When there’s no broken enemy; Uses: 2'
+  ex_trigger: When there’s no broken enemy
+- skill_category: special
+  name: Disturbing Snow, Moon and Flowers
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 6x
+  power: 6x130→6x160→6x200
+  effects:
+  - 'Raise the critical damage multiplier of Self (1.25→1.5) (turns: 3) and deal Phys. Sword damage to Single Foe 6 time(s) (potency: 6x130→6x160→6x200).'
+  - Exploits Fire, Lightning and Light weaknesses (damage calculation based on Phys. Sword attack).
+  - Guaranteed critical hits.
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  - 'Also raise BP recovery of Self by 5 (turns: 3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge: Damage Limit of this Ultimate Technique is increased by 300,000 instead.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). Enhance Boost Levels to Boost Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively. When consuming 3+ BP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5)."
-    trigger: always
-  - passive_category: innate
-    effect: "With 3 or more alive allies in front row: Raise BP recovery of Self by 1, raise Phys. Def. and Elem. Def. of Entire Front Row by 20% and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type). Also grant Entire Front Row automatic HP recovery (potency: 50) and automatic SP recovery (amount: 2% of target’s max SP)."
-    trigger: always
-  - passive_category: innate
-    effect: "Augment Self based on number of alive allies in party. ·5+: Grant Self 50% chance of dodging some attacks. ·6+: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·7+: Raise potency of Self by 50% (Does not stack with effects of the same type). ·8: Raise Damage Limit of Self by 100,000."
-    trigger: always
-    limit_break_upgrade: "Augment Self based on number of alive allies in party. ·**4+**: Grant Self 50% chance of dodging some attacks. ·**5+**: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·**6+**: Raise potency of Self by **100%** (Does not stack with effects of the same type). ·**7+**: Raise Damage Limit of Self by **400,000**."
-  - passive_category: innate
-    effect: "Raise own Phys. Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies."
-    trigger: always
-  - passive_category: tp
-    effect: "At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP) and grant them automatic HP recovery (potency: 50, turns: 1). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Emperor’s Inspiration
+  effect: 'Gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). Enhance Boost Levels to Boost Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively. When consuming 3+ BP: Grant Self Dead Aim (guaranteed critical hits) and raise the critical damage multiplier (1.25→1.5).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'With 3 or more alive allies in front row: Raise BP recovery of Self by 1, raise Phys. Def. and Elem. Def. of Entire Front Row by 20% and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type). Also grant Entire Front Row automatic HP recovery (potency: 50) and automatic SP recovery (amount: 2% of target’s max SP).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'Augment Self based on number of alive allies in party. ·5+: Grant Self 50% chance of dodging some attacks. ·6+: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·7+: Raise potency of Self by 50% (Does not stack with effects of the same type). ·8: Raise Damage Limit of Self by 100,000.'
+  trigger: always
+  limit_break_upgrade: 'Augment Self based on number of alive allies in party. ·4+: Grant Self 50% chance of dodging some attacks. ·5+: Raise the limits of Phys. Atk. and Sword, Axe and Staff damage augments from battle skills of Self to 50%. ·6+: Raise potency of Self by 100% (Does not stack with effects of the same type). ·7+: Raise Damage Limit of Self by 400,000.'
+- passive_category: innate
+  name: Physical Resilience
+  effect: Raise own Phys. Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience II
+  effect: Raise own Fire Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: At the end of turn: If Self has 2+ “Glimmered skills”, grant Entire Front Row automatic revival once per battle (recovery amount: 100% of max HP) and grant them automatic HP recovery (potency: 50, turns: 1). Triggers immediately if incapacitated (count does not increase when stacked). *Cannot be granted to incapacitated allies.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Golden Empire Crest”"
-  passive_effect: "200 P.Atk, -100 E.Atk, 500 HP, 40 SP; When consuming 3 BP or more, raise BP recovery by 2 (turns: 1).; Start of battle: Recover 5 BP"
+  name: Golden Empire Crest
+  passive_effect: '200 P.Atk, -100 E.Atk, 500 HP, 40 SP; When consuming 3 BP or more, raise BP recovery by 2 (turns: 1).; Start of battle: Recover 5 BP'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Cast countdown on Self (count
+  description: '1). Once the countdown ends, raise the limits of Sword, Axe and Staff Res. reductions from battle skills on All Foes to 50% and lower their Sword, Axe and Staff Res. by 30% (turns: 5). Afterwards, deal Phys. Staff damage to All Foes (potency: 290-875 based on Boost Lv.).'
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
-data_confidence: incomplete
-data_source: "Community spreadsheet CSV export"
-last_updated: '2026-05-31'
+data_confidence: complete
+data_source: "Kit: Notion Character Index export. Roles/notes: NiaDB https://meowdb.com/db/octopath-traveler-cotc/characters/final-emperor"
+last_updated: '2026-10-31'

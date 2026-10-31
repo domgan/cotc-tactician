@@ -51,131 +51,193 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Resentment (Single)"
-    sp_cost: 59
-    skill_type: attack
-    damage_types: [dark, light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Malice (All) II"
-    sp_cost: 59
-    skill_type: attack
-    damage_types: [dark, light]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Serenity"
-    sp_cost: 74
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Serenity (1★)** Grant Single Ally automatic SP recovery (amount: 10% of target’s max SP) and raise Elem"
-  - skill_category: active
-    name: "Umbral Benediction"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [dark, light]
-    target: front_row
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Dark damage to All Foes 2 time(s) (potency: 2x80) and restore HP of Entire Front Row (potency: 90)"
-  - skill_category: active
-    name: "Seal of Bloodlust"
-    sp_cost: 57
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Seal of Bloodlust (2★)** Raise Elem"
-  - skill_category: active
-    name: "Animus"
-    sp_cost: 76
-    skill_type: mixed
-    damage_types: [dark, light]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Dark damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to lower Elem"
-  - skill_category: active
-    name: "Price of Power"
-    sp_cost: 51
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "**Price of Power (4★)** Raise potency of Single Ally by 100% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type) and their Damage Limit by 30,000 (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Malevolence (All) IV"
-    sp_cost: 123
-    skill_type: attack
-    damage_types: [dark, light]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Malignity (Single) V"
-    sp_cost: 71
-    skill_type: attack
-    damage_types: [dark, light]
-    target: single_enemy
-    power: "290"
-  - skill_category: tp
-    name: "Odium (All) III"
-    sp_cost: 81
-    skill_type: mixed
-    damage_types: [dark, light]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Dark damage to All Foes 3 time(s) (potency: 3x80) and lower their Elem"
-  - skill_category: special
-    name: "Consumating Rancor"
-    skill_type: mixed
-    damage_types: [dark, light]
-    target: aoe
-    hit_count: "2x"
-    power: "2→3"
-    effects:
-      - "lower their Elem"
+- skill_category: active
+  name: Resentment (Single)
+  sp_cost: 59
+  skill_type: utility
+  damage_types:
+  - dark
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 2 time(s) (potency: 2x75) and mark them with Rancor (turns: 2).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+- skill_category: active
+  name: Malice (All) II
+  sp_cost: 59
+  skill_type: utility
+  damage_types:
+  - dark
+  - light
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150) and have a moderate chance to mark them with Rancor.'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+- skill_category: active
+  name: Serenity
+  unlock_tier: 1★
+  sp_cost: 74
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Grant Single Ally automatic SP recovery (amount: 10% of target’s max SP) and raise Elem. Atk. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Umbral Benediction
+  unlock_tier: 2★
+  sp_cost: 54
+  skill_type: heal
+  damage_types:
+  - dark
+  - light
+  target: front_row
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x80) and restore HP of Entire Front Row (potency: 90).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+- skill_category: active
+  name: Seal of Bloodlust
+  unlock_tier: 2★
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk. of Entire Front Row by 15% and their Elem. damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Animus
+  unlock_tier: 3★
+  sp_cost: 76
+  skill_type: debuff
+  damage_types:
+  - dark
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to lower Elem. Res. by 15% with every attack (turns: 2).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  name: Price of Power
+  unlock_tier: 4★
+  sp_cost: 51
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise potency of Single Ally by 100% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type) and their Damage Limit by 30,000 (turns: 2-5 based on Boost Lv.), but increase their SP consumption by 100% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 51→41'
+- skill_category: active
+  name: Malevolence (All) IV
+  unlock_tier: 5★
+  sp_cost: 123
+  skill_type: utility
+  damage_types:
+  - dark
+  - light
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x95) and mark them with Rancor (turns: 2).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 123→98'
+- skill_category: active
+  name: Malignity (Single) V
+  unlock_tier: 5★
+  sp_cost: 71
+  skill_type: utility
+  damage_types:
+  - dark
+  - light
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 290).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+  - Potency increases by 1.5x if an enemy with Rancor is present.
+  upgrades:
+  - 'Lv.100: SP Saver: 71→57'
+- skill_category: tp
+  name: Odium (All) III
+  sp_cost: 81
+  skill_type: debuff
+  damage_types:
+  - dark
+  - light
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x80) and lower their Elem. Def. by 15% (turns: 2).'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+- skill_category: special
+  name: Consumating Rancor
+  skill_type: debuff
+  damage_types:
+  - dark
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x195→2x225→2x280
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x195→2x225→2x280), lower their Elem. Def. and Dark Res. by 5%→10%→15% (turns: 2→3), mark them with Rancor (turns: 6→7/ignores target’s immunity to status ailments) and advance the reuse of Latent Power: Last Rites by 3 turns.'
+  - Exploits Light weakness (damage calculation based on Elem. Dark attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Elem. Dark attacks reduce 1 additional Shield Point when exploiting weaknesses if an enemy with Rancor is present (does not stack with effects of the same type) and advance the reuse of Latent Power: Last Rites by 1 turn when exploiting weaknesses with battle skills. *Only triggers once even if exploiting multiple weaknesses at a time."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Dark damage of Self by 30% when a broken enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Dark damage of Self by 30% and Damage Limit by 70,000 when a broken enemy is present."
-  - passive_category: innate
-    effect: "When an enemy with Rancor is present: Add 20% of Osvald EX’s E.DEf attribute to the E.Atk of Entire Front Row (including equipment stats/the maximum value for each attribute takes effect)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, gain Last Rites (turns: 1). Last Rites: Skill configuration changes to the following."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to All Foes (potency: 630). Exploits Light weakness (damage calculation based on Elem. Dark attack). Damage Limit of this skill is increased by 200,000. Potency increases by 1.5x if an enemy with Rancor is present. At Max Boost: In the next turn after use, activate the skill again before some allies act (does not consume SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: In Pursuit of Arcanum
+  effect: 'Elem. Dark attacks reduce 1 additional Shield Point when exploiting weaknesses if an enemy with Rancor is present (does not stack with effects of the same type) and advance the reuse of Latent Power: Last Rites by 1 turn when exploiting weaknesses with battle skills. *Only triggers once even if exploiting multiple weaknesses at a time.'
+  trigger: always
+- passive_category: innate
+  name: In Pursuit of Revenge
+  unlock_tier: 1★
+  effect: Raise Dark damage of Self by 30% when a broken enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Dark damage of Self by 30% and Damage Limit by 70,000 when a broken enemy is present.
+- passive_category: innate
+  name: Transmutation
+  unlock_tier: 3★
+  effect: 'When an enemy with Rancor is present: Add 20% of Osvald EX’s E.DEf attribute to the E.Atk of Entire Front Row (including equipment stats/the maximum value for each attribute takes effect).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Last Rites'
+  effect: 'Upon activation, gain Last Rites (turns: 1). Last Rites: Skill configuration changes to the following.'
+  trigger: always
+  notes: 'Preparation Turns: 6; Reuse Turns: 12'
+- passive_category: innate
+  name: Last Rites (All)
+  effect: 'Deal Elem. Dark damage to All Foes (potency: 630). Exploits Light weakness (damage calculation based on Elem. Dark attack). Damage Limit of this skill is increased by 200,000. Potency increases by 1.5x if an enemy with Rancor is present. At Max Boost: In the next turn after use, activate the skill again before some allies act (does not consume SP).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Arcanist’s Mask"
-  passive_effect: "-60 P.Atk, 100 E.Atk, 60 E.Def, 40 SP; Raise Elem. Atk. by 15% and gain the ability to trigger critical hits with elemental attacks; At full HP: Gain Dead Aim (guaranteed critical hits)"
+  name: Arcanist’s Mask
+  passive_effect: '-60 P.Atk, 100 E.Atk, 60 E.Def, 40 SP; Raise Elem. Atk. by 15% and gain the ability to trigger critical hits with elemental attacks; At full HP: Gain Dead Aim (guaranteed critical hits)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rancor
+  description: Receive some attacks at 10% increased potency (does not stack with effects of the same type).
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

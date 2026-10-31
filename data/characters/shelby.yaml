@@ -51,119 +51,149 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Brain Bash"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Emergency First Aid"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    power: "155"
-    effects:
-      - "**Emergency First Aid** Restore HP of Single Ally (potency: 155)"
-  - skill_category: active
-    name: "Acupuncture"
-    sp_cost: 5
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Acupuncture** **(1★)** Cure paralysis of Single Ally and grant immunity to paralysis during a Boost"
-  - skill_category: active
-    name: "Rime"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Repeated Cleave"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Fortify"
-    sp_cost: 5
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Fortify (3★)** Cure weakness of Single Ally and grant immunity to weakness during a Boost"
-  - skill_category: active
-    name: "Fortify"
-    sp_cost: 5
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Fortify (5★)** Cure weakness of Single Ally and grant immunity to weakness during a Boost"
-  - skill_category: active
-    name: "Trifold Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-  - skill_category: active
-    name: "Trifold Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-  - skill_category: tp
-    name: "Angel’s Breath"
-    sp_cost: 40
-    skill_type: heal
-    target: back_row
-    effects:
-      - "**Angel’s Breath ** Restore SP of Single Ally (excluding Self) (amount: 20)"
-  - skill_category: ex
-    name: "Hearty Encouragement"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "restore Ultimate Technique use count of Self by 1 and fill the gauge by 50%"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Quadricleave"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
+- skill_category: active
+  name: Brain Bash
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Emergency First Aid
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  power: '155'
+  effects:
+  - 'Restore HP of Single Ally (potency: 155).'
+- skill_category: active
+  name: Acupuncture
+  sp_cost: 5
+  skill_type: heal
+  target: single_ally
+  effects:
+  - (1★) Cure paralysis of Single Ally and grant immunity to paralysis during a Boost.
+- skill_category: active
+  name: Rime
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Repeated Cleave
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x85).'
+- skill_category: active
+  name: Fortify
+  unlock_tier: 3★
+  sp_cost: 5
+  skill_type: heal
+  target: single_ally
+  effects:
+  - Cure weakness of Single Ally and grant immunity to weakness during a Boost.
+  upgrades:
+  - 'Lv.72: Duration Up: 0-3 turns→1-4 turns'
+  - 'Upgraded: Cure weakness of Single Ally and grant immunity to weakness during a Boost.'
+- skill_category: active
+  name: Trifold Cleave
+  unlock_tier: 4★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  effects:
+  - Deal Phys. Axe damage to Single Foe 3 time(s) (3x60).
+  upgrades:
+  - 'Lv.80: SP Saver: 38→30'
+  - 'Upgraded: Deal Phys. Axe damage to Single Foe 3 time(s) (3x80).'
+- skill_category: tp
+  name: Angel’s Breath
+  sp_cost: 40
+  skill_type: heal
+  target: back_row
+  effects:
+  - 'Restore SP of Single Ally (excluding Self) (amount: 20).'
+  - Afterwards, move to the back row (action does not count as switching).
+- skill_category: ex
+  name: Hearty Encouragement
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  - Afterwards, restore Ultimate Technique use count of Self by 1 and fill the gauge by 50%.
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 3'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Quadricleave
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 4x
+  power: 4x110→4x130→4x160
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 4 time(s) (potency: 4x110→4x130→4x160).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** While in back row: Raise some status ailments Res. of front row by 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Grant Self automatic HP recovery (potency: 110)."
-    trigger: always
-  - passive_category: innate
-    effect: "**(6★)** Grant Self automatic HP recovery (potency: 110) and raise Axe damage of Paired Allies by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 100)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Rearguard Ailment Res. Boost (Front/Single)
+  effect: '(1★) While in back row: Raise some status ailments Res. of front row by 50%.'
+  trigger: always
+- passive_category: innate
+  name: HP Restoration
+  effect: '(3★) Grant Self automatic HP recovery (potency: 110).'
+  trigger: always
+- passive_category: innate
+  name: Flowing Waters
+  effect: '(6★) Grant Self automatic HP recovery (potency: 110) and raise Axe damage of Paired Allies by 15%.'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  unlock_tier: 5★
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard HP Restoration (Front/Single)
+  effect: 'When in back row: Grant Front Row automatic HP recovery (potency: 100).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Pure White Apron"
-  passive_effect: "30 E.Def, 10 Spd, 30 SP; When in Back Row: Raise some status ailments Res. of Paired Ally by 50%"
+  name: Pure White Apron
+  passive_effect: '30 E.Def, 10 Spd, 30 SP; When in Back Row: Raise some status ailments Res. of Paired Ally by 50%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

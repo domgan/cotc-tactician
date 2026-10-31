@@ -6,6 +6,8 @@ All retrieved data is human-curated - the LLM does NOT participate in retrieval.
 """
 
 import logging
+import re
+from collections.abc import Iterator
 from pathlib import Path
 
 from .data_loader import DataLoader
@@ -30,6 +32,58 @@ def _normalize_role(value: str) -> Role | None:
 def _character_covers_weakness(character: Character, weakness: str) -> bool:
     target = _normalize_weakness(weakness)
     return any(_normalize_weakness(w) == target for w in character.weakness_coverage)
+
+
+def tier_score(character: Character) -> float:
+    """Numeric community score from jp_tier (e.g. 'S+ | 9.9' -> 9.9); 0 when unrated."""
+    match = re.search(r"\d+(?:\.\d+)?", (character.jp_tier or "").split("|")[-1])
+    return float(match.group()) if match else 0.0
+
+
+def strength_sort_key(character: Character) -> tuple[float, str]:
+    """Sort key: highest JP tier score first, then name."""
+    return (-tier_score(character), character.display_name)
+
+
+def _compile_term(term: str) -> re.Pattern[str]:
+    try:
+        return re.compile(term, re.IGNORECASE)
+    except re.error:
+        return re.compile(re.escape(term), re.IGNORECASE)
+
+
+def _kit_entries(character: Character) -> Iterator[dict]:
+    """Flatten a kit into searchable entries: identity fields + list of texts."""
+    for skill in character.skills:
+        yield _without_none(
+            {
+                "source": skill.skill_category.value,
+                "name": skill.name,
+                "unlock_tier": skill.unlock_tier,
+                "sp_cost": skill.sp_cost,
+                "texts": [*skill.effects, *skill.upgrades, skill.limit_break_upgrade],
+            }
+        )
+    for passive in character.passives:
+        yield _without_none(
+            {
+                "source": "passive",
+                "name": passive.name,
+                "unlock_tier": passive.unlock_tier,
+                "texts": [passive.effect, *passive.upgrades, passive.limit_break_upgrade],
+            }
+        )
+    if character.a4_accessory:
+        yield {
+            "source": "a4",
+            "name": character.a4_accessory.name,
+            "texts": [character.a4_accessory.passive_effect],
+        }
+
+
+def _without_none(entry: dict) -> dict:
+    entry["texts"] = [t for t in entry["texts"] if t]
+    return {k: v for k, v in entry.items() if v is not None}
 
 
 class RetrievalService:
@@ -62,32 +116,38 @@ class RetrievalService:
         self._teams_cache: dict[str, Team] = {}
 
         self._indexed = False
+        self._fingerprint: str | None = None
 
     def initialize(self, force_reindex: bool = False) -> dict[str, int]:
         """
-        Load data and index into vector store.
+        Load data and index into vector store; reload when data files changed.
+
+        Re-embeds only when the persisted index was built from different data,
+        so a long-running MCP server picks up YAML edits without a restart.
 
         Args:
-            force_reindex: If True, reindex even if already indexed.
+            force_reindex: If True, rebuild the index even if data is unchanged.
 
         Returns:
             Dictionary with counts of indexed entities.
         """
-        if self._indexed and not force_reindex:
+        fingerprint = self.data_loader.fingerprint()
+        if self._indexed and not force_reindex and fingerprint == self._fingerprint:
             return self.vector_store.get_collection_stats()
 
-        # Load all data
         characters, bosses, teams = self.data_loader.load_all()
-
-        # Build caches
         self._characters_cache = {c.id: c for c in characters}
         self._bosses_cache = {b.id: b for b in bosses}
         self._teams_cache = {t.id: t for t in teams}
 
-        # Index into vector store
-        stats = self.vector_store.index_all(characters, bosses, teams)
+        if force_reindex or self.vector_store.get_data_fingerprint() != fingerprint:
+            self.vector_store.clear_all()
+            self.vector_store.index_all(characters, bosses, teams)
+            self.vector_store.set_data_fingerprint(fingerprint)
 
+        self._fingerprint = fingerprint
         self._indexed = True
+        stats = self.vector_store.get_collection_stats()
         logger.info(f"Initialized retrieval service: {stats}")
         return stats
 
@@ -355,22 +415,29 @@ class RetrievalService:
         When character_ids is set (roster mode), only those characters are searched.
         No fallback to the global pool when roster mode yields zero matches.
         """
-        if not self._characters_cache:
-            self.initialize()
-
         target = _normalize_weakness(weakness)
-        if character_ids is not None:
-            pool = [
-                self._characters_cache[cid]
-                for cid in character_ids
-                if cid in self._characters_cache
-            ]
-        else:
-            pool = list(self._characters_cache.values())
-
-        matching = [char for char in pool if _character_covers_weakness(char, target)]
-        matching.sort(key=lambda c: c.display_name)
+        matching = [
+            char
+            for char in self.character_pool(character_ids)
+            if _character_covers_weakness(char, target)
+        ]
+        matching.sort(key=strength_sort_key)
         return matching[:limit]
+
+    def find_characters_by_weakness_any(
+        self,
+        weaknesses: set[str],
+        *,
+        character_ids: list[str] | None = None,
+    ) -> list[Character]:
+        """Characters covering at least one of the weaknesses, strongest first."""
+        matching = [
+            char
+            for char in self.character_pool(character_ids)
+            if any(_character_covers_weakness(char, w) for w in weaknesses)
+        ]
+        matching.sort(key=strength_sort_key)
+        return matching
 
     def find_characters_by_role_exact(
         self,
@@ -385,31 +452,66 @@ class RetrievalService:
         When character_ids is set (roster mode), only those characters are searched.
         No fallback to the global pool when roster mode yields zero matches.
         """
-        if not self._characters_cache:
-            self.initialize()
-
         target_role = _normalize_role(role)
         if target_role is None:
             return []
 
-        if character_ids is not None:
-            pool = [
-                self._characters_cache[cid]
-                for cid in character_ids
-                if cid in self._characters_cache
-            ]
-        else:
-            pool = list(self._characters_cache.values())
-
-        matching = [char for char in pool if target_role in char.roles]
-
-        def _sort_key(char: Character) -> tuple[int, str]:
-            tier = char.jp_tier or ""
-            s_rank = 0 if "S" in tier.upper() else 1
-            return (s_rank, char.display_name)
-
-        matching.sort(key=_sort_key)
+        matching = [
+            char for char in self.character_pool(character_ids) if target_role in char.roles
+        ]
+        matching.sort(key=strength_sort_key)
         return matching[:limit]
+
+    def character_pool(self, character_ids: list[str] | None = None) -> list[Character]:
+        """
+        Characters to search: the given IDs (roster mode) or the whole database.
+
+        Roster mode never falls back to the global pool when it yields no matches.
+        """
+        if not self._characters_cache:
+            self.initialize()
+        if character_ids is None:
+            return list(self._characters_cache.values())
+        return [
+            self._characters_cache[cid] for cid in character_ids if cid in self._characters_cache
+        ]
+
+    def search_kit_effects(
+        self,
+        terms: list[str],
+        *,
+        character_ids: list[str] | None = None,
+        sources: list[str] | None = None,
+        match_all: bool = False,
+    ) -> list[tuple[Character, list[dict]]]:
+        """
+        Exact search over kit text (skills, passives, EX, ultimate, A4 accessory).
+
+        Terms are case-insensitive regexes (invalid patterns match literally).
+        An entry matches when any term (or every term with match_all) hits its text.
+        Returns (character, matching entries) sorted strongest first.
+        """
+        patterns = [_compile_term(t) for t in terms if t.strip()]
+        if not patterns:
+            return []
+        wanted = {s.lower() for s in sources} if sources else None
+
+        results = []
+        for char in self.character_pool(character_ids):
+            matches = []
+            for entry in _kit_entries(char):
+                if wanted and entry["source"] not in wanted:
+                    continue
+                hit_texts = [t for t in entry.pop("texts") if any(p.search(t) for p in patterns)]
+                if not hit_texts:
+                    continue
+                if match_all and not all(any(p.search(t) for t in hit_texts) for p in patterns):
+                    continue
+                matches.append({**entry, "matched": hit_texts})
+            if matches:
+                results.append((char, matches))
+        results.sort(key=lambda item: strength_sort_key(item[0]))
+        return results
 
     # =========================================================================
     # TEAM RETRIEVAL

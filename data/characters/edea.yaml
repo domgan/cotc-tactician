@@ -53,124 +53,157 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Twofold Slash"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Fire (Single)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150/175/215/260"
-  - skill_category: active
-    name: "Protective Slash II"
-    sp_cost: 48
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120/2x135/2x155/2x210"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210) and impart Self with Phys"
-  - skill_category: active
-    name: "Desperate Resolve"
-    sp_cost: 22
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Desperate Resolve** **(2★)** Provoke All Foes and raise Phys"
-  - skill_category: active
-    name: "Triple Spirited Slash"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85/3x95/3x110/3x140"
-  - skill_category: active
-    name: "Fire (All)"
-    sp_cost: 40
-    skill_type: attack
-    target: aoe
-    hit_count: "2x"
-    power: "2x95/2x110/2x130/2x150"
-  - skill_category: active
-    name: "Miracle Blade"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230/260/300/400"
-    effects:
-      - "Sword damage to Single Foe (potency: 230/260/300/400) and restore own HP (potency: 180)"
-  - skill_category: active
-    name: "Heaven’s Gate"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    power: "2x150/3x120/4x105/5x120"
-  - skill_category: active
-    name: "Heaven’s Gate"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [light, sword]
-    target: random
-    power: "**3x150/4x120/5x105/6x120**"
-  - skill_category: tp
-    name: "Hack and Slice"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "Sword damage to Single Foe (potency: 260/290/340/450) and raise max HP of Self by 30% (turns: 2)"
-  - skill_category: special
-    name: "Evanescence"
-    skill_type: buff
-    target: self
-    power: "3→4"
-    effects:
-      - "Counter physical attacks (potency: 200, turns: **3→4**) and grant Self Phys"
+- skill_category: active
+  name: Twofold Slash
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+- skill_category: active
+  name: Fire (Single)
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+- skill_category: active
+  name: Stunning Strike
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: 150/175/215/260
+  effects:
+  - '(1★) Deal Phys. Sword damage to All Foes (potency: 150/175/215/260).'
+- skill_category: active
+  name: Protective Slash II
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120/2x135/2x155/2x210
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210) and impart Self with Phys. Def. Up 20% (turns: 2).'
+- skill_category: active
+  name: Desperate Resolve
+  sp_cost: 22
+  skill_type: utility
+  target: aoe
+  effects:
+  - '(2★) Provoke All Foes and raise Phys. Def. and Elem. Def. of Self by 15% (turns: 2/3/4/5).'
+- skill_category: active
+  name: Triple Spirited Slash
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85/3x95/3x110/3x140
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85/3x95/3x110/3x140).'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+- skill_category: active
+  name: Fire (All)
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  target: aoe
+  hit_count: 2x
+  power: 2x95/2x110/2x130/2x150
+  effects:
+  - 'Deal Elem. Sword damage to All Foes 2 time(s) (potency: 2x95/2x110/2x130/2x150).'
+  upgrades:
+  - 'Lv.96: SP Saver: 50→40'
+- skill_category: active
+  name: Miracle Blade
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 230/260/300/400
+  effects:
+  - '(5★) Deal Phys. Sword damage to Single Foe (potency: 230/260/300/400) and restore own HP (potency: 180).'
+  upgrades:
+  - 'Lv.99: SP Saver: 40→32'
+- skill_category: active
+  name: Heaven’s Gate
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  power: 2x150/3x120/4x105/5x120
+  effects:
+  - (5★) Deal Elem. Light damage to Random Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 2x150/3x120/4x105/5x120).'
+  upgrades:
+  - 'Lv.100: SP Saver: 52→42'
+  - 'Upgraded: (6★) Deal Elem. Light damage to Random Foe. Attack count rises based on Boost Lv. (potency: 3x150/4x120/5x105/6x120). Exploits Sword weakness (damage calculation based on Elem. Light attack).'
+- skill_category: tp
+  name: Hack and Slice
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 260/290/340/450
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260/290/340/450) and raise max HP of Self by 30% (turns: 2).'
+- skill_category: special
+  name: Evanescence
+  skill_type: buff
+  target: self
+  power: '200, turns: 3→4'
+  effects:
+  - 'Counter physical attacks (potency: 200, turns: 3→4) and grant Self Phys. Def. Up 10%→20%→30% and Elem. Def. Up 10%→20%→30% (turns: 3→4).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "25% chance to raise BP recovery by 1 when hit (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Raise damage of Self by 20% when exploiting enemy weakness."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Recover 3% of SP when taking damage from enemies."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Grant BP Recovery Boost When Damaged
+  unlock_tier: 1★
+  effect: '25% chance to raise BP recovery by 1 when hit (turns: 1).'
+  trigger: always
+- passive_category: innate
+  name: Where It Hurts III
+  effect: (3★) Raise damage of Self by 20% when exploiting enemy weakness.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: SP Recovery
+  effect: Recover 3% of SP when taking damage from enemies.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Airborne Knight’s Badge"
-  passive_effect: "40 P.Atk, 1000 HP; Raise Sword damage dealt by 15%; At full HP: Provoke all enemies"
+  name: Airborne Knight’s Badge
+  passive_effect: '40 P.Atk, 1000 HP; Raise Sword damage dealt by 15%; At full HP: Provoke all enemies'
 
 # Metadata
 data_confidence: incomplete

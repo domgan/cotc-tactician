@@ -69,132 +69,196 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Torment’s Draught"
-    sp_cost: 59
-    skill_type: attack
-    damage_types: [dark, fire]
-    target: aoe
-    hit_count: "5x"
-    power: "5x35"
-  - skill_category: active
-    name: "Hollow Delusion"
-    sp_cost: 64
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Hollow Delusion** Impart Self with Elem"
-      - "Up 30% and raise Dark damage by 30% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Despair’s Blessing"
-    sp_cost: 50
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "but lower their max HP by 30% (turns: 6)"
-  - skill_category: active
-    name: "Searing Madness"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [dark, fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower their Dark Res"
-  - skill_category: active
-    name: "Fetters of Despair"
-    sp_cost: 84
-    skill_type: mixed
-    target: all_allies
-    power: "65-155 based on Boost Lv."
-    effects:
-      - "[84 SP] ·With 80% HP or less: Raise Phys"
-      - "·With 50% HP or less: Also raise damage by 15%"
-      - "restore HP (potency: 65-155 based on Boost Lv.) and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Twilight Abyss"
-    sp_cost: 57
-    skill_type: attack
-    damage_types: [dark, fire]
-    target: aoe
-    power: "180"
-    limit_break_upgrade: "Deal Elem. Dark damage to All Foes (potency: 180). Exploits Fire weakness (damage calculation based on Elem. Dark attack). Moderate chance to inflict paralysis, poison, bleeding and blindness (turns: 2)."
-  - skill_category: active
-    name: "Wave of Torment"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [dark, fire]
-    target: single_enemy
-    power: "530"
-  - skill_category: active
-    name: "Expunge"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [dark, fire]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x65"
-    effects:
-      - "Dark damage to Single Foe 5 time(s) (potency: 5x65) and restore HP of All Allies (amount: 15% of damage dealt)"
-  - skill_category: active
-    name: "Prayers of Despair"
-    sp_cost: 150
-    skill_type: heal
-    target: all_allies
-    effects:
-      - "**Prayers of Despair (5★)** Restore HP of All Allies (amount: 10% of max HP) and revive target if incapacitated (recovery amount: 10% of max HP)"
-  - skill_category: tp
-    name: "Glimpse of Madness"
-    sp_cost: 49
-    skill_type: attack
-    damage_types: [dark, fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: ex
-    name: "Absolute Condemnation"
-    skill_type: mixed
-    damage_types: [dark, fire]
-    target: single_enemy
-    power: "35"
-    effects:
-      - "**Absolute Condemnation** Restore SP of Self (amount: 100% of max SP)"
-      - "lower Sword"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Saint Alethea"
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "lower their Phys"
-      - "paralysis and blindness (turns: 2) and restore own SP (amount: 100% of max SP)"
+- skill_category: active
+  name: Torment’s Draught
+  sp_cost: 59
+  skill_type: utility
+  damage_types:
+  - dark
+  - fire
+  target: aoe
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 5 time(s) (potency: 5x35).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - 'At Max Boost: Have a high chance to inflict poison, bleeding and paralysis (turns: 2/each ailment is calculated separately).'
+- skill_category: active
+  name: Hollow Delusion
+  sp_cost: 64
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Elem. Atk. Up 30% and raise Dark damage by 30% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Despair’s Blessing
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Revive a fallen ally (recovery amount: 25%-100% of max HP based on Boost Lv.), but lower their max HP by 30% (turns: 6).'
+- skill_category: active
+  name: Searing Madness
+  unlock_tier: 2★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - dark
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - 'Lower their Dark Res. by 15% with every attack (turns: 2).'
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: active
+  name: Fetters of Despair
+  unlock_tier: 2★
+  sp_cost: 84
+  skill_type: heal
+  target: all_allies
+  power: 65-155 based on Boost Lv.
+  effects:
+  - 'Delay actions during turn and augment All Allies based on their HP (turns: 2-5 based on Boost Lv.).'
+  - '·With 80% HP or less: Raise Phys. Atk. and Elem. Atk. by 15%.'
+  - '·With 50% HP or less: Also raise damage by 15%, restore HP (potency: 65-155 based on Boost Lv.) and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Twilight Abyss
+  unlock_tier: 3★
+  sp_cost: 57
+  skill_type: utility
+  damage_types:
+  - dark
+  - fire
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 180).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - 'Moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 57→46'
+  limit_break_upgrade: 'Deal Elem. Dark damage to All Foes (potency: 180). Exploits Fire weakness (damage calculation based on Elem. Dark attack). Moderate chance to inflict paralysis, poison, bleeding and blindness (turns: 2).'
+- skill_category: active
+  name: Wave of Torment
+  unlock_tier: 4★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - dark
+  - fire
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 530).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  upgrades:
+  - 'Lv.96: Potency Up: 530→630'
+- skill_category: active
+  name: Expunge
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: heal
+  damage_types:
+  - dark
+  - fire
+  target: single_enemy
+  hit_count: 5x
+  power: 5x65
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 5 time(s) (potency: 5x65) and restore HP of All Allies (amount: 15% of damage dealt).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - 'At Max Boost: Have a high chance to inflict poison, bleeding and paralysis (turns: 2/each ailment is calculated separately).'
+  upgrades:
+  - 'Lv.99: Potency Up: 5x65→5x85'
+- skill_category: active
+  name: Prayers of Despair
+  unlock_tier: 5★
+  sp_cost: 150
+  skill_type: heal
+  target: all_allies
+  effects:
+  - 'Restore HP of All Allies (amount: 10% of max HP) and revive target if incapacitated (recovery amount: 10% of max HP).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.100: SP Saver: 150→120'
+- skill_category: tp
+  name: Glimpse of Madness
+  sp_cost: 49
+  skill_type: utility
+  damage_types:
+  - dark
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x65) and have a moderate chance to inflict blindness with every attack (turns: 2).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: ex
+  name: Absolute Condemnation
+  skill_type: heal
+  damage_types:
+  - dark
+  - fire
+  target: single_enemy
+  power: '35'
+  effects:
+  - 'Restore SP of Self (amount: 100% of max SP), lower Sword, Fire and Dark Res. of Single Foe by 10% (turns: 3) and deal Elem. Dark damage to them (potency: 35).'
+  - Exploits Fire weakness (damage calculation based on Elem. Dark attack).
+  - Repeatedly consume 30 SP up to 9 times to attack as many additional times as SP is consumed.
+  notes: 'Usage Condition: When augmented by Desperophobia; Uses: 1'
+  ex_trigger: When augmented by Desperophobia
+- skill_category: special
+  name: Saint Alethea
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 440→525→655), lower their Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit and Speed by 5%→10%→15% (turns: 2), inflict poison, bleeding, paralysis and blindness (turns: 2) and restore own SP (amount: 100% of max SP).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Aawakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When SP is at 10% or more at the end of turn: Recover 1 BP, but consume 5% of max SP."
-    trigger: always
-  - passive_category: innate
-    effect: "When an enemy has 8+ statuses is present: Raise Sword, Fire and Dark damage of Entire Front Row by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an enemy with 8+ statuses is present: Lower Sword, Fire and Dark Res. of All Foes by 10%. When an enemy with 12+ statuses is present: Lower their Sword, Fire and Dark Res. of All Foes by 15% instead."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Ebony Curse
+  unlock_tier: 1★
+  effect: 'When SP is at 10% or more at the end of turn: Recover 1 BP, but consume 5% of max SP.'
+  trigger: always
+- passive_category: innate
+  name: Desperophobia
+  unlock_tier: 3★
+  effect: 'When an enemy has 8+ statuses is present: Raise Sword, Fire and Dark damage of Entire Front Row by 15%.'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rolling Disdain
+  effect: 'When an enemy with 8+ statuses is present: Lower Sword, Fire and Dark Res. of All Foes by 10%. When an enemy with 12+ statuses is present: Lower their Sword, Fire and Dark Res. of All Foes by 15% instead.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Crux of Despair"
-  passive_effect: "110 E.Atk, 30 SP; Raise Elem. damage by 15%; Grant automatic SP recovery (amount: 40); With **50%** HP or less: Raise Phys. Atk. and Elem. Atk. by 15%.; With **20%** HP or less: Also raise damage by 15%, restore HP (potency: 65-155 based on Boost Lv.) ~~and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.)~~.; **70** E.Atk, **70** SP; Raise Elem. damage by 15%~~; Grant automatic SP recovery (amount: 40)"
+  name: Crux of Despair
+  passive_effect: '110 E.Atk, 30 SP; Raise Elem. damage by 15%; Grant automatic SP recovery (amount: 40); With **50%** HP or less: Raise Phys. Atk. and Elem. Atk. by 15%.; With **20%** HP or less: Also raise damage by 15%, restore HP (potency: 65-155 based on Boost Lv.) ~~and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.)~~.; **70** E.Atk, **70** SP; Raise Elem. damage by 15%~~; Grant automatic SP recovery (amount: 40)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

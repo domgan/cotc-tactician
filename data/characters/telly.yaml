@@ -51,106 +51,127 @@ jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Heal Wounds (Single)"
-    sp_cost: 12
-    skill_type: heal
-    target: single_ally
-    power: "90"
-    effects:
-      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 90)"
-  - skill_category: active
-    name: "Icewind (Single)"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Icewind (All)"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "110"
-  - skill_category: active
-    name: "Sheltering Veil"
-    sp_cost: 6
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Sheltering Veil (2★)**: Impart Single Ally with Elem"
-  - skill_category: active
-    name: "Heal More (Single)"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    power: "150"
-    effects:
-      - "**Heal More (Single) (2★)** Restore HP of Single Ally (potency: 150)"
-  - skill_category: active
-    name: "Blizzard (Single) II"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Blizzard (Single) II"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x110**"
-  - skill_category: tp
-    name: "Divine Ethereal Healing (All) III"
-    sp_cost: 59
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Divine Ethereal Healing (All) III ** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: ex
-    name: "Preservation"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "**Preservation** Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Telly’s Prayer"
-    skill_type: heal
-    target: single_ally
-    power: "250→300→350"
-    effects:
-      - "Restore HP of Single Ally (potency: **250→300→350**) and impart Elem"
+- skill_category: active
+  name: Heal Wounds (Single)
+  sp_cost: 12
+  skill_type: heal
+  target: single_ally
+  power: '90'
+  effects:
+  - 'Restore HP of Single Ally (potency: 90).'
+- skill_category: active
+  name: Icewind (Single)
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Icewind (All)
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '110'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 110).'
+- skill_category: active
+  name: Sheltering Veil
+  unlock_tier: 2★
+  sp_cost: 6
+  skill_type: buff
+  target: single_ally
+  effects:
+  - ': Impart Single Ally with Elem. Def. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Heal More (Single)
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  power: '150'
+  effects:
+  - 'Restore HP of Single Ally (potency: 150).'
+- skill_category: active
+  name: Blizzard (Single) II
+  unlock_tier: 3★
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x80).'
+  upgrades:
+  - 'Lv.60: SP Saver: 28→22'
+  - 'Upgraded: Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x110).'
+- skill_category: tp
+  name: Divine Ethereal Healing (All) III
+  sp_cost: 59
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+  - 'Each ally has a 20% chance to receive automatic HP recovery (potency: 80) and SP recovery (amount: 5% of max SP) (turns: 2).'
+- skill_category: ex
+  name: Preservation
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Grant an ally automatic revival (recovery amount: 25%-100% of max HP based on Boost Lv.).'
+  - Triggers immediately if incapacitated (count does not increase when stacked).
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 2'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Telly’s Prayer
+  skill_type: heal
+  target: single_ally
+  power: 250→300→350
+  effects:
+  - 'Restore HP of Single Ally (potency: 250→300→350) and impart Elem. Def. Up 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "End of battle: Exp Bonus 10% to Paired Allies."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Raise Fire Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Fire Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Grant Paired Ally automatic SP recovery (amount: 10)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: More Experience (Joint)
+  unlock_tier: 1★
+  effect: 'End of battle: Exp Bonus 10% to Paired Allies.'
+  trigger: always
+- passive_category: innate
+  name: Initial Fire Res Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Fire Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Fire Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Fire Resilience III
+  unlock_tier: 5★
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  unlock_tier: 4★
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard SP Restoration (Front/Single)
+  effect: 'When in back row: Grant Paired Ally automatic SP recovery (amount: 10).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Anthology of Church Ghost Tales"
-  passive_effect: "20 E.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Telly: Raise Elem. Atk. and Ice damage of Paired Allies by 10%"
+  name: Anthology of Church Ghost Tales
+  passive_effect: '20 E.Atk, 20 SP; Grant Paired Allies automatic SP recovery (amount: 8); When equipped by Telly: Raise Elem. Atk. and Ice damage of Paired Allies by 10%'
 
 # Metadata
 data_confidence: incomplete

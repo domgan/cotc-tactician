@@ -70,123 +70,173 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Cleave in Two"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Compelling Stance"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Compelling Stance** Impart Self with Phys"
-  - skill_category: active
-    name: "Mass Rejuvenate"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "120, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Mass Rejuvenate (1★)** Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Declare"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Sear"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Sage Potion III"
-    sp_cost: 48
-    skill_type: heal
-    target: single_ally
-    power: "230"
-    effects:
-      - "**Sage Potion III (3★)** Restore HP of Single Ally (potency: 230) and cure some status ailments"
-  - skill_category: active
-    name: "Greater Mass Rejuvenate"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    power: "150, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Greater Mass Rejuvenate (4★)** Grant automatic HP recovery to Entire Front Row (potency: 150, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Rebut"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Rebut (5★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Refute"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [axe, fire]
-    target: single_enemy
-    power: "120"
-    limit_break_upgrade: "Deal Phys. Axe damage (potency: **180**) and Elem. Fire damage (potency: **180**) to Single Foe. **100%** more potent if target is bleeding."
-  - skill_category: tp
-    name: "Admonition"
-    sp_cost: 85
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: ex
-    name: "Reproach"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x35"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Requiem"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "500→600"
+- skill_category: active
+  name: Cleave in Two
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Compelling Stance
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Mass Rejuvenate
+  unlock_tier: 1★
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '120, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Declare
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a moderate chance to inflict bleeding with every attack (turns: 2).'
+- skill_category: active
+  name: Sear
+  unlock_tier: 2★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Sage Potion III
+  unlock_tier: 3★
+  sp_cost: 48
+  skill_type: heal
+  target: single_ally
+  power: '230'
+  effects:
+  - 'Restore HP of Single Ally (potency: 230) and cure some status ailments.'
+  upgrades:
+  - 'Lv.88: SP Saver: 48→38'
+- skill_category: active
+  name: Greater Mass Rejuvenate
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  power: '150, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant automatic HP recovery to Entire Front Row (potency: 150, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 40→32'
+- skill_category: active
+  name: Rebut
+  unlock_tier: 5★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 4x
+  power: 4x45
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Axe damage to Random Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.99: SP Saver: 62→50'
+- skill_category: active
+  name: Refute
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: heal
+  damage_types:
+  - axe
+  - fire
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Axe damage (potency: 120) and Elem. Fire damage (potency: 120) to Single Foe.'
+  - 50% more potent if target is bleeding, but cures that ailment.
+  upgrades:
+  - 'Lv.100: Potency Up: 120→160, 120→160'
+  limit_break_upgrade: 'Deal Phys. Axe damage (potency: 180) and Elem. Fire damage (potency: 180) to Single Foe. 100% more potent if target is bleeding.'
+- skill_category: tp
+  name: Admonition
+  sp_cost: 85
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 4 time(s) (potency: 4x45) and have a high chance to inflict bleeding with every attack (turns: 2).'
+- skill_category: ex
+  name: Reproach
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 5 time(s) (potency: 5x35).'
+  notes: 'Usage Condition: After turn 4; Uses: 3'
+  ex_trigger: After turn 4
+- skill_category: special
+  name: Requiem
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 500→600
+  effects:
+  - 'Moderate chance to inflict bleeding to Single Foe (turns: 2) and deal Phys. Axe damage (potency: 500→600).'
+  - 20% more potent if target is bleeding.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At full HP: Raise Axe damage of Entire Front Row by 15%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "When breaking an enemy, impart Phys. Def. Down 20% (turns: 2) and impart Self with Phys. Atk. Up 20% (turns: 2)."
-    trigger: on_break
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise potency of damaging skills by 30% when bleeding enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Axe Atk Boost (Front/All) II
+  unlock_tier: 1★
+  effect: 'At full HP: Raise Axe damage of Entire Front Row by 15%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Pressure
+  unlock_tier: 3★
+  effect: 'When breaking an enemy, impart Phys. Def. Down 20% (turns: 2) and impart Self with Phys. Atk. Up 20% (turns: 2).'
+  trigger: on_break
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Blood Tide
+  effect: Raise potency of damaging skills by 30% when bleeding enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Compelling Spirit"
-  passive_effect: "70 P.Atk, 70 E.Atk; Raise Axe damage dealt by 15%; When breaking an enemy, have a high chance to inflict bleeding (turns: 3)"
+  name: Compelling Spirit
+  passive_effect: '70 P.Atk, 70 E.Atk; Raise Axe damage dealt by 15%; When breaking an enemy, have a high chance to inflict bleeding (turns: 3)'
 
 # Metadata
 data_confidence: verified

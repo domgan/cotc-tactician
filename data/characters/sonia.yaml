@@ -52,129 +52,193 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Numbing Stab"
-    sp_cost: 13
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "100"
-  - skill_category: active
-    name: "Twin Windwave"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x55"
-  - skill_category: active
-    name: "Anti-Attack II"
-    sp_cost: 35
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Anti-Attack II (1★)** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Twofold Break"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x55"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "White Grapes"
-    sp_cost: 40
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**White Grapes (2★)** Restore SP of Single Ally (amount: 10-40 based on Boost Lv.)"
-      - "also grant Dead Aim (guaranteed critical hits) (turns: 2)"
-  - skill_category: active
-    name: "Spike Dance"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x55"
-    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x55) and recover **2 BP**. Subsequently move to the back row (action does not count as switching)."
-  - skill_category: active
-    name: "Blustering Break"
-    sp_cost: 53
-    skill_type: mixed
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x55"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Storm Spike"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: random
-    hit_count: "3x"
-    power: "3x45"
-  - skill_category: active
-    name: "Self-Deception"
-    sp_cost: 41
-    skill_type: mixed
-    damage_types: [dagger, wind]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Lower Dagger Res"
-  - skill_category: tp
-    name: "Storm Flash"
-    sp_cost: 63
-    skill_type: mixed
-    damage_types: [dagger, wind]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: ex
-    name: "Gale Piercer"
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Gale Piercer** Lower Dagger Res"
-      - "Lower 3 Shield Points regardless of the weak points"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Funerary Flurry"
-    skill_type: mixed
-    damage_types: [dagger, wind]
-    target: single_enemy
-    effects:
-      - "Dagger damage to Single Foe (potency: **5x75→5x90→5x105**) and lower Dagger Res"
+- skill_category: active
+  name: Numbing Stab
+  sp_cost: 13
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '100'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 100) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: active
+  name: Twin Windwave
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x55
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x55).'
+- skill_category: active
+  name: Anti-Attack II
+  unlock_tier: 1★
+  sp_cost: 35
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Atk. Down 20% and Elem. Atk. Down 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Twofold Break
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x55).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: White Grapes
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Restore SP of Single Ally (amount: 10-40 based on Boost Lv.).'
+  - 'If target is a Thief, also grant Dead Aim (guaranteed critical hits) (turns: 2).'
+- skill_category: active
+  name: Spike Dance
+  unlock_tier: 3★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x55) and recover 1 BP.'
+  upgrades:
+  - 'Lv.88: SP Saver: 26→21'
+  limit_break_upgrade: 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x55) and recover 2 BP. Subsequently move to the back row (action does not count as switching).'
+- skill_category: active
+  name: Blustering Break
+  unlock_tier: 4★
+  sp_cost: 53
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x55
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x55).'
+  - Lower Shield Points even when not striking weak points.
+  - 'Attack count becomes 3 at Max Boost (potency: 3x80).'
+  upgrades:
+  - 'Lv.96: SP Saver: 53→42'
+- skill_category: active
+  name: Storm Spike
+  unlock_tier: 5★
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x45
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x45).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  - 'Attack count becomes 4 at Max Boost (potency: 4x65).'
+  upgrades:
+  - 'Lv.99: SP Saver 41→33'
+- skill_category: active
+  name: Self-Deception
+  unlock_tier: 5★
+  sp_cost: 41
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - wind
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  - 'Lower Dagger Res. by 10% (turns: 2)'
+  upgrades:
+  - 'Lv.100: Duration Up: 2 turns→3 turns'
+- skill_category: tp
+  name: Storm Flash
+  sp_cost: 63
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - wind
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  - 'Lower Phys. Atk. and Elem. Atk. by 10% (turns: 2) at Max Boost.'
+- skill_category: ex
+  name: Gale Piercer
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Dagger Res. and Wind Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  - Lower 3 Shield Points regardless of the weak points.
+  - However, this skill cannot break the target.
+  notes: 'Usage Condition: When there’s no broken enemy; Uses: 2'
+  ex_trigger: When there’s no broken enemy
+- skill_category: special
+  name: Funerary Flurry
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - wind
+  target: single_enemy
+  power: 5x75→5x90→5x105
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 5x75→5x90→5x105) and lower Dagger Res. by 5%→10%→15% (turns: 2).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When switching to back row: Restore SP of Entire Front Row (amount: 5% of max SP)."
-    trigger: always
-  - passive_category: innate
-    effect: "When switching to front row: Grant Self an effect that activates skills twice (turns: 1/cannot be extended/follow-up attack will not consume SP)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Dagger damage of Self by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: SP Restoration on Switch to Back (Front/All)
+  unlock_tier: 1★
+  effect: 'When switching to back row: Restore SP of Entire Front Row (amount: 5% of max SP).'
+  trigger: always
+- passive_category: innate
+  name: Swift Stance
+  unlock_tier: 3★
+  effect: 'When switching to front row: Grant Self an effect that activates skills twice (turns: 1/cannot be extended/follow-up attack will not consume SP).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Dagger Atk. Boost III
+  effect: Raise Dagger damage of Self by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "White Grape Perfume"
-  passive_effect: "100 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Dagger Res. by 10% (turns: 2)"
+  name: White Grape Perfume
+  passive_effect: '100 Spd, 40 SP; When unleashing some attacks, have a low chance to lower enemies’ Dagger Res. by 10% (turns: 2)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

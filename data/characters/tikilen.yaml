@@ -52,121 +52,172 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Squall"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Chained Windblade"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Wild Cut"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "55"
-  - skill_category: active
-    name: "Divine Speed"
-    sp_cost: 24
-    skill_type: buff
-    target: self
-    effects:
-      - "**Divine Speed** **(2★)** Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Howling Wind"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Twisting Tornado"
-    sp_cost: 40
-    skill_type: utility
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Refresh"
-    sp_cost: 23
-    skill_type: utility
-    target: single_enemy
-    power: "165"
-    effects:
-      - "**Refresh (2★)** Restore own HP (potency: 165)"
-  - skill_category: active
-    name: "Slicing Winds"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "4x"
-    power: "4x55"
-  - skill_category: tp
-    name: "Swift Blade Storm"
-    sp_cost: 73
-    skill_type: mixed
-    damage_types: [wind, sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Also lower Wind Res"
-  - skill_category: ex
-    name: "Hurricane Fury"
-    skill_type: mixed
-    damage_types: [wind, sword]
-    target: single_enemy
-    power: "290"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Storm God’s Brawl"
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "6x"
+- skill_category: active
+  name: Stunning Strike
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Squall
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Chained Windblade
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - '(1★) Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Wild Cut
+  unlock_tier: 2★
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: '55'
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 55).'
+- skill_category: active
+  name: Divine Speed
+  sp_cost: 24
+  skill_type: buff
+  target: self
+  effects:
+  - '(2★) Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Howling Wind
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '230'
+  effects:
+  - '(3★) Deal Elem. Wind damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.88: SP Saver: 34→27'
+- skill_category: active
+  name: Twisting Tornado
+  sp_cost: 40
+  skill_type: utility
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - '(4★) Deal Elem. Wind to Random Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 40→32'
+- skill_category: active
+  name: Refresh
+  unlock_tier: 2★
+  sp_cost: 23
+  skill_type: utility
+  target: single_enemy
+  power: '165'
+  effects:
+  - 'Restore own HP (potency: 165).'
+  upgrades:
+  - 'Lv.99: SP Saver: 23→18'
+- skill_category: active
+  name: Slicing Winds
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 4x
+  power: 4x55
+  effects:
+  - '(5★) Deal Elem. Wind damage to Random Foe 4 time(s) (potency: 4x55).'
+  upgrades:
+  - 'Lv.100: SP Saver: 44→35'
+- skill_category: tp
+  name: Swift Blade Storm
+  sp_cost: 73
+  skill_type: debuff
+  damage_types:
+  - wind
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Sword weakness (damage calculation based on Elem. Wind attack).
+  - 'Also lower Wind Res. by 15% (turns: 2).'
+- skill_category: ex
+  name: Hurricane Fury
+  skill_type: debuff
+  damage_types:
+  - wind
+  - sword
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 290).'
+  - Exploits Sword weakness (damage calculation based on Elem. Wind attack).
+  - 30% more potent if target’s Wind Res. is lowered.
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Storm God’s Brawl
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 6x
+  power: 4-6x85→4-6x100
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 4-6 time(s) (potency: 4-6x85→4-6x100).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Start of battle: Impart Self with Elem. Atk. Up 20% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Self with Elem. Atk. Up 20% and grant Self the ability to trigger critical hits with elemental attacks"
-  - passive_category: innate
-    effect: "**(3★)** Raise Wind damage of Self by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At 50% HP or less: Grant Self 50% chance of dodging some attacks."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Elem. Atk Boost III
+  effect: '(1★) Start of battle: Impart Self with Elem. Atk. Up 20% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Self with Elem. Atk. Up 20% and grant Self the ability to trigger critical hits with elemental attacks
+- passive_category: innate
+  name: Wind Augment III
+  effect: (3★) Raise Wind damage of Self by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: One Last Chance
+  effect: 'At 50% HP or less: Grant Self 50% chance of dodging some attacks.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Windslicer Bracers"
-  passive_effect: "40 P.Atk, 60 E.Atk, 40 Spd; Raise Wind damage dealt by 10%; When breaking an enemy, lower their Wind Res. by 20% (turns: 3); -100 P.Atk, 100 E.Atk; With Mercenary’s Barrette equipped: Raise own Elem. Atk. and Elem. Def. by 20% when a broken enemy is present."
+  name: Windslicer Bracers
+  passive_effect: '40 P.Atk, 60 E.Atk, 40 Spd; Raise Wind damage dealt by 10%; When breaking an enemy, lower their Wind Res. by 20% (turns: 3); -100 P.Atk, 100 E.Atk; With Mercenary’s Barrette equipped: Raise own Elem. Atk. and Elem. Def. by 20% when a broken enemy is present.'
 
 # Metadata
 data_confidence: incomplete

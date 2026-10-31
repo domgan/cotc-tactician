@@ -68,135 +68,181 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Scorch"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "120"
-  - skill_category: active
-    name: "Analyze (All)"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Dewarding Spice"
-    sp_cost: 1
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Dewarding Spice (1★)** Impart Single Foe with Elem"
-      - "Down 20% and lower Fire Res"
-  - skill_category: active
-    name: "Flame Shield"
-    sp_cost: 67
-    skill_type: mixed
-    damage_types: [fire]
-    target: self
-    power: "180, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Flame Shield (2★)** Impart Self with Elem"
-      - "Up 30% and raise Fire Res"
-  - skill_category: active
-    name: "Triple Beat"
-    sp_cost: 38
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Enchanting Spice"
-    sp_cost: 1
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "**Enchanting Spice (3★)** Impart Single Ally with Elem"
-      - "Up 20% and raise Fire damage by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Blazing Chains"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    power: "2x85"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Eruption"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Pillars of Fire"
-    sp_cost: 86
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: tp
-    name: "Pillars of Chaotic Fire"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [fire]
-    target: random
-    hit_count: "5x"
-    power: "5x35"
-  - skill_category: ex
-    name: "Flame Stream"
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "290"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Sunfall"
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "600→800→1000"
-    effects:
-      - "Raise the Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Scorch
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 120) and cause them to combust (turns: 2).'
+- skill_category: active
+  name: Analyze (All)
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - Show 1-4 weak point(s) based on Boost Lv. of All Foes.
+- skill_category: active
+  name: Dewarding Spice
+  unlock_tier: 1★
+  sp_cost: 1
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Elem. Def. Down 20% and lower Fire Res. by 20% (turns: 2-5 based on Boost Lv.).'
+  - '*Can be used 3 times per battle.'
+- skill_category: active
+  name: Flame Shield
+  unlock_tier: 2★
+  sp_cost: 67
+  skill_type: buff
+  damage_types:
+  - fire
+  target: self
+  power: '180, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Impart Self with Elem. Def. Up 30% and raise Fire Res. by 30% (turns: 3).'
+  - 'Counter physical attacks with Elem. Fire damage (potency: 180, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Triple Beat
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Enchanting Spice
+  unlock_tier: 3★
+  sp_cost: 1
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Elem. Atk. Up 20% and raise Fire damage by 20% (turns: 2-5 based on Boost Lv.).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.88: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: Blazing Chains
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  power: 2x85
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 2x85) and cause them to combust (turns: 3).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.96: SP Saver: 54→44'
+- skill_category: active
+  name: Eruption
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 260).'
+  - 50% more potent if target is combusted.
+  upgrades:
+  - 'Lv.99: SP Saver: 64→52'
+- skill_category: active
+  name: Pillars of Fire
+  unlock_tier: 5★
+  sp_cost: 86
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80) and cause them to combust (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 86→69'
+- skill_category: tp
+  name: Pillars of Chaotic Fire
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - fire
+  target: random
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 5 time(s) (potency: 5x35) and cause them to combust with every attack (turns: 2).'
+- skill_category: ex
+  name: Flame Stream
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 290) and recover 3 BP.'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Sunfall
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: 600→800→1000
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 600→800→1000).'
+  - Potency increased by 50% if the target is burning.
+  - 'After use, you will not gain BP at the start of the turn (turns: 2).'
+  - Raise the Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Fire damage of Self by 15% and extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise elemental damage of Entire Front Row by 15% and impart Elem. Atk. Up by 15% when a combusted enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise elemental damage and Elem. Atk. of Entire Front Row by 15% and lower Fire Res. of All Foes by 10% when a combusted enemy is present."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When breaking an enemy or broken enemy is present, own elemental battle skills activate twice. (Does not stack with effects of the same type/Additional activations do not consume SP)."
-    trigger: on_break
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Fire Master
+  unlock_tier: 1★
+  effect: Raise Fire damage of Self by 15% and extend duration of some status ailments inflicted by Self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Magic Ablaze
+  unlock_tier: 3★
+  effect: Raise elemental damage of Entire Front Row by 15% and impart Elem. Atk. Up by 15% when a combusted enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise elemental damage and Elem. Atk. of Entire Front Row by 15% and lower Fire Res. of All Foes by 10% when a combusted enemy is present.
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Break Repeated Aria
+  effect: When breaking an enemy or broken enemy is present, own elemental battle skills activate twice. (Does not stack with effects of the same type/Additional activations do not consume SP).
+  trigger: on_break
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Orlaea’s Pendant"
-  passive_effect: "100 E.Atk, 40 E.Def; Start of battle: Cause all enemies to combust (turns: 3); Raise Elem. Atk. of Entire Front Row by 15% when a combusted enemy is present; 100 E.Atk, 40 E.Def; Impart Entire Front Row Elem. Atk. Up 10% when a combusted enemy is present; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)"
+  name: Orlaea’s Pendant
+  passive_effect: '100 E.Atk, 40 E.Def; Start of battle: Cause all enemies to combust (turns: 3); Raise Elem. Atk. of Entire Front Row by 15% when a combusted enemy is present; 100 E.Atk, 40 E.Def; Impart Entire Front Row Elem. Atk. Up 10% when a combusted enemy is present; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

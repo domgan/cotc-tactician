@@ -66,116 +66,179 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blazing Fireball"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Physical Containment"
-    sp_cost: 24
-    skill_type: mixed
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Tome damage to Single Foe (potency: 170) and impart with Phys"
-  - skill_category: active
-    name: "Analyze (All)"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Ingenious Combustion"
-    sp_cost: 16
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Sizzling Flamelance (All)"
-    sp_cost: 43
-    skill_type: mixed
-    damage_types: [fire, polearm]
-    target: aoe
-    power: "150"
-    effects:
-      - "Lower Fire Res"
-  - skill_category: active
-    name: "Ambushing Flamelance (All)"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [fire, polearm]
-    target: aoe
-    power: "360"
-  - skill_category: active
-    name: "Flying Flamelance"
-    sp_cost: 123
-    skill_type: attack
-    damage_types: [fire, polearm]
-    target: random
-    hit_count: "3x"
-    power: "3x55, turns: 2-5 based on Boost Lv."
-  - skill_category: active
-    name: "Flamelance Formation"
-    sp_cost: 70
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Flamelance Formation (5★)** Impart Entire Front Row with Elem"
-      - "Up 20% and raise Polearm and Fire damage by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Piercing Flamelance (Single)"
-    sp_cost: 61
-    skill_type: mixed
-    damage_types: [fire, polearm]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Blazing Inferno Strategy"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [fire]
-    target: random
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: ex
-    name: "Firelance Shieldbreaker"
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Firelance Shieldbreaker** Lower Fire and Polearm Res"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Master Strategist"
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "Act faster during turn and raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: **10,000→50,000→100,000**"
+- skill_category: active
+  name: Blazing Fireball
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170) and cause them to combust (turns: 2).'
+- skill_category: active
+  name: Physical Containment
+  sp_cost: 24
+  skill_type: debuff
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe (potency: 170) and impart with Phys. Atk. Down 10% (turns: 2).'
+- skill_category: active
+  name: Analyze (All)
+  unlock_tier: 1★
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - Show 1-4 weak point(s) based on Boost of All Foes.
+- skill_category: active
+  name: Ingenious Combustion
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Cause All Foes to combust (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Sizzling Flamelance (All)
+  unlock_tier: 2★
+  sp_cost: 43
+  skill_type: debuff
+  damage_types:
+  - fire
+  - polearm
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 150).'
+  - Exploits Polearm weakness (damage calculation based on Elem. Fire attack).
+  - 'Lower Fire Res. by 15% if target is combusted (turns: 2).'
+- skill_category: active
+  name: Ambushing Flamelance (All)
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - fire
+  - polearm
+  target: aoe
+  power: '360'
+  effects:
+  - 'Cast countdown on Self (count: 4).'
+  - 'Once the countdown ends, deal Elem. Fire damage to All Foes (potency: 360).'
+  - Exploits Polearm weakness (damage calculation based on Elem. Fire attack).
+  upgrades:
+  - 'Lv.88: SP Saver: 54→43'
+- skill_category: active
+  name: Flying Flamelance
+  unlock_tier: 4★
+  sp_cost: 123
+  skill_type: utility
+  damage_types:
+  - fire
+  - polearm
+  target: random
+  hit_count: 3x
+  power: '3x55, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Fire damage to Random Foe 3 time(s) once per turn (potency: 3x55, turns: 2-5 based on Boost Lv.).'
+  - Exploits Polearm weakness (damage calculation based on Elem. Fire attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 123→98'
+- skill_category: active
+  name: Flamelance Formation
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Atk. Up 20% and raise Polearm and Fire damage by 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 70→56'
+- skill_category: active
+  name: Piercing Flamelance (Single)
+  unlock_tier: 5★
+  sp_cost: 61
+  skill_type: debuff
+  damage_types:
+  - fire
+  - polearm
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 260).'
+  - Exploits Polearm weakness (damage calculation based on Elem. Fire attack).
+  - 'Lower Phys. Def. and Elem. Def. by 15% if target is combusted (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 61→49'
+- skill_category: tp
+  name: Blazing Inferno Strategy
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x85) and have a moderate chance to cause them to combust with every attack (turns: 2).'
+- skill_category: ex
+  name: Firelance Shieldbreaker
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Fire and Polearm Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+  - Also, reduce Shield Points by 6 regardless of weaknesses, but this effect cannot break enemies.
+  notes: 'Usage Condition: When there’s no broken enemy; Uses: 1'
+  ex_trigger: When there’s no broken enemy
+- skill_category: special
+  name: Master Strategist
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn and raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and grant Damage Limit Up (effect: 10,000→50,000→100,000, turns: 1).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Impart Self with Elem. Atk. Up 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "When breaking an enemy, impart with Elem. Def. Down 10% and lower Polearm Res. and Fire Res. by 10% (turns: 3)."
-    trigger: on_break
-    limit_break_upgrade: "When breaking an enemy, impart with Elem. Def. Down **15%** and lower Polearm Res. and Fire Res. by **15%** (turns: 3)."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Fire and Polearm damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when broken enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Elem. Atk. Boost V
+  unlock_tier: 1★
+  effect: Impart Self with Elem. Atk. Up 30%.
+  trigger: always
+- passive_category: innate
+  name: Hawk of Orsterra
+  unlock_tier: 3★
+  effect: 'When breaking an enemy, impart with Elem. Def. Down 10% and lower Polearm Res. and Fire Res. by 10% (turns: 3).'
+  trigger: on_break
+  limit_break_upgrade: 'When breaking an enemy, impart with Elem. Def. Down 15% and lower Polearm Res. and Fire Res. by 15% (turns: 3).'
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Flame Spear Formation
+  effect: 'Raise Fire and Polearm damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 20,000) when broken enemy is present.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Wool Cloak of Fire"
-  passive_effect: "80 E.Atk, 40 Spd, 20 SP; Raise Fire damage dealt by 15%; Start of battle: Cause all enemies to combust (turns: 3)"
+  name: Wool Cloak of Fire
+  passive_effect: '80 E.Atk, 40 Spd, 20 SP; Raise Fire damage dealt by 15%; Start of battle: Cause all enemies to combust (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

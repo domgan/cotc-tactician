@@ -52,139 +52,173 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Gospel of War"
-    sp_cost: 57
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Gospel of War** Raise Phys"
-  - skill_category: active
-    name: "Gospel of Protection"
-    sp_cost: 57
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Gospel of Protection** Raise Phys"
-  - skill_category: active
-    name: "Iceshatter Ode"
-    sp_cost: 48
-    skill_type: mixed
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Ice damage to Single Foe 3 time(s) (potency: 3x65) and lowere Ice Res"
-  - skill_category: active
-    name: "Fanshatter Frolic"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fan damage to Single Foe 3 time(s) (potency: 3x65) and lower Fan Res"
-  - skill_category: active
-    name: "Fan’s Grace Tribute"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [fan]
-    target: back_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "**Fan’s Grace Tribute (2★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Invigorating Prayers"
-    sp_cost: 100
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**Invigorating Prayers (3★)** Raise BP recovery amount of All Allies by 1"
-  - skill_category: active
-    name: "Spirited Step"
-    sp_cost: 42
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Step (4★)** Raise Elem"
-  - skill_category: active
-    name: "Wild Icy Tribute"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [ice]
-    target: back_row
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Wild Icy Tribute (5★)** Act faster during turn and deal Elem"
-  - skill_category: active
-    name: "Savage Icy Tribute"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [ice]
-    target: back_row
-    power: "260"
-  - skill_category: tp
-    name: "Dragon Scale Parade"
-    sp_cost: 54
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Dragon Scale Parade ** Raise Phys"
-  - skill_category: tp
-    name: "Dragon Scale Parade Lv.2"
-    sp_cost: 54
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Dragon Scale Parade Lv.2** Raise Phys"
-  - skill_category: ex
-    name: "Ice God’s Slash Dance"
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "475"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Tomorrow’s Hope"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "Grant All Allies automatic revival (revived at **15%→25%→50%** of max HP)"
+- skill_category: active
+  name: Gospel of War
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Crit of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Gospel of Protection
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def., Elem. Def. and Spd of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Iceshatter Ode
+  unlock_tier: 1★
+  sp_cost: 48
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 3 time(s) (potency: 3x65) and lowere Ice Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Fanshatter Frolic
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 3 time(s) (potency: 3x65) and lower Fan Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Fan’s Grace Tribute
+  unlock_tier: 2★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - fan
+  target: back_row
+  hit_count: 3x
+  power: 3x65
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Fan damage to Random Foe 3 time(s) (potency: 3x65) and then swap to Back Row.'
+- skill_category: active
+  name: Invigorating Prayers
+  unlock_tier: 3★
+  sp_cost: 100
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Raise BP recovery amount of All Allies by 1.
+  - The effect persists as long as the user is able to keep this skill active (costs 200-100 SP per turn, based on Boost Lv.).
+  upgrades:
+  - 'Lv.88: SP Saver: 100→80'
+- skill_category: active
+  name: Spirited Step
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: Wild Icy Tribute
+  unlock_tier: 5★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - ice
+  target: back_row
+  hit_count: 4x
+  power: 4x45
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Elem. Ice damage to Random Foe 4 time(s) (potency: 4x45) and then swap to Back Row.'
+  upgrades:
+  - 'Lv.99: SP Saver: 66→53'
+- skill_category: active
+  name: Savage Icy Tribute
+  unlock_tier: 5★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - ice
+  target: back_row
+  power: '260'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 260) and then swap to Back Row.'
+  upgrades:
+  - 'Lv.100: Potency Up: 260→290'
+- skill_category: tp
+  name: Dragon Scale Parade
+  sp_cost: 54
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Raise Phys. and Elem. Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Ice God’s Slash Dance
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '475'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 475).'
+  - Exploits Sword, Tome and Fan weaknesses (damage calculation based on Elem. Ice attack).
+  notes: 'Usage Condition: With 5 BP or more; Uses: 2'
+  ex_trigger: With 5 BP or more
+- skill_category: special
+  name: Tomorrow’s Hope
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Grant All Allies automatic revival (revived at 15%→25%→50% of max HP).
+  - Triggers immediately if incapacitated (count does not increase when stacked).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in back row: Impart Entire Front Row with Elem. Atk. Up 10% and raise Ice and Lightning damage by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "When switching: Impart Entire Front Row with Elem. Atk. Up 10% and Elem. Def. Up 10% (turns: 1)."
-    trigger: always
-    limit_break_upgrade: "When switching: Impart Entire Front Row with Elem. Atk. Up **15%** and Elem. Def. Up **15%** (turns: 1)."
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of buff casted by Self by 1 turn."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of buff casted by Self by **2** turns."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Icebolt Revelation
+  unlock_tier: 1★
+  effect: 'When in back row: Impart Entire Front Row with Elem. Atk. Up 10% and raise Ice and Lightning damage by 10%.'
+  trigger: always
+- passive_category: innate
+  name: Elem. Boost on Switch (Front/All)
+  unlock_tier: 3★
+  effect: 'When switching: Impart Entire Front Row with Elem. Atk. Up 10% and Elem. Def. Up 10% (turns: 1).'
+  trigger: always
+  limit_break_upgrade: 'When switching: Impart Entire Front Row with Elem. Atk. Up 15% and Elem. Def. Up 15% (turns: 1).'
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Augment (Give)
+  effect: Extend duration of buff casted by Self by 1 turn.
+  trigger: always
+  upgrades:
+  - 'Lv.2: Extend duration of buff casted by Self by 2 turns.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Divine Ribbon"
-  passive_effect: "60 E.Atk, 80 SP; Raise Elem. Atk. of Paired Allies by 15%; Grant Paired Allies automatic SP recovery (amount: 20)"
+  name: Divine Ribbon
+  passive_effect: '60 E.Atk, 80 SP; Raise Elem. Atk. of Paired Allies by 15%; Grant Paired Allies automatic SP recovery (amount: 20)'
 
 # Metadata
 data_confidence: incomplete

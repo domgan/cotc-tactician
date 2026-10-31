@@ -69,149 +69,198 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Mercurial Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [axe, polearm]
-    target: single_enemy
-    power: "140/170/210/300"
-    effects:
-      - "**Mercurial Thrust** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Whipping Boy"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Whipping Boy** Act faster and during the turn used"
-  - skill_category: active
-    name: "Oracle VI: Axe Enfeeblement"
-    sp_cost: 32
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Oracle VI: Axe Enfeeblement (1★)** Grant an Axe weakness to Single Foe (times: 6/7/8/9)"
-  - skill_category: active
-    name: "Multislice"
-    sp_cost: 33
-    skill_type: attack
-    damage_types: [axe, sword]
-    target: aoe
-    power: "150/175/215/260"
-  - skill_category: active
-    name: "War Drum"
-    sp_cost: 1
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**War Drum (2★)** Raise Phys"
-  - skill_category: active
-    name: "Sword Dance"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [axe, sword]
-    target: random
-    hit_count: "4x"
-    power: "4x25/4x30/4x35/4x50"
-  - skill_category: active
-    name: "Double-Edged Slash"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "290/320/380/800"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: buff
-    target: single_enemy
-  - skill_category: active
-    name: "Cutting Edge"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "230/260/300/400"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Oomph Powder"
-    sp_cost: 1
-    skill_type: buff
-    target: self
-    effects:
-      - "**Oomph Powder (5★)** Raise the potency of Self by 30%/50%/70%/100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type)"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Soul Sigil: Also raise Damage Limit by 100,000 (turns: 3)"
-  - skill_category: tp
-    name: "Resolute Cleave"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "230/260/300/400"
-  - skill_category: tp
-    name: "Resolute Cleave Lv.2"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "230/260/300/400"
-  - skill_category: active
-    name: "2"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "With Soul Sigil: Gain Resolve (turns: **2**/Does not stack/Granted as a support skill)"
-  - skill_category: special
-    name: "Resolve to Vanquish Evil"
-    skill_type: buff
-    target: single_enemy
-    power: "8→9"
-    effects:
-      - "Gain Resolve (turns: **8→9**/Does not stack/Granted as a support skill)"
-      - "also raise Damage Limit Up by **10,000→50,000→100,000** (turns: 4)"
+- skill_category: active
+  name: Mercurial Thrust
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - axe
+  - polearm
+  target: single_enemy
+  power: 140/170/210/300
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Axe damage to Single Foe (potency: 140/170/210/300).'
+  - Exploits Polearm weakness (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  name: Whipping Boy
+  sp_cost: 18
+  skill_type: buff
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster and during the turn used, reduce damage taken from some attacks by 20%/30%/40%/50% and take damage in place of Single Ally (excluding Self/including Group Attacks) (turns: 1/Activates only when in front row).'
+  - '*If target switches rows, their Paired Ally becomes the target.'
+- skill_category: active
+  name: 'Oracle VI: Axe Enfeeblement'
+  unlock_tier: 1★
+  sp_cost: 32
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Grant an Axe weakness to Single Foe (times: 6/7/8/9).'
+- skill_category: active
+  name: Multislice
+  unlock_tier: 2★
+  sp_cost: 33
+  skill_type: utility
+  damage_types:
+  - axe
+  - sword
+  target: aoe
+  power: 150/175/215/260
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 150/175/215/260).'
+  - Exploits Sword weakness (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  name: War Drum
+  unlock_tier: 2★
+  sp_cost: 1
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Entire Front Row by 15% and Axe damage by 15% (turns: 2/3/4/5).'
+- skill_category: active
+  name: Sword Dance
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - axe
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x25/4x30/4x35/4x50
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 4 time(s) (potency: 4x25/4x30/4x35/4x50).'
+  - Exploits Sword weakness (damage calculation based on Phys. Axe attack).
+  - 'With Soul Sigil: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Double-Edged Slash
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: attack
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 290/320/380/800
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 290/320/380/800), but also deal damage to Self (amount: 30% of max HP).'
+  - Damage Limit of this skill is increased by 100,000.
+  - 'At Max Boost: Potency increases by 1.6x (reflected in potency value).'
+  upgrades:
+  - 'Lv.96: Potency Up: 260→290'
+  notes: 'If own Resolve has a duration of 3+ turns: Attack count becomes 2.'
+- skill_category: active
+  name: Cutting Edge
+  unlock_tier: 5★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 230/260/300/400
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 230/260/300/400).'
+  - 'At Max Boost: Activate the skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.99: SP Saver: 46→37'
+- skill_category: active
+  name: Oomph Powder
+  unlock_tier: 5★
+  sp_cost: 1
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the potency of Self by 30%/50%/70%/100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.100: Uses Up: 2→3'
+- skill_category: tp
+  name: Resolute Cleave
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 230/260/300/400
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 230/260/300/400).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Axe damage to Single Foe (potency: 230/260/300/400).'
+- skill_category: active
+  name: '2'
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - /Does not stack/Granted as a support skill).
+- skill_category: special
+  name: Resolve to Vanquish Evil
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Gain Resolve (turns: 8→9/Does not stack/Granted as a support skill).'
+  - 'With Soul Sigil, also raise Damage Limit Up by 10,000→50,000→100,000 (turns: 4).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Also raise the limit of Phys. Atk. and Axe damage augments from battle skills to 50% (turns: 4).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support ability/Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "The “Attack” action performance changes as follows: Phys. Axe damage to Single Foe (potency: 65/150/255/440). Lower Shield Points even when not striking weak points. Damage Limit of this attack is increased by 100,000. Potency increases with the duration of own Resolve, up to 2.5x (with 5+ turns). *Attack count does not increase with Boost Lv.. If own Resolve has a duration of 3+ turns: Attack once more."
-    trigger: always
-  - passive_category: innate
-    effect: "Gain Resolve when using a battle skill (turns: 2/Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Gain Resolve when using a battle skill (turns: **3**/Does not stack)."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Atk. and Axe damage of Self by 30%. With Soul Sigil: Also raise Damage Limit by 100,000."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Atk. and Axe damage of Self by 30% and raise the limit of Phys. Atk. and Axe damage augments from equipment and support skills to 50%. With Soul Sigil: Also raise Damage Limit by **300,000**."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blessing of Rubiss
+  effect: 'Grant Entire Front Row Soul Sigil after consuming BP to use a skill (turns: 2/Granted as a support ability/Does not stack).'
+  trigger: always
+- passive_category: innate
+  name: Attack
+  effect: 'The “Attack” action performance changes as follows: Phys. Axe damage to Single Foe (potency: 65/150/255/440). Lower Shield Points even when not striking weak points. Damage Limit of this attack is increased by 100,000. Potency increases with the duration of own Resolve, up to 2.5x (with 5+ turns). *Attack count does not increase with Boost Lv.. If own Resolve has a duration of 3+ turns: Attack once more.'
+  trigger: always
+- passive_category: innate
+  name: Resolute Stance
+  unlock_tier: 1★
+  effect: 'Gain Resolve when using a battle skill (turns: 2/Does not stack).'
+  trigger: always
+  limit_break_upgrade: 'Gain Resolve when using a battle skill (turns: 3/Does not stack).'
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind
+  effect: Resilience Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark
+  effect: Resilience Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Paragon
+  effect: 'Raise Phys. Atk. and Axe damage of Self by 30%. With Soul Sigil: Also raise Damage Limit by 100,000.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise Phys. Atk. and Axe damage of Self by 30% and raise the limit of Phys. Atk. and Axe damage augments from equipment and support skills to 50%. With Soul Sigil: Also raise Damage Limit by 300,000.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Warrior’s Gloves"
-  passive_effect: "200 P.Atk, -60 E.Atk; Raise Damage Limit by 100,000; When equipped by an Apothecary: Gain Dead Aim (guaranteed critical hits)"
+  name: Warrior’s Gloves
+  passive_effect: '200 P.Atk, -60 E.Atk; Raise Damage Limit by 100,000; When equipped by an Apothecary: Gain Dead Aim (guaranteed critical hits)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Soul Sigil
+  description: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%.
+- name: Resolve
+  description: Raise Damage Limit by 100,000 and gain the ability to exploit Sword, Polearm and Staff weaknesses with the “Attack” action (damage calculation based on original attack) and enhance certain skills.
+- name: Granted Axe Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Axe, increase damage taken from Axe by 20%.'
+- name: With Soul Sigil and at Max Boost
+  description: Potency increases by 2.5x instead (reflected in potency value).
+- name: With Soul Sigil
+  description: 'At Max Boost: Potency increases by 2.2x.'
 
 # Metadata
 data_confidence: incomplete

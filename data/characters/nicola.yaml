@@ -52,126 +52,176 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Spider Fang"
-    sp_cost: 20
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Dagger damage to Single Foe (potency: 170) and impart Spd Down 15% (turns: 2)"
-  - skill_category: active
-    name: "Shield Burst"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Mass Armor Corrosive II"
-    sp_cost: 18
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Mass Armor Corrosive II (1★)** Impart All Foes with Phys"
-  - skill_category: active
-    name: "Vitality Thief"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Triple Burst"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Gift of SP"
-    sp_cost: 50
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Gift of SP (3★)** Restore an ally’s SP (amount: 25-100 based on Boost Lv.) [50 SP] **Lv.88 |** SP Saver: 50→40"
-  - skill_category: active
-    name: "Sacred Night’s Light"
-    sp_cost: 57
-    skill_type: mixed
-    damage_types: [light]
-    target: aoe
-    power: "180"
-    effects:
-      - "Light damage to All Foes (potency: 180) and impart Elem"
-  - skill_category: active
-    name: "Magic Reaper"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "180"
-  - skill_category: active
-    name: "Sonic Flash"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: tp
-    name: "Hymn of the Shining Star"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: ex
-    name: "Red Blade Thrust"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Sacred Night’s Gift"
-    skill_type: heal
-    target: front_row
-    power: "100→200→250"
-    effects:
-      - "Restore SP of Entire Front Row (amount: **100→200→250**)"
+- skill_category: active
+  name: Spider Fang
+  sp_cost: 20
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170) and impart Spd Down 15% (turns: 2).'
+- skill_category: active
+  name: Shield Burst
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Mass Armor Corrosive II
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Impart All Foes with Phys. Def. Down 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Vitality Thief
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170), absorb 10% of damage dealt as HP and 1% of damage dealt as SP.'
+- skill_category: active
+  name: Triple Burst
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Gift of SP
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Restore an ally’s SP (amount: 25-100 based on Boost Lv.)'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Sacred Night’s Light
+  unlock_tier: 4★
+  sp_cost: 57
+  skill_type: debuff
+  damage_types:
+  - light
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 180) and impart Elem. Def. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 57→46'
+- skill_category: active
+  name: Magic Reaper
+  unlock_tier: 5★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '180'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 180) and absorb 2% of damage dealt as SP.'
+  upgrades:
+  - 'Lv.99: Effect Up: 2%→3%'
+- skill_category: active
+  name: Sonic Flash
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+- skill_category: tp
+  name: Hymn of the Shining Star
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x35).'
+- skill_category: ex
+  name: Red Blade Thrust
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230).'
+  - Results 20% more potent if target has not yet acted.
+  notes: 'Usage Condition: After turn 5; Uses: 2'
+  ex_trigger: After turn 5
+- skill_category: special
+  name: Sacred Night’s Gift
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Restore SP of Entire Front Row (amount: 100→200→250).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At 50% SP or more: Raise Phys. Atk. of entire front row by 5%."
-    trigger: always
-    limit_break_upgrade: "Raise own Phys. Atk. and Dagger damage by 15%. When using “Attack”, restore SP equal to 1% of damage dealt."
-  - passive_category: innate
-    effect: "Recover 3% of SP when taking damage from enemies."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At the start of action phase, if SP is full: grant Self the effect of activating abilities twice (additional activations do not consume SP)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Phys. Atk. Boost With 50% or More SP (Front/All)
+  unlock_tier: 1★
+  effect: 'At 50% SP or more: Raise Phys. Atk. of entire front row by 5%.'
+  trigger: always
+  limit_break_upgrade: Raise own Phys. Atk. and Dagger damage by 15%. When using “Attack”, restore SP equal to 1% of damage dealt.
+- passive_category: innate
+  name: SP Recovery
+  unlock_tier: 3★
+  effect: Recover 3% of SP when taking damage from enemies.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Red Hat’s Vigor
+  effect: 'At the start of action phase, if SP is full: grant Self the effect of activating abilities twice (additional activations do not consume SP).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Red Hat’s Garb"
-  passive_effect: "60 P.Atk, 40 E.Def, 40 Crit; Raise dagger damage dealt by 15%; Start of battle: Lower Phys. Def. of all enemies by 15% (turns: 3)"
+  name: Red Hat’s Garb
+  passive_effect: '60 P.Atk, 40 E.Def, 40 Crit; Raise dagger damage dealt by 15%; Start of battle: Lower Phys. Def. of all enemies by 15% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

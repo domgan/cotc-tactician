@@ -52,124 +52,181 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Spirited Slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Chain Scorch"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Battle Relief"
-    sp_cost: 39
-    skill_type: buff
-    target: single_enemy
-    power: "165"
-    effects:
-      - "**Battle Relief (2★)** Restore own HP (potency: 165) and raise Phys"
-  - skill_category: active
-    name: "Ardent Slash"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "120"
-  - skill_category: active
-    name: "Invigoration"
-    sp_cost: 38
-    skill_type: mixed
-    target: self
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Invigoration (3★)** Grant Self automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and raise Crit by 15% and Sword damage dealt by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Noble Strike"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Wild Proud Strike"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    limit_break_upgrade: "Deal Phys. Sword damage to Random Foe **4** time(s) (potency: **4x65**) and provoke them with every attack (turns: 2)."
-  - skill_category: active
-    name: "Greater Noble Strike"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [sword, fire]
-    target: single_enemy
-    power: "530"
-  - skill_category: tp
-    name: "Noble Sword"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: ex
-    name: "Grenzbruch"
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Grenzbruch** Raise the Phys"
-      - "limit from battle skills of Self to 50% and raise Damage Limit by 100,000 (turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Crown of Glory"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "restore own HP (potency: **250→300→350**) and SP (amount: 100% of Max SP) and grant automatic HP recovery (potency: **100→125→150**"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Spirited Slash
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Chain Scorch
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Trifold Slash
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Battle Relief
+  unlock_tier: 2★
+  sp_cost: 39
+  skill_type: buff
+  target: single_enemy
+  power: '165'
+  effects:
+  - 'Restore own HP (potency: 165) and raise Phys. Atk. and Crit by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Ardent Slash
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 120) and provoke (turns: 2).'
+- skill_category: active
+  name: Invigoration
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: buff
+  target: self
+  power: '110, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Self automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and raise Crit by 15% and Sword damage dealt by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Noble Strike
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - 20% more potent if target is provoked.
+  upgrades:
+  - 'Lv.96: SP Saver: 42→34'
+- skill_category: active
+  name: Wild Proud Strike
+  unlock_tier: 5★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x65) and provoke them with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 42→34'
+  limit_break_upgrade: 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x65) and provoke them with every attack (turns: 2).'
+- skill_category: active
+  name: Greater Noble Strike
+  unlock_tier: 5★
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - sword
+  - fire
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 530).'
+  - Exploits Fire weakness (damage calculation based on Phys. Sword attack).
+  - 30% more potent if target is provoked.
+  upgrades:
+  - 'Lv.100: SP Saver: 300→240'
+- skill_category: tp
+  name: Noble Sword
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x75) and recover 1 BP.'
+- skill_category: ex
+  name: Grenzbruch
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the Phys. Atk. limit from battle skills of Self to 50% and raise Damage Limit by 100,000 (turns: 3-6 based on Boost Lv.).'
+  notes: 'Usage Condition: When provoked enemy is present; Uses: 1'
+  ex_trigger: When provoked enemy is present
+- skill_category: special
+  name: Crown of Glory
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 440→525→655), restore own HP (potency: 250→300→350) and SP (amount: 100% of Max SP) and grant automatic HP recovery (potency: 100→125→150, turns: 2).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When hit by an attack, restore SP equal to 4% of damage taken."
-    trigger: always
-  - passive_category: innate
-    effect: "While there is a Taunted enemy, when hit by an attack, restore HP equal to 15% of damage taken."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Sword damage of Self by 15% and grant Self Damage Limit Up (effect: 50,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: SP Recovery II
+  unlock_tier: 1★
+  effect: When hit by an attack, restore SP equal to 4% of damage taken.
+  trigger: always
+- passive_category: innate
+  name: Noble Pride
+  unlock_tier: 3★
+  effect: While there is a Taunted enemy, when hit by an attack, restore HP equal to 15% of damage taken.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Princess’ Sword
+  effect: 'Raise Sword damage of Self by 15% and grant Self Damage Limit Up (effect: 50,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Chromrodian Necklace"
-  passive_effect: "70 P.Atk, 70 SP; Raise Sword damage dealt by 15%; Grant automatic SP recovery (amount: 20)"
+  name: Chromrodian Necklace
+  passive_effect: '70 P.Atk, 70 SP; Raise Sword damage dealt by 15%; Grant automatic SP recovery (amount: 20)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

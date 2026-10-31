@@ -70,119 +70,168 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Mighty Charge"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Scorch"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Fortify Critical II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Fortify Critical II (1★)** Raise Crit of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Unyielding Strike"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    power: "230, guaranteed critical hit"
-    effects:
-      - "Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 10% (turns: 2)"
-  - skill_category: active
-    name: "Chain Torch"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Sharpened Spear"
-    sp_cost: 22
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Sharpened Spear (3★)** Impart Self with Phys"
-      - "Up 15% and raise Polearm damage by 15% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Fourfold Scorch"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Raging Thrust"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    power: "230, guaranteed critical hit"
-    effects:
-      - "**Raging Thrust (5★)** Act faster during turn and deal Phys"
-      - "Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 15% (turns: 2)"
-  - skill_category: tp
-    name: "Joyful Barrage"
-    sp_cost: 79
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Polearm damage to Random Foe 4 time(s) (potency: 4x65) and raise critical damage of Entire Front Row by 15% (turns: 2)"
-  - skill_category: special
-    name: "Immeasurable Might"
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    power: "330→395→495"
+- skill_category: active
+  name: Mighty Charge
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Scorch
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Fortify Critical II
+  unlock_tier: 1★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Crit of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Unyielding Strike
+  unlock_tier: 2★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  power: 230, guaranteed critical hit
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 10% (turns: 2).'
+- skill_category: active
+  name: Chain Torch
+  unlock_tier: 2★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Sharpened Spear
+  unlock_tier: 3★
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 15% and raise Polearm damage by 15% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 22→18'
+- skill_category: active
+  name: Trifold Thrust
+  unlock_tier: 4★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 38→30'
+- skill_category: active
+  name: Fourfold Scorch
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.99: SP Saver: 50→40'
+- skill_category: active
+  name: Raging Thrust
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  power: 230, guaranteed critical hit
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to Single Foe (potency: 230, guaranteed critical hit) and raise Crit of Entire Front Row by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 60→48'
+- skill_category: tp
+  name: Joyful Barrage
+  sp_cost: 79
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 4 time(s) (potency: 4x65) and raise critical damage of Entire Front Row by 15% (turns: 2).'
+- skill_category: special
+  name: Immeasurable Might
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 330→395→495) and fill the Ultimate Technique gauge of Entire Front Row excluding Self (1.0 times the target’s gauge increase per 1 BP).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Grant Dead Aim to Self (guaranteed critical hits, turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Start of battle: Raise own Phys. Atk and Polearm damage by 15% and grant Dead Aim to Self (guaranteed critical hits, turns: 3)."
-  - passive_category: innate
-    effect: "Start of battle: Fill the Ultimate Technique gauge of Self to 100%."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise critical damage of Entire Front Row by 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Critical Shot
+  unlock_tier: 1★
+  effect: 'Start of battle: Grant Dead Aim to Self (guaranteed critical hits, turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: 'Start of battle: Raise own Phys. Atk and Polearm damage by 15% and grant Dead Aim to Self (guaranteed critical hits, turns: 3).'
+- passive_category: innate
+  name: Ultimate Stance
+  unlock_tier: 3★
+  effect: 'Start of battle: Fill the Ultimate Technique gauge of Self to 100%.'
+  trigger: battle_start
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Vanguard Critical Force (Front/All) II
+  effect: 'When in front row: Raise critical damage of Entire Front Row by 15%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Large Merchant’s Pack"
-  passive_effect: "80 P.Atk, 30 P.Def, 300 HP; Raise Polearm damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3)"
+  name: Large Merchant’s Pack
+  passive_effect: '80 P.Atk, 30 P.Def, 300 HP; Raise Polearm damage dealt by 15%; Start of battle: Raise BP recovery amount by 1 (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

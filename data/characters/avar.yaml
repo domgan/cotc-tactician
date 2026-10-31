@@ -53,134 +53,175 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    sp_cost: 30
-    skill_type: buff
-    target: self
-    effects:
-      - "**(2★)** Grant Self Dead Aim (guranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Destructive Cleave"
-    sp_cost: 49
-    skill_type: mixed
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower their Phys Def"
-  - skill_category: active
-    sp_cost: 49
-    skill_type: mixed
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Axe Res"
-  - skill_category: active
-    name: "Explosive Cleave"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-  - skill_category: active
-    name: "Savage Whirling Slash"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: tp
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "530"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "530"
-  - skill_category: special
-    name: "“Overflowing Rebellious Intentions”"
-    skill_type: buff
-    target: self
-    power: "3→4"
-    effects:
-      - "Raise potency of Self by 50% (turns: **3→4**/Cannot be extended/Effects of the same type do not stack)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 180).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 150) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self Dead Aim (guranteed critical hits) (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Destructive Cleave
+  unlock_tier: 2★
+  sp_cost: 49
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower their Phys Def. by 15% with every attack (turns: 2).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 49
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Axe Res. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 49→39'
+- skill_category: active
+  name: Explosive Cleave
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x65) and cause them to combust with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 54→43'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '180, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Axe damage to All Foes before some allies act (potency: 180, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 82→66'
+- skill_category: active
+  name: Savage Whirling Slash
+  unlock_tier: 5★
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 3 time(s) (potency: 3x80).'
+  upgrades:
+  - 'Lv.100: SP Saver: 68→54'
+- skill_category: tp
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 530).'
+  - Damage Limit this skill is increased by 100,000.
+  upgrades:
+  - 'Lv.2: Deal Phys. Axe damage to Single Foe (potency: 530). Damage Limit of this skill is increased by 200,000.'
+- skill_category: special
+  name: Overflowing Rebellious Intentions
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise potency of Self by 50% (turns: 3→4/Cannot be extended/Effects of the same type do not stack).'
+  - The more BP, the greater the potency increase (up to 150%), but reduce own BP to 0.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain the ability for physical attacks (other than Attack) to exploit Sword, Fire and Dark weakness (damage calculation based on physical attack damage type)."
-    trigger: always
-  - passive_category: innate
-    effect: "When selecting a command, grant Self the special effect of “Savage” (turns: 2). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot. ---"
-    trigger: always
-    limit_break_upgrade: "When selecting a command, grant Self the special effect of “Savage” (turns: **3**). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot. ---"
-  - passive_category: innate
-    effect: "Raise own Phys. Atk. and Axe damage of Self by 15% and increase the Axe damage limit from support skills and equipment effects to 50%. When in “Savage” state: Add 50% of P.Def to P.Atk (including equipment stats/Cannot be stacked)"
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230)."
-    trigger: always
-  - passive_category: tp
-    effect: "When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230) and lower Axe Res. by 10% (turns: 1)."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blade of Conquest
+  effect: Gain the ability for physical attacks (other than Attack) to exploit Sword, Fire and Dark weakness (damage calculation based on physical attack damage type).
+  trigger: always
+- passive_category: innate
+  name: 'Latent Power: Savage'
+  unlock_tier: 1★
+  effect: 'When selecting a command, grant Self the special effect of “Savage” (turns: 2). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot.'
+  trigger: always
+  limit_break_upgrade: 'When selecting a command, grant Self the special effect of “Savage” (turns: 3). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot.'
+  notes: 'Preparation Turns: 3; Reuse Turns : 6'
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'Raise own Phys. Atk. and Axe damage of Self by 15% and increase the Axe damage limit from support skills and equipment effects to 50%. When in “Savage” state: Add 50% of P.Def to P.Atk (including equipment stats/Cannot be stacked)'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When in “Savage” state: Grant Self the ability to trigger a follow-up strike when allies in front row (excluding Self) attack (*Triggers once even during a Boost). Follow-up attack: Phys. Axe damage to All Foes (potency: 230) and lower Axe Res. by 10% (turns: 1).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Rebel’s Wristband”"
-  passive_effect: "140 P.Atk, 100 P.Def., -60 E.Atk, -40 E.Def; Grant Self Damage Limit Up (effect: 70,000); When equipped by an Apothecary: Gain the ability for physical attacks (other than Attack) to exploit Polearm and Bow weakness (damage calculation based on physical attack damage type)."
+  name: Rebel’s Wristband
+  passive_effect: '140 P.Atk, 100 P.Def., -60 E.Atk, -40 E.Def; Grant Self Damage Limit Up (effect: 70,000); When equipped by an Apothecary: Gain the ability for physical attacks (other than Attack) to exploit Polearm and Bow weakness (damage calculation based on physical attack damage type).'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: incomplete

@@ -53,120 +53,178 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Level Slash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Spearhead"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Polearm damage to Single Foe (potency: 170) and act faster during next turn"
-  - skill_category: active
-    name: "Impregnable Wall"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Impregnable Wall (1★)** Impart Self with Phys"
-  - skill_category: active
-    name: "Lightning Storm"
-    sp_cost: 36
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    power: "150"
-    effects:
-      - "Lightning damage to All Foes (potency: 150) and lower Lightning Res"
-  - skill_category: active
-    name: "Cross Strike"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Defend"
-    sp_cost: 18
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Defend (3★)** Act faster during turn and reduce own damage taken from enemies by 20%-50% based on Boost Lv"
-    limit_break_upgrade: "Act faster during turn and reduce own damage taken from enemies by **60%-90%** based on Boost Lv.."
-  - skill_category: active
-    name: "Storm’s Vengeance"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Lightning damage to Single Foe (potency: 260) and lower Lightning Res"
-  - skill_category: active
-    name: "Thousand Spears"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
-    power: "3-5x65"
-  - skill_category: active
-    name: "Unbending Blade"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "290"
-  - skill_category: tp
-    name: "Swift Sword"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "170"
-  - skill_category: ex
-    name: "Supreme Unbending Blade"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "530"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "True Unbending Blade"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Level Slash
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Spearhead
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '170'
+  priority: true
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170) and act faster during next turn.'
+- skill_category: active
+  name: Impregnable Wall
+  unlock_tier: 1★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Lightning Storm
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 150) and lower Lightning Res. by 10% (turns: 2).'
+- skill_category: active
+  name: Cross Strike
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Defend
+  unlock_tier: 3★
+  sp_cost: 18
+  skill_type: utility
+  target: single_enemy
+  priority: true
+  effects:
+  - Act faster during turn and reduce own damage taken from enemies by 20%-50% based on Boost Lv..
+  upgrades:
+  - 'Lv.88: Reduce Damage: 20%-50%→30%-60%'
+  limit_break_upgrade: Act faster during turn and reduce own damage taken from enemies by 60%-90% based on Boost Lv..
+- skill_category: active
+  name: Storm’s Vengeance
+  unlock_tier: 4★
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 260) and lower Lightning Res. by 15% (turns: 2).'
+  - 'Moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 52→42'
+- skill_category: active
+  name: Thousand Spears
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  power: 3-5x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3-5 times (potency: 3-5x65).'
+  upgrades:
+  - 'Lv.99: SP Saver: 60→48'
+- skill_category: active
+  name: Unbending Blade
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 290)'
+  upgrades:
+  - 'Lv.100: SP Saver: 56→45'
+- skill_category: tp
+  name: Swift Sword
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 170).'
+  - 'At Max Boost: Reactivate the effect.'
+- skill_category: ex
+  name: Supreme Unbending Blade
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 530).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 1'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: True Unbending Blade
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 500→600→750).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Sword damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "With Defend at Max Boost, will take damage for single-target attack in place of ally in the Front Row (1 turn)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When there’s a broken enemy, raise Phys. Atk. of Self by 15% and grant Damage Limit Up (effect: 50,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blade Stance
+  unlock_tier: 1★
+  effect: Raise Sword damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Knight’s Resolve
+  unlock_tier: 3★
+  effect: With Defend at Max Boost, will take damage for single-target attack in place of ally in the Front Row (1 turn).
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Unbending Blade Knight
+  effect: 'When there’s a broken enemy, raise Phys. Atk. of Self by 15% and grant Damage Limit Up (effect: 50,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Hornburgian Knight’s Crest"
-  passive_effect: "80 P.Atk, 60 P.Def; Raise damage dealt to broken foes by 10%; Grant automatic HP recovery (amount: 500)"
+  name: Hornburgian Knight’s Crest
+  passive_effect: '80 P.Atk, 60 P.Def; Raise damage dealt to broken foes by 10%; Grant automatic HP recovery (amount: 500)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

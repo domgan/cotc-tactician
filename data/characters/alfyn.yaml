@@ -68,125 +68,173 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Amputation"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Icicle"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Rehabilitate"
-    sp_cost: 15
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Rehabilitate (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Fire and Ice Restoration III"
-    sp_cost: 48
-    skill_type: buff
-    target: front_row
-    power: "150"
-    effects:
-      - "**Fire and Ice Restoration III (2★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Fire Res"
-  - skill_category: active
-    name: "Pomegranate Panacea"
-    sp_cost: 100
-    skill_type: utility
-    target: front_row
-    effects:
-      - "**Pomegranate Panacea (2★)** Restore BP of Entire Front Row (amount: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Fourfold Cleave"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Fourfold Icicle"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Last Stand"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "The lower your HP"
-      - "Potency doubles at max (when HP is 10% or lower)"
-  - skill_category: active
-    name: "Vivify"
-    sp_cost: 50
-    skill_type: utility
-    target: single_enemy
-  - skill_category: tp
-    name: "Brave Axe Elixir (All) II"
-    sp_cost: 40
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Brave Axe Elixir (All) II ** Raise Phys"
-      - "of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Sacrifical Sunder"
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "60% of user’s max HP/does not stack"
-    effects:
-      - "**Sacrifical Sunder** Grant Self HP barrier (potency: 60% of user’s max HP/does not stack)"
-      - "Raise the Damage Limit of this skill by 50,000"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Heroic Strike"
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    power: "500→600"
-    effects:
-      - "The lower your HP"
-      - "Potency doubles at max (when HP is 10% or lower)"
+- skill_category: active
+  name: Amputation
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Icicle
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Rehabilitate
+  unlock_tier: 1★
+  sp_cost: 15
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  - Reaches Entire Front Row at Max Boost.
+- skill_category: active
+  name: Fire and Ice Restoration III
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: buff
+  target: front_row
+  power: '150'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 150) and raise Fire Res. and Ice Res. by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Pomegranate Panacea
+  unlock_tier: 2★
+  sp_cost: 100
+  skill_type: utility
+  target: front_row
+  effects:
+  - 'Restore BP of Entire Front Row (amount: 1-4 based on Boost Lv.), but delay actions during turn.'
+  - '*Can be used 2 times per battle.'
+- skill_category: active
+  name: Fourfold Cleave
+  unlock_tier: 3★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.88: SP Saver: 48→38'
+- skill_category: active
+  name: Fourfold Icicle
+  unlock_tier: 4★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.96: SP Saver: 50→40'
+- skill_category: active
+  name: Last Stand
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  - The lower your HP, the greater the potency.
+  - Potency doubles at max (when HP is 10% or lower).
+  upgrades:
+  - 'Lv.99: SP Saver: 50→40'
+- skill_category: active
+  name: Vivify
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Revive a fallen ally (recovery amount: 25%-100% of max HP based on Boost Lv.).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.100: SP Saver: 50→40'
+- skill_category: tp
+  name: Brave Axe Elixir (All) II
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Entire Front Row by 15% and raise Axe damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Sacrifical Sunder
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: 60% of user’s max HP/does not stack
+  effects:
+  - 'Grant Self HP barrier (potency: 60% of user’s max HP/does not stack).'
+  - 'Deal Phys. Axe damage to All Foes (potency: 210).'
+  - Raise the Damage Limit of this skill by 50,000.
+  - Consume 10% of own max HP (up to 8 times) until HP falls below 10%.
+  - Potency increases based on the number of times HP is consumed up to 2.6x (at 8 times).
+  notes: 'Usage Condition: After turn 4; Uses: 2'
+  ex_trigger: After turn 4
+- skill_category: special
+  name: Heroic Strike
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 500→600
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 500→600).'
+  - The lower your HP, the greater the potency.
+  - Potency doubles at max (when HP is 10% or lower).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of augmenting effect granted by self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
-    trigger: always
-    limit_break_upgrade: "Survive an otherwise lethal attack with 1 HP remaining **3 times per battle**."
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Axe damage by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Augment (Give)
+  unlock_tier: 1★
+  effect: Extend duration of augmenting effect granted by self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Hang Tough
+  unlock_tier: 3★
+  effect: Survive an otherwise lethal attack with 1 HP remaining once per battle.
+  trigger: always
+  limit_break_upgrade: Survive an otherwise lethal attack with 1 HP remaining 3 times per battle.
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Axe Atk. Boost III
+  effect: Raise Axe damage by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dreamer’s Medicine Box"
-  passive_effect: "40 P.Atk, 40 P.Def, 600 HP; Raise axe damage by 15%; At 75% HP or less: Raise P.Atk by 15%"
+  name: Dreamer’s Medicine Box
+  passive_effect: '40 P.Atk, 40 P.Def, 600 HP; Raise axe damage by 15%; At 75% HP or less: Raise P.Atk by 15%'
 
 # Metadata
 data_confidence: verified

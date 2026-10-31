@@ -51,121 +51,155 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Frostly Refrain"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Lion Dance"
-    sp_cost: 6
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Lion Dance** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Sweep"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Wild Blow"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [fan]
-    target: random
-    hit_count: "3x"
-    power: "3x60"
-  - skill_category: active
-    name: "Ballad of Blizzards II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Rousing Lion Dance II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Rousing Lion Dance II (3★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Rousing Lion Dance II"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Rousing Lion Dance II (5★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Overpowering Blow"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "175"
-  - skill_category: active
-    name: "Overpowering Blow"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "**205**"
-  - skill_category: tp
-    name: "Broken Fan Strike"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    power: "240"
-    effects:
-      - "Fan damage to Single Foe (potency: 240) and lower Fan Res"
-  - skill_category: ex
-    name: "Blue Rhapsody"
-    skill_type: attack
-    damage_types: [fan, ice]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Sapphire Swing"
-    skill_type: mixed
-    damage_types: [fan]
-    target: front_row
-    power: "330→395→495"
-    effects:
-      - "Fan damage to All Foes (potency: **330→395→495**) and impart Entire Front Row with Phys"
-      - "t Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Frostly Refrain
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Lion Dance
+  sp_cost: 6
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Atk. Up 10%(turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Sweep
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Wild Blow
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - fan
+  target: random
+  hit_count: 3x
+  power: 3x60
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 3 time(s) (potency: 3x60).'
+- skill_category: active
+  name: Ballad of Blizzards II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Rousing Lion Dance II
+  unlock_tier: 3★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 23→18'
+  - 'Upgraded: Impart Entire Front Row with Phys. Atk. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Overpowering Blow
+  unlock_tier: 4★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '175'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 175).'
+  upgrades:
+  - 'Lv.80: SP Saver: 44→35'
+  - 'Upgraded: Deal Phys. Fan damage to All Foes (potency: 205).'
+- skill_category: tp
+  name: Broken Fan Strike
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '240'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 240) and lower Fan Res. by 10% (turns: 2).'
+- skill_category: ex
+  name: Blue Rhapsody
+  skill_type: utility
+  damage_types:
+  - fan
+  - ice
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 5 time(s) (potency: 5x55).'
+  - Exploits Ice weakness (damage calculation based on Phys. Fan attack).
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Sapphire Swing
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: front_row
+  power: 330→395→495
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 330→395→495) and impart Entire Front Row with Phys. Atk. Up 5%→10%→15% (turns: 2).'
+  - t Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Start of battle: Impart **Entire Front Row** with Phys. Atk. Up 15% (turns: 3)."
-  - passive_category: innate
-    effect: "At full HP: Raise Fan damage of Self by 20%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Phys. Atk. of Paired Allies by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Phys. Atk Boost II
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: 'Start of battle: Impart Entire Front Row with Phys. Atk. Up 15% (turns: 3).'
+- passive_category: innate
+  name: Hale Fan Atk Boost III
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Fan damage of Self by 20%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  unlock_tier: 5★
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Phys. Atk. Boost (Joint)
+  effect: Raise Phys. Atk. of Paired Allies by 10%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Blue Veil"
-  passive_effect: "30 P.Atk, 30 Crit; Start of the battle: Lower Fan Res. of all enemies by 10% (turns: 3)"
+  name: Blue Veil
+  passive_effect: '30 P.Atk, 30 Crit; Start of the battle: Lower Fan Res. of all enemies by 10% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

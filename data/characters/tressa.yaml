@@ -52,138 +52,173 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Tradewinds"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Rest"
-    sp_cost: 42
-    skill_type: heal
-    target: self
-    power: "105"
-    effects:
-      - "**Rest** **(1★)** Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self"
-  - skill_category: active
-    name: "Take Command"
-    sp_cost: 18
-    skill_type: debuff
-    target: front_row
-    effects:
-      - "**Take Command** **(2★)** Provoke All Foes and impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Trade Tempest"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Sidestep"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Sidestep** **(3★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Donate BP"
-    sp_cost: 60
-    skill_type: utility
-    target: single_ally
-    effects:
-      - "**Donate BP** **(4★)** Restore BP of Single Ally"
-  - skill_category: active
-    name: "Trade Typhoon"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "105"
-  - skill_category: active
-    name: "Swift Trifold Thrust"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "**Swift Trifold Thrust (5★)** Act faster during turn and deal Phys"
-    limit_break_upgrade: "Act faster during turn and deal Phys. Polearm damage to Single Foe **5** time(s) (potency: **5x55**)."
-  - skill_category: tp
-    name: "Summon Tornado"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Summon Tornado ** Act faster during turn and deal Elem"
-  - skill_category: tp
-    name: "Summon Tornado Lv.2"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Summon Tornado Lv.2** Act faster during turn and deal Elem"
-  - skill_category: ex
-    name: "Emergency Evasion Command (EX)"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Emergency Evasion Command (EX)** Grant Entire Front Row the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Call for Help"
-    skill_type: attack
-    damage_types: [light]
-    target: random
+- skill_category: active
+  name: Trifold Thrust
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Tradewinds
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Rest
+  sp_cost: 42
+  skill_type: heal
+  target: self
+  power: '105'
+  effects:
+  - '(1★) Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self.'
+- skill_category: active
+  name: Take Command
+  sp_cost: 18
+  skill_type: debuff
+  target: front_row
+  effects:
+  - '(2★) Provoke All Foes and impart Entire Front Row with Phys. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Trade Tempest
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  power: '180'
+  effects:
+  - '(2★) Deal Elem. Wind damage to All Foes (potency: 180).'
+- skill_category: active
+  name: Sidestep
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - '(3★) Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Donate BP
+  sp_cost: 60
+  skill_type: utility
+  target: single_ally
+  effects:
+  - '(4★) Restore BP of Single Ally, excluding Self (amount: 1-4 based on Boost Lv.), but delay actions during turn.'
+  upgrades:
+  - 'Lv.96: SP Saver: 60→48'
+- skill_category: active
+  name: Trade Typhoon
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: '105'
+  effects:
+  - '(5★) Deal Elem. Wind damage to All Foes 2 time(s) (potency: 105).'
+  upgrades:
+  - 'Lv.99: SP Saver: 63→50'
+- skill_category: active
+  name: Swift Trifold Thrust
+  unlock_tier: 5★
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x85).'
+  upgrades:
+  - 'Lv.100: SP Saver: 68→54'
+  limit_break_upgrade: 'Act faster during turn and deal Phys. Polearm damage to Single Foe 5 time(s) (potency: 5x55).'
+- skill_category: tp
+  name: Summon Tornado
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 4x
+  power: 4x45
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Elem. Wind damage to Random Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.2: Act faster during turn and deal Elem. Wind damage to Random Foe 4 time(s) (potency: 4x45). At Max Boost: Also rant Self the ability to dodge physical attacks (times: 3).'
+- skill_category: ex
+  name: Emergency Evasion Command
+  unlock_tier: EX
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 1'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Call for Help
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  power: 4x165→4x190→4x240
+  effects:
+  - 'Deal Phys. Sword, Dagger and Axe damage and Elem. Light damage 1 time each to Random Foes (potency: 4x165→4x190→4x240).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Survive an otherwise lethal attack with 1 HP remaining once per battle."
-    trigger: always
-  - passive_category: innate
-    effect: "At full HP: Lower own SP consumption by 50% (Effects do not stack)."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self a 50% chance of dodging some physical attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self a 50% chance of dodging some physical attacks and restore own HP (potency: 90) and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Polearm and Elem. Wind attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hang Tough
+  effect: (1★) Survive an otherwise lethal attack with 1 HP remaining once per battle.
+  trigger: always
+- passive_category: innate
+  name: Hale Half SP
+  unlock_tier: 3★
+  effect: 'At full HP: Lower own SP consumption by 50% (Effects do not stack).'
+  trigger: hp_condition
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Merchant’s Intuition
+  effect: 'Grant Self a 50% chance of dodging some physical attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Self a 50% chance of dodging some physical attacks and restore own HP (potency: 90) and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Polearm and Elem. Wind attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Colzione Seal"
-  passive_effect: "40 P.Atk, 40 E.Atk, 600 HP; Raise Polearm and Wind damage dealt by 15%"
+  name: Colzione Seal
+  passive_effect: 40 P.Atk, 40 E.Atk, 600 HP; Raise Polearm and Wind damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

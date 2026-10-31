@@ -51,106 +51,132 @@ jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Heal Wounds (Single)"
-    sp_cost: 12
-    skill_type: heal
-    target: single_ally
-    power: "90"
-    effects:
-      - "**Heal Wounds (Single)** Restore HP of Single Ally (potency: 90)"
-  - skill_category: active
-    name: "Bash"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Fireball (All)"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "110"
-  - skill_category: active
-    name: "Sheltering Veil"
-    sp_cost: 6
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Sheltering Veil (2★)** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Heal More (Single)"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Heal More (Single) (2★)** Restore HP of Single Ally (potency: 1509"
-  - skill_category: active
-    name: "Brutal Bludgeon"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "140"
-  - skill_category: active
-    name: "Brutal Bludgeon"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "**170**"
-  - skill_category: tp
-    name: "Major Healing Magic (All)"
-    sp_cost: 55
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**Major Healing Magic (All) ** Restore HP of Entire Front Row (potency: 205)"
-  - skill_category: ex
-    name: "Fragile Flame"
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Fire damage to All Foes 2 time(s) (potency: 2x95) and lower Elem"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Restorative Springs"
-    skill_type: heal
-    target: single_ally
-    power: "250→300→350"
-    effects:
-      - "Restore HP of Single Ally (potency: **250→300→350**) and impart Elem"
+- skill_category: active
+  name: Heal Wounds (Single)
+  sp_cost: 12
+  skill_type: heal
+  target: single_ally
+  power: '90'
+  effects:
+  - 'Restore HP of Single Ally (potency: 90).'
+- skill_category: active
+  name: Bash
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Fireball (All)
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '110'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 110).'
+- skill_category: active
+  name: Sheltering Veil
+  unlock_tier: 2★
+  sp_cost: 6
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Def. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Heal More (Single)
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Restore HP of Single Ally (potency: 1509.'
+- skill_category: active
+  name: Brutal Bludgeon
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '140'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 140).'
+  upgrades:
+  - 'Lv.60: SP Saver: 30→24'
+  - 'Upgraded: Deal Phys. Staff damage to All Foes (potency: 170).'
+- skill_category: tp
+  name: Major Healing Magic (All)
+  sp_cost: 55
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205).'
+- skill_category: ex
+  name: Fragile Flame
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x95) and lower Elem. Atk. and Elem. Def. by 15% (turns: 2).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Restorative Springs
+  skill_type: heal
+  target: single_ally
+  power: 250→300→350
+  effects:
+  - 'Restore HP of Single Ally (potency: 250→300→350) and impart Elem. Atk. Up 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Paired Allies with Elem. Atk. Up 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Ice Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Ice Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "While in front row: Impart Entire Front Row with Elem. Def. Up 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Elem. Atk Boost (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Paired Allies with Elem. Atk. Up 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Ice Res Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Ice Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Ice Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Ice Resilience III
+  unlock_tier: 5★
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  unlock_tier: 4★
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Vanguard Elem. Def. Boost (Front/All)
+  effect: 'While in front row: Impart Entire Front Row with Elem. Def. Up 10%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Durable Dining Set"
-  passive_effect: "20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Pearl: Raise Elem. Atk. and Fire damage of Paired Allies by 10%"
+  name: Durable Dining Set
+  passive_effect: '20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Pearl: Raise Elem. Atk. and Fire damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

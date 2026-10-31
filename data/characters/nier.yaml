@@ -53,128 +53,204 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Sidestep"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Sidestep (1★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) [50 SP]"
-  - skill_category: active
-    name: "Peerless Thrust"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Spirited Slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "At Max Boost: Guaranteed critical hit"
-  - skill_category: active
-    name: "Thrust Combo"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "**Thrust Combo (3★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Dark Phantasm"
-    sp_cost: 78
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "attacks only once with higher potency and raises its Damage Limit by 50,000"
-  - skill_category: active
-    name: "Dark Execution"
-    sp_cost: 86
-    skill_type: attack
-    damage_types: [polearm, dark]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Dark Hand"
-    sp_cost: 72
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: tp
-    name: "Dark Whirlwind"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [polearm, dark]
-    target: single_enemy
-    power: "230"
-  - skill_category: ex
-    name: "Attack Gauge"
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "260-450 based on Boost Lv."
-    effects:
-      - "**Attack Gauge** Act faster during turn"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Dark Lance"
-    skill_type: attack
-    damage_types: [polearm, dark]
-    target: single_enemy
-    hit_count: "2x"
+- skill_category: active
+  name: Trifold Thrust
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Trifold Slash
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Sidestep
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)'
+- skill_category: active
+  name: Peerless Thrust
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Spirited Slash
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - 'At Max Boost: Guaranteed critical hit, but delay actions during turn.'
+- skill_category: active
+  name: Thrust Combo
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x55) and attack once more if the target is broken (potency: 90).'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Dark Phantasm
+  unlock_tier: 4★
+  sp_cost: 78
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x45).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - If a broken enemy is present when selecting this action, this skill targets a Single Foe, attacks only once with higher potency and raises its Damage Limit by 50,000.
+  upgrades:
+  - 'Lv.96: SP Saver: 78→62'
+- skill_category: active
+  name: Dark Execution
+  unlock_tier: 5★
+  sp_cost: 86
+  skill_type: utility
+  damage_types:
+  - polearm
+  - dark
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 4 time(s) (potency: 4x45).'
+  - Exploits Dark weakness (damage calculation based on Phys. Polearm attack).
+  - 'Have a moderate chance to inflict paralysis (turns: 2).'
+  - If a broken enemy is present when selecting this action, have an extremely high chance to inflict paralysis instead.
+  upgrades:
+  - 'Lv.99: SP Saver: 86→69'
+- skill_category: active
+  name: Dark Hand
+  unlock_tier: 5★
+  sp_cost: 72
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x95).'
+  - Exploits Sword and Dark weaknesses (damage calculation based on Phys. Polearm attack).
+  - 'Lower Phys. Def. by 15% (turns: 2).'
+  - 20% more potent if target is broken.
+  upgrades:
+  - 'Lv.100: SP Saver: 72→58'
+- skill_category: tp
+  name: Dark Whirlwind
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - polearm
+  - dark
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+  - Attack count rises based on Boost Lv. (up to 6x70 at Max Boost).
+  - Exploits Dark weakness (damage calculation based on Phys. Polearm attack).
+- skill_category: ex
+  name: Attack Gauge
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: 260-450 based on Boost Lv.
+  priority: true
+  effects:
+  - 'Act faster during turn, deal Phys. Polearm damage to Single Foe (potency: 260-450 based on Boost Lv.) and mark them with an Attack Gauge (count: 7-4 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 6 onwards; Uses: 1'
+  ex_trigger: Turn 6 onwards
+- skill_category: special
+  name: Dark Lance
+  skill_type: utility
+  damage_types:
+  - polearm
+  - dark
+  target: single_enemy
+  hit_count: 2x
+  power: 2x240→2x285→2x355
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x240→2x285→2x355).'
+  - Exploits Dark weakness (damage calculation based on Phys. Polearm attack).
+  - 50% more potent if target is broken.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Sword and Polearm damage of Self by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Sword and Polearm damage of Self by 30% and Damage Limit by 25,000."
-  - passive_category: innate
-    effect: "Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 25,000) when a broken enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self automatic SP recovery (amount: 20) and raise BP recovery by 1 when a broken enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Sword & Polearm Atk. Boost V
+  unlock_tier: 1★
+  effect: Raise Sword and Polearm damage of Self by 30%.
+  trigger: always
+  limit_break_upgrade: Raise Sword and Polearm damage of Self by 30% and Damage Limit by 25,000.
+- passive_category: innate
+  name: Shade Hunter
+  unlock_tier: 3★
+  effect: 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and grant Damage Limit Up (effect: 25,000) when a broken enemy is present.'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Dark Gluttony
+  effect: 'Grant Self automatic SP recovery (amount: 20) and raise BP recovery by 1 when a broken enemy is present.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Geometric Patterned Bracers"
-  passive_effect: "200 P.Atk, -30 P.Def, -30 E.Def; Raise Phys. Atk. by 15% when a broken enemy is present; Additionally, lower Phys. Res. of all enemies by 10%"
+  name: Geometric Patterned Bracers
+  passive_effect: 200 P.Atk, -30 P.Def, -30 E.Def; Raise Phys. Atk. by 15% when a broken enemy is present; Additionally, lower Phys. Res. of all enemies by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Attack Gauge
+  description: While a marked target is broken, every attack they take reduces the gauge count by 1 (even with multilple hits/only in action order). If the gauge hits zero, the target stays broken for one additional turn.
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: complete

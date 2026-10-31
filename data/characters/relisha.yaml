@@ -51,118 +51,177 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Lightning Bash (Single) II"
-    sp_cost: 21
-    skill_type: attack
-    damage_types: [staff, lightning]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Medica (Front/All)"
-    sp_cost: 28
-    skill_type: heal
-    target: front_row
-    power: "45"
-    effects:
-      - "**Medica (Front/All)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 70, turns: 2)"
-  - skill_category: active
-    name: "Repeated Brutal Bludgeon"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Stormy Countenance"
-    sp_cost: 45
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Stormy Countenance (2★)** Lower Staff"
-  - skill_category: active
-    name: "Manifold Ministry"
-    sp_cost: 59
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Manifold Ministry (2★)** Raise Phys"
-      - "of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and grant any target Clerics the ability to exploit Fire"
-  - skill_category: active
-    name: "Raging Lightning Bash II"
-    sp_cost: 51
-    skill_type: attack
-    damage_types: [staff, lightning]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    limit_break_upgrade: "Deal Phys. Staff damage to Random Foe **5** time(s) (potency: **5x45**). Exploits Lightning weakness (damage calculation based on Phys. Staff attack)."
-  - skill_category: active
-    name: "Miraculous Ministry"
-    sp_cost: 59
-    skill_type: mixed
-    target: front_row
-    power: "140, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Miraculous Ministry (4★)** Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Judgement Rush"
-    sp_cost: 71
-    skill_type: attack
-    damage_types: [staff, lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Comeuppance"
-    sp_cost: 36
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: tp
-    name: "Royal Reprimand"
-    sp_cost: 32
-    skill_type: utility
-    target: single_enemy
-  - skill_category: ex
-    name: "Forbidden Fulmination"
-    skill_type: attack
-    damage_types: [staff, lightning]
-    target: single_enemy
-    power: "530"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Flamebringer’s Fervency"
-    skill_type: mixed
-    target: front_row
-    power: "2→3"
+- skill_category: active
+  name: Lightning Bash (Single) II
+  sp_cost: 21
+  skill_type: utility
+  damage_types:
+  - staff
+  - lightning
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 170).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Staff attack).
+- skill_category: active
+  name: Medica (Front/All)
+  sp_cost: 28
+  skill_type: heal
+  target: front_row
+  power: '45'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 70, turns: 2).'
+- skill_category: active
+  name: Repeated Brutal Bludgeon
+  unlock_tier: 1★
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Stormy Countenance
+  unlock_tier: 2★
+  sp_cost: 45
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Staff, Ice, Lightning and Wind Res. of Single Foe by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Manifold Ministry
+  unlock_tier: 2★
+  sp_cost: 59
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and grant any target Clerics the ability to exploit Fire, Ice, Lightning, Wind, Light and Dark weakness with some physical attacks other than the “Attack” action (turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: Reaches All Allies.'
+- skill_category: active
+  name: Raging Lightning Bash II
+  unlock_tier: 3★
+  sp_cost: 51
+  skill_type: utility
+  damage_types:
+  - staff
+  - lightning
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Staff attack).
+  upgrades:
+  - 'Lv.88: SP Saver: 51→41'
+  limit_break_upgrade: 'Deal Phys. Staff damage to Random Foe 5 time(s) (potency: 5x45). Exploits Lightning weakness (damage calculation based on Phys. Staff attack).'
+- skill_category: active
+  name: Miraculous Ministry
+  unlock_tier: 4★
+  sp_cost: 59
+  skill_type: buff
+  target: front_row
+  power: '140, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and raise Staff damage by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 59→47'
+- skill_category: active
+  name: Judgement Rush
+  unlock_tier: 5★
+  sp_cost: 71
+  skill_type: utility
+  damage_types:
+  - staff
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Staff attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 71→57'
+- skill_category: active
+  name: Comeuppance
+  unlock_tier: 5★
+  sp_cost: 36
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Potency increases by 1.5x if the target is broken.
+  upgrades:
+  - 'Lv.100: Potency Up: 2x90→2x120'
+- skill_category: tp
+  name: Royal Reprimand
+  sp_cost: 32
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Inflict Staff weakening to Single Foe (times: 6-9 based on Boost Lv.).'
+- skill_category: ex
+  name: Forbidden Fulmination
+  skill_type: utility
+  damage_types:
+  - staff
+  - lightning
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 530).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Staff attack).
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 2'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Flamebringer’s Fervency
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. of Entire Front Row by 5%→10%→15%, their Staff damage by 5%→10%→15% and their Damage Limit by 10,000→20,000→30,000 (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Act faster when consuming 3 BP."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Entire Front Row effects based on the number of Clerics in the party. ·2+: Raise Staff damage by 15%. ·3+: Also raise Elem. Atk. by 15%. ·5+: Also allow them to exploit Staff weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Swift Deliverance
+  unlock_tier: 1★
+  effect: Act faster when consuming 3 BP.
+  trigger: always
+- passive_category: innate
+  name: Wandering Saintess
+  unlock_tier: 3★
+  effect: 'Grant Entire Front Row effects based on the number of Clerics in the party. ·2+: Raise Staff damage by 15%. ·3+: Also raise Elem. Atk. by 15%. ·5+: Also allow them to exploit Staff weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack).'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Augment/Enfeeblement (Give)
+  effect: Extend duration of augmenting and enfeebling effects (excluding status ailments) granted by Self by 1 turn (Does not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“The Wandering Saintess”"
-  passive_effect: "40 P.Atk, 20 E.Atk, 80 Crit; Raise Staff damage by 15% and Damage Limit by 50,000"
+  name: The Wandering Saintess
+  passive_effect: 40 P.Atk, 20 E.Atk, 80 Crit; Raise Staff damage by 15% and Damage Limit by 50,000
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Staff Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Staff, increase damage taken from Staff by 20%.'
 
 # Metadata
 data_confidence: incomplete

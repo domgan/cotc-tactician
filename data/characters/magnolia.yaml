@@ -68,127 +68,186 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Moon Edge"
-    sp_cost: 26
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    power: "170/200/240/350"
-    effects:
-      - "Polearm damage to Single Foe (potency: 170/200/240/350) and lower Speed by 15% (turns: 2)"
-  - skill_category: active
-    name: "Crescent Moon"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    power: "150/175/215/260"
-    effects:
-      - "Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2)"
-  - skill_category: active
-    name: "Floral Moon"
-    sp_cost: 48
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    power: "150/175/215/260"
-    effects:
-      - "Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2)"
-  - skill_category: active
-    name: "Liberez"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    power: "120/145/185/220"
-    effects:
-      - "grant Entire Front Row an HP barrier (amount: 10% of user’s max HP/Does not stack) and gain the ability to counter physical and elemental attacks (turns: 3)"
-  - skill_category: active
-    name: "Lightning Arrow"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65/4x75/4x85/4x110"
-  - skill_category: active
-    name: "Grazioso"
-    sp_cost: 44
-    skill_type: mixed
-    damage_types: [polearm]
-    target: front_row
-    power: "230/260/300/400"
-    effects:
-      - "Also impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Chamolile"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "290/320/380/500"
-  - skill_category: active
-    name: "Overpower"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x35/5x45/5x55/5x80"
-  - skill_category: active
-    name: "Super Jump"
-    sp_cost: 80
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "3x"
-    power: "3x195/3x225/3x270/3x345"
-    effects:
-      - "Act faster next turn and deal Phys"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    limit_break_upgrade: "Leap high into the air and gain Jumping (count: 2). Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: **3x240**/**3x270**/**3x315**/**3x390**), but these attacks can’t break enemies. Damage Limit of this skill is increased by 70,000. Jumping is removed afterwards."
-  - skill_category: tp
-    name: "Lightning Rain"
-    sp_cost: 78
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: special
-    name: "Starlight Moon"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "8x"
+- skill_category: active
+  name: Moon Edge
+  sp_cost: 26
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 170/200/240/350) and lower Speed by 15% (turns: 2).'
+- skill_category: active
+  name: Crescent Moon
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  power: 150/175/215/260
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2).'
+- skill_category: active
+  name: Floral Moon
+  unlock_tier: 1★
+  sp_cost: 48
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  power: 150/175/215/260
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 150/175/215/260) and lower Speed by 15% (turns: 2).'
+  - 30% more potent if the enemy has Speed Down.
+- skill_category: active
+  name: Liberez
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  power: 120/145/185/220
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 120/145/185/220), grant Entire Front Row an HP barrier (amount: 10% of user’s max HP/Does not stack) and gain the ability to counter physical and elemental attacks (turns: 3).'
+  - 'Counter: Deal Phys. Polearm damage (potency: 200).'
+- skill_category: active
+  name: Lightning Arrow
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65/4x75/4x85/4x110
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe 4 time(s) (potency: 4x65/4x75/4x85/4x110).'
+- skill_category: active
+  name: Grazioso
+  unlock_tier: 3★
+  sp_cost: 44
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: front_row
+  power: 230/260/300/400
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230/260/300/400) and have a moderate chance to inflict paralysis (turns: 2).'
+  - 'Also impart Entire Front Row with Phys. Atk. Up 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 55→44'
+- skill_category: active
+  name: Chamolile
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: 290/320/380/500
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 290/320/380/500).'
+  upgrades:
+  - 'Lv.96: Potency Up: 260→290'
+- skill_category: active
+  name: Overpower
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 5x
+  power: 5x35/5x45/5x55/5x80
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 5 time(s) (potency: 5x35/5x45/5x55/5x80).'
+  - If the target has Speed Down, attack count becomes 7.
+  upgrades:
+  - 'Lv.99: SP Saver: 58→46'
+- skill_category: active
+  name: Super Jump
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 3x
+  power: 3x195/3x225/3x270/3x345
+  priority: true
+  effects:
+  - 'Leap high into the air and gain Jumping (count: 2).'
+  - 'Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: 3x195/3x225/3x270/3x345), but these attacks can’t break enemies.'
+  - Damage Limit of this skill is increased by 70,000.
+  - Jumping is removed afterwards.
+  upgrades:
+  - 'Lv.100: SP Saver: 100→80'
+  limit_break_upgrade: 'Leap high into the air and gain Jumping (count: 2). Act faster next turn and deal Phys. Polearm damage to All Foes 3 time(s) (potency: 3x240/3x270/3x315/3x390), but these attacks can’t break enemies. Damage Limit of this skill is increased by 70,000. Jumping is removed afterwards.'
+- skill_category: tp
+  name: Lightning Rain
+  sp_cost: 78
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x80).'
+  - 'If the target has Speed Down, have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: special
+  name: Starlight Moon
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 8x
+  power: 8x60→8x70→8x85
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 8 time(s) (potency: 8x60→8x70→8x85).'
+  - 20% more potent if target has Speed Down.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When switching: Lower Speed of All Foes by 30% and their Polearm Res. by 15% (turns: 3). *Change reflected on the next turn."
-    trigger: always
-  - passive_category: innate
-    effect: "When consuming 3 BP, raise potency of Self by 100% (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When selecting a command, grant Self the special effect Bravely Second (turns: 1). Bravely Second: Raise Polearm damage by 30% and grant Damage Limit Up (effect: 50,000) and Dead Aim (guaranteed critical hits). ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Tactical Suppression
+  unlock_tier: 1★
+  effect: 'When switching: Lower Speed of All Foes by 30% and their Polearm Res. by 15% (turns: 3). *Change reflected on the next turn.'
+  trigger: always
+- passive_category: innate
+  name: Full Power
+  unlock_tier: 3★
+  effect: When consuming 3 BP, raise potency of Self by 100% (Does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Bravely Second
+  effect: 'When selecting a command, grant Self the special effect Bravely Second (turns: 1). Bravely Second: Raise Polearm damage by 30% and grant Damage Limit Up (effect: 50,000) and Dead Aim (guaranteed critical hits).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+  notes: 'Preparation Turns: 2; Reuse Turns: 4'
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Moonstone Amulet"
-  passive_effect: "120 P.Atk, -60 E.Atk, 80 SP; Start of battle: Lower Speed of All Foes by 30% (turns: 6); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); 60 P.Atk, 80 SP; Start of battle: Lower Speed of All Foes by **10%** (turns: **3**); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50)"
+  name: Moonstone Amulet
+  passive_effect: '120 P.Atk, -60 E.Atk, 80 SP; Start of battle: Lower Speed of All Foes by 30% (turns: 6); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50); 60 P.Atk, 80 SP; Start of battle: Lower Speed of All Foes by **10%** (turns: **3**); Grant automatic SP recovery when enemy with Speed Down is present (amount: 50)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Jumping
+  description: Cannot select actions or be targeted by some effects. While Jumping is active, the durations of other status effects does not decrease.
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

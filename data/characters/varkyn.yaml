@@ -52,118 +52,172 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Luminescence (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Luminescence (All) II"
-    sp_cost: 32
-    skill_type: attack
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Elemental Collapse"
-    sp_cost: 18
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Elemental Collapse (1★)** Impart Single Foe with Elem"
-  - skill_category: active
-    name: "Lightprone (All) III"
-    sp_cost: 16
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Lightprone (All) III (2★)** Lower Light Res"
-  - skill_category: active
-    name: "Dual Slam"
-    sp_cost: 26
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Raging Luminescence"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res"
-  - skill_category: active
-    name: "Clear-headed"
-    sp_cost: 24
-    skill_type: buff
-    target: self
-    effects:
-      - "**Clear-headed (4★)** Impart Self with Elem"
-  - skill_category: active
-    name: "Luminescence (All) III"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Lux Congerere (Single) II"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    limit_break_upgrade: "Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65). Attack count becomes 5 at Max Boost."
-  - skill_category: tp
-    name: "Living Soulstone - Attack Type"
-    sp_cost: 120
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "3x"
-    power: "3x55, turns: 2-5 based on Boost Lv."
-  - skill_category: ex
-    name: "Forbidden Luminescence (Single)"
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "475"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Light Shatter Form"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "375→450→565"
+- skill_category: active
+  name: Luminescence (Single) II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Luminescence (All) II
+  sp_cost: 32
+  skill_type: utility
+  target: aoe
+  power: '150'
+  effects:
+  - Deal Eem.
+  - 'Light damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Elemental Collapse
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Elem. Atk. Down 15% and Elem. Def. Down 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Lightprone (All) III
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Light Res. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Dual Slam
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Tome damage Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Raging Luminescence
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 3 time(s) (potency: 3x55) and lower Light Res. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Clear-headed
+  unlock_tier: 4★
+  sp_cost: 24
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Elem. Atk. Up 20% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 24→19'
+- skill_category: active
+  name: Luminescence (All) III
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.99: SP Saver: 46→37'
+- skill_category: active
+  name: Lux Congerere (Single) II
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.100: SP Saver: 40→32'
+  limit_break_upgrade: 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65). Attack count becomes 5 at Max Boost.'
+- skill_category: tp
+  name: Living Soulstone - Attack Type
+  sp_cost: 120
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 3x
+  power: '3x55, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Light damage to Random Foe 3 time(s) before allies act (with exceptions) (potency: 3x55, turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Forbidden Luminescence (Single)
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '475'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 475).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Light Shatter Form
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: 375→450→565
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 375→450→565).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Light damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "At 50% SP or less: Impart Self with Elem. Atk. Up 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Resilience by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When broken enemy is present: Raise potency of battle skills by 30% and grant Self Damage Limit Up (effect: 50,000), but also increase SP consumption by 30%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Light Augment V
+  unlock_tier: 1★
+  effect: Raise Light damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Elem. Atk. Boost With 50% or Less SP III
+  unlock_tier: 3★
+  effect: 'At 50% SP or less: Impart Self with Elem. Atk. Up 20%.'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Resilience by 10%.
+  trigger: always
+- passive_category: tp
+  name: Tactical Genius
+  effect: 'When broken enemy is present: Raise potency of battle skills by 30% and grant Self Damage Limit Up (effect: 50,000), but also increase SP consumption by 30%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Medal of Genius Soldier"
-  passive_effect: "40 E.Atk, 40 E.Def, 60 Spd; Start of battle: Lower Elem. Def. of all enemies by 15% (turns: 6); -400 HP, 100 SP; With Tactician’s Cloak equipped: Raise own BP recovery amount by 1 when a broken enemy is present. (Does not stack with support skills and equipment effects)."
+  name: Medal of Genius Soldier
+  passive_effect: '40 E.Atk, 40 E.Def, 60 Spd; Start of battle: Lower Elem. Def. of all enemies by 15% (turns: 6); -400 HP, 100 SP; With Tactician’s Cloak equipped: Raise own BP recovery amount by 1 when a broken enemy is present. (Does not stack with support skills and equipment effects).'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

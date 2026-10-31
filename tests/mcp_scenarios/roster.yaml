@@ -1,0 +1,17 @@
+# Deterministic roster for MCP scenario tests (COTC_ROSTER_FILE points here).
+# final-emperor is intentionally NOT owned so roster leaks are detectable.
+schema_version: '1.0'
+last_updated: '2026-10-31'
+characters:
+  rocbouquet: {awakening: 4, au: true, ult_level: 10}
+  noel: {awakening: 2, au: false, ult_level: 1}
+  final-empress: {awakening: 0, au: false, ult_level: 1}
+  signa: {awakening: 4, au: true, ult_level: 10}
+  viola: {awakening: 3, au: false, ult_level: 5}
+  solon: {awakening: 1, au: true, ult_level: 10}
+  canary: {awakening: 2, au: false, ult_level: 1}
+  fiore-ex: {awakening: 0, au: false, ult_level: 1}
+  shana: {awakening: 4, au: true, ult_level: 20}
+  richard: {awakening: 2, au: false, ult_level: 5}
+  hikari-ex: {awakening: 4, au: true, ult_level: 10}
+  sazantos: {awakening: 1, au: false, ult_level: 1}

@@ -52,121 +52,165 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Summon Lulu"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Chain Lightstrike"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Wild Shot"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x50"
-  - skill_category: active
-    name: "Deceiving Shot"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "115"
-  - skill_category: active
-    name: "Chain Lightburst"
-    sp_cost: 30
-    skill_type: attack
-    target: aoe
-    hit_count: "2x"
-    power: "2x65"
-  - skill_category: active
-    name: "Triple Sturdy Shot"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x60"
-  - skill_category: active
-    name: "Triple Sturdy Shot"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "**3x80**"
-  - skill_category: active
-    name: "Wild Raging Strike"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "4x"
-    power: "4x30"
-  - skill_category: active
-    name: "Wild Raging Strike"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "4x"
-    power: "**4x40**"
-  - skill_category: tp
-    name: "Obliterate Shot"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "290"
-  - skill_category: ex
-    name: "Blinding Arrows"
-    skill_type: attack
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Lulu’s Onslaught"
-    skill_type: attack
-    damage_types: [bow, staff]
-    target: single_enemy
-    hit_count: "2x"
+- skill_category: active
+  name: Summon Lulu
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Summon Lulu, deal Phys. Staff damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Chain Lightstrike
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Wild Shot
+  unlock_tier: 1★
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x50
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x50).'
+- skill_category: active
+  name: Deceiving Shot
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '115'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 115) and have a moderate chance to inflict blind (turns: 2).'
+- skill_category: active
+  name: Chain Lightburst
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: attack
+  target: aoe
+  hit_count: 2x
+  power: 2x65
+  effects:
+  - 'Deal Elem Light damage to All Foes 2 time(s) (potency: 2x65).'
+- skill_category: active
+  name: Triple Sturdy Shot
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x60
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x60).'
+  upgrades:
+  - 'Lv.72: SP Saver: 38→30'
+  - 'Upgraded: Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x80).'
+- skill_category: active
+  name: Wild Raging Strike
+  unlock_tier: 4★
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 4x
+  power: 4x30
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x30).'
+  upgrades:
+  - 'Lv.80: SP Saver: 35→28'
+  - 'Upgraded: Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x40).'
+- skill_category: tp
+  name: Obliterate Shot
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 290).'
+- skill_category: ex
+  name: Blinding Arrows
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x95).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'Have a high chance to inflict blindness (turns: 2).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Lulu’s Onslaught
+  skill_type: utility
+  damage_types:
+  - bow
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x100→2x120→2x150
+  effects:
+  - 'Deal Phys. Staff damage 2 time(s) (potency: 2x100→2x120→2x150) and Phys. Bow damage 4 time(s) (potency: 4x100→4x120→4x150) to Single Foe.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At full HP: Impart Paired Allies with Phys. Atk. Up 10%."
-    trigger: hp_condition
-    limit_break_upgrade: "At full HP: Impart **Entire Front Row** with Phys. Atk. Up 10%."
-  - passive_category: innate
-    effect: "Raise potency of “Summon Lulu” by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Raise Bow damage of Paired Allies by 20%."
-    trigger: hp_condition
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Phys. Atk Boost (Joint)
+  unlock_tier: 1★
+  effect: 'At full HP: Impart Paired Allies with Phys. Atk. Up 10%.'
+  trigger: hp_condition
+  limit_break_upgrade: 'At full HP: Impart Entire Front Row with Phys. Atk. Up 10%.'
+- passive_category: innate
+  name: Augment Lulu
+  unlock_tier: 3★
+  effect: Raise potency of “Summon Lulu” by 30%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Hale Bow Atk. Boost III (Joint)
+  effect: 'At full HP: Raise Bow damage of Paired Allies by 20%.'
+  trigger: hp_condition
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Snowy White Pelt"
-  passive_effect: "30 P.Atk, 30 Crit, 10 SP; When breaking an enemy, lower their Bow Res. by 10% (turns: 3)"
+  name: Snowy White Pelt
+  passive_effect: '30 P.Atk, 30 Crit, 10 SP; When breaking an enemy, lower their Bow Res. by 10% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

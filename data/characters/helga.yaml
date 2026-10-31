@@ -51,127 +51,151 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Pierce"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Swift"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Swift** Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Ice Blast"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Mighty Charge"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Solid Strike"
-    sp_cost: 36
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "2x"
-    power: "2x85"
-    effects:
-      - "Polearm damage to Random Foe 2 time(s) (potency: 2x85) and lower Spd by 15% with every attack (turns: 2)"
-  - skill_category: active
-    name: "Relax"
-    sp_cost: 11
-    skill_type: buff
-    target: single_enemy
-    power: "100"
-    effects:
-      - "**Relax (3★)** Restore own HP (potency: 100)"
-  - skill_category: active
-    name: "Relax"
-    sp_cost: 11
-    skill_type: buff
-    target: single_enemy
-    power: "**160**"
-    effects:
-      - "**Relax (5★)** Restore own HP (potency: **160**)"
-    limit_break_upgrade: "Restore own HP (potency: 160), grant Self HP Barrier (potency: 20% of user’s max HP/Does not stack) and raise Phys. Def. and Elem. Def. by 15% (turns: 2)."
-  - skill_category: active
-    name: "Chain Rime"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-  - skill_category: active
-    name: "Chain Rime"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-  - skill_category: tp
-    name: "Unmatched Arm-Crippling Thrust"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Polearm Res"
-  - skill_category: ex
-    name: "Unparalleled Arm-Leg Thrust"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Tiger’s Ruin"
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "4x"
-    effects:
-      - "Polearm damage to Random Foe 4 time(s) (potency: **4x95→4x115→4x140**) and lower Spd by **5%→10%→15%** with every attack (turns: 2)"
+- skill_category: active
+  name: Pierce
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Swift
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Ice Blast
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '130'
+  effects:
+  - '(1★) Deal Elem. Ice damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Mighty Charge
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  power: '145'
+  effects:
+  - '(2★) Deal Phys. Polearm damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Solid Strike
+  sp_cost: 36
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - '(2★) Deal Phys. Polearm damage to Random Foe 2 time(s) (potency: 2x85) and lower Spd by 15% with every attack (turns: 2).'
+- skill_category: active
+  name: Relax
+  unlock_tier: 3★
+  sp_cost: 11
+  skill_type: utility
+  target: single_enemy
+  power: '100'
+  effects:
+  - 'Restore own HP (potency: 100).'
+  upgrades:
+  - 'Lv.72: Potency Up: 100→110'
+  - 'Upgraded: Restore own HP (potency: 160).'
+  limit_break_upgrade: 'Restore own HP (potency: 160), grant Self HP Barrier (potency: 20% of user’s max HP/Does not stack) and raise Phys. Def. and Elem. Def. by 15% (turns: 2).'
+- skill_category: active
+  name: Chain Rime
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  effects:
+  - (4★) Deal Elem. Ice damage to Single Foe 2 time(s) (2x85).
+  upgrades:
+  - 'Lv.80: SP Saver: 28→22'
+  - 'Upgraded: (5★) Deal Elem. Ice damage to Single Foe 2 time(s) (2x115).'
+- skill_category: tp
+  name: Unmatched Arm-Crippling Thrust
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Polearm Res. by 15% with every attack (turns: 2).'
+- skill_category: ex
+  name: Unparalleled Arm-Leg Thrust
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 2 time(s) (potency: 2x120) and lower Phys. Atk. and Speed by 15% with every attack (turns: 2).'
+  notes: 'Uses: 2'
+- skill_category: special
+  name: Tiger’s Ruin
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 4x
+  power: 4x95→4x115→4x140
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 4 time(s) (potency: 4x95→4x115→4x140) and lower Spd by 5%→10%→15% with every attack (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** At full HP: Provoke All Foes."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Start of battle: Impart All Foes with Phys. Atk. Down 15% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "50% chance to recover HP equal to 25% of damage taken when hit (with some exceptions/Does not stack with effects of the same type)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Hale Incite (All)
+  effect: '(1★) At full HP: Provoke All Foes.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Initial Phys. Atk. Drain (All) II
+  unlock_tier: 3★
+  effect: 'Start of battle: Impart All Foes with Phys. Atk. Down 15% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  unlock_tier: 5★
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Unclenched Fist
+  effect: 50% chance to recover HP equal to 25% of damage taken when hit (with some exceptions/Does not stack with effects of the same type).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Master’s Coin"
-  passive_effect: "70 Spd; Grant automatic HP recovery (amount: 250)"
+  name: Master’s Coin
+  passive_effect: '70 Spd; Grant automatic HP recovery (amount: 250)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Condition
+  description: Turn 3 onwards
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

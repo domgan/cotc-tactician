@@ -53,173 +53,208 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Frizzle"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Boom"
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [light]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Light damage to All Foes 3 time(s) (potency: 3x55) and lower Light Res"
-  - skill_category: active
-    name: "Kacrack"
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Ice damage to All Foes 3 time(s) (potency: 3x55) and lower Ice Res"
-  - skill_category: active
-    name: "Sizzle"
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Fire damage to All Foes 3 time(s) (potency: 3x55) and lower Fire Res"
-  - skill_category: active
-    name: "Multiheal"
-    sp_cost: 64
-    skill_type: mixed
-    target: front_row
-    power: "205"
-    effects:
-      - "**Multiheal (2★)** Restore HP of Entire Front Row (potency: 205)"
-      - "With Soul Sigil: Also raise their damage by 15% (turns: 2)"
-  - skill_category: active
-    name: "Spooky Aura"
-    sp_cost: 69
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Spooky Aura (3★)** Lower Elem"
-      - "With Soul Sigil: Also grant them a Fire"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Light Weakness: Regardless of the source"
-  - skill_category: active
-    name: "Kasizzle"
-    sp_cost: 88
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    power: "180"
-    effects:
-      - "lower thier Fire Res"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Kacrackle"
-    sp_cost: 88
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    power: "180"
-    effects:
-      - "lower their Ice Res"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
-  - skill_category: active
-    name: "Kabooom"
-    sp_cost: 88
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    power: "180"
-    effects:
-      - "lower their Light Res"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Stun: Low chance to miss some attacks and lower Shield Points by 1 after the taking an action (will not break the target)"
-  - skill_category: tp
-    name: "Kafrizz"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-  - skill_category: tp
-    name: "Kafrizz Lv. 2"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-  - skill_category: special
-    name: "Puff!"
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "9x"
-    effects:
-      - "Grant All Foes a Fire weakness (times: 9)"
+- skill_category: active
+  name: Frizzle
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Boom
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Light damage to All Foes 3 time(s) (potency: 3x55) and lower Light Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Kacrack
+  unlock_tier: 1★
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x55) and lower Ice Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Sizzle
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x55) and lower Fire Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Multiheal
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205).'
+  - 'With Soul Sigil: Also raise their damage by 15% (turns: 2).'
+- skill_category: active
+  name: Spooky Aura
+  unlock_tier: 3★
+  sp_cost: 69
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Elem. Res. of All Foes by 15% (turns: 2-7 based on Boost Lv.).'
+  - 'With Soul Sigil: Also grant them a Fire, Ice and Light weakness (times: 3 each).'
+  upgrades:
+  - 'Lv.88: SP Saver: 69→55'
+- skill_category: active
+  name: Kasizzle
+  unlock_tier: 4★
+  sp_cost: 88
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 180), lower thier Fire Res. by 15% (turns: 2) and cause them to combust (turns: 2).'
+  - 'When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP).'
+  - 'When consuming 5 BP: Potency increases by 1.4x and the Damage Limit of this skill is increased by 100,000.'
+  upgrades:
+  - 'Lv.96: SP Saver: 88→70'
+- skill_category: active
+  name: Kacrackle
+  unlock_tier: 5★
+  sp_cost: 88
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 180), lower their Ice Res. by 15% (turns: 2) and inflict frostbite (turns: 2).'
+  - 'When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP).'
+  - 'When consuming 5 BP: Potency increases by 1.4x and the Damage Limit of this skill is increased by 100,000.'
+  upgrades:
+  - 'Lv.99: SP Saver: 88→70'
+- skill_category: active
+  name: Kabooom
+  unlock_tier: 5★
+  sp_cost: 88
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 180), lower their Light Res. by 15% (turns: 2) and stun them (turns: 2).'
+  - 'When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP).'
+  - 'When consuming 5 BP: Potency increases by 1.4x and the Damage Limit of this skill is increased by 100,000.'
+  upgrades:
+  - 'Lv.100: SP Saver: 88→70'
+- skill_category: tp
+  name: Kafrizz
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x135).'
+  - 'When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.2: Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x135). Damage Limit of this skill is increased by 50,000. When consuming 3+ BP: Activate the skill twice (the follow-up attack will not consume SP). When consuming 5 BP: Activate the skill 3 times instead.'
+- skill_category: special
+  name: Puff!
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 9x
+  power: 9x30→9x40→9x50
+  effects:
+  - 'Grant All Foes a Fire weakness (times: 9), deal Elem. Fire damage to All Foes 9 time(s) (potency: 9x30→9x40→9x50) and cause them to combust (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Enhance Boost Levels to Boost Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Entire Front Row Soul Sigil after using a battle skill (turns: 2/Granted as a support skill/Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Elem. Atk. of Self by 30%. With Soul Sigil: Also raise BP recovery by 1."
-    trigger: always
-    limit_break_upgrade: "Raise Elem. Atk. of Self by 30% and raise damage by 30%. With Soul Sigil: Also raise BP recovery by 1 and Damage Limit by 100,000."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise the limits of elemental damage augments from battle skills and from support skills and equipment effects of Self to 50%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise the limits of elemental damage augments from battle skills and from support skills and equipment effects of Self to 50%. When consuming 2 gauges to activate the Ultimate Technique, restore 1 use of EX skill."
-    trigger: always
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: The Enlightened One
+  effect: Enhance Boost Levels to Boost Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively.
+  trigger: always
+- passive_category: innate
+  name: Blessing of Rubiss
+  unlock_tier: 1★
+  effect: 'Grant Entire Front Row Soul Sigil after using a battle skill (turns: 2/Granted as a support skill/Does not stack).'
+  trigger: always
+- passive_category: innate
+  name: Sage’s Knowledge
+  unlock_tier: 3★
+  effect: 'Raise Elem. Atk. of Self by 30%. With Soul Sigil: Also raise BP recovery by 1.'
+  trigger: always
+  limit_break_upgrade: 'Raise Elem. Atk. of Self by 30% and raise damage by 30%. With Soul Sigil: Also raise BP recovery by 1 and Damage Limit by 100,000.'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience III Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience III Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: tp
+  name: Moon Sigil
+  effect: Raise the limits of elemental damage augments from battle skills and from support skills and equipment effects of Self to 50%.
+  trigger: always
+  upgrades:
+  - 'Lv.2: Raise the limits of elemental damage augments from battle skills and from support skills and equipment effects of Self to 50%. When consuming 2 gauges to activate the Ultimate Technique, restore 1 use of EX skill.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Sage’s Cloak"
-  passive_effect: "-60 P.Atk, 200 E.Atk; Raise Damage Limit by 100,000; When a broken enemy is present, lower Fire, Ice and Light Res. of All Foes by 15%"
+  name: Sage’s Cloak
+  passive_effect: -60 P.Atk, 200 E.Atk; Raise Damage Limit by 100,000; When a broken enemy is present, lower Fire, Ice and Light Res. of All Foes by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Soul Sigil
+  description: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%.
+- name: Granted Fire Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Fire, increase damage taken from Fire by 20%.'
+- name: Granted Ice Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Ice, increase damage taken from Ice by 20%.'
+- name: Granted Light Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Light, increase damage taken from Light by 20%.'
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Stun
+  description: Low chance to miss some attacks and lower Shield Points by 1 after the taking an action (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

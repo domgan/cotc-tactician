@@ -51,107 +51,129 @@ jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Pierce"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Fire Up"
-    sp_cost: 5
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Electrocute"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Relax"
-    sp_cost: 11
-    skill_type: utility
-    target: single_enemy
-    power: "95"
-    effects:
-      - "**Relax (2★)** Restore own HP (potency: 95)"
-  - skill_category: active
-    name: "Tease"
-    sp_cost: 5
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 21
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x110**"
-  - skill_category: tp
-    name: "Defense"
-    sp_cost: 18
-    skill_type: utility
-    target: self
-  - skill_category: tp
-    name: "Defense Lv.2"
-    sp_cost: 18
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "(with some exceptions) and raise Phys"
-  - skill_category: ex
-    name: "Conny’s Assault"
-    skill_type: attack
-    damage_types: [polearm]
-    target: back_row
-    hit_count: "4x"
-    power: "4x65"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Count on Conny!"
-    skill_type: heal
-    target: aoe
-    power: "2→3"
-    effects:
-      - "Provoke All Foes (turns: **2→3**) and restore HP of Self (potency: **250→300→350**)"
+- skill_category: active
+  name: Pierce
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Fire Up
+  sp_cost: 5
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Provoke All Foes (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Electrocute
+  unlock_tier: 1★
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Relax
+  unlock_tier: 2★
+  sp_cost: 11
+  skill_type: utility
+  target: single_enemy
+  power: '95'
+  effects:
+  - 'Restore own HP (potency: 95).'
+- skill_category: active
+  name: Tease
+  sp_cost: 5
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - '(2★) Provoke Single Foe (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Repeated Thrust
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(3★) Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x80).'
+  upgrades:
+  - 'Lv.60: SP Saver: 26→21'
+  - 'Upgraded: (5★) Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x110).'
+- skill_category: tp
+  name: Defense
+  sp_cost: 18
+  skill_type: utility
+  target: self
+  effects:
+  - During the turn of use, reduce damage taken by Self by 20%-50% based on Boost Lv. (with some exceptions).
+  upgrades:
+  - 'Lv.2: During the turn of use, reduce damage taken by Self by 20%-50% based on Boost Lv. (with some exceptions) and raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 1).'
+- skill_category: ex
+  name: Conny’s Assault
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: back_row
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 4 time(s) (potency: 4x65).'
+  - Afterwards, move to the Back Row (action does not count as switching).
+  notes: 'Usage Condition: At 50% SP or more; Uses: 2'
+  ex_trigger: At 50% SP or more
+- skill_category: special
+  name: Count on Conny!
+  skill_type: heal
+  target: aoe
+  power: 250→300→350
+  effects:
+  - 'Provoke All Foes (turns: 2→3) and restore HP of Self (potency: 250→300→350).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP *Requires Ultimate Technique Awakening.; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "End of battle: Raise leaves earned by 3%."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Wind Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching to front row: Provoke all enemies (turns: 1)."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching to front row: Provoke all enemies (turns: 1) and grant Self automatic HP recovery (potency: 90, turns: 2)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Polearm attacks of All Allies by 6,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Raking in Leaves
+  unlock_tier: 1★
+  effect: 'End of battle: Raise leaves earned by 3%.'
+  trigger: always
+- passive_category: innate
+  name: Initial Wind Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Wind Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Wind Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Wind Resilience III
+  unlock_tier: 5★
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 4★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Provoke on Switch (All)
+  effect: 'When switching to front row: Provoke all enemies (turns: 1).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When switching to front row: Provoke all enemies (turns: 1) and grant Self automatic HP recovery (potency: 90, turns: 2).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Polearm attacks of All Allies by 6,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # Metadata
 data_confidence: incomplete

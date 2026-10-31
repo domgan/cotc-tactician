@@ -53,134 +53,176 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Feline Tonitrus Canere (Single)"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [lightning]
-    target: back_row
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Feline Ignis Ardere (Single)"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [fire]
-    target: back_row
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Cait Scholar’s Seminar"
-    sp_cost: 24
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Cait Scholar’s Seminar (1★)** Lower Elem"
-  - skill_category: active
-    name: "Fleeting Feline"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Fleeting Feline (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Cait Scholar’s Magic Perk"
-    sp_cost: 80
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Cait Scholar’s Magic Perk (2★)** Raise Elem Atk"
-      - "also raise Fire and Lightning damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Fors Tonitrus"
-    sp_cost: 75
-    skill_type: mixed
-    damage_types: [lightning]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-    effects:
-      - "Lightning damage to Random Foe 5 time(s) (potency: 5x55) and lower Lightning Res"
-  - skill_category: active
-    name: "Fors Ignis"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [fire]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Attack count raised by 1 at Max Boost"
-  - skill_category: active
-    name: "Feline Tonitrus Canere (All) IV"
-    sp_cost: 82
-    skill_type: mixed
-    damage_types: [lightning]
-    target: back_row
-    hit_count: "4x"
-    power: "4x60"
-    effects:
-      - "If Paired Ally is alive: Restore SP of Paired Ally (amount: 15)"
-  - skill_category: active
-    name: "Feline Ignis Ardere (All) IV"
-    sp_cost: 82
-    skill_type: mixed
-    damage_types: [fire]
-    target: back_row
-    hit_count: "4x"
-    power: "4x60"
-    effects:
-      - "If Paired Ally is alive: Restore SP of Paired Ally (amount: 15)"
-  - skill_category: tp
-    name: "Scholar Cait’s Greeting Card"
-    sp_cost: 50
-    skill_type: utility
-    target: front_row
-    effects:
-      - "restore 3 BP to the Entire Front Row"
-  - skill_category: ex
-    name: "Cait Scholar’s Ancient Magic Guide"
-    skill_type: mixed
-    target: paired_ally
-    effects:
-      - "**Cait Scholar’s Ancient Magic Guide** Raise Self and Paired Ally’s Elem"
-      - "grant the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 2)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Cait Scholar’s Magic Training"
-    skill_type: mixed
-    target: all_allies
-    power: "3→4"
-    effects:
-      - "of All Allies by **10%→20%→30%** and raise elemental damage by **10%→20%→30%** (turns: **3→4**)"
+- skill_category: active
+  name: Feline Tonitrus Canere (Single)
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: back_row
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe 3 time(s) (potency: 3x55).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Feline Ignis Ardere (Single)
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - fire
+  target: back_row
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x55).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Cait Scholar’s Seminar
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Elem. Def. of Single Foe by 20% (turns: 2-5 based on Boost Lv.) and reveal 1 weak point(s).'
+- skill_category: active
+  name: Fleeting Feline
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Cait Scholar’s Magic Perk
+  unlock_tier: 2★
+  sp_cost: 80
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'If the target is a scholar, also raise Fire and Lightning damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Fors Tonitrus
+  unlock_tier: 3★
+  sp_cost: 75
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 5 time(s) (potency: 5x55) and lower Lightning Res. by 15% with every attack (turns: 2).'
+  - Lower Elem. Def. by 15% with every attack at Max Boost.
+  upgrades:
+  - 'Lv.88: SP Saver: 75→60'
+- skill_category: active
+  name: Fors Ignis
+  unlock_tier: 4★
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - fire
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Attack count raised by 1 at Max Boost.
+  upgrades:
+  - 'Lv.96: SP Saver: 75→60'
+- skill_category: active
+  name: Feline Tonitrus Canere (All) IV
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: heal
+  damage_types:
+  - lightning
+  target: back_row
+  hit_count: 4x
+  power: 4x60
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 4 time(s) (potency: 4x60).'
+  - 'If Paired Ally is alive: Restore SP of Paired Ally (amount: 15).'
+  - Subsequently move to the back row (action does not count as switching).
+  upgrades:
+  - 'Lv.99: SP Saver: 82→66'
+- skill_category: active
+  name: Feline Ignis Ardere (All) IV
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: heal
+  damage_types:
+  - fire
+  target: back_row
+  hit_count: 4x
+  power: 4x60
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 4 time(s) (potency: 4x60).'
+  - 'If Paired Ally is alive: Restore SP of Paired Ally (amount: 15).'
+  - Subsequently move to the back row (action does not count as switching).
+  upgrades:
+  - 'Lv.100: SP Saver: 82→66'
+- skill_category: tp
+  name: Scholar Cait’s Greeting Card
+  sp_cost: 50
+  skill_type: utility
+  target: front_row
+  effects:
+  - 'Apply a countdown effect to Self (count: 8-5 based on Boost Lv.).'
+  - When the countdown ends, restore 3 BP to the Entire Front Row.
+- skill_category: ex
+  name: Cait Scholar’s Ancient Magic Guide
+  skill_type: buff
+  target: paired_ally
+  effects:
+  - 'Raise Self and Paired Ally’s Elem. Atk. by 30% and Elem. damage by 30% (turns: 2-5 based on Boost Lv.).'
+  - 'If the target is a Scholar, grant the ability to trigger critical hits with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 2).'
+  notes: 'Usage Conditions: Before turn 10; Uses: 2'
+- skill_category: special
+  name: Cait Scholar’s Magic Training
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Elem. Atk. of All Allies by 10%→20%→30% and raise elemental damage by 10%→20%→30% (turns: 3→4).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise the Elem. Atk. limit from support and equipment effects of Entire Front Row to 50% and grant Damage Limit Up (effect: 20,000)."
-    trigger: always
-  - passive_category: innate
-    effect: "When consuming 3 BP to use a skill, raise Elem. Atk. of Self by 20% and raise Fire and Lightning damage dealt by 20%."
-    trigger: always
-    limit_break_upgrade: "When consuming 3 BP to use a skill, raise Elem. Atk. of Self by **30%** and raise Fire and Lightning damage dealt by **30%**."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching: Grant Paired Allies Elem. Atk. Up 10% (turns: 1). When the target is a Scholar, the effect amount becomes 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Wisdom of the Scholarking
+  unlock_tier: 1★
+  effect: 'Raise the Elem. Atk. limit from support and equipment effects of Entire Front Row to 50% and grant Damage Limit Up (effect: 20,000).'
+  trigger: always
+- passive_category: innate
+  name: Cait Scholar’s Paw-er
+  unlock_tier: 3★
+  effect: When consuming 3 BP to use a skill, raise Elem. Atk. of Self by 20% and raise Fire and Lightning damage dealt by 20%.
+  trigger: always
+  limit_break_upgrade: When consuming 3 BP to use a skill, raise Elem. Atk. of Self by 30% and raise Fire and Lightning damage dealt by 30%.
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire/Lightning Resilience
+  effect: Raise own Fire and Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Fiel Investigation
+  effect: 'When switching: Grant Paired Allies Elem. Atk. Up 10% (turns: 1). When the target is a Scholar, the effect amount becomes 20%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Cait Scholar’s Stationery"
-  passive_effect: "80 E.Atk, 60 Spd; When in back row: Grant Paired Ally an effect that recovers HP equal to 15% of damage. (With exceptions/Does not stack with effects of the same type); At full HP: Raise Elem. Atk. of Entire Front Row by 10%"
+  name: Cait Scholar’s Stationery
+  passive_effect: '80 E.Atk, 60 Spd; When in back row: Grant Paired Ally an effect that recovers HP equal to 15% of damage. (With exceptions/Does not stack with effects of the same type); At full HP: Raise Elem. Atk. of Entire Front Row by 10%'
 
 # Metadata
 data_confidence: incomplete

@@ -70,135 +70,173 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Ode to Lightning II"
-    sp_cost: 20
-    skill_type: mixed
-    target: single_enemy
-    power: "170"
-    effects:
-      - "and lowers Lightning Res"
-  - skill_category: active
-    name: "Peacock Strut II"
-    sp_cost: 14
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Peacock Strut II** Impart Single Ally with Elem"
-      - "and restore 1 BP at Max Boost"
-  - skill_category: active
-    name: "Heavy Blow"
-    sp_cost: 18
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "and lowers Fan Res"
-  - skill_category: active
-    name: "Donate BP"
-    sp_cost: 60
-    skill_type: heal
-    target: single_ally
-    power: "280"
-    effects:
-      - "**Donate BP (2★)** Restore BP of Single Ally excluding Self (amount: 1-4 based on Boost Lv.)"
-      - "and restore HP at Max Boost (potency: 280)"
-  - skill_category: active
-    name: "Roaring Rhapsody III"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "180"
-    effects:
-      - "and restore own SP by 50 at Max Boost"
-  - skill_category: active
-    name: "Divine Blast"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Storm of Lament"
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [lightning]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "lower Lightning Res"
-  - skill_category: active
-    name: "Thunderbeast’s Verse"
-    sp_cost: 80
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "2x"
-    power: "2x105"
-    effects:
-      - "and lower Phys"
-  - skill_category: active
-    name: "General’s March III"
-    sp_cost: 70
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**General’s March III (5★)** Raise Phys"
-      - "and restore BP by 1 at Max Boost"
-  - skill_category: tp
-    name: "Ode to Lightning III"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230"
-  - skill_category: ex
-    name: "Dance of Elevation"
-    skill_type: buff
-    target: self
-    effects:
-      - "**Dance of Elevation** Raise BP recovery amount of Self by 3 (turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Thunder God’s Cassation"
-    skill_type: attack
-    damage_types: [lightning]
-    target: front_row
-    power: "440→525→655"
-    effects:
-      - "Lightning damage to Single Foe (potency: **440→525→655**) and restore BP of Entire Front Row by 1"
-      - "Grant Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Ode to Lightning II
+  sp_cost: 20
+  skill_type: debuff
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Lightining damage to Single Foe (potency: 170), and lowers Lightning Res. by 10% at Max Boost (turns: 2).'
+- skill_category: active
+  name: Peacock Strut II
+  sp_cost: 14
+  skill_type: buff
+  target: single_ally
+  effects:
+  - Impart Single Ally with Elem. Atk. Up 15% (turns.
+  - 2-5 based on Boost Lv./stacks during Max Boost), and restore 1 BP at Max Boost.
+- skill_category: active
+  name: Heavy Blow
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 170), and lowers Fan Res. by 10% at Max Boost (turns: 2).'
+- skill_category: active
+  name: Donate BP
+  unlock_tier: 2★
+  sp_cost: 60
+  skill_type: heal
+  target: single_ally
+  power: '280'
+  effects:
+  - 'Restore BP of Single Ally excluding Self (amount: 1-4 based on Boost Lv.), but delay actions during turn, and restore HP at Max Boost (potency: 280).'
+- skill_category: active
+  name: Roaring Rhapsody III
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 180), and restore own SP by 50 at Max Boost.'
+- skill_category: active
+  name: Divine Blast
+  unlock_tier: 3★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 4 time(s) (potency: 4x45).'
+  - 'Attack count becomes 5 at Max Boost (potency: 5x80).'
+  upgrades:
+  - 'Lv.88: SP Saver: 48→38'
+- skill_category: active
+  name: Storm of Lament
+  unlock_tier: 4★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 3 time(s) (potency: 3x65), lower Lightning Res. by 15% with every attack (turns: 2/stacks during Max Boost), and have a moderate chance to inflict paralysis at Max Boost (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 51→41'
+- skill_category: active
+  name: Thunderbeast’s Verse
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 2x
+  power: 2x105
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 2 time(s) (potency: 2x105), lower Phys. Atk. Down and Elem. Atk. by 15% (turns: 2/stacks during Max Boost), and lower Phys. Def. and Elem. Def. by 15% at Max Boost (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 80→64'
+- skill_category: active
+  name: General’s March III
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Critical of Entire Front Row by 20% (turns: 2-5 based on Boost Lv./stacks during Max Boost), and restore BP by 1 at Max Boost.'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Ode to Lightning III
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230).'
+  - 'At Max Boost: Attack count is increased by one.'
+- skill_category: ex
+  name: Dance of Elevation
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise BP recovery amount of Self by 3 (turns: 3-6 based on Boost Lv.).'
+  notes: 'Usage Condition: With 8 or more status effect icons; Uses: 1'
+  ex_trigger: With 8 or more status effect icons
+- skill_category: special
+  name: Thunder God’s Cassation
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: front_row
+  power: 440→525→655
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 440→525→655) and restore BP of Entire Front Row by 1.'
+  - 'Grant Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise BP recover amount of Self by 1 (turns: 2)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "**(3★)** 25% chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage."
-    trigger: always
-  - passive_category: innate
-    effect: "**(6★) 50%** chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Act faster when consuming 3 BP and grant Self the ability to deal critical hits with elemental attacks."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: BP Recovery Boost
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise BP recover amount of Self by 1 (turns: 2).'
+  trigger: battle_start
+- passive_category: innate
+  name: BP Rec. Boost When Damaged
+  effect: '(3★) 25% chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage.'
+  trigger: always
+  upgrades:
+  - 'Upgraded: (6★) 50% chance to raise BP recovery by 1 when hit (turns: 1). *Triggers once even when taking multiple-hit damage.'
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Full Speed Ahead
+  effect: Act faster when consuming 3 BP and grant Self the ability to deal critical hits with elemental attacks.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Silversand Balm"
-  passive_effect: "40 P.Atk, 400 HP, 60 SP; Raise Fan and Lightning damage dealt by 15%"
+  name: Silversand Balm
+  passive_effect: 40 P.Atk, 400 HP, 60 SP; Raise Fan and Lightning damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

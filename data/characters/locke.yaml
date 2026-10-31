@@ -61,137 +61,202 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Crossing Daggers"
-    sp_cost: 26
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res"
-  - skill_category: active
-    name: "Slash Up"
-    sp_cost: 39
-    skill_type: attack
-    damage_types: [dagger]
-    target: front_row
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Dagger damage to Single Foe 3 time(s) (potency: 3x55) and raise Phys"
-  - skill_category: active
-    name: "Crescent Ring"
-    skill_type: attack
-    damage_types: [dagger, bow]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Sneak Slash"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Steal Strike"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "absorbs 1% of damage dealt as SP and restore 1 BP"
-  - skill_category: active
-    name: "Deadly Chase"
-    sp_cost: 143
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Phoenix Ray"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [dagger, fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Absorbs 30% of damage dealt as HP and raise BP recovery amount of Self by 1 (turns: 2)"
-  - skill_category: active
-    name: "Wild Barrage"
-    sp_cost: 73
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "4x"
-    power: "4x85"
-    effects:
-      - "Attack count becomes 8 instead if in addition user has Dead Aim"
-    limit_break_upgrade: "Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x85) and grant a Dagger weakness with each hit (times: 1). Attack count becomes 6 when broken enemy is present. Attack count becomes 8 instead if in addition user has Dead Aim."
-  - skill_category: active
-    name: "Shred Spin"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Also grant Self the ability to dodge physical and elemental attacks (with some exceptions) (times: 2)"
-  - skill_category: tp
-    name: "Eternal Shining Magicite"
-    sp_cost: 105
-    skill_type: attack
-    damage_types: [dagger, fire]
-    target: front_row
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Also raise Phys"
-      - "Raise Damage Limit of this skill by 20,000"
-  - skill_category: special
-    name: "Summon: Phoenix"
-    skill_type: attack
-    damage_types: [dagger, fire]
-    target: front_row
-    power: "375→450→565"
-    effects:
-      - "Revive fallen allies (recovery amount: **15%→50%→100%** of max HP) and grant Entire Front Row automatic revival (recovery amount: **15%→25%→35%** of max HP based on Boost Lv.)"
-      - "grant automatic HP recovery (amount: 20% of target’s max HP)"
-      - "automatic SP recovery (amount: 10% of target’s max SP) and raise BP recovery by 1 (turns: **2→3**)"
+- skill_category: active
+  name: Crossing Daggers
+  sp_cost: 26
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75) and lower Dagger Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Slash Up
+  sp_cost: 39
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: front_row
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x55) and raise Phys. Atk. of Entire Front Row by 10% (turns: 2).'
+- skill_category: active
+  name: Crescent Ring
+  unlock_tier: 1★
+  skill_type: attack
+  damage_types:
+  - dagger
+  - bow
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x55).'
+  - Exploits Bow weakness (damage calculation based on Phys. Dagger attack).
+  - 'When exploiting a weakness: following hits of this skill deal 20% more damage.'
+- skill_category: active
+  name: Sneak Slash
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x55).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Steal Strike
+  unlock_tier: 2★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x120), absorbs 1% of damage dealt as SP and restore 1 BP.'
+- skill_category: active
+  name: Deadly Chase
+  unlock_tier: 3★
+  sp_cost: 143
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - 'Additionally, from the turn after this skill is used, deal Phys. Dagger damage to All Foes 2 times per turn before some allies act (potency: 2x70, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 143→114'
+- skill_category: active
+  name: Phoenix Ray
+  unlock_tier: 4★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - dagger
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Exploits Fire weakness (damage calculation based on Phys. Dagger attack).
+  - 'Absorbs 30% of damage dealt as HP and raise BP recovery amount of Self by 1 (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 76→61'
+- skill_category: active
+  name: Wild Barrage
+  unlock_tier: 5★
+  sp_cost: 73
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 4x
+  power: 4x85
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x85).'
+  - Attack count becomes 6 when broken enemy is present.
+  - Attack count becomes 8 instead if in addition user has Dead Aim.
+  upgrades:
+  - 'Lv.99: SP Saver: 73→58'
+  limit_break_upgrade: 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x85) and grant a Dagger weakness with each hit (times: 1). Attack count becomes 6 when broken enemy is present. Attack count becomes 8 instead if in addition user has Dead Aim.'
+- skill_category: active
+  name: Shred Spin
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Repeatedly consume 10% of max HP (up to 5 times or until health is below 10% HP) and deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x45).'
+  - 'Also grant Self the ability to dodge physical and elemental attacks (with some exceptions) (times: 2).'
+  - Attack count becomes 5 when broken enemy is present.
+  - '*Cannot be incapacitated by this skill.'
+  upgrades:
+  - 'Lv.100: SP Saver: 74→59'
+- skill_category: tp
+  name: Eternal Shining Magicite
+  sp_cost: 105
+  skill_type: utility
+  damage_types:
+  - dagger
+  - fire
+  target: front_row
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Fire weakness (damage calculation based on Phys. Dagger attack).
+  - 'Also raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% and gran Damage Limit Up (effect: 20,000) (turns: 2).'
+  - Raise Damage Limit of this skill by 20,000.
+- skill_category: special
+  name: 'Summon: Phoenix'
+  skill_type: utility
+  damage_types:
+  - dagger
+  - fire
+  target: front_row
+  power: 375→450→565
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 375→450→565).'
+  - Exploits Fire weakness (damage calculation based on Phys. Dagger attack).
+  - 'Revive fallen allies (recovery amount: 15%→50%→100% of max HP) and grant Entire Front Row automatic revival (recovery amount: 15%→25%→35% of max HP based on Boost Lv.).'
+  - Triggers immediately if incapacitated (count does not increase when stacked).
+  - 'Additionally, grant automatic HP recovery (amount: 20% of target’s max HP), automatic SP recovery (amount: 10% of target’s max SP) and raise BP recovery by 1 (turns: 2→3).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When not being damaged on a turn, during next turn grant Self Dead Aim (guaranteed critical hits), increase damage dealt by critical hits (1.25→1.4) and add 50% of Crit. to P.Atk (including equipment stats/Cannot be stacked)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Dagger damage of Self by 30% and raise final damage dealt based on remaining HP up to 99% more (at ≤1% of max HP) (stacks with Potency Up)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When consuming 3 BP, activate attacking skills twice (the follow-up will not consume SP). Additionally, when consuming 3 BP and with Dead Aim at start of turn, gain the ability to exploit Fire, Ice and Lightning weaknesses with physical attacks except for “Attack” action (with some exceptions/damage calculation based on corresponding attack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Ambush
+  unlock_tier: 1★
+  effect: When not being damaged on a turn, during next turn grant Self Dead Aim (guaranteed critical hits), increase damage dealt by critical hits (1.25→1.4) and add 50% of Crit. to P.Atk (including equipment stats/Cannot be stacked).
+  trigger: always
+- passive_category: innate
+  name: Variant Knife
+  unlock_tier: 3★
+  effect: Raise Dagger damage of Self by 30% and raise final damage dealt based on remaining HP up to 99% more (at ≤1% of max HP) (stacks with Potency Up).
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Proof of Mastery
+  effect: When consuming 3 BP, activate attacking skills twice (the follow-up will not consume SP). Additionally, when consuming 3 BP and with Dead Aim at start of turn, gain the ability to exploit Fire, Ice and Lightning weaknesses with physical attacks except for “Attack” action (with some exceptions/damage calculation based on corresponding attack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Keepsake Bandana”"
-  passive_effect: "150 P.Atk, -50 E.Def, 60 SP; Raise Phys. Atk. by 30%; Start of battle: Grant Undying (turns: 4)"
+  name: Keepsake Bandana
+  passive_effect: '150 P.Atk, -50 E.Def, 60 SP; Raise Phys. Atk. by 30%; Start of battle: Grant Undying (turns: 4)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Dagger Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Dagger, increase damage taken from Dagger by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

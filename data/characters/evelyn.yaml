@@ -51,104 +51,133 @@ jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blow"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Lion Dance"
-    sp_cost: 6
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Lion Dance** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Night Ode"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "110"
-  - skill_category: active
-    name: "Rousing Lion Dance"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Rousing Lion Dance (2★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Lion Dance II"
-    sp_cost: 14
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Lion Dance II (2★)** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Night Ode II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "140"
-  - skill_category: active
-    name: "Night Ode II"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "**170**"
-  - skill_category: tp
-    name: "Four Beasts Parade"
-    sp_cost: 54
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Four Beasts Parade ** Raise Phys"
-  - skill_category: ex
-    name: "Ode of Darkness IV"
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Midnight Mambo"
-    skill_type: mixed
-    damage_types: [dark]
-    target: front_row
-    power: "330→395→495"
-    effects:
-      - "Dark damage to All Foes (potency: **330→395→495**) and impart Entire Front Row with Phys"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Blow
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Lion Dance
+  sp_cost: 6
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Atk. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Night Ode
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '110'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 110).'
+- skill_category: active
+  name: Rousing Lion Dance
+  unlock_tier: 2★
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Lion Dance II
+  unlock_tier: 2★
+  sp_cost: 14
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Night Ode II
+  unlock_tier: 3★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '140'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 140).'
+  upgrades:
+  - 'Lv.60: SP Saver: 32→26'
+  - 'Upgraded: Deal Elem. Dark damage to All Foes (potency: 170).'
+- skill_category: tp
+  name: Four Beasts Parade
+  sp_cost: 54
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Ode of Darkness IV
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x95).'
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 2'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Midnight Mambo
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: front_row
+  power: 330→395→495
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 330→395→495) and impart Entire Front Row with Phys. Atk. Up 5%→10%→15% (turns: 2).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Paired Allies with Phys. Atk. Up 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Light Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Elem. Atk. of Paired Allies by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Phys. Atk. Boost (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Paired Allies with Phys. Atk. Up 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Light Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Light Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Light Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Light Resilience III
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 4★
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Elem. Atk. Boost (Joint)
+  effect: Raise Elem. Atk. of Paired Allies by 10%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Popular Romance Play Script"
-  passive_effect: "20 P.Atk, 20 E.Atk; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Evelyn: Raise Elem. Atk. and Dark damage of Paired Allies by 10%"
+  name: Popular Romance Play Script
+  passive_effect: '20 P.Atk, 20 E.Atk; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Evelyn: Raise Elem. Atk. and Dark damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

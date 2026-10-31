@@ -52,123 +52,170 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Amputation"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Mass Rejuvenate"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "150, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Mass Rejuvenate** Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Thundershock"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Rehabilitate"
-    sp_cost: 15
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Rehabilitate (2★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Threefold Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Esoteric Cure"
-    sp_cost: 43
-    skill_type: heal
-    target: front_row
-    power: "150"
-    effects:
-      - "**Esoteric Cure (3★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Wind Res"
-  - skill_category: active
-    name: "Fulgor"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Esoteric Remedy"
-    sp_cost: 55
-    skill_type: heal
-    target: single_ally
-    power: "230"
-    effects:
-      - "**Esoteric Remedy (5★)** Restore HP of Single Ally (potency: 230)"
-      - "grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments"
-    limit_break_upgrade: "Restore HP of **Entire Front Row** (potency: 230), grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments."
-  - skill_category: active
-    name: "Dual Harvest"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: tp
-    name: "Extra Harvest"
-    sp_cost: 80
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x85"
-  - skill_category: ex
-    name: "Pollonia’s Supplement"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Pollonia’s Supplement** Raise Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Pollonia’s Prophylaxis"
-    skill_type: heal
-    target: front_row
-    power: "2→3"
-    effects:
-      - "Cure status ailments of Entire Front Row and grant immunity to some status ailments (turns: **2→3**) and raise Wind Res"
+- skill_category: active
+  name: Amputation
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Mass Rejuvenate
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '150, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 150, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Thundershock
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Rehabilitate
+  unlock_tier: 2★
+  sp_cost: 15
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Threefold Cleave
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Esoteric Cure
+  unlock_tier: 3★
+  sp_cost: 43
+  skill_type: buff
+  target: front_row
+  power: '150'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 150) and raise Wind Res. by 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 43→34'
+- skill_category: active
+  name: Fulgor
+  unlock_tier: 4★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230).'
+  upgrades:
+  - 'Lv.96: SP Saver: 34→27'
+- skill_category: active
+  name: Esoteric Remedy
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: heal
+  target: single_ally
+  power: '230'
+  effects:
+  - 'Restore HP of Single Ally (potency: 230), grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments.'
+  upgrades:
+  - 'Lv.99: SP Saver: 55→44'
+  limit_break_upgrade: 'Restore HP of Entire Front Row (potency: 230), grant automatic HP recovery (potency: 150, turns: 2) and remove certain status ailments.'
+- skill_category: active
+  name: Dual Harvest
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x95).'
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+- skill_category: tp
+  name: Extra Harvest
+  sp_cost: 80
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 4x
+  power: 4x85
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 4 time(s) (potency: 4x85).'
+  - Reaches all enemies at Max Boost.
+- skill_category: ex
+  name: Pollonia’s Supplement
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Critical and Speed of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 3; Uses: 2'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Pollonia’s Prophylaxis
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure status ailments of Entire Front Row and grant immunity to some status ailments (turns: 2→3) and raise Wind Res. by 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise BP recovery amount of Self by 1 (turns: 2)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise some status ailment Res. of Paired Allies by 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of augmenting effect granted by self by 2 turns (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: BP Recovery Boost
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise BP recovery amount of Self by 1 (turns: 2).'
+  trigger: battle_start
+- passive_category: innate
+  name: Ailment Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: Raise some status ailment Res. of Paired Allies by 50%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Augment (Give) II
+  effect: Extend duration of augmenting effect granted by self by 2 turns (Does not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Pollonia’s Medicine Box
-·"
-  passive_effect: "**40 P.Atk, 60 P. Def., 40 E. Def.; Raise Axe damage dealt by 15%; Raise Wind Res. by 10%"
+  name: 'Pollonia’s Medicine Box
+
+    ·'
+  passive_effect: '**40 P.Atk, 60 P. Def., 40 E. Def.; Raise Axe damage dealt by 15%; Raise Wind Res. by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

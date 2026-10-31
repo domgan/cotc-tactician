@@ -51,123 +51,148 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Amputation"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Emergency First Aid"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    power: "155"
-    effects:
-      - "**Emergency First Aid** Restore HP of Single Ally (potency: 155)"
-  - skill_category: active
-    name: "Illuminate"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Dark Ward"
-    sp_cost: 19
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Dark Ward (2★)** Raise Dark Res"
-  - skill_category: active
-    name: "Full Swing"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "145"
-    limit_break_upgrade: "Deal Phys. Axe damage to All Foes **2** time(s) (potency: **2x75**)."
-  - skill_category: active
-    name: "Expert First Aid"
-    sp_cost: 38
-    skill_type: heal
-    target: single_ally
-    power: "225"
-    effects:
-      - "**Expert First Aid (3★)** Restore HP of Single Ally (potency: 225)"
-  - skill_category: active
-    name: "Expert First Aid"
-    sp_cost: 30
-    skill_type: heal
-    target: single_ally
-    power: "**295**"
-    effects:
-      - "**Expert First Aid (5★)** Restore HP of Single Ally (potency: **295**)"
-  - skill_category: active
-    name: "Effulgence"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "220"
-  - skill_category: active
-    name: "Effulgence"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "**250**"
-  - skill_category: tp
-    name: "Swift Jab Bath"
-    sp_cost: 71
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**Swift Jab Bath ** Restore HP of Entire Front Row (potency: 205) and cure some status ailments (with some exceptions)"
-      - "Also raise Dark Res"
-  - skill_category: ex
-    name: "I’ll Slice You Up!"
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "I’ll Chop You Up!"
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Axe damage to Single Foe (potency: **440→525→655**) and restore HP of Self (potency: **250→300→350**)"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Amputation
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Emergency First Aid
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  power: '155'
+  effects:
+  - 'Restore HP of Single Ally (potency: 155).'
+- skill_category: active
+  name: Illuminate
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Dark Ward
+  unlock_tier: 2★
+  sp_cost: 19
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Dark Res. of Single Ally by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Full Swing
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 145).'
+  limit_break_upgrade: 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: Expert First Aid
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: heal
+  target: single_ally
+  power: '225'
+  effects:
+  - 'Restore HP of Single Ally (potency: 225).'
+  upgrades:
+  - 'Lv.72: SP Saver: 38→30'
+  - 'Upgraded: Restore HP of Single Ally (potency: 295).'
+- skill_category: active
+  name: Effulgence
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '220'
+  effects:
+  - '(4★) Deal Elem. Light damage of Single Foe (potency: 220).'
+  upgrades:
+  - 'Lv.80: SP Saver: 34→27'
+  - 'Upgraded: (5★) Deal Elem. Light damage of Single Foe (potency: 250).'
+- skill_category: tp
+  name: Swift Jab Bath
+  sp_cost: 71
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205) and cure some status ailments (with some exceptions).'
+  - 'Also raise Dark Res. by 15% (turns: 2).'
+- skill_category: ex
+  name: I’ll Slice You Up!
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 5 time(s) (potency: 5x55).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: I’ll Chop You Up!
+  skill_type: heal
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 440→525→655) and restore HP of Self (potency: 250→300→350).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Absorb 10% of damage dealt as HP when using Attack."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 100)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Raise Dark Res. of Entire Front Row by 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Absorb HP
+  effect: (1★) Absorb 10% of damage dealt as HP when using Attack.
+  trigger: always
+- passive_category: innate
+  name: Rearguard HP Restoration (Front/Single)
+  unlock_tier: 3★
+  effect: 'When in back row: Grant Front Row automatic HP recovery (potency: 100).'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard Dark Res. Boost (All) II
+  effect: 'When in back row: Raise Dark Res. of Entire Front Row by 15%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Medicinal Herb Garden Plans"
-  passive_effect: "20 P.Def, 30 E.Atk, 20 E.Def; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)"
+  name: Medicinal Herb Garden Plans
+  passive_effect: '20 P.Def, 30 E.Atk, 20 E.Def; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

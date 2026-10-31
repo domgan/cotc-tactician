@@ -52,139 +52,183 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Single Edge"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Double Edge"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Divine Speed"
-    sp_cost: 24
-    skill_type: buff
-    target: self
-    effects:
-      - "**Divine Speed** **(1★)** Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Double Ripping Assault"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Howling Wind"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Triple Burst"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Storm Burst"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Double Wide Burst"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Swift Jab"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "**Swift Jab** **(5★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Swift Jab"
-    sp_cost: 42
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "**Swift Jab** **(6★)** Act faster during turn and deal Phys"
-      - "Dagger damage to Single Foe (potency: 260) and lower Dagger Res"
-  - skill_category: tp
-    name: "Nayuta"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: ex
-    name: "Void"
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Eternity"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
+- skill_category: active
+  name: Single Edge
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Double Edge
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Divine Speed
+  sp_cost: 24
+  skill_type: buff
+  target: self
+  effects:
+  - '(1★) Raise Spd of Self by 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Double Ripping Assault
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(2★) Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Howling Wind
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '230'
+  effects:
+  - '(2★) Deal Elem. Wind damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Triple Burst
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - '(3★) Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.88: SP Saver: 46→38'
+- skill_category: active
+  name: Storm Burst
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(4★) Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x80).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.96: SP Saver: 52→42'
+- skill_category: active
+  name: Double Wide Burst
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - '(5★) Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.99: SP Saver: 52→42'
+- skill_category: active
+  name: Swift Jab
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '260'
+  priority: true
+  effects:
+  - '(5★) Act faster during turn and deal Phys. Dagger damage to Single Foe (potency: 260).'
+  upgrades:
+  - 'Lv.100: SP Saver: 52→42'
+  - 'Upgraded: (6★) Act faster during turn and deal Phys. Dagger damage to Single Foe (potency: 260) and lower Dagger Res. by 15% (turns: 2).'
+- skill_category: tp
+  name: Nayuta
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x55).'
+  - The faster you act during turn, the greater the potency.
+  - Potency doubles when acting first.
+- skill_category: ex
+  name: Void
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x45).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  notes: 'Usage Condition: After turn 5; Uses: 4'
+  ex_trigger: After turn 5
+- skill_category: special
+  name: Eternity
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x130→3x150→3x185
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x130→3x150→3x185).'
+  - Lower Shield Points even when not striking weak points.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** At end of turn: 20% chance to recover from some of own status ailments."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Raise damage of Self by 20% when exploiting enemy weakness."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Grant Self an effect that activates attack skills twice (turns: 3/turns cannot be extended/follow-up attack will not consume SP)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Chance Ailment Recovery at Turn's End
+  effect: '(1★) At end of turn: 20% chance to recover from some of own status ailments.'
+  trigger: always
+- passive_category: innate
+  name: Where it Hurts III
+  effect: (3★) Raise damage of Self by 20% when exploiting enemy weakness.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Crafty Butler
+  effect: 'Start of battle: Grant Self an effect that activates attack skills twice (turns: 3/turns cannot be extended/follow-up attack will not consume SP).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Senior Butler's White Glove"
-  passive_effect: "40 Crit, 40 Speed, 60 SP; Raise Dagger and Wind damage dealt by 15%"
+  name: Senior Butler's White Glove
+  passive_effect: 40 Crit, 40 Speed, 60 SP; Raise Dagger and Wind damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

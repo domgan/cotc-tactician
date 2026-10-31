@@ -52,146 +52,174 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Random Bash"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "7x"
-    power: "1-7x35"
-  - skill_category: active
-    name: "Broken Blade’s Mercy"
-    sp_cost: 49
-    skill_type: heal
-    target: single_ally
-    power: "160"
-    effects:
-      - "**Broken Blade’s Mercy** Restore HP of Single Ally (potency: 160)"
-      - "also restore 25-100 SP based on Boost Lv"
-  - skill_category: active
-    name: "Divine Gift"
-    sp_cost: 43
-    skill_type: buff
-    target: front_row
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Divine Gift (1★)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
-      - "20% chance each to grant automatic SP recovery (amount: 5% of max SP"
-  - skill_category: active
-    name: "Unwavering Blade"
-    sp_cost: 30
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Unwavering Blade (2★)** Raise Phys"
-      - "also restore BP by 1"
-  - skill_category: active
-    name: "Haphazard Fireball II"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "5x"
-    power: "1-5x65"
-  - skill_category: active
-    name: "Divine Blessing"
-    sp_cost: 30
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Divine Blessing (3★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-      - "20% chance to grant automatic revival (revived at 50% of max HP)"
-  - skill_category: active
-    name: "Sword of Consecration"
-    sp_cost: 47
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "**Sword of Consecration (4★)** Raise Phys"
-      - "also raise critical damage by 20% (turns: 2-5 based on Boost Lv.)"
-    limit_break_upgrade: "Raise Phys. Atk. and Crit of **Entire Front Row** by 20% (turns: 3-6 based on Boost Lv.). If target is a warrior, also raise critical damage by 20% (turns: 3-6 based on Boost Lv.)."
-  - skill_category: active
-    name: "Random Fireball II"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "7x"
-    power: "1-7x45"
-  - skill_category: active
-    name: "Divine Mercy"
-    sp_cost: 66
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**Divine Mercy (5★)** Restore HP of Entire Front Row (potency: 205)"
-      - "20% chance to raise BP recovery amount by 1 (turns: 1)"
-  - skill_category: tp
-    name: "Healing of the Sacred Heart"
-    sp_cost: 74
-    skill_type: buff
-    target: front_row
-    power: "110, turns: 2"
-    effects:
-      - "**Healing of the Sacred Heart ** Grant Entire Front Row automatic SP recovery (amount: 5% of max SP"
-      - "turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2)"
-  - skill_category: tp
-    name: "Healing of the Sacred Heart Lv.2"
-    sp_cost: 74
-    skill_type: buff
-    target: front_row
-    power: "110, turns: 2"
-    effects:
-      - "**Healing of the Sacred Heart Lv.2** Grant Entire Front Row automatic SP recovery (amount: 5% of max SP"
-      - "turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2)"
-      - "impart Warriors in party with SP Stock (amount: 10% of user’s max SP)"
-  - skill_category: ex
-    name: "Fumbled Fireball III"
-    skill_type: mixed
-    damage_types: [fire]
-    target: front_row
-    power: "1-10x45"
-    effects:
-      - "Fire damage to All Foes 1-10 times (potency: 1-10x45) and have a 30% chance to lower Phys"
-      - "Also have a 30% chance to raise Phys"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Blessing of the Noble"
-    skill_type: buff
-    target: single_ally
-    power: "2→3"
+- skill_category: active
+  name: Random Bash
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 7x
+  power: 1-7x35
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 1-7 time(s) (potency: 1-7x35), but have a 30% chance for Self to take damage equal to 20% of max HP.'
+- skill_category: active
+  name: Broken Blade’s Mercy
+  sp_cost: 49
+  skill_type: heal
+  target: single_ally
+  power: '160'
+  effects:
+  - 'Restore HP of Single Ally (potency: 160).'
+  - If target is a warrior, also restore 25-100 SP based on Boost Lv..
+- skill_category: active
+  name: Divine Gift
+  unlock_tier: 1★
+  sp_cost: 43
+  skill_type: buff
+  target: front_row
+  power: '110, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.).'
+  - '20% chance each to grant automatic SP recovery (amount: 5% of max SP, turns: 2).'
+- skill_category: active
+  name: Unwavering Blade
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Single Ally by 20% (turns: 2-5 based on Boost Lv.).'
+  - If target is a warrior, also restore BP by 1.
+- skill_category: active
+  name: Haphazard Fireball II
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 5x
+  power: 1-5x65
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 1-5 time(s) (potency: 1-5x65), but have a 30% chance for Self to take damage equal to 20% of max HP.'
+- skill_category: active
+  name: Divine Blessing
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  - 20% chance to grant automatic revival (revived at 50% of max HP).
+  - (Cannot target incapacitated ally.
+  - Count does not increase when stacked).
+  upgrades:
+  - 'Lv.88: SP Saver: 30→24'
+- skill_category: active
+  name: Sword of Consecration
+  unlock_tier: 4★
+  sp_cost: 47
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Atk. and Crit of Single Ally by 20% (turns: 2-5 based on Boost Lv.).'
+  - 'If target is a warrior, also raise critical damage by 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 2-5 turns→3-6 turns'
+  limit_break_upgrade: 'Raise Phys. Atk. and Crit of Entire Front Row by 20% (turns: 3-6 based on Boost Lv.). If target is a warrior, also raise critical damage by 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Random Fireball II
+  unlock_tier: 5★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 7x
+  power: 1-7x45
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 1-7 time(s) (potency: 1-7x45), but have a 30% chance for Self to take damage equal to 20% of max HP.'
+  upgrades:
+  - 'Lv.99: Potency Up: 1-7x45→1-7x65'
+- skill_category: active
+  name: Divine Mercy
+  unlock_tier: 5★
+  sp_cost: 66
+  skill_type: heal
+  target: front_row
+  power: '205'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 205).'
+  - '20% chance to raise BP recovery amount by 1 (turns: 1).'
+  upgrades:
+  - 'Lv.100: SP Saver: 66→53'
+- skill_category: tp
+  name: Healing of the Sacred Heart
+  sp_cost: 74
+  skill_type: buff
+  target: front_row
+  power: '110, turns: 2'
+  effects:
+  - 'Grant Entire Front Row automatic SP recovery (amount: 5% of max SP, turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2).'
+  upgrades:
+  - 'Lv.2: Grant Entire Front Row automatic SP recovery (amount: 5% of max SP, turns: 2-5 based on Boost Lv.) and have a 20% chance to grant the each member of the same target automatic HP recovery (potency: 110, turns: 2). Afterwards, impart Warriors in party with SP Stock (amount: 10% of user’s max SP).'
+- skill_category: ex
+  name: Fumbled Fireball III
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: front_row
+  power: 1-10x45
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 1-10 times (potency: 1-10x45) and have a 30% chance to lower Phys. Def. and Elem. Def. of each target by 30% (turns: 2).'
+  - 'Also have a 30% chance to raise Phys. Atk. and Elem. Atk. of each ally in the Entire Front Row by 30% (turns: 2).'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 3'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Blessing of the Noble
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Atk. and Crit of Single Ally by 10%→20%→30% and guarantee critical hits if the Ally is a warrior (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in front row: Grant All Allies automatic HP recovery (potency: 10)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Grant All Allies automatic SP recovery (amount: 1% of max SP)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "During action selection, grant each member of Entire Front Row one of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2)."
-    trigger: always
-  - passive_category: tp
-    effect: "During action selection, grant each member of Entire Front Row **two** of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2). Also lower each foe of All Foes one of these effects: a 5% Down in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed or Critical."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword and Staff and Elem. Fire attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Vanguard HP Restoration (All)
+  unlock_tier: 1★
+  effect: 'When in front row: Grant All Allies automatic HP recovery (potency: 10).'
+  trigger: always
+- passive_category: innate
+  name: Vanguard SP Restoration (All)
+  unlock_tier: 3★
+  effect: 'When in front row: Grant All Allies automatic SP recovery (amount: 1% of max SP).'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Unexpected Luck
+  effect: 'During action selection, grant each member of Entire Front Row one of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: During action selection, grant each member of Entire Front Row two of these effects: a 5% Up in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed, Critical or Dead Aim (guaranteed critical hits) (turns: 2). Also lower each foe of All Foes one of these effects: a 5% Down in Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Speed or Critical.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword and Staff and Elem. Fire attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Princess Coin Pouch"
-  passive_effect: "60 Spd, 400 HP, 40 SP; Raise Fire damage dealt by 15%; At the end of turn: 20% chance to remove from some of own status ailments"
+  name: Princess Coin Pouch
+  passive_effect: '60 Spd, 400 HP, 40 SP; Raise Fire damage dealt by 15%; At the end of turn: 20% chance to remove from some of own status ailments'
 
 # Metadata
 data_confidence: incomplete

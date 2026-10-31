@@ -68,139 +68,188 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Wild Shot"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Sweeping Sturdy Shot"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Corroding Sandstorm"
-    sp_cost: 36
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Hunter’s Aim"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    effects:
-      - "**Hunter’s Aim (2★)** Raise Crit"
-  - skill_category: active
-    name: "Obliterating Arrow"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Lowers Phys"
-  - skill_category: active
-    name: "Sandstorm Tempest"
-    sp_cost: 53
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Corrosion: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Ravaging Shot"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Sandstorm Arrows"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Corrosion: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Arrow of Ruin"
-    sp_cost: 300
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "530"
-    effects:
-      - "50% more potent and lowers Phys"
-  - skill_category: tp
-    name: "Gravel Arrow"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: ex
-    name: "Corrosive Arrows"
-    skill_type: mixed
-    damage_types: [bow]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Windbreak Arrow"
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "440→525"
-    effects:
-      - "Act faster during turn and deal Phys"
-      - "100% more potent and lowers Phys"
+- skill_category: active
+  name: Wild Shot
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Sweeping Sturdy Shot
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Corroding Sandstorm
+  unlock_tier: 1★
+  sp_cost: 36
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Wind damage to Random Foe 2 time(s) (potency: 2x75) and inflict corrosion with every attack (turns: 2).'
+- skill_category: active
+  name: Hunter’s Aim
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  effects:
+  - Raise Crit.
+  - 'of Self and Bow damage by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Obliterating Arrow
+  unlock_tier: 2★
+  sp_cost: 37
+  skill_type: heal
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170).'
+  - 'Lowers Phys. Res. by 10% (turns: 2) if target is corroded, but cures that ailment.'
+- skill_category: active
+  name: Sandstorm Tempest
+  unlock_tier: 3★
+  sp_cost: 53
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x80) and inflict corrosion (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 53→42'
+- skill_category: active
+  name: Ravaging Shot
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 230).'
+  - 30% more potent if target is corroded.
+  upgrades:
+  - 'Lv.96: SP Saver: 42→34'
+- skill_category: active
+  name: Sandstorm Arrows
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x95) and inflict corrosion (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 64→51'
+- skill_category: active
+  name: Arrow of Ruin
+  unlock_tier: 5★
+  sp_cost: 300
+  skill_type: heal
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '530'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 530).'
+  - '50% more potent and lowers Phys. Res. by 10% (turns: 2) if target is corroded, but cures that ailment.'
+  upgrades:
+  - 'Lv.100: SP Saver: 300→240'
+- skill_category: tp
+  name: Gravel Arrow
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85) and inflict corrosion (turns: 2).'
+- skill_category: ex
+  name: Corrosive Arrows
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 5 time(s) (potency: 5x55) and inflict corrosion with every attack (turns: 1).'
+  notes: 'Usage Condition: When there’s an enemy with Phys. Res. Down; Uses: 2'
+  ex_trigger: When there’s an enemy with Phys. Res. Down
+- skill_category: special
+  name: Windbreak Arrow
+  skill_type: heal
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 440→525
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Bow damage to Single Foe (potency: 440→525).'
+  - '100% more potent and lowers Phys. Res. 5%→10% (turns: 2) if target is corroded, but cures that status ailment.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Grant Self automatic SP recovery when corroded enemy is present (amount: 10% of max SP)."
-    trigger: always
-    limit_break_upgrade: "Grant Self automatic SP recovery (amount: 10% of max SP) and raise Phys. Atk. and Critical by 10% when corroded enemy is present."
-  - passive_category: innate
-    effect: "Raise Phys. Atk. of Entire Front Row by 15% and Bow damage by 15% when enemy with Phys. Res. Down is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Sandstorm Ward
+  unlock_tier: 1★
+  effect: 'Grant Self automatic SP recovery when corroded enemy is present (amount: 10% of max SP).'
+  trigger: always
+  limit_break_upgrade: 'Grant Self automatic SP recovery (amount: 10% of max SP) and raise Phys. Atk. and Critical by 10% when corroded enemy is present.'
+- passive_category: innate
+  name: Detof Hunting Technique
+  unlock_tier: 3★
+  effect: Raise Phys. Atk. of Entire Front Row by 15% and Bow damage by 15% when enemy with Phys. Res. Down is present.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Ailment (Give)
+  effect: Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Detof’s Clan Quiver"
-  passive_effect: "70 P.Atk, 70 Crit; Raise Bow damage dealt by 15%; Lower SP consumption by 15% (Effects do not stack)"
+  name: Detof’s Clan Quiver
+  passive_effect: 70 P.Atk, 70 Crit; Raise Bow damage dealt by 15%; Lower SP consumption by 15% (Effects do not stack)
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: verified

@@ -1,0 +1,33 @@
+id: plan-ex3-from-roster
+goal: EX3 planning stays inside the roster and surfaces boss scaling data.
+roster: fixture
+
+agent_prompt: |
+  Build me an 8-character team for Sazantos EX3 using only characters I own, via the
+  cotc-tactician MCP. Explain survival, break plan and damage stacking.
+agent_checks:
+  - Calls get_team_building_guide and plan_team_for_boss (and get_my_roster if needed).
+  - Exactly 8 characters (4 front, 4 back), all present in get_my_roster.
+  - Survival plan accounts for provoke_immunity / actions_per_turn from the boss payload.
+  - Uses search_skill_effects or get_character to justify buffs/debuffs; flags gaps
+    instead of inventing characters or skills.
+  - Loadouts respect each character's battle_skill_slots.
+
+steps:
+  - tool: get_team_building_guide
+    args: {}
+    expect:
+      contains_text: [search_skill_effects, roster_applied]
+  - tool: plan_team_for_boss
+    args:
+      boss_id: adversary-sazantos-ex3
+    expect:
+      equals:
+        roster_applied: true
+        recommendation_pool: roster
+        boss.id: adversary-sazantos-ex3
+        boss.ex_rank: ex3
+      ids_owned: ['recommended_characters.*', 'recommended_by_role.*']
+      min_items:
+        recommended_characters.*: 1
+        tactical_notes: 1

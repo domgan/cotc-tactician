@@ -56,110 +56,154 @@ gl_tier: "S+ (10.00 - 9.50)"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Abstract"
-    sp_cost: 36
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Safety Protocols"
-    sp_cost: 48
-    skill_type: heal
-    target: front_row
-    power: "65"
-    effects:
-      - "**Safety Protocols** Restore HP of Entire Front Row (potency: 65)"
-      - "At Max Boost: Also restore their BP by 2"
-  - skill_category: active
-    name: "Elemental Decay"
-    sp_cost: 34
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Elemental Decay (1★)** Lower Elem"
-  - skill_category: active
-    name: "Theory Integration"
-    sp_cost: 62
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Theory Integration (2★)** Raise Elem"
-  - skill_category: active
-    name: "Lab Clearance"
-    sp_cost: 300
-    skill_type: attack
-    target: aoe
-    power: "730"
-  - skill_category: active
-    name: "Theory of Detonation"
-    sp_cost: 84
-    skill_type: attack
-    target: aoe
-    power: "2x55, 2x55"
-    effects:
-      - "**Theory of Detonation (3★)** Gain Fire and Lightning Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
-  - skill_category: active
-    name: "Theory of Rheology"
-    sp_cost: 84
-    skill_type: attack
-    target: aoe
-    power: "2x55, 2x55"
-    effects:
-      - "**Theory of Rheology (4★)** Gain Ice and Wind Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
-  - skill_category: active
-    name: "Theory of Polarity"
-    sp_cost: 84
-    skill_type: attack
-    target: aoe
-    power: "2x55, 2x55"
-    effects:
-      - "**Theory of Polarity (5★)** Gain Light and Dark Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem"
-  - skill_category: active
-    name: "Wild Soulstone Toss"
-    skill_type: mixed
-    target: random
-    power: "6x65"
-    effects:
-      - "Light and Dark damage to Random Foe 1 time each (potency: 6x65) and have a moderate chance to lower their Elem"
-  - skill_category: tp
-    name: "Calculated Compound"
-    sp_cost: 120
-    skill_type: mixed
-    target: aoe
-    power: "6x95-6x150 based on Boost Lv."
-  - skill_category: special
-    name: "Soulstones Might"
-    skill_type: attack
-    target: single_enemy
+- skill_category: active
+  name: Abstract
+  sp_cost: 36
+  skill_type: utility
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Safety Protocols
+  sp_cost: 48
+  skill_type: heal
+  target: front_row
+  power: '65'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65).'
+  - 'At Max Boost: Also restore their BP by 2.'
+- skill_category: active
+  name: Elemental Decay
+  unlock_tier: 1★
+  sp_cost: 34
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Elem. Res. of Single Foe by 20% (turns: 2-5 based on Boost Lv.) and show 1-4 weak point(s) based on Boost Lv..'
+- skill_category: active
+  name: Theory Integration
+  unlock_tier: 2★
+  sp_cost: 62
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Damage of Entire Front Row by 30% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Lab Clearance
+  unlock_tier: 2★
+  sp_cost: 300
+  skill_type: utility
+  target: aoe
+  power: '730'
+  effects:
+  - 'Deal Elem. Non-elemental damage to All Foes (potency: 730).'
+  - Exploits Fire, Ice, Lightning, Wind, Light and Dark weaknesses (damage calculation based on Non-elemental attack).
+  - Damage Limit of this skill is increased by 100,000.
+- skill_category: active
+  name: Theory of Detonation
+  unlock_tier: 3★
+  sp_cost: 84
+  skill_type: utility
+  target: aoe
+  power: 2x55, 2x55
+  effects:
+  - 'Gain Fire and Lightning Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem. Fire and Lightning damage to All Foes 2 times each (potency: 2x55, 2x55).'
+  - 'At Max Boost: Repeat the attacks.'
+  upgrades:
+  - 'Lv.88: SP Saver: 96→84'
+- skill_category: active
+  name: Theory of Rheology
+  unlock_tier: 4★
+  sp_cost: 84
+  skill_type: utility
+  target: aoe
+  power: 2x55, 2x55
+  effects:
+  - 'Gain Ice and Wind Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem. Ice and Wind damage to All Foes 2 times each (potency: 2x55, 2x55).'
+  - 'At Max Boost: Repeat the attacks.'
+  upgrades:
+  - 'Lv.96: SP Saver: 96→84'
+- skill_category: active
+  name: Theory of Polarity
+  unlock_tier: 5★
+  sp_cost: 84
+  skill_type: utility
+  target: aoe
+  power: 2x55, 2x55
+  effects:
+  - 'Gain Light and Dark Soulstone Resonances (turns: 3/Granted as a support skill/Does not stack) and deal Elem. Light and Dark damage to All Foes 2 times each (potency: 2x55, 2x55).'
+  - 'At Max Boost: Repeat the attacks.'
+  upgrades:
+  - 'Lv.99: SP Saver: 96→84'
+- skill_category: active
+  name: Wild Soulstone Toss
+  unlock_tier: 5★
+  skill_type: debuff
+  target: random
+  power: 6x65
+  effects:
+  - 'Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage to Random Foe 1 time each (potency: 6x65) and have a moderate chance to lower their Elem. Def. by 15% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.100: Duration Up: 1 turn→2 turns'
+- skill_category: tp
+  name: Calculated Compound
+  sp_cost: 120
+  skill_type: debuff
+  target: aoe
+  power: 6x95-6x150 based on Boost Lv.
+  effects:
+  - 'Cast countdown on Self (count: 3).'
+  - 'Once the countdown ends, deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage to All Foes 1 time each (potency: 6x95-6x150 based on Boost Lv.).'
+- skill_category: special
+  name: Soulstones Might
+  skill_type: utility
+  target: single_enemy
+  power: 6x70→6x80→6x90
+  effects:
+  - 'Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage to Single Foe 1 time each (potency: 6x70→6x80→6x90).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge: At 200% Overcharge: Active Soulstone Resonance doubles the potency of corresponding element.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Augment Self based on the number of active Soulstone Resonances from the following: Fire/Ice/Lightning."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Gain the ability to trigger a follow-up strike when any ally in Entire Front Row deals Fire/Ice/Lightning/Wind/Light/Dark damage (only activates once for each element in an action)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Augment Self based on the number of active Soulstone Resonances from the following: Wind/Light/Dark."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Soulstone Expertise Vol. I
+  unlock_tier: 1★
+  effect: 'Augment Self based on the number of active Soulstone Resonances from the following: Fire/Ice/Lightning.'
+  trigger: always
+- passive_category: innate
+  name: Soulstone Experiment
+  unlock_tier: 3★
+  effect: 'When in front row: Gain the ability to trigger a follow-up strike when any ally in Entire Front Row deals Fire/Ice/Lightning/Wind/Light/Dark damage (only activates once for each element in an action).'
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Soulstone Expertise Vol. II
+  effect: 'Augment Self based on the number of active Soulstone Resonances from the following: Wind/Light/Dark.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Soulstone Pendant"
-  passive_effect: "200 E.Atk, -30 P.Def, -30 E.Def; Raise Damage Limit by 70,000; When in front row: Raise Elem Damage of Entire Front Row"
+  name: Soulstone Pendant
+  passive_effect: '200 E.Atk, -30 P.Def, -30 E.Def; Raise Damage Limit by 70,000; When in front row: Raise Elem Damage of Entire Front Row'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

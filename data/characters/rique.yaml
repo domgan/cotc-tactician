@@ -52,143 +52,195 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Thrust"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x 65"
-  - skill_category: active
-    name: "Restful Wild Thrust"
-    sp_cost: 31
-    skill_type: mixed
-    damage_types: [polearm]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Polearm damage to Random Foe 3 time(s) (potency: 3x55) and grant Self a 20% chance to restore HP with every attack (potency: 100)"
-  - skill_category: active
-    name: "Negotiation"
-    sp_cost: 26
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Negotiation (1★)** Lower Phys"
-  - skill_category: active
-    name: "Mighty Quad Thrust"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "4x"
-    power: "3x65"
-    effects:
-      - "Recover 1 BP and raise BP recovery amount by 1"
-  - skill_category: active
-    name: "Mighty Quad Chain Squall"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Recover 1 BP and raise BP recovery amount by 1"
-  - skill_category: active
-    name: "Cait Merchant’s Kittle Thrust"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "3x85/4x75/5x75/6x70"
-    effects:
-      - "Grant Self a 30% chance to restore 1 BP with every attack"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe. Attack count rises based on Boost Lv. (potency: **4**x85/**5**x75/**6**x75/**7**x70). Grant Self a 30% chance to restore 1 BP with every attack."
-  - skill_category: active
-    name: "Cait Merchant’s Kittle Gale"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "3x85/4x75/5x75/6x70"
-    effects:
-      - "Grant Self a 30% chance to restore 1 BP with every attack"
-  - skill_category: active
-    name: "Reckless Charge"
-    sp_cost: 96
-    skill_type: attack
-    damage_types: [polearm]
-    target: front_row
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "**Reckless Charge (5★)** Act faster during turn"
-      - "Polearm damage to All Foes 4 time(s) (potency: 4x35) and raise Phys"
-      - "Raise damage of Entire Front Row by 15% at Max Boost (turns: 2)"
-  - skill_category: active
-    name: "Strong Tradewinds"
-    sp_cost: 98
-    skill_type: attack
-    damage_types: [wind]
-    target: front_row
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "**Strong Tradewinds (5★)** Act faster during turn and deal Elem"
-      - "Wind damage to All Foes 4 time(s) (potency: 4x35) and raise Elem"
-      - "Raise damage of Entire Front Row by 15% at Max Boost (turns: 2)"
-  - skill_category: tp
-    name: "Cait Merchant’s Health Drink"
-    sp_cost: 41
-    skill_type: heal
-    target: front_row
-    power: "100"
-    effects:
-      - "**Cait Merchant’s Health Drink ** Restore own SP (amount: 50-125 based on Boost Lv.)"
-      - "Grant additional effects when consuming BP"
-      - "[41 SP] · 1 BP or more: Grant the same target the ability to dodge physical attacks (times: 1) · 2 BP or more: Additionally"
-      - "restore HP of the same target (potency: 100) · Max Boost: Extend the effect to Entire Front Row"
-  - skill_category: ex
-    name: "Mental Arithmetic of the Trader"
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Mental Arithmetic of the Trader** Restore 5 BP"
-      - "of Self by 30% and raise own damage by 30% (turns: 3-6 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Alpacart Rush"
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: aoe
-    power: "375→450→565"
+- skill_category: active
+  name: Trifold Thrust
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x 65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x 65).'
+- skill_category: active
+  name: Restful Wild Thrust
+  sp_cost: 31
+  skill_type: heal
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x55) and grant Self a 20% chance to restore HP with every attack (potency: 100).'
+- skill_category: active
+  name: Negotiation
+  unlock_tier: 1★
+  sp_cost: 26
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Atk. and Elem. Atk. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Mighty Quad Thrust
+  unlock_tier: 2★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 4x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 4 time(s) (potency: 3x65).'
+  - Recover 1 BP and raise BP recovery amount by 1.
+- skill_category: active
+  name: Mighty Quad Chain Squall
+  unlock_tier: 2★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Recover 1 BP and raise BP recovery amount by 1.
+- skill_category: active
+  name: Cait Merchant’s Kittle Thrust
+  unlock_tier: 3★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: 3x85/4x75/5x75/6x70
+  effects:
+  - Deal Phys. Polearm damage to Single Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 3x85/4x75/5x75/6x70).'
+  - Grant Self a 30% chance to restore 1 BP with every attack.
+  upgrades:
+  - 'Lv.88: SP Saver: 74→59'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Single Foe. Attack count rises based on Boost Lv. (potency: 4x85/5x75/6x75/7x70). Grant Self a 30% chance to restore 1 BP with every attack.'
+- skill_category: active
+  name: Cait Merchant’s Kittle Gale
+  unlock_tier: 4★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: 3x85/4x75/5x75/6x70
+  effects:
+  - Deal Elem. Wind damage to Single Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 3x85/4x75/5x75/6x70).'
+  - Grant Self a 30% chance to restore 1 BP with every attack.
+  upgrades:
+  - 'Lv.96: SP Saver: 76→61'
+- skill_category: active
+  name: Reckless Charge
+  unlock_tier: 5★
+  sp_cost: 96
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: front_row
+  hit_count: 4x
+  power: 4x35
+  priority: true
+  effects:
+  - 'Act faster during turn, deal Phys. Polearm damage to All Foes 4 time(s) (potency: 4x35) and raise Phys. Atk. of Entire Front Row by 15% (turns: 2).'
+  - 'Raise damage of Entire Front Row by 15% at Max Boost (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 96→77'
+- skill_category: active
+  name: Strong Tradewinds
+  unlock_tier: 5★
+  sp_cost: 98
+  skill_type: utility
+  damage_types:
+  - wind
+  target: front_row
+  hit_count: 4x
+  power: 4x35
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Elem. Wind damage to All Foes 4 time(s) (potency: 4x35) and raise Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+  - 'Raise damage of Entire Front Row by 15% at Max Boost (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 98→78'
+- skill_category: tp
+  name: Cait Merchant’s Health Drink
+  sp_cost: 41
+  skill_type: heal
+  target: front_row
+  power: '100'
+  effects:
+  - 'Restore own SP (amount: 50-125 based on Boost Lv.).'
+  - Grant additional effects when consuming BP.
+  - '· 1 BP or more: Grant the same target the ability to dodge physical attacks (times: 1) · 2 BP or more: Additionally, restore HP of the same target (potency: 100) · Max Boost: Extend the effect to Entire Front Row'
+- skill_category: ex
+  name: Mental Arithmetic of the Trader
+  skill_type: buff
+  target: self
+  effects:
+  - 'Restore 5 BP, raise Phys. Atk. and Elem. Atk. of Self by 30% and raise own damage by 30% (turns: 3-6 based on Boost Lv.).'
+  notes: 'Usage Condition: With 3 BP or less; Uses: 2'
+  ex_trigger: With 3 BP or less
+- skill_category: special
+  name: Alpacart Rush
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: aoe
+  power: 375→450→565
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 375→450→565).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - Potency increases the higher your BP when selecting the command (max 350% with 5 BP).
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Phys. Atk. limit support skills and equipment effects of Entire Front Row to 50% and grant Damage Limit Up (effect: 20,000)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Grant Entire Front Row effects based on your BP when action phase begins. · 2+: Raise Phys. Def. and Elem. Def. by 15% · 3+: Also raise Phys. Atk. and Elem. Atk. by 15% · 4+: Also grant automatic HP recovery (potency: 60) · 5+: Also grant automatic SP recovery (amount: 30) *Does not take into account BP needed for boosts."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Entire Front Row effects based on own consumed BP on that turn (turns: 1). · 1 BP or more: Grant the ability to deal critical hits with elemental attacks. · 2 BP or more: Also raise Phys. Atk. and Elem. Atk. by 10%. · Max Boost: Also grant Damage Limit Up (effect: 20,000)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: The Trader’s Gift
+  unlock_tier: 1★
+  effect: 'Raise Phys. Atk. limit support skills and equipment effects of Entire Front Row to 50% and grant Damage Limit Up (effect: 20,000).'
+  trigger: always
+- passive_category: innate
+  name: Cait Merchant’s Revenue
+  unlock_tier: 3★
+  effect: 'When in front row: Grant Entire Front Row effects based on your BP when action phase begins. · 2+: Raise Phys. Def. and Elem. Def. by 15% · 3+: Also raise Phys. Atk. and Elem. Atk. by 15% · 4+: Also grant automatic HP recovery (potency: 60) · 5+: Also grant automatic SP recovery (amount: 30) *Does not take into account BP needed for boosts.'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Cait Merchant’s Thriftiness
+  effect: 'Grant Entire Front Row effects based on own consumed BP on that turn (turns: 1). · 1 BP or more: Grant the ability to deal critical hits with elemental attacks. · 2 BP or more: Also raise Phys. Atk. and Elem. Atk. by 10%. · Max Boost: Also grant Damage Limit Up (effect: 20,000).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Cait Merchant’s Ledger"
-  passive_effect: "50 P.Atk, 50 E.Atk, 40 SP; When consuming 3 or more BP to use a skill, restore HP (amount: 10% of max HP) and SP (amount: 10% of max SP); Start of battle: Recover 5 BP"
+  name: Cait Merchant’s Ledger
+  passive_effect: '50 P.Atk, 50 E.Atk, 40 SP; When consuming 3 or more BP to use a skill, restore HP (amount: 10% of max HP) and SP (amount: 10% of max SP); Start of battle: Recover 5 BP'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

@@ -70,127 +70,169 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Frosty Refrain"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Heavy Blow"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Sweep"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Warrior’s Waltz III"
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Warrior’s Waltz III (2★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Frostfell Elegy"
-    sp_cost: 16
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Frostfell Elegy (2★)** Lower Ice Res"
-  - skill_category: active
-    name: "Defensive Sweep"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fan damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge physical attacks (times: 1)"
-  - skill_category: active
-    name: "Frosty Fantasia"
-    sp_cost: 44
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Ice damage to All Foes 2 time(s) (potency: 2x80) and lower Ice Res"
-  - skill_category: active
-    name: "Inspirational Spirit"
-    sp_cost: 60
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Inspirational Spirit (5★)** Raise Phys"
-      - "and Critical of Single ally by 30% (turns: 2-5 based on Boost Lv.) and grant the ability to dodge physical attacks (times: 1) at Max Boost"
-  - skill_category: active
-    name: "Winter’s Grace"
-    sp_cost: 90
-    skill_type: mixed
-    damage_types: [ice]
-    target: random
-    hit_count: "4x"
-    power: "4x85"
-    effects:
-      - "Ice damage to Random Foe 4 time(s) (potency: 4x85) and have a low chance to impart Phys"
-  - skill_category: tp
-    name: "Ice Augment Magic (All) III"
-    sp_cost: 30
-    skill_type: buff
-    target: back_row
-    effects:
-      - "**Ice Augment Magic (All) III ** Raise Ice damage dealt of All Allies by 20% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Exorcising Waltz"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Exorcising Waltz** Grant Entire Front Row the ability to dodge elemental attacks (times: 1-4 based on Boost Lv.)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Snowmoon Requiem"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "440→525→655"
-    effects:
-      - "provoke All Foes (turns: 2) and grant Self the ability to dodge physical attacks (times: **3→4→5**)"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Frosty Refrain
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Heavy Blow
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Sweep
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Warrior’s Waltz III
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 20% and Phys. Def. Up 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Frostfell Elegy
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Ice Res. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Defensive Sweep
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge physical attacks (times: 1).'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Frosty Fantasia
+  unlock_tier: 4★
+  sp_cost: 44
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x80) and lower Ice Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 44→35'
+- skill_category: active
+  name: Inspirational Spirit
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Atk., Phys. Def. and Critical of Single ally by 30% (turns: 2-5 based on Boost Lv.) and grant the ability to dodge physical attacks (times: 1) at Max Boost.'
+  upgrades:
+  - 'Lv.99: SP Saver: 60→48'
+- skill_category: active
+  name: Winter’s Grace
+  unlock_tier: 5★
+  sp_cost: 90
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: random
+  hit_count: 4x
+  power: 4x85
+  effects:
+  - 'Deal Elem. Ice damage to Random Foe 4 time(s) (potency: 4x85) and have a low chance to impart Phys. Def. Down 20% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 90→72'
+- skill_category: tp
+  name: Ice Augment Magic (All) III
+  sp_cost: 30
+  skill_type: buff
+  target: back_row
+  effects:
+  - 'Raise Ice damage dealt of All Allies by 20% (turns: 2-5 based on Boost Lv.).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: ex
+  name: Exorcising Waltz
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row the ability to dodge elemental attacks (times: 1-4 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 4; Uses: 1'
+  ex_trigger: After turn 4
+- skill_category: special
+  name: Snowmoon Requiem
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: 440→525→655
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 440→525→655), provoke All Foes (turns: 2) and grant Self the ability to dodge physical attacks (times: 3→4→5).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Grant Self the ability to dodge physical attacks (times: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Start of battle: Grant **Entire Front Row** the ability to dodge physical attacks (times: 3)."
-  - passive_category: innate
-    effect: "When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Phys. Def. Up 10% (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching: Grant Self the ability to dodge physical attacks (times: 1)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Physical Evasion
+  unlock_tier: 1★
+  effect: 'Start of battle: Grant Self the ability to dodge physical attacks (times: 3).'
+  trigger: battle_start
+  limit_break_upgrade: 'Start of battle: Grant Entire Front Row the ability to dodge physical attacks (times: 3).'
+- passive_category: innate
+  name: Phys. Boost on Switch (Front/All)
+  unlock_tier: 3★
+  effect: 'When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Phys. Def. Up 10% (turns: 1).'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Physical Evasion on Switch
+  effect: 'When switching: Grant Self the ability to dodge physical attacks (times: 1).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Troubadour’s Head Piece"
-  passive_effect: "40 P.Atk, 40 P.Def, 60 Spd; Raise Fan damage dealt by 15%; Start of battle: Grant Self the ability to dodge physical attacks (times: 3) (Stacks with battle skills)"
+  name: Troubadour’s Head Piece
+  passive_effect: '40 P.Atk, 40 P.Def, 60 Spd; Raise Fan damage dealt by 15%; Start of battle: Grant Self the ability to dodge physical attacks (times: 3) (Stacks with battle skills)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

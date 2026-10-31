@@ -52,129 +52,165 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Heal More"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Heal More** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Blizzard (Single) II"
-    sp_cost: 28
-    skill_type: utility
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Oracle of Order II"
-    sp_cost: 18
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Oracle of Order II (1★)** Impart Single Foe Phys"
-  - skill_category: active
-    name: "Icebreaker"
-    sp_cost: 36
-    skill_type: mixed
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Staff damage to Single Foe 2 time(s) (potency: 2x90) and impart Ice Res"
-  - skill_category: active
-    name: "Triple Leg Bash"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Staff damage to All Foes 3 time(s) (potency: 3x65) and impart Spd Down 15% (turns: 2)"
-  - skill_category: active
-    name: "Healing Spirit II"
-    sp_cost: 82
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Healing Spirit II (3★)** Restore HP of Entire Front Row (potency: 130) and raise Elem"
-  - skill_category: active
-    name: "Glacies Debilitare (All) III"
-    sp_cost: 80
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Ice damage to All Foes 3 time(s) (potency: 3x80) and impart Phys"
-  - skill_category: active
-    name: "Sacred Battle Veil"
-    sp_cost: 40
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Sacred Battle Veil (5★)** Impart Single Ally with Phys"
-      - "Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost"
-    limit_break_upgrade: "Impart **All Allies** with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost). Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost."
-  - skill_category: active
-    name: "Revive (Single)"
-    sp_cost: 50
-    skill_type: utility
-    target: single_enemy
-  - skill_category: tp
-    name: "Healing Blessing"
-    sp_cost: 76
-    skill_type: buff
-    target: front_row
-    power: "110"
-    effects:
-      - "**Healing Blessing ** Grant Entire Front Row automatic HP recovery (potency: 110) and automatic SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [ice]
-    target: front_row
-    power: "180"
-    effects:
-      - "Ice damage to All Foes (potency: 180) and grant Entire Front Row HP Barrier (potency: 25% of user’s max HP/Does not stack)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Divine Strike"
-    skill_type: mixed
-    damage_types: [staff]
-    target: aoe
-    hit_count: "4x"
-    effects:
-      - "Staff damage to All Foes 4 time(s) (potency: **4x75→4x90**) and lower Phys"
+- skill_category: active
+  name: Heal More
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+- skill_category: active
+  name: Blizzard (Single) II
+  sp_cost: 28
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Oracle of Order II
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe Phys. Atk. Down 15% and Elem. Atk. Down 15% (turns: 2-5 based on Boost Lv).'
+- skill_category: active
+  name: Icebreaker
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x90) and impart Ice Res. Down 15% (turns: 2).'
+- skill_category: active
+  name: Triple Leg Bash
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x65) and impart Spd Down 15% (turns: 2).'
+- skill_category: active
+  name: Healing Spirit II
+  unlock_tier: 3★
+  sp_cost: 82
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130) and raise Elem. Atk. and Elem. Def. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: Duration Up during Boost Mode: 2 turns→2-5 turns based on Boost Lv.'
+- skill_category: active
+  name: Glacies Debilitare (All) III
+  unlock_tier: 4★
+  sp_cost: 80
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x80) and impart Phys. Atk. Down 15% and Elem. Atk. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 80→64'
+- skill_category: active
+  name: Sacred Battle Veil
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Impart Single Ally with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost).'
+  - 'Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost.'
+  upgrades:
+  - 'Lv.99: SP Saver: 40→32'
+  limit_break_upgrade: 'Impart All Allies with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost). Act faster during turn and grant the ability to dodge physical attacks (times: 1) at Max Boost.'
+- skill_category: active
+  name: Revive (Single)
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Revive a fallen ally (recovery amount: 25%-100% of max HP based on Boost).'
+  - '*Can be used 3 times per battle.'
+  upgrades:
+  - 'Lv.100: SP Saver: 50→40'
+- skill_category: tp
+  name: Healing Blessing
+  sp_cost: 76
+  skill_type: buff
+  target: front_row
+  power: '110'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110) and automatic SP recovery (amount: 5% of max SP) (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - ice
+  target: front_row
+  power: '180'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 180) and grant Entire Front Row HP Barrier (potency: 25% of user’s max HP/Does not stack).'
+  notes: 'Usage Condition: After turn 4; Uses: 2'
+  ex_trigger: After turn 4
+- skill_category: special
+  name: Divine Strike
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 4x
+  power: 4x75→4x90
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 4 time(s) (potency: 4x75→4x90) and lower Phys. Atk., Elem. Atk. and Speed by 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Recover 4% of SP when taking damage from enemies."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Grant back row automatic HP recovery (potency: 30)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: SP Recovery II
+  unlock_tier: 1★
+  effect: Recover 4% of SP when taking damage from enemies.
+  trigger: always
+- passive_category: innate
+  name: Vanguard HP Restoration (Back/All)
+  unlock_tier: 3★
+  effect: 'When in front row: Grant back row automatic HP recovery (potency: 30).'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Enfeeblement (Give)
+  effect: Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Pure White Cape"
-  passive_effect: "40 P.Atk, 40 E.Atk, 60 SP; Raise ice damage dealt by 15%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)"
+  name: Pure White Cape
+  passive_effect: 40 P.Atk, 40 E.Atk, 60 SP; Raise ice damage dealt by 15%; Raise own HP recovery skill potency by 15% (excludes automatic healing skills)
 
 # Metadata
 data_confidence: incomplete

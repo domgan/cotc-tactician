@@ -51,123 +51,141 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Ode to Lightning II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Peacock Parade"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Peacock Parade** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Windy Waltz"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Windy Waltz (1★)** Raise Wind Res"
-  - skill_category: active
-    name: "Dispiriting Dance"
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [fan]
-    target: aoe
-    power: "115"
-    effects:
-      - "Fan damage to All Foes (potency: 115) and impart Elem"
-  - skill_category: active
-    name: "Roaring Rhapsody II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Sage's Serenade II"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sage's Serenade II (3★)** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Sage's Serenade II"
-    sp_cost: 32
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sage's Serenade II (5★)** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Ballad of Bolts"
-    sp_cost: 42
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x115"
-  - skill_category: active
-    name: "Ballad of Bolts"
-    sp_cost: 34
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x130**"
-  - skill_category: tp
-    name: "Kagura of the Wind God II"
-    sp_cost: 39
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Kagura of the Wind God II ** Impart Entire Front Row with Elem"
-      - "Up 15% and raise Wind Res"
-  - skill_category: ex
-    name: "Purple Lightning Waltz III"
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Lightning damage to All Foes 3 time(s) (potency: 3x80) and lower Elem"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Thundering Twirl"
-    skill_type: attack
-    damage_types: [lightning]
-    target: front_row
-    power: "330→395→495"
-    effects:
-      - "Lightning damage to All Foes (potency: **330→395→495**) and raise Wind Res"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Ode to Lightning II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Peacock Parade
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Windy Waltz
+  unlock_tier: 1★
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Wind Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Dispiriting Dance
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: aoe
+  power: '115'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 115) and impart Elem. Def. Down 10% (turns: 2).'
+- skill_category: active
+  name: Roaring Rhapsody II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Sage's Serenade II
+  unlock_tier: 3★
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - Impart Entire Front Row with Elem. Atk. Up 15% and ELem.
+  - 'Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 40→32'
+  - 'Upgraded: Impart Entire Front Row with Elem. Atk. Up 15% and Elem. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Ballad of Bolts
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x115
+  effects:
+  - 'Deal Elem. Lightining damage to Single Foe 2 time(s) (potency: 2x115).'
+  upgrades:
+  - 'Lv.80: SP Saver: 42→34'
+  - 'Upgraded: Deal Elem. Lightining damage to Single Foe 2 time(s) (potency: 2x130).'
+- skill_category: tp
+  name: Kagura of the Wind God II
+  sp_cost: 39
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Atk. Up 15% and raise Wind Res. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Purple Lightning Waltz III
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x80) and lower Elem. Def. by 15% (turns: 2).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Thundering Twirl
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: front_row
+  power: 330→395→495
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 330→395→495) and raise Wind Res. of Entire Front Row by 5%→10%→15% (turns: 2).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge: “Super Power Activation”: 50% more potent.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of Front or Back Row’s augmenting effects by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Shortens duration of enfeebling effects (excluding status ailments) inflicted on Front or Back Row by 1 turn (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Shortens duration of enfeebling effects and status ailments inflicted on Front or Back Row by 1 turn (Does not stack)."
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Raise Elem. Atk. of Paired Allies by 20% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Augment (Joint/Receive)
+  unlock_tier: 1★
+  effect: Extend duration of Front or Back Row’s augmenting effects by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Shortened Enfeeblement (Joint/Receive)
+  unlock_tier: 3★
+  effect: Shortens duration of enfeebling effects (excluding status ailments) inflicted on Front or Back Row by 1 turn (Does not stack).
+  trigger: always
+  limit_break_upgrade: Shortens duration of enfeebling effects and status ailments inflicted on Front or Back Row by 1 turn (Does not stack).
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 5★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Initial E.Atk. Boost (Joint) III
+  effect: 'Start of battle: Raise Elem. Atk. of Paired Allies by 20% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Treasured Handmirror"
-  passive_effect: "20 E.Atk, 20 E.Def, 30 Spd; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)"
+  name: Treasured Handmirror
+  passive_effect: '20 E.Atk, 20 E.Def, 30 Spd; When in back row: Grant Paired Ally automatic SP recovery (amount: 10)'
 
 # Metadata
 data_confidence: incomplete

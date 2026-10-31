@@ -72,127 +72,197 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Red Ballet"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Icebind"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "70"
-  - skill_category: active
-    name: "Violet Daze"
-    sp_cost: 34
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Dark damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2)"
-  - skill_category: active
-    name: "Silver Fangs"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Purple Mist"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Gale Force"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [lightning, wind]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Blue Squall"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [lightning, wind]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Crimson Eruption"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "35"
-  - skill_category: active
-    name: "Amber Flurry"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "180"
-    effects:
-      - "Lightning damage to All Foes (potency: 180) and raise potency with every 2 Magic Points (up to a max of 80% additional potency)"
-  - skill_category: tp
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Dark damage to All Foes 3 time(s) (potency: 3x80) and grant Self 1 Magic Point"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    target: aoe
-    power: "5x35"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Black Abyss"
-    skill_type: mixed
-    damage_types: [dark]
-    target: self
-    power: "2→3"
-    effects:
-      - "Act faster during turn"
-      - "grant Self the ability to dodge some elemental attacks (turns: **2→3**)"
-      - "and impart Elem"
+- skill_category: active
+  name: Red Ballet
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170).'
+  - '·With 3+ Magic Points: 20% more potent.'
+- skill_category: active
+  name: Icebind
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '70'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 70).'
+  - '·With 3+ Magic Points: Activates skill twice (the follow-up attack will not consume SP).'
+- skill_category: active
+  name: Violet Daze
+  unlock_tier: 1★
+  sp_cost: 34
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2).'
+  - '·With 5+ Magic Points: Reaches all enemies.'
+- skill_category: active
+  name: Silver Fangs
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 150) and have a low chance to inflict paralysis (turns: 2).'
+  - '·With 3+ Magic Points: Moderate chance to inflict paralysis.'
+  - '·With 5+ Magic Points: High chance to inflict paralysis.'
+- skill_category: active
+  name: Purple Mist
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150) and have a low chance to inflict blindness (turns: 2).'
+  - '·With 3+ Magic Points: Moderate chance to inflict blindness.'
+  - '·With 5+ Magic Points: High chance to inflict blindness.'
+- skill_category: active
+  name: Gale Force
+  unlock_tier: 3★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - lightning
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Wind weakness (damage calculation based on Elem. Lightning attack).
+  - '·With 5+ Magic Points: 20% more potent.'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+- skill_category: active
+  name: Blue Squall
+  unlock_tier: 4★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - lightning
+  - wind
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230).'
+  - Exploits Wind weakness (damage calculation based on Elem. Lightning attack).
+  - '·With 3+ Magic Points: Reaches all enemies.'
+  - '·With 5+ Magic Points: 20% more potent.'
+  upgrades:
+  - 'Lv.96: SP Saver: 44→35'
+- skill_category: active
+  name: Crimson Eruption
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '35'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 35) and deal the same number of Elem. Fire attacks as own Magic Points (potency: 35/max: 6).'
+  upgrades:
+  - 'Lv.99: SP Saver: 60→48'
+- skill_category: active
+  name: Amber Flurry
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 180) and raise potency with every 2 Magic Points (up to a max of 80% additional potency).'
+  upgrades:
+  - 'Lv.100: SP Saver: 55→44'
+- skill_category: tp
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 3 time(s) (potency: 3x80) and grant Self 1 Magic Point.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  target: aoe
+  power: 5x35
+  effects:
+  - 'Inflict All Foes with Fire/Ice/Lightning/Wind/Dark weakening (times: 1) and deal Elem. Fire, Ice, Lightning, Wind and Dark damage 1 time each to All Foes (potency: 5x35).'
+  notes: 'Usage Condition: 6+ Magic Points; Uses: 2'
+  ex_trigger: 6+ Magic Points
+- skill_category: special
+  name: Black Abyss
+  skill_type: buff
+  damage_types:
+  - dark
+  target: self
+  power: '135'
+  priority: true
+  effects:
+  - 'Act faster during turn, grant Self the ability to dodge some elemental attacks (turns: 2→3), and impart Elem. Atk. Up 10%→20% (turns: 2→3).'
+  - 'When dodging, counter with Elem. Dark damage to all enemies (potency: 135).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 20%/BP→25%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When using a battle skill, restore own SP (amount: 10) and gain 1 Magic Point."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20%."
-    trigger: always
-    limit_break_upgrade: "Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20% and raise potency by 100%."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise own Critical by 30% and grant Self ability to trigger critical hits when using elemental attacks."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Magic Infusion
+  unlock_tier: 1★
+  effect: 'When using a battle skill, restore own SP (amount: 10) and gain 1 Magic Point.'
+  trigger: always
+- passive_category: innate
+  name: Magic Enlightment
+  unlock_tier: 3★
+  effect: 'Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20%.'
+  trigger: always
+  limit_break_upgrade: 'Grant Self effects based on Magic Points. ·With 1+: Elem. Atk. Up 12% with the effect raise by 2% for each additional Magic Point (max: 30%). ·With 9+: Also raise elemental damage by 20% and raise potency by 100%.'
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: Raise own Critical by 30% and grant Self ability to trigger critical hits when using elemental attacks.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Mage’s Cloak"
-  passive_effect: "70 P.Atk, 700 HP; Start of battle: Provoke All Foes (turns: 3); Start of battle: Fill own Ultimate Technique gauge to 100%"
+  name: Mage’s Cloak
+  passive_effect: '70 P.Atk, 700 HP; Start of battle: Provoke All Foes (turns: 3); Start of battle: Fill own Ultimate Technique gauge to 100%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Element weakening
+  description: Add an element weak point to the foe. If the foe was already weak to that element, that element damage dealt is increased by 20%. Every time the target is hit with an elemental attack of that type this added weakness is reduced by one. *Cannot be applied to enemies without weak points.
 
 # Metadata
 data_confidence: verified

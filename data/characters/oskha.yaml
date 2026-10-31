@@ -52,137 +52,216 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Swift Stab"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Twin Flash: Blaze"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Twofold Vengeful Strike"
-    sp_cost: 41
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Raging Triple Shredder Thrust"
-    sp_cost: 44
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Polearm damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Polearm Res"
-  - skill_category: active
-    name: "Raging Flame Strike"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fire damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Elem"
-  - skill_category: active
-    name: "Purgation Thrust"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [polearm, fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Quad Shredder Strike"
-    sp_cost: 77
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    name: "Fierce Powerblow"
-    sp_cost: 56
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Polearm damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Phys"
-  - skill_category: active
-    name: "Skyfire Spear"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [polearm, fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x150"
-    effects:
-      - "Raise the Damage Limit of this skill by 50,000"
-  - skill_category: tp
-    name: "Contempt for Wealth"
-    sp_cost: 67
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Contempt for Wealth ** Raise Phys"
-      - "and Polearm damage of Self by 30% and grant Self Dead Aim (guranteed critical hits) (turns: 3-8)"
-      - "Impart Self with the special effect BP Prohibition (turns: 3/turns cannot be extended)"
-  - skill_category: ex
-    name: "A Thousand Arms"
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: single_enemy
-    hit_count: "8x"
-    power: "8x30"
-    effects:
-      - "Polearm damage to Single Foe 8 time(s) (potency: 8x30) and restore Ultimate Technique use count by 1"
-      - "Impart Self with the special effect BP Prohibition (turns: 3/turns cannot be extended)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "The Trader’s Retribution"
-    skill_type: mixed
-    damage_types: [polearm, fire]
-    target: aoe
-    hit_count: "10x"
+- skill_category: active
+  name: Swift Stab
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: 'Twin Flash: Blaze'
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Twofold Vengeful Strike
+  unlock_tier: 1★
+  sp_cost: 41
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - 'Lower Phys. Atk. and Elem. Atk by 10% (turns: 2).'
+- skill_category: active
+  name: Raging Triple Shredder Thrust
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Polearm Res. by 15% with every attack (turns: 2).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - When consuming 5 BP, attack count becomes 7.
+- skill_category: active
+  name: Raging Flame Strike
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Elem. Def. by 10% with every attack (turns: 2).'
+  - When consuming 5 BP, attack count becomes 6.
+- skill_category: active
+  name: Purgation Thrust
+  unlock_tier: 3★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - polearm
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - When consuming 5 BP, attack count becomes 5.
+  upgrades:
+  - 'Lv.88: SP Saver: 60→48'
+- skill_category: active
+  name: Quad Shredder Strike
+  unlock_tier: 4★
+  sp_cost: 77
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - 'Lower Phys. Atk. and Elem. Atk. by 10% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 77→62'
+- skill_category: active
+  name: Fierce Powerblow
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x65) and have a low chance to lower Phys. Atk. by 20% with every attack (turns: 2).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - When consuming 5 BP, attack count becomes 7.
+  upgrades:
+  - 'Lv.99: SP Saver: 56→45'
+- skill_category: active
+  name: Skyfire Spear
+  unlock_tier: 5★
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - polearm
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x150
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x150).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - Raise the Damage Limit of this skill by 50,000.
+  - When consuming 5 BP, attack count becomes 3.
+  upgrades:
+  - 'Lv.100: SP Saver: 68→54'
+- skill_category: tp
+  name: Contempt for Wealth
+  sp_cost: 67
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. and Polearm damage of Self by 30% and grant Self Dead Aim (guranteed critical hits) (turns: 3-8).'
+  - 'Impart Self with the special effect BP Prohibition (turns: 3/turns cannot be extended).'
+- skill_category: ex
+  name: A Thousand Arms
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: single_enemy
+  hit_count: 8x
+  power: 8x30
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 8 time(s) (potency: 8x30) and restore Ultimate Technique use count by 1.'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  - 'Impart Self with the special effect BP Prohibition (turns: 3/turns cannot be extended).'
+  - 'When consuming 5 BP: Attack count becomes 12.'
+  notes: 'Usage Condition: When Self has Polearm Dmg. Up; Uses: 1'
+  ex_trigger: When Self has Polearm Dmg. Up
+- skill_category: special
+  name: The Trader’s Retribution
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - fire
+  target: aoe
+  hit_count: 10x
+  power: 10x25→10x35→10x45
+  effects:
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10%→15%→20% (turns: 2) and deal Phys. Polearm damage to All Foes 10 time(s) (potency: 10x25→10x35→10x45).'
+  - Exploits Fire weaknesses (damage calculation based on Phys. Polearm attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise own Phys. Atk. by 30% and enhance Boost Levels: Boost becomes Lv.2/Lv.4/Lv.6 at BP consumption of 1/3/5."
-    trigger: always
-  - passive_category: innate
-    effect: "If BP is 0 at the start of attack (Boost mode consumption is nullified), raise self potency by 250% (Does not stack with effects of the same type)."
-    trigger: battle_start
-    limit_break_upgrade: "If BP is 5 or less at the start of attack (Boost mode consumption is nullified), raise self potency by 100%. If BP is 3 or less at the start of attack (Boost mode consumption is nullified), also grant Self Damage Limit Up (effect: 50,000). If BP is 0 at the start of attack (Boost mode consumption is nullified), raise self potency by **300%** instead (Does not stack with effects of the same type)."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Polearm damage by 15%, grant Self Damage Limit Up (effect: 50,000) and raise Polearm damage limit of support skills and equipment effects of Self to 50%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: False Wealth
+  unlock_tier: 1★
+  effect: 'Raise own Phys. Atk. by 30% and enhance Boost Levels: Boost becomes Lv.2/Lv.4/Lv.6 at BP consumption of 1/3/5.'
+  trigger: always
+- passive_category: innate
+  name: The Have-Not
+  unlock_tier: 3★
+  effect: If BP is 0 at the start of attack (Boost mode consumption is nullified), raise self potency by 250% (Does not stack with effects of the same type).
+  trigger: battle_start
+  limit_break_upgrade: 'If BP is 5 or less at the start of attack (Boost mode consumption is nullified), raise self potency by 100%. If BP is 3 or less at the start of attack (Boost mode consumption is nullified), also grant Self Damage Limit Up (effect: 50,000). If BP is 0 at the start of attack (Boost mode consumption is nullified), raise self potency by 300% instead (Does not stack with effects of the same type).'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Hüysenov’s Fortune
+  effect: 'Raise Polearm damage by 15%, grant Self Damage Limit Up (effect: 50,000) and raise Polearm damage limit of support skills and equipment effects of Self to 50%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Handful of Gold Dust"
-  passive_effect: "200 P.Atk, -60 Spd; Grant Damage Limit Up (effect: 50,000); Start of battle: Restore 5 BP to Self"
+  name: Handful of Gold Dust
+  passive_effect: '200 P.Atk, -60 Spd; Grant Damage Limit Up (effect: 50,000); Start of battle: Restore 5 BP to Self'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: BP Prohibition
+  description: BP will not increase from any source.
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

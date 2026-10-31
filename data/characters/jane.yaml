@@ -66,127 +66,171 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Amputation"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "170/200/240/350"
-  - skill_category: active
-    name: "Explosive Cleave"
-    sp_cost: 21
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "140/170/210/300"
-  - skill_category: active
-    name: "Triple Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65/3x75/3x90/3x120"
-  - skill_category: active
-    name: "Nourishing Meal"
-    sp_cost: 32
-    skill_type: buff
-    target: self
-    effects:
-      - "**Nourishing Meal (2★)** Raise Phys"
-  - skill_category: active
-    name: "Super Strength Porridge"
-    skill_type: mixed
-    target: front_row
-    power: "90, turns: 2/3/4/5"
-    effects:
-      - "**Super Strength Porridge (2★)** Grant automatic HP recovery to Entire Front Row (potency: 90, turns: 2/3/4/5)"
-      - "Also raise their Phys"
-  - skill_category: active
-    name: "Triple Searing Sweep"
-    sp_cost: 61
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65/3x75/3x90/3x115"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Quad Flame Cleave"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "4x"
-    power: "4x65/4x75/4x85/4x110"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Dual Crushing Sweep"
-    sp_cost: 55
-    skill_type: mixed
-    damage_types: [axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x105/2x120/2x140/2x170"
-    effects:
-      - "Lower Axe Res"
-  - skill_category: active
-    name: "Dual Volatile Cleave"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120/2x135/2x155/2x210"
-    limit_break_upgrade: "Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210). **100%** more potent when the target is combusted."
-  - skill_category: tp
-    name: "Delightful Snack"
-    sp_cost: 30
-    skill_type: buff
-    target: self
-    effects:
-      - "**Delightful Snack ** Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) (turns: 3/4/5/6)"
-  - skill_category: special
-    name: "Eight-Treasure Explosive Sweep"
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "8x"
+- skill_category: active
+  name: Amputation
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 170/200/240/350).'
+- skill_category: active
+  name: Explosive Cleave
+  sp_cost: 21
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: 140/170/210/300
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 140/170/210/300) and cause them to combust (turns: 2).'
+- skill_category: active
+  name: Triple Cleave
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65/3x75/3x90/3x120
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x65/3x75/3x90/3x120).'
+- skill_category: active
+  name: Nourishing Meal
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk., Critical and Speed of Self by 15% (turns: 3/4/5/6).'
+- skill_category: active
+  name: Super Strength Porridge
+  unlock_tier: 2★
+  skill_type: buff
+  target: front_row
+  power: '90, turns: 2/3/4/5'
+  effects:
+  - 'Grant automatic HP recovery to Entire Front Row (potency: 90, turns: 2/3/4/5).'
+  - 'Also raise their Phys. Atk. and Axe damage by 15% (turns: 2).'
+- skill_category: active
+  name: Triple Searing Sweep
+  unlock_tier: 3★
+  sp_cost: 61
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 3x
+  power: 3x65/3x75/3x90/3x115
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 3 time(s) (potency: 3x65/3x75/3x90/3x115) and cause them to combust (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  name: Quad Flame Cleave
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 4x
+  power: 4x65/4x75/4x85/4x110
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 4 time(s) (potency: 4x65/4x75/4x85/4x110) and cause them to combust with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 78→62'
+- skill_category: active
+  name: Dual Crushing Sweep
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x105/2x120/2x140/2x170
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x105/2x120/2x140/2x170).'
+  - 'Lower Axe Res. of by 15% when the target is combusted (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 69→55'
+- skill_category: active
+  name: Dual Volatile Cleave
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120/2x135/2x155/2x210
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210).'
+  - 50% more potent when the target is combusted.
+  upgrades:
+  - 'Lv.100: SP Saver: 50→40'
+  limit_break_upgrade: 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x120/2x135/2x155/2x210). 100% more potent when the target is combusted.'
+- skill_category: tp
+  name: Delightful Snack
+  sp_cost: 30
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self Dead Aim (guaranteed critical hits) and Damage Limit Up (effect: 50,000) (turns: 3/4/5/6).'
+- skill_category: special
+  name: Eight-Treasure Explosive Sweep
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 8x
+  power: 8x30→8x40→8x50
+  effects:
+  - 'Cause All Foes to combust (turns: 2) and deal Phys. Axe damage to the same target 8 time(s) (potency: 8x30→8x40→8x50).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Phys. Atk. and Axe damage of Self by 30% when a combusted enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "When dealing critical hits, lower Axe Res. of the target by 15% (turns: 2) and cause them to combust (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation,grant Self the special effect “More, Please!” (turns: 1). More, Please!: Activate attack skills twice (the follow-up attack will not consume SP). ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Flame Chef
+  unlock_tier: 1★
+  effect: Raise Phys. Atk. and Axe damage of Self by 30% when a combusted enemy is present.
+  trigger: always
+- passive_category: innate
+  name: Critical Preparation
+  unlock_tier: 3★
+  effect: 'When dealing critical hits, lower Axe Res. of the target by 15% (turns: 2) and cause them to combust (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: More, Please!'
+  effect: 'Upon activation,grant Self the special effect “More, Please!” (turns: 1). More, Please!: Activate attack skills twice (the follow-up attack will not consume SP).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
+  notes: 'Preparation Turns: 4; Reuse Turns: 6'
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Monster Cooking Recipe Collection"
-  passive_effect: "80 P.Atk, 20 Crit, 40 SP; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3); Start of battle: Cause all enemies to combust (turns: 3)"
+  name: Monster Cooking Recipe Collection
+  passive_effect: '80 P.Atk, 20 Crit, 40 SP; When breaking an enemy, lower their Phys. Def. by 10% (turns: 3); Start of battle: Cause all enemies to combust (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

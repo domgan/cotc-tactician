@@ -126,6 +126,16 @@ python scripts/import_skills_from_markdown.py --character "Richard"
 **Note**: The markdown files must be in `resources/Character List/` as Notion exports.
 Roles still need manual assignment based on skill analysis.
 
+The parser walks the nested `<aside>` tree: headed children with the same/no name are
+upgrades (`upgrades`, 6★ → `limit_break_upgrade`), differently named children are separate
+entries, headerless children are glossary terms (`unique_mechanics`) or skill meta (`notes`).
+Tier tags like `(Initial)`, `(3★)`, `(EX)` go to `unlock_tier`, never `name`. Only the region
+below `# Skills - parsed from markdown` is rewritten; hand-edited kits must drop that marker.
+Verify with `uv run python scripts/audit_character_data.py`.
+
+**NiaDB (meowdb.com)** is allowed as a curation reference for single units (facts/excerpts
+with the exact page URL in `data_source`). Do not crawl or bulk-import it without permission.
+
 ### 2d. Adversary Log Import Script (`scripts/import_adversary_log_from_csv.py`)
 
 Imports boss data from community spreadsheet CSV exports:
@@ -305,12 +315,13 @@ cotc-tactician mcp-serve
 | Tool | Description |
 |------|-------------|
 | `get_team_building_guide` | **CALL FIRST** - Party structure, roles, skill loadout rules, EX scaling |
-| `search_characters` | Semantic search for characters by query |
-| `get_character` | Full details; includes `investment.battle_skill_slots` when roster configured |
-| `find_by_weakness` | Find characters covering specific weaknesses |
-| `list_by_tier` | Get characters by tier rating (S+, S, A, etc.) |
-| `list_by_role` | Exact match on character `roles` field (tank, healer, debuffer, etc.) |
-| `get_team_suggestions` | Suggest characters for a boss fight |
+| `search_skill_effects` | Regex search over kit text (skills/TP/EX/ultimate/passives/A4); roster-default. Use for effect needs: Def down, Res down, Damage Limit, taunt, BP |
+| `search_characters` | Semantic search over names/roles/notes/weakness coverage (no skill text); roster-default |
+| `get_character` | Full kit incl. `unlock_tier`, upgrades, glossary (`unique_mechanics`), buff/debuff categories; `investment.battle_skill_slots` when roster configured |
+| `find_by_weakness` | Characters covering weaknesses, strongest JP tier first; roster-default |
+| `list_by_tier` | Characters by tier rating (S+, S, A, etc.); roster-default |
+| `list_by_role` | Exact match on curated `roles` (many are still empty); roster-default |
+| `find_tanks_by_type` | Curated `tank_type`; roster-default |
 | `get_proven_teams` | Human-curated proven team comps; roster feasibility when configured |
 | `list_all_character_ids` | List all available character IDs |
 | `get_database_stats` | Get indexed entity counts |
@@ -322,6 +333,11 @@ cotc-tactician mcp-serve
 | `set_roster_characters` | Upsert owned characters + investment (awakening/AU/ult) |
 | `remove_roster_characters` | Remove characters from saved roster |
 | `import_roster_yaml_content` | Import roster from YAML (replace or merge) |
+
+Character list tools return `{roster_applied, recommendation_pool, characters|results}`.
+The server re-checks `data/` on every call (stat-based fingerprint) and reloads/reindexes
+when YAML changed, so edits apply without restarting `mcp-serve`. Adding or renaming
+**tools** still needs an MCP server restart in Cursor.
 
 **Roster filtering (`plan_team_for_boss`, `get_proven_teams`, etc.):**
 
@@ -354,6 +370,21 @@ When recommending loadouts:
 - See `skill_loadout_guidance` in `get_team_building_guide` / `plan_team_for_boss` output
 
 Compose pipeline `OUTPUT_SCHEMA` uses `equipped_skills` (slot assignments), not flat skill lists.
+
+**MCP scenario tests (`tests/mcp_scenarios/*.yaml`):**
+
+Each scenario has two halves:
+- `steps` + `expect`: deterministic tool calls checked by `tests/test_mcp_scenarios.py`,
+  which spawns `python -m src.mcp_server` over stdio with the fixture roster
+  (`tests/mcp_scenarios/roster.yaml`, or no roster when `roster: none`). Assertions:
+  `equals`, `includes_ids`, `excludes_ids`, `ids_owned`, `min_items`, `contains_text`,
+  `not_contains_text` (dotted paths, `*` fans out). Run: `uv run pytest tests/test_mcp_scenarios.py`.
+- `agent_prompt` + `agent_checks`: for an agent driving the **live** `cotc-tactician` MCP in
+  Cursor against the user's real roster. The agent sends each prompt to itself (tool calls
+  only, no file reads of data/), then grades its own transcript against every
+  `agent_checks` line and reports pass/fail per check with the tool output it relied on.
+
+When adding a tool or changing a contract, add or update a scenario.
 
 **How it works:**
 1. Claude in Cursor calls these tools to retrieve game data

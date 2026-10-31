@@ -74,131 +74,179 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Double Sting"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "HP Snatch"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Blazing Dagger"
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    power: "120"
-    effects:
-      - "Fire damage to All Foes (potency: 120) and impart Phys"
-  - skill_category: active
-    name: "Anti-attack II"
-    sp_cost: 35
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Anti-attack II** **(2★)** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Triple Edge"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Debilitate II"
-    sp_cost: 35
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Debilitate II** **(3★)** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Crimson Blast"
-    sp_cost: 42
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "SP Snatch"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Double Wide Burst"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-    limit_break_upgrade: "Deal Phys. Dagger damage to All Foes **3** time(s) (potency: **3x65**). Lower Shield Points even when not striking weak points."
-  - skill_category: tp
-    name: "Wall Breaker"
-    sp_cost: 58
-    skill_type: mixed
-    damage_types: [dagger]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Despair Drive"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Vendetta"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Dagger damage to Single Foe (potency: **440→525→655**) and lower Phys"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Double Sting
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75).'
+- skill_category: active
+  name: HP Snatch
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170) and absorb 20% of damage dealt as HP.'
+- skill_category: active
+  name: Blazing Dagger
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  power: '120'
+  effects:
+  - '(1★) Deal Elem. Fire damage to All Foes (potency: 120) and impart Phys. Def. Dow 10% (turns: 2).'
+- skill_category: active
+  name: Anti-attack II
+  sp_cost: 35
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - '(2★) Impart Single Foe with Phys. Atk. Down 20% and Elem. Atk. Down 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Triple Edge
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Debilitate II
+  sp_cost: 35
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - '(3★) Impart Single Foe with Phys. Def. Down 20% and Elem. Def. Down 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: Effect Up: 20%→25%'
+- skill_category: active
+  name: Crimson Blast
+  sp_cost: 42
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - '(4★) Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x95).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.96: SP Saver: 42→34'
+- skill_category: active
+  name: SP Snatch
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '160'
+  effects:
+  - '(5★) Deal Phys. Dagger damage to Single Foe (potency: 160) and absorbs 1% of damage dealt as SP.'
+  upgrades:
+  - 'Lv.99: SP Saver: 28→22'
+- skill_category: active
+  name: Double Wide Burst
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x80).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.100: SP Saver: 52→42'
+  limit_break_upgrade: 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x65). Lower Shield Points even when not striking weak points.'
+- skill_category: tp
+  name: Wall Breaker
+  sp_cost: 58
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: ex
+  name: Despair Drive
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x120).'
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 10% (turns: 5) when target is broken.'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Vendetta
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 440→525→655) and lower Phys. Atk. and Elem. Atk. by 5%→10%→15% (turns: 2).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise recovery amount of absorption skills by 50% for Self."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When breaking an enemy: Lower Phys. Def. and Elem. Def. by 15% (turns: 3)."
-    trigger: on_break
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Enfeeblement (Joint/Give)
+  unlock_tier: 1★
+  effect: Extend duration of enfeebling effects (excluding status ailments) inflicted by front or back row by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Absorb Up
+  unlock_tier: 3★
+  effect: Raise recovery amount of absorption skills by 50% for Self.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Defensive Drain on Break II
+  effect: 'When breaking an enemy: Lower Phys. Def. and Elem. Def. by 15% (turns: 3).'
+  trigger: on_break
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Serpentine Cameo"
-  passive_effect: "40 P. Def, 40 E. Def, 60 SP; Raise Dagger damage dealt by 15%; Raise Ice Res. by 10%"
+  name: Serpentine Cameo
+  passive_effect: 40 P. Def, 40 E. Def, 60 SP; Raise Dagger damage dealt by 15%; Raise Ice Res. by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

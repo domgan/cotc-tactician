@@ -52,150 +52,195 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Triple Beat"
-    sp_cost: 38
-    skill_type: attack
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65/3x75/3x90/3x120"
-  - skill_category: active
-    name: "Maelstrom (All)"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70/2x80/2x100/2x120"
-  - skill_category: active
-    name: "Raise a Toast"
-    sp_cost: 50
-    skill_type: heal
-    target: single_enemy
-    effects:
-      - "**Raise a Toast (1★)** Raise yourself a Toast (turns: 3/4/5/6) and restore SP (amount: 25%/50%/75%/100% of max SP)"
-  - skill_category: active
-    name: "Gambit of Foresight"
-    sp_cost: 80
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Gambit of Foresight (2★)** Lower Phys"
-      - "have a 50% chance to lower their Phys"
-  - skill_category: active
-    name: "Grand Scorching Sandstorm Magic III"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    hit_count: "3x"
-    power: "3x85/3x95/3x110/3x140"
-  - skill_category: active
-    name: "Sandstorm Stratagem"
-    sp_cost: 130
-    skill_type: attack
-    damage_types: [all]
-    target: front_row
-    effects:
-      - "**Sandstorm Stratagem (3★)** Raise Phys"
-      - "have a 50% chance to raise their damage dealt against broken foes by 30% (turns: 2)"
-      - "have a 30% chance to raise their potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and have a 10% chance to exploit all weaknesses with attacks that inflict status ailments (excluding special effects) or increase their potency against enemies with status ailments (turns: 2)"
-      - "[130 SP] *Additional effects granted by Support Skills or equipment effects are excluded"
-  - skill_category: active
-    name: "Rolling Sandstorm (All)"
-    sp_cost: 154
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "3x"
-    power: "3x45, turns: 2/3/4/5"
-  - skill_category: active
-    name: "Celebratory Banquet"
-    sp_cost: 340
-    skill_type: heal
-    target: all_allies
-    power: "65/85/115/155"
-    effects:
-      - "**Celebratory Banquet (5★)** Raise yourself a Toast (turns: 3)"
-      - "restore HP of All Allies (potency: 65/85/115/155)"
-      - "restore their SP (amount: 5% of max SP)"
-      - "grant them 1 BP and have a 30% chance to them automatic HP recovery (potency: 80)"
-      - "SP recovery (amount: 5% of max SP) and raise their BP recovery by 1 (turns: 3); and have a 10% chance to grant them an HP Barrier (amount: 100% of user’s max HP/Does not stack)"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Toast: Raise Phys"
-  - skill_category: active
-    name: "Molten Sands (Single)"
-    sp_cost: 105
-    skill_type: mixed
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x55/5x65/5x75/5x100"
-    effects:
-      - "Also lower their Elem"
-      - "have a 30% chance to lower their Elem"
-      - "by 15% (turns: 2) and have 10% chance to grant them a Wind weakness (times: 3)"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Wind Weakness: Regardless of the source"
-  - skill_category: tp
-    name: "Forbidden Sandstorm (Single)"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "530/560/700/900"
-  - skill_category: tp
-    name: "Forbidden Sandstorm (Single) Lv.2"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "**630**/**660**/**800**/**1000**"
-  - skill_category: special
-    name: "Shisen Hachien"
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    hit_count: "8x"
+- skill_category: active
+  name: Triple Beat
+  sp_cost: 38
+  skill_type: utility
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65/3x75/3x90/3x120
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 3 time(s) (potency: 3x65/3x75/3x90/3x120).'
+- skill_category: active
+  name: Maelstrom (All)
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x70/2x80/2x100/2x120
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x70/2x80/2x100/2x120).'
+- skill_category: active
+  name: Raise a Toast
+  unlock_tier: 1★
+  sp_cost: 50
+  skill_type: heal
+  target: single_enemy
+  effects:
+  - 'Raise yourself a Toast (turns: 3/4/5/6) and restore SP (amount: 25%/50%/75%/100% of max SP).'
+- skill_category: active
+  name: Gambit of Foresight
+  unlock_tier: 2★
+  sp_cost: 80
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2/3/4/5), have a 50% chance to lower their Phys. Atk. and Elem. Atk. by 20% (turns: 3), have a 30% chance to poison them and inflict bleeding (turns: 3) and have a 10% chance to cause them to combust, inflict frostbite and inflict corrosion (turns: 3).'
+- skill_category: active
+  name: Grand Scorching Sandstorm Magic III
+  unlock_tier: 2★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x85/3x95/3x110/3x140
+  effects:
+  - 'Deal Elem. Wind damage to Random Foe 3 time(s) (potency: 3x85/3x95/3x110/3x140) and have a 10% chance to paralyze them with every attack (turns: 2).'
+  - Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack).
+- skill_category: active
+  name: Sandstorm Stratagem
+  unlock_tier: 3★
+  sp_cost: 130
+  skill_type: utility
+  damage_types:
+  - all
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2/3/4/5), have a 50% chance to raise their damage dealt against broken foes by 30% (turns: 2), have a 30% chance to raise their potency by 50% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type) and have a 10% chance to exploit all weaknesses with attacks that inflict status ailments (excluding special effects) or increase their potency against enemies with status ailments (turns: 2).'
+  - '*Additional effects granted by Support Skills or equipment effects are excluded.'
+  - '*Special effects do not apply.'
+  upgrades:
+  - 'Lv.88: SP Saver: 162→130'
+- skill_category: active
+  name: Rolling Sandstorm (All)
+  unlock_tier: 4★
+  sp_cost: 154
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 3x
+  power: '3x45, turns: 2/3/4/5'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Wind damage to All Foes 3 time(s) per turn before some allies act (potency: 3x45, turns: 2/3/4/5).'
+  - Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack).
+  - '*This attack cannot be reactivated by the support skill Connoiseur.'
+  upgrades:
+  - 'Lv.96: SP Saver: 192→154'
+- skill_category: active
+  name: Celebratory Banquet
+  unlock_tier: 5★
+  sp_cost: 340
+  skill_type: heal
+  target: all_allies
+  power: 65/85/115/155
+  effects:
+  - 'Raise yourself a Toast (turns: 3), restore HP of All Allies (potency: 65/85/115/155), restore their SP (amount: 5% of max SP), grant them 1 BP and have a 30% chance to them automatic HP recovery (potency: 80), SP recovery (amount: 5% of max SP) and raise their BP recovery by 1 (turns: 3); and have a 10% chance to grant them an HP Barrier (amount: 100% of user’s max HP/Does not stack).'
+  upgrades:
+  - 'Lv.99: SP Saver: 425→340'
+- skill_category: active
+  name: Molten Sands (Single)
+  unlock_tier: 5★
+  sp_cost: 105
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 5x
+  power: 5x55/5x65/5x75/5x100
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 5 time(s) (potency: 5x55/5x65/5x75/5x100).'
+  - Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack).
+  - 'Also lower their Elem. Def. by 15% (turns: 2), have a 50% chance to blind them (turns: 2), have a 30% chance to lower their Elem. Res. by 15% (turns: 2) and have 10% chance to grant them a Wind weakness (times: 3).'
+  upgrades:
+  - 'Lv.100: SP Saver: 131→105'
+- skill_category: tp
+  name: Forbidden Sandstorm (Single)
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: 530/560/700/900
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 530/560/700/900), have a 50% chance to recover 3 BP and a 30% chance to recover SP (amount: 100).'
+  - Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack).
+  - Potenecy increases by 1.1x if the target is broken.
+  upgrades:
+  - 'Lv.2: Deal Elem. Wind damage to Single Foe (potency: 630/660/800/1000), have a 50% chance to recover 3 BP and a 30% chance to recover SP (amount: 100). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). Damage Limit of this skill is increased by 300,000. Potenecy increases by 1.1x if the target is broken.'
+- skill_category: special
+  name: Shisen Hachien
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 8x
+  power: 8x35→8x45→8x55
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 8 time(s) (potency: 8x35→8x45→8x55).'
+  - Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack).
+  - 'Also have a 50% chance to blind them (turns: 2) and a 30% chance to stun them (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Have a 50% chance to activate elemental skills two times without consuming SP while raising a Toast."
-    trigger: always
-    limit_break_upgrade: "Have a 50% chance to activate elemental skills **three times** without consuming SP while raising a Toast."
-  - passive_category: innate
-    effect: "Extend the duration of augmenting, enfeebling effects and status ailments granted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start a countdown (turns: 3/turn count overwritten). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). This attack has double potency against broken enemies but cannot be reactivated as part of a Skill Chain. *If executed again before the countdown ends, the countdown will be removed. *This attack cannot be triggered again by the support ability Connoisuer. ---"
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Raise yourself a Toast (turns: 4). Start a countdown (turns: 3/turn count overwritten). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). This attack has double potency against broken enemies but cannot be reactivated as part of a Skill Chain. *If executed again before the countdown ends, the countdown will be removed. *This attack cannot be triggered again by the support ability Connoisuer. ---"
-    trigger: battle_start
-  - passive_category: tp
-    effect: "When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Connoiseur
+  unlock_tier: 1★
+  effect: Have a 50% chance to activate elemental skills two times without consuming SP while raising a Toast.
+  trigger: always
+  limit_break_upgrade: Have a 50% chance to activate elemental skills three times without consuming SP while raising a Toast.
+- passive_category: innate
+  name: Extended Enhance, Enfeeblement and Ailment Effects (Give)
+  unlock_tier: 3★
+  effect: Extend the duration of augmenting, enfeebling effects and status ailments granted by Self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Stormchaser'
+  effect: 'Start a countdown (turns: 3/turn count overwritten). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). This attack has double potency against broken enemies but cannot be reactivated as part of a Skill Chain. *If executed again before the countdown ends, the countdown will be removed. *This attack cannot be triggered again by the support ability Connoisuer.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Start of battle: Raise yourself a Toast (turns: 4). Start a countdown (turns: 3/turn count overwritten). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). This attack has double potency against broken enemies but cannot be reactivated as part of a Skill Chain. *If executed again before the countdown ends, the countdown will be removed. *This attack cannot be triggered again by the support ability Connoisuer.'
+  notes: 'Preparation Turns: 0; Reuse Turns: 4'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: When the potency of an attack is higher than 100, raise Self’s Damage Limit gradually based on potency value (Damage Limit Up is multiplied by 2x at 500 potency, by 3x at 900).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Banquet Goblet"
-  passive_effect: "100 E.Atk, 40 SP; Raise Elem. Atk. by 30%, raise the limit of Elem. Atk. augments from support and equipment effects to 50% and gain the ability to trigger critical hits with elemental attacks"
+  name: Banquet Goblet
+  passive_effect: 100 E.Atk, 40 SP; Raise Elem. Atk. by 30%, raise the limit of Elem. Atk. augments from support and equipment effects to 50% and gain the ability to trigger critical hits with elemental attacks
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Toast
+  description: Raise Phys. Atk. and Elem. Atk. by 10%.
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Granted Wind Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Wind, increase damage taken from Wind by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
+- name: Stun
+  description: Low chance to miss some attacks and lower Shield Points by 1 after the taking an action (will not break the target).
 
 # Metadata
 data_confidence: incomplete

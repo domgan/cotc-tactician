@@ -52,128 +52,182 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Prelude to Love"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and own raise Sword damage by 20% (turns: 2)"
-  - skill_category: active
-    name: "Chain Rime"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Melancholy Fugue"
-    sp_cost: 20
-    skill_type: mixed
-    target: single_enemy
-    power: "170"
-    effects:
-      - "**Melancholy Fugue (1★)** Deal Sword damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2)"
-  - skill_category: active
-    name: "Linear Slash"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Blink of an Eye"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Blink of an Eye (2★)** Impart Self with Phys"
-      - "Up 20% and raise Spd by 20% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Glacial Blast"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Étude of Torment"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "210"
-  - skill_category: active
-    name: "Joyous Capriccio"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Sword damage to Single Foe 3 time(s) (potency: 3x65) and grant Self Phys"
-  - skill_category: active
-    name: "Amorous Rhapsody"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Passionate Screech"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "At Max Boost: Guaranteed critical hit"
-  - skill_category: ex
-    name: "Lively Ice Sorrow Board"
-    skill_type: attack
-    damage_types: [sword, ice]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Compassionate Finale"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "6x"
-    effects:
-      - "Sword damage to Single Foe 6 time(s) (potency: **6x55→6x70→6x90**) and raise own Phys"
+- skill_category: active
+  name: Prelude to Love
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90) and own raise Sword damage by 20% (turns: 2).'
+- skill_category: active
+  name: Chain Rime
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Melancholy Fugue
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: mixed
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Sword damage to Single Foe (potency: 170) and lower Spd by 15% (turns: 2).'
+- skill_category: active
+  name: Linear Slash
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 180).'
+- skill_category: active
+  name: Blink of an Eye
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 20% and raise Spd by 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Glacial Blast
+  unlock_tier: 3★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.88: SP Saver: 46→37'
+- skill_category: active
+  name: Étude of Torment
+  unlock_tier: 4★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 210).'
+  upgrades:
+  - 'Lv.96: SP Saver: 52→42'
+- skill_category: active
+  name: Joyous Capriccio
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65) and grant Self Phys. Atk. Up 20% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 52→42'
+- skill_category: active
+  name: Amorous Rhapsody
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260) and have a moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 46→37'
+- skill_category: tp
+  name: Passionate Screech
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+  - 'At Max Boost: Guaranteed critical hit.'
+- skill_category: ex
+  name: Lively Ice Sorrow Board
+  skill_type: utility
+  damage_types:
+  - sword
+  - ice
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x45).'
+  - Exploits Ice weakness (damage calculation based on Phys. Sword attack).
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 4'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Compassionate Finale
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 6x
+  power: 6x55→6x70→6x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 6 time(s) (potency: 6x55→6x70→6x90) and raise own Phys. Atk. by 5%→10%→15% and Sword damage by 5%→10%→15% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise Spd of Self by 30% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "During action selection, 20% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
-    trigger: always
-    limit_break_upgrade: "During action selection, **50%** chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP)."
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise critical damage of Self by 30%."
-    trigger: always
-    limit_break_upgrade: "Grant Self Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Speed Boost V
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise Spd of Self by 30% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Dynamic Allegro
+  unlock_tier: 3★
+  effect: 'During action selection, 20% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP).'
+  trigger: always
+  limit_break_upgrade: 'During action selection, 50% chance to activate a skill twice (turns: 1/turns cannot be extended/follow-up attack will not consume SP).'
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Critical Force V
+  effect: Raise critical damage of Self by 30%.
+  trigger: always
+  limit_break_upgrade: Grant Self Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Love Journal"
-  passive_effect: "60 P.Atk, 80 Crit; Raise Sword damage dealt by 10%; When breaking an enemy, lower their Sword Res. by 20% (turns: 3)"
+  name: Love Journal
+  passive_effect: '60 P.Atk, 80 Crit; Raise Sword damage dealt by 10%; When breaking an enemy, lower their Sword Res. by 20% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

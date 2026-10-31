@@ -67,118 +67,188 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Strong Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Chain Scorch"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Linear Slash"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Stout Wall"
-    sp_cost: 26
-    skill_type: utility
-    target: self
-  - skill_category: active
-    name: "Impregnable Command III"
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Impregnable Command III (2★)** Raise Phys"
-  - skill_category: active
-    name: "Tenacity"
-    sp_cost: 41
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Tenacity (3★)** Act faster during turn"
-      - "provoke All Foes and raise own Phys"
-    limit_break_upgrade: "Act faster during turn, provoke All Foes and raise own Phys. Def. and Elem. Def. by **30%** (turns: 2-5 based on Boost Lv.)."
-  - skill_category: active
-    name: "Enduring Stance"
-    sp_cost: 51
-    skill_type: buff
-    target: self
-    power: "140, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Enduring Stance (4★)** Raise Max HP of Self by 30% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Crushing Slash"
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [sword]
-    target: aoe
-    power: "210"
-  - skill_category: active
-    name: "Unyielding Sword"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Unyielding Spirit"
-    sp_cost: 60
-    skill_type: buff
-    target: self
-    effects:
-      - "**Unyielding Spirit ** Grant Self automatic revival (recovery amount: 20%-50% of max HP and 20%-50% of max SP based on Boost Lv.)"
-  - skill_category: ex
-    name: "Relentless Slash"
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Indomitable Sword"
-    skill_type: mixed
-    damage_types: [sword]
-    target: single_enemy
-    power: "375→450→565"
-    effects:
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
-      - "·9 or more: 40% more potent and lower Sword Res"
+- skill_category: active
+  name: Strong Slash
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 230).'
+  - '[32]'
+- skill_category: active
+  name: Chain Scorch
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Linear Slash
+  unlock_tier: 1★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 180).'
+- skill_category: active
+  name: Stout Wall
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: utility
+  target: self
+  effects:
+  - Reduce taken damage by Self once by 50% (Does not stack with effects of the same type/Count does not increase when stacked).
+- skill_category: active
+  name: Impregnable Command III
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Tenacity
+  unlock_tier: 3★
+  sp_cost: 41
+  skill_type: utility
+  target: aoe
+  priority: true
+  effects:
+  - 'Act faster during turn, provoke All Foes and raise own Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 41→33'
+  limit_break_upgrade: 'Act faster during turn, provoke All Foes and raise own Phys. Def. and Elem. Def. by 30% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Enduring Stance
+  unlock_tier: 4★
+  sp_cost: 51
+  skill_type: buff
+  target: self
+  power: '140, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Raise Max HP of Self by 30% and grant automatic HP recovery (potency: 140, turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 3-6 turns → 4-7 turns'
+- skill_category: active
+  name: Crushing Slash
+  unlock_tier: 5★
+  sp_cost: 62
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Phys. Sword damage to All Foes (potency: 210).'
+  - Activate effects based on number of Unyielding Points.
+  - '·3 or more: 10% more potent.'
+  - '·6 or more: Additionally, lower Phys. Def. by 15% (turns: 2).'
+  - '·9 or more: Additionally, lower Phys. Atk. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 62→50'
+- skill_category: active
+  name: Unyielding Sword
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+  - Increase potency based on number of Unyielding Points.
+  - '·3 or more: 20% more potent.'
+  - '·6 or more: 30% more potent.'
+  - '·9 or more: 50% more potent.'
+  upgrades:
+  - 'Lv.100: SP Saver: 50→40'
+- skill_category: tp
+  name: Unyielding Spirit
+  sp_cost: 60
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self automatic revival (recovery amount: 20%-50% of max HP and 20%-50% of max SP based on Boost Lv.).'
+  - Triggers immediately if incapacitated (count does not increase when stacked).
+  - '*Can be used 3 times per battle'
+- skill_category: ex
+  name: Relentless Slash
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 2 time(s) (potency: 2x80).'
+  - Attack count increases based on number of Unyielding Points.
+  - '·6 or more: Attack count becomes 4.'
+  - '·9 or more: Attack count becomes 6.'
+  notes: 'Usage Condition: With 3 or more Unyielding Points; Uses: 2'
+  ex_trigger: With 3 or more Unyielding Points
+- skill_category: special
+  name: Indomitable Sword
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 375→450→565
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 375→450→565).'
+  - Increase potency based on number of Unyielding Points.
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  - '·3 or more: 10% more potent.'
+  - '·6 or more: 20% more potent.'
+  - '·9 or more: 40% more potent and lower Sword Res. by 10%→15%→20% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Phys. Def. and Elem. Def. of Self by 15%. Additionally, when attacked by an enemy, grant Self 1 “Unyielding Point”. *Multiple-hit attacks activates this once. ·Since it is a counter action, it will not be activated when other counters are triggered or when it is unable to counter (unable to move, enemy’s counter, etc.)."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant effects to Self based on number of Unyielding Points. ·3 or more: Raise Phys. Atk. and Sword damage by 15%. ·6 or more: Additionally, raise Phys. Def. and Elem. Def. by 15%. ·9 or more: Additionally, raise Physical Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Provoke all foes (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Unbreakable
+  unlock_tier: 1★
+  effect: Raise Phys. Def. and Elem. Def. of Self by 15%. Additionally, when attacked by an enemy, grant Self 1 “Unyielding Point”. *Multiple-hit attacks activates this once. ·Since it is a counter action, it will not be activated when other counters are triggered or when it is unable to counter (unable to move, enemy’s counter, etc.).
+  trigger: always
+- passive_category: innate
+  name: Indomitable
+  unlock_tier: 3★
+  effect: 'Grant effects to Self based on number of Unyielding Points. ·3 or more: Raise Phys. Atk. and Sword damage by 15%. ·6 or more: Additionally, raise Phys. Def. and Elem. Def. by 15%. ·9 or more: Additionally, raise Physical Res. by 15%.'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Initial Incite (All)
+  effect: 'Start of battle: Provoke all foes (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Gauntlets of the Unbroken"
-  passive_effect: "40 P.Def, 40 E.Def, 600 HP; Raise max HP by 15%; Grant Damage Limit Up (effect: 50,000)"
+  name: Gauntlets of the Unbroken
+  passive_effect: '40 P.Def, 40 E.Def, 600 HP; Raise max HP by 15%; Grant Damage Limit Up (effect: 50,000)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Unyielding Points
+  description: Increase the effect of the support ability “Indomitable” based on number of points. Effects do not disappear when incapacitated.
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

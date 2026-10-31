@@ -69,134 +69,201 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Double Sturdy Shot"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Dark Scar"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "140"
-  - skill_category: active
-    name: "Lacerating Arrow"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Chain Shadow Reaver"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Flurry of Arrows"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Hunter’s Spirit"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Hunter’s Spirit (3★)** Impart Self with Phys"
-  - skill_category: active
-    name: "Blood Rain"
-    sp_cost: 72
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Chaotic Eclipse"
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [dark]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: active
-    name: "Devastation"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Crimson Rage Strike"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "闇衝"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "闘気解放"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**闘気解放 (3★)** Impart Self with Phys"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "630"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Killer Snipe"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "500→600"
+- skill_category: active
+  name: Double Sturdy Shot
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Dark Scar
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '140'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 140) and have a high chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Lacerating Arrow
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and have a moderate chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Chain Shadow Reaver
+  unlock_tier: 2★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Flurry of Arrows
+  unlock_tier: 2★
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Hunter’s Spirit
+  unlock_tier: 3★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 20% and Elem. Atk. Up 20% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 36→29'
+- skill_category: active
+  name: Blood Rain
+  unlock_tier: 4★
+  sp_cost: 72
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 3 time(s) (potency: 3x65) and have a moderate chance to inflict bleeding (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 72→58'
+- skill_category: active
+  name: Chaotic Eclipse
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - dark
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x65).'
+  upgrades:
+  - 'Lv.99: SP Saver: 64→51'
+- skill_category: active
+  name: Devastation
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 260).'
+  - 20% more potent if target is bleeding.
+  upgrades:
+  - 'Lv.100: SP Saver: 56→45'
+- skill_category: tp
+  name: Crimson Rage Strike
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x45) and inflict bleeding with every attack (turns: 2).'
+- skill_category: active
+  name: 闇衝
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 170).'
+  - Instead of Dark Scar
+- skill_category: active
+  name: 闘気解放
+  unlock_tier: 3★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 20% and Phys. Def. Up 20% (turns: 3-6 based on Boost Lv.).'
+  - Instead of Hunter’s Spirit
+  upgrades:
+  - 'Lv.88: SP Saver: 36→29'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '630'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 630).'
+  notes: 'Usage Condition: When there’s a bleeding enemy; Uses: 2'
+  ex_trigger: When there’s a bleeding enemy
+- skill_category: special
+  name: Killer Snipe
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 500→600
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 500→600).'
+  - 20% more potent if target is bleeding.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own damage by 30% when bleeding enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise own damage by 30% and grant Self Damage Limit Up (effect: 50,000) when bleeding enemy is present."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise potency of Self by 30% when bleeding enemy is present (Effects of the same type do not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Ailment (Give)
+  unlock_tier: 1★
+  effect: Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Bloodlust
+  unlock_tier: 3★
+  effect: Raise own damage by 30% when bleeding enemy is present.
+  trigger: always
+  limit_break_upgrade: 'Raise own damage by 30% and grant Self Damage Limit Up (effect: 50,000) when bleeding enemy is present.'
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Blood Tide
+  effect: Raise potency of Self by 30% when bleeding enemy is present (Effects of the same type do not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Executioner’s Gloves"
-  passive_effect: "60 P.Atk, 60 E.Atk, 20 SP; When breaking an enemy, have a high chance to inflict bleeding (turns: 6)"
+  name: Executioner’s Gloves
+  passive_effect: '60 P.Atk, 60 E.Atk, 20 SP; When breaking an enemy, have a high chance to inflict bleeding (turns: 6)'
 
 # Metadata
 data_confidence: verified

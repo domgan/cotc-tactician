@@ -52,128 +52,168 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Double Edge"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Banish (Single)"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Shield Burst"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170/200/240/350"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Poison Slash"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170/200/240/350"
-  - skill_category: active
-    name: "Dream Within a Dream"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65/3x75/3x90/3x120"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Utsusemi"
-    sp_cost: 40
-    skill_type: buff
-    target: self
-    effects:
-      - "**Utsusemi** **(3★)** Grant Self the ability to dodge physical attacks (times: 1/2/3/4) [40 SP] **Lv.88 |** SP Saver: 50→40"
-  - skill_category: active
-    name: "Banish (All)"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80/2x95/2x115/2x130"
-  - skill_category: active
-    name: "Venomous Pain"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230/260/300/400"
-  - skill_category: active
-    name: "Afterimage"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "Guaranteed critical hit at Max Boost"
-  - skill_category: active
-    name: "Afterimage"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "Guaranteed critical hit at Max Boost"
-  - skill_category: tp
-    name: "Godspeed Strike"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x35/5x45/5x55/5x80"
-  - skill_category: special
-    name: "Phantasmic Dance"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "500→600→750"
-    effects:
-      - "Guaranteed critical hit"
+- skill_category: active
+  name: Double Edge
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+- skill_category: active
+  name: Banish (Single)
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+- skill_category: active
+  name: Shield Burst
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - '(1★) Deal Phys. Dagger damage to Single Foe (potency: 170/200/240/350).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Poison Slash
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - '(2★) Deal Phys. Dagger damage to Single Foe (potency: 170/200/240/350) and have moderate chance to inflict with poison (turns: 2).'
+- skill_category: active
+  name: Dream Within a Dream
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65/3x75/3x90/3x120
+  effects:
+  - '(2★) Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65/3x75/3x90/3x120).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Utsusemi
+  sp_cost: 40
+  skill_type: buff
+  target: self
+  effects:
+  - '(3★) Grant Self the ability to dodge physical attacks (times: 1/2/3/4)'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Banish (All)
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x80/2x95/2x115/2x130
+  effects:
+  - '(4★) Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x80/2x95/2x115/2x130).'
+  upgrades:
+  - 'Lv.96: SP Saver: 37→30'
+- skill_category: active
+  name: Venomous Pain
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 230/260/300/400
+  effects:
+  - '(5★) Deal Phys. Dagger damage to Single Foe (potency: 230/260/300/400) and have moderate chance to inflict with poison (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 32→26'
+- skill_category: active
+  name: Afterimage
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 260/290/340/450
+  effects:
+  - '(5★) Deal Phys. Dagger damage to Single Foe (potency: 260/290/340/450).'
+  - Guaranteed critical hit at Max Boost.
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+  - 'Upgraded: (6★) Deal Phys. Dagger damage to Single Foe (potency: 260/290/340/450). Guaranteed critical hit at Max Boost. 50% more potent if target is poisoned.'
+- skill_category: tp
+  name: Godspeed Strike
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 5x
+  power: 5x35/5x45/5x55/5x80
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 5 time(s) (potency: 5x35/5x45/5x55/5x80).'
+- skill_category: special
+  name: Phantasmic Dance
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 500→600→750).'
+  - Guaranteed critical hit.
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise critical damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Impart Self with Phys. Atk. Up 30% when poisoned enemy is present."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Self 30% chance of dodging some physical attacks and have a moderate chance to poison all enemies with a successful dodge from this skill’s effects (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Critical Force V
+  unlock_tier: 1★
+  effect: Raise critical damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Phantom Poison
+  unlock_tier: 3★
+  effect: Impart Self with Phys. Atk. Up 30% when poisoned enemy is present.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Transience (Noxious)
+  effect: 'Grant Self 30% chance of dodging some physical attacks and have a moderate chance to poison all enemies with a successful dodge from this skill’s effects (turns: 2).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Mighty Mercenary's Muffler"
-  passive_effect: "100 P. Atk, 40 SP; Increase Dagger damage dealt by 15%; Extend duration of some inflicted status ailments by 1 turn (Does not stack)"
+  name: Mighty Mercenary's Muffler
+  passive_effect: 100 P. Atk, 40 SP; Increase Dagger damage dealt by 15%; Extend duration of some inflicted status ailments by 1 turn (Does not stack)
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

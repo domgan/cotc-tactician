@@ -5,6 +5,10 @@ Import skills and passives from Notion markdown exports.
 This script parses markdown files from 'resources/Character List/' and updates
 the corresponding YAML files in 'data/characters/' with skill/passive data.
 
+Only the region from the `# Skills - parsed from markdown` marker to the metadata
+block is rewritten; roles, notes and other curated fields above it are preserved.
+Files whose kit was edited by hand must drop the marker so they are skipped.
+
 Usage:
     python scripts/import_skills_from_markdown.py
     python scripts/import_skills_from_markdown.py --dry-run
@@ -14,7 +18,10 @@ Usage:
 import argparse
 import re
 import sys
+from dataclasses import dataclass, field
 from pathlib import Path
+
+import yaml
 
 SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR))
@@ -24,65 +31,82 @@ from _character_ids import (  # noqa: E402
     resolve_character_id,
 )
 
+SKILLS_MARKER = "# Skills - parsed from markdown"
+
+# Headerless nested blocks starting with these labels describe the parent skill
+# (cooldowns, use counts, ultimate gauge modes) rather than a status glossary term.
+SKILL_META_LABELS = (
+    "Preparation Turns",
+    "Reuse Turns",
+    "Uses",
+    "Usage Condition",
+    "Initial Gauge",
+    "Gauge Increase",
+    "Overcharge",
+    "Backsurge",
+)
+
+ABBREVIATION = re.compile(r"\b(Phys|Elem|Atk|Def|Res|Lv|Spd|vs)\.")
+TIER_TAG = re.compile(r"\((\d★|Initial|EX)\)")
+
+
+# =============================================================================
+# Text helpers
+# =============================================================================
+
 
 def clean_html_tags(text: str) -> str:
-    """Remove HTML tags and Notion artifacts from text."""
-    # Remove <aside> and </aside> tags
+    """Remove HTML tags, markdown emphasis, and Notion artifacts from text."""
     text = re.sub(r"</?aside[^>]*>", "", text)
-    # Remove <img> tags
     text = re.sub(r"<img[^>]*>", "", text)
-    # Remove Notion links like ([✦](https://...))
     text = re.sub(r"\(\[✦\]\([^)]+\)\)", "", text)
-    # Clean up extra whitespace and newlines
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = text.replace("**", "")
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
 
+def split_sentences(text: str) -> list[str]:
+    """Split into sentences without breaking on 'Phys.', 'Elem.', 'Def.', 'Lv.' etc."""
+    protected = ABBREVIATION.sub(r"\1<DOT>", text)
+    parts = re.split(r"(?<=[.!?])\s+", protected)
+    return [p.replace("<DOT>", ".").strip() for p in parts if p.strip()]
+
+
 def parse_skill_tier(text: str) -> tuple[str, bool]:
     """
-    Parse skill tier from text like '(1★)', '(3★)', '([✦]...)', '(6★)'
-    Returns (category, is_limit_break_upgrade)
+    Parse skill tier from text like '(1★)', '(3★)', '([✦]...)', '(6★)'.
+    Returns (category, is_limit_break_upgrade).
     """
     if "6★" in text:
-        return "active", True  # This is a limit break upgrade
-    if "[✦]" in text or "✦" in text:
+        return "active", True
+    if "✦" in text:
         return "tp", False
-    # Regular star ratings are just board positions - all are 'active'
-    if re.search(r"\d★", text):
-        return "active", False
     return "active", False
 
 
 def parse_sp_cost(text: str) -> int | None:
-    """Extract SP cost from text like '[38 SP]'"""
+    """Extract SP cost from text like '[38 SP]'."""
     match = re.search(r"\[(\d+)\s*SP\]", text)
-    if match:
-        return int(match.group(1))
-    return None
+    return int(match.group(1)) if match else None
 
 
 def parse_potency(text: str) -> str | None:
-    """Extract potency from text like '(potency: 3x65)' or '(potency: 230)'"""
+    """Extract potency from text like '(potency: 3x65)' or '(potency: 230)'."""
     match = re.search(r"\(potency:\s*([^)]+)\)", text)
-    if match:
-        return match.group(1).strip()
-    return None
+    return match.group(1).strip() if match else None
 
 
 def parse_hit_count(text: str) -> str | None:
-    """Extract hit count from text like '3 time(s)'"""
+    """Extract hit count from text like '3 time(s)'."""
     match = re.search(r"(\d+)\s*time\(s\)", text)
-    if match:
-        return f"{match.group(1)}x"
-    return None
+    return f"{match.group(1)}x" if match else None
 
 
 def parse_damage_type(text: str) -> list[str]:
     """Extract damage types from skill description."""
     types = []
-
-    # Physical weapon damage
-    weapon_patterns = [
+    patterns = [
         (r"Phys\.\s*Sword\s*damage", "sword"),
         (r"Phys\.\s*Polearm\s*damage", "polearm"),
         (r"Phys\.\s*Dagger\s*damage", "dagger"),
@@ -90,10 +114,6 @@ def parse_damage_type(text: str) -> list[str]:
         (r"Phys\.\s*Bow\s*damage", "bow"),
         (r"Phys\.\s*Staff\s*damage", "staff"),
         (r"Phys\.\s*Fan\s*damage", "fan"),
-    ]
-
-    # Elemental damage
-    element_patterns = [
         (r"Elem\.\s*Fire\s*damage", "fire"),
         (r"Elem\.\s*Ice\s*damage", "ice"),
         (r"Elem\.\s*Lightning\s*damage", "lightning"),
@@ -101,12 +121,10 @@ def parse_damage_type(text: str) -> list[str]:
         (r"Elem\.\s*Light\s*damage", "light"),
         (r"Elem\.\s*Dark\s*damage", "dark"),
     ]
-
-    for pattern, dtype in weapon_patterns + element_patterns:
+    for pattern, dtype in patterns:
         if re.search(pattern, text, re.IGNORECASE):
             types.append(dtype)
 
-    # Check for "Exploits X weakness"
     exploit_match = re.search(r"Exploits?\s+(\w+)\s+weakness", text, re.IGNORECASE)
     if exploit_match:
         weakness = exploit_match.group(1).lower()
@@ -119,10 +137,9 @@ def parse_damage_type(text: str) -> list[str]:
 def parse_target(text: str) -> str:
     """Extract target type from skill description."""
     text_lower = text.lower()
-
-    if "entire front row" in text_lower or "front row" in text_lower:
+    if "front row" in text_lower:
         return "front_row"
-    if "entire back row" in text_lower or "back row" in text_lower:
+    if "back row" in text_lower:
         return "back_row"
     if "all foes" in text_lower:
         return "aoe"
@@ -138,7 +155,6 @@ def parse_target(text: str) -> str:
         return "single_ally"
     if " self" in text_lower:
         return "self"
-
     return "single_enemy"
 
 
@@ -146,21 +162,12 @@ def determine_skill_type(text: str) -> str:
     """Determine skill type from description."""
     text_lower = text.lower()
 
-    # Check for damage dealing
-    has_damage = "damage" in text_lower and (
-        "potency" in text_lower or "phys." in text_lower or "elem." in text_lower
-    )
-
-    # Check for buffs
+    has_damage = re.search(r"\bdeal\b[^.]*damage", text_lower) is not None
     has_buff = (
         any(kw in text_lower for kw in ["raise", "up %", "up", "grant", "impart"])
         and "foe" not in text_lower
     )
-
-    # Check for debuffs
     has_debuff = any(kw in text_lower for kw in ["lower", "down", "impart"]) and "foe" in text_lower
-
-    # Check for healing
     has_heal = "restore hp" in text_lower or "restore sp" in text_lower or "cure" in text_lower
 
     if has_damage and (has_buff or has_debuff or has_heal):
@@ -173,517 +180,378 @@ def determine_skill_type(text: str) -> str:
         return "buff"
     if has_debuff:
         return "debuff"
-
     return "utility"
 
 
-def extract_effects(text: str) -> list[str]:
-    """Extract buff/debuff effects from skill description."""
-    effects = []
+# =============================================================================
+# <aside> tree
+# =============================================================================
 
-    # Clean text first
-    text = clean_html_tags(text)
 
-    # Look for key effect phrases and extract the full clause
-    # Split by common delimiters while preserving content
-    effect_keywords = [
-        "raise",
-        "lower",
-        "grant",
-        "impart",
-        "restore",
-        "guaranteed critical",
-        "act faster",
-        "dead aim",
+@dataclass
+class AsideNode:
+    """One Notion <aside> block: its own text plus nested blocks."""
+
+    text: str = ""
+    children: list["AsideNode"] = field(default_factory=list)
+
+
+def parse_asides(section: str) -> list[AsideNode]:
+    """Parse a markdown section into top-level <aside> nodes, honoring nesting."""
+    root = AsideNode()
+    stack: list[tuple[AsideNode, list[str]]] = [(root, [])]
+
+    for token in re.split(r"(<aside>|</aside>)", section):
+        if token == "<aside>":
+            stack.append((AsideNode(), []))
+        elif token == "</aside>":
+            if len(stack) == 1:
+                continue
+            node, parts = stack.pop()
+            node.text = "".join(parts)
+            stack[-1][0].children.append(node)
+        else:
+            stack[-1][1].append(token)
+
+    while len(stack) > 1:
+        node, parts = stack.pop()
+        node.text = "".join(parts)
+        stack[-1][0].children.append(node)
+
+    return root.children
+
+
+@dataclass
+class Entry:
+    """A skill or passive parsed from a headed <aside> block."""
+
+    name: str | None
+    unlock_tier: str | None
+    is_tp: bool
+    tp_level: int | None
+    is_6star: bool
+    body: str
+    sp_cost: int | None = None
+    upgrades: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
+    limit_break_upgrade: str | None = None
+
+
+def parse_header(header: str) -> tuple[str | None, str | None, bool, int | None, bool]:
+    """Split a bold header into (name, unlock_tier, is_tp, tp_level, is_6star)."""
+    header = re.sub(r"\(?\[✦\]\([^)]*\)\)?", "✦", header)
+    header = re.sub(r"\s*\(Lv\.[^)]*\)", "", header)
+    tier_match = TIER_TAG.search(header)
+    level_match = re.search(r"Lv\.\s*(\d+)", header)
+    name = re.sub(r"\((\d★|Initial|EX)\)|✦|Lv\.\s*\d+", "", header).strip(' |“”"')
+    unlock_tier = tier_match.group(1) if tier_match else None
+    return (
+        name or None,
+        unlock_tier,
+        "✦" in header,
+        int(level_match.group(1)) if level_match else None,
+        unlock_tier == "6★",
+    )
+
+
+def entry_from_node(node: AsideNode) -> Entry | None:
+    """Build an Entry from a node whose first line carries a bold header."""
+    stripped = node.text.strip()
+    first_line, _, rest = stripped.partition("\n")
+    header_match = re.search(r"\*\*(.+?)\*\*", first_line)
+    if not header_match or header_match.group(1).startswith("Lv."):
+        return None
+
+    name, unlock_tier, is_tp, tp_level, is_6star = parse_header(header_match.group(1).strip())
+    body_raw = first_line[header_match.end() :] + "\n" + rest
+    body_raw, _, meta_raw = body_raw.partition("\n---")
+
+    upgrades = [
+        f"Lv.{level}: {clean_html_tags(text)}"
+        for level, text in re.findall(r"\*\*Lv\.(\d+)\s*\|\*\*\s*([^\n]+)", body_raw)
+    ]
+    body_raw = re.sub(r"\*\*Lv\.\d+\s*\|\*\*[^\n]*", "", body_raw)
+    sp_cost = parse_sp_cost(body_raw)
+    body = clean_html_tags(re.sub(r"\[\d+\s*SP\]", "", body_raw))
+
+    entry = Entry(
+        name=name,
+        unlock_tier=unlock_tier,
+        is_tp=is_tp,
+        tp_level=tp_level,
+        is_6star=is_6star,
+        body=body,
+        sp_cost=sp_cost,
+        upgrades=upgrades,
+    )
+    meta = clean_html_tags(meta_raw)
+    if meta:
+        entry.notes.append(meta)
+    return entry
+
+
+def collect_headerless(node: AsideNode, glossary: dict[str, str], notes: list[str] | None) -> None:
+    """Route headerless blocks to skill notes (meta) or the character glossary."""
+    text = clean_html_tags(node.text)
+    if text:
+        glossary_match = re.match(r"^[“\"]?([^:“”\"]{2,40}?)[”\"]?:\s+(.+)$", text)
+        if text.startswith(SKILL_META_LABELS) or not glossary_match:
+            if notes is not None:
+                notes.append(text)
+        else:
+            glossary.setdefault(glossary_match.group(1).strip(), glossary_match.group(2).strip())
+    for child in node.children:
+        collect_headerless(child, glossary, notes)
+
+
+def build_entries(node: AsideNode, glossary: dict[str, str]) -> list[Entry]:
+    """Return the node's entry followed by any distinctly named nested entries."""
+    entry = entry_from_node(node)
+    if entry is None:
+        collect_headerless(node, glossary, None)
+        return []
+
+    extra: list[Entry] = []
+    for child in node.children:
+        if entry_from_node(child) is None:
+            collect_headerless(child, glossary, entry.notes)
+            continue
+        child_entry, *child_extra = build_entries(child, glossary)
+        if child_entry.is_6star:
+            entry.limit_break_upgrade = child_entry.body
+        elif child_entry.name in (None, entry.name):
+            label = f"Lv.{child_entry.tp_level}" if child_entry.tp_level else "Upgraded"
+            entry.upgrades.append(f"{label}: {child_entry.body}")
+        else:
+            extra.append(child_entry)
+        extra.extend(child_extra)
+    return [entry, *extra]
+
+
+def parse_section_entries(section: str, glossary: dict[str, str]) -> list[Entry]:
+    """Parse all entries of a section, attaching top-level 6★ blocks to their base."""
+    entries: list[Entry] = []
+    for node in parse_asides(section):
+        for entry in build_entries(node, glossary):
+            if entry.is_6star and entries:
+                base = next((e for e in reversed(entries) if e.name == entry.name), entries[-1])
+                base.limit_break_upgrade = entry.body
+            else:
+                entries.append(entry)
+    return entries
+
+
+def _section(content: str, heading: str, stop: str) -> str | None:
+    match = re.search(rf"## (?:{heading})\s*(.*?)(?=## (?:{stop})|$)", content, re.DOTALL)
+    return match.group(1) if match else None
+
+
+# =============================================================================
+# Entry -> YAML dicts
+# =============================================================================
+
+
+def _compact(data: dict) -> dict:
+    return {k: v for k, v in data.items() if v not in (None, "", [], False)}
+
+
+def entry_to_skill(entry: Entry, category: str) -> dict:
+    text = entry.body
+    return _compact(
+        {
+            "skill_category": category,
+            "name": entry.name,
+            "unlock_tier": entry.unlock_tier,
+            "sp_cost": entry.sp_cost,
+            "skill_type": determine_skill_type(text),
+            "damage_types": parse_damage_type(text),
+            "target": parse_target(text),
+            "hit_count": parse_hit_count(text),
+            "power": parse_potency(text),
+            "priority": "act faster" in text.lower(),
+            "effects": split_sentences(text),
+            "upgrades": entry.upgrades,
+            "limit_break_upgrade": entry.limit_break_upgrade,
+            "notes": "; ".join(entry.notes) or None,
+        }
+    )
+
+
+def passive_trigger(description: str) -> str:
+    desc_lower = description.lower()
+    if "start of battle" in desc_lower or "at the start" in desc_lower:
+        return "battle_start"
+    if "at full hp" in desc_lower or "at max hp" in desc_lower:
+        return "hp_condition"
+    if "when breaking" in desc_lower:
+        return "on_break"
+    return "always"
+
+
+def entry_to_passive(entry: Entry) -> dict:
+    return _compact(
+        {
+            "passive_category": "tp" if entry.is_tp else "innate",
+            "name": entry.name,
+            "unlock_tier": entry.unlock_tier,
+            "effect": entry.body,
+            "trigger": passive_trigger(entry.body),
+            "upgrades": entry.upgrades,
+            "limit_break_upgrade": entry.limit_break_upgrade,
+            "notes": "; ".join(entry.notes) or None,
+        }
+    )
+
+
+def parse_passives_section(content: str, glossary: dict[str, str]) -> list[dict]:
+    """Parse Passive Skills or Support Skills section."""
+    section = _section(content, "Passive Skills|Support Skills", "Battle Skills|Ultimate|EX")
+    if section is None:
+        return []
+    return [entry_to_passive(e) for e in parse_section_entries(section, glossary) if e.body]
+
+
+def parse_skills_section(content: str, glossary: dict[str, str]) -> list[dict]:
+    """Parse the Battle Skills section."""
+    section = _section(content, "Battle Skills", "Ultimate|EX")
+    if section is None:
+        return []
+    return [
+        entry_to_skill(e, "tp" if e.is_tp else "active")
+        for e in parse_section_entries(section, glossary)
+        if e.body
     ]
 
-    # Find clauses containing effect keywords
-    clauses = re.split(r"(?:,\s*(?=and\s)|(?<!\d),\s+|\.\s+)", text)
 
-    for clause in clauses:
-        clause_lower = clause.lower()
-        for keyword in effect_keywords:
-            if keyword in clause_lower:
-                # Clean and add the clause
-                effect = clause.strip().rstrip(".,")
-                if effect and len(effect) > 10 and effect not in effects:
-                    effects.append(effect)
-                break
-
-    return effects
-
-
-def parse_level_upgrades(text: str) -> dict:
-    """Parse level upgrades like 'Lv.88 | Potency Up: 80→95'"""
-    upgrades = {}
-
-    # Find all level upgrade lines
-    pattern = r"\*\*Lv\.(\d+)\s*\|\*\*\s*(.+?)(?=\n|$)"
-    matches = re.findall(pattern, text)
-
-    for level, effect in matches:
-        upgrades[int(level)] = effect.strip()
-
-    return upgrades
-
-
-def parse_aside_block(text: str) -> dict | None:
-    """Parse a single <aside> block containing a skill or passive."""
-    result = {}
-
-    # Extract skill/passive name - pattern: **Name** or **Name (X★)**
-    name_match = re.search(r"\*\*([^*]+(?:\([^)]+\))?)\*\*", text)
-    if not name_match:
-        return None
-
-    full_name = name_match.group(1).strip()
-
-    # Clean Notion link artifacts from name
-    full_name = re.sub(r"\s*\(\[✦\]\([^)]+\)\)", "", full_name).strip()
-
-    # Parse tier from name
-    tier_match = re.search(r"\((\d★|6★|\[✦\][^)]*)\)$", full_name)
-    if tier_match:
-        tier_str = tier_match.group(1)
-        category, is_6star = parse_skill_tier(tier_str)
-        name = re.sub(r"\s*\([^)]+\)$", "", full_name).strip()
-    else:
-        category = "active"
-        is_6star = False
-        name = full_name
-
-    # Check if this is a TP skill (has ✦ marker)
-    if "[✦]" in text and category != "tp":
-        category = "tp"
-
-    result["name"] = name
-    result["is_6star_upgrade"] = is_6star
-    result["category"] = category
-
-    # Get description (everything after the name until SP cost or end)
-    desc_start = text.find("**", text.find("**") + 2)
-    if desc_start != -1:
-        desc_end = text.find("[", desc_start)  # SP cost marker
-        if desc_end == -1:
-            desc_end = len(text)
-        description = text[desc_start + 2 : desc_end].strip()
-        # Clean HTML artifacts
-        description = clean_html_tags(description)
-        result["description"] = description
-
-    # SP cost
-    sp_cost = parse_sp_cost(text)
-    if sp_cost:
-        result["sp_cost"] = sp_cost
-
-    # Potency
-    potency = parse_potency(text)
-    if potency:
-        result["power"] = potency
-
-    # Hit count
-    hit_count = parse_hit_count(text)
-    if hit_count:
-        result["hit_count"] = hit_count
-
-    # Damage types
-    damage_types = parse_damage_type(text)
-    if damage_types:
-        result["damage_types"] = damage_types
-
-    # Target
-    result["target"] = parse_target(text)
-
-    # Skill type
-    result["skill_type"] = determine_skill_type(text)
-
-    # Effects
-    effects = extract_effects(text)
-    if effects:
-        result["effects"] = effects
-
-    # Level upgrades
-    upgrades = parse_level_upgrades(text)
-    if upgrades:
-        result["level_upgrades"] = upgrades
-
-    return result
-
-
-def parse_passives_section(content: str) -> list[dict]:
-    """Parse Passive Skills or Support Skills section."""
-    passives = []
-
-    match = re.search(
-        r"## (?:Passive Skills|Support Skills)\s*(.*?)(?=## Battle Skills|## Ultimate|## EX|$)",
-        content,
-        re.DOTALL,
-    )
-    if not match:
-        return passives
-
-    section = match.group(1)
-
-    # Split by <aside> blocks
-    aside_blocks = re.split(r"<aside>", section)
-
-    current_passive = None
-
-    for block in aside_blocks:
-        if not block.strip():
-            continue
-
-        parsed = parse_aside_block(block)
-        if not parsed:
-            continue
-
-        # Clean description
-        description = clean_html_tags(parsed.get("description", parsed.get("name", "")))
-
-        # Check if this is a 6★ upgrade of previous passive
-        if parsed.get("is_6star_upgrade") and current_passive:
-            current_passive["limit_break_upgrade"] = description
-            continue
-
-        passive = {
-            "passive_category": "tp" if parsed.get("category") == "tp" else "innate",
-            "effect": description,
-        }
-
-        # Determine trigger
-        desc_lower = description.lower()
-        if "start of battle" in desc_lower or "at the start" in desc_lower:
-            passive["trigger"] = "battle_start"
-        elif "at full hp" in desc_lower or "at max hp" in desc_lower:
-            passive["trigger"] = "hp_condition"
-        elif "when breaking" in desc_lower:
-            passive["trigger"] = "on_break"
-        else:
-            passive["trigger"] = "always"
-
-        passives.append(passive)
-        current_passive = passive
-
-    return passives
-
-
-def parse_skills_section(content: str) -> list[dict]:
-    """Parse the Battle Skills section."""
-    skills = []
-
-    # Find battle skills section
-    match = re.search(r"## Battle Skills\s*(.*?)(?=## Ultimate|## EX|$)", content, re.DOTALL)
-    if not match:
-        return skills
-
-    section = match.group(1)
-
-    # Split by <aside> blocks
-    aside_blocks = re.split(r"<aside>", section)
-
-    current_skill = None
-
-    for block in aside_blocks:
-        if not block.strip():
-            continue
-
-        parsed = parse_aside_block(block)
-        if not parsed:
-            continue
-
-        # Check if this is a 6★ upgrade of previous skill
-        if parsed.get("is_6star_upgrade") and current_skill:
-            upgrade_desc = parsed.get("description", "")
-            # Try to extract the key difference
-            if upgrade_desc:
-                current_skill["limit_break_upgrade"] = upgrade_desc
-            continue
-
-        skill = {
-            "skill_category": parsed.get("category", "active"),
-            "name": parsed.get("name", ""),
-            "skill_type": parsed.get("skill_type", "attack"),
-            "target": parsed.get("target", "single_enemy"),
-        }
-
-        if parsed.get("sp_cost"):
-            skill["sp_cost"] = parsed["sp_cost"]
-
-        if parsed.get("hit_count"):
-            skill["hit_count"] = parsed["hit_count"]
-
-        if parsed.get("power"):
-            skill["power"] = parsed["power"]
-
-        if parsed.get("damage_types"):
-            skill["damage_types"] = parsed["damage_types"]
-
-        if parsed.get("effects"):
-            skill["effects"] = parsed["effects"]
-
-        skills.append(skill)
-        current_skill = skill
-
-    return skills
-
-
-def parse_ex_skill(content: str) -> dict | None:
+def parse_ex_skill(content: str, glossary: dict[str, str]) -> dict | None:
     """Parse the EX skill section."""
-    match = re.search(r"## EX skill\s*(.*?)(?=## Awakening|## Misc|$)", content, re.DOTALL)
-    if not match:
+    section = _section(content, "EX skill", "Awakening|Misc")
+    entries = parse_section_entries(section, glossary) if section else []
+    if not entries:
         return None
-
-    section = match.group(1)
-
-    # Find the main aside block
-    aside_match = re.search(r"<aside>(.*?)</aside>", section, re.DOTALL)
-    if not aside_match:
-        return None
-
-    block = aside_match.group(1)
-    parsed = parse_aside_block(block)
-    if not parsed:
-        return None
-
-    skill = {
-        "skill_category": "ex",
-        "name": parsed.get("name", ""),
-        "skill_type": parsed.get("skill_type", "attack"),
-        "target": parsed.get("target", "single_enemy"),
-    }
-
-    if parsed.get("hit_count"):
-        skill["hit_count"] = parsed["hit_count"]
-
-    if parsed.get("power"):
-        skill["power"] = parsed["power"]
-
-    if parsed.get("damage_types"):
-        skill["damage_types"] = parsed["damage_types"]
-
-    if parsed.get("effects"):
-        skill["effects"] = parsed["effects"]
-
-    # Extract usage condition
-    condition_match = re.search(r"Usage Condition:\s*(.+?)(?=</aside>|$)", section)
-    if condition_match:
-        skill["ex_trigger"] = condition_match.group(1).strip()
-
-    # Extract uses count
-    uses_match = re.search(r"Uses\s*:\s*(\d+)", section)
-    if uses_match:
-        skill["notes"] = f"Uses: {uses_match.group(1)}"
-
+    skill = entry_to_skill(entries[0], "ex")
+    trigger = re.search(r"Usage Condition:\s*([^;]+)", skill.get("notes", ""))
+    if trigger:
+        skill["ex_trigger"] = trigger.group(1).strip()
     return skill
 
 
-def parse_ultimate(content: str) -> dict | None:
+def parse_ultimate(content: str, glossary: dict[str, str]) -> dict | None:
     """Parse the Ultimate Technique section."""
-    match = re.search(r"## Ultimate Technique\s*(.*?)(?=## EX|## Awakening|$)", content, re.DOTALL)
-    if not match:
+    section = _section(content, "Ultimate Technique", "EX|Awakening")
+    entries = parse_section_entries(section, glossary) if section else []
+    if not entries:
         return None
-
-    section = match.group(1)
-
-    # Find the main aside block with skill name
-    name_match = re.search(r"\*\*([^*]+)\*\*", section)
-    if not name_match:
-        return None
-
-    name = name_match.group(1).strip()
-    # Remove (Lv. X→Y) from name
-    name = re.sub(r"\s*\(Lv\.[^)]+\)", "", name).strip()
-
-    # Get description
-    desc_match = re.search(r"\*\*[^*]+\*\*\s*(.+?)(?=<aside>|---|\n\n)", section, re.DOTALL)
-    description = desc_match.group(1).strip() if desc_match else ""
-
-    skill = {
-        "skill_category": "special",
-        "name": name,
-        "skill_type": determine_skill_type(description),
-        "target": parse_target(description),
-    }
-
-    # Potency - often shows scaling like "500→600→750"
-    potency_match = re.search(r"\*\*(\d+(?:→\d+)+)\*\*", section)
-    if potency_match:
-        skill["power"] = potency_match.group(1)
-
-    hit_count = parse_hit_count(description)
-    if hit_count:
-        skill["hit_count"] = hit_count
-
-    damage_types = parse_damage_type(description)
-    if damage_types:
-        skill["damage_types"] = damage_types
-
-    effects = extract_effects(description)
-    if effects:
-        skill["effects"] = effects
-
-    return skill
+    return entry_to_skill(entries[0], "special")
 
 
 def parse_a4_accessory(content: str) -> dict | None:
     """Parse the Awakening IV Accessory section."""
-    match = re.search(
-        r"## Awakening IV Accessory\s*(.*?)(?=## Exclusive|## Misc|$)", content, re.DOTALL
-    )
-    if not match:
+    section = _section(content, "Awakening IV Accessory", "Exclusive|Misc")
+    if section is None:
         return None
-
-    section = match.group(1)
-
-    # Extract name
     name_match = re.search(r"\*\*([^*]+)\*\*", section)
     if not name_match:
         return None
-
-    name = name_match.group(1).strip()
-
-    # Extract effects (lines starting with ·)
     effects = re.findall(r"·([^\n]+)", section)
-    effect_str = "; ".join(e.strip() for e in effects)
-
     return {
-        "name": name,
-        "passive_effect": effect_str,
+        "name": name_match.group(1).strip(' “”"'),
+        "passive_effect": "; ".join(e.strip() for e in effects),
     }
 
 
 def parse_markdown_file(filepath: Path) -> dict:
     """Parse a character markdown file."""
     content = filepath.read_text(encoding="utf-8")
+    glossary: dict[str, str] = {}
 
     result = {
         "name": extract_character_name_from_md(filepath.name),
-        "passives": parse_passives_section(content),
-        "skills": parse_skills_section(content),
+        "passives": parse_passives_section(content, glossary),
+        "skills": parse_skills_section(content, glossary),
     }
-
-    ex_skill = parse_ex_skill(content)
-    if ex_skill:
-        result["skills"].append(ex_skill)
-
-    ultimate = parse_ultimate(content)
-    if ultimate:
-        result["skills"].append(ultimate)
+    for extra in (parse_ex_skill(content, glossary), parse_ultimate(content, glossary)):
+        if extra:
+            result["skills"].append(extra)
 
     a4 = parse_a4_accessory(content)
     if a4:
         result["a4_accessory"] = a4
 
+    result["unique_mechanics"] = [
+        {"name": name, "description": description} for name, description in glossary.items()
+    ]
     return result
 
 
+# =============================================================================
+# YAML update
+# =============================================================================
+
+
+def is_importer_owned(content: str) -> bool:
+    """True when the skills region is generated; hand-edited kits drop the marker."""
+    return SKILLS_MARKER in content
+
+
+def _dump(key: str, value) -> list[str]:
+    text = yaml.safe_dump(
+        {key: value}, sort_keys=False, allow_unicode=True, width=10_000, default_flow_style=False
+    )
+    return text.rstrip("\n").split("\n")
+
+
+def render_generated_block(parsed: dict, include_unique_mechanics: bool) -> list[str]:
+    lines = [SKILLS_MARKER, *_dump("skills", parsed.get("skills") or [])]
+    lines += [
+        "",
+        "# Passives - parsed from markdown",
+        *_dump("passives", parsed.get("passives") or []),
+    ]
+    if parsed.get("a4_accessory"):
+        lines += ["", "# A4 Accessory - parsed from markdown"]
+        lines += _dump("a4_accessory", parsed["a4_accessory"])
+    if include_unique_mechanics and parsed.get("unique_mechanics"):
+        lines += ["", "# Glossary terms - parsed from markdown"]
+        lines += _dump("unique_mechanics", parsed["unique_mechanics"])
+    return lines
+
+
 def update_yaml_file(yaml_path: Path, parsed_data: dict, dry_run: bool = False) -> bool:
-    """Update a YAML file with parsed skill data."""
+    """Replace the generated skills..metadata region of an importer-owned YAML file."""
     if not yaml_path.exists():
         print(f"  SKIP: No YAML file found at {yaml_path}")
         return False
 
-    # Read existing YAML
     content = yaml_path.read_text(encoding="utf-8")
-
-    # Parse YAML while preserving comments
-    lines = content.split("\n")
-
-    # Find key sections
-    skills_line_idx = None
-    metadata_line_idx = None
-
-    for i, line in enumerate(lines):
-        # Look for the actual skills: YAML key (not just comments mentioning skills)
-        if line.startswith("skills:"):
-            skills_line_idx = i
-        elif "# Metadata" in line or line.startswith("data_confidence:"):
-            if metadata_line_idx is None:
-                metadata_line_idx = i
-
-    if skills_line_idx is None:
-        print(f"  SKIP: No skills section found in {yaml_path}")
+    if not is_importer_owned(content):
+        print(f"  SKIP: {yaml_path.name} is hand-curated")
         return False
 
-    # Build new content: everything up to skills section
-    # But skip skills-related comment lines just before the skills: key
-    new_lines = []
-    for i, line in enumerate(lines):
-        if i >= skills_line_idx:
-            break
-        # Skip skill comment lines that appear right before skills:
-        if i >= skills_line_idx - 2 and "# Skills" in line:
-            continue
-        new_lines.append(line)
+    lines = content.split("\n")
+    skills_idx = next((i for i, line in enumerate(lines) if line.startswith("skills:")), None)
+    if skills_idx is None:
+        print(f"  SKIP: No skills section found in {yaml_path}")
+        return False
+    start = skills_idx
+    while start > 0 and lines[start - 1].startswith("# Skills"):
+        start -= 1
+    end = next(
+        (
+            i
+            for i in range(skills_idx + 1, len(lines))
+            if "# Metadata" in lines[i] or lines[i].startswith("data_confidence:")
+        ),
+        len(lines),
+    )
 
-    # Add skills header and skills
-    new_lines.append("# Skills - parsed from markdown")
-    new_lines.append("skills:")
-    if parsed_data.get("skills"):
-        for skill in parsed_data["skills"]:
-            new_lines.append(f"  - skill_category: {skill.get('skill_category', 'active')}")
-            if skill.get("name"):
-                new_lines.append(f'    name: "{skill["name"]}"')
-            if skill.get("sp_cost"):
-                new_lines.append(f"    sp_cost: {skill['sp_cost']}")
-            new_lines.append(f"    skill_type: {skill.get('skill_type', 'attack')}")
-            if skill.get("damage_types"):
-                new_lines.append(f"    damage_types: [{', '.join(skill['damage_types'])}]")
-            new_lines.append(f"    target: {skill.get('target', 'single_enemy')}")
-            if skill.get("hit_count"):
-                new_lines.append(f'    hit_count: "{skill["hit_count"]}"')
-            if skill.get("power"):
-                new_lines.append(f'    power: "{skill["power"]}"')
-            if skill.get("effects"):
-                new_lines.append("    effects:")
-                for effect in skill["effects"]:
-                    effect_escaped = effect.replace('"', '\\"')
-                    new_lines.append(f'      - "{effect_escaped}"')
-            if skill.get("ex_trigger"):
-                new_lines.append(f'    ex_trigger: "{skill["ex_trigger"]}"')
-            if skill.get("limit_break_upgrade"):
-                new_lines.append(f'    limit_break_upgrade: "{skill["limit_break_upgrade"]}"')
-            if skill.get("notes"):
-                new_lines.append(f'    notes: "{skill["notes"]}"')
-    else:
-        new_lines.append("  []")
-
-    # Add passives section
-    new_lines.append("")
-    new_lines.append("# Passives - parsed from markdown")
-    new_lines.append("passives:")
-    if parsed_data.get("passives"):
-        for passive in parsed_data["passives"]:
-            new_lines.append(f"  - passive_category: {passive.get('passive_category', 'innate')}")
-            effect = passive.get("effect", "").replace('"', '\\"')
-            new_lines.append(f'    effect: "{effect}"')
-            if passive.get("trigger"):
-                new_lines.append(f"    trigger: {passive['trigger']}")
-            if passive.get("limit_break_upgrade"):
-                upgrade = passive["limit_break_upgrade"].replace('"', '\\"')
-                new_lines.append(f'    limit_break_upgrade: "{upgrade}"')
-    else:
-        new_lines.append("  []")
-
-    # Add A4 accessory if present
-    if parsed_data.get("a4_accessory"):
-        new_lines.append("")
-        new_lines.append("# A4 Accessory - parsed from markdown")
-        new_lines.append("a4_accessory:")
-        new_lines.append(f'  name: "{parsed_data["a4_accessory"]["name"]}"')
-        effect = parsed_data["a4_accessory"]["passive_effect"].replace('"', '\\"')
-        new_lines.append(f'  passive_effect: "{effect}"')
-
-    # Add remaining content (metadata section)
-    # Find where metadata starts
-    for i, line in enumerate(lines):
-        if "# Metadata" in line or "data_confidence:" in line:
-            new_lines.append("")
-            new_lines.extend(lines[i:])
-            break
-
+    head, tail = lines[:start], lines[end:]
+    has_mechanics = any(line.startswith("unique_mechanics:") for line in head + tail)
+    new_lines = head + render_generated_block(parsed_data, not has_mechanics) + [""] + tail
     new_content = "\n".join(new_lines)
 
+    if new_content == content:
+        return False
     if dry_run:
         print(f"  WOULD UPDATE: {yaml_path.name}")
         return True
@@ -708,10 +576,8 @@ def main():
         print(f"ERROR: Markdown directory not found: {md_dir}")
         return 1
 
-    # Get all markdown files (excluding star rating files)
     md_files = sorted(md_dir.glob("*.md"))
     md_files = [f for f in md_files if not f.name.startswith(("3 Stars", "4 Stars", "5 Stars"))]
-
     print(f"Found {len(md_files)} character markdown files")
 
     if args.character:
@@ -722,29 +588,20 @@ def main():
         md_files = md_files[: args.limit]
         print(f"Limited to first {args.limit} files")
 
-    updated = 0
-    skipped = 0
-    errors = 0
-
+    updated = skipped = errors = 0
     for md_file in md_files:
         char_name = extract_character_name_from_md(md_file.name)
-        char_id = resolve_character_id(char_name)
-        yaml_path = yaml_dir / f"{char_id}.yaml"
-
+        yaml_path = yaml_dir / f"{resolve_character_id(char_name)}.yaml"
         try:
             parsed = parse_markdown_file(md_file)
-
             if not parsed.get("skills") and not parsed.get("passives"):
                 print(f"  SKIP: {char_name} - no skills/passives found")
                 skipped += 1
                 continue
-
-            success = update_yaml_file(yaml_path, parsed, dry_run=args.dry_run)
-            if success:
+            if update_yaml_file(yaml_path, parsed, dry_run=args.dry_run):
                 updated += 1
             else:
                 skipped += 1
-
         except Exception as e:
             print(f"  ERROR: {char_name} - {e}")
             errors += 1
@@ -753,7 +610,6 @@ def main():
     print(f"  Updated: {updated}")
     print(f"  Skipped: {skipped}")
     print(f"  Errors: {errors}")
-
     return 0
 
 

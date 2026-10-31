@@ -51,125 +51,154 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Slice"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Electrocute"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Swift"
-    sp_cost: 12
-    skill_type: buff
-    target: self
-    effects:
-      - "**Swift** **(1★)** Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Repeated Slash"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Stunning Strike"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x60"
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "**3x80**"
-  - skill_category: active
-    name: "Chain Thundershock"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Chain Thundershock"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x115**"
-  - skill_category: tp
-    name: "Swift Falcon"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [sword]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-  - skill_category: ex
-    name: "Swift Four Flashes"
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "**Swift Four Flashes** Act faster during turn and deal Phys"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Threefold Reprisal"
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
+- skill_category: active
+  name: Slice
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Electrocute
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Swift
+  sp_cost: 12
+  skill_type: buff
+  target: self
+  effects:
+  - '(1★) Raise Spd of Self by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Repeated Slash
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - '(2★) Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Stunning Strike
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  power: '145'
+  effects:
+  - '(2★) Deal Phys. Sword damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Trifold Slash
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x60
+  effects:
+  - '(3★) Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x60).'
+  upgrades:
+  - 'Lv.72: SP Saver: 38→30'
+  - 'Upgraded: (5★) Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x80).'
+- skill_category: active
+  name: Chain Thundershock
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - '(4★) Deal Elem. Lightning damage to Single Foe 2 time(s) (potency: 2x85).'
+  upgrades:
+  - 'Lv.80: SP Saver: 28→22'
+  - 'Upgraded: (5★) Deal Elem. Lightning damage to Single Foe 2 time(s) (potency: 2x115).'
+- skill_category: tp
+  name: Swift Falcon
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - sword
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 4 time(s) (potency: 4x65).'
+- skill_category: ex
+  name: Swift Four Flashes
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 4x
+  power: 4x45
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x45).'
+  notes: 'Usage Condition: When being attacked 4 time(s); Uses: 4'
+  ex_trigger: When being attacked 4 time(s)
+- skill_category: special
+  name: Threefold Reprisal
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x130→3x150→3x185
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x130→3x150→3x185).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP *Requires Ultimate Technique Awakening.; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** When near death: Triggers a follow-up strike when using Attack. *Triggers once even during a Boost."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Start of battle: Lower Sword Res. of All Foes by 15% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "**(6★)** Start of battle: Lower Sword Res. of All Foes by 15% (turns: **5**)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Lower own SP consumption by 20% (Does not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Desperate Second Serving
+  effect: '(1★) When near death: Triggers a follow-up strike when using Attack. *Triggers once even during a Boost.'
+  trigger: always
+- passive_category: innate
+  name: Initial Sword Res. Drain (All) II
+  effect: '(3★) Start of battle: Lower Sword Res. of All Foes by 15% (turns: 3).'
+  trigger: battle_start
+  upgrades:
+  - 'Upgraded: (6★) Start of battle: Lower Sword Res. of All Foes by 15% (turns: 5).'
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 5★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: SP Cost Down II
+  effect: Lower own SP consumption by 20% (Does not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Blademaster’s Pendant"
-  passive_effect: "30 P.Atk, 20 Crit, 20 SP; Raise Sword damage dealt by 15%"
+  name: Blademaster’s Pendant
+  passive_effect: 30 P.Atk, 20 Crit, 20 SP; Raise Sword damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

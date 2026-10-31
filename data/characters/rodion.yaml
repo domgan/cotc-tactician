@@ -51,119 +51,151 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Brain Bash"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Light Ward"
-    sp_cost: 19
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Light Ward** Raise Light Res"
-  - skill_category: active
-    name: "Full Swing"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Shadow Impact"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [dark]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Lacerating Cleave"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Rejuvenate"
-    sp_cost: 19
-    skill_type: buff
-    target: single_ally
-    power: "120, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Rejuvenate** **(3★)** Grant automatic HP recovery to Single Ally (potency: 120, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Rejuvenate"
-    sp_cost: 19
-    skill_type: buff
-    target: single_ally
-    power: "**150**, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**Rejuvenate** **(5★)** Grant automatic HP recovery to Single Ally (potency: **150**"
-  - skill_category: active
-    name: "Gory Cleave"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x115"
-  - skill_category: active
-    name: "Gory Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x130**"
-  - skill_category: tp
-    name: "Soul Sever"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "230"
-  - skill_category: ex
-    name: "Double Horizontal Slash"
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x105"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Execution"
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
+- skill_category: active
+  name: Brain Bash
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Light Ward
+  sp_cost: 19
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Light Res. of Single Ally by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Full Swing
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '145'
+  effects:
+  - '(1★) Deal Phys. Axe damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Shadow Impact
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - dark
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Lacerating Cleave
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '160'
+  effects:
+  - '(2★) Deal Phys. Axe damage to Single Foe (potency: 160) and have a moderate chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Rejuvenate
+  sp_cost: 19
+  skill_type: buff
+  target: single_ally
+  power: '120, turns: 2-5 based on Boost Lv.'
+  effects:
+  - '(3★) Grant automatic HP recovery to Single Ally (potency: 120, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: Duration Up: 2-5 turns→3-6 turns'
+  - 'Upgraded: (5★) Grant automatic HP recovery to Single Ally (potency: 150, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Gory Cleave
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x115
+  effects:
+  - '(4★) Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x115) and have a moderate chance to inflict bleeding (turns: 2).'
+  upgrades:
+  - 'Lv.80: SP Saver: 48→38'
+  - 'Upgraded: (5★) Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x130) and have a moderate chance to inflict bleeding (turns: 2).'
+- skill_category: tp
+  name: Soul Sever
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 230) and absorb 1% of damage dealt as SP.'
+- skill_category: ex
+  name: Double Horizontal Slash
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x105
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x105).'
+  - 20% more potent if target is bleeding.
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Execution
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x130→3x160→3x195
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x130→3x160→3x195) and have a moderate chance to inflict bleeding (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Front Row incapacitated: Impart Self with Phys. Atk. Up 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "At **f**ull HP: Raise Axe Damage of Self by 20%."
-    trigger: always
-    limit_break_upgrade: "At **f**ull HP: Raise Axe Damage of Self by **30%**."
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "15% chance to recover 100% of damage taken when hit (With some exceptions/Does not stack with effects of the same type)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Avenger's Phys. Atk Boost III
+  unlock_tier: 1★
+  effect: 'Front Row incapacitated: Impart Self with Phys. Atk. Up 20%.'
+  trigger: always
+- passive_category: innate
+  name: Hale Axe Atk Boost III
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Axe Damage of Self by 20%.'
+  trigger: hp_condition
+  limit_break_upgrade: 'At full HP: Raise Axe Damage of Self by 30%.'
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 5★
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Favor of Life
+  effect: 15% chance to recover 100% of damage taken when hit (With some exceptions/Does not stack with effects of the same type).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Protective Leather Mask"
-  passive_effect: "50 P.Atk, 20 E.Atk; Grant Self automatic HP recovery (amount: 500) when a bleeding enemy is present"
+  name: Protective Leather Mask
+  passive_effect: '50 P.Atk, 20 E.Atk; Grant Self automatic HP recovery (amount: 500) when a bleeding enemy is present'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

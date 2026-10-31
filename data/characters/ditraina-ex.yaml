@@ -56,135 +56,202 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Precise Triple Shot"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-    effects:
-      - "Guaranteed critical hits"
-  - skill_category: active
-    name: "Piercing Falcon (All)"
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [bow]
-    target: aoe
-    power: "160"
-    effects:
-      - "Bow damage to All Foes (potency: 160) and lower Bow Res"
-  - skill_category: active
-    name: "Triple Sweeping Shot"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Hunter’s Elixir"
-    sp_cost: 80
-    skill_type: mixed
-    target: all_allies
-    effects:
-      - "**Hunter’s Elixir (2★)** Raise Phys"
-      - "and Critical of All Allies by 15% and raise Bow damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Tearing Daybreak"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    limit_break_upgrade: "Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85). Exploits Light and Dark weaknesses (damage calculation based on Phys. Bow attack). Damage Limit of this skill is increased by 20,000. When selecting this action with 9+ Intuition Points: **100%** more potent."
-  - skill_category: active
-    name: "Feline’s Keen Eye"
-    sp_cost: 52
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Feline’s Keen Eye (3★)** Act faster during turn and force Single Foe to always receive critical damage (turns: 1-4 based on Boost Lv./shorter turn counts overwritten)"
-  - skill_category: active
-    name: "Crepuscular Rays"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Obstructed Karma"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "3x"
-    power: "3x45, turns: 2-5 based on Boost Lv."
-    effects:
-      - "Guaranteed critical hits"
-  - skill_category: active
-    name: "Duskfall Descent"
-    sp_cost: 81
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "4x45"
-  - skill_category: tp
-    name: "Cycles of Time"
-    sp_cost: 104
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x100"
-  - skill_category: ex
-    name: "Dawn of Eternity"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "6x"
-    power: "6x25"
-    effects:
-      - "**Dawn of Eternity** Act faster during turn"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Cosmical Catastrophe"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "6x"
-    effects:
-      - "Guaranteed critical hits"
+- skill_category: active
+  name: Precise Triple Shot
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x55).'
+  - Guaranteed critical hits.
+- skill_category: active
+  name: Piercing Falcon (All)
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: aoe
+  power: '160'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 160) and lower Bow Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Triple Sweeping Shot
+  unlock_tier: 1★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Hunter’s Elixir
+  unlock_tier: 2★
+  sp_cost: 80
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Phys. Atk. and Critical of All Allies by 15% and raise Bow damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Tearing Daybreak
+  unlock_tier: 2★
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Exploits Light and Dark weaknesses (damage calculation based on Phys. Bow attack).
+  - Damage Limit of this skill is increased by 20,000.
+  - 'When selecting this action with 9+ Intuition Points: 50% more potent.'
+  limit_break_upgrade: 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x85). Exploits Light and Dark weaknesses (damage calculation based on Phys. Bow attack). Damage Limit of this skill is increased by 20,000. When selecting this action with 9+ Intuition Points: 100% more potent.'
+- skill_category: active
+  name: Feline’s Keen Eye
+  unlock_tier: 3★
+  sp_cost: 52
+  skill_type: utility
+  target: single_enemy
+  priority: true
+  effects:
+  - 'Act faster during turn and force Single Foe to always receive critical damage (turns: 1-4 based on Boost Lv./shorter turn counts overwritten).'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+- skill_category: active
+  name: Crepuscular Rays
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65).'
+  - 'When selecting this action with 6+ Intuition Points: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.96: SP Saver: 62→50'
+- skill_category: active
+  name: Obstructed Karma
+  unlock_tier: 5★
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 3x
+  power: '3x45, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Bow damage to All Foes 3 time(s) before some allies act (potency: 3x45, turns: 2-5 based on Boost Lv.).'
+  - Guaranteed critical hits.
+  upgrades:
+  - 'Lv.99: SP Saver: 60→75'
+- skill_category: active
+  name: Duskfall Descent
+  unlock_tier: 5★
+  sp_cost: 81
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: 4x45
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 4x45).'
+  - Exploits Light and Dark weakness (damage calculation based on Phys. Bow attack).
+  - 'When selecting this action with 6+ Intuition Points: Attack count becomes 5.'
+  upgrades:
+  - 'Lv.100: SP Saver: 81→65'
+- skill_category: tp
+  name: Cycles of Time
+  sp_cost: 104
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 4x
+  power: 4x100
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 4 time(s) (potency: 4x100).'
+  - Exploits Light and Dark weakness (damage calculation based on Phys. Bow attack).
+  - Damage Limit of this skill is increased by 50,000.
+  - 'When selecting this action with 9+ Intuition Points: 200% more potent, but own Intuition Points resets to 0.'
+- skill_category: ex
+  name: Dawn of Eternity
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 6x
+  power: 6x25
+  priority: true
+  effects:
+  - 'Act faster during turn, force Single Foe to always receive critical damage (turns: 2/shorter turn counts overwritten) and deal Phys. Bow damage to them 6 time(s) (potency: 6x25).'
+  notes: 'Usage Condition: With 5 Intuition Points or less; Uses: 3'
+  ex_trigger: With 5 Intuition Points or less
+- skill_category: special
+  name: Cosmical Catastrophe
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 6x
+  power: 6x50→6x60→6x75
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 6 time(s) (potency: 6x50→6x60→6x75).'
+  - Exploits Light and Dark weakness (damage calculation based on Phys. Bow attack).
+  - Guaranteed critical hits.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge: Attack count becomes 9 and force All Foes to always receive critical damage (turns: 1/shorter turn counts overwritten).; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Gain Intuition Point(s) every time an attack lands at least one critical hit and have a moderate chance to lower Bow Res. by 10% (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise Phys. Atk. of Self by 30% and gain effects based on the number of Intuition Points. ·3+: Gain the ability to exploit Ice and Lightning weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·6+: Also gain the ability to exploit Fire and Wind weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·9+: Also add 50% of the E.Atk attribute (including equipment attributes) to P.Atk (multiple additions to the same attribute do not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Raise Bow damage of Entire Front Row by 10%, the limit of Bow damage augments from support skills and equipment effects to 50% and Damage Limit by 30,000."
-    trigger: hp_condition
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Timeless Intuition
+  unlock_tier: 1★
+  effect: 'Gain Intuition Point(s) every time an attack lands at least one critical hit and have a moderate chance to lower Bow Res. by 10% (turns: 1).'
+  trigger: always
+- passive_category: innate
+  name: Celestial Aurora
+  unlock_tier: 3★
+  effect: 'Raise Phys. Atk. of Self by 30% and gain effects based on the number of Intuition Points. ·3+: Gain the ability to exploit Ice and Lightning weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·6+: Also gain the ability to exploit Fire and Wind weakness with some physical attacks other than the “Attack” action (damage calculation based on original attack). ·9+: Also add 50% of the E.Atk attribute (including equipment attributes) to P.Atk (multiple additions to the same attribute do not stack).'
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark
+  effect: Resilience Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Salvific Wisdom
+  effect: 'At full HP: Raise Bow damage of Entire Front Row by 10%, the limit of Bow damage augments from support skills and equipment effects to 50% and Damage Limit by 30,000.'
+  trigger: hp_condition
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Ribbon of Salvation"
-  passive_effect: "70 P.Atk, 70 E.Atk; Raise Bow damage of Entire Front Row by 10%; When equipped by a Hunter: Raise critical damage multiplier (1.25→1.4)"
+  name: Ribbon of Salvation
+  passive_effect: '70 P.Atk, 70 E.Atk; Raise Bow damage of Entire Front Row by 10%; When equipped by a Hunter: Raise critical damage multiplier (1.25→1.4)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Intuition Points
+  description: Enhance the effect of Celestial Aurora and certain skills.
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: complete

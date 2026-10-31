@@ -71,138 +71,185 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "R050: Spear"
-    sp_cost: 35
-    skill_type: attack
-    damage_types: [polearm]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "A130: Bomb"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Self-Destruct"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "A120: Repair (Sustain)"
-    sp_cost: 22
-    skill_type: buff
-    target: self
-    power: "110, turns: 3-6 based on Boost Lv."
-    effects:
-      - "**A120: Repair (Sustain) (2★)** Grant automatic HP recovery to Self (potency: 110, turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "A110: Slow"
-    sp_cost: 18
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**A110: Slow (2★)** Lower Spd of All Foes by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "A120: Repair (Support)"
-    sp_cost: 24
-    skill_type: heal
-    target: front_row
-    power: "160"
-    effects:
-      - "**A120: Repair (Support) (3★)** Restore HP of Single Ally (potency: 160)"
-  - skill_category: active
-    name: "A060: P Shield"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**A060: P Shield (4★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "A150: Volt"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Lightning damage to Single Foe (potency: 230) and lower Phys"
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Volatile Thrust"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Random Foe **5** time(s) (potency: **5x45**). Exploits Lightning weakness (damage calculation based on Phys. Polearm attack)."
-  - skill_category: tp
-    name: "R010: Laser"
-    sp_cost: 58
-    skill_type: mixed
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Lightning damage to All Foes 2 time(s) (potency: 2x95) and lower Lightning Res"
-  - skill_category: ex
-    name: "A150: Volt (Mass)"
-    skill_type: attack
-    damage_types: [lightning]
-    target: front_row
-    hit_count: "3x"
-    power: "3x110"
-    effects:
-      - "Lightning damage to All Foes 3 time(s) (potency: 3x110) and raise Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Hacking"
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "show all weak points and lower Phys"
-      - "Lower Shield Points even when not striking weak points"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: 'R050: Spear'
+  sp_cost: 35
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: 'A130: Bomb'
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Self-Destruct
+  unlock_tier: 1★
+  sp_cost: 60
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80).'
+  - Lower Shield Points even when not striking weak points, but Self’s HP will be reduced to 1.
+  - '*Can be used once per battle.'
+- skill_category: active
+  name: 'A120: Repair (Sustain)'
+  unlock_tier: 2★
+  sp_cost: 22
+  skill_type: buff
+  target: self
+  power: '110, turns: 3-6 based on Boost Lv.'
+  effects:
+  - 'Grant automatic HP recovery to Self (potency: 110, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: 'A110: Slow'
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Spd of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: 'A120: Repair (Support)'
+  unlock_tier: 3★
+  sp_cost: 24
+  skill_type: heal
+  target: front_row
+  power: '160'
+  effects:
+  - 'Restore HP of Single Ally (potency: 160).'
+  - Reaches Entire Front Row at Max Boost
+  upgrades:
+  - 'Lv.88: Potency Up: 160→180'
+- skill_category: active
+  name: 'A060: P Shield'
+  unlock_tier: 4★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: 'A150: Volt'
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230) and lower Phys. Atk. and Phys. Def. by 15% (turns: 2).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.99: Duration Up during Boost Mode: 2 turns→2-5 turns based on Boost Lv.'
+- skill_category: active
+  name: Volatile Thrust
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Random Foe 5 time(s) (potency: 5x45). Exploits Lightning weakness (damage calculation based on Phys. Polearm attack).'
+- skill_category: tp
+  name: 'R010: Laser'
+  sp_cost: 58
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 2 time(s) (potency: 2x95) and lower Lightning Res. by 15% (turns: 2).'
+- skill_category: ex
+  name: 'A150: Volt (Mass)'
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: front_row
+  hit_count: 3x
+  power: 3x110
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x110) and raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Hacking
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 440→525→655), show all weak points and lower Phys. Atk. and Phys. Def. by 5%→10%→15% (turns: 2).'
+  - Lower Shield Points even when not striking weak points.
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "End of battle: Raise EXP earned by Paired Allies by 40%."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Impart Paired Allies with Elem. Atk. Up 15%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: More Experience (Joint)
+  unlock_tier: 1★
+  effect: 'End of battle: Raise EXP earned by Paired Allies by 40%.'
+  trigger: always
+- passive_category: innate
+  name: 'A170: Scanner'
+  unlock_tier: 3★
+  effect: 'Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type).'
+  trigger: battle_start
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Fire/Lightning Resilience
+  effect: Raise own Fire and Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Ranged Attack Up (Joint)
+  effect: Impart Paired Allies with Elem. Atk. Up 15%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "9S’s Goggles"
-  passive_effect: "80 E.Atk, 60 Spd; Raise Lightning damage dealt by 30%"
+  name: 9S’s Goggles
+  passive_effect: 80 E.Atk, 60 Spd; Raise Lightning damage dealt by 30%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

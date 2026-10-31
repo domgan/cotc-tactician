@@ -52,133 +52,177 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Emboldening Shot"
-    sp_cost: 20
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Bow damage to Single Foe (potency: 170) and impart Self with Phys"
-  - skill_category: active
-    name: "Gelid Storm"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Piercing Falcon"
-    sp_cost: 14
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "140"
-    effects:
-      - "Bow damage to Single Foe (potency: 140) and lower Bow Res"
-  - skill_category: active
-    name: "Triple Rime"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Peerless Shot"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Piercing Eagle Talon"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Bow damage to Single Foe (potency: 170) and lower Bow Res"
-  - skill_category: active
-    name: "Icy Arrow"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [ice]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Ice damage to Single Foe (potency: 260) and impart Elem"
-  - skill_category: active
-    name: "Chivalrous Shot"
-    sp_cost: 36
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Bow damage to Single Foe (potency: 230) and impart Self with Phys"
-  - skill_category: active
-    name: "Sturdy Peerless Shot"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "290"
-    limit_break_upgrade: "Deal Phys. Bow damage to Single Foe (potency: 290). Reactivate the effect (without consuming SP) if BP is 0 when selecting this skill."
-  - skill_category: tp
-    name: "Flowing Arrow"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Bow damage to Single Foe (potency: 230) and impart with Phys"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Bow damage to Single Foe 2 time(s) (potency: 2x120) and grant Self HP Barrier (potency: 50% of user’s max HP)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Battlehawk"
-    skill_type: mixed
-    damage_types: [bow]
-    target: single_enemy
-    power: "440→525"
-    effects:
-      - "Lower Bow Res"
+- skill_category: active
+  name: Emboldening Shot
+  sp_cost: 20
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and impart Self with Phys. Atk. Up 10% (turns: 2).'
+- skill_category: active
+  name: Gelid Storm
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Piercing Falcon
+  unlock_tier: 1★
+  sp_cost: 14
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '140'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 140) and lower Bow Res. by 10% (turns: 2).'
+- skill_category: active
+  name: Triple Rime
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Peerless Shot
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Piercing Eagle Talon
+  unlock_tier: 3★
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and lower Bow Res. by 15% (turns: 3).'
+  upgrades:
+  - 'Lv.88: SP Saver: 24→19'
+- skill_category: active
+  name: Icy Arrow
+  unlock_tier: 4★
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 260) and impart Elem. Atk. Down 20% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 50→40'
+- skill_category: active
+  name: Chivalrous Shot
+  unlock_tier: 5★
+  sp_cost: 36
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 230) and impart Self with Phys. Atk. Up 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 36→29'
+- skill_category: active
+  name: Sturdy Peerless Shot
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 290).'
+  upgrades:
+  - 'Lv.100: SP Saver: 40→32'
+  limit_break_upgrade: 'Deal Phys. Bow damage to Single Foe (potency: 290). Reactivate the effect (without consuming SP) if BP is 0 when selecting this skill.'
+- skill_category: tp
+  name: Flowing Arrow
+  sp_cost: 40
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 230) and impart with Phys. Def. Down 15% (turns: 2).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 2 time(s) (potency: 2x120) and grant Self HP Barrier (potency: 50% of user’s max HP).'
+  notes: 'Usage Condition: At full HP; Uses: 2'
+  ex_trigger: At full HP
+- skill_category: special
+  name: Battlehawk
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 440→525
+  effects:
+  - 'Lower Bow Res. of Single Foe by 5%→10% (turns: 2) and deal Phys. Bow damage (potency: 440→525).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Bow damage of Self by 15% and raise Critical by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "At full HP: Reduce own damage taken from some attacks by 50%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise potency of Self by 100% when starting the turn with 0 BP."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Bow Attack/Critical Boost II
+  unlock_tier: 1★
+  effect: Raise Bow damage of Self by 15% and raise Critical by 15%.
+  trigger: always
+- passive_category: innate
+  name: Hale Damage Reduction
+  unlock_tier: 3★
+  effect: 'At full HP: Reduce own damage taken from some attacks by 50%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Relax Strength
+  effect: Raise potency of Self by 100% when starting the turn with 0 BP.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Gallant Leather Belt"
-  passive_effect: "80 P.Atk, 30 Crit, 30 Spd; Raise Bow and Ice damage dealt by 15%"
+  name: Gallant Leather Belt
+  passive_effect: 80 P.Atk, 30 Crit, 30 Spd; Raise Bow and Ice damage dealt by 15%
 
 # Metadata
 data_confidence: incomplete

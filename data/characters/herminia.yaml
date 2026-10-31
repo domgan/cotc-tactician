@@ -71,118 +71,181 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Thousand Scythes"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Safeguard Power"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Safeguard Power** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Blazing Aurora"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Quadruple Sturdy Shot"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Spill of Moonlight"
-    sp_cost: 50
-    skill_type: attack
-    damage_types: [light]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Wild Lacerating Fan"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [fan]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Radiant Arrow"
-    sp_cost: 90
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-  - skill_category: active
-    name: "Enervating Fan"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Draining Arrow"
-    sp_cost: 55
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "260"
-  - skill_category: tp
-    name: "Ruinous Powder"
-    sp_cost: 28
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Ruinous Powder ** Lower Bow"
-  - skill_category: ex
-    name: "Banquet of Desire"
-    skill_type: mixed
-    target: all_allies
-    effects:
-      - "**Banquet of Desire** Raise Phys"
-      - "and Bow damage of All Allies by 15% and grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "The Huntress’ Anguish"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Thousand Scythes
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 150) and have a moderate chance to inflict bleeding (turns: 2).'
+- skill_category: active
+  name: Safeguard Power
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 15% and Elem. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Blazing Aurora
+  unlock_tier: 1★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 180).'
+- skill_category: active
+  name: Quadruple Sturdy Shot
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 4 time(s) (potency: 4x45).'
+- skill_category: active
+  name: Spill of Moonlight
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: utility
+  damage_types:
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x45).'
+- skill_category: active
+  name: Wild Lacerating Fan
+  unlock_tier: 3★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - fan
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a moderate chance to inflict bleeding with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 56→45'
+- skill_category: active
+  name: Radiant Arrow
+  unlock_tier: 4★
+  sp_cost: 90
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '180, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Bow damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.) having a moderate chance to inflict bleeding (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 90→72'
+- skill_category: active
+  name: Enervating Fan
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 260).'
+  - 20% more potent if target is bleeding.
+  - Absorb 1% of damage dealt as SP.
+  upgrades:
+  - 'Lv.99: Potency Up: 20%→30%'
+- skill_category: active
+  name: Draining Arrow
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 260) and absorb 10% of damage dealt as HP.'
+  - 20% more potent if target is bleeding.
+  upgrades:
+  - 'Lv.100: Potency Up: 20%→30%'
+- skill_category: tp
+  name: Ruinous Powder
+  sp_cost: 28
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Bow, Fan and Light Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.) and cause them to miss some physical attacks (times: 2/Does not stack with effects of the same type).'
+- skill_category: ex
+  name: Banquet of Desire
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Phys. Atk. and Bow damage of All Allies by 15% and grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.), but also inflict SP Sap (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: When Self has Bow/Fan Dmg. Up.; Uses: 3'
+  ex_trigger: When Self has Bow/Fan Dmg. Up.
+- skill_category: special
+  name: The Huntress’ Anguish
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 500→600→750).'
+  - 20% more potent if target is bleeding.
+  - Damage Limit Up of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When using a battle skill, have a 30% chance to summon a lady-in-waiting to inflict bleeding on a random target (turns: 3)."
-    trigger: always
-    limit_break_upgrade: "When using a battle skill, summon a lady-in-waiting to deal Phys. Bow damage to current target 3 time(s) (potency: 3x60) and inflict bleeding (turns: 3). *Lady-in-waiting will target selected enemy if you use a non-attack skill."
-  - passive_category: innate
-    effect: "Raise Bow and Fan damage of Self by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise own Phys. Atk. by 30% when bleeding enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Summon Lady-In-Waiting
+  unlock_tier: 1★
+  effect: 'When using a battle skill, have a 30% chance to summon a lady-in-waiting to inflict bleeding on a random target (turns: 3).'
+  trigger: always
+  limit_break_upgrade: 'When using a battle skill, summon a lady-in-waiting to deal Phys. Bow damage to current target 3 time(s) (potency: 3x60) and inflict bleeding (turns: 3). *Lady-in-waiting will target selected enemy if you use a non-attack skill.'
+- passive_category: innate
+  name: Bow/Fan Atk. Boost III
+  unlock_tier: 3★
+  effect: Raise Bow and Fan damage of Self by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: Raise own Phys. Atk. by 30% when bleeding enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Covetous Witch Mask"
-  passive_effect: "60 P.Atk, 40 Crit, 400 HP; Raise Bow and Fan damage dealt by 10%; Start of battle: High chance to all enemies with bleeding (turns: 3)"
+  name: Covetous Witch Mask
+  passive_effect: '60 P.Atk, 40 Crit, 400 HP; Raise Bow and Fan damage dealt by 10%; Start of battle: High chance to all enemies with bleeding (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Miss Phys. Attacks
+  description: Target fails their next physical hit. This effect can stack and is consumed only when the enemy tries to deal physical damage. If the enemy uses a multi-hit physical attack, it will miss as many hits as stacks of this status had been inflicted.
+- name: ~~Miss Phys. Attacks
+  description: Target fails their next physical hit. This effect can stack and is consumed only when the enemy tries to deal physical damage. If the enemy uses a multi-hit physical attack, it will miss as many hits as stacks of this status had been inflicted.~~
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

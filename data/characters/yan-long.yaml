@@ -52,129 +52,179 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Twofold Bash"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "2x90"
-  - skill_category: active
-    name: "Tempered Physique"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    power: "165"
-    effects:
-      - "**Tempered Physique** Restore own HP (potency: 165) and impart Self with Phys"
-  - skill_category: active
-    name: "Blossoming Ice"
-    sp_cost: 34
-    skill_type: mixed
-    damage_types: [ice]
-    target: random
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Ice damage to Random Foe 2 time(s) (potency: 2x90) and lower Staff Res"
-  - skill_category: active
-    name: "Broad Bash"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Wild Rod Bash"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [staff]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Sharpened Physique"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Sharpened Physique (3★)** Raise Phys"
-  - skill_category: active
-    name: "Greater Blossoming Ice"
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    power: "180"
-    effects:
-      - "Ice damage to All Foes (potency: 180) and lower Staff Res"
-  - skill_category: active
-    name: "Draconic Bash"
-    sp_cost: 56
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "290"
-    limit_break_upgrade: "Deal Phys. Staff damage to Single Foe (potency: 290). Raise the Damage Limit of this skill by 50,000. The slower you act during turn, the greater the potency. Up to 70% more potent when acting sixth."
-  - skill_category: active
-    name: "Celestial Bash"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [staff]
-    target: random
-    power: "2x120/3x95/4x85/5x100"
-  - skill_category: tp
-    name: "Dragon’s Fortune Staff"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "**Dragon’s Fortune Staff ** Act faster during turn and deal Phys"
-      - "At Max Boost: Grant Staff weakness to the same target (times: 2)"
-  - skill_category: ex
-    name: "Dragon’s Maw"
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "When Self has Dead Aim (guaranteed critical hits)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Draconic Commander"
-    skill_type: buff
-    target: self
-    power: "3→4"
-    effects:
-      - "of Self by **10%→20%** (turns: **3→4**) and grant Dead Aim (guaranteed critical hits) (turns: **2→3**)"
+- skill_category: active
+  name: Twofold Bash
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: 2x90
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 2x90).'
+- skill_category: active
+  name: Tempered Physique
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  power: '165'
+  effects:
+  - 'Restore own HP (potency: 165) and impart Self with Phys. Def. Up 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Blossoming Ice
+  unlock_tier: 1★
+  sp_cost: 34
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: random
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Random Foe 2 time(s) (potency: 2x90) and lower Staff Res. by 10% with every attack (turns: 2).'
+- skill_category: active
+  name: Broad Bash
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 180).'
+- skill_category: active
+  name: Wild Rod Bash
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - staff
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 4 time(s) (potency: 4x45).'
+- skill_category: active
+  name: Sharpened Physique
+  unlock_tier: 3★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. and Spd of Self by 20% (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 36→29'
+- skill_category: active
+  name: Greater Blossoming Ice
+  unlock_tier: 4★
+  sp_cost: 62
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 180) and lower Staff Res. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 62→50'
+- skill_category: active
+  name: Draconic Bash
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 290).'
+  upgrades:
+  - 'Lv.99: SP Saver: 56→45'
+  limit_break_upgrade: 'Deal Phys. Staff damage to Single Foe (potency: 290). Raise the Damage Limit of this skill by 50,000. The slower you act during turn, the greater the potency. Up to 70% more potent when acting sixth.'
+- skill_category: active
+  name: Celestial Bash
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - staff
+  target: random
+  power: 2x120/3x95/4x85/5x100
+  effects:
+  - Deal Phys. Staff damage to Random Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 2x120/3x95/4x85/5x100).'
+  - 'Inflict Phys. Def. Down 20% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Dragon’s Fortune Staff
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x85).'
+  - 'At Max Boost: Grant Staff weakness to the same target (times: 2).'
+- skill_category: ex
+  name: Dragon’s Maw
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x95).'
+  - When Self has Dead Aim (guaranteed critical hits), activate this skill twice.
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Draconic Commander
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Phys. Atk. of Self by 10%→20% (turns: 3→4) and grant Dead Aim (guaranteed critical hits) (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 20%/BP→25%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Staff damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** 25% chance to raise BP recovery by 1 when hit for 1 turn (Trigger once per enemy turn)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When consuming 3 BP or more: Raise own Phys. Atk. and Critical by 15% and grant Self Damage Limit Up (effect: 50,000). Also restore Phys. Atk. and Critical and grant immunity to Phys. Atk. Down and Critical Down during that turn."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Staff Atk Boost V
+  unlock_tier: 1★
+  effect: Raise Staff damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Grant BP Recovery Boost When Damaged
+  effect: (3★) 25% chance to raise BP recovery by 1 when hit for 1 turn (Trigger once per enemy turn).
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rising Dragon Spirit
+  effect: 'When consuming 3 BP or more: Raise own Phys. Atk. and Critical by 15% and grant Self Damage Limit Up (effect: 50,000). Also restore Phys. Atk. and Critical and grant immunity to Phys. Atk. Down and Critical Down during that turn.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Monk’s Gaiters"
-  passive_effect: "60 P.Atk, 40 E.Atk, 40 Crit; When breaking an enemy, lower their Phys. Def. by 10% and Staff and Ice Res. by 10% (turns: 3); 60 P.Atk, -60 P.Def, -60 E.Def, 60 Spd; With Rosary of Truth equipped: When breaking an enemy, recover 3 BP. (Does not stack with effects of the same type)"
+  name: Monk’s Gaiters
+  passive_effect: '60 P.Atk, 40 E.Atk, 40 Crit; When breaking an enemy, lower their Phys. Def. by 10% and Staff and Ice Res. by 10% (turns: 3); 60 P.Atk, -60 P.Def, -60 E.Def, 60 Spd; With Rosary of Truth equipped: When breaking an enemy, recover 3 BP. (Does not stack with effects of the same type)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Staff weakness
+  description: Add a Staff weak point to the foe. If the foe was already weak to Staff, Staff damage dealt is increased by 20%. Every time the target is hit with a Staff attack this added weakness is reduced by one. *Cannot be applied to enemies without weak points.
 
 # Metadata
 data_confidence: incomplete

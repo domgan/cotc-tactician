@@ -53,133 +53,216 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Twofold Poison Edge"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Haze Edge"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Spider Snare"
-    sp_cost: 38
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    power: "150"
-    effects:
-      - "Dagger damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2)"
-  - skill_category: active
-    name: "Dragon-Tiger Clash"
-    sp_cost: 64
-    skill_type: buff
-    target: self
-    effects:
-      - "**Dragon-Tiger Clash (2★)** Raise Dagger damage of Self by 30% (turns: 3-6 based on Boost Lv.)"
-      - "When selecting this action at night or with Midnight Shadow: Also raise Critical and Speed by 30% (turns: 3-6 based on Boost Lv.) and extend the duration of Midnight Shadow by 3 turns"
-  - skill_category: active
-    name: "Tigerfang"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Dragonrend"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Snakebite"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Traceless"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [dagger]
-    target: random
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Lightless"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: tp
-    name: "Blighted Moon"
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    power: "120"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Moonblossom Dive"
-    skill_type: attack
-    damage_types: [dagger]
-    target: random
-    hit_count: "5x"
-    power: "5x60"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Purple Rain"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "5x"
-    effects:
-      - "inflict frostbite and corrosion (turns: 2) and grant Self Midnight Shadow (turns: 5/granted as a support skill)"
-      - "Lower Shield Points even when not striking weak points"
+- skill_category: active
+  name: Twofold Poison Edge
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75) and have a moderate chance to inflict poison (turns: 2).'
+- skill_category: active
+  name: Haze Edge
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Spider Snare
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 150) and lower Speed by 15% (turns: 2).'
+- skill_category: active
+  name: Dragon-Tiger Clash
+  unlock_tier: 2★
+  sp_cost: 64
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise Dagger damage of Self by 30% (turns: 3-6 based on Boost Lv.).'
+  - 'When selecting this action at night or with Midnight Shadow: Also raise Critical and Speed by 30% (turns: 3-6 based on Boost Lv.) and extend the duration of Midnight Shadow by 3 turns.'
+- skill_category: active
+  name: Tigerfang
+  unlock_tier: 2★
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170).'
+  - Exploits Fire, Ice and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - 'When selecting this action at night or with Midnight Shadow: Recover 2 BP.'
+  - '[35 BP]'
+- skill_category: active
+  name: Dragonrend
+  unlock_tier: 3★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fire, Ice and Wind weaknesses (damage calculation based on Phys. Dagger attack).
+  - 'When selecting this action at night or with Midnight Shadow: Reaches All Foes.'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+- skill_category: active
+  name: Snakebite
+  unlock_tier: 4★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x65) and have a moderate chance to inflict poison or bleeding (turns: 2).'
+  - 'When selecting this action at night or with Midnight Shadow: Have a high chance to inflict poison and bleeding instead.'
+  upgrades:
+  - 'Lv.96: SP Saver: 76→61'
+- skill_category: active
+  name: Traceless
+  unlock_tier: 5★
+  sp_cost: 60
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x85).'
+  - Lower Shield Points even when not striking weak points.
+  - 'At Max Boost: Attack count becomes 5.'
+  upgrades:
+  - 'Lv.99: SP Saver: 60→48'
+- skill_category: active
+  name: Lightless
+  unlock_tier: 5★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90).'
+  - The faster you act during turn, the greater the potency.
+  - Potency doubles when acting first.
+  - 'When selecting this action at night or with Midnight Shadow: Activate the skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.100: SP Saver: 44→35'
+- skill_category: tp
+  name: Blighted Moon
+  sp_cost: 62
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 120).'
+  - Lower Shield Points even when not striking weak points.
+  - 'At Max Boost: Cause them to combust and inflict frostbite and corrosion (turns: 6), but own HP will drop to 1 if Midnight Shadow is not active.'
+- skill_category: ex
+  name: Moonblossom Dive
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 5x
+  power: 5x60
+  effects:
+  - Leap into the air and gain Jumping.
+  - 'Act much faster during next turn and deal Phys. Dagger damage to Random Foe 5 time(s) (potency: 5x60).'
+  - 'At night or with Midnight Shadow: 50% more potent and extends the duration of Midnight Shadow by 3 turns.'
+  - Jumping is removed afterwards.
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Purple Rain
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 5x
+  power: 5x55→5x65→5x85
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 5 time(s) (potency: 5x55→5x65→5x85), cause them to combust, inflict frostbite and corrosion (turns: 2) and grant Self Midnight Shadow (turns: 5/granted as a support skill).'
+  - Lower Shield Points even when not striking weak points.
+  - Ignores effects that completely dodge or block attacks.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise own Phys. Atk. by 20% and Critical and Speed by 30%. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25)."
-    trigger: always
-    limit_break_upgrade: "Raise own Phys. Atk. by 20% and Critical and Speed by **50%**. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25)."
-  - passive_category: innate
-    effect: "Grant Self a 50% chance to dodge some group attacks and random-target attacks. A successful dodge will extend the duration of Midnight Shadow by 1 turn or grant Self Midnight Shadow (turns: 2) if it is not active."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: tp
-    effect: "Trigger a follow-up effect after performing some attacks (excluding counters and Ultimate Techniques/only activates once per action). Follow-up effect: Inflict either combust, frostbite or corrosion on Random Foe (turns: 1)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Moonveiled Marauder
+  unlock_tier: 1★
+  effect: 'Raise own Phys. Atk. by 20% and Critical and Speed by 30%. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25).'
+  trigger: always
+  limit_break_upgrade: 'Raise own Phys. Atk. by 20% and Critical and Speed by 50%. At night or with Midnight Shadow state: Raise the limit of Phys. Atk., Critical and Speed augments from support skills and equipment effects to 50% and the damage multiplier of critical hits to 1.4 (instead of 1.25).'
+- passive_category: innate
+  name: Decoy Double
+  unlock_tier: 3★
+  effect: 'Grant Self a 50% chance to dodge some group attacks and random-target attacks. A successful dodge will extend the duration of Midnight Shadow by 1 turn or grant Self Midnight Shadow (turns: 2) if it is not active.'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience III Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience III Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: tp
+  name: Plague Pursuit
+  effect: 'Trigger a follow-up effect after performing some attacks (excluding counters and Ultimate Techniques/only activates once per action). Follow-up effect: Inflict either combust, frostbite or corrosion on Random Foe (turns: 1).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Nightshade Mask"
-  passive_effect: "60 Crit, 80 Spd; Raise Phys. Atk. by 15%; At night: Raise critical damage by 30%"
+  name: Nightshade Mask
+  passive_effect: '60 Crit, 80 Spd; Raise Phys. Atk. by 15%; At night: Raise critical damage by 30%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Midnight Shadow
+  description: Raise potency by 75% (Does not stack with effects of the same type).
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Jumping
+  description: Cannot select actions, be targeted by some effects, perform follow-up attacks or pass the turns of any other status.
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

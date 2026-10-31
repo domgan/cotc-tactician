@@ -52,126 +52,176 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Cleave"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Chain Rime"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Rehabilitate"
-    sp_cost: 15
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Rehabilitate (1★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Grapedust (Excl. Self)"
-    sp_cost: 65
-    skill_type: mixed
-    target: all_allies
-    power: "130"
-    effects:
-      - "Self) (2★)** Deal damage to Self (effect: 75% of max HP) and restore HP of All Allies excluding Self (potency: 130)"
-  - skill_category: active
-    name: "Pomegranate Powder"
-    sp_cost: 100
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Pomegranate Powder (2★)** Deal damage to Self (effect: 75% of max HP) and raise BP recovery amount of Entire Front Row by 1 (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Bolsterdust (Excl. Self)"
-    sp_cost: 65
-    skill_type: mixed
-    target: all_allies
-    power: "120, turns: 2-5 based on Boost Lv."
-    effects:
-      - "then grant All Allies excluding Self automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.) and raise Phys"
-  - skill_category: active
-    name: "Last Stand"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "The lower your HP"
-      - "Potency doubles at max (when HP is 10% or lower)"
-  - skill_category: active
-    name: "Resolute Icetomb"
-    sp_cost: 52
-    skill_type: mixed
-    damage_types: [ice]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "The lower your HP"
-      - "Potency doubles at max (when HP is 10% or lower)"
-  - skill_category: active
-    name: "Enduring Iceruin"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: tp
-    name: "Chilling Axe Elixir (All) II"
-    sp_cost: 20
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Chilling Axe Elixir (All) II ** Lower Axe and Ice Res"
-      - "recoil damage first lowers this barrier instead of the HP bar"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    power: "210"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Cure-All"
-    skill_type: heal
-    target: all_allies
-    power: "2→3"
-    effects:
-      - "Restore HP of All Allies (amount: 99,999) and raise Phys"
+- skill_category: active
+  name: Repeated Cleave
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Chain Rime
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Rehabilitate
+  unlock_tier: 1★
+  sp_cost: 15
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  - Reaches Entire Front Row at Max Boost.
+- skill_category: active
+  name: Grapedust (Excl. Self)
+  unlock_tier: 2★
+  sp_cost: 65
+  skill_type: mixed
+  target: all_allies
+  power: '130'
+  effects:
+  - 'Deal damage to Self (effect: 75% of max HP) and restore HP of All Allies excluding Self (potency: 130).'
+  - '*Cannot be incapacitated by this skill'
+- skill_category: active
+  name: Pomegranate Powder
+  unlock_tier: 2★
+  sp_cost: 100
+  skill_type: mixed
+  target: front_row
+  effects:
+  - 'Deal damage to Self (effect: 75% of max HP) and raise BP recovery amount of Entire Front Row by 1 (turns: 2-5 based on Boost Lv.).'
+  - '*Cannot be incapacitated by this skill.'
+- skill_category: active
+  name: Bolsterdust (Excl. Self)
+  unlock_tier: 3★
+  sp_cost: 65
+  skill_type: mixed
+  target: all_allies
+  power: '120, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Deal damage to Self (effect: 75% of max HP), then grant All Allies excluding Self automatic HP recovery (potency: 120, turns: 2-5 based on Boost Lv.) and raise Phys. Def. and Elem. Def. by 10% (turns: 2-5 based on Boost Lv.).'
+  - '*Cannot be incapacitated by this skill'
+  upgrades:
+  - 'Lv.88: SP Saver: 65→52'
+- skill_category: active
+  name: Last Stand
+  unlock_tier: 4★
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  - The lower your HP, the greater the potency.
+  - Potency doubles at max (when HP is 10% or lower).
+  upgrades:
+  - 'Lv.96: SP Saver: 50→40'
+- skill_category: active
+  name: Resolute Icetomb
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 260).'
+  - The lower your HP, the greater the potency.
+  - Potency doubles at max (when HP is 10% or lower).
+  upgrades:
+  - 'Lv.99: SP Saver: 52→42'
+- skill_category: active
+  name: Enduring Iceruin
+  unlock_tier: 5★
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x65).'
+  - 'When near death: Activate skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.100: SP Saver: 68→54'
+- skill_category: tp
+  name: Chilling Axe Elixir (All) II
+  sp_cost: 20
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Axe and Ice Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  power: '210'
+  effects:
+  - 'Inflict Ice weakening to All Foes (times: 3-6 based on Boost Lv.) and deal Elem. Ice damage to All Foes (potency: 210).'
+  notes: 'Usage Condition: At 30% HP or less; Uses: 2'
+  ex_trigger: At 30% HP or less
+- skill_category: special
+  name: Cure-All
+  skill_type: heal
+  target: all_allies
+  effects:
+  - 'Restore HP of All Allies (amount: 99,999) and raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 1%→10%→20% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill."
-    trigger: always
-    limit_break_upgrade: "When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill and raise Elem. Res. of Self by 15% (turns: 2)."
-  - passive_category: innate
-    effect: "When near death: Impart Self with Elem. Atk. Up 30% and raise Ice damage dealt by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%"
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Ice Res. by 10%"
-    trigger: always
-  - passive_category: tp
-    effect: "Survive an otherwise lethal attack with 1 HP remaining once per battle."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Self Preservation
+  unlock_tier: 1★
+  effect: 'When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill.'
+  trigger: always
+  limit_break_upgrade: 'When near death: Grant Self a HP Barrier (75% of own max HP) after using a battle skill and raise Elem. Res. of Self by 15% (turns: 2).'
+- passive_category: innate
+  name: Desperate Elem. Atk./Ice Augment V
+  unlock_tier: 3★
+  effect: 'When near death: Impart Self with Elem. Atk. Up 30% and raise Ice damage dealt by 30%.'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 20%
+  trigger: always
+- passive_category: innate
+  name: Ice
+  effect: Resilience Raise own Ice Res. by 10%
+  trigger: always
+- passive_category: tp
+  name: Hang Tough
+  effect: Survive an otherwise lethal attack with 1 HP remaining once per battle.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Secrets of Medicine"
-  passive_effect: "When near death: Reduce own damage taken from some attacks by 50% (Does not stack with effects of the same type)"
+  name: Secrets of Medicine
+  passive_effect: 'When near death: Reduce own damage taken from some attacks by 50% (Does not stack with effects of the same type)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Ice weakening
+  description: Add an Ice weak point to the foe. If the foe was already weak to Ice, Ice damage dealt is increased by 20%. Every time the target is hit with a Ice attack this added weakness is reduced by one. *Cannot be applied to enemies without weak points.
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

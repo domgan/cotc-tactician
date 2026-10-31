@@ -58,145 +58,204 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Phantom Bite"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Amber Edge"
-    sp_cost: 41
-    skill_type: mixed
-    damage_types: [dagger, lightning]
-    target: back_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Amber Step"
-    sp_cost: 41
-    skill_type: attack
-    damage_types: [dagger, lightning]
-    target: back_row
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Scales of Justice"
-    sp_cost: 26
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**Scales of Justice (2★)** Lower Phys"
-  - skill_category: active
-    name: "Resolute Faith"
-    sp_cost: 56
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Resolute Faith (2★)** Raise Phys"
-  - skill_category: active
-    name: "Thunder Fang"
-    sp_cost: 43
-    skill_type: attack
-    damage_types: [dagger, lightning]
-    target: back_row
-    power: "260"
-  - skill_category: active
-    name: "Brilliant Phantasm"
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "2x"
-    power: "2x90, turns: 2-5 based on Boost Lv."
-    limit_break_upgrade: "From the turn after this skill is used, deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x90, turns: 2-5 based on Boost Lv.). Lower Shield Points even when not striking weak points."
-  - skill_category: active
-    name: "Thunderclap Step"
-    sp_cost: 81
-    skill_type: attack
-    damage_types: [dagger, lightning]
-    target: back_row
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "**Thunderclap Step (5★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Lightning Step"
-    sp_cost: 87
-    skill_type: attack
-    damage_types: [dagger, lightning]
-    target: back_row
-    hit_count: "6x"
-    power: "6x30"
-    effects:
-      - "**Lightning Step (5★)** Act faster during turn and deal Phys"
-  - skill_category: tp
-    name: "Premeditation"
-    sp_cost: 95
-    skill_type: mixed
-    damage_types: [dagger]
-    target: back_row
-    hit_count: "4x"
-    power: "4x70"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: tp
-    name: "Premeditation Lv.2"
-    sp_cost: 95
-    skill_type: mixed
-    damage_types: [dagger]
-    target: back_row
-    power: "**5x70**"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Phantom Fang"
-    skill_type: attack
-    damage_types: [dagger]
-    target: back_row
-    hit_count: "2x"
-    power: "2x135"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Crown of Wrath"
-    skill_type: buff
-    target: back_row
-    power: "2→3"
-    effects:
-      - "Raise potency of Self by **50%→100%→150%** (turns: 2/Turns cannot be extended/Does not stack with effects of the same type)"
+- skill_category: active
+  name: Phantom Bite
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Amber Edge
+  sp_cost: 41
+  skill_type: debuff
+  damage_types:
+  - dagger
+  - lightning
+  target: back_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 3 time(s) (potency: 3x65) and subsequently move to the back row (action does not count as switching).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Dagger attack).
+  - Lower Shield Points even when not striking weak points.
+  - Attack count becomes 5 at Max Boost.
+- skill_category: active
+  name: Amber Step
+  unlock_tier: 1★
+  sp_cost: 41
+  skill_type: utility
+  damage_types:
+  - dagger
+  - lightning
+  target: back_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Dagger attack).
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Scales of Justice
+  unlock_tier: 2★
+  sp_cost: 26
+  skill_type: debuff
+  target: back_row
+  effects:
+  - Lower Phys. Def. and ELem.
+  - 'Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  name: Resolute Faith
+  unlock_tier: 2★
+  sp_cost: 56
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row and Paired Allyby 15% (turns: 2-5 based on Boost Lv.) and subsequently move to the back row (action does not count as switching).'
+- skill_category: active
+  name: Thunder Fang
+  unlock_tier: 3★
+  sp_cost: 43
+  skill_type: utility
+  damage_types:
+  - dagger
+  - lightning
+  target: back_row
+  power: '260'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 260) and subsequently move to the back row (action does not count as switching).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Dagger attack).
+  - 100% more potent if the target is broken.
+  upgrades:
+  - 'Lv.88: SP Saver: 43→34'
+- skill_category: active
+  name: Brilliant Phantasm
+  unlock_tier: 4★
+  sp_cost: 82
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 2x
+  power: '2x90, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Dagger damage to All Foes 2 time(s) before some allies act (potency: 2x90, turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 82→66'
+  limit_break_upgrade: 'From the turn after this skill is used, deal Phys. Dagger damage to All Foes 2 time(s) (potency: 2x90, turns: 2-5 based on Boost Lv.). Lower Shield Points even when not striking weak points.'
+- skill_category: active
+  name: Thunderclap Step
+  unlock_tier: 5★
+  sp_cost: 81
+  skill_type: utility
+  damage_types:
+  - dagger
+  - lightning
+  target: back_row
+  hit_count: 4x
+  power: 4x65
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x65) and subsequently move to the back row (action does not count as switching).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 81→65'
+- skill_category: active
+  name: Lightning Step
+  unlock_tier: 5★
+  sp_cost: 87
+  skill_type: utility
+  damage_types:
+  - dagger
+  - lightning
+  target: back_row
+  hit_count: 6x
+  power: 6x30
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Dagger damage to Random Foe 6 time(s) (potency: 6x30) and subsequently move to the back row (action does not count as switching).'
+  - Exploits Lightning weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.100: SP Saver: 87→70'
+- skill_category: tp
+  name: Premeditation
+  sp_cost: 95
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: back_row
+  hit_count: 4x
+  power: 4x70
+  effects:
+  - 'Cast countdown on Self (count: 3) and subsequently move to the back row (action does not count as switching).'
+  - 'Once the countdown ends, deal Phys. Dagger damage to All Foes 4 time(s) (potency: 4x70).'
+  - Lower Shield Points even when not striking weak points.
+  - '*This attack cannot break enemies.'
+  upgrades:
+  - 'Lv.2: Cast countdown on Self (count: 3) and subsequently move to the back row (action does not count as switching). Once the countdown ends, deal Phys. Dagger damage to All Foes 5 time(s) (potency: 5x70). Lower Shield Points even when not striking weak points. *This attack cannot break enemies.'
+- skill_category: ex
+  name: Phantom Fang
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: back_row
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x135) and subsequently move to the back row (action does not count as switching).'
+  - Damage Limit of this skill is increased by 100,000.
+  - 100% more potent if the target is broken.
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Crown of Wrath
+  skill_type: buff
+  target: back_row
+  effects:
+  - 'Raise potency of Self by 50%→100%→150% (turns: 2/Turns cannot be extended/Does not stack with effects of the same type).'
+  - Subsequently move to the back row (action does not count as switching/only triggers when activated at 100% gauge).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 10%, grant them Dead Aim (guaranteed critical hits) and the ability to trigger critical hits with elemental attacks (turns: 2→3).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in back row: Grant Front Row automatic SP recovery (amount: 5% of target’s max SP) and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Grant Self the ability to trigger a follow-up strike when any other ally in Entire Front Row attacks (Excluding counteers and Ultimate Techniques/only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 150). Lower Shield Points even when not striking weak points. *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack)."
-    trigger: always
-  - passive_category: tp
-    effect: "When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack) and raise Dagger damage of Entire Front Row by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Phantom’s Patronage
+  unlock_tier: 1★
+  effect: 'When in back row: Grant Front Row automatic SP recovery (amount: 5% of target’s max SP) and reduce their damage taken from some attacks by 10% (Does not stack with effects of the same type).'
+  trigger: always
+- passive_category: innate
+  name: The Phantom Thief
+  unlock_tier: 3★
+  effect: 'When in back row: Grant Self the ability to trigger a follow-up strike when any other ally in Entire Front Row attacks (Excluding counteers and Ultimate Techniques/only activates once per action). Follow-up strike: Deal Phys. Dagger damage to All Foes (potency: 150). Lower Shield Points even when not striking weak points. *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break.'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning
+  effect: Resilience Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Lionhearted
+  effect: When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack).
+  trigger: always
+  upgrades:
+  - 'Lv.2: When a broken enemy is present, gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses with some physical attacks other than the “Attack” action (damage calculation based on original attack) and raise Dagger damage of Entire Front Row by 15%.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Dagger attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "El’s Calling Card"
-  passive_effect: "60 P.Atk, 80 Crit; When in back row: Raise Damage Limit of Entire Front Row by 20,000 and lower Dagger Res. of All Foes by 10%"
+  name: El’s Calling Card
+  passive_effect: '60 P.Atk, 80 Crit; When in back row: Raise Damage Limit of Entire Front Row by 20,000 and lower Dagger Res. of All Foes by 10%'
 
 # Metadata
 data_confidence: complete

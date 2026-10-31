@@ -70,146 +70,185 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Triple Light Powder"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Emergency Panacea (Front/All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "65"
-    effects:
-      - "**Emergency Panacea (Front/All)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.)"
-      - "At Max Boost: Also raise their Phys"
-  - skill_category: active
-    name: "Elemental Serum (Front/All) II"
-    sp_cost: 57
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Elemental Serum (Front/All) II (1★)** Raise Elem"
-  - skill_category: active
-    name: "Crusader’s Serum"
-    sp_cost: 52
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Crusader’s Serum (2★)** Act faster during turn"
-      - "of All Allies by 15% (turns: 2-5 based on Boost Lv.) and grant Damage Limit Up (effect: 20,000, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Quadruple Light Powder"
-    sp_cost: 66
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Light damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Elem"
-  - skill_category: active
-    name: "Sustained Adjuvant (Front/All)"
-    sp_cost: 115
-    skill_type: heal
-    target: front_row
-    power: "205/times: 1-4"
-    effects:
-      - "**Sustained Adjuvant (Front/All) (3★)** Restore HP of Entire Front Row at the end of every turn (potency: 205/times: 1-4)"
-    limit_break_upgrade: "Restore HP of Entire Front Row at the end of every turn (potency: 205/**times: 2-5**). If the user is in front row during the healing, also cure status ailments of targets."
-  - skill_category: active
-    name: "Gracious Serum"
-    sp_cost: 104
-    skill_type: buff
-    target: front_row
-    power: "10%-40% of user’s max HP based on Boost Lv."
-    effects:
-      - "**Gracious Serum (4★)** Act faster during turn"
-      - "grant All Allies HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv.) and raise Phys"
-  - skill_category: active
-    name: "Quadruple Glimmering Plume"
-    sp_cost: 94
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "**Quadruple Glimmering Plume (5★)** Act faster during turn and deal Elem"
-  - skill_category: active
-    name: "Sustained Light Powder"
-    sp_cost: 126
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "3x"
-    power: "3x55, turns: 2-5 based on Boost Lv."
-  - skill_category: tp
-    name: "Guardian of Light’s Powder"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "630"
-  - skill_category: tp
-    name: "Guardian of Light’s Powder Lv.2"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "630"
-    effects:
-      - "Grant All Allies SP Stock (amount: 100% of user’s max SP/does not stack)"
-  - skill_category: ex
-    name: "Sacred Spirit’s Preservation"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**Sacred Spirit’s Preservation** Grant All Allies automatic revival (revived at 25%-100% of max HP based on Boost Lv.)"
-      - "which triggers immediately if incapacitated (does not stack) and restore their BP by 4, but delay actions during turn"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Strengthening Elixir"
-    skill_type: mixed
-    target: single_ally
-    power: "2→3"
-    effects:
-      - "Act faster during turn"
-      - "raise elemental damage of Single Ally by **10%→20%→30%** (turns: **2→3**)"
+- skill_category: active
+  name: Triple Light Powder
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack).
+- skill_category: active
+  name: Emergency Panacea (Front/All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '65'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 100/turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: Also raise their Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 15% (turns: 2).'
+- skill_category: active
+  name: Elemental Serum (Front/All) II
+  unlock_tier: 1★
+  sp_cost: 57
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk. and elemental damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Crusader’s Serum
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: buff
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster during turn, raise Phys. Atk. and Elem. Atk. of All Allies by 15% (turns: 2-5 based on Boost Lv.) and grant Damage Limit Up (effect: 20,000, turns: 2-5 based on Boost Lv.).'
+  - Subsequently, switch all other front row allies to the back row.
+- skill_category: active
+  name: Quadruple Light Powder
+  unlock_tier: 2★
+  sp_cost: 66
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Elem. Def. by 10% with every attack (turns: 2).'
+  - Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack).
+  - 'At Max Boost: Attack count becomes 5.'
+- skill_category: active
+  name: Sustained Adjuvant (Front/All)
+  unlock_tier: 3★
+  sp_cost: 115
+  skill_type: heal
+  target: front_row
+  power: '205/times: 1-4'
+  effects:
+  - 'Restore HP of Entire Front Row at the end of every turn (potency: 205/times: 1-4).'
+  - If the user is in front row during the healing, also cure status ailments of targets.
+  upgrades:
+  - 'Lv.88: SP Saver: 115→92'
+  limit_break_upgrade: 'Restore HP of Entire Front Row at the end of every turn (potency: 205/times: 2-5). If the user is in front row during the healing, also cure status ailments of targets.'
+- skill_category: active
+  name: Gracious Serum
+  unlock_tier: 4★
+  sp_cost: 104
+  skill_type: buff
+  target: front_row
+  power: 10%-40% of user’s max HP based on Boost Lv.
+  priority: true
+  effects:
+  - 'Act faster during turn, grant All Allies HP Barrier (potency: 10%-40% of user’s max HP based on Boost Lv.) and raise Phys. Def. and Elem. Def. by 15% (turns: 2-5 based on Boost Lv.).'
+  - Subsequently, switch all other front row allies to the back row.
+  upgrades:
+  - 'Lv.96: SP Saver: 104→83'
+- skill_category: active
+  name: Quadruple Glimmering Plume
+  unlock_tier: 5★
+  sp_cost: 94
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 4x
+  power: 4x35
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Elem. Light damage to All Foes 4 time(s) (potency: 4x35).'
+  - Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack).
+  - Subsequently, switch all other front row allies to the back row.
+  upgrades:
+  - 'Lv.99: SP Saver: 94→75'
+- skill_category: active
+  name: Sustained Light Powder
+  unlock_tier: 5★
+  sp_cost: 126
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 3x
+  power: '3x55, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Light damage to Random Foe 3 time(s) at the beginning of every turn (potency: 3x55, turns: 2-5 based on Boost Lv.).'
+  - Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack).
+  - If the user is in front row during the attack, attack count becomes 4.
+  upgrades:
+  - 'Lv.100: SP Saver: 126→101'
+- skill_category: tp
+  name: Guardian of Light’s Powder
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '630'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 630).'
+  - Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack).
+  upgrades:
+  - 'Lv.2: Deal Elem. Light damage to Single Foe (potency: 630). Exploits Fire and Ice weaknesses (damage calculation based on Elem. Light attack). Grant All Allies SP Stock (amount: 100% of user’s max SP/does not stack).'
+- skill_category: ex
+  name: Sacred Spirit’s Preservation
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Grant All Allies automatic revival (revived at 25%-100% of max HP based on Boost Lv.), which triggers immediately if incapacitated (does not stack) and restore their BP by 4, but delay actions during turn.
+  notes: 'Usage Condition: -; Uses: 2'
+  ex_trigger: '-'
+- skill_category: special
+  name: Strengthening Elixir
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn, raise elemental damage of Single Ally by 10%→20%→30% (turns: 2→3), potency by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type) and Damage Limit by 10,000→50,000→100,000 (turns: 1).'
+  - If targeting Self, the duration of Potency Up and Damage Limit Up becomes 2 turns.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When an ally switches to front/back rows: Raise Elem. Atk. and Elem. Def. of moving Paired Allies by 15% (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "When an ally switches to front/back rows: Restore HP (amount: 20% of target’s max HP) and SP (amount: 10% of target’s max SP) of moving Paired Allies."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally switches to back row: Restore their BP by 1."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally switches to back row: Restore their BP by 1. When an ally switches to front/back rows: Also cure Terror and Death Sentence and raise their Light damage by 15% (turns: 2)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Fire, Ice and Light attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Elem. Boost on Switch II
+  unlock_tier: 1★
+  effect: 'When an ally switches to front/back rows: Raise Elem. Atk. and Elem. Def. of moving Paired Allies by 15% (turns: 1).'
+  trigger: always
+- passive_category: innate
+  name: HP/SP Restoration on Switch
+  unlock_tier: 3★
+  effect: 'When an ally switches to front/back rows: Restore HP (amount: 20% of target’s max HP) and SP (amount: 10% of target’s max SP) of moving Paired Allies.'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: BP Restoration on Switch
+  effect: 'When an ally switches to back row: Restore their BP by 1.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When an ally switches to back row: Restore their BP by 1. When an ally switches to front/back rows: Also cure Terror and Death Sentence and raise their Light damage by 15% (turns: 2).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Fire, Ice and Light attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Velnorte’s Manuscript"
-  passive_effect: "50 E.Atk, 400 HP, 50 SP; When switching: Raise Elem. Atk. of Paired Allies by 15% and their Damage Limit by 25,000 (turns: 1)"
+  name: Velnorte’s Manuscript
+  passive_effect: '50 E.Atk, 400 HP, 50 SP; When switching: Raise Elem. Atk. of Paired Allies by 15% and their Damage Limit by 25,000 (turns: 1)'
 
 # Metadata
 data_confidence: incomplete

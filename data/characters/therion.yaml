@@ -67,131 +67,189 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Shield Burst"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "HP Thief"
-    sp_cost: 27
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Wildfire"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Fire damage to Single Foe (potency: 170) and impart Phys"
-  - skill_category: active
-    name: "Restrain Foe"
-    sp_cost: 18
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Restrain Foe (2★)** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Double Burst"
-    sp_cost: 36
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Lower Shield Points even when not striking a weak point"
-  - skill_category: active
-    name: "Draining Dagger"
-    sp_cost: 36
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Triple Bite"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: active
-    name: "Paralyzing Tooth"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    name: "Hellfire"
-    sp_cost: 70
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: tp
-    name: "Mirage Assault"
-    sp_cost: 68
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: ex
-    name: "Lycan Edge"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Thief’s Plunder"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "440→525→655"
-    effects:
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Shield Burst
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: HP Thief
+  sp_cost: 27
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75) and absorb 30% of damage dealt as HP.'
+- skill_category: active
+  name: Wildfire
+  unlock_tier: 1★
+  sp_cost: 24
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170) and impart Phys. Atk. Down 10% (turns: 2).'
+- skill_category: active
+  name: Restrain Foe
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Atk. Down 15% and Phys. Def. Down 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Double Burst
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Lower Shield Points even when not striking a weak point.
+- skill_category: active
+  name: Draining Dagger
+  unlock_tier: 3★
+  sp_cost: 36
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x90) and absorbs 2% of damage dealt as SP.'
+  upgrades:
+  - 'Lv.88: Effect Up: 2%→3%'
+- skill_category: active
+  name: Triple Bite
+  unlock_tier: 4★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Dagger Damage to Single Foe 3 time(s) (potency: 3x85).'
+  upgrades:
+  - 'Lv.96: SP Saver: 52→42'
+- skill_category: active
+  name: Paralyzing Tooth
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 260) and have moderate chance to inflict paralysis (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 46→37'
+- skill_category: active
+  name: Hellfire
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x95).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Mirage Assault
+  sp_cost: 68
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Dagger Damage to All Foes 3 time(s) (potency: 3x80).'
+- skill_category: ex
+  name: Lycan Edge
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Inflict Dagger weakening to Single Foe (times: 1-4 based on Boost Lv.) and deal Phys. Dagger damage 4 time(s) (potency: 4x65).'
+  notes: 'Usage Condition: After turn 3; Uses: 3'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Thief’s Plunder
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 440→525→655) and recover 1→2 BP.'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise recovery amount of absorption skills by 50% for Self."
-    trigger: always
-  - passive_category: innate
-    effect: "When using Boost MAX on an ability, that ability is used a second time in a row."
-    trigger: always
-    limit_break_upgrade: "When using Boost MAX on an ability, that ability is used a second time in a row and raise own Phys. Atk. and Dagger damage by 15%."
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When breaking an enemy, restore 1 BP."
-    trigger: on_break
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Absorb Up
+  unlock_tier: 1★
+  effect: Raise recovery amount of absorption skills by 50% for Self.
+  trigger: always
+- passive_category: innate
+  name: Divine Feat
+  unlock_tier: 3★
+  effect: When using Boost MAX on an ability, that ability is used a second time in a row.
+  trigger: always
+  limit_break_upgrade: When using Boost MAX on an ability, that ability is used a second time in a row and raise own Phys. Atk. and Dagger damage by 15%.
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Opportunity
+  effect: When breaking an enemy, restore 1 BP.
+  trigger: on_break
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Famous Thief’s Lockpick"
-  passive_effect: "40 P.Atk, 60 Spd, 400 HP; Raise Dagger damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3)"
+  name: Famous Thief’s Lockpick
+  passive_effect: '40 P.Atk, 60 Spd, 400 HP; Raise Dagger damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Dagger weakening
+  description: Add a Dagger weak point to the foe. If the foe was already weak to Dagger, Dagger damage dealt is increased by 20%. Every time the target is hit with a Dagger attack this added weakness is reduced by one. *Cannot be applied to enemies without weak points.
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

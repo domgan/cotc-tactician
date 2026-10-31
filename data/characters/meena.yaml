@@ -51,122 +51,144 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Dazzling Dance"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Spirited Mole Dance"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Heavy Blow"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Healing Hymn"
-    sp_cost: 28
-    skill_type: heal
-    target: front_row
-    power: "60"
-    effects:
-      - "**Healing Hymn (2★)** Restore HP of Entire Front Row (potency: 60)"
-  - skill_category: active
-    name: "Radiant Refrain II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    power: "145"
-    limit_break_upgrade: "Deal Elem. Light damage to All Foes (potency: 145) and lower Light Res. by 15% (turns: 2)."
-  - skill_category: active
-    name: "Spirited Mole Dance II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance II (3★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Spirited Mole Dance II"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance II (5★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Stout Twofold Blow"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x115"
-  - skill_category: active
-    name: "Stout Twofold Blow"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x130**"
-  - skill_category: tp
-    name: "Sunlight Ballad IV"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: ex
-    name: "Azure Ballad"
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Light damage to All Foes 3 time(s) (potency: 3x80) and raise Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Starry Step"
-    skill_type: heal
-    target: front_row
-    power: "200→250→300"
-    effects:
-      - "Restore HP of Entire Front Row (potency: **200→250→300**) and impart with Phys"
+- skill_category: active
+  name: Dazzling Dance
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Spirited Mole Dance
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Heavy Blow
+  unlock_tier: 1★
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Healing Hymn
+  unlock_tier: 2★
+  sp_cost: 28
+  skill_type: heal
+  target: front_row
+  power: '60'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 60).'
+- skill_category: active
+  name: Radiant Refrain II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Elem. Light damage to All Foes (potency: 145).'
+  limit_break_upgrade: 'Deal Elem. Light damage to All Foes (potency: 145) and lower Light Res. by 15% (turns: 2).'
+- skill_category: active
+  name: Spirited Mole Dance II
+  unlock_tier: 3★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 23→18'
+  - 'Upgraded: Impart Entire Front Row with Phys. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Stout Twofold Blow
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 2x
+  power: 2x115
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 2 time(s) (potency: 2x115).'
+  upgrades:
+  - 'Lv.80: SP Saver: 40→32'
+  - 'Upgraded: Deal Phys. Fan damage to Single Foe 2 time(s) (potency: 2x130).'
+- skill_category: tp
+  name: Sunlight Ballad IV
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x85).'
+- skill_category: ex
+  name: Azure Ballad
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Light damage to All Foes 3 time(s) (potency: 3x80) and raise Phys. Def. of Entire Front Row by 15% (turns: 2).'
+  notes: 'Usage Condition: At full HP; Uses: 2'
+  ex_trigger: At full HP
+- skill_category: special
+  name: Starry Step
+  skill_type: heal
+  target: front_row
+  power: 200→250→300
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 200→250→300) and impart with Phys. Def. Up 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise HP recovery skill potency of Paired Allies by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "At full HP: Raise Light damage of Self by 20%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Impart Entire Front Row with Phys. Def. Up 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Enhanced Healing (Joint)
+  unlock_tier: 1★
+  effect: Raise HP recovery skill potency of Paired Allies by 10%.
+  trigger: always
+- passive_category: innate
+  name: Hale Light Augment III
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Light damage of Self by 20%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 5★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Phys. Def. Boost (Front/All)
+  effect: Impart Entire Front Row with Phys. Def. Up 10%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Innocent Dancing Shoes"
-  passive_effect: "10 P.Atk, 30 E.Def, 10 SP; Raise Phys. Def. of Paired Allies by 10%"
+  name: Innocent Dancing Shoes
+  passive_effect: 10 P.Atk, 30 E.Def, 10 SP; Raise Phys. Def. of Paired Allies by 10%
 
 # Metadata
 data_confidence: incomplete

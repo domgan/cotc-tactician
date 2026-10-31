@@ -405,16 +405,13 @@ def roster_ui(
     try:
         import uvicorn
     except ImportError as e:
-        console.print(
-            "[red]Error: roster-ui requires the ui extra. "
-            "Run: uv sync --extra ui[/]"
-        )
+        console.print("[red]Error: roster-ui requires the ui extra. Run: uv sync --extra ui[/]")
         raise typer.Exit(1) from e
 
     from .roster_ui.app import create_app
 
     url = f"http://localhost:{port}"
-    console.print(f"[bold blue]COTC Tactician — Roster UI[/]")
+    console.print("[bold blue]COTC Tactician — Roster UI[/]")
     console.print(f"Roster file: {roster_path()}")
     console.print(f"Open [link={url}]{url}[/] in your browser")
     if reload:

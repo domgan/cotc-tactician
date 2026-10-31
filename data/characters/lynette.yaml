@@ -68,122 +68,169 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Impassioned Ode II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Masterful Moves II"
-    sp_cost: 21
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Masterful Moves II** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Double Sweep"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Scorching Song II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Elegy of the Pyre"
-    sp_cost: 16
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Elegy of the Pyre (2★)** Lower Fire Res"
-  - skill_category: active
-    name: "Masterful Cheer III"
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Masterful Cheer III (3★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Incinerating Step"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [fire]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Waltz of the Crimson Lotus"
-    sp_cost: 57
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x100"
-    effects:
-      - "Fire damage to All Foes 2 time(s) (potency: 2x100) and lower Fire Res"
-  - skill_category: active
-    name: "Bemusing Strut"
-    sp_cost: 48
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fan damage to Single Foe 3 time(s) (potency: 3x65) and impart Elem"
-  - skill_category: tp
-    name: "Flame Burst"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [fire]
-    target: back_row
-    power: "260"
-  - skill_category: ex
-    name: "Battle-Hardening Inspiration III"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Battle-Hardening Inspiration III** Raise Phys"
-      - "and Critical of Entire Front Row by 20% and grant ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Child of the Dance"
-    skill_type: buff
-    target: front_row
-    power: "2→3"
+- skill_category: active
+  name: Impassioned Ode II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Masterful Moves II
+  sp_cost: 21
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Double Sweep
+  unlock_tier: 1★
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Scorching Song II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Fire damage All Foes (potency: 150).'
+- skill_category: active
+  name: Elegy of the Pyre
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Fire Res. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Masterful Cheer III
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 20% and Elem. Atk. Up 20% (turns: 2-5 based on Boost Lv).'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+- skill_category: active
+  name: Incinerating Step
+  unlock_tier: 4★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - fire
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Random Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 40→32'
+- skill_category: active
+  name: Waltz of the Crimson Lotus
+  unlock_tier: 5★
+  sp_cost: 57
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x100
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x100) and lower Fire Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 57→46'
+- skill_category: active
+  name: Bemusing Strut
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 3 time(s) (potency: 3x65) and impart Elem. Def. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+- skill_category: tp
+  name: Flame Burst
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - fire
+  target: back_row
+  power: '260'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 260) and switch to Back Row.'
+  - '*It does not count as a switch.'
+- skill_category: ex
+  name: Battle-Hardening Inspiration III
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Critical of Entire Front Row by 20% and grant ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 4; Uses: 2'
+  ex_trigger: After turn 4
+- skill_category: special
+  name: Child of the Dance
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Speed of Entire Front Row by 10%→20%→30% (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Elem. Atk. Up 10% (turns: 1)."
-    trigger: always
-    limit_break_upgrade: "When switching: Impart Entire Front Row with Phys. Atk. Up **15%** and Elem. Atk. Up **15%** (turns: 1)."
-  - passive_category: innate
-    effect: "Raise Fire damage of Paired Allies by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Extend duration of buff casted by Self by 1 turn."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Empowering Exchange (Front/All)
+  unlock_tier: 1★
+  effect: 'When switching: Impart Entire Front Row with Phys. Atk. Up 10% and Elem. Atk. Up 10% (turns: 1).'
+  trigger: always
+  limit_break_upgrade: 'When switching: Impart Entire Front Row with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 1).'
+- passive_category: innate
+  name: Fire Augment (Joint)
+  unlock_tier: 3★
+  effect: Raise Fire damage of Paired Allies by 10%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Extended Augment (Give)
+  effect: Extend duration of buff casted by Self by 1 turn.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Late Mother's Shoes"
-  passive_effect: "60 E.Atk, 40 P.Def, 40 E.Def; Raise Fire damage dealt by 15%; Raise Ice Res. by 10%"
+  name: Late Mother's Shoes
+  passive_effect: 60 E.Atk, 40 P.Def, 40 E.Def; Raise Fire damage dealt by 15%; Raise Ice Res. by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Rearguard Activation
+  description: Use the Ultimate Technique and swap to back row, allowing row partner to take an action during the same turn.
 
 # Metadata
 data_confidence: incomplete

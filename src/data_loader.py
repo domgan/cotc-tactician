@@ -5,6 +5,7 @@ Loads human-curated YAML files and parses them into Pydantic models.
 Handles validation and provides helpful error messages for malformed data.
 """
 
+import hashlib
 import logging
 from pathlib import Path
 from typing import TypeVar
@@ -48,6 +49,16 @@ class DataLoader:
             path = self.data_dir / subdir
             if not path.exists():
                 logger.warning(f"Expected subdirectory not found: {path}")
+
+    def fingerprint(self) -> str:
+        """Cheap change detector over data files (path, size, mtime); no file reads."""
+        digest = hashlib.sha256()
+        for path in sorted(self.data_dir.rglob("*.y*ml")):
+            stat = path.stat()
+            digest.update(
+                f"{path.relative_to(self.data_dir)}:{stat.st_size}:{stat.st_mtime_ns}\n".encode()
+            )
+        return digest.hexdigest()
 
     def _load_yaml_file(self, file_path: Path) -> dict:
         """Load a single YAML file."""

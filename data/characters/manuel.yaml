@@ -51,102 +51,132 @@ jp_tier: "H | <7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blow"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Mole Dance"
-    sp_cost: 6
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Mole Dance** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Waltz of the Zephyr"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Spirited Mole Dance"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance (2★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Heavy Blow"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    power: "150"
-  - skill_category: active
-    name: "Spirited Mole Dance II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance II (3★)** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Spirited Mole Dance II"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Spirited Mole Dance II (5★)** Impart Entire Front Row with Phys"
-  - skill_category: tp
-    name: "Mole’s Dance Fan"
-    sp_cost: 54
-    skill_type: mixed
-    damage_types: [fan]
-    target: front_row
-    power: "260"
-    effects:
-      - "Fan damage to Single Foe (potency: 260) and impart Entire Front Row with Phys"
-  - skill_category: ex
-    name: "Divine Protection Inspiration"
-    skill_type: utility
-    target: front_row
-    notes: "Uses: 3"
-  - skill_category: special
-    name: "Red Valley Dance"
-    skill_type: mixed
-    damage_types: [fan]
-    target: front_row
-    power: "440→525→655"
-    effects:
-      - "Fan damage to Single Foe (potency: **440→525→655**) and impart Entire Front Row with Phys"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Blow
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe1-hit Fan to Single Foe (potency: 120).'
+- skill_category: active
+  name: Mole Dance
+  sp_cost: 6
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Def. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Waltz of the Zephyr
+  unlock_tier: 1★
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Spirited Mole Dance
+  unlock_tier: 2★
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Heavy Blow
+  unlock_tier: 2★
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '150'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 150).'
+- skill_category: active
+  name: Spirited Mole Dance II
+  unlock_tier: 3★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.60: SP Saver: 23→18'
+  - 'Upgraded: Impart Entire Front Row with Phys. Def. Up 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: tp
+  name: Mole’s Dance Fan
+  sp_cost: 54
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: front_row
+  power: '260'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 260) and impart Entire Front Row with Phys. Def. Up 10% (turns.'
+  - 2).
+- skill_category: ex
+  name: Divine Protection Inspiration
+  skill_type: utility
+  target: front_row
+  effects:
+  - Reduce the damage received by Entire Front Row for one attack by 10%-50% based on Boost Lv..
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 3'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Red Valley Dance
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: front_row
+  power: 440→525→655
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 440→525→655) and impart Entire Front Row with Phys. Def. Up 5%→10%→15% (turns: 2).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Paired Allies with Elem. Atk. Up 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Lightning Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Phys. Def. of Paired Ally by 10%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Elem. Atk Boost (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Paired Allies with Elem. Atk. Up 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Lightning Res. Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Lightning Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Lightning Resilience III
+  unlock_tier: 5★
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  unlock_tier: 4★
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Vanguard Phys. Def. Boost (Front/Single)
+  effect: 'When in front row: Raise Phys. Def. of Paired Ally by 10%.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Handcrafted Jewelry"
-  passive_effect: "20 P.Atk, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Yugo: Raise Phys. Atk. and Fan damage of Paired Allies by 10%"
+  name: Handcrafted Jewelry
+  passive_effect: '20 P.Atk, 200 HP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Yugo: Raise Phys. Atk. and Fan damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

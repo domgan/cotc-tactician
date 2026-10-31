@@ -53,130 +53,202 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [bow, light]
-    target: single_enemy
-    power: "210"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Also lower Phys"
-  - skill_category: active
-    sp_cost: 48
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(1★)** Raise Phys"
-      - "and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000) (turns: 2-5 based on Boost Lv.)"
-      - "also restore 1 BP"
-  - skill_category: active
-    sp_cost: 84
-    skill_type: buff
-    target: self
-    power: "110"
-    effects:
-      - "**(2★)** Grant Self automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 3-6 based on Boost Lv.)"
-      - "restore own HP (potency: 140) and SP (amount: 100) and raise BP recovery by 1 (turns: 3)"
-  - skill_category: active
-    sp_cost: 76
-    skill_type: mixed
-    damage_types: [bow, light]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Have a moderate chance to lower Bow Res"
-  - skill_category: active
-    sp_cost: 95
-    skill_type: attack
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x70, turns: 2-5 based on Boost Lv."
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "5x"
-    power: "5x25"
-  - skill_category: active
-    sp_cost: 26
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "**(5★)** Raise Phys"
-  - skill_category: active
-    sp_cost: 65
-    skill_type: attack
-    damage_types: [bow, light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x150"
-    effects:
-      - "Raise the Damage Limit of this skill by 50,000"
-  - skill_category: tp
-    skill_type: buff
-    target: self
-    effects:
-      - "**** Increase the uses of EX skill by 1 and grant Self “Fighting Spirit” (turns: 3-6 based on Boost Lv./cannot be extended)"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "10x"
-    power: "10x5"
-    effects:
-      - "Grant Self the special effect “Evil Eye Unleashed” (turns: 2/cannot be extended/granted as a support ability)"
-      - "“Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type)"
-      - "grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "“Moonlight Disaster”"
-    skill_type: attack
-    damage_types: [bow, light]
-    target: aoe
-    hit_count: "2x"
-    effects:
-      - "Raise the Damage Limit of this Ultimate Technique by 150,000"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: single_enemy
+  power: '210'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 210).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'At Max Boost: 20% more potent.'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x80).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'Also lower Phys. Def. by 15% (turns: 2).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 48
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000) (turns: 2-5 based on Boost Lv.).'
+  - If target is a Hunter, also restore 1 BP.
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 84
+  skill_type: buff
+  target: self
+  power: '110'
+  effects:
+  - 'Grant Self automatic HP recovery (potency: 110) and SP recovery (amount: 5% of max SP) (turns: 3-6 based on Boost Lv.).'
+  - 'At Max Boost: Additionally, restore own HP (potency: 140) and SP (amount: 100) and raise BP recovery by 1 (turns: 3).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 76
+  skill_type: debuff
+  damage_types:
+  - bow
+  - light
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 4 time(s) (potency: 4x65).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'Have a moderate chance to lower Bow Res. by 15% with every attack (turns: 2).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 95
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 2x
+  power: '2x70, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Phys. Bow damage to All Foes 2 time(s) per turn before some allies act (potency: 2x70, turns: 2-5 based on Boost Lv.).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'Additionally, inflict Bow weakening (times: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 5x
+  power: 5x25
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 5 time(s) (potency: 5x25).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  upgrades:
+  - 'Lv.96: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 26
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise Phys. Atk. and Bow damage of Single Ally by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'If target is a Hunter, add 50% of Cassia’s E.Atk to target’s P.Atk (turns: 2-5 based on Boost Lv.) (Including equipment stats/Cannot be stacked).'
+  upgrades:
+  - 'Lv.99: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 65
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x150
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 2 time(s) (potency: 2x150).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - Raise the Damage Limit of this skill by 50,000.
+  - 'At Max Boost: 50% more potent.'
+  upgrades:
+  - 'Lv.100: SP Saver: ??→??'
+- skill_category: tp
+  skill_type: buff
+  target: self
+  effects:
+  - 'Increase the uses of EX skill by 1 and grant Self “Fighting Spirit” (turns: 3-6 based on Boost Lv./cannot be extended).'
+  - '*Can be used 3 times per battle.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 10x
+  power: 10x5
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 10 time(s) (potency: 10x5).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - 'Grant Self the special effect “Evil Eye Unleashed” (turns: 2/cannot be extended/granted as a support ability).'
+  - '“Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type).'
+  - Additionally, grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack).
+  notes: 'Usage Condition: When there’s an enemy with 10 or more Shield Points; Uses: 1'
+  ex_trigger: When there’s an enemy with 10 or more Shield Points
+- skill_category: special
+  name: Moonlight Disaster
+  skill_type: utility
+  damage_types:
+  - bow
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x???→2x420
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x???→2x420).'
+  - Exploits Light weakness (damage calculation based on Phys. Bow attack).
+  - Raise the Damage Limit of this Ultimate Technique by 150,000.
+  - When Self has “Evil Eye Unleashed”, activate the skill twice.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At full HP: Raise Phys. Atk. and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000)."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise Phys. Atk. limit support skills and equipment effects of Hunters in front row to 50%. While “Evil Eye Unleashed” is active: Also raise Phys. Atk. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, grant Self the special effect “Evil Eye Unleashed” (turns: 1). “Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type). Additionally, grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack). ---"
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'At full HP: Raise Phys. Atk. and Bow damage of Entire Front Row by 15% and grant Damage Limit Up (effect: 30,000).'
+  trigger: hp_condition
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'Raise Phys. Atk. limit support skills and equipment effects of Hunters in front row to 50%. While “Evil Eye Unleashed” is active: Also raise Phys. Atk. by 20%.'
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: “Evil Eye Unleashed'
+  effect: 'Upon activation, grant Self the special effect “Evil Eye Unleashed” (turns: 1). “Evil Eye Unleashed”: Grant Self Dead Aim (guaranteed critical hits) and raise potency of Self by 100% (Does not stack with effects of the same type). Additionally, grant Self the ability to ignore effects that completely avoids or blocks attacks and exploiting Wind and Dark weakness when dealing some physical attacks other than “Attack” (damage calculation based on each attack).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Moonlight Eyepatch”"
-  passive_effect: "100 P.Atk, 40 E.Atk; Raise Phys. Atk. and Bow damage by 15%; At full HP: Grant Damage Limit Up (effect: 50,000); When in front row: Grant automatic HP recovery (amount: 500) and SP recovery (amount: 10)"
+  name: Moonlight Eyepatch
+  passive_effect: '100 P.Atk, 40 E.Atk; Raise Phys. Atk. and Bow damage by 15%; At full HP: Grant Damage Limit Up (effect: 50,000); When in front row: Grant automatic HP recovery (amount: 500) and SP recovery (amount: 10)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Preparation Turn
+  description: '3'
+- name: Reuse Turn
+  description: '4'
+- name: Bow weakening
+  description: Add a Bow weak point to the foe. If the foe was already weak to Bow, Bow damage dealt is increased by 20%. Every time the target is hit with a Bow attack this added weakness is reduced by one. *Cannot be applied to enemies without weak points.
+- name: Fighting Spirit
+  description: Use BPs without consuming them. *Effects that require BP will consume them.
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

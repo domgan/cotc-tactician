@@ -54,144 +54,196 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Flaring Smash"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Medica (Front/All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "55"
-    effects:
-      - "**Medica (Front/All)** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2)"
-  - skill_category: active
-    name: "Flaring Bludgeon"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Grand Abolishment"
-    sp_cost: 48
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Grand Abolishment (2★)** Raise Phys"
-      - "also raise Staff damage by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Benedictory Bash"
-    sp_cost: 66
-    skill_type: attack
-    damage_types: [staff]
-    target: front_row
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Punitive Pathos"
-    sp_cost: 70
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Punitive Pathos (3★)** Grant Staff weakness to All Foes (times: 6-9 based on Boost Lv.) and lower Staff"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Staff Weakness: Regardless of the source"
-  - skill_category: active
-    name: "Shielding Mace"
-    sp_cost: 110
-    skill_type: mixed
-    damage_types: [staff]
-    target: front_row
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Restore HP of Entire Front Row (potency: 60) and grant HP Barrier (potency: 30% of user’s max HP/Does not stack)"
-  - skill_category: active
-    name: "Radiant Smash"
-    sp_cost: 88
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "6x"
-    power: "6x40"
-  - skill_category: active
-    name: "Radiant Bludgeon"
-    sp_cost: 110
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x110"
-  - skill_category: tp
-    name: "Raging Flaring Bash"
-    sp_cost: 72
-    skill_type: attack
-    damage_types: [staff]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Grant Staff weakness with every attack (times: 2)"
-  - skill_category: tp
-    name: "Raging Flaring Bash Lv.2"
-    sp_cost: 72
-    skill_type: mixed
-    damage_types: [staff]
-    target: random
-    power: "**5x45**"
-    effects:
-      - "Grant Staff weakness (times: 2) and lower Staff Res"
-  - skill_category: special
-    name: "Clavam de Iudicium"
-    skill_type: attack
-    damage_types: [staff]
-    target: front_row
-    hit_count: "8x"
+- skill_category: active
+  name: Flaring Smash
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+- skill_category: active
+  name: Medica (Front/All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '55'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2).'
+- skill_category: active
+  name: Flaring Bludgeon
+  unlock_tier: 1★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+- skill_category: active
+  name: Grand Abolishment
+  unlock_tier: 2★
+  sp_cost: 48
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'If target is a cleric, also raise Staff damage by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Benedictory Bash
+  unlock_tier: 2★
+  sp_cost: 66
+  skill_type: utility
+  damage_types:
+  - staff
+  target: front_row
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+- skill_category: active
+  name: Punitive Pathos
+  unlock_tier: 3★
+  sp_cost: 70
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Grant Staff weakness to All Foes (times: 6-9 based on Boost Lv.) and lower Staff, Fire and Light Res. by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 70→56'
+- skill_category: active
+  name: Shielding Mace
+  unlock_tier: 4★
+  sp_cost: 110
+  skill_type: heal
+  damage_types:
+  - staff
+  target: front_row
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'Restore HP of Entire Front Row (potency: 60) and grant HP Barrier (potency: 30% of user’s max HP/Does not stack).'
+  upgrades:
+  - 'Lv.96: SP Saver: 110→88'
+- skill_category: active
+  name: Radiant Smash
+  unlock_tier: 5★
+  sp_cost: 88
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 6 time(s) (potency: 6x40).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  upgrades:
+  - 'Lv.99: SP Saver: 88→70'
+- skill_category: active
+  name: Radiant Bludgeon
+  unlock_tier: 5★
+  sp_cost: 110
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x110
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x110).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'At Max Boost: Potency doubles.'
+  upgrades:
+  - 'Lv.100: SP Saver: 110→77'
+- skill_category: tp
+  name: Raging Flaring Bash
+  sp_cost: 72
+  skill_type: utility
+  damage_types:
+  - staff
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 4 time(s) (potency: 4x45).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'Grant Staff weakness with every attack (times: 2).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Staff damage to Random Foe 5 time(s) (potency: 5x45). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack). Grant Staff weakness (times: 2) and lower Staff Res. by 15% (turns: 2) with every attack.'
+- skill_category: special
+  name: Clavam de Iudicium
+  skill_type: utility
+  damage_types:
+  - staff
+  target: front_row
+  hit_count: 8x
+  power: 8x40→8x50→8x60
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 8 time(s) (potency: 8x40→8x50→8x60).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
+  - 'Raise Phys. Atk. of Entire Front Row by 10%→15%→20% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge: Attack count becomes 10 and raise Phys. damage of Entire Front Row by 10%→15%→20% (turns: 2).; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes (potency: 150). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
-    trigger: always
-    limit_break_upgrade: "When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes **2** time(s) (potency: **2x100**). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack)."
-  - passive_category: innate
-    effect: "At full HP: Raise Phys. Atk. of Entire Front Row by 15%, Staff damage by 30% and Damage Limit by 20,000."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience III** Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire and Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%. When in back row: Grant Self automatic SP recovery (amount: 20% of Max SP)."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Staff skills of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: The Power and the Glory
+  unlock_tier: 1★
+  effect: 'When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes (potency: 150). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).'
+  trigger: always
+  limit_break_upgrade: 'When in front row: Grant Entire Front Row the ability to trigger a follow-up attack when exploiting enemy weakness (only activates once per action). Follow-up attack: Deal Phys. Staff damage to All Foes 2 time(s) (potency: 2x100). Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).'
+- passive_category: innate
+  name: Rally of the Godsblade
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Phys. Atk. of Entire Front Row by 15%, Staff damage by 30% and Damage Limit by 20,000.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience III Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire/Light
+  effect: Resilience Raise own Fire and Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rod and Staff
+  effect: 'Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%.'
+  trigger: hp_condition
+  upgrades:
+  - 'Lv.2: Raise the limit of Staff damage augments of Enitre Front Row from support skills and equipment effects to 50%. At full HP: Also raise their Staff damage by 20%. When in back row: Grant Self automatic SP recovery (amount: 20% of Max SP).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Staff skills of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Floral Wing Hairpin"
-  passive_effect: "80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a Cleric: Gain the ability to trigger critical hits with elemental attacks and gain Dead Aim (guaranteed critical hits)"
+  name: Floral Wing Hairpin
+  passive_effect: '80 P.Atk, 60 SP; Raise Phys. Atk. and Elem. Atk. by 15%; When equipped by a Cleric: Gain the ability to trigger critical hits with elemental attacks and gain Dead Aim (guaranteed critical hits)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Staff Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Staff, increase damage taken from Staff by 20%.'
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: complete

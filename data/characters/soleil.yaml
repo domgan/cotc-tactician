@@ -69,125 +69,164 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Cleave"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Mass Rejuvenate"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "120, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Mass Rejuvenate** Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Illuminate"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Triple Illuminate"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Rehabilitate"
-    sp_cost: 15
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Rehabilitate (2★)** Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Sage Panacea II"
-    sp_cost: 52
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Sage Panacea II (3★)** Restore HP of Entire Front Row (potency: 130) and cure some status ailments"
-    limit_break_upgrade: "Restore HP of **All Allies** (potency: 130) and cure some status ailments."
-  - skill_category: active
-    name: "Elemental Recovery III"
-    sp_cost: 43
-    skill_type: buff
-    target: single_ally
-    power: "150, turns: 2-5 based on Boost"
-    effects:
-      - "**Elemental Recovery III (4★)** Grant Single Ally automatic HP recovery (potency: 150, turns: 2-5 based on Boost) and impart Elem"
-  - skill_category: active
-    name: "Triple Bisection"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: active
-    name: "Dark Restoration"
-    sp_cost: 43
-    skill_type: buff
-    target: front_row
-    power: "150"
-    effects:
-      - "**Dark Restoration (5★)** Grant Entire Front Row automatic HP recovery (potency: 150) and raise Dark Res"
-  - skill_category: tp
-    name: "Resilient Ward (All) II"
-    sp_cost: 54
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Resilient Ward (All) II ** Raise physical resistance of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Radiance of the Charitable"
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Light damage to Single Foe (potency: 260) and raise Phys"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Blazing Conviction"
-    skill_type: attack
-    damage_types: [light]
-    target: front_row
-    hit_count: "4x"
-    effects:
-      - "Light damage to Single Foe 4 time(s) (potency: **4x95→4x115**) and raise Light damage dealt of Entire Front Row by **5%→10%** (turns: 2)"
+- skill_category: active
+  name: Repeated Cleave
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Mass Rejuvenate
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '120, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant automatic HP recovery to Entire Front Row (potency: 120, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Illuminate
+  unlock_tier: 1★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Triple Illuminate
+  unlock_tier: 2★
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Rehabilitate
+  unlock_tier: 2★
+  sp_cost: 15
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Cure status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Sage Panacea II
+  unlock_tier: 3★
+  sp_cost: 52
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130) and cure some status ailments.'
+  upgrades:
+  - 'Lv.88: SP Saver: 52→42'
+  limit_break_upgrade: 'Restore HP of All Allies (potency: 130) and cure some status ailments.'
+- skill_category: active
+  name: Elemental Recovery III
+  unlock_tier: 4★
+  sp_cost: 43
+  skill_type: buff
+  target: single_ally
+  power: '150, turns: 2-5 based on Boost'
+  effects:
+  - 'Grant Single Ally automatic HP recovery (potency: 150, turns: 2-5 based on Boost) and impart Elem. Atk. Up 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 43→34'
+- skill_category: active
+  name: Triple Bisection
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x85).'
+  upgrades:
+  - 'Lv.99: SP Saver: 52→42'
+- skill_category: active
+  name: Dark Restoration
+  unlock_tier: 5★
+  sp_cost: 43
+  skill_type: buff
+  target: front_row
+  power: '150'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 150) and raise Dark Res. by 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.100: SP Saver: 43→34'
+- skill_category: tp
+  name: Resilient Ward (All) II
+  sp_cost: 54
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise physical resistance of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: ex
+  name: Radiance of the Charitable
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 260) and raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Allies by 15% (turns: 2).'
+  notes: 'Usage Condition: After turn 3; Uses: 2'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: Blazing Conviction
+  skill_type: utility
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 4x
+  power: 4x95→4x115
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 4 time(s) (potency: 4x95→4x115) and raise Light damage dealt of Entire Front Row by 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "While in back row: Raise some status ailments Res. of Front Row by 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Extend duration of augmenting effect granted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in back row: Grant Front Row automatic HP recovery (potency: 30)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Rearguard Ailment Res. Boost (Front/Single)
+  unlock_tier: 1★
+  effect: 'While in back row: Raise some status ailments Res. of Front Row by 50%.'
+  trigger: always
+- passive_category: innate
+  name: Extended Augment (Give)
+  unlock_tier: 3★
+  effect: Extend duration of augmenting effect granted by Self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Rearguard HP Restoration (Front/All)
+  effect: 'When in back row: Grant Front Row automatic HP recovery (potency: 30).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Bitter Remedy"
-  passive_effect: "60 P.Atk, 40 E.Def, 400 HP; Raise Axe damage dealt by 15%; 30% chance of resisting some status ailments"
+  name: Bitter Remedy
+  passive_effect: 60 P.Atk, 40 E.Def, 400 HP; Raise Axe damage dealt by 15%; 30% chance of resisting some status ailments
 
 # Metadata
 data_confidence: verified

@@ -70,162 +70,206 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Blazing Fireball (Single) II"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Freezing Icewind (Single) II"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Charged Bolt (Single) II"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Raging Fireball II"
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [fire]
-    target: random
-    power: "3x65"
-    effects:
-      - "Fire damage to Random Foes (potency: 3x65) and lower Fire Res"
-      - "[51 SP] During Concentration: Targets a single foe instead and also lower Elem"
-  - skill_category: active
-    name: "Raging Icewind II"
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [ice]
-    target: random
-    power: "3x65"
-    effects:
-      - "Ice damage to Random Foes (potency: 3x65) and lower Ice Res"
-      - "[51 SP] During Concentration: Targets a single foe instead and also lower Elem"
-  - skill_category: active
-    name: "Raging Lightning Bolt II"
-    sp_cost: 51
-    skill_type: mixed
-    damage_types: [lightning]
-    target: random
-    power: "3x65"
-    effects:
-      - "Lightning damage to Random Foes (potency: 3x65) and lower Lightning Res"
-      - "[51 SP] During Concentration: Targets a single foe instead and also lower Elem"
-  - skill_category: active
-    name: "Ignis Ardere (All) III"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: active
-    name: "Glacies Claudere (All) III"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
-  - skill_category: active
-    name: "Tonitrus Canere (All) III"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    effects:
-      - "Shock: Lower Shield Points by 1 when taking Elem"
-  - skill_category: tp
-    name: "Elemental Barrage"
-    sp_cost: 84
-    skill_type: attack
-    target: random
-    power: "3x60"
-  - skill_category: tp
-    name: "Elemental Barrage Lv.2"
-    sp_cost: 84
-    skill_type: attack
-    target: random
-    power: "3x60"
-    effects:
-      - "At Max Boost: Guaranteed critical hits"
-  - skill_category: ex
-    name: "Magical Decay"
-    skill_type: mixed
-    target: aoe
-    effects:
-      - "**Magical Decay** Lower Elem"
-      - "Lower their Elem"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Alephan’s Wisdom"
-    skill_type: mixed
-    target: self
-    effects:
-      - "Raise the potency of Self by 100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type)"
+- skill_category: active
+  name: Blazing Fireball (Single) II
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170) and cause them to combust (turns: 2).'
+- skill_category: active
+  name: Freezing Icewind (Single) II
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 170) and inflict them frostbite (turns: 2).'
+- skill_category: active
+  name: Charged Bolt (Single) II
+  unlock_tier: 1★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 170) and inflict shock (turns: 2).'
+- skill_category: active
+  name: Raging Fireball II
+  unlock_tier: 2★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: random
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Random Foes (potency: 3x65) and lower Fire Res. by 15% with every attack (turns: 2).'
+  - 'During Concentration: Targets a single foe instead and also lower Elem. Def. by 10% with every attack (turns: 2).'
+- skill_category: active
+  name: Raging Icewind II
+  unlock_tier: 2★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: random
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Random Foes (potency: 3x65) and lower Ice Res. by 15% with every attack (turns: 2).'
+  - 'During Concentration: Targets a single foe instead and also lower Elem. Def. by 10% with every attack (turns: 2).'
+- skill_category: active
+  name: Raging Lightning Bolt II
+  unlock_tier: 3★
+  sp_cost: 51
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: random
+  power: 3x65
+  effects:
+  - 'Deal Elem. Lightning damage to Random Foes (potency: 3x65) and lower Lightning Res. by 15% with every attack (turns: 2).'
+  - 'During Concentration: Targets a single foe instead and also lower Elem. Def. by 10% with every attack (turns: 2).'
+- skill_category: active
+  name: Ignis Ardere (All) III
+  unlock_tier: 4★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80).'
+  - 'During Concentration: Targets a single foe instead with 50% more potency.'
+  - 'Also cause the same target to combust (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 70→56'
+- skill_category: active
+  name: Glacies Claudere (All) III
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x80).'
+  - 'During Concentration: Targets a single foe instead with 50% more potency.'
+  - 'Also inflict frostbite on the same target (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 70→56'
+- skill_category: active
+  name: Tonitrus Canere (All) III
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x80).'
+  - 'During Concentration: Targets a single foe instead with 50% more potency.'
+  - 'Also inflict shock on the same target (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 70→56'
+- skill_category: tp
+  name: Elemental Barrage
+  sp_cost: 84
+  skill_type: utility
+  target: random
+  power: 3x60
+  effects:
+  - 'Deal Elem. Fire, Ice and Lightning damage to Random Foe once each (potency: 3x60) and repeat the same attack (1 time).'
+  - 'During Concentration: Target a single foe instead with increased potency (potency: 75/85/95/120 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.2: Deal Elem. Fire, Ice and Lightning damage to Random Foe once each (potency: 3x60) and repeat the same attack (2 times). At Max Boost: Guaranteed critical hits. During Concentration: Target a single foe instead with increased potency (potency: 75/85/95/120 based on Boost Lv.).'
+- skill_category: ex
+  name: Magical Decay
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv./Can stack when using Concentration).'
+  - 'Also inflict on the same target the effect “Miss Elem. Attacks” (times: 1).'
+  - 'During Concentration: Target a single foe.'
+  - 'Lower their Elem. Def. and Elem. Res. by 30% (turns: 2).'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 4'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Alephan’s Wisdom
+  skill_type: buff
+  target: self
+  effects:
+  - 'Raise the potency of Self by 100% (turns: 3/Turns cannot be extended/Does not stack with effects of the same type), BP recovery by 1 (turns: 3) and Damage Limit by 10,000→50,000→100,000 (turns: 3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Fire, Ice and Lightning damage of Self by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Fire, Ice and Lightning damage of Self by **30%**, raise Damage Limit by 20,000 and grant the ability to trigger critical hits with elemental attacks."
-  - passive_category: innate
-    effect: "When in front row: When an ally deal Fire/Ice/Lightning damage, that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200). **Lv.88 |** Potency Up: 200→230"
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe. Also apply bonus effects to certain spells. ---"
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe and add 30% of P.Atk to E.Atk. Also apply bonus effects to certain spells. ---"
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Magic Formula
+  unlock_tier: 1★
+  effect: Raise Fire, Ice and Lightning damage of Self by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Fire, Ice and Lightning damage of Self by 30%, raise Damage Limit by 20,000 and grant the ability to trigger critical hits with elemental attacks.
+- passive_category: innate
+  name: Elem. Chain Reaction
+  unlock_tier: 3★
+  effect: 'When in front row: When an ally deal Fire/Ice/Lightning damage, that ally does a follow-up attack of that element (only activates once per each element in action). Follow-up (Fire/Ice/Lightning): Deal Fire/Ice/Lightning damage to Random Foe (potency: 200).'
+  trigger: always
+  upgrades:
+  - 'Lv.88: Potency Up: 200→230'
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Concentration'
+  effect: 'Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe. Also apply bonus effects to certain spells.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe and add 30% of P.Atk to E.Atk. Also apply bonus effects to certain spells.'
+  notes: 'Preparation Turns: 2; Reuse Turns: 2'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Coded Notebook"
-  passive_effect: "140 E.Atk; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Res. of all enemies by 10%"
+  name: Coded Notebook
+  passive_effect: '140 E.Atk; When in front row: Grant automatic SP recovery (amount: 20); Lower Fire, Ice and Lightning Res. of all enemies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Shock
+  description: Lower Shield Points by 1 when taking Elem. Lightning damage (will not break the target).
+- name: Miss Elem. Attacks
+  description: Target fails their next elemental hit. This effect can stack and is consumed only when the enemy tries to deal elemental damage. If the enemy uses a multi-hit elemental attack, it will miss as many hits as stacks of this status had been inflicted.
 
 # Metadata
 data_confidence: verified

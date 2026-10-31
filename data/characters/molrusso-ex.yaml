@@ -55,150 +55,193 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Stone’s Throw"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [staff]
-    target: random
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: active
-    name: "Sobering Slap"
-    sp_cost: 25
-    skill_type: heal
-    target: single_ally
-    effects:
-      - "**Sobering Slap** Cure some status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Whistle: Bubble Slime"
-    sp_cost: 31
-    skill_type: attack
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Hustle Dance"
-    sp_cost: 38
-    skill_type: heal
-    target: front_row
-    power: "65-155 based on Boost Lv."
-    effects:
-      - "**Hustle Dance (2★)** Restore HP of Entire Front Row (potency: 65-155 based on Boost Lv.)"
-  - skill_category: active
-    name: "Whistle: Skeleton Swordsman"
-    sp_cost: 46
-    skill_type: mixed
-    damage_types: [sword]
-    target: random
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Sword damage to Random Foe 2 time(s) (potency: 2x120) and have a small chance to lower Phys"
-  - skill_category: active
-    name: "Final Frolic"
-    sp_cost: 50
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Final Frolic (3★)** Raise Phys"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "also raise their damage by 15% (turns: 3)"
-  - skill_category: active
-    name: "Whistle: Living Statue"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Guaranteed critical hit"
-  - skill_category: active
-    name: "Harvest Moon"
-    sp_cost: 45
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Whistle: Green Dragon"
-    sp_cost: 86
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: tp
-    name: "Sweet Talk"
-    sp_cost: 90
-    skill_type: utility
-    target: front_row
-  - skill_category: tp
-    name: "Sweet Talk Lv.2"
-    sp_cost: 90
-    skill_type: utility
-    target: front_row
-    effects:
-      - "**Sweet Talk Lv.2** Fill the Ultimate Technique gauge of Entire Front Row by 25%/50%/100%/200% based on Boost Lv.) and restore their SP (amount: 5% of target’s max SP)"
-  - skill_category: special
-    name: "Egg On"
-    skill_type: mixed
-    target: single_ally
-    effects:
-      - "Act faster during turn"
-      - "raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type)"
-      - "raise their Damage Limit by **10,000→50,000→100,000** (turns: 1) and grant them Soul Sigil (turns: 4/Granted as a support skill/Does not stack)"
+- skill_category: active
+  name: Stone’s Throw
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - staff
+  target: random
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Staff damage to Random Foe 2 time(s) (potency: 2x75).'
+  notes: If performed as a Jest, attack count becomes 3 and lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Sobering Slap
+  sp_cost: 25
+  skill_type: heal
+  target: single_ally
+  effects:
+  - 'Cure some status ailments of Single Ally and grant immunity to some status ailments (turns: 1-4 based on Boost Lv.).'
+  notes: 'If performed as a Jest, reaches All Allies and restore their SP (amount: 10).'
+- skill_category: active
+  name: 'Whistle: Bubble Slime'
+  unlock_tier: 1★
+  sp_cost: 31
+  skill_type: utility
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe (potency: 170) and have a moderate chance to inflict poison (turns: 2).'
+  - 'At Max Boost: Also inflict Corrosion (turns: 2).'
+- skill_category: active
+  name: Hustle Dance
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: heal
+  target: front_row
+  power: 65-155 based on Boost Lv.
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65-155 based on Boost Lv.).'
+  notes: If performed as a Jest, reaches All Allies and restore their BP by 1.
+- skill_category: active
+  name: 'Whistle: Skeleton Swordsman'
+  unlock_tier: 2★
+  sp_cost: 46
+  skill_type: debuff
+  damage_types:
+  - sword
+  target: random
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Phys. Sword damage to Random Foe 2 time(s) (potency: 2x120) and have a small chance to lower Phys. Atk. by 10% with every attack (turns: 2).'
+  - 'At Max Boost: Attack count becomes 6.'
+- skill_category: active
+  name: Final Frolic
+  unlock_tier: 3★
+  sp_cost: 50
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 50→40'
+  notes: 'If performed as a Jest, also raise their damage by 15% (turns: 3).'
+- skill_category: active
+  name: 'Whistle: Living Statue'
+  unlock_tier: 4★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 230).'
+  - Guaranteed critical hit.
+  - 'At Max Boost: Activate the skill twice (the follow-up attack will not consume SP).'
+  upgrades:
+  - 'Lv.96: Potency Up: 230→260'
+- skill_category: active
+  name: Harvest Moon
+  unlock_tier: 5★
+  sp_cost: 45
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x80).'
+  upgrades:
+  - 'Lv.99: SP Saver: 45→36'
+  notes: If performed as a Jest, attack count becomes 4.
+- skill_category: active
+  name: 'Whistle: Green Dragon'
+  unlock_tier: 5★
+  sp_cost: 86
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80) and cause them to combust (turns: 2).'
+  - 'At Max Boost: Attack count becomes 5.'
+  upgrades:
+  - 'Lv.100: SP Saver: 86→69'
+- skill_category: tp
+  name: Sweet Talk
+  sp_cost: 90
+  skill_type: utility
+  target: front_row
+  effects:
+  - Fill the Ultimate Technique gauge of Entire Front Row by 25%/50%/100%/200% based on Boost Lv..
+  upgrades:
+  - 'Lv.2: Fill the Ultimate Technique gauge of Entire Front Row by 25%/50%/100%/200% based on Boost Lv.) and restore their SP (amount: 5% of target’s max SP).'
+  notes: 'If performed as a Jest, also raise their Damage Limit by 50,000 (turns: 2).'
+- skill_category: special
+  name: Egg On
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn, raise potency of Single Ally by 100% (turns: 1/Turns cannot be extended/Does not stack with effects of the same type), raise their Damage Limit by 10,000→50,000→100,000 (turns: 1) and grant them Soul Sigil (turns: 4/Granted as a support skill/Does not stack).'
+  - If targeting Self, the Potency Up and Damage Limit Up effects last for 2 turns.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At the end of turn: Gain 1 Jest (max: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "When consuming 3 BP to attack, gain 1 Jest (max: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "Augment Entire Front Row after performing required number of Jests. ·2+: Each ally in front row has a 50% chance to gain Enlightened (turns: 1). ·3 (max): Gain Enlightened (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Augment Entire Front Row after performing required number of Jests. ·1+: Gain automatic SP recovery (amount: 20, turns: 1). ·2+: Each ally in front row has a 50% chance to gain Enlightened (turns: 1). ·3 (max): Gain Enlightened (turns: 2)."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Augment Self based on the number of own Jests. ·2+: Raise Speed by 999. ·3 (max): Also gain the ability to exploit Fan weakness with some physical and elemental attacks other than the “Attack” action (with some exceptions/damage calculation based on corresponding attack)."
-    trigger: always
-  - passive_category: tp
-    effect: "Augment Self based on the number of own Jests and grant Self “Playful” at start of battle (times: 3). ·2+: Raise Speed by 999. ·3 (max): Also gain the ability to exploit Fan weakness with some physical and elemental attacks other than the “Attack” action (with some exceptions/damage calculation based on corresponding attack)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Fan attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Pep Rally
+  effect: 'At the end of turn: Gain 1 Jest (max: 3).'
+  trigger: always
+- passive_category: innate
+  name: Jests
+  unlock_tier: 1★
+  effect: 'When consuming 3 BP to attack, gain 1 Jest (max: 3).'
+  trigger: always
+- passive_category: innate
+  name: Star Sigil
+  unlock_tier: 3★
+  effect: 'Augment Entire Front Row after performing required number of Jests. ·2+: Each ally in front row has a 50% chance to gain Enlightened (turns: 1). ·3 (max): Gain Enlightened (turns: 2).'
+  trigger: always
+  limit_break_upgrade: 'Augment Entire Front Row after performing required number of Jests. ·1+: Gain automatic SP recovery (amount: 20, turns: 1). ·2+: Each ally in front row has a 50% chance to gain Enlightened (turns: 1). ·3 (max): Gain Enlightened (turns: 2).'
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark
+  effect: Resilience Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Clown
+  effect: 'Augment Self based on the number of own Jests. ·2+: Raise Speed by 999. ·3 (max): Also gain the ability to exploit Fan weakness with some physical and elemental attacks other than the “Attack” action (with some exceptions/damage calculation based on corresponding attack).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Augment Self based on the number of own Jests and grant Self “Playful” at start of battle (times: 3). ·2+: Raise Speed by 999. ·3 (max): Also gain the ability to exploit Fan weakness with some physical and elemental attacks other than the “Attack” action (with some exceptions/damage calculation based on corresponding attack).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Fan attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Gadabout’s Fishnet Stockings"
-  passive_effect: "140 SP; When Self attacks (with some exceptions), have a low chance to lower foes’ Phys. Def. and Elem. Def. by 10% (turns: 2); When Self attacks (with some exceptions), have a low chance to grant Entire Front Row Soul Sigil (turns: 2/Does not stack)."
+  name: Gadabout’s Fishnet Stockings
+  passive_effect: '140 SP; When Self attacks (with some exceptions), have a low chance to lower foes’ Phys. Def. and Elem. Def. by 10% (turns: 2); When Self attacks (with some exceptions), have a low chance to grant Entire Front Row Soul Sigil (turns: 2/Does not stack).'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Jest
+  description: After using a skill, repeatedly perform a random, unique skill from slots 1-3 without boost and consume 1 Jest for each skill until all Jests have been consumed or no skills can be performed.
+- name: Enlightened
+  description: Gain the ability to exploit all weaknesses with some attacks other than the “Attack” action (damage calculation based on original attack).
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Soul Sigil
+  description: Raise Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%.
 
 # Metadata
 data_confidence: incomplete

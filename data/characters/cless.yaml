@@ -51,130 +51,158 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Sting"
-    sp_cost: 7
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Armor Corrosive II"
-    sp_cost: 14
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Armor Corrosive II** Impart Single Foe with Phys"
-  - skill_category: active
-    name: "Electrocute"
-    sp_cost: 9
-    skill_type: utility
-    target: single_enemy
-    power: "130"
-  - skill_category: active
-    name: "Backstab"
-    sp_cost: 20
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "160"
-    effects:
-      - "Dagger damage to Single Foe (potency: 160) and impart Phys"
-  - skill_category: active
-    name: "Double Edge"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x85"
-  - skill_category: active
-    name: "Ripping Assault"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Ripping Assault"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    power: "**175**"
-  - skill_category: active
-    name: "Double Break"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Double Break"
-    sp_cost: 22
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x85**"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: tp
-    name: "Wail of Dawn"
-    sp_cost: 56
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: ex
-    name: "Swift Wolf Claw"
-    skill_type: mixed
-    damage_types: [dagger]
-    target: random
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-      - "Each attack has a low chance to lower Dagger Res"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Fangs of the White Wolf"
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    effects:
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Sting
+  sp_cost: 7
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 130).'
+- skill_category: active
+  name: Armor Corrosive II
+  sp_cost: 14
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Impart Single Foe with Phys. Def. Down 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Electrocute
+  unlock_tier: 1★
+  sp_cost: 9
+  skill_type: utility
+  target: single_enemy
+  power: '130'
+  effects:
+  - 'Deal Elem. Lightning to Single Foe (potency: 130).'
+- skill_category: active
+  name: Backstab
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 160) and impart Phys. Def. Down 15% (turns: 2).'
+- skill_category: active
+  name: Double Edge
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x85
+  effects:
+  - '(2★) Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x85).'
+- skill_category: active
+  name: Ripping Assault
+  unlock_tier: 3★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes (potency: 145).'
+  upgrades:
+  - 'Lv.72: SP Saver: 30→24'
+  - 'Upgraded: Deal Phys. Dagger damage to All Foes (potency: 175).'
+- skill_category: active
+  name: Double Break
+  unlock_tier: 4★
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x70).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.80: SP Saver: 28→22'
+  - 'Upgraded: Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x85). Lower Shield Points even when not striking weak points.'
+- skill_category: tp
+  name: Wail of Dawn
+  sp_cost: 56
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Take 60% of max HP as damage and deal Phys. Dagger damage to Single Foe 4 time(s) (potency: 4x65).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: ex
+  name: Swift Wolf Claw
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: random
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Phys. Dagger damage to Random Foe 4 time(s) (potency: 4x65).'
+  - Lower Shield Points even when not striking weak points.
+  - 'Each attack has a low chance to lower Dagger Res. by 15% (turns: 2).'
+  notes: 'Usage Condition: Use self Ultimate Technique; Uses: 2'
+  ex_trigger: Use self Ultimate Technique
+- skill_category: special
+  name: Fangs of the White Wolf
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 500→600→???
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 500→600→???).'
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Self with Phys. Atk. Up 15%."
-  - passive_category: innate
-    effect: "**(3★)** At 50% HP or less: Raise Dagger damage of Self by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own LIghtning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At 50% HP or less: Grant Dead Aim to Self (guaranteed critical hits)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Phys. Atk. Boost II
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Self with Phys. Atk. Up 15%.
+- passive_category: innate
+  name: Dagger Atk. Boost With 50% or Less HP III
+  effect: '(3★) At 50% HP or less: Raise Dagger damage of Self by 20%.'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 5★
+  effect: Raise own LIghtning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Desperate Critical Shot
+  effect: 'At 50% HP or less: Grant Dead Aim to Self (guaranteed critical hits).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "White Wolf’s Emblem"
-  passive_effect: "30 P.Atk, 20 Crit, 20 Spd; Raise Dagger damage dealt by Paired Allies by 10%"
+  name: White Wolf’s Emblem
+  passive_effect: 30 P.Atk, 20 Crit, 20 Spd; Raise Dagger damage dealt by Paired Allies by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

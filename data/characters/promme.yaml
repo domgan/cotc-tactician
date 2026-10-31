@@ -52,114 +52,152 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Traumatic Bash"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Medica (All) II"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "55"
-    effects:
-      - "**Medica (All) II** Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Flame of Sanctions"
-    sp_cost: 26
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    power: "170"
-    effects:
-      - "Fire damage to Single Foe (potency: 170) and lower Fire Res"
-  - skill_category: active
-    name: "Hammer of Judgement"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "230"
-  - skill_category: active
-    name: "Joy of the Sacred Flame"
-    sp_cost: 36
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Joy of the Sacred Flame (2★)** Impart Self with Elem"
-      - "Up 20% and raise Fire damage by 20% (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    name: "Destructive Blow"
-    sp_cost: 44
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "180"
-  - skill_category: active
-    name: "Medica (All) III"
-    sp_cost: 55
-    skill_type: heal
-    target: front_row
-    power: "65"
-    effects:
-      - "**Medica (All) III (4★)** Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 90, turns: 2)"
-  - skill_category: active
-    name: "Purifying Flames"
-    sp_cost: 64
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    power: "210"
-    effects:
-      - "Fire damage to All Foes (potency: 210) and lower Fire Res"
-  - skill_category: active
-    name: "Flamebringer’s Mercy"
-    sp_cost: 100
-    skill_type: utility
-    target: front_row
-    limit_break_upgrade: "Reduce damage taken from some attacks by Entire Front Row once by **20%-100%** based on Boost Lv. (Does not stack with effects of the same type/Effect only triggers once)."
-  - skill_category: tp
-    name: "Wedge’s Incineration"
-    sp_cost: 86
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: special
-    name: "Cleansing by Fire"
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Medica (All) II
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '55'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 55) and grant automatic HP recovery (potency: 80, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Flame of Sanctions
+  unlock_tier: 1★
+  sp_cost: 26
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 170) and lower Fire Res. by 10% (turns: 2).'
+- skill_category: active
+  name: Hammer of Judgement
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 230).'
+- skill_category: active
+  name: Joy of the Sacred Flame
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Elem. Atk. Up 20% and raise Fire damage by 20% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Destructive Blow
+  unlock_tier: 3★
+  sp_cost: 44
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '180'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 180).'
+  upgrades:
+  - 'Lv.88: SP Saver: 44→35'
+- skill_category: active
+  name: Medica (All) III
+  unlock_tier: 4★
+  sp_cost: 55
+  skill_type: heal
+  target: front_row
+  power: '65'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 90, turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 55→44'
+- skill_category: active
+  name: Purifying Flames
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  power: '210'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 210) and lower Fire Res. by 20% (turns: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 64→52'
+- skill_category: active
+  name: Flamebringer’s Mercy
+  unlock_tier: 5★
+  sp_cost: 100
+  skill_type: utility
+  target: front_row
+  effects:
+  - Reduce damage taken from some attacks by Entire Front Row once by 10%-40% based on Boost Lv. (Does not stack with effects of the same type/Effect only triggers once).
+  upgrades:
+  - 'Lv.100: SP Saver: 100→80'
+  limit_break_upgrade: Reduce damage taken from some attacks by Entire Front Row once by 20%-100% based on Boost Lv. (Does not stack with effects of the same type/Effect only triggers once).
+- skill_category: tp
+  name: Wedge’s Incineration
+  sp_cost: 86
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80) and cause them to combust (turns: 2).'
+- skill_category: special
+  name: Cleansing by Fire
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 500→600→750).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise BP recover amount of Self by 1 (turns: 2)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Act faster when consuming 3 BP."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Elem. Atk. of Self by 30% when a combusted enemy is present."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: BP Recovery Boost
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise BP recover amount of Self by 1 (turns: 2).'
+  trigger: battle_start
+- passive_category: innate
+  name: Full Speed
+  unlock_tier: 3★
+  effect: Act faster when consuming 3 BP.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Blaze’s Guidance
+  effect: Raise Elem. Atk. of Self by 30% when a combusted enemy is present.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Scripture of Flame"
-  passive_effect: "60 P.Def, 40 E.Def, 40 SP; Raise Fire damage dealt by 15%; Grant automatic SP recovery (amount: 20)"
+  name: Scripture of Flame
+  passive_effect: '60 P.Def, 40 E.Def, 40 SP; Raise Fire damage dealt by 15%; Grant automatic SP recovery (amount: 20)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

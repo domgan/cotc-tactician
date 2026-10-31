@@ -58,6 +58,7 @@ class VectorStore:
     COLLECTION_CHARACTERS = "characters"
     COLLECTION_BOSSES = "bosses"
     COLLECTION_TEAMS = "teams"
+    FINGERPRINT_FILE = "data_fingerprint.txt"
 
     def __init__(
         self,
@@ -74,6 +75,7 @@ class VectorStore:
                                 If None, uses sentence-transformers.
         """
         self.persist_directory = Path(persist_directory) if persist_directory else None
+        self._data_fingerprint: str | None = None
 
         # Initialize ChromaDB client
         if self.persist_directory:
@@ -477,6 +479,20 @@ class VectorStore:
             formatted.append(item)
 
         return formatted
+
+    def get_data_fingerprint(self) -> str | None:
+        """Fingerprint of the data the current index was built from."""
+        if self.persist_directory is None:
+            return self._data_fingerprint
+        path = self.persist_directory / self.FINGERPRINT_FILE
+        return path.read_text(encoding="utf-8").strip() if path.is_file() else None
+
+    def set_data_fingerprint(self, fingerprint: str) -> None:
+        self._data_fingerprint = fingerprint
+        if self.persist_directory is not None:
+            (self.persist_directory / self.FINGERPRINT_FILE).write_text(
+                fingerprint, encoding="utf-8"
+            )
 
     def get_collection_stats(self) -> dict:
         """Get statistics about the indexed data."""

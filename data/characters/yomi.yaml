@@ -53,138 +53,170 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 45
-    skill_type: mixed
-    damage_types: [ice]
-    target: aoe
-    power: "120"
-    effects:
-      - "Also lower Phys"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**(Initial)** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 52
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**(1★)** Lower Shield Points of a Random Foe regardless of the weakness and lower their Ice and Light Res"
-  - skill_category: active
-    sp_cost: 44
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(2★)** Lower Phys"
-  - skill_category: active
-    sp_cost: 41
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(2★)** Lower Ice and Light Res"
-  - skill_category: active
-    sp_cost: 112
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**(3★)** Act faster during turn and raise potency of Single Ally’s Elem"
-  - skill_category: active
-    name: "Lv.88 |"
-    skill_type: buff
-    target: single_enemy
-  - skill_category: active
-    sp_cost: 116
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**(4★)** Raise Ice and Light damage of All Allies by 30% and grant the ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 67
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    power: "290"
-  - skill_category: active
-    sp_cost: 76
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**(5★)** Lower Shield Points of All Foes by 4 regardless of the weakness and inflict Frostbite (turns: 2)"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
-  - skill_category: tp
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "**** Lower Shield Points of Single Foe by 3-6 based on Boost Lv"
-  - skill_category: tp
-    name: "Lv.2"
-    skill_type: debuff
-    target: back_row
-    effects:
-      - "** Lv.2** Lower Shield Points of Single Foe by 3-6 based on Boost Lv"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: mixed
-    target: aoe
-    effects:
-      - "**(EX)** Raise Ice Res"
-      - "Down limits from battle skills and support skills and equipment effects of All Foes to 50% (turns: 2-5 based on Boost Lv.) and grant All Allies the special effect “Night Song” (turns: 9)"
-      - "“Night Song”: Raise Elem"
-      - "grant the ability to ignore effects that completely dodge or block attacks and raise Damage Limit of elemental attacks by 75,000 (Does not stack with itself)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "“Narration: Singing the Crescent Moon”"
-    skill_type: debuff
-    target: single_enemy
-    power: "3→4"
-    effects:
-      - "Lower Ice and Light Res"
-      - "raise Ice and Light damage of All Allies by **5%→10%→15%** (turns: **3→4**) and grant them the special effect “Night Song” (turns: 9/Granted as a support skill)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 45
+  skill_type: debuff
+  damage_types:
+  - ice
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Elem. Ice damage to All Foes (potency: 120).'
+  - Exploits Sword, Fan and Light weaknesses (damage calculation based on Elem. Ice attack).
+  - 'Also lower Phys. Atk. and Elem. Atk. by 10% (turns: 2).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '110, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.).'
+  - Reaches All Allies during Max Boost.
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 52
+  skill_type: debuff
+  target: back_row
+  effects:
+  - 'Lower Shield Points of a Random Foe regardless of the weakness and lower their Ice and Light Res. by 15% (turns: 2).'
+  - 'Reactivate the effect (times: 2-5 based on Boost Lv.).'
+  - Subsequently move to the back row (action does not count as switching).
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 44
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  notes: 'With “Night Song”: Also lower Phys. Atk. and Elem. Atk. by 30% (turns: 2-5 based on Boost Lv.), but terminate the effect of “Evening Song”.'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 41
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Ice and Light Res. of All Foes by 30% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 112
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn and raise potency of Single Ally’s Elem. Ice and Light attacks by 100% (turns: 1-4 based on Boost Lv./Turns cannot be extended/Effects of the same type do no stack).'
+  upgrades:
+  - 'Lv.88: SP Saver: 112→90'
+  notes: 'With “Night Song”: Potency Up becomes 150%, but terminate the effect of “Night Song”.'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 116
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Ice and Light damage of All Allies by 30% and grant the ability to trigger critical hits with elemental attacks (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: SP Saver: 116→93'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 67
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe (potency: 290).'
+  - Exploits Sword, Fan and Light weaknesses (damage calculation based on Elem. Ice attack).
+  - Damage Limit of this skill is increased by 100,000.
+  - 'At Max Boost: Attack count becomes 2.'
+  upgrades:
+  - 'Lv.99: SP Saver: 67→54'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 76
+  skill_type: debuff
+  target: back_row
+  effects:
+  - 'Lower Shield Points of All Foes by 4 regardless of the weakness and inflict Frostbite (turns: 2).'
+  - Subsequently move to the back row (action does not count as switching).
+  upgrades:
+  - 'Lv.100: SP Saver: 76→61'
+- skill_category: tp
+  skill_type: debuff
+  target: back_row
+  effects:
+  - Lower Shield Points of Single Foe by 3-6 based on Boost Lv. regardless of the weakness.
+  - Subsequently move to the back row (action does not count as switching).
+  - 'At Max Boost: Also inflict Miss Phys. Attacks and Miss Elem. Attacks (times each: 1).'
+  upgrades:
+  - 'Lv.2: Lower Shield Points of Single Foe by 3-6 based on Boost Lv. regardless of the weakness. Subsequently move to the back row (action does not count as switching). At Max Boost: Also inflict Miss Phys. Attacks and Miss Elem. Attacks (times each: 2).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Raise Ice Res. Down and Light Res. Down limits from battle skills and support skills and equipment effects of All Foes to 50% (turns: 2-5 based on Boost Lv.) and grant All Allies the special effect “Night Song” (turns: 9).'
+  notes: 'Usage Condition: With “Night Song”; Uses: 2'
+  ex_trigger: With “Night Song”
+- skill_category: special
+  name: 'Narration: Singing the Crescent Moon'
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Ice and Light Res. of Single Foe by 5%→10%→15% (turns: 3→4), raise Ice and Light damage of All Allies by 5%→10%→15% (turns: 3→4) and grant them the special effect “Night Song” (turns: 9/Granted as a support skill).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Grant Self the special effect “Night Song” (turns: 9)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "At the end of turn, restore 1 BP, cure Sleep and Comatose and grant the special effect “Night Song” (turns: 9) to allies who have not attacked during turn."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%."
-    trigger: always
-    limit_break_upgrade: "When in back row: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5%."
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At the end of turn, restore SP (amount: 5% of target’s Max SP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn."
-    trigger: always
-  - passive_category: tp
-    effect: "At the end of turn, restore SP (amount: 5% of target’s Max SP), grant HP Barrier (amount: 1000 HP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Narration
+  effect: 'Start of battle: Grant Self the special effect “Night Song” (turns: 9).'
+  trigger: battle_start
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'At the end of turn, restore 1 BP, cure Sleep and Comatose and grant the special effect “Night Song” (turns: 9) to allies who have not attacked during turn.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When in back row: Lower Phys. Atk. and Elem. Atk. of All Foes by 5%.'
+  trigger: always
+  limit_break_upgrade: 'When in back row: Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 5%.'
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience
+  effect: Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'At the end of turn, restore SP (amount: 5% of target’s Max SP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: At the end of turn, restore SP (amount: 5% of target’s Max SP), grant HP Barrier (amount: 1000 HP) and extend duration of augmenting effects by 1 turn of allies who have not acted during turn.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Ice attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Yomi’s Hair Ornament”"
-  passive_effect: "-50 Crit, 60 Spd, 900 HP, 90 SP; Grant Damage Limit Up (effect: 100,000) when using elemental attacks; When in back row: Lower Ice Res. of all enemies by 10%"
+  name: Yomi’s Hair Ornament
+  passive_effect: '-50 Crit, 60 Spd, 900 HP, 90 SP; Grant Damage Limit Up (effect: 100,000) when using elemental attacks; When in back row: Lower Ice Res. of all enemies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Night Song
+  description: Raise Elem. Atk. and elemental damage by 30%, grant the ability to ignore effects that completely dodge or block attacks and raise Damage Limit of elemental attacks by 75,000 (Does not stack with itself). This effect is canceled after performing an attack action.
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Miss Phys. Attacks
+  description: Target fails their next physical hit. This effect can stack and is consumed only when the enemy tries to deal physical damage. If the enemy uses a multi-hit physical attack, it will miss as many hits as stacks of this status had been inflicted.
+- name: Miss Elem. Attacks
+  description: Target fails their next elemental hit. This effect can stack and is consumed only when the enemy tries to deal elemental damage. If the enemy uses a multi-hit elemental attack, it will miss as many hits as stacks of this status had been inflicted.
 
 # Metadata
 data_confidence: incomplete

@@ -52,111 +52,156 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Thunder (Single)"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "170/200/240/350"
-  - skill_category: active
-    name: "Dual Slam"
-    sp_cost: 26
-    skill_type: attack
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90/2x105/2x125/2x180"
-  - skill_category: active
-    name: "Analyze"
-    sp_cost: 1
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Poison"
-    sp_cost: 5
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Cure (Single)"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    power: "160/180/220/280"
-    effects:
-      - "**Cure (Single)** **(2★)** Restore HP of Single Ally (potency: 160/180/220/280)"
-  - skill_category: active
-    name: "Cure (Front/All)"
-    sp_cost: 24
-    skill_type: heal
-    target: front_row
-    power: "160/180/220/280"
-    effects:
-      - "**Cure (Front/All)** **(6★)** Restore HP of **Entire Front Row** (potency: 160/180/220/280)"
-  - skill_category: active
-    name: "Lightningprone (Single) III"
-    sp_cost: 12
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Lightningprone (Single) III (3★)** Lower Lightning Res"
-  - skill_category: active
-    name: "Analyze All"
-    sp_cost: 10
-    skill_type: utility
-    target: aoe
-  - skill_category: active
-    name: "Thunder (All)"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [lightning]
-    target: aoe
-    power: "180/205/245/300"
-  - skill_category: active
-    name: "Burst"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "260/290/340/450"
-  - skill_category: tp
-    name: "Electron"
-    sp_cost: 42
-    skill_type: mixed
-    damage_types: [lightning]
-    target: single_enemy
-    power: "230/260/300/400"
-    effects:
-      - "lower their Elem"
-  - skill_category: special
-    name: "Thunderstrike"
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "500→600→750"
+- skill_category: active
+  name: Thunder (Single)
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 170/200/240/350).'
+- skill_category: active
+  name: Dual Slam
+  sp_cost: 26
+  skill_type: utility
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90/2x105/2x125/2x180
+  effects:
+  - 'Deal Phys. Tome damage to Single Foe 2 time(s) (potency: 2x90/2x105/2x125/2x180).'
+- skill_category: active
+  name: Analyze
+  unlock_tier: 1★
+  sp_cost: 1
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - Show 1/2/3/4 weak point(s) of Single Foe.
+- skill_category: active
+  name: Poison
+  sp_cost: 5
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - '(2★) High chance to inflict Single Foe with poison (turns: 2/3/4/5).'
+- skill_category: active
+  name: Cure (Single)
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  power: 160/180/220/280
+  effects:
+  - '(2★) Restore HP of Single Ally (potency: 160/180/220/280).'
+- skill_category: active
+  name: Cure (Front/All)
+  sp_cost: 24
+  skill_type: heal
+  target: front_row
+  power: 160/180/220/280
+  effects:
+  - '(6★) Restore HP of Entire Front Row (potency: 160/180/220/280).'
+- skill_category: active
+  name: Lightningprone (Single) III
+  unlock_tier: 3★
+  sp_cost: 12
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Lightning Res. of Single Foe by 20% (turns: 3/4/5/6).'
+  upgrades:
+  - 'Lv.88: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: Analyze All
+  sp_cost: 10
+  skill_type: utility
+  target: aoe
+  effects:
+  - (4★) Show 2/3/4/5 weak point(s) of All Foes.
+  upgrades:
+  - 'Lv.96: Effect Up: 1-4→2-5'
+- skill_category: active
+  name: Thunder (All)
+  unlock_tier: 5★
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: aoe
+  power: 180/205/245/300
+  effects:
+  - 'Deal Elem. Lightning damage to All Foes (potency: 180/205/245/300).'
+  upgrades:
+  - 'Lv.99: SP Saver: 46→37'
+- skill_category: active
+  name: Burst
+  unlock_tier: 5★
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: 260/290/340/450
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 260/290/340/450).'
+  upgrades:
+  - 'Lv.100: SP Saver: 42→34'
+- skill_category: tp
+  name: Electron
+  sp_cost: 42
+  skill_type: debuff
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: 230/260/300/400
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 230/260/300/400), lower their Elem. Def. and Lightning Res. by 15% (turns: 2) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: special
+  name: Thunderstrike
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 500→600→750).'
+  - Damage Limit of this Ultimate Technique is increased by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Absorb 1% of damage dealt as SP when using Attack."
-    trigger: always
-  - passive_category: innate
-    effect: "**(3★)** Raise Lightning damage of Self by 25%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Elem. Atk. of Self by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Aspir Attack
+  effect: (1★) Absorb 1% of damage dealt as SP when using Attack.
+  trigger: always
+- passive_category: innate
+  name: Lightning Augment IV
+  effect: (3★) Raise Lightning damage of Self by 25%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Elem. Atk. Boost III
+  effect: Raise Elem. Atk. of Self by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Wiswald Scarf"
-  passive_effect: "50 P.Atk, 50 E.Atk, 40 Crit; Raise Tome damage dealt by 15%; Raise Wind Res. by 10%"
+  name: Wiswald Scarf
+  passive_effect: 50 P.Atk, 50 E.Atk, 40 Crit; Raise Tome damage dealt by 15%; Raise Wind Res. by 10%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

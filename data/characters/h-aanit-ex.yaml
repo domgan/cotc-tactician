@@ -67,134 +67,182 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Summon Linde: Dance"
-    sp_cost: 15
-    skill_type: mixed
-    damage_types: [sword, polearm]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Double Sweep"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [fan]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Enticing Elegy"
-    sp_cost: 29
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Enticing Elegy (1★)** Provoke All Foes (turns: 2-5 based on Boost Lv.) and lower Phys"
-  - skill_category: active
-    name: "Fire Serpent Serenade"
-    sp_cost: 32
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    power: "120"
-    effects:
-      - "Fire damage to All Foes (potency: 120) and lower Speed by 15% (turns: 2) (potency: 120)"
-  - skill_category: active
-    name: "Warding Firedance"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fire damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge some elemental attacks (times: 1)"
-  - skill_category: active
-    name: "Drizzling Dance"
-    sp_cost: 56
-    skill_type: mixed
-    damage_types: [fan]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Fan damage to Random Foe 3 time(s) (potency: 3x65) and lower Phys"
-  - skill_category: active
-    name: "Precise Promenade"
-    sp_cost: 59
-    skill_type: mixed
-    damage_types: [fan]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Guaranteed critical hit"
-      - "20% more potent if the target’s Speed is lowered"
-    limit_break_upgrade: "Deal Phys. Fan damage to Single Foe (potency: 260). Guaranteed critical hit. **50%** more potent if the target’s Speed is lowered."
-  - skill_category: active
-    name: "Foggy Frolic"
-    sp_cost: 78
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-  - skill_category: active
-    name: "Phoenix Prance"
-    sp_cost: 78
-    skill_type: mixed
-    damage_types: [fan]
-    target: aoe
-    power: "150"
-    effects:
-      - "Fan damage to All Foes (potency: 150) and lower Phys"
-  - skill_category: tp
-    name: "Chaotic Gale"
-    sp_cost: 59
-    skill_type: mixed
-    damage_types: [fan]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-    effects:
-      - "Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Fan Res"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**(EX)** Lower Fan Res"
-    notes: "Uses: 4"
-  - skill_category: special
-    name: "Hail Step: Snow Leopard"
-    skill_type: mixed
-    damage_types: [fan]
-    target: aoe
-    power: "330→395"
-    effects:
-      - "Act faster during the turn and deal Phys"
+- skill_category: active
+  name: 'Summon Linde: Dance'
+  sp_cost: 15
+  skill_type: debuff
+  damage_types:
+  - sword
+  - polearm
+  target: aoe
+  power: '150'
+  effects:
+  - 'Summon Linde and deal Phys. Sword damage to All Foes (potency: 150).'
+  - Exploits Polearm weakness (damage calculation based on Phys. Sword attack).
+  - 'Lower Phys. Def. and Elem. Def. by 10% (turns: 2).'
+- skill_category: active
+  name: Double Sweep
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - fan
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Enticing Elegy
+  unlock_tier: 1★
+  sp_cost: 29
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Provoke All Foes (turns: 2-5 based on Boost Lv.) and lower Phys. Atk. and Elem. Atk. by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Fire Serpent Serenade
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  power: '120'
+  effects:
+  - 'Deal Elem. Fire damage to All Foes (potency: 120) and lower Speed by 15% (turns: 2) (potency: 120).'
+- skill_category: active
+  name: Warding Firedance
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x65) and grant Self the ability to dodge some elemental attacks (times: 1).'
+- skill_category: active
+  name: Drizzling Dance
+  unlock_tier: 3★
+  sp_cost: 56
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 3 time(s) (potency: 3x65) and lower Phys. Def., Elem. Def. and Spd by 10% with every attack (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 56→45'
+- skill_category: active
+  name: Precise Promenade
+  unlock_tier: 4★
+  sp_cost: 59
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Fan damage to Single Foe (potency: 260).'
+  - Guaranteed critical hit.
+  - 20% more potent if the target’s Speed is lowered.
+  upgrades:
+  - 'Lv.96: SP Saver: 59→47'
+  limit_break_upgrade: 'Deal Phys. Fan damage to Single Foe (potency: 260). Guaranteed critical hit. 50% more potent if the target’s Speed is lowered.'
+- skill_category: active
+  name: Foggy Frolic
+  unlock_tier: 5★
+  sp_cost: 78
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Fan damage to All Foes 4 time(s) (potency: 4x35) and have a moderate chance to inflict enchant (turns: 2).'
+  - 'Enchant: Have a certain chance of being unable to act.'
+  upgrades:
+  - 'Lv.99: SP Saver: 78→62'
+- skill_category: active
+  name: Phoenix Prance
+  unlock_tier: 5★
+  sp_cost: 78
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 150) and lower Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
+  - 'and Spd. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver 78→62'
+- skill_category: tp
+  name: Chaotic Gale
+  sp_cost: 59
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Fan damage to Random Foe 4 time(s) (potency: 4x45) and have a low chance to lower Fan Res. by 15% with every attack (turns: 2).'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Fan Res. and Fire Res. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: After turn 3; Uses: 4'
+  ex_trigger: After turn 3
+- skill_category: special
+  name: 'Hail Step: Snow Leopard'
+  skill_type: debuff
+  damage_types:
+  - fan
+  target: aoe
+  power: 330→395
+  priority: true
+  effects:
+  - 'Act faster during the turn and deal Phys. Fan damage to All Foes with Linde (potency: 330→395).'
+  - Exploits Sword and Polearm weaknesses (damage calculation based on Phys. Fan attack).
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. by 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "**(1★)** Act faster when consuming 1 or more BP."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Self 50% chance of dodging some attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Lower own SP consumption by 20%."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Boosted Dash
+  effect: (1★) Act faster when consuming 1 or more BP.
+  trigger: always
+- passive_category: innate
+  name: Evasive Form
+  unlock_tier: 3★
+  effect: Grant Self 50% chance of dodging some attacks.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: SP Cost Down II
+  effect: Lower own SP consumption by 20%.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dark Forest Veil"
-  passive_effect: "40 P.Atk, 100 SP; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack); Start of battle: Lower Spd of all enemies by 10% (turns: 5)"
+  name: Dark Forest Veil
+  passive_effect: '40 P.Atk, 100 SP; Extend duration of enfeebling effects (excluding status ailments) inflicted by Self by 1 turn (Does not stack); Start of battle: Lower Spd of all enemies by 10% (turns: 5)'
 
 # Metadata
 data_confidence: incomplete

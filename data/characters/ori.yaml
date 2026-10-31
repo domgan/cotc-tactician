@@ -52,156 +52,226 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Exclusive Interview"
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Polearm damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys"
-  - skill_category: active
-    name: "Inside Scoop"
-    sp_cost: 32
-    skill_type: mixed
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Wind damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys"
-  - skill_category: active
-    name: "First-Hand Finsdings"
-    sp_cost: 26
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**First-Hand Finsdings (1★)** Act faster during turn to show 1-4 weak point(s) of All Foes based on Boost Lv"
-  - skill_category: active
-    name: "Surprise Interview"
-    sp_cost: 87
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Grant Polearm"
-  - skill_category: active
-    name: "Leading Questions"
-    sp_cost: 51
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "If the target has 4 or more revealed weak points (including granted ones) potency increases by 20%"
-  - skill_category: active
-    name: "Special Report"
-    sp_cost: 57
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: single_enemy
-    power: "35"
-    effects:
-      - "**Special Report (3★)** Act faster during turn and deal Phys"
-      - "Attack as many additional times as the number of revealed weak points (including granted ones)"
-      - "up to 5 times (attack count updates during attack/depleted granted weaknesses do not count)"
-  - skill_category: active
-    name: "Off-the-Record"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [wind]
-    target: random
-    power: "2x120/3x95/4x85/5x100"
-    limit_break_upgrade: "Deal Elem. Wind damage to Random Foe. Attack count rises based on Boost Lv. (potency: **3**x120/**4**x95/**5**x85/**6**x100). Have a 20% chance to gain 1 Article Point with every attack."
-  - skill_category: active
-    name: "Breaking News"
-    sp_cost: 88
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Grant Polearm"
-      - "At Max Boost: Grant them Polearm weakness (times: 2)"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Elemental Weakness: Regardless of the source"
-  - skill_category: active
-    name: "News Hook"
-    sp_cost: 65
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: random
-    hit_count: "3x"
-    power: "3x85"
-    effects:
-      - "Potency increases based on the number of revealed weak points (including granted ones)"
-      - "[65 SP] ·5+: Raise potency by 10%"
-      - "·7+: Raise potency by 30%"
-      - "·9+: Raise potency by 50%"
-      - "·14+: Raise potency by 100%"
-  - skill_category: tp
-    name: "Field Report"
-    sp_cost: 32
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Field Report ** Act faster during turn"
-      - "lower Polearm and Wind Res"
-  - skill_category: ex
-    name: "Exposé"
-    skill_type: attack
-    damage_types: [polearm, wind]
-    target: aoe
-    power: "30"
-    effects:
-      - "Polearm damage to All Foes (potency: 30) and grant them every possible weakness (times each: 2)"
-      - "At Max Boost: Grant All Foes Polearm and Wind weaknesses (times each: 2)"
-      - "Granted Weakness: Regardless of the source"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Newsflash"
-    skill_type: mixed
-    damage_types: [polearm, wind]
-    target: aoe
-    hit_count: "5x"
-    effects:
-      - "Grant Self Damage Limit Up (effect: **10,000→50,000→100,000**"
-      - "Polearm damage to All Foes 5 time(s) (potency: 5**x80→5x90→5x100**) and grant them Polearm and Wind weaknesses (times each: 4)"
-      - "Lower Shield Points even when not striking weak points"
+- skill_category: active
+  name: Exclusive Interview
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys. Atk. and Elem. Atk. by 10% (turns: 2).'
+- skill_category: active
+  name: Inside Scoop
+  sp_cost: 32
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 2 time(s) (potency: 2x75) and lower Phys. Def. and Elem. Def. by 10% (turns: 2).'
+- skill_category: active
+  name: First-Hand Finsdings
+  unlock_tier: 1★
+  sp_cost: 26
+  skill_type: utility
+  target: aoe
+  priority: true
+  effects:
+  - Act faster during turn to show 1-4 weak point(s) of All Foes based on Boost Lv. and gain 1 Article Point.
+  - 'At Max Boost: Provoke All Foes (turns: 2).'
+- skill_category: active
+  name: Surprise Interview
+  unlock_tier: 2★
+  sp_cost: 87
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x75).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - 'Grant Polearm, Fire, Ice, Lightning, Wind, Light and Dark weaknesses (times each: 2) and gain 1-4 Article Points based on Boost Lv..'
+- skill_category: active
+  name: Leading Questions
+  unlock_tier: 2★
+  sp_cost: 51
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x65).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - If the target has 4 or more revealed weak points (including granted ones) potency increases by 20%.
+- skill_category: active
+  name: Special Report
+  unlock_tier: 3★
+  sp_cost: 57
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: single_enemy
+  power: '35'
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to Single Foe (potency: 35).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - Attack as many additional times as the number of revealed weak points (including granted ones), up to 5 times (attack count updates during attack/depleted granted weaknesses do not count).
+  upgrades:
+  - 'Lv.88: SP Saver: 57→46'
+- skill_category: active
+  name: Off-the-Record
+  unlock_tier: 4★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - wind
+  target: random
+  power: 2x120/3x95/4x85/5x100
+  effects:
+  - Deal Elem. Wind damage to Random Foe.
+  - 'Attack count rises based on Boost Lv. (potency: 2x120/3x95/4x85/5x100).'
+  - Have a 20% chance to gain 1 Article Point with every attack.
+  upgrades:
+  - 'Lv.96: SP Saver: 54→43'
+  limit_break_upgrade: 'Deal Elem. Wind damage to Random Foe. Attack count rises based on Boost Lv. (potency: 3x120/4x95/5x85/6x100). Have a 20% chance to gain 1 Article Point with every attack.'
+- skill_category: active
+  name: Breaking News
+  unlock_tier: 5★
+  sp_cost: 88
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes 2 time(s) (potency: 2x80).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - 'Grant Polearm, Fire, Ice, Lightning, Wind, Light and Dark weaknesses (times each: 2).'
+  - 'At Max Boost: Grant them Polearm weakness (times: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 110→88'
+- skill_category: active
+  name: News Hook
+  unlock_tier: 5★
+  sp_cost: 65
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: random
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 3 time(s) (potency: 3x85).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - Potency increases based on the number of revealed weak points (including granted ones).
+  - '·5+: Raise potency by 10%.'
+  - '·7+: Raise potency by 30%.'
+  - '·9+: Raise potency by 50%.'
+  - '·14+: Raise potency by 100%.'
+  - '*Only the higher value will be applied.'
+  upgrades:
+  - 'Lv.100: SP Saver: 65→52'
+- skill_category: tp
+  name: Field Report
+  sp_cost: 32
+  skill_type: debuff
+  target: single_enemy
+  priority: true
+  effects:
+  - 'Act faster during turn, lower Polearm and Wind Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.) and gain 1-4 Article Points based on Boost Lv..'
+- skill_category: ex
+  name: Exposé
+  skill_type: utility
+  damage_types:
+  - polearm
+  - wind
+  target: aoe
+  power: '30'
+  effects:
+  - 'Deal Phys. Polearm damage to All Foes (potency: 30) and grant them every possible weakness (times each: 2).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - Attack as many additional times as the number of own Article Points, up to 9 times.
+  - 'At Max Boost: Grant All Foes Polearm and Wind weaknesses (times each: 2).'
+  notes: 'Usage Condition: With 4 or more Article Points; Uses: 2'
+  ex_trigger: With 4 or more Article Points
+- skill_category: special
+  name: Newsflash
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - wind
+  target: aoe
+  hit_count: 5x
+  power: 5x80→5x90→5x100
+  effects:
+  - 'Grant Self Damage Limit Up (effect: 10,000→50,000→100,000, turns: 2), deal Phys. Polearm damage to All Foes 5 time(s) (potency: 5x80→5x90→5x100) and grant them Polearm and Wind weaknesses (times each: 4).'
+  - Exploits Wind weakness (damage calculation based on Phys. Polearm attack).
+  - Lower Shield Points even when not striking weak points.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Inflict All Foes effects based on own Article Points. ·3+: Lower Wind Res. by 10%. ·6+: Also lower Polearm Res. by 10%. ·9+: Also lower Phys. and Elem. Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "When an ally breaks an enemy: Restore BP of All Allies by 3 and grant the broken enemy Polearm and Wind weaknesses (times each: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When enemy with 6 or more revealed weak points (including granted ones) is present, raise Polearm damage of Entire Front Row by 15% and reduce damage taken from some attacks by 15% (Effects of the same type do not stack)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Delsta Times Scrivener
+  unlock_tier: 1★
+  effect: 'Inflict All Foes effects based on own Article Points. ·3+: Lower Wind Res. by 10%. ·6+: Also lower Polearm Res. by 10%. ·9+: Also lower Phys. and Elem. Res. by 10%.'
+  trigger: always
+- passive_category: innate
+  name: Hot off the Press
+  unlock_tier: 3★
+  effect: 'When an ally breaks an enemy: Restore BP of All Allies by 3 and grant the broken enemy Polearm and Wind weaknesses (times each: 2).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Investigative Journalism
+  effect: When enemy with 6 or more revealed weak points (including granted ones) is present, raise Polearm damage of Entire Front Row by 15% and reduce damage taken from some attacks by 15% (Effects of the same type do not stack).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Scrivener’s Notebook"
-  passive_effect: "50 P.Atk, 20 P.Def, 50 E.Atk, 20 E.Def; When breaking an enemy, lower their Polearm and Wind Res. by 10% (turns: 3) and grant Polearm and Wind weaknesses (times each: 3)"
+  name: Scrivener’s Notebook
+  passive_effect: '50 P.Atk, 20 P.Def, 50 E.Atk, 20 E.Def; When breaking an enemy, lower their Polearm and Wind Res. by 10% (turns: 3) and grant Polearm and Wind weaknesses (times each: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Polearm Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Polearm, increase damage taken from that Polearm by 20%.'
+- name: Granted Wind Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Wind, increase damage taken from that Wind by 20%.'
+- name: Granted Elemental Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to an element, increase damage taken from that element by 20%.'
+- name: Granted Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to a weakness, increase damage taken from that weakness by 20%.'
+- name: ~~Granted Polearm Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Polearm, increase damage taken from that Polearm by 20%.~~'
+- name: ~~Granted Wind Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Wind, increase damage taken from that Wind by 20%.~~'
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

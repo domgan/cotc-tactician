@@ -52,133 +52,172 @@ jp_tier: "S | 9.8"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Ethereal Healing"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Ethereal Healing** Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Divination"
-    sp_cost: 68
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Divination (1★)** Grant a Single Ally and Self the ability to deal critical damage with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.)"
-      - "At Max Boost: Also raise critical damage multiplier (1.25→1.4) (turns: 6)"
-  - skill_category: active
-    sp_cost: 76
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**(2★)** Raise BP recovery of Single Ally (except Self) by 1 (turns: 2-5 based on Boost Lv.)"
-      - "At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2"
-  - skill_category: active
-    name: "Moon’s Reflection"
-    sp_cost: 24
-    skill_type: mixed
-    damage_types: [light]
-    target: self
-    power: "150"
-    effects:
-      - "**Moon’s Reflection (2★)** Grant Self counter to elemental attacks dealt to any ally (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Starsong"
-    sp_cost: 105
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Starsong (3★)** Raise Phys"
-      - "and Speed of Entire Front Row by 15% (turns: 3-6 based on Boost Lv.) and grant them the ability to dodge some physical and elemental attacks (times: 1)"
-  - skill_category: active
-    sp_cost: 78
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "5x"
-    power: "5x30"
-    effects:
-      - "Light damage to Random Foe 5 time(s) (potency: 5x30) and lower their Wind"
-      - "At Max Boost: Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Shooting Stars"
-    sp_cost: 77
-    skill_type: attack
-    target: aoe
-    power: "120 each"
-    limit_break_upgrade: "Deal Elem. Wind, Light and Dark damage to All Foes **2 time(s)** each (potency: **2x120 each**). The attacks ignore defense augments and damage nullification. At Max Boost: Activate this skill twice."
-  - skill_category: active
-    sp_cost: 120
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**(5★)** Raise Elem"
-      - "At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2"
-  - skill_category: tp
-    sp_cost: 48
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**** Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 48
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "** Lv.2** Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys"
-  - skill_category: special
-    name: "Steorra’s Prophecy"
-    skill_type: attack
-    damage_types: [light]
-    target: aoe
-    hit_count: "4x"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65).'
+  - Exploits Wind and Dark weaknesses (damage calculation based on Elem. Light attacks).
+- skill_category: active
+  name: Ethereal Healing
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  power: '110, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Divination
+  unlock_tier: 1★
+  sp_cost: 68
+  skill_type: mixed
+  target: single_ally
+  effects:
+  - 'Grant a Single Ally and Self the ability to deal critical damage with elemental attacks and Dead Aim (guaranteed critical hits) (turns: 3-6 based on Boost Lv.).'
+  - 'At Max Boost: Also raise critical damage multiplier (1.25→1.4) (turns: 6).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 76
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise BP recovery of Single Ally (except Self) by 1 (turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2.'
+- skill_category: active
+  name: Moon’s Reflection
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: buff
+  damage_types:
+  - light
+  target: self
+  power: '150'
+  effects:
+  - 'Grant Self counter to elemental attacks dealt to any ally (times: 1-4 based on Boost Lv.).'
+  - 'Counter: Deal Elem. Light damage (potency: 150).'
+- skill_category: active
+  name: Starsong
+  unlock_tier: 3★
+  sp_cost: 105
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def., Elem. Def. and Speed of Entire Front Row by 15% (turns: 3-6 based on Boost Lv.) and grant them the ability to dodge some physical and elemental attacks (times: 1).'
+  upgrades:
+  - 'Lv.88: SP Saver: 105→84'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 78
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 5x
+  power: 5x30
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 5 time(s) (potency: 5x30) and lower their Wind, Light and Dark Res. by 15% (turns: 2).'
+  - 'At Max Boost: Lower Shield Points even when not striking weak points.'
+  upgrades:
+  - 'Lv.96: SP Saver: 78→62'
+- skill_category: active
+  name: Shooting Stars
+  unlock_tier: 5★
+  sp_cost: 77
+  skill_type: utility
+  target: aoe
+  power: 120 each
+  effects:
+  - 'Deal Elem. Wind, Light and Dark damage to All Foes (potency: 120 each).'
+  - 'At Max Boost: Activate this skill twice.'
+  upgrades:
+  - 'Lv.99: SP Saver: 77→62'
+  limit_break_upgrade: 'Deal Elem. Wind, Light and Dark damage to All Foes 2 time(s) each (potency: 2x120 each). The attacks ignore defense augments and damage nullification. At Max Boost: Activate this skill twice.'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 120
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Elem. Atk. and Wind, Light and Dark damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'At Max Boost: The BP Stock granted by “A Sky Full of Stars” becomes 2.'
+  upgrades:
+  - 'Lv.100: SP Saver: 120→96'
+- skill_category: tp
+  sp_cost: 48
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys. Def., Elem. Def. and Speed by 15% (turns: 3).'
+  - 'At Max Boost: Reaches All Foes.'
+  upgrades:
+  - 'Lv.2: Lower 1-4 Shield Point(s) of Single Foe regardless of the weak points and lower their Phys. Def., Elem. Def. and Speed by 30% (turns: 3). At Max Boost: Reaches All Foes.'
+- skill_category: special
+  name: Steorra’s Prophecy
+  skill_type: utility
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 4x
+  power: 4x170→4x210→4x250
+  effects:
+  - 'Deal Elem. Light damage to All Foes 4 time(s) (potency: 4x170→4x210→4x250).'
+  - Damage Limit of this Ultimate Technique is increased by 50,000 per each remaining BP of All Allies (BP to be consumed during turn also counts/BP Stock does not count).
+  - Potency is increased by 1.5x when self BP is 3 or more.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart All Allies with 3 BP Stock (max: 3). BP Stock: When boosting, BP Stock is consumed instead of BP."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise BP recovery amount of Self by 1. When using Boost MAX on an ability, impart All Allies with 1 BP Stock (max: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "When an ally consumes BP Stock, raise their final damage during that turn based on the amount of BP consumed (1 BP→5%, 2 BP→10%, 3 BP→20%)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally consumes 3+ BP, raise their Phys. Atk. and Elem. Atk. by 20% and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to 50% (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by 50% (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally consumes BP Stock, raise their Phys. Atk. and Elem. Atk. by **30%** and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to **60%** (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by **75%** (Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Wind, Light and Dark attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Morning Star
+  effect: 'Start of battle: Impart All Allies with 3 BP Stock (max: 3). BP Stock: When boosting, BP Stock is consumed instead of BP.'
+  trigger: battle_start
+- passive_category: innate
+  name: A Sky Full of Stars
+  unlock_tier: 1★
+  effect: 'Raise BP recovery amount of Self by 1. When using Boost MAX on an ability, impart All Allies with 1 BP Stock (max: 3).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: When an ally consumes BP Stock, raise their final damage during that turn based on the amount of BP consumed (1 BP→5%, 2 BP→10%, 3 BP→20%).
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience II
+  effect: Raise own Fire and Ice Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience II
+  effect: Raise own Lightning and Wind Res. by 15%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience II
+  effect: Raise own Light and Dark Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'When an ally consumes 3+ BP, raise their Phys. Atk. and Elem. Atk. by 20% and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to 50% (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by 50% (Does not stack with effects of the same type).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When an ally consumes BP Stock, raise their Phys. Atk. and Elem. Atk. by 30% and raise the limits of Phys. Atk. and Elem. Atk. augments from support skills and equipment effects to 60% (turns: 4). When selecting a command, raise the potency of allies with 5+ BP by 75% (Does not stack with effects of the same type).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Wind, Light and Dark attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“The Mystery of Stargazing”"
-  passive_effect: "90 E.Atk, 100 SP; Grant immunity to Terror to wearer and Paired Ally; When in front row and selecting a command with 3+ BP: Raise Elem. Atk. and Wind, Light and Dark damage of Entire Front Row by 15%"
+  name: The Mystery of Stargazing
+  passive_effect: '90 E.Atk, 100 SP; Grant immunity to Terror to wearer and Paired Ally; When in front row and selecting a command with 3+ BP: Raise Elem. Atk. and Wind, Light and Dark damage of Entire Front Row by 15%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

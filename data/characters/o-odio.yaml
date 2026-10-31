@@ -69,131 +69,201 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Valorous Dark Slash"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys"
-  - skill_category: active
-    name: "Armageddon"
-    sp_cost: 29
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    power: "120"
-    effects:
-      - "**Armageddon** Raise Damage Limit of Self by 100,000 (turns: 1) and deal Phys"
-  - skill_category: active
-    name: "Fetters of Hate"
-    sp_cost: 42
-    skill_type: heal
-    target: single_enemy
-    power: "105"
-    effects:
-      - "**Fetters of Hate (1★)** Restore HP (potency: 105) and SP (amount: 5% of max SP) and cure some status ailments"
-  - skill_category: active
-    name: "Shardfall"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: active
-    name: "Hatred’s Wild Blade"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-  - skill_category: active
-    name: "Widespread Hatred"
-    sp_cost: 57
-    skill_type: buff
-    target: front_row
-    effects:
-      - "raise damage by 20%"
-      - "grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.) and recover 1 BP"
-  - skill_category: active
-    name: "Absolute Hatred"
-    sp_cost: 80
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: single_enemy
-    power: "40"
-  - skill_category: active
-    name: "Death Bargain"
-    sp_cost: 55
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Death Bargain (5★)** Grant Entire Front Row Unsinkable (turns: 1-4 based on Boost Lv.)"
-      - "but grant Paired Ally Fatal Sentence (count 2)"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Hatred’s Fury"
-    sp_cost: 82
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: front_row
-    hit_count: "6x"
-    power: "6x40"
-  - skill_category: tp
-    name: "Righteous Fervor"
-    sp_cost: 30
-    skill_type: mixed
-    target: single_enemy
-    effects:
-      - "**Righteous Fervor ** Gain Unsinkable and raise Phys"
-  - skill_category: ex
-    name: "Shadow of Hatred"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "6x"
-    power: "6x40"
-    effects:
-      - "--- Usage Condition: When Self has Dead Aim"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Archon’s Mark"
-    skill_type: attack
-    damage_types: [sword, dark]
-    target: aoe
-    hit_count: "4x"
+- skill_category: active
+  name: Valorous Dark Slash
+  sp_cost: 29
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90) and raise Phys. Atk. of Self by 10% (turns: 2).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Armageddon
+  sp_cost: 29
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  power: '120'
+  effects:
+  - 'Raise Damage Limit of Self by 100,000 (turns: 1) and deal Phys. Sword damage to All Foes (potency: 120).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - Consume 80% of max HP from All Allies with more than 80% HP to increase potency with each ally affected up to 5x (with 8 travelers).
+- skill_category: active
+  name: Fetters of Hate
+  unlock_tier: 1★
+  sp_cost: 42
+  skill_type: heal
+  target: single_enemy
+  power: '105'
+  effects:
+  - 'Restore HP (potency: 105) and SP (amount: 5% of max SP) and cure some status ailments.'
+- skill_category: active
+  name: Shardfall
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x85) and have a high chance to inflict poison, bleeding and blindness (turns: 2/each ailment is calculated separately).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Hatred’s Wild Blade
+  unlock_tier: 2★
+  sp_cost: 58
+  skill_type: attack
+  damage_types:
+  - sword
+  - dark
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal damage to Self (effect: 30% of max HP) and then deal Phys. Sword damage to Random Foe 5 time(s) (potency: 5x55).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Widespread Hatred
+  unlock_tier: 3★
+  sp_cost: 57
+  skill_type: mixed
+  target: front_row
+  effects:
+  - 'Deal damage to Entire Front Row (effect: 50% of target’s max HP), raise damage by 20%, grant Dead Aim (guaranteed critical hits) (turns: 2-5 based on Boost Lv.) and recover 1 BP.'
+  - '*Cannot incapacitate allies with this skill.'
+  upgrades:
+  - 'Lv.88: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: Absolute Hatred
+  unlock_tier: 4★
+  sp_cost: 80
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: single_enemy
+  power: '40'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 40).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - At Max Boost, consume 60% of max HP of each ally with more than 60% HP.
+  - 'Attack count increases with each ally affected (max: 8).'
+  upgrades:
+  - 'Lv.96: SP Saver: 80→64'
+- skill_category: active
+  name: Death Bargain
+  unlock_tier: 5★
+  sp_cost: 55
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row Unsinkable (turns: 1-4 based on Boost Lv.), but grant Paired Ally Fatal Sentence (count 2).'
+  - '*Can only be used once per battle.'
+  upgrades:
+  - 'Lv.99: SP Saver: 55→44'
+- skill_category: active
+  name: Hatred’s Fury
+  unlock_tier: 5★
+  sp_cost: 82
+  skill_type: attack
+  damage_types:
+  - sword
+  - dark
+  target: front_row
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal damage to Entire Front Row (effect: 30% of target’s max HP) and then deal Phys. Sword damage to All Foes 6 time(s) (potency: 6x40) and have a high chance to inflict poison, bleeding and blindness (turns: 2/each ailment is calculated separately).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  - '*Cannot incapacitate allies with this skill.'
+  upgrades:
+  - 'Lv.100: SP Saver: 82→66'
+- skill_category: tp
+  name: Righteous Fervor
+  sp_cost: 30
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Gain Unsinkable and raise Phys. Atk. and damage by 30% (turns: 2-5 based on Boost Lv.).'
+  - '*Can only be used once per battle.'
+- skill_category: ex
+  name: Shadow of Hatred
+  skill_type: attack
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 6 time(s) (potency: 6x40).'
+  - Exploits Fire and Dark weaknesses (damage calculation based on Phys. Sword attack).
+  - 'At Max Boost: Deal damage to Self (potency: 80% of max HP) and attack count becomes 12.'
+  - '*Cannot incapacitate Self with this skill.'
+  notes: 'Usage Condition: When Self has Dead Aim; Uses: 2'
+  ex_trigger: When Self has Dead Aim
+- skill_category: special
+  name: Archon’s Mark
+  skill_type: utility
+  damage_types:
+  - sword
+  - dark
+  target: aoe
+  hit_count: 4x
+  power: 8x60→8x100→8x140
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 8x60→8x100→8x140) and inflict poison, bleeding, paralysis and blindness (turns: 2).'
+  - Exploits Dark weakness (damage calculation based on Phys. Sword attack).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When ally is incapacitated, restore own SP (amount: 100% of max SP), recover 5 BP, restore Ultimate Technique use count by 1, fill Ultimate Technique gauge to 100% and raise Phys. Atk. by 15% and damage by 15% (turns: 3)."
-    trigger: always
-  - passive_category: innate
-    effect: "At 75% HP or less: Impart Selfwith Phys. Atk. Up 15%, raise damage by 15% and grant Dead Aim (guaranteed critical hits)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an enemy with 8+ statuses is present: Raise the critical damage multiplier (1.25→1.4). When an enemy with 12+ statuses is present: Raise BP recovery by 1."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Sublime Dark Lord
+  unlock_tier: 1★
+  effect: 'When ally is incapacitated, restore own SP (amount: 100% of max SP), recover 5 BP, restore Ultimate Technique use count by 1, fill Ultimate Technique gauge to 100% and raise Phys. Atk. by 15% and damage by 15% (turns: 3).'
+  trigger: always
+- passive_category: innate
+  name: Agression
+  unlock_tier: 3★
+  effect: 'At 75% HP or less: Impart Selfwith Phys. Atk. Up 15%, raise damage by 15% and grant Dead Aim (guaranteed critical hits).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Shadow of Despair
+  effect: 'When an enemy with 8+ statuses is present: Raise the critical damage multiplier (1.25→1.4). When an enemy with 12+ statuses is present: Raise BP recovery by 1.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Crux of Hatred"
-  passive_effect: "70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 70% HP or less: Reduce own damage taken from some attacks by 30%; 70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At **60%** HP or less: Reduce own damage taken from some attacks by **20%**"
+  name: Crux of Hatred
+  passive_effect: '70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At 70% HP or less: Reduce own damage taken from some attacks by 30%; 70 P.Atk, 700 HP; Survive an otherwise lethal attack with 1 HP remaining once per battle; At **60%** HP or less: Reduce own damage taken from some attacks by **20%**'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Unsinkable
+  description: Survive an otherwise lethal attack with 1 HP (with some exceptions).
+- name: Death Sentence
+  description: Incapacitates target once the countdown ends.
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

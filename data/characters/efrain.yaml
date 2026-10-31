@@ -51,123 +51,158 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Traumatic Bash"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Ethereal Healing (Single) II"
-    sp_cost: 19
-    skill_type: buff
-    target: single_ally
-    power: "110, turns: 2-5 based on Boost Lv."
-    effects:
-      - "**Ethereal Healing (Single) II** Grant Single Ally automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) [19 SP]"
-  - skill_category: active
-    name: "Brutal Bludgeon"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Fireball (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [fire]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Trifold Bash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x60"
-  - skill_category: active
-    name: "Enhanced Healing (Single)"
-    sp_cost: 38
-    skill_type: heal
-    target: single_ally
-    power: "225"
-    effects:
-      - "**Enhanced Healing (Single) (3★)** Restore HP of Single Ally (potency: 225)"
-  - skill_category: active
-    name: "Enhanced Healing (Single)"
-    sp_cost: 30
-    skill_type: heal
-    target: single_ally
-    power: "**295**"
-    effects:
-      - "**Enhanced Healing (Single) (5★)** Restore HP of Single Ally (potency: **295**)"
-  - skill_category: active
-    name: "Hammer of Judgement"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "220"
-  - skill_category: active
-    name: "Hammer of Judgement"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "**250**"
-  - skill_category: tp
-    name: "Triple Burst Strike"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    hit_count: "3x"
-    power: "3x95"
-  - skill_category: ex
-    name: "Hammer of Penintence"
-    skill_type: attack
-    damage_types: [staff, fire]
-    target: single_enemy
-    power: "290"
-    effects:
-      - "Raise Damage Limit of this skill by 50,000"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Hammer of Condemnation"
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    power: "500→600→750"
-    effects:
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Traumatic Bash
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Ethereal Healing (Single) II
+  sp_cost: 19
+  skill_type: buff
+  target: single_ally
+  power: '110, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Single Ally automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.)'
+- skill_category: active
+  name: Brutal Bludgeon
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Fireball (Single) II
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - fire
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Trifold Bash
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x60
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x60).'
+- skill_category: active
+  name: Enhanced Healing (Single)
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: heal
+  target: single_ally
+  power: '225'
+  effects:
+  - 'Restore HP of Single Ally (potency: 225).'
+  upgrades:
+  - 'Lv.72: SP Saver: 38→30'
+  - 'Upgraded: Restore HP of Single Ally (potency: 295).'
+- skill_category: active
+  name: Hammer of Judgement
+  unlock_tier: 4★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: '220'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 220).'
+  upgrades:
+  - 'Lv.80: SP Saver: 32→26'
+  - 'Upgraded: Deal Phys. Staff damage to Single Foe (potency: 250).'
+- skill_category: tp
+  name: Triple Burst Strike
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  hit_count: 3x
+  power: 3x95
+  effects:
+  - 'Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x95).'
+- skill_category: ex
+  name: Hammer of Penintence
+  skill_type: utility
+  damage_types:
+  - staff
+  - fire
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 290).'
+  - Exploits Fire weakness (damage calculation based on Phys. Staff attack).
+  - Raise Damage Limit of this skill by 50,000.
+  notes: 'Usage Condition: At full HP; Uses: 2'
+  ex_trigger: At full HP
+- skill_category: special
+  name: Hammer of Condemnation
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe (potency: 500→600→750).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Impart Self with Phys. Atk. Up 15%."
-  - passive_category: innate
-    effect: "At full HP: Raise Staff damage of Self by 20%."
-    trigger: hp_condition
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Act faster when consuming 3 BP."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Phys. Atk Boost II
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Self with Phys. Atk. Up 15% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Impart Self with Phys. Atk. Up 15%.
+- passive_category: innate
+  name: Hale Staff Atk Boost III
+  unlock_tier: 3★
+  effect: 'At full HP: Raise Staff damage of Self by 20%.'
+  trigger: hp_condition
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  unlock_tier: 5★
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Full Speed
+  effect: Act faster when consuming 3 BP.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Marlow’s Secret Script"
-  passive_effect: "50 P.Atk, 10 E.Atk, 10 Spd; Raise Staff damage dealt by 15%"
+  name: Marlow’s Secret Script
+  passive_effect: 50 P.Atk, 10 E.Atk, 10 Spd; Raise Staff damage dealt by 15%
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

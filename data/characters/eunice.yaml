@@ -51,122 +51,152 @@ jp_tier: "G | 7.5-7.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Luminescence (Single)"
-    sp_cost: 9
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "120"
-  - skill_category: active
-    name: "Blinding Light (Single)"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x65"
-  - skill_category: active
-    name: "Lightprone (Single)"
-    sp_cost: 4
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Lightprone (Single) (1★)** Lower Light Res"
-  - skill_category: active
-    name: "Analyze"
-    sp_cost: 1
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Luminescence (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    power: "150"
-  - skill_category: active
-    name: "Blinding Light (Single) II"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Blinding Light (Single) II"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "2x"
-    power: "**2x110**"
-  - skill_category: tp
-    name: "Chaotic Light Magic"
-    sp_cost: 29
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    hit_count: "2x"
-    power: "2x75"
-    effects:
-      - "Light damage to Random Foe 2 time(s) (potency: 2x75) and lower Light Res"
-  - skill_category: tp
-    name: "Chaotic Light Magic Lv.2"
-    sp_cost: 29
-    skill_type: mixed
-    damage_types: [light]
-    target: random
-    power: "**4**x75"
-    effects:
-      - "Light damage to Random Foe **4** time(s) (potency: **4**x75) and lower Light Res"
-      - "At Max Boost: Restore 1 use of Ultimate Technique"
-  - skill_category: ex
-    name: "Ancient Light’s Theory (Single)"
-    skill_type: mixed
-    damage_types: [light]
-    target: single_enemy
-    power: "140"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Refulgent Flash"
-    skill_type: mixed
-    damage_types: [light]
-    target: single_enemy
-    hit_count: "3x"
-    effects:
-      - "Light damage to Single Foe 3 time(s) (potency: **3x130→3x160→3x195**) and lower Light Res"
+- skill_category: active
+  name: Luminescence (Single)
+  sp_cost: 9
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '120'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 120).'
+- skill_category: active
+  name: Blinding Light (Single)
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x65).'
+- skill_category: active
+  name: Lightprone (Single)
+  unlock_tier: 1★
+  sp_cost: 4
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Light Res. of Single Foe by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Analyze
+  unlock_tier: 2★
+  sp_cost: 1
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - Show 1-4 weak point(s) of Single Foe based on Boost Lv.).
+- skill_category: active
+  name: Luminescence (Single) II
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  power: '150'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 150).'
+- skill_category: active
+  name: Blinding Light (Single) II
+  unlock_tier: 3★
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x80).'
+  upgrades:
+  - 'Lv.60: SP Saver: 28→22'
+  - 'Upgraded: Deal Elem. Light damage to Single Foe 2 time(s) (potency: 2x110).'
+- skill_category: tp
+  name: Chaotic Light Magic
+  sp_cost: 29
+  skill_type: debuff
+  damage_types:
+  - light
+  target: random
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Elem. Light damage to Random Foe 2 time(s) (potency: 2x75) and lower Light Res. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.2: Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x75) and lower Light Res. by 15% (turns: 2). At Max Boost: Restore 1 use of Ultimate Technique.'
+- skill_category: ex
+  name: Ancient Light’s Theory (Single)
+  skill_type: debuff
+  damage_types:
+  - light
+  target: single_enemy
+  power: '140'
+  effects:
+  - 'Deal Elem. Light damage to Single Foe (potency: 140).'
+  - Deals triple damage if the target has Light Res. Down.
+  notes: 'Usage Condition: Turn 6 onwards; Uses: 2'
+  ex_trigger: Turn 6 onwards
+- skill_category: special
+  name: Refulgent Flash
+  skill_type: debuff
+  damage_types:
+  - light
+  target: single_enemy
+  hit_count: 3x
+  power: 3x130→3x160→3x195
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x130→3x160→3x195) and lower Light Res. by 5%→10%→15% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP *Requires Ultimate Technique Awakening.; Overcharge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Impart Paired Allies with Elem. Atk Up 10% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3)."
-    trigger: battle_start
-    limit_break_upgrade: "Raise Dark Res. of Paired Allies by 10%."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Light damage of Paired Allies by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Elem. Atk. of Paired Allies by 10% and Light damage by **20%**."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Light attacks of All Allies by 6,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Initial Elem. Atk Boost (Joint)
+  unlock_tier: 1★
+  effect: 'Start of battle: Impart Paired Allies with Elem. Atk Up 10% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Initial Dark Res Boost (Joint)
+  unlock_tier: 3★
+  effect: 'Start of battle: Raise Dark Res. of Paired Allies by 10% (turns: 3).'
+  trigger: battle_start
+  limit_break_upgrade: Raise Dark Res. of Paired Allies by 10%.
+- passive_category: innate
+  name: Dark Resilience III
+  unlock_tier: 5★
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience
+  unlock_tier: 4★
+  effect: Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Light Augment (Joint) II
+  effect: Raise Light damage of Paired Allies by 15%.
+  trigger: always
+- passive_category: tp
+  name: Elem. Atk./Light Augment (Joint) III
+  effect: Raise Elem. Atk. of Paired Allies by 10% and Light damage by 20%.
+  trigger: always
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Light attacks of All Allies by 6,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Ancient Ruin Mural Study"
-  passive_effect: "20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Eunice: Raise Elem. Atk. and Light damage of Paired Allies by 10%"
+  name: Ancient Ruin Mural Study
+  passive_effect: '20 E.Atk, 100 HP, 10 SP; Grant Paired Allies automatic HP recovery (amount: 80); When equipped by Eunice: Raise Elem. Atk. and Light damage of Paired Allies by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

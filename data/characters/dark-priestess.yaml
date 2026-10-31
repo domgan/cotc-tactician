@@ -50,157 +50,199 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Paralyzing Wave"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Blinding Wave"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Blademaster’s Duet II"
-    sp_cost: 48
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Blademaster’s Duet II (1★)** Raise Phys"
-  - skill_category: active
-    name: "Warding Minuet"
-    sp_cost: 100
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Warding Minuet (2★)** Grant Entire Front Row the ability to dodge some elemental attacks (times: 1-4 based on Boost Lv.)"
-  - skill_category: active
-    name: "Necromancer’s Nocturne"
-    sp_cost: 72
-    skill_type: mixed
-    target: all_allies
-  - skill_category: active
-    name: "Daunting Cantata (All) II"
-    sp_cost: 42
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Daunting Cantata (All) II (3★)** Lower Phys"
-  - skill_category: active
-    name: "Fell Trinity"
-    sp_cost: 36
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Fell Trinity (4★)** Grant ****Entire Front Row the ability to exploit Fire"
-  - skill_category: active
-    name: "Nyctophobic Nocturne II"
-    sp_cost: 78
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Nyctophobic Nocturne II (5★)** Lower Phys"
-      - "of Single Foe by 15% (turns: 2-5 based on Boost Lv.) and grant them Sword and Dark weaknesses (times each: 2-5 based on Boost Lv.)"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Dark Weakness: Regardless of the source"
-  - skill_category: active
-    name: "Malediction (All)"
-    sp_cost: 94
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Malediction (All) (5★)** Act faster during turn and raise the limits of Phys"
-    limit_break_upgrade: "Act faster during turn and raise the limits of Phys. Def. and Elem. Def. reductions from battle skills on All Foes to 50% (turns: 2-5 based on Boost Lv.) and lower their Phys. Def. and Elem. Def. by 15% (turns: 2)."
-  - skill_category: tp
-    name: "Darkshield"
-    sp_cost: 38
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Darkshield ** Act faster during turn and grant Single Ally the effect Darkshield (turns: 1/Does not stack with effects of the same type)"
-  - skill_category: tp
-    name: "Darkshield Lv.2"
-    sp_cost: 38
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Darkshield Lv.2** Act faster during turn and grant Single Ally an HP Barrier (amount: 20% of user’s max HP) and the effect Darkshield (turns: 1/Does not stack with effects of the same type)"
-  - skill_category: ex
-    name: "Cursed Burial: Finale"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "**Cursed Burial: Finale** Grant every other ally automatic revival at 25%-100% of max HP and max SP based on Boost Lv"
-      - "grant Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation/granted as a support skill)"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "From the Far Reaches of Hell"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "Grant All Allies automatic revival at **15%→25%→35%** of max HP"
+- skill_category: active
+  name: Paralyzing Wave
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: active
+  name: Blinding Wave
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 150) and have a moderate chance to inflict blindness (turns: 2).'
+- skill_category: active
+  name: Blademaster’s Duet II
+  unlock_tier: 1★
+  sp_cost: 48
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and Phys. Atk. of any target Warriors by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Warding Minuet
+  unlock_tier: 2★
+  sp_cost: 100
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row the ability to dodge some elemental attacks (times: 1-4 based on Boost Lv.).'
+- skill_category: active
+  name: Necromancer’s Nocturne
+  unlock_tier: 2★
+  sp_cost: 72
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Cast countdown on Self (count: 4).'
+  - 'Once the countdown ends, raise Phys. and Elem. Res. of All Allies by 15% (turns: 3-6 based on Boost Lv.) and Sword damage of any target Warriors by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Daunting Cantata (All) II
+  unlock_tier: 3★
+  sp_cost: 42
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 42→34'
+- skill_category: active
+  name: Fell Trinity
+  unlock_tier: 4★
+  sp_cost: 36
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row the ability to exploit Fire, Ice and Lightning weakness with some physical and elemental attacks other than the “Attack” action (damage calculation based on corresponding attack) (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.96: Duration Up: 2-5 turns→3-6 turns'
+- skill_category: active
+  name: Nyctophobic Nocturne II
+  unlock_tier: 5★
+  sp_cost: 78
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Phys. and Elem. Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.) and grant them Sword and Dark weaknesses (times each: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 78→62'
+- skill_category: active
+  name: Malediction (All)
+  unlock_tier: 5★
+  sp_cost: 94
+  skill_type: utility
+  target: aoe
+  priority: true
+  effects:
+  - 'Act faster during turn and raise the limits of Phys. Def. and Elem. Def. reductions from battle skills on All Foes to 50% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.100: SP Saver: 94→75'
+  limit_break_upgrade: 'Act faster during turn and raise the limits of Phys. Def. and Elem. Def. reductions from battle skills on All Foes to 50% (turns: 2-5 based on Boost Lv.) and lower their Phys. Def. and Elem. Def. by 15% (turns: 2).'
+- skill_category: tp
+  name: Darkshield
+  sp_cost: 38
+  skill_type: buff
+  target: single_ally
+  priority: true
+  effects:
+  - 'Act faster during turn and grant Single Ally the effect Darkshield (turns: 1/Does not stack with effects of the same type), which reduces their damage taken from some attacks by 20%-50% based on Boost Lv. (at least 1 damage).'
+  - If the bearer is a Warrior, the damage reduction doubles.
+  upgrades:
+  - 'Lv.2: Act faster during turn and grant Single Ally an HP Barrier (amount: 20% of user’s max HP) and the effect Darkshield (turns: 1/Does not stack with effects of the same type), which reduces their damage taken from some attacks by 20%-50% based on Boost Lv. (at least 1 damage). If the bearer is a Warrior, the damage reduction doubles.'
+- skill_category: ex
+  name: 'Cursed Burial: Finale'
+  skill_type: buff
+  target: single_enemy
+  effects:
+  - 'Grant every other ally automatic revival at 25%-100% of max HP and max SP based on Boost Lv. (Stacks with the revival effects from battle skills/Excluding incapacitated allies), grant Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation/granted as a support skill).'
+  notes: 'Usage Condition: Turn 8 onwards; Uses: 1'
+  ex_trigger: Turn 8 onwards
+- skill_category: special
+  name: From the Far Reaches of Hell
+  skill_type: buff
+  target: all_allies
+  effects:
+  - Grant All Allies automatic revival at 15%→25%→35% of max HP.
+  - Triggers immediately if incapacitated (count does not increase when stacked).
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 10%/BP→15%/BP→25%/BP 20%/BP→30%/BP→50%/BP; Overcharge: Also grant them the ability to exploit Fire, Ice, Lightning, Wind, Light and Dark weaknesses with some attacks other than the “Attack” action (damage calculation based on original attack) (turns: 2).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage with the “Attack” and gain the ability to trigger critical hits with elemental attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "When allies become incapacitated or when using your Ultimate Technique, grant Self Ward of the Black Flame (turns: 4)."
-    trigger: always
-  - passive_category: innate
-    effect: "Start of battle: Grant every other ally automatic revival at 100% max HP and max SP (stacks with the revival effects from battle skills/excluding incapacitated allies), Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation), and raise Dark damage of All Allies by 30% (turns: 3)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following: ---"
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: tp
-    effect: "Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following: ---"
-    trigger: always
-  - passive_category: innate
-    effect: "**3**"
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: innate
-    effect: "Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Elem. Dark attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Black Maiden
+  effect: Deal Elem. Dark damage with the “Attack” and gain the ability to trigger critical hits with elemental attacks.
+  trigger: always
+- passive_category: innate
+  name: Flood of Curse
+  unlock_tier: 1★
+  effect: 'When allies become incapacitated or when using your Ultimate Technique, grant Self Ward of the Black Flame (turns: 4).'
+  trigger: always
+- passive_category: innate
+  name: 'Cursed Burial: Prelude'
+  unlock_tier: 3★
+  effect: 'Start of battle: Grant every other ally automatic revival at 100% max HP and max SP (stacks with the revival effects from battle skills/excluding incapacitated allies), Fatal Sentence (count: 3) and Necromancy (times: 1/persists even after incapacitation), and raise Dark damage of All Allies by 30% (turns: 3).'
+  trigger: battle_start
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark
+  effect: Resilience Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Latent Power: Dark Curse'
+  effect: 'Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following:'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following:'
+  notes: 'Preparation Turns: 3; Reuse Turns: 6'
+- passive_category: innate
+  name: Cursed Hellfire
+  effect: 'Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: innate
+  name: Cursed Crippling Flame
+  effect: 'Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: innate
+  name: Cursed Obliterating Blade
+  effect: 'Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: innate
+  name: Cursed Hellfire
+  effect: 'Deal Elem. Dark damage to Single Foe (potency: 290). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: innate
+  name: Cursed Crippling Flame
+  effect: 'Deal Elem. Dark damage to Random Foe 4 time(s) (potency: 4x45) and lower their Dark Res. by 15% with every attack (turns: 2). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: innate
+  name: Cursed Obliterating Blade
+  effect: 'Deal Elem. Dark damage to All Foes 8 time(s) (potency: 8x10). Ignores effects that completely dodges or blocks attacks.'
+  trigger: always
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Elem. Dark attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Dark Priestess’ Hair Ornament"
-  passive_effect: "60 E.Atk, 80 SP; When in front row: Lower Elem. Res. of All Foes by 10%; When equipped by a Dancer: Gain the ability to exploit Fan weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)"
+  name: Dark Priestess’ Hair Ornament
+  passive_effect: '60 E.Atk, 80 SP; When in front row: Lower Elem. Res. of All Foes by 10%; When equipped by a Dancer: Gain the ability to exploit Fan weakness with some elemental attacks other than the “Attack” action (damage calculation based on original attack)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Ward of the Black Flame
+  description: Raise own Elem. Atk., Elem. Def. and Critical by 30% and raise Dark damage by 30% and set the reuse turns of Dark Curse to 0. *Only triggers once, even if multiple allies fall at a time.
+- name: Fatal Sentence
+  description: Becomes incapacitated when the countdown ends.
+- name: Necromancy
+  description: 'Upon revival from incapacitation, raise own Elem. Atk., Elem. Def. and Speed by 30% and raise Dark damage by 30% (turns: 9).'
+- name: Granted Sword Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Sword, increase damage taken from Sword by 20%.'
+- name: Granted Dark Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Dark, increase damage taken from Dark by 20%.'
 
 # Metadata
 data_confidence: complete

@@ -1,0 +1,24 @@
+id: roster-effect-def-down
+goal: Effect search finds owned Elem. Def debuffers and never returns unowned units.
+roster: fixture
+
+agent_prompt: |
+  Using the cotc-tactician MCP and my saved roster, which characters I own can lower
+  enemy Elem. Def? Quote the exact skill text you relied on.
+agent_checks:
+  - Calls search_skill_effects (not only search_characters or list_by_role).
+  - Response reports roster_applied true and every listed character is in get_my_roster.
+  - Every claim quotes a "matched" sentence returned by the tool; nothing invented.
+
+steps:
+  - tool: search_skill_effects
+    args:
+      terms: ['lower.*Elem\. Def']
+    expect:
+      equals:
+        roster_applied: true
+        recommendation_pool: roster
+      includes_ids:
+        results: [rocbouquet]
+      ids_owned: [results]
+      not_contains_text: ['their Phys"', 'Lv.88 |']

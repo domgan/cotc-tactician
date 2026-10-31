@@ -53,136 +53,183 @@ jp_tier: "A | 9.7"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 12
-    skill_type: heal
-    target: single_ally
-    power: "100"
-    effects:
-      - "**(Initial)** Restore HP of Single Ally (potency: 100)"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 18
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**(Initial)** Lower Phys"
-  - skill_category: active
-    sp_cost: 39
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    sp_cost: 79
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**(2★)** Grant All Foes Sword"
-  - skill_category: active
-    sp_cost: 91
-    skill_type: attack
-    damage_types: [axe]
-    target: random
-    hit_count: "6x"
-    power: "6x40"
-  - skill_category: active
-    sp_cost: 80
-    skill_type: buff
-    target: front_row
-    power: "150/turns: 2-5 based on Boost Lv."
-    effects:
-      - "**(3★)** Grant Entire Front Row automatic HP recovery (potency: 150/turns: 2-5 based on Boost Lv.) and grant effects based on own Cheer On Points"
-      - "·6+: Also restore their SP (amount: 5% of target’s max SP)"
-      - "·9+: Also restore 1 BP"
-  - skill_category: active
-    sp_cost: 121
-    skill_type: mixed
-    damage_types: [axe]
-    target: aoe
-    hit_count: "4x"
-    power: "4x35"
-    effects:
-      - "Axe damage to All Foes 4 time(s) (potency: 4x35) and lower Phys"
-  - skill_category: active
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-  - skill_category: active
-    sp_cost: 78
-    skill_type: heal
-    target: front_row
-    power: "205"
-    effects:
-      - "**(5★)** Act faster during turn and restore HP of Entire Front Row (potency: 205)"
-  - skill_category: tp
-    sp_cost: 200
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x160"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 200
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x160"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**(EX)** Act faster during turn and raise potency of All Allies by 50% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type)"
-      - "Also grant Self a special effect that makes summoned allies to act twice and not consume summoned ally uses neither ally summons per battle for the next 1-4 times based on Boost Lv"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "“Wholehearted Support”"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "Act faster during turn"
-      - "grant All Allies automatic SP recovery (amount: 5% of max SP)"
-      - "raise their BP recovery by 1 and their Axe damage by **5%→10%→15%** (turns: 3)"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 12
+  skill_type: heal
+  target: single_ally
+  power: '100'
+  effects:
+  - 'Restore HP of Single Ally (potency: 100).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 18
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Phys. Atk. and Phys. Def. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 39
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 150).'
+  - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 79
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Grant All Foes Sword, Axe, Bow and Staff weaknesses (times each: 6-9).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 91
+  skill_type: utility
+  damage_types:
+  - axe
+  target: random
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal Phys. Axe damage to Random Foe 6 time(s) (potency: 6x40).'
+  - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 80
+  skill_type: buff
+  target: front_row
+  power: '150/turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'Grant Entire Front Row automatic HP recovery (potency: 150/turns: 2-5 based on Boost Lv.) and grant effects based on own Cheer On Points.'
+  - '·3+: Reaches All Allies.'
+  - '·6+: Also restore their SP (amount: 5% of target’s max SP).'
+  - '·9+: Also restore 1 BP.'
+  upgrades:
+  - 'Lv.88: SP Saver: 80→64'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 121
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 4x
+  power: 4x35
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 4 time(s) (potency: 4x35) and lower Phys. Res. by 15% (turns: 2).'
+  - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'At Max Boost: Absorb 1% of damage dealt as SP.'
+  upgrades:
+  - 'Lv.96: SP Saver: 121→97'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'At Max Boost: Summon again the last summoned ally in battle.'
+  upgrades:
+  - 'Lv.99: SP Saver: 54→43'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 78
+  skill_type: heal
+  target: front_row
+  power: '205'
+  priority: true
+  effects:
+  - 'Act faster during turn and restore HP of Entire Front Row (potency: 205).'
+  - 'At Max Boost: Summon again the last summoned ally in battle.'
+  upgrades:
+  - 'Lv.100: SP Saver: 78→62'
+- skill_category: tp
+  sp_cost: 200
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x160
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x160).'
+  - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
+  - 'With 6 or more Cheer On Points: Attack count becomes 5.'
+  upgrades:
+  - 'Lv.2: Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x160). Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack). With 6 or more Cheer On Points: Attack count becomes 8. With 6 or more Cheer On Points: Damage Limit of this skill is increased by 500,000.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn and raise potency of All Allies by 50% (turns: 2-5 based on Boost Lv./Turns cannot be extended/Does not stack with effects of the same type).'
+  - Also grant Self a special effect that makes summoned allies to act twice and not consume summoned ally uses neither ally summons per battle for the next 1-4 times based on Boost Lv..
+  notes: 'Usage Condition: -; Uses: 1'
+  ex_trigger: '-'
+- skill_category: special
+  name: Wholehearted Support
+  skill_type: buff
+  target: all_allies
+  priority: true
+  effects:
+  - 'Act faster during turn, grant All Allies automatic SP recovery (amount: 5% of max SP), raise their BP recovery by 1 and their Axe damage by 5%→10%→15% (turns: 3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "After performing an action, restore HP of Entire Front Row (amount: 10% of their max HP) and grant them 1 Cheer On Point."
-    trigger: always
-    limit_break_upgrade: "After performing an action, restore HP of **All Allies** (amount: 10% of their max HP), raise their Damage Limit by 10,000 (turns: 2) and grant them 1 Cheer On Point."
-  - passive_category: innate
-    effect: "Grant All Allies effects based on own Cheer On Points. ·3+: Raise Phys. Atk. by 15%. ·6+: Also raise the limit of Sword, Axe, Bow and Staff damage from support skills and equipment effects to 60%. ·9+: Also raise their Damage Limit by 50,000."
-    trigger: always
-  - passive_category: innate
-    effect: "After a summoned ally uses their skill, cure status ailments of All Allies (including Charm, Comatose and Stillness), grant them immunity to some status ailments (turns: 2) and gain 3 Cheer On Points."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Raise Axe damage of All Allies by 20% (turns: 6)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Start of battle: Raise Sword, Axe, Bow and Staff damage of All Allies by **30%** (turns: 6), raise their Damage Limit by 10,000 (turns: 6) and grant them Fightning Spirit (turns: 2)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Sword, Axe, Bow and Staff attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Incidental Recovery (All)
+  effect: 'After performing an action, restore HP of Entire Front Row (amount: 10% of their max HP) and grant them 1 Cheer On Point.'
+  trigger: always
+  limit_break_upgrade: 'After performing an action, restore HP of All Allies (amount: 10% of their max HP), raise their Damage Limit by 10,000 (turns: 2) and grant them 1 Cheer On Point.'
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Grant All Allies effects based on own Cheer On Points. ·3+: Raise Phys. Atk. by 15%. ·6+: Also raise the limit of Sword, Axe, Bow and Staff damage from support skills and equipment effects to 60%. ·9+: Also raise their Damage Limit by 50,000.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'After a summoned ally uses their skill, cure status ailments of All Allies (including Charm, Comatose and Stillness), grant them immunity to some status ailments (turns: 2) and gain 3 Cheer On Points.'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'Start of battle: Raise Axe damage of All Allies by 20% (turns: 6).'
+  trigger: battle_start
+  upgrades:
+  - 'Lv.2: Start of battle: Raise Sword, Axe, Bow and Staff damage of All Allies by 30% (turns: 6), raise their Damage Limit by 10,000 (turns: 6) and grant them Fightning Spirit (turns: 2).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Sword, Axe, Bow and Staff attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Architect’s Toolbox”"
-  passive_effect: "60 P.Atk, 60 P.Def, 700 HP; Start of battle: Raise Damage Limit of All Allies by 50,000 (turns: 3)"
+  name: Architect’s Toolbox
+  passive_effect: '60 P.Atk, 60 P.Def, 700 HP; Start of battle: Raise Damage Limit of All Allies by 50,000 (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Fightning Spirit
+  description: BP does not decrease (even during consumption/with some exceptions). *Effects that require BP will still be activated.
+- name: Granted Sword/Axe/Bow/Staff Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Sword/Axe/Bow/Staff, increase damage taken from Sword/Axe/Bow/Staff by 20%.'
 
 # Metadata
 data_confidence: incomplete

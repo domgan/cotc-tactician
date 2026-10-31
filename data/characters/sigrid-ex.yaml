@@ -52,131 +52,185 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Repeated Thrust"
-    sp_cost: 26
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Incite"
-    sp_cost: 13
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Slashing Thrust"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [polearm, sword]
-    target: aoe
-    power: "180"
-    effects:
-      - "**Slashing Thrust (1★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Blazing Rush"
-    sp_cost: 63
-    skill_type: attack
-    damage_types: [polearm, fire]
-    target: aoe
-    power: "180"
-    effects:
-      - "**Blazing Rush (2★)** Act faster during turn and deal Phys"
-  - skill_category: active
-    name: "Calm Mind"
-    sp_cost: 36
-    skill_type: buff
-    target: self
-    effects:
-      - "**Calm Mind (2★)** Grant Self automatic SP recovery (amount: 15% of max SP"
-  - skill_category: active
-    name: "Will to Fight"
-    sp_cost: 20
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "**Will to Fight (3★)** Raise own Phys"
-  - skill_category: active
-    name: "Burning Assault"
-    sp_cost: 37
-    skill_type: mixed
-    damage_types: [fire]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x120"
-    effects:
-      - "Fire damage to Single Foe 2 time(s) (potency: 2x120) and lower Phys"
-  - skill_category: active
-    name: "Scarlet Bloom"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    power: "230"
-    limit_break_upgrade: "Deal Phys. Polearm damage to Single Foe (potency: **260**) and absorb 1% of damage dealt as SP. Damage Limit of this skill is increased by 50,000. Potency increases by **1.5x** if target is combusted."
-  - skill_category: active
-    name: "Fiery Thrust"
-    sp_cost: 52
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Lv.100 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Combust: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target)"
-  - skill_category: tp
-    name: "Volatile Thrust"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
-    hit_count: "6x"
-    power: "6x45"
-  - skill_category: tp
-    name: "Volatile Thrust"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [polearm]
-    target: random
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: special
-    name: "Fourfold Tranquility"
-    skill_type: attack
-    damage_types: [polearm]
-    target: single_enemy
-    hit_count: "4x"
-    effects:
-      - "Polearm damage to Single Foe 4 time(s) (potency: **4x110→4x135→4x160**) and restore own SP (amount: 50% of max SP)"
+- skill_category: active
+  name: Repeated Thrust
+  sp_cost: 26
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 2 time(s) (potency: 2x90).'
+- skill_category: active
+  name: Incite
+  sp_cost: 13
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Provoke all enemies (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Slashing Thrust
+  unlock_tier: 1★
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - polearm
+  - sword
+  target: aoe
+  power: '180'
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to All Foes (potency: 180).'
+  - Exploits Sword weakness (damage calculation based on Phys. Polearm attack).
+- skill_category: active
+  name: Blazing Rush
+  unlock_tier: 2★
+  sp_cost: 63
+  skill_type: utility
+  damage_types:
+  - polearm
+  - fire
+  target: aoe
+  power: '180'
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Polearm damage to All Foes (potency: 180).'
+  - Exploits Fire weakness (damage calculation based on Phys. Polearm attack).
+- skill_category: active
+  name: Calm Mind
+  unlock_tier: 2★
+  sp_cost: 36
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self automatic SP recovery (amount: 15% of max SP, turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Will to Fight
+  unlock_tier: 3★
+  sp_cost: 20
+  skill_type: utility
+  target: single_enemy
+  effects:
+  - 'Raise own Phys. Atk. and Phys. Def. by 15% and provoke Single Foe (turns: 3-6 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 20→16'
+- skill_category: active
+  name: Burning Assault
+  unlock_tier: 4★
+  sp_cost: 37
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: single_enemy
+  hit_count: 2x
+  power: 2x120
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 2 time(s) (potency: 2x120) and lower Phys. Def. by 10% (turns: 2).'
+  upgrades:
+  - 'Lv.96: Duration Up during Boost Mode: 2 turns→2-5 turns based on Boost Lv.'
+- skill_category: active
+  name: Scarlet Bloom
+  unlock_tier: 5★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe (potency: 230).'
+  - Potency increases by 1.2x if target is combusted.
+  upgrades:
+  - 'Lv.99: SP Saver: 42→34'
+  limit_break_upgrade: 'Deal Phys. Polearm damage to Single Foe (potency: 260) and absorb 1% of damage dealt as SP. Damage Limit of this skill is increased by 50,000. Potency increases by 1.5x if target is combusted.'
+- skill_category: active
+  name: Fiery Thrust
+  unlock_tier: 5★
+  sp_cost: 52
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 3 time(s) (potency: 3x65) and cause them to combust (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 52→42'
+- skill_category: tp
+  name: Volatile Thrust
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 6x
+  power: 6x45
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 6 time(s) (potency: 6x45).'
+  - When a combusted enemy is present, exploits Sword and Fire weaknesses (damage calculation is based on Phys. Polearm attack).
+- skill_category: tp
+  name: Volatile Thrust
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: random
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Phys. Polearm damage to Random Foe 4 time(s) (potency: 4x45).'
+- skill_category: special
+  name: Fourfold Tranquility
+  skill_type: utility
+  damage_types:
+  - polearm
+  target: single_enemy
+  hit_count: 4x
+  power: 4x110→4x135→4x160
+  effects:
+  - 'Deal Phys. Polearm damage to Single Foe 4 time(s) (potency: 4x110→4x135→4x160) and restore own SP (amount: 50% of max SP).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Lower Polearm Res. by 30% (turns: 1) and restore SP (amount: 30)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "At 50% SP or more: Raise damage of Entire Front Row by 15%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When an ally Merchant breaks an enemy, lower the foe’s Polearm Res. by 15% (turns: 2) and cause them to combust (turns: 4)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Spearmaster’s Pressure
+  unlock_tier: 1★
+  effect: 'Start of battle: Lower Polearm Res. by 30% (turns: 1) and restore SP (amount: 30).'
+  trigger: battle_start
+- passive_category: innate
+  name: Fearless Resolve
+  unlock_tier: 3★
+  effect: 'At 50% SP or more: Raise damage of Entire Front Row by 15%.'
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire
+  effect: Resilience Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Searing Spear Stance
+  effect: 'When an ally Merchant breaks an enemy, lower the foe’s Polearm Res. by 15% (turns: 2) and cause them to combust (turns: 4).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Eastern Jade Pendant"
-  passive_effect: "40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by 10% and lower SP consumption by 30%; 40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by **10%** and lower SP consumption by **30%**"
+  name: Eastern Jade Pendant
+  passive_effect: '40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by 10% and lower SP consumption by 30%; 40 P.Atk, 60 Spd, 400 HP; When consuming 3 BP or more: Raise Phys. Atk. by **10%** and lower SP consumption by **30%**'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

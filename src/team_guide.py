@@ -33,8 +33,7 @@ EX_SCALING_PATTERNS: dict[str, Any] = {
         "provoke_immunity": True,
         "recommended_hp": 4000,
         "notes": (
-            "Extreme difficulty. Requires speedkill (Solon+Primrose EX) "
-            "or full turtle strategy."
+            "Extreme difficulty. Requires speedkill (Solon+Primrose EX) or full turtle strategy."
         ),
     },
 }
@@ -52,8 +51,7 @@ def _build_role_priorities(roles: dict[str, Any]) -> dict[str, Any]:
     tank = roles.get("tank", {})
     tank_subtypes = tank.get("subtypes", [])
     subtype_names = [
-        s.get("name", "").lower().replace(" tank", "").replace(" ", "_")
-        for s in tank_subtypes
+        s.get("name", "").lower().replace(" tank", "").replace(" ", "_") for s in tank_subtypes
     ]
     # Normalize subtype keys: "Provoke Tank" -> "provoke", "HP Barrier Tank" -> "hp_barrier"
     normalized_subtypes: list[str] = []
@@ -156,10 +154,7 @@ def _flatten_common_mistakes(mistakes: list[dict[str, str]]) -> list[str]:
 
 def _build_recommendation_format(fmt: dict[str, Any]) -> dict[str, Any]:
     sections = fmt.get("sections", [])
-    numbered = [
-        f"{i + 1}. {s.get('name', 'Section')}"
-        for i, s in enumerate(sections)
-    ]
+    numbered = [f"{i + 1}. {s.get('name', 'Section')}" for i, s in enumerate(sections)]
     return {"sections": numbered}
 
 
@@ -204,6 +199,9 @@ def load_team_building_guide(data_dir: Path) -> dict[str, Any]:
     skill_loadout = _build_skill_loadout_guidance(guidelines)
 
     return {
+        "core_principles": {
+            p["name"]: p["description"].strip() for p in guidelines.get("core_principles", [])
+        },
         "party_structure": {
             "total_characters": 8,
             "front_row": 4,

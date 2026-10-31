@@ -52,125 +52,164 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Waltz of the Zephyr II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Saintly Step II"
-    sp_cost: 21
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Saintly Step II** Impart Entire Front Row with Phys"
-  - skill_category: active
-    name: "Sweep"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Sonnet of Storms II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [wind]
-    target: aoe
-    power: "150"
-  - skill_category: active
-    name: "Lost Wind’s Elegy"
-    sp_cost: 16
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Lost Wind’s Elegy (2★)** Lower Wind Res"
-  - skill_category: active
-    name: "Saintly Step III"
-    sp_cost: 35
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Saintly Step III (3★)** Impart Single Ally with Phys"
-  - skill_category: active
-    name: "Blustery Ballad"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x45"
-  - skill_category: active
-    name: "Stirring Saintly Step II"
-    sp_cost: 40
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Stirring Saintly Step II (5★)** Impart Entire Front Row with Phys"
-    limit_break_upgrade: "Impart Entire Front Row with Phys. Def. Up 15% and Elem. Def. Up 15% and raise Phys. and Elem. Res. by 10% (turns: 2-5 based on Boost Lv.)."
-  - skill_category: active
-    name: "Song of Sandstorms"
-    sp_cost: 57
-    skill_type: mixed
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x100"
-    effects:
-      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Phys"
-  - skill_category: tp
-    name: "Clear Sky Ballad"
-    sp_cost: 57
-    skill_type: mixed
-    damage_types: [wind]
-    target: aoe
-    hit_count: "2x"
-    power: "2x100"
-    effects:
-      - "Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Elem"
-  - skill_category: ex
-    name: "Unending Wind"
-    skill_type: mixed
-    damage_types: [wind]
-    target: random
-    hit_count: "5x"
-    power: "5x55"
-    effects:
-      - "Wind damage to Random Foe 5 time(s) (potency: 5x55) and have a low chance to lower Wind Res"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Invisible Wall"
-    skill_type: buff
-    target: front_row
-    power: "2→3"
-    effects:
-      - "by **10%→20%→30%** (turns: **2→3**) and grant Entire Front Row HP Barrier (potency: **10%→20%→30%** of user’s max HP/Does not stack)"
+- skill_category: active
+  name: Waltz of the Zephyr II
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe (potency: 170).'
+- skill_category: active
+  name: Saintly Step II
+  sp_cost: 21
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Atk. Up 15% and Elem. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Sweep
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Sonnet of Storms II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - wind
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Elem. Wind damage to All Foes (potency: 150).'
+- skill_category: active
+  name: Lost Wind’s Elegy
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Wind Res. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Saintly Step III
+  unlock_tier: 3★
+  sp_cost: 35
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Impart Single Ally with Phys. Def. Up 20% and Elem. Def. Up 20% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 35→28'
+- skill_category: active
+  name: Blustery Ballad
+  unlock_tier: 4★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 4x
+  power: 4x45
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 4 time(s) (potency: 4x45).'
+  upgrades:
+  - 'Lv.96: SP Saver: 46→38'
+- skill_category: active
+  name: Stirring Saintly Step II
+  unlock_tier: 5★
+  sp_cost: 40
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Phys. Def. Up 15% and Elem. Def. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.99: SP Saver: 40→32'
+  limit_break_upgrade: 'Impart Entire Front Row with Phys. Def. Up 15% and Elem. Def. Up 15% and raise Phys. and Elem. Res. by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Song of Sandstorms
+  unlock_tier: 5★
+  sp_cost: 57
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x100
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Phys. Atk. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.100: SP Saver: 57→46'
+- skill_category: tp
+  name: Clear Sky Ballad
+  sp_cost: 57
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: aoe
+  hit_count: 2x
+  power: 2x100
+  effects:
+  - 'Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x100) and impart Elem. Atk. Down 15% (turns: 2).'
+- skill_category: ex
+  name: Unending Wind
+  skill_type: debuff
+  damage_types:
+  - wind
+  target: random
+  hit_count: 5x
+  power: 5x55
+  effects:
+  - 'Deal Elem. Wind damage to Random Foe 5 time(s) (potency: 5x55) and have a low chance to lower Wind Res. by 10% with every attack (turns: 2).'
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Invisible Wall
+  skill_type: buff
+  target: front_row
+  power: 10%→20%→30% of user’s max HP/Does not stack
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 10%→20%→30% (turns: 2→3) and Lightning Res. by 10%→20%→30% (turns: 2→3) and grant Entire Front Row HP Barrier (potency: 10%→20%→30% of user’s max HP/Does not stack).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Start of battle: Raise BP recovery amount of Self by 1 (turns: 2)."
-    trigger: battle_start
-  - passive_category: innate
-    effect: "Recover SP equal to 3% of damage taken when hit (With exceptions/Does not stack with effects of the same type)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching to back row: Raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 2)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: BP Recovery Boost
+  unlock_tier: 1★
+  effect: 'Start of battle: Raise BP recovery amount of Self by 1 (turns: 2).'
+  trigger: battle_start
+- passive_category: innate
+  name: SP Recovery
+  unlock_tier: 3★
+  effect: Recover SP equal to 3% of damage taken when hit (With exceptions/Does not stack with effects of the same type).
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience
+  effect: Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Preaching Laughter
+  effect: 'When switching to back row: Raise Phys. Def. and Elem. Def. of Entire Front Row by 10% (turns: 2).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Harlequin’s Secret Tool"
-  passive_effect: "60 E.Atk, 40 E.Def, 40 Spd; Raise Wind damage dealt by 15%; Start of battle: Lower Phys. Atk. of all enemies by 15% (turns: 3)"
+  name: Harlequin’s Secret Tool
+  passive_effect: '60 E.Atk, 40 E.Def, 40 Spd; Raise Wind damage dealt by 15%; Start of battle: Lower Phys. Atk. of all enemies by 15% (turns: 3)'
 
 # Metadata
 data_confidence: incomplete

@@ -57,125 +57,179 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Studious Green"
-    sp_cost: 40
-    skill_type: attack
-    damage_types: [wind]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Pure White"
-    sp_cost: 62
-    skill_type: mixed
-    damage_types: [light]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Light damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 150)"
-  - skill_category: active
-    name: "Enlivening Yellow"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [lightning]
-    target: front_row
-    hit_count: "3x"
-    power: "3x 65"
-  - skill_category: active
-    name: "Cool Colors"
-    sp_cost: 24
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Cool Colors (2★)** Raise Ice"
-  - skill_category: active
-    name: "Warm Colors"
-    sp_cost: 24
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Warm Colors (2★)** Raise Fire"
-  - skill_category: active
-    name: "Passionate Red"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [fire]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Tranquil Blue"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [ice]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Noble Purple"
-    sp_cost: 56
-    skill_type: mixed
-    damage_types: [dark]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Dark damage to Single Foe 3 time(s) (potency: 3x65) and lower with Phys"
-  - skill_category: active
-    name: "Rainbow Collage"
-    sp_cost: 54
-    skill_type: attack
-    target: single_enemy
-    power: "6x45"
-    limit_break_upgrade: "Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage 1 time each to Single Foe (potency: 6x50). Cast the skill a second time in a row with 10 or more status effect icons"
-  - skill_category: tp
-    name: "Rainbow Palette"
-    sp_cost: 64
-    skill_type: buff
-    target: self
-    effects:
-      - "**Rainbow Palette ** Raise Fire"
-  - skill_category: ex
-    name: "Rainbow Tempera"
-    skill_type: utility
-    target: aoe
-    effects:
-      - "**Rainbow Tempera** Grant Fire/Ice/Lightning/Wind/Light/Dark weakness to All Foes (times: 1-4 based on Boost Lv.)"
-      - "Granted Elemental Weakness: Regardless of the source"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Vibrant Palette"
-    skill_type: attack
-    target: front_row
+- skill_category: active
+  name: Studious Green
+  sp_cost: 40
+  skill_type: utility
+  damage_types:
+  - wind
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Wind damage to Single Foe 3 time(s) (potency: 3x65) and show 1 weak point(s).'
+- skill_category: active
+  name: Pure White
+  sp_cost: 62
+  skill_type: heal
+  damage_types:
+  - light
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 150).'
+- skill_category: active
+  name: Enlivening Yellow
+  unlock_tier: 1★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: front_row
+  hit_count: 3x
+  power: 3x 65
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe 3 time(s) (potency: 3x 65).'
+  - Raise Spd. of Entire Front Row by 15% and Crit.
+  - 'by 15% (turns: 2).'
+- skill_category: active
+  name: Cool Colors
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Ice, Wind and Dark Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Warm Colors
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Fire, Lightning and Light Res. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Passionate Red
+  unlock_tier: 3★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - fire
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x65).'
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: Duration Up: 2 turns→3 turns'
+- skill_category: active
+  name: Tranquil Blue
+  unlock_tier: 4★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 3 time(s) (potency: 3x65).'
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.96: Duration Up: 2 turns→3 turns'
+- skill_category: active
+  name: Noble Purple
+  unlock_tier: 5★
+  sp_cost: 56
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Dark damage to Single Foe 3 time(s) (potency: 3x65) and lower with Phys. Atk. and Elem. Atk. by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.99: Duration Up: 2 turns→3 turns'
+- skill_category: active
+  name: Rainbow Collage
+  unlock_tier: 5★
+  sp_cost: 54
+  skill_type: utility
+  target: single_enemy
+  power: 6x45
+  effects:
+  - 'Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage 1 time each to Single Foe (potency: 6x45).'
+  upgrades:
+  - 'Lv.100: Potency Up: 6x45→6x50'
+  limit_break_upgrade: 'Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage 1 time each to Single Foe (potency: 6x50). Cast the skill a second time in a row with 10 or more status effect icons'
+- skill_category: tp
+  name: Rainbow Palette
+  sp_cost: 64
+  skill_type: buff
+  target: self
+  effects:
+  - Raise Fire, Ice, Lightning, Wind, Light and Dark damage.
+  - 'of Self by 30% (turns: 3-6 based on Boost Lv.).'
+- skill_category: ex
+  name: Rainbow Tempera
+  skill_type: utility
+  target: aoe
+  effects:
+  - 'Grant Fire/Ice/Lightning/Wind/Light/Dark weakness to All Foes (times: 1-4 based on Boost Lv.).'
+  notes: 'Usage Condition: With 10 or more status effect icons; Uses: 1'
+  ex_trigger: With 10 or more status effect icons
+- skill_category: special
+  name: Vibrant Palette
+  skill_type: utility
+  target: front_row
+  power: 6x85→6x105
+  effects:
+  - 'Deal Elem. Fire, Ice, Lightning, Wind, Light and Dark damage 1 time each to Single Foe (potency: 6x85→6x105).'
+  - 'Raise Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit and Spd of Entire Front Row by 5%→10% (turns: 2).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of buff casted by Self by 1 turn."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise damage of Paired Allies by 20% when exploiting enemy weakness."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When Self has 16 or more status effect icons, grant Entire Front Row automatic SP recovery (amount: 5% of max SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Augment (Give)
+  unlock_tier: 1★
+  effect: Extend duration of buff casted by Self by 1 turn.
+  trigger: always
+- passive_category: innate
+  name: Where It Hurts III (Joint)
+  unlock_tier: 3★
+  effect: Raise damage of Paired Allies by 20% when exploiting enemy weakness.
+  trigger: always
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Dancing Colours
+  effect: 'When Self has 16 or more status effect icons, grant Entire Front Row automatic SP recovery (amount: 5% of max SP).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Passion-Filled Brush"
-  passive_effect: "35 P.Atk, 35 P.Def, 35 E.Atk, 35 E.Def; Raise damage dealt to broken enemies by 10%; Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type)"
+  name: Passion-Filled Brush
+  passive_effect: '35 P.Atk, 35 P.Def, 35 E.Atk, 35 E.Def; Raise damage dealt to broken enemies by 10%; Start of battle: Show weak points of All Foes one by one (Does not stack with effects of the same type)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Elemental Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to an element, increase damage taken from that element by 20%.'
 
 # Metadata
 data_confidence: incomplete

@@ -51,117 +51,151 @@ jp_tier: "F+ | 8.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Night Ode"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "115"
-  - skill_category: active
-    name: "Sprightly White Wolf Waltz"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sprightly White Wolf Waltz** Raise Crit"
-  - skill_category: active
-    name: "Sweep"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [fan]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Oblivion’s Elegy"
-    sp_cost: 16
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Oblivion’s Elegy (2★)** Lower Dark Res"
-  - skill_category: active
-    name: "Night Ode II"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Sprightly White Wolf Waltz II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sprightly White Wolf Waltz II (3★)** Raise Crit"
-  - skill_category: active
-    name: "Sprightly White Wolf Waltz II"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Sprightly White Wolf Waltz II (5★)** Raise Crit"
-  - skill_category: active
-    name: "Night Ode III"
-    sp_cost: 46
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "175"
-  - skill_category: active
-    name: "Night Ode III"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "**205**"
-    limit_break_upgrade: "Deal Elem. Dark damage to All Foes (potency: 205) and lower Dark Res. by 15% (turns: 2)."
-  - skill_category: tp
-    name: "Dark Blossom"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [dark]
-    target: back_row
-    power: "260"
-  - skill_category: ex
-    name: "Night Blossom’s Refrain"
-    skill_type: attack
-    damage_types: [dark]
-    target: aoe
-    power: "180, turns: 2-5 based on Boost Lv."
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Night Dirge"
-    skill_type: mixed
-    damage_types: [dark]
-    target: aoe
-    power: "330→395→495"
-    effects:
-      - "Dark damage to All Foes (potency: **330→395→495**) and lower their Dark Res"
-      - "Raise Damage Limit of this Ultimate Technique by 100,000"
+- skill_category: active
+  name: Night Ode
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '115'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 115).'
+- skill_category: active
+  name: Sprightly White Wolf Waltz
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  effects:
+  - Raise Crit.
+  - 'of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Sweep
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - fan
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Fan damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Oblivion’s Elegy
+  unlock_tier: 2★
+  sp_cost: 16
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Dark Res. of All Foes by 20% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Night Ode II
+  unlock_tier: 2★
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Sprightly White Wolf Waltz II
+  unlock_tier: 3★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - Raise Crit.
+  - 'of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.72: SP Saver: 23→18'
+  - 'Upgraded: Raise Crit. of Entire Front Row by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  name: Night Ode III
+  unlock_tier: 4★
+  sp_cost: 46
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '175'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 175).'
+  upgrades:
+  - 'Lv.80: SP Saver: 46→37'
+  - 'Upgraded: Deal Elem. Dark damage to All Foes (potency: 205).'
+  limit_break_upgrade: 'Deal Elem. Dark damage to All Foes (potency: 205) and lower Dark Res. by 15% (turns: 2).'
+- skill_category: tp
+  name: Dark Blossom
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - dark
+  target: back_row
+  power: '260'
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 260).'
+  - Subsequently move ot the back row (action does not count as a switch).
+- skill_category: ex
+  name: Night Blossom’s Refrain
+  skill_type: utility
+  damage_types:
+  - dark
+  target: aoe
+  power: '180, turns: 2-5 based on Boost Lv.'
+  effects:
+  - 'From the turn after this skill is used, deal Elem. Dark damage to All Foes once per turn (potency: 180, turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 1'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Night Dirge
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: aoe
+  power: 330→395→495
+  effects:
+  - 'Deal Elem. Dark damage to All Foes (potency: 330→395→495) and lower their Dark Res. by 5%→10%→15% (turns: 2).'
+  - Raise Damage Limit of this Ultimate Technique by 100,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When switching: Grant Entire Front Row automatic HP recovery (potency: 50, turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "When in back row: Grant Paired Ally automatic SP recovery (potency: 5)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "**("
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: HP Restoration on Switch (Front/All)
+  unlock_tier: 1★
+  effect: 'When switching: Grant Entire Front Row automatic HP recovery (potency: 50, turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Rearguard SP Restoration (Front/Single)
+  unlock_tier: 3★
+  effect: 'When in back row: Grant Paired Ally automatic SP recovery (potency: 5).'
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  unlock_tier: 5★
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: SP Recovery on Switch (Back/All)
+  effect: 'When switching to front: Restore SP of Entire Back Row (amount: 3% of max SP).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Marta’s Flowers"
-  passive_effect: "30 E.Atk, 30 E.Def, 10 Spd; Start of battle: Lower Dark Res. of all enemies by 10% (turns: 3)"
+  name: Marta’s Flowers
+  passive_effect: '30 E.Atk, 30 E.Def, 10 Spd; Start of battle: Lower Dark Res. of all enemies by 10% (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

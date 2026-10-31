@@ -1,0 +1,30 @@
+id: kit-readable-rocbouquet
+goal: A freshly imported collab kit comes back complete and readable, with roster investment.
+roster: fixture
+
+agent_prompt: |
+  Show me Rocbouquet's full kit from the cotc-tactician MCP and tell me how many battle
+  skill slots she has on my account. Which skills would you equip for an EX3 fight?
+agent_checks:
+  - Uses get_character and reports battle_skill_slots from the investment block.
+  - Recommends exactly that many battle skills, each with a distinct job; ultimate, EX and
+    TP skills are not counted as battle slots.
+  - Mentions Rancor from unique_mechanics; no effect text is cut off mid-sentence.
+
+steps:
+  - tool: get_character
+    args:
+      character_id: rocbouquet
+    expect:
+      equals:
+        id: rocbouquet
+        tank_type: none
+        investment.battle_skill_slots: 4
+        investment.awakening: 4
+      min_items:
+        skills: 10
+        passives: 5
+        unique_mechanics: 3
+        debuff_categories.active: 1
+      contains_text: [Rancor, Passion Perfume, 'Phys. Def. and Elem. Def.']
+      not_contains_text: ['Lv.88 |', '"(Initial)"', 'their Phys"']

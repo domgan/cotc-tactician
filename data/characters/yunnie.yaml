@@ -55,116 +55,188 @@ jp_tier: "E | 9.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Noxious Arrow"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Chain Torch"
-    sp_cost: 37
-    skill_type: attack
-    damage_types: [fire]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Ebony Arrow"
-    sp_cost: 22
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Paralyzing Rain"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-  - skill_category: active
-    name: "Prisoner Hunt"
-    sp_cost: 24
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Wild Sturdy Shot"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Cross Fire"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [bow, fire]
-    target: aoe
-    power: "2x105"
-  - skill_category: active
-    name: "Sabotaging Shot"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    power: "170"
-  - skill_category: active
-    name: "Evening Calm Assault"
-    sp_cost: 80
-    skill_type: attack
-    target: aoe
-    power: "4x45"
-    limit_break_upgrade: "Deal Phys. Sword, Polearm, Axe and Bow damage 1 time each to All Foes (potency: 4x45). Potency varies based on the number of types of status ailments (among poison, paralysis and blindness) on each target."
-  - skill_category: tp
-    name: "Dangerous Shot"
-    sp_cost: 42
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "2x"
-    power: "2x75"
-  - skill_category: ex
-    name: "Evening Calm Raging Strike"
-    skill_type: attack
-    damage_types: [bow]
-    target: random
-    hit_count: "6x"
-    power: "6x40"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Evening Calm Onslaught"
-    skill_type: attack
-    target: single_enemy
+- skill_category: active
+  name: Noxious Arrow
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and have a moderate chance to inflict poison (turns: 2).'
+- skill_category: active
+  name: Chain Torch
+  sp_cost: 37
+  skill_type: utility
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 2 time(s) (potency: 2x80).'
+- skill_category: active
+  name: Ebony Arrow
+  unlock_tier: 1★
+  sp_cost: 22
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and have a moderate chance to inflict blindness (turns: 2).'
+- skill_category: active
+  name: Paralyzing Rain
+  unlock_tier: 2★
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x80) and have a moderate chance to inflict paralysis (turns: 2).'
+- skill_category: active
+  name: Prisoner Hunt
+  unlock_tier: 2★
+  sp_cost: 24
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170).'
+  - 20% more potent if target is inflicted with paralysis.
+- skill_category: active
+  name: Wild Sturdy Shot
+  unlock_tier: 3★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 3 time(s) (potency: 3x65).'
+  upgrades:
+  - 'Lv.88: SP Saver: 38→30'
+- skill_category: active
+  name: Cross Fire
+  unlock_tier: 4★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - bow
+  - fire
+  target: aoe
+  power: 2x105
+  effects:
+  - 'Deal Phys. Bow damage 2 times (potency: 2x105) and Elem. Fire damage (potency: 105) to All Foes.'
+  upgrades:
+  - 'Lv.96: SP Saver: 70→56'
+- skill_category: active
+  name: Sabotaging Shot
+  unlock_tier: 5★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  power: '170'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 170) and have a moderate chance to inflict poison, paralysis and blindness (turns: 2).'
+  upgrades:
+  - 'Lv.99: Duration Up: 2 turns→3 turns'
+- skill_category: active
+  name: Evening Calm Assault
+  unlock_tier: 5★
+  sp_cost: 80
+  skill_type: utility
+  target: aoe
+  power: 4x45
+  effects:
+  - 'Deal Phys. Sword, Polearm, Axe and Bow damage 1 time each to All Foes (potency: 4x45).'
+  upgrades:
+  - 'Lv.100: SP Saver: 80→64'
+  limit_break_upgrade: 'Deal Phys. Sword, Polearm, Axe and Bow damage 1 time each to All Foes (potency: 4x45). Potency varies based on the number of types of status ailments (among poison, paralysis and blindness) on each target. ·1 type: Raise potency by 20%. ·2 types: Raise potency by 50%. ·3 types: Raise potency by 100%. *Only the higher value will be applied.'
+- skill_category: tp
+  name: Dangerous Shot
+  sp_cost: 42
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 2x
+  power: 2x75
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 2 time(s) (potency: 2x75).'
+  - 'Each attack inflicts one of the following status ailments: combust, frostbite and corrosion (turns: 1).'
+- skill_category: ex
+  name: Evening Calm Raging Strike
+  skill_type: utility
+  damage_types:
+  - bow
+  target: random
+  hit_count: 6x
+  power: 6x40
+  effects:
+  - 'Deal Phys. Bow damage to Random Foe 6 time(s) (potency: 6x40).'
+  - Exploits Sword, Polearm and Axe weakness (damage calculation based on Phys. Bow attack).
+  notes: 'Usage Condition: Turn 5 onwards; Uses: 2'
+  ex_trigger: Turn 5 onwards
+- skill_category: special
+  name: Evening Calm Onslaught
+  skill_type: utility
+  target: single_enemy
+  power: 4x165→4x195
+  effects:
+  - 'Deal Phys. Sword, Polearm, Axe and Bow damage 1 time each to Single Foe (potency: 4x165→4x195).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30% Gauge Increase: 15%/BP→20%/BP; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise some status ailment resistances of Self by 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Ice Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When there are 16 or more status effects on enemies, activate attack skills twice (additional activations do not consume SP)."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Extended Ailment (Give)
+  unlock_tier: 1★
+  effect: Extend duration of some status ailments inflicted by Self by 1 turn (Does not stack).
+  trigger: always
+- passive_category: innate
+  name: Ailment Res. Boost
+  unlock_tier: 3★
+  effect: Raise some status ailment resistances of Self by 50%.
+  trigger: always
+- passive_category: innate
+  name: Ice Resilience III
+  effect: Raise own Ice Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience
+  effect: Raise own Fire Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Evening Calm Suppression
+  effect: When there are 16 or more status effects on enemies, activate attack skills twice (additional activations do not consume SP).
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Evening Calm Training Kit"
-  passive_effect: "60 P.Atk, 40 E.Atk, 40 Crit; Raise Bow damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3); -30 P.Def, -30 E.Def, 60 Spd; With Evening Calm Crest equipped: After some attacks (excludes counters and Ultimate Techniques), have a low chance to inflict paralysis, poison or blindness on all enemies (turns: 2)"
+  name: Evening Calm Training Kit
+  passive_effect: '60 P.Atk, 40 E.Atk, 40 Crit; Raise Bow damage dealt by 15%; When breaking an enemy, have a high chance to inflict paralysis (turns: 3); -30 P.Def, -30 E.Def, 60 Spd; With Evening Calm Crest equipped: After some attacks (excludes counters and Ultimate Techniques), have a low chance to inflict paralysis, poison or blindness on all enemies (turns: 2)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Combust
+  description: Deal elemental damage and lower Shield Points by 1 at the end of the turn (will not break the target).
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
+- name: Corrosion
+  description: Deal physical damage and lower Shield Points by 1 at the end of the turn (will not break the target).
 
 # Metadata
 data_confidence: incomplete

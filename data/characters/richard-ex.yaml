@@ -57,146 +57,200 @@ jp_tier: "S+ | 9.9"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 23
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x65"
-    effects:
-      - "When exploiting a weakness: Also raise Phys"
-  - skill_category: active
-    name: "(Initial)"
-    sp_cost: 23
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x65"
-    effects:
-      - "When exploiting a weakness: Also raise Elem"
-  - skill_category: active
-    sp_cost: 38
-    skill_type: buff
-    target: self
-    effects:
-      - "**(1★)** Grant Self automatic SP recovery (amount: 10% of user’s max SP) and raise BP recovery amount by 1 (turns: 3-6 based on Boost Lv.)"
-  - skill_category: active
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [polearm, dagger]
-    target: aoe
-    power: "80"
-    effects:
-      - "When exploiting a weakness: Also lower their Phys"
-  - skill_category: active
-    sp_cost: 30
-    skill_type: mixed
-    damage_types: [sword, staff]
-    target: aoe
-    power: "80"
-    effects:
-      - "When exploiting a weakness: Also lower Phys"
-  - skill_category: active
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [dagger, axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x35"
-    effects:
-      - "When exploiting a weakness: Also raise Phys"
-  - skill_category: active
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [polearm, staff]
-    target: aoe
-    hit_count: "2x"
-    power: "2x35"
-  - skill_category: active
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [sword, bow]
-    target: aoe
-    hit_count: "2x"
-    power: "2x35"
-    effects:
-      - "When exploiting a weakness: Grant Self HP Barrier (potency: 50% of user’s Max HP)"
-  - skill_category: active
-    sp_cost: 64
-    skill_type: attack
-    damage_types: [sword, polearm]
-    target: single_enemy
-    power: "230"
-    effects:
-      - "Raise Damage Limit of this skill by 100,000"
-  - skill_category: tp
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [polearm, axe]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Raise Damage Limit of this skill by 300,000"
-  - skill_category: tp
-    name: "Lv.2"
-    sp_cost: 300
-    skill_type: attack
-    damage_types: [polearm, axe, bow]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Raise Damage Limit of this skill by 300,000"
-  - skill_category: ex
-    name: "(EX)"
-    skill_type: attack
-    damage_types: [sword, dagger, staff]
-    target: aoe
-    hit_count: "2x"
-    power: "2x150"
-    effects:
-      - "Also restore 2 BP to Self"
-      - "Raise Damage Limit of this skill by 100,000"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "“Roar of the Warmaster”"
-    skill_type: attack
-    target: single_enemy
-    effects:
-      - "Raise Damage Limit of this Ultimate Technique by 50,000"
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 23
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 2x
+  power: 2x65
+  effects:
+  - 'Deal Phys. Axe damage 2 time(s) (potency: 2x65) and Phys Staff damage (potency: 65) to Single Foe.'
+  - 'When exploiting a weakness: Also raise Phys. Def. of Self by 15% (turns: 2).'
+- skill_category: active
+  unlock_tier: Initial
+  sp_cost: 23
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 2x
+  power: 2x65
+  effects:
+  - 'Deal Phys. Bow damage 2 time(s) (potency: 2x65) and Phys Dagger damage (potency: 65) to Single Foe.'
+  - 'When exploiting a weakness: Also raise Elem. Def. of Self by 15% (turns: 2).'
+- skill_category: active
+  unlock_tier: 1★
+  sp_cost: 38
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self automatic SP recovery (amount: 10% of user’s max SP) and raise BP recovery amount by 1 (turns: 3-6 based on Boost Lv.).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - polearm
+  - dagger
+  target: aoe
+  power: '80'
+  effects:
+  - 'Deal Phys. Polearm damage (potency: 80) and Phys. Dagger damage (potency: 80) to All Foes.'
+  - 'When exploiting a weakness: Also lower their Phys. Def. by 15% (turns: 2).'
+- skill_category: active
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  damage_types:
+  - sword
+  - staff
+  target: aoe
+  power: '80'
+  effects:
+  - 'Deal Phys. Sword damage (potency: 80) and Phys. Staff damage (potency: 80) to All Foes.'
+  - 'When exploiting a weakness: Also lower Phys. Def. by 15% (turns: 2).'
+- skill_category: active
+  unlock_tier: 3★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - dagger
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x35
+  effects:
+  - 'Deal Phys. Axe damage 2 time(s) (potency: 2x35) and Phys. Dagger damage 2 time(s) (potency: 2x35) to All Foes.'
+  - 'When exploiting a weakness: Also raise Phys. damage of Self by 30% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 76→61'
+- skill_category: active
+  unlock_tier: 4★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - polearm
+  - staff
+  target: aoe
+  hit_count: 2x
+  power: 2x35
+  effects:
+  - 'Deal Phys. Polearm damage 2 time(s) (potency: 2x35) and Phys. Staff damage 2 time(s) (potency: 2x35) to All Foes.'
+  - 'When exploiting a weakness: Absorb 1% of damage dealt as SP.'
+  upgrades:
+  - 'Lv.96: SP Saver: 70→56'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - sword
+  - bow
+  target: aoe
+  hit_count: 2x
+  power: 2x35
+  effects:
+  - 'Deal Phys. Sword damage 2 time(s) (potency: 2x35) and Phys. Bow damage 2 time(s) (potency: 2x35) to All Foes.'
+  - 'When exploiting a weakness: Grant Self HP Barrier (potency: 50% of user’s Max HP).'
+  upgrades:
+  - 'Lv.99: SP Saver: 70→56'
+- skill_category: active
+  unlock_tier: 5★
+  sp_cost: 64
+  skill_type: utility
+  damage_types:
+  - sword
+  - polearm
+  target: single_enemy
+  power: '230'
+  effects:
+  - 'Deal Phys. Polearm damage (potency: 230) and Phys. Sword damage (potency: 230) to Single Foe.'
+  - Raise Damage Limit of this skill by 100,000.
+  - 'At Max Boost: Activate this skill twice and ignore Phys. Def. Up, Elem. Def. Up and damage reductions.'
+  upgrades:
+  - 'Lv.100: SP Saver: 64→51'
+- skill_category: tp
+  sp_cost: 300
+  skill_type: utility
+  damage_types:
+  - polearm
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Polearm damage (potency: 260) and Phys. Axe damage (potency: 260) to Single Foe.'
+  - Raise Damage Limit of this skill by 300,000.
+  - 'At Max Boost: Activate this skill twice.'
+  upgrades:
+  - 'Lv.2: Deal Phys. Polearm damage (potency: 260), Phys. Bow damage (potency: 260) and Phys. Axe damage (potency: 260) to Single Foe. Raise Damage Limit of this skill by 300,000. At Max Boost: Activate this skill twice.'
+- skill_category: ex
+  unlock_tier: EX
+  skill_type: utility
+  damage_types:
+  - sword
+  - dagger
+  - staff
+  target: aoe
+  hit_count: 2x
+  power: 2x150
+  effects:
+  - 'Deal Phys. Sword damage 2 time(s) (potency: 2x150), Phys. Dagger damage 2 time(s) (potency: 2x150) and Phys. Staff damage 2 time(s) (potency: 2x150) to All Foes.'
+  - Also restore 2 BP to Self.
+  - Raise Damage Limit of this skill by 100,000.
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: Roar of the Warmaster
+  skill_type: utility
+  target: single_enemy
+  power: 8x50→8x60→8x75
+  effects:
+  - 'Deal Phys. Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan damage 1 time each to Single Foe (potency: 8x50→8x60→8x75).'
+  - Raise Damage Limit of this Ultimate Technique by 50,000.
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge: Before the attack, raise Phys. Atk. and Critical of Self by 15%, raise Physical damage by 15% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack” (damage calculation based on each attack) (turns: 2).; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "During battle: Your job is also considered to be Warrior, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer."
-    trigger: always
-  - passive_category: innate
-    effect: "When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”."
-    trigger: always
-    limit_break_upgrade: "When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30%, raise Physical damage by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”."
-  - passive_category: innate
-    effect: "When in front row: Grant Self the ability to trigger a follow-up attack when any ally in Entire Front Row except Self exploits a weakness with physical attacks (only activates once per each physical weakness in action). Follow-up attack: Deal Phys. damage to All Foes according to the exploited weakness (potency: 100)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Phys. Res. by 15%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type)."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Potency Up effects of Self by 50% (Does not stack). At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type) and grant Damage Limit Up (effect: 100,000)."
-    trigger: hp_condition
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Warmaster
+  effect: 'During battle: Your job is also considered to be Warrior, Thief, Apothecary, Hunter, Cleric, Scholar and Dancer.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”.'
+  trigger: always
+  limit_break_upgrade: 'When consuming 3 BP or more: Raise Phys. Atk. and Critical of Self by 30%, raise Physical damage by 30% and gain the ability to exploit Sword, Polearm, Dagger, Axe, Bow, Staff, Tome and Fan weaknesses when dealing some physical attacks other than “Attack”.'
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'When in front row: Grant Self the ability to trigger a follow-up attack when any ally in Entire Front Row except Self exploits a weakness with physical attacks (only activates once per each physical weakness in action). Follow-up attack: Deal Phys. damage to All Foes according to the exploited weakness (potency: 100).'
+  trigger: always
+- passive_category: innate
+  name: Physical Resilience II
+  effect: Raise own Phys. Res. by 15%.
+  trigger: always
+- passive_category: tp
+  effect: 'At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type).'
+  trigger: hp_condition
+  upgrades:
+  - 'Lv.2: Raise Potency Up effects of Self by 50% (Does not stack). At full HP: Raise potency of Self by 100% (Does not stack with effects of the same type) and grant Damage Limit Up (effect: 100,000).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "“Essence of Martial Arts”"
-  passive_effect: "150 P.Atk, -20 E.Atk, 60 SP; When an ally breaks an enemy, raise BP recovery amount by 1 (turns: 2); Start of battle: Raise BP recovery amount by 1 (turns: 3)"
+  name: Essence of Martial Arts
+  passive_effect: '150 P.Atk, -20 E.Atk, 60 SP; When an ally breaks an enemy, raise BP recovery amount by 1 (turns: 2); Start of battle: Raise BP recovery amount by 1 (turns: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: incomplete

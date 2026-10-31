@@ -72,131 +72,186 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Trifold Slash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "A120: Repair (Self)"
-    sp_cost: 42
-    skill_type: heal
-    target: self
-    power: "105"
-    effects:
-      - "**A120: Repair (Self)** Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self"
-  - skill_category: active
-    name: "R070: M Shield"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**R070: M Shield (1★)** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Trifold Cleave"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x65"
-  - skill_category: active
-    name: "Perfect Evade"
-    sp_cost: 50
-    skill_type: buff
-    target: self
-    effects:
-      - "**Perfect Evade (2★)** Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.)"
-    limit_break_upgrade: "Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) and activate attack skills twice (turns: 2/Turns cannot be extended/Follow-up attack will not consume SP) ."
-  - skill_category: active
-    name: "Self-Destruct"
-    sp_cost: 60
-    skill_type: mixed
-    damage_types: [fire]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "A140: Gravity"
-    sp_cost: 57
-    skill_type: mixed
-    damage_types: [dark]
-    target: aoe
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "Dark damage to All Foes 2 time(s) (potency: 2x95) and impart with Phys"
-  - skill_category: active
-    name: "Savage Assault"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Guaranteed critical hit at Max Boost"
-  - skill_category: active
-    name: "Crushing Assault"
-    sp_cost: 48
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "260"
-    effects:
-      - "Guaranteed critical hit at Max Boost"
-  - skill_category: tp
-    name: "Savage Cleave"
-    sp_cost: 59
-    skill_type: attack
-    damage_types: [sword, axe]
-    target: single_enemy
-    power: "290"
-  - skill_category: ex
-    name: "Neutralize: Lethal Slash"
-    skill_type: attack
-    damage_types: [sword, axe]
-    target: aoe
-    hit_count: "5x"
-    power: "5x35"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Neutralize: Lethal Assault"
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    power: "500→600→750"
-    effects:
-      - "Guaranteed critical hit"
-      - "Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000)"
+- skill_category: active
+  name: Trifold Slash
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: 'A120: Repair (Self)'
+  sp_cost: 42
+  skill_type: heal
+  target: self
+  power: '105'
+  effects:
+  - 'Cure some status ailments and restore HP (potency: 105) and SP (potency: 5) of Self.'
+- skill_category: active
+  name: 'R070: M Shield'
+  unlock_tier: 1★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Def Up 15% (turns: 2-5 based on Boost Lv.)'
+- skill_category: active
+  name: Trifold Cleave
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x65).'
+- skill_category: active
+  name: Perfect Evade
+  unlock_tier: 2★
+  sp_cost: 50
+  skill_type: buff
+  target: self
+  effects:
+  - 'Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.).'
+  limit_break_upgrade: 'Grant Self the ability to dodge physical attacks (times: 1-4 based on Boost Lv.) and activate attack skills twice (turns: 2/Turns cannot be extended/Follow-up attack will not consume SP) .'
+- skill_category: active
+  name: Self-Destruct
+  unlock_tier: 3★
+  sp_cost: 60
+  skill_type: debuff
+  damage_types:
+  - fire
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80).'
+  - Lower Shield Points even when not striking weak points, but Self’s HP will be reduced to 1.
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Lv.88: Potency Up: 80→95'
+- skill_category: active
+  name: 'A140: Gravity'
+  unlock_tier: 4★
+  sp_cost: 57
+  skill_type: debuff
+  damage_types:
+  - dark
+  target: aoe
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Dark damage to All Foes 2 time(s) (potency: 2x95) and impart with Phys. Def. Down 15% (turns: 2).'
+  upgrades:
+  - 'Lv.96: SP Saver: 57→46'
+- skill_category: active
+  name: Savage Assault
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 260).'
+  - Guaranteed critical hit at Max Boost.
+  upgrades:
+  - 'Lv.99: SP Saver: 48→38'
+- skill_category: active
+  name: Crushing Assault
+  unlock_tier: 5★
+  sp_cost: 48
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '260'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 260).'
+  - Guaranteed critical hit at Max Boost.
+  upgrades:
+  - 'Lv.100: SP Saver: 48→38'
+- skill_category: tp
+  name: Savage Cleave
+  sp_cost: 59
+  skill_type: utility
+  damage_types:
+  - sword
+  - axe
+  target: single_enemy
+  power: '290'
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 290).'
+  - Exploits Axe weakness (damage calculation based on Phys. Sword attack).
+- skill_category: ex
+  name: 'Neutralize: Lethal Slash'
+  skill_type: utility
+  damage_types:
+  - sword
+  - axe
+  target: aoe
+  hit_count: 5x
+  power: 5x35
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 5 time(s) (potency: 5x35).'
+  - Exploits Axe weakness (damage calculation based on Phys. Sword attack).
+  notes: 'Usage Condition: Turn 3 onwards; Uses: 2'
+  ex_trigger: Turn 3 onwards
+- skill_category: special
+  name: 'Neutralize: Lethal Assault'
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  power: 500→600→750
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe (potency: 500→600→750).'
+  - Guaranteed critical hit.
+  - 'Grant Self Damage Limit Up when using this Ultimate Technique (effect: 100,000).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP; When activated at 200% Ultimate Technique gauge:; *Requires an Awakening Stone at Lv. 10.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Grant Self 15% chance of dodging some attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise critical damage of Self by 30%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "At full HP: Raise Phys. Atk of Self by 15% and grant Damage Limit Up (effect: 50,000)."
-    trigger: hp_condition
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Inorganic Blade
+  unlock_tier: 1★
+  effect: 'Grant Self 15% chance of dodging some attacks and raise BP recovery rate by 1 with a successful dodge from this skill’s effect (turns: 1).'
+  trigger: always
+- passive_category: innate
+  name: Critical Force V
+  unlock_tier: 3★
+  effect: Raise critical damage of Self by 30%.
+  trigger: always
+- passive_category: innate
+  name: Light Resilience III
+  effect: Raise own Light Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Dark Resilience
+  effect: Raise own Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: 'Weapon Attack: Up'
+  effect: 'At full HP: Raise Phys. Atk of Self by 15% and grant Damage Limit Up (effect: 50,000).'
+  trigger: hp_condition
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "2B’s Goggles"
-  passive_effect: "100 P.Atk, 40 Spd; Start of battle: Raise Phys. Atk.by 10% (turns: 5); When breaking an enemy, raise BP recovery amount by 1 (turns: 1) (Does not stack with other BP recovery effects)"
+  name: 2B’s Goggles
+  passive_effect: '100 P.Atk, 40 Spd; Start of battle: Raise Phys. Atk.by 10% (turns: 5); When breaking an enemy, raise BP recovery amount by 1 (turns: 1) (Does not stack with other BP recovery effects)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Super Power Activation
+  description: 50% more potent.
 
 # Metadata
 data_confidence: verified

@@ -72,141 +72,188 @@ jp_tier: "D | 9.2-9.1"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Triple Cleave"
-    sp_cost: 25
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: active
-    name: "Emergency First Aid (All)"
-    sp_cost: 42
-    skill_type: heal
-    target: front_row
-    power: "130"
-    effects:
-      - "**Emergency First Aid (All)** Restore HP of Entire Front Row (potency: 130)"
-  - skill_category: active
-    name: "Construct Fence"
-    sp_cost: 12
-    skill_type: buff
-    target: front_row
-    power: "5%-15% of user’s max HP based on Boost Lv./does not stack"
-    effects:
-      - "**Construct Fence (1★)** Grant Single Ally HP barrier (potency: 5%-15% of user’s max HP based on Boost Lv./does not stack)"
-  - skill_category: active
-    name: "Architect’s Insight"
-    sp_cost: 30
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "**Architect’s Insight (2★)** Lower Axe"
-  - skill_category: active
-    name: "Cheerful Bash"
-    sp_cost: 70
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "40"
-  - skill_category: active
-    name: "Cheerful Tampting"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [axe]
-    target: single_enemy
-    power: "45"
-  - skill_category: active
-    name: "HP Nuts"
-    sp_cost: 55
-    skill_type: heal
-    target: front_row
-    power: "45"
-    effects:
-      - "**HP Nuts (4★)** Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost)"
-      - "[55 SP] With 2+ Cheer On points: Cure some status ailments of same target With 8+ Cheer On points: Also grant immunity to some status ailments (turns: 2)"
-  - skill_category: active
-    name: "Issue Instructions"
-    sp_cost: 70
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Issue Instructions (5★)** Raise Phys"
-      - "[70 SP] With 5+ Cheer On points: Raise damage of the same target by 15% (turns: 2)"
-  - skill_category: active
-    name: "Cheerful Scrapping"
-    sp_cost: 50
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    power: "190"
-  - skill_category: tp
-    name: "Scrap and Slash"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    hit_count: "3x"
-    power: "3x55"
-  - skill_category: tp
-    name: "Scrap and Slash Lv.2"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [axe]
-    target: aoe
-    power: "**5x55**"
-  - skill_category: ex
-    name: "Ground Attack"
-    skill_type: mixed
-    damage_types: [axe]
-    target: single_enemy
-    hit_count: "8x"
-    power: "8x25"
-    effects:
-      - "Also lower Axe"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Cheerful Build"
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "Act fast during the turn and raise Phys"
-      - "Grant Self 2 Cheer On points"
+- skill_category: active
+  name: Triple Cleave
+  sp_cost: 25
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x55).'
+- skill_category: active
+  name: Emergency First Aid (All)
+  sp_cost: 42
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+  - 'With 5+ Cheer On points: Reaches All Allies.'
+  - (Gain Cheer On points by using Cheerful Construction or from the support skill Frontier Axe)
+- skill_category: active
+  name: Construct Fence
+  unlock_tier: 1★
+  sp_cost: 12
+  skill_type: buff
+  target: front_row
+  power: 5%-15% of user’s max HP based on Boost Lv./does not stack
+  effects:
+  - 'Grant Single Ally HP barrier (potency: 5%-15% of user’s max HP based on Boost Lv./does not stack).'
+  - Reaches Entire Front Row at Max Boost.
+- skill_category: active
+  name: Architect’s Insight
+  unlock_tier: 2★
+  sp_cost: 30
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Axe, Staff and Tome Res. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
+- skill_category: active
+  name: Cheerful Bash
+  unlock_tier: 2★
+  sp_cost: 70
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  power: '40'
+  effects:
+  - 'Deal Phys. Axe damage to All Foes (potency: 40) and deal the same number of Phys. Axe attacks as own Cheer On points to All Foes (potency: 40/max: 5).'
+  - Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack).
+- skill_category: active
+  name: Cheerful Tampting
+  unlock_tier: 3★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '45'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 45) and deal the same number of Phys. Axe attacks as own Cheer On points to Single Foe (potency: 45/max: 6).'
+  - Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack).
+  - 'Complete Side Story “Alpaca Paradise” | SP Saver: 54→43'
+- skill_category: active
+  name: HP Nuts
+  unlock_tier: 4★
+  sp_cost: 55
+  skill_type: heal
+  target: front_row
+  power: '45'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 45) and grant automatic HP recovery (potency: 90, turns: 2-5 based on Boost).'
+  - 'With 2+ Cheer On points: Cure some status ailments of same target With 8+ Cheer On points: Also grant immunity to some status ailments (turns: 2).'
+  - 'Complete Side Story “A Nutty Dream” | Duration Up during Boost Mode of Immunity to some status ailments: 2 turns→2-5 turns based on Boost Lv.'
+- skill_category: active
+  name: Issue Instructions
+  unlock_tier: 5★
+  sp_cost: 70
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk., Elem. Atk. and Crit of Entire Front Row by 5% (turns: 2-5 based on Boost Lv.).'
+  - Effect increases by 5% for every Cheer On point (up to 30%).
+  - 'With 5+ Cheer On points: Raise damage of the same target by 15% (turns: 2).'
+  - 'Complete Side Story “Seen in a Dream” | SP Saver: 70→56'
+- skill_category: active
+  name: Cheerful Scrapping
+  unlock_tier: 5★
+  sp_cost: 50
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  power: '190'
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe (potency: 190).'
+  - Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack).
+  - 'With 2+ Cheer On points: Inflict same target with Phys. Def. Down 20% (turns: 2).'
+  - 'With 4+ Cheer On points: Also activate skill again (the follow-up attack will not consume SP).'
+  - 'With 8+ Cheer On points: Also activate skill again (the follow-up attack will not consume SP).'
+  - 'Complete Side Story “The Wandering Blacksmith” | SP Saver: 50→40'
+- skill_category: tp
+  name: Scrap and Slash
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - axe
+  target: aoe
+  hit_count: 3x
+  power: 3x55
+  effects:
+  - 'Deal Phys. Axe damage to All Foes 3 time(s) (potency: 3x55).'
+  - Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack).
+  - 'With 9+ Cheer On points: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.2: Deal Phys. Axe damage to All Foes 5 time(s) (potency: 5x55). Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack). With 9+ Cheer On points: Attack count becomes 8.'
+- skill_category: ex
+  name: Ground Attack
+  skill_type: debuff
+  damage_types:
+  - axe
+  target: single_enemy
+  hit_count: 8x
+  power: 8x25
+  effects:
+  - 'Deal Phys. Axe damage to Single Foe 8 time(s) (potency: 8x25).'
+  - Exploits Staff and Tome weaknesses (damage calculation based on Phys. Axe attack).
+  - 'Also lower Axe, Staff and Tome Res. by 15% (turns: 2).'
+  notes: 'Usage Condition: With 6 or more Cheer On Points; Uses: 2'
+  ex_trigger: With 6 or more Cheer On Points
+- skill_category: special
+  name: Cheerful Build
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Act fast during the turn and raise Phys. Atk., Elem. Atk. and Critical of All Allies by 6% (turns: 2).'
+  - Effect increased by 1% for every Cheer On point.
+  - Grant Self 2 Cheer On points.
+  notes: 'Uses: 2→10 Initial Gauge: 10%→90%→180% 30%→110%→200% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "At end of turn: Fill the Ultimate Technique gauge of Self by 50%. Grant Self 1 Cheer On point."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Entire Front Row effects based on own Cheer On points. ·With 3+: Grant automatic HP recovery (potency: 30). ·With 5+: Also grant automatic SP recovery (amount: 5% of max SP). ·With 7+: Also grant ability to trigger critical hits with elemental attacks."
-    trigger: always
-    limit_break_upgrade: "Grant Entire Front Row effects based on own Cheer On points. ·With 3+: Grant automatic HP recovery (potency: 30). ·With 5+: Also grant automatic SP recovery (potency: 5) and raise damage by 15%. ·With 7+: Also grant ability to trigger critical hits with elemental attacks."
-  - passive_category: innate
-    effect: "Raise own Fire and Ice Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning and Wind Res. by 10%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Light and Dark Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching: Grant Self 1 Cheer On point."
-    trigger: always
-  - passive_category: tp
-    effect: "When switching: Grant Self **2** Cheer On point."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Axe, Staff and Tome attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Frontier Axe
+  unlock_tier: 1★
+  effect: 'At end of turn: Fill the Ultimate Technique gauge of Self by 50%. Grant Self 1 Cheer On point.'
+  trigger: always
+- passive_category: innate
+  name: Townsfolk’s Support
+  unlock_tier: 3★
+  effect: 'Grant Entire Front Row effects based on own Cheer On points. ·With 3+: Grant automatic HP recovery (potency: 30). ·With 5+: Also grant automatic SP recovery (amount: 5% of max SP). ·With 7+: Also grant ability to trigger critical hits with elemental attacks.'
+  trigger: always
+  limit_break_upgrade: 'Grant Entire Front Row effects based on own Cheer On points. ·With 3+: Grant automatic HP recovery (potency: 30). ·With 5+: Also grant automatic SP recovery (potency: 5) and raise damage by 15%. ·With 7+: Also grant ability to trigger critical hits with elemental attacks.'
+- passive_category: innate
+  name: Fire/Ice Resilience
+  effect: Raise own Fire and Ice Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Lightning/Wind Resilience
+  effect: Raise own Lightning and Wind Res. by 10%.
+  trigger: always
+- passive_category: innate
+  name: Light/Dark Resilience
+  effect: Raise own Light and Dark Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Joyful Transformation
+  effect: 'When switching: Grant Self 1 Cheer On point.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When switching: Grant Self 2 Cheer On point.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Axe, Staff and Tome attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Apprentice Architect’s Toolbox"
-  passive_effect: "70 P.Atk, 70 SP; Grant Dead Aim (guaranteed critical hits); Grant automatic SP recovery (amount: 20); With 3+: Grant automatic HP recovery (potency: 30).; With 7+: Also grant automatic SP recovery (potency: 5).; With 3+: Grant automatic HP recovery (potency: 30).; With 5+: Raise damage dealt by 15%.; With 7+: Also grant automatic SP recovery (potency: 5).; 700 HP, 70 SP; Grant automatic HP recovery (amount: 500) and automatic SP recovery (amount: 20)"
+  name: Apprentice Architect’s Toolbox
+  passive_effect: '70 P.Atk, 70 SP; Grant Dead Aim (guaranteed critical hits); Grant automatic SP recovery (amount: 20); With 3+: Grant automatic HP recovery (potency: 30).; With 7+: Also grant automatic SP recovery (potency: 5).; With 3+: Grant automatic HP recovery (potency: 30).; With 5+: Raise damage dealt by 15%.; With 7+: Also grant automatic SP recovery (potency: 5).; 700 HP, 70 SP; Grant automatic HP recovery (amount: 500) and automatic SP recovery (amount: 20)'
 
 # Metadata
 data_confidence: incomplete

@@ -69,138 +69,190 @@ jp_tier: "C | 9.4-9.3"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Sacred Blaze Multi-slash"
-    sp_cost: 32
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Dauntless Spirit"
-    sp_cost: 24
-    skill_type: mixed
-    target: self
-    effects:
-      - "**Dauntless Spirit** Impart Self with Phys"
-      - "Up 20% and grant Damage Limit Up (effect: 50,000) (turns: 3)"
-  - skill_category: active
-    name: "Heal Wounds (All)"
-    sp_cost: 28
-    skill_type: heal
-    target: front_row
-    power: "65"
-    effects:
-      - "**Heal Wounds (All) (1★)** Restore HP of Entire Front Row (potency: 65)"
-  - skill_category: active
-    name: "Sacred Blaze of Shroud"
-    sp_cost: 49
-    skill_type: mixed
-    damage_types: [light]
-    target: aoe
-    hit_count: "2x"
-    power: "2x80"
-    effects:
-      - "Light damage to All Foes 2 time(s) (potency: 2x80) and lower Fire and Light Res"
-  - skill_category: active
-    name: "Sacred Blaze Shield"
-    sp_cost: 73
-    skill_type: mixed
-    damage_types: [light]
-    target: front_row
-    power: "200"
-    effects:
-      - "**Sacred Blaze Shield (2★)** Raise Phys"
-      - "[73 SP] When consuming 5 BP: Grant target the ability to completely block some elemental attacks (times: 1) and counter with Elem"
-  - skill_category: active
-    name: "Sacred Blaze Might"
-    sp_cost: 56
-    skill_type: debuff
-    target: front_row
-    effects:
-      - "**Sacred Blaze Might (3★)** Raise Phys"
-      - "[56 SP] When consuming 5 BP: Lower Phys"
-  - skill_category: active
-    name: "Heavy Sacred Blaze Saber"
-    sp_cost: 76
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-    effects:
-      - "Sword damage to Single Foe 2 time(s) (potency: 2x135) and restore BP of Self by 1"
-      - "[76 SP] When consuming 5 BP: Guaranteed critical hit"
-  - skill_category: active
-    name: "Great Sacred Blaze Saber"
-    sp_cost: 58
-    skill_type: attack
-    damage_types: [sword]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x85"
-  - skill_category: active
-    name: "Mass Sacred Blaze Slash"
-    sp_cost: 74
-    skill_type: attack
-    damage_types: [sword]
-    target: aoe
-    hit_count: "3x"
-    power: "3x80"
-  - skill_category: tp
-    name: "Sacred Blaze Verse"
-    sp_cost: 74
-    skill_type: mixed
-    target: all_allies
-    power: "20%-100% of user’s max HP based on Boost Lv./Does not stack"
-    effects:
-      - "**Sacred Blaze Verse** **** Grant All Allies HP Barrier (potency: 20%-100% of user’s max HP based on Boost Lv./Does not stack) and raise Phys"
-      - "[74 SP] When consuming 3+ BP: Also grant SP Stock (amount: 20% of user’s max SP/Does not stack)"
-      - "When consuming 5 BP: Also grant them Great Flame’s Blessing (turns: 1)"
-  - skill_category: tp
-    name: "Sacred Blaze Verse"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: special
-    name: "Sacred Blaze Legacy"
-    skill_type: attack
-    damage_types: [sword]
-    target: front_row
-    hit_count: "3x"
-    effects:
-      - "Grant Great Flame’s Blessing to Entire Front Row (turns: 1)"
+- skill_category: active
+  name: Sacred Blaze Multi-slash
+  sp_cost: 32
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Sword attack).
+- skill_category: active
+  name: Dauntless Spirit
+  sp_cost: 24
+  skill_type: buff
+  target: self
+  effects:
+  - 'Impart Self with Phys. Atk. Up 20% and grant Damage Limit Up (effect: 50,000) (turns: 3).'
+- skill_category: active
+  name: Heal Wounds (All)
+  unlock_tier: 1★
+  sp_cost: 28
+  skill_type: heal
+  target: front_row
+  power: '65'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 65).'
+- skill_category: active
+  name: Sacred Blaze of Shroud
+  unlock_tier: 2★
+  sp_cost: 49
+  skill_type: debuff
+  damage_types:
+  - light
+  target: aoe
+  hit_count: 2x
+  power: 2x80
+  effects:
+  - 'Deal Elem. Light damage to All Foes 2 time(s) (potency: 2x80) and lower Fire and Light Res. by 10% (turns: 2).'
+- skill_category: active
+  name: Sacred Blaze Shield
+  unlock_tier: 2★
+  sp_cost: 73
+  skill_type: buff
+  damage_types:
+  - light
+  target: front_row
+  power: '200'
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of Entire Front Row by 15% and Dark Res. by 15% (turns: 2-7 based on Boost Lv.).'
+  - 'When consuming 5 BP: Grant target the ability to completely block some elemental attacks (times: 1) and counter with Elem. Light damage (potency: 200).'
+- skill_category: active
+  name: Sacred Blaze Might
+  unlock_tier: 3★
+  sp_cost: 56
+  skill_type: debuff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-7 based on Boost Lv.).'
+  - 'When consuming 5 BP: Lower Phys. Def. and Elem. Def. of All Foes by 15% (turns: 2).'
+  upgrades:
+  - 'Lv.88: SP Saver: 56→45'
+- skill_category: active
+  name: Heavy Sacred Blaze Saber
+  unlock_tier: 4★
+  sp_cost: 76
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x135) and restore BP of Self by 1.'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'When consuming 5 BP: Guaranteed critical hit.'
+  upgrades:
+  - 'Lv.96: SP Saver: 76→61'
+- skill_category: active
+  name: Great Sacred Blaze Saber
+  unlock_tier: 5★
+  sp_cost: 58
+  skill_type: utility
+  damage_types:
+  - sword
+  target: single_enemy
+  hit_count: 3x
+  power: 3x85
+  effects:
+  - 'Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x85).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'When consuming 3+ BP: Attack count becomes 5.'
+  - 'When consuming 5 BP: Attack count becomes 8.'
+  upgrades:
+  - 'Lv.99: SP Saver: 58→46'
+- skill_category: active
+  name: Mass Sacred Blaze Slash
+  unlock_tier: 5★
+  sp_cost: 74
+  skill_type: utility
+  damage_types:
+  - sword
+  target: aoe
+  hit_count: 3x
+  power: 3x80
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x80).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'When consuming 3+ BP: Attack count becomes 4.'
+  - 'When consuming 5 BP: Attack count becomes 6.'
+  upgrades:
+  - 'Lv.100: SP Saver: 74→59'
+- skill_category: active
+  name: Sacred Blaze Verse
+  sp_cost: 74
+  skill_type: buff
+  target: all_allies
+  power: 20%-100% of user’s max HP based on Boost Lv./Does not stack
+  effects:
+  - 'Grant All Allies HP Barrier (potency: 20%-100% of user’s max HP based on Boost Lv./Does not stack) and raise Phys. Atk. and Sword damage by 15% (turns: 5).'
+  - 'When consuming 3+ BP: Also grant SP Stock (amount: 20% of user’s max SP/Does not stack).'
+  - 'When consuming 5 BP: Also grant them Great Flame’s Blessing (turns: 1).'
+  - '*Can be used once per battle.'
+  upgrades:
+  - 'Upgraded: Lv. 2 (Enhancement is applied on an adjusted skill with respect to JP).'
+- skill_category: special
+  name: Sacred Blaze Legacy
+  skill_type: utility
+  damage_types:
+  - sword
+  target: front_row
+  hit_count: 3x
+  power: 3x130→3x150→3x185
+  effects:
+  - 'Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x130→3x150→3x185).'
+  - Exploits Fire and Light weakness (damage calculation based on Phys. Sword attack).
+  - 'Grant Great Flame’s Blessing to Entire Front Row (turns: 1).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge:; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Raise Sword damage of Self by 15% and Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max) *BP cost is 1, 3 and 5 respectively."
-    trigger: always
-  - passive_category: innate
-    effect: "When using a battle skill, restore BP of Self by 3 when breaking an enemy or a broken enemy is present."
-    trigger: on_break
-    limit_break_upgrade: "When using a battle skill, restore BP of Self by **5** when breaking an enemy or a broken enemy is present."
-  - passive_category: innate
-    effect: "Raise own Dark Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Light Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Start of battle: Recover 2 BP and gain Great Flame’s Blessing (turns: 2)."
-    trigger: battle_start
-  - passive_category: tp
-    effect: "(Enhancement is applied on an adjusted skill with respect to JP)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Self’s Damage Limit by 50,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Blademasters of Eld
+  unlock_tier: 1★
+  effect: Raise Sword damage of Self by 15% and Boost Lv. to Boost Lv. 2, Lv. 4 and Lv. 6 (Max) *BP cost is 1, 3 and 5 respectively.
+  trigger: always
+- passive_category: innate
+  name: Blazing Spirit
+  unlock_tier: 3★
+  effect: When using a battle skill, restore BP of Self by 3 when breaking an enemy or a broken enemy is present.
+  trigger: on_break
+  limit_break_upgrade: When using a battle skill, restore BP of Self by 5 when breaking an enemy or a broken enemy is present.
+- passive_category: innate
+  name: Dark Resilience III
+  effect: Raise own Dark Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Light
+  effect: Resilience Raise own Light Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Mission of the Guard Captain
+  effect: 'Start of battle: Recover 2 BP and gain Great Flame’s Blessing (turns: 2).'
+  trigger: battle_start
+  upgrades:
+  - 'Lv.2: (Enhancement is applied on an adjusted skill with respect to JP).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Self’s Damage Limit by 50,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Flameguard’s Cloak"
-  passive_effect: "60 P.Atk, 400 HP, 40 SP; Grant Self automatic SP recovery (amount: 40) when broken enemy is present; Start of battle: Raise own BP recovery amount by 1 (turns: 3). (Does not stack with support skills and equipment effects)"
+  name: Flameguard’s Cloak
+  passive_effect: '60 P.Atk, 400 HP, 40 SP; Grant Self automatic SP recovery (amount: 40) when broken enemy is present; Start of battle: Raise own BP recovery amount by 1 (turns: 3). (Does not stack with support skills and equipment effects)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Great Flame’s Blessing
+  description: Raise BP recovery amount by 5.
+- name: Superburst
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: verified

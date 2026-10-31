@@ -52,147 +52,175 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Double Break"
-    sp_cost: 28
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x75/2x90/2x110/2x150"
-    effects:
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: active
-    name: "Vitality Snatch"
-    sp_cost: 28
-    skill_type: attack
-    damage_types: [dagger]
-    target: single_enemy
-    power: "170/200/240/350"
-  - skill_category: active
-    name: "Noli Me Tangere"
-    sp_cost: 30
-    skill_type: debuff
-    target: aoe
-    effects:
-      - "**Noli Me Tangere (1★)** Lower Phys"
-  - skill_category: active
-    name: "Triple Ripping Assault"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [dagger]
-    target: aoe
-    hit_count: "3x"
-    power: "3x65/3x75/3x90/3x115"
-  - skill_category: active
-    name: "Crude Joke"
-    sp_cost: 52
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Crude Joke (2★)** Impart Single Ally with Phys"
-      - "by 15% (turns: 2/3/4/5) and grant Dead Aim (guaranteed critical hits) (turns: 2)"
-  - skill_category: active
-    name: "Follow-up"
-    sp_cost: 48
-    skill_type: buff
-    target: single_ally
-    effects:
-      - "**Follow-up (3★)** Raise BP recovery amount of Single Ally by 1 (turns: 2/3/4/5)"
-  - skill_category: active
-    name: "Uragano"
-    sp_cost: 60
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: aoe
-    hit_count: "5x"
-    power: "5x25/5x30/5x35/5x45"
-  - skill_category: active
-    name: "Affievolire"
-    sp_cost: 54
-    skill_type: attack
-    damage_types: [dagger, wind]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-    effects:
-      - "Also grant a Dagger weakness (times: 2)"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: buff
-    target: single_enemy
-    effects:
-      - "Granted Dagger Weakness: Regardless of the source"
-    limit_break_upgrade: "Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: **2x150**/**2x165**/**2x195**/**2x260**). Exploits Wind weakness (damage calculation based on Phys. Dagger attack). Also grant a Dagger weakness (times: 2)."
-  - skill_category: active
-    name: "Witty Joke"
-    sp_cost: 46
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Witty Joke (5★)** Impart Entire Front Row with Phys"
-      - "Up 15% and raise Crit"
-      - "raise critical damage by 15% and Damage Limit by 20,000 (turns: 2/3/4/5)"
-  - skill_category: tp
-    name: "Mortificare"
-    sp_cost: 75
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "**Mortificare ** Act faster during turn and deal Phys"
-      - "Dagger damage to Single Foe (potency: 260/290/340/450) and grant a Dagger weakness (times: 3/4/5/6)"
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: tp
-    name: "Mortificare Lv.2"
-    sp_cost: 75
-    skill_type: mixed
-    damage_types: [dagger]
-    target: single_enemy
-    power: "260/290/340/450"
-    effects:
-      - "**Mortificare Lv.2** Act faster during turn and deal Phys"
-      - "grant a Dagger weakness (times: 3/4/5/6) and lower their Dagger Res"
-      - "Lower Shield Points even when not striking weak points"
-  - skill_category: special
-    name: "Ritorsione di Orfano"
-    skill_type: debuff
-    target: front_row
-    power: "2→3"
-    effects:
-      - "Lower Dagger Res"
-      - "raise Dagger damage of Entire Front Row by **5%→10%→15%** and grant Dead Aim (guaranteed critical hits) (turns: **2→3**)"
+- skill_category: active
+  name: Double Break
+  sp_cost: 28
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  hit_count: 2x
+  power: 2x75/2x90/2x110/2x150
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x75/2x90/2x110/2x150).'
+  - Lower Shield Points even when not striking weak points.
+- skill_category: active
+  name: Vitality Snatch
+  sp_cost: 28
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 170/200/240/350
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe (potency: 170/200/240/350) and absorbs 10% and 1% of damage dealt as HP and SP respectively.'
+- skill_category: active
+  name: Noli Me Tangere
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: debuff
+  target: aoe
+  effects:
+  - 'Lower Phys. Atk., Phys. Def., Elem. Atk. and Elem. Def. of All Foes by 10% (turns: 2/3/4/5).'
+- skill_category: active
+  name: Triple Ripping Assault
+  unlock_tier: 2★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - dagger
+  target: aoe
+  hit_count: 3x
+  power: 3x65/3x75/3x90/3x115
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 3 time(s) (potency: 3x65/3x75/3x90/3x115).'
+- skill_category: active
+  name: Crude Joke
+  unlock_tier: 2★
+  sp_cost: 52
+  skill_type: buff
+  target: single_ally
+  effects:
+  - Impart Single Ally with Phys. Atk. Up 20%, raise Crit.
+  - 'by 15% (turns: 2/3/4/5) and grant Dead Aim (guaranteed critical hits) (turns: 2).'
+- skill_category: active
+  name: Follow-up
+  unlock_tier: 3★
+  sp_cost: 48
+  skill_type: buff
+  target: single_ally
+  effects:
+  - 'Raise BP recovery amount of Single Ally by 1 (turns: 2/3/4/5).'
+  upgrades:
+  - 'Lv.88: SP Saver: 60→48'
+- skill_category: active
+  name: Uragano
+  unlock_tier: 4★
+  sp_cost: 60
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: aoe
+  hit_count: 5x
+  power: 5x25/5x30/5x35/5x45
+  effects:
+  - 'Deal Phys. Dagger damage to All Foes 5 time(s) (potency: 5x25/5x30/5x35/5x45).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  upgrades:
+  - 'Lv.96: SP Saver: 75→60'
+- skill_category: active
+  name: Affievolire
+  unlock_tier: 5★
+  sp_cost: 54
+  skill_type: utility
+  damage_types:
+  - dagger
+  - wind
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x135).'
+  - Exploits Wind weakness (damage calculation based on Phys. Dagger attack).
+  - 'Also grant a Dagger weakness (times: 2).'
+  upgrades:
+  - 'Lv.99: SP Saver: 68→54'
+  limit_break_upgrade: 'Deal Phys. Dagger damage to Single Foe 2 time(s) (potency: 2x150/2x165/2x195/2x260). Exploits Wind weakness (damage calculation based on Phys. Dagger attack). Also grant a Dagger weakness (times: 2).'
+- skill_category: active
+  name: Witty Joke
+  unlock_tier: 5★
+  sp_cost: 46
+  skill_type: buff
+  target: front_row
+  effects:
+  - Impart Entire Front Row with Phys. Atk. Up 15% and raise Crit.
+  - 'by 15%, raise critical damage by 15% and Damage Limit by 20,000 (turns: 2/3/4/5).'
+  upgrades:
+  - 'Lv.100: SP Saver: 57→46'
+- skill_category: tp
+  name: Mortificare
+  sp_cost: 75
+  skill_type: debuff
+  damage_types:
+  - dagger
+  target: single_enemy
+  power: 260/290/340/450
+  priority: true
+  effects:
+  - 'Act faster during turn and deal Phys. Dagger damage to Single Foe (potency: 260/290/340/450) and grant a Dagger weakness (times: 3/4/5/6).'
+  - Lower Shield Points even when not striking weak points.
+  upgrades:
+  - 'Lv.2: Act faster during turn and deal Phys. Dagger damage to Single Foe (potency: 260/290/340/450), grant a Dagger weakness (times: 3/4/5/6) and lower their Dagger Res. by 15% (turns: 2-5 based on Boost Lv.). Lower Shield Points even when not striking weak points.'
+- skill_category: special
+  name: Ritorsione di Orfano
+  skill_type: debuff
+  target: front_row
+  effects:
+  - 'Lower Dagger Res. of All Foes by 5%→10%→15% (turns: 2→3), raise Dagger damage of Entire Front Row by 5%→10%→15% and grant Dead Aim (guaranteed critical hits) (turns: 2→3).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge:; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "When an ally in front row breaks an enemy, lower Dagger Res. of the broken target by 15% (turns: 2)."
-    trigger: always
-  - passive_category: innate
-    effect: "Grant Entire Front Row effects based on number of Thieves in party. 2+: Raise Dagger damage by 15%. 3+: Also raise Phys. Atk. and Critical by 15%. 4+: Also raise the critical damage multiplier (1.25→1.4)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Wind Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Damage Limit of Entire Front Row by 30,000."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Raise Damage Limit of Entire Front Row by 30,000 and further raise Damage Limit of Phys. Dagger attacks by 10,000."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Dagger and Elem. Wind attacks of All Allies by 15,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Break Opportunity (Dagger) II
+  unlock_tier: 1★
+  effect: 'When an ally in front row breaks an enemy, lower Dagger Res. of the broken target by 15% (turns: 2).'
+  trigger: always
+- passive_category: innate
+  name: Cunning Support
+  unlock_tier: 3★
+  effect: 'Grant Entire Front Row effects based on number of Thieves in party. 2+: Raise Dagger damage by 15%. 3+: Also raise Phys. Atk. and Critical by 15%. 4+: Also raise the critical damage multiplier (1.25→1.4).'
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience III
+  effect: Raise own Lightning Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Wind
+  effect: Resilience Raise own Wind Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Vanguard Limit Break (Front/All) V
+  effect: 'When in front row: Raise Damage Limit of Entire Front Row by 30,000.'
+  trigger: always
+  upgrades:
+  - 'Lv.2: When in front row: Raise Damage Limit of Entire Front Row by 30,000 and further raise Damage Limit of Phys. Dagger attacks by 10,000.'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Dagger and Elem. Wind attacks of All Allies by 15,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Stylish Scarf"
-  passive_effect: "50 P.Atk, 40 Spd, 50 SP; When breaking an enemy, lower Dagger Res. by 10% (turns: 3) and grant Dagger weakness (times: 3)"
+  name: Stylish Scarf
+  passive_effect: '50 P.Atk, 40 Spd, 50 SP; When breaking an enemy, lower Dagger Res. by 10% (turns: 3) and grant Dagger weakness (times: 3)'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Granted Dagger Weakness
+  description: 'Regardless of the source, weakness count adds up (max: 9). If the target was already vulnerable to Dagger, increase damage taken from Dagger by 20%.'
 
 # Metadata
 data_confidence: complete

@@ -51,137 +51,156 @@ jp_tier: "F | 8.0"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Pummel"
-    sp_cost: 18
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x70"
-  - skill_category: active
-    name: "Heal More (Single)"
-    sp_cost: 24
-    skill_type: heal
-    target: single_ally
-    power: "155"
-    effects:
-      - "**Heal More (Single)** Restore HP of Single Ally (potency: 155)"
-  - skill_category: active
-    name: "Brutal Bludgeon"
-    sp_cost: 30
-    skill_type: attack
-    damage_types: [staff]
-    target: aoe
-    power: "145"
-  - skill_category: active
-    name: "Lightning Bolt (Single) II"
-    sp_cost: 20
-    skill_type: attack
-    damage_types: [lightning]
-    target: single_enemy
-    power: "160"
-  - skill_category: active
-    name: "Trifold Bash"
-    sp_cost: 38
-    skill_type: attack
-    damage_types: [staff]
-    target: single_enemy
-    hit_count: "3x"
-    power: "3x60"
-  - skill_category: active
-    name: "Enhanced Healing (Single)"
-    sp_cost: 38
-    skill_type: heal
-    target: single_ally
-    power: "225"
-    effects:
-      - "**Enhanced Healing (Single)** **(3★)** Restore HP of Single Ally (potency: 225)"
-  - skill_category: active
-    name: "Enhanced Healing (Single)"
-    sp_cost: 30
-    skill_type: heal
-    target: single_ally
-    power: "295"
-    effects:
-      - "**Enhanced Healing (Single)** **(5★)** Restore HP of Single Ally (potency: 295)"
-  - skill_category: active
-    name: "Aura of Wisdom II"
-    sp_cost: 23
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Aura of Wisdom II (4★)** Impart Entire Front Row with Elem"
-  - skill_category: active
-    name: "Aura of Wisdom II"
-    sp_cost: 18
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Aura of Wisdom II (5★)** Impart Entire Front Row with Elem"
-    limit_break_upgrade: "Impart Entire Front Row with Elem. Atk. Up 15% and raise damage by 15% (turns: 3-6 based on Boost Lv.)."
-  - skill_category: tp
-    name: "Cake Ice Smash"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [staff]
-    target: front_row
-    power: "120"
-    effects:
-      - "Staff damage to All Foes (potency: 120) and restore HP of Entire Front Row (potency: 205)"
-  - skill_category: tp
-    name: "Cake Ice Smash Lv.2"
-    sp_cost: 40
-    skill_type: mixed
-    damage_types: [staff]
-    target: front_row
-    power: "120"
-    effects:
-      - "Staff damage to All Foes (potency: 120) and restore HP of Entire Front Row (potency: 205) and their SP (amount: 5% of max SP)"
-  - skill_category: ex
-    name: "Great Light of Vitality II"
-    skill_type: mixed
-    target: front_row
-    effects:
-      - "**Great Light of Vitality II** Grant Entire Front Row Phys"
-      - "Up 15% and raise damage by 15% (turns: 2-5 based on Boost Lv.)"
-    notes: "Uses: 2"
-  - skill_category: special
-    name: "Explosive Assault"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "6x"
+- skill_category: active
+  name: Pummel
+  sp_cost: 18
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 2x
+  power: 2x70
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x70).'
+- skill_category: active
+  name: Heal More (Single)
+  sp_cost: 24
+  skill_type: heal
+  target: single_ally
+  power: '155'
+  effects:
+  - 'Restore HP of Single Ally (potency: 155).'
+- skill_category: active
+  name: Brutal Bludgeon
+  unlock_tier: 1★
+  sp_cost: 30
+  skill_type: utility
+  damage_types:
+  - staff
+  target: aoe
+  power: '145'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 145).'
+- skill_category: active
+  name: Lightning Bolt (Single) II
+  unlock_tier: 2★
+  sp_cost: 20
+  skill_type: utility
+  damage_types:
+  - lightning
+  target: single_enemy
+  power: '160'
+  effects:
+  - 'Deal Elem. Lightning damage to Single Foe (potency: 160).'
+- skill_category: active
+  name: Trifold Bash
+  unlock_tier: 2★
+  sp_cost: 38
+  skill_type: utility
+  damage_types:
+  - staff
+  target: single_enemy
+  hit_count: 3x
+  power: 3x60
+  effects:
+  - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x60).'
+- skill_category: active
+  name: Enhanced Healing (Single)
+  sp_cost: 38
+  skill_type: heal
+  target: single_ally
+  power: '225'
+  effects:
+  - '(3★) Restore HP of Single Ally (potency: 225).'
+  upgrades:
+  - 'Lv.72: SP Saver: 38→30'
+  - 'Upgraded: (5★) Restore HP of Single Ally (potency: 295).'
+- skill_category: active
+  name: Aura of Wisdom II
+  unlock_tier: 4★
+  sp_cost: 23
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Impart Entire Front Row with Elem. Atk. Up 15% (turns: 2-5 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.80: SP Saver: 23→18'
+  - 'Upgraded: Impart Entire Front Row with Elem. Atk. Up 15% (turns: 3-6 based on Boost Lv.).'
+  limit_break_upgrade: 'Impart Entire Front Row with Elem. Atk. Up 15% and raise damage by 15% (turns: 3-6 based on Boost Lv.).'
+- skill_category: tp
+  name: Cake Ice Smash
+  sp_cost: 40
+  skill_type: heal
+  damage_types:
+  - staff
+  target: front_row
+  power: '120'
+  effects:
+  - 'Deal Phys. Staff damage to All Foes (potency: 120) and restore HP of Entire Front Row (potency: 205).'
+  upgrades:
+  - 'Lv.2: Deal Phys. Staff damage to All Foes (potency: 120) and restore HP of Entire Front Row (potency: 205) and their SP (amount: 5% of max SP).'
+- skill_category: ex
+  name: Great Light of Vitality II
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Grant Entire Front Row Phys. Atk. Up 15% and raise damage by 15% (turns: 2-5 based on Boost Lv.).'
+  notes: 'Usage Condition: Turn 4 onwards; Uses: 2'
+  ex_trigger: Turn 4 onwards
+- skill_category: special
+  name: Explosive Assault
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 6x
+  power: 4-6x85→4-6x100→4-6x125
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 4-6 time(s) (potency: 4-6x85→4-6x100→4-6x125).'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP *Requires Ultimate Technique Awakening.; Overcharge:'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Absorb 1% of damage dealt as SP when using Attack."
-    trigger: always
-  - passive_category: innate
-    effect: "When near death: Lower own SP Cost by 50% (Effects do not stack)."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Wind Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Lightning Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Paired Allies automatic SP recovery (amount: 10)."
-    trigger: always
-  - passive_category: tp
-    effect: "Grant Paired Allies automatic SP recovery (amount: **20**)."
-    trigger: always
-  - passive_category: tp
-    effect: "Raise Damage Limit of Phys. Staff attacks of All Allies by 8,000."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Absorb SP
+  unlock_tier: 1★
+  effect: Absorb 1% of damage dealt as SP when using Attack.
+  trigger: always
+- passive_category: innate
+  name: Desperate Half SP
+  unlock_tier: 3★
+  effect: 'When near death: Lower own SP Cost by 50% (Effects do not stack).'
+  trigger: always
+- passive_category: innate
+  name: Wind Resilience III
+  effect: Raise own Wind Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Lightning Resilience
+  unlock_tier: 5★
+  effect: Raise own Lightning Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: SP Recovery (Joint) II
+  effect: 'Grant Paired Allies automatic SP recovery (amount: 10).'
+  trigger: always
+  upgrades:
+  - 'Lv.2: Grant Paired Allies automatic SP recovery (amount: 20).'
+- passive_category: tp
+  name: Damage Limit Up
+  effect: Raise Damage Limit of Phys. Staff attacks of All Allies by 8,000.
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Orphanage Postcard"
-  passive_effect: "30 P.Atk, 20 E.Def, 20 Spd; When in back row: Raise Phys. Atk. of Paired Ally by 10%"
+  name: Orphanage Postcard
+  passive_effect: '30 P.Atk, 20 E.Def, 20 Spd; When in back row: Raise Phys. Atk. of Paired Ally by 10%'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Superbust
+  description: When consuming 2 gauges to activate the Ultimate Technique, its damage dealt increases by 50%.
 
 # Metadata
 data_confidence: incomplete

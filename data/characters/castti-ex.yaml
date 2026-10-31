@@ -52,145 +52,202 @@ jp_tier: "B | 9.6-9.5"
 
 # Skills - parsed from markdown
 skills:
-  - skill_category: active
-    name: "Swirling Snow"
-    sp_cost: 34
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x90"
-  - skill_category: active
-    name: "Melancholy Manèges II"
-    sp_cost: 56
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**Melancholy Manèges II** Raise Phys"
-  - skill_category: active
-    name: "Sorrowful Sissonne"
-    sp_cost: 56
-    skill_type: buff
-    target: all_allies
-    effects:
-      - "**Sorrowful Sissonne (1★)** Raise Phys"
-  - skill_category: active
-    name: "Winter Waltz"
-    sp_cost: 84
-    skill_type: attack
-    damage_types: [ice]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "When consuming 3+ BP: Also raise Elem"
-  - skill_category: active
-    name: "Glacial Grace"
-    sp_cost: 76
-    skill_type: mixed
-    damage_types: [ice]
-    target: front_row
-    hit_count: "3x"
-    power: "3x65"
-    effects:
-      - "Ice damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 90)"
-      - "When consuming 3+ BP: Also raise Elem"
-  - skill_category: active
-    name: "Arctic Arabesque"
-    sp_cost: 82
-    skill_type: buff
-    target: front_row
-    effects:
-      - "**Arctic Arabesque (3★)** Raise Ice damage of Entire Front Row by 30% and the limits of their Ice damage augments from battle skills to 50% (turns: 2-7 based on Boost Lv.)"
-  - skill_category: active
-    name: "Flurry’s Kiss"
-    sp_cost: 77
-    skill_type: attack
-    damage_types: [ice]
-    target: front_row
-    hit_count: "4x"
-    power: "4x65"
-    effects:
-      - "When consuming 3+ BP: Also raise Elem"
-  - skill_category: active
-    name: "Lv.96 |"
-    skill_type: utility
-    target: single_enemy
-  - skill_category: active
-    name: "Frozen Fouetté III"
-    sp_cost: 75
-    skill_type: attack
-    damage_types: [ice]
-    target: front_row
-    hit_count: "2x"
-    power: "2x95"
-    effects:
-      - "When consuming 3+ BP: Also raise Elem"
-  - skill_category: active
-    name: "Lv.99 |"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Frostbite: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target)"
-  - skill_category: active
-    name: "Ice Elegy"
-    sp_cost: 62
-    skill_type: attack
-    damage_types: [ice]
-    target: single_enemy
-    hit_count: "2x"
-    power: "2x135"
-    effects:
-      - "When consuming 3+ BP: Guaranteed critical hits"
-  - skill_category: tp
-    name: "Concoct: Pomegranate Powder"
-    sp_cost: 110
-    skill_type: heal
-    target: front_row
-    effects:
-      - "**Concoct: Pomegranate Powder ** Raise BP recovery of Entire Front Row by 1 (turns: 1-6 based on Boost Lv.)"
-      - "When consuming 3+ BP: Also cure and grant immunity to some status ailments (turns: 1-6 based on Boost Lv.)"
-  - skill_category: ex
-    name: "Brumal Ensemble"
-    skill_type: attack
-    damage_types: [ice]
-    target: random
-    power: "30"
-    notes: "Uses: 1"
-  - skill_category: special
-    name: "Mournful Minuet"
-    skill_type: attack
-    damage_types: [ice]
-    target: aoe
-    hit_count: "2x"
+- skill_category: active
+  name: Swirling Snow
+  sp_cost: 34
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x90
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x90).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+- skill_category: active
+  name: Melancholy Manèges II
+  sp_cost: 56
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Phys. Atk. and Elem. Atk. of All Allies by 15% (turns: 2-7 based on Boost Lv.).'
+- skill_category: active
+  name: Sorrowful Sissonne
+  unlock_tier: 1★
+  sp_cost: 56
+  skill_type: buff
+  target: all_allies
+  effects:
+  - 'Raise Phys. Def. and Elem. Def. of All Allies by 15% (turns: 2-7 based on Boost Lv.).'
+- skill_category: active
+  name: Winter Waltz
+  unlock_tier: 2★
+  sp_cost: 84
+  skill_type: utility
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x65).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'When consuming 3+ BP: Also raise Elem. Atk. and Ice damage of Entire Front Row by 15% (turns: 2).'
+- skill_category: active
+  name: Glacial Grace
+  unlock_tier: 2★
+  sp_cost: 76
+  skill_type: heal
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 3x
+  power: 3x65
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 3 time(s) (potency: 3x65) and restore HP of Entire Front Row (potency: 90).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'When consuming 3+ BP: Also raise Elem. Atk. and Ice damage of Entire Front Row by 15% (turns: 2).'
+- skill_category: active
+  name: Arctic Arabesque
+  unlock_tier: 3★
+  sp_cost: 82
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Ice damage of Entire Front Row by 30% and the limits of their Ice damage augments from battle skills to 50% (turns: 2-7 based on Boost Lv.).'
+  upgrades:
+  - 'Lv.88: SP Saver: 82→66'
+- skill_category: active
+  name: Flurry’s Kiss
+  unlock_tier: 4★
+  sp_cost: 77
+  skill_type: utility
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 4x
+  power: 4x65
+  effects:
+  - 'Deal Elem. Ice damage to Random Foe 4 time(s) (potency: 4x65) and have a low chance to enchant them with every attack (turns: 2).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'When consuming 3+ BP: Also raise Elem. Atk. and Ice damage of Entire Front Row by 15% (turns: 2).'
+  - 'When consuming 5 BP: Attack count becomes 8 (potency: 8x65).'
+  upgrades:
+  - 'Lv.96: SP Saver: 77→62'
+- skill_category: active
+  name: Frozen Fouetté III
+  unlock_tier: 5★
+  sp_cost: 75
+  skill_type: utility
+  damage_types:
+  - ice
+  target: front_row
+  hit_count: 2x
+  power: 2x95
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x95) and inflict frostbite (turns: 2).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'When consuming 3+ BP: Also raise Elem. Atk. and Ice damage of Entire Front Row by 15% (turns: 2).'
+  - 'When consuming 5 BP: Attack count becomes 5 (potency: 5x75).'
+  upgrades:
+  - 'Lv.99: SP Saver: 75→60'
+- skill_category: active
+  name: Ice Elegy
+  unlock_tier: 5★
+  sp_cost: 62
+  skill_type: utility
+  damage_types:
+  - ice
+  target: single_enemy
+  hit_count: 2x
+  power: 2x135
+  effects:
+  - 'Deal Elem. Ice damage to Single Foe 2 time(s) (potency: 2x135).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - Potency increases by 1.2x if target is enchanted or frostbitten.
+  - 'When consuming 3+ BP: Guaranteed critical hits.'
+  - 'When consuming 5 BP: Attack count becomes 5 (potency: 5x140).'
+  upgrades:
+  - 'Lv.100: SP Saver: 62→50'
+- skill_category: tp
+  name: 'Concoct: Pomegranate Powder'
+  sp_cost: 110
+  skill_type: heal
+  target: front_row
+  effects:
+  - 'Raise BP recovery of Entire Front Row by 1 (turns: 1-6 based on Boost Lv.), but delay actions during turn.'
+  - 'When consuming 3+ BP: Also cure and grant immunity to some status ailments (turns: 1-6 based on Boost Lv.).'
+  - 'When consuming 5 BP: Reaches All Allies.'
+- skill_category: ex
+  name: Brumal Ensemble
+  skill_type: utility
+  damage_types:
+  - ice
+  target: random
+  power: '30'
+  effects:
+  - 'Deal Elem. Ice damage to Random Foe 1 time (potency: 30).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'When consuming 3+ BP: Consume 1 BP from every other ally to attack as many additional times as BP consumed, up to 7 times.'
+  - 'When consuming 5 BP: Consume 1 BP from every other ally again to attack as many additional times as BP consumed, up to 7 times.'
+  notes: 'Usage Condition: Turn 7 onwards; Uses: 1'
+  ex_trigger: Turn 7 onwards
+- skill_category: special
+  name: Mournful Minuet
+  skill_type: utility
+  damage_types:
+  - ice
+  target: aoe
+  hit_count: 2x
+  power: 2x195→2x225→2x280
+  effects:
+  - 'Deal Elem. Ice damage to All Foes 2 time(s) (potency: 2x195→2x225→2x280).'
+  - Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack).
+  - 'If the target is enchanted or frostbitten, potency increases by 3.0x and inflicts frostbite (turns: 6), but delay actions during turn.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP→60%/BP; Overcharge: Also restore BP of Entire Front Row by 2.; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown
 passives:
-  - passive_category: innate
-    effect: "Deal Elem. Ice damage with the “Attack” action, gain the ability to trigger critical hits with elemental attacks and enhance Boost Levels to Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively."
-    trigger: always
-  - passive_category: innate
-    effect: "When in front row: Raise Damage Limit of Self by 50,000 and raise damage of Entire Front Row by 15%."
-    trigger: always
-    limit_break_upgrade: "When in front row: Raise Ice damage of Self by 15%, Damage Limit by **100,000** and damage of Entire Front Row by 15%."
-  - passive_category: innate
-    effect: "When in front row: Raise Elem. Atk. and Ice damage of Entire Front Row by 20% and raise the limits of their Elem. Atk. and Ice Damage augments from support skills and equipment effects to 50%."
-    trigger: always
-  - passive_category: innate
-    effect: "Raise own Fire Res. by 20%."
-    trigger: always
-  - passive_category: innate
-    effect: "**Resilience** Raise own Ice Res. by 10%."
-    trigger: always
-  - passive_category: tp
-    effect: "When in front row: Gain the ability to trigger a follow-up attack when any other ally in front row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Ice damage to All Foes (potency: 100) and restore 1 BP to Self. Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break."
-    trigger: always
-    limit_break_upgrade: "Raise Self’s Damage Limit by 30,000."
+- passive_category: innate
+  name: Dignified Dancer
+  effect: Deal Elem. Ice damage with the “Attack” action, gain the ability to trigger critical hits with elemental attacks and enhance Boost Levels to Lv. 2/Lv. 4/Lv. 6 when consuming 1, 3 or 5 BP, respectively.
+  trigger: always
+- passive_category: innate
+  name: Crystal Heart
+  unlock_tier: 1★
+  effect: 'When in front row: Raise Damage Limit of Self by 50,000 and raise damage of Entire Front Row by 15%.'
+  trigger: always
+  limit_break_upgrade: 'When in front row: Raise Ice damage of Self by 15%, Damage Limit by 100,000 and damage of Entire Front Row by 15%.'
+- passive_category: innate
+  name: Frostbloom Stage
+  unlock_tier: 3★
+  effect: 'When in front row: Raise Elem. Atk. and Ice damage of Entire Front Row by 20% and raise the limits of their Elem. Atk. and Ice Damage augments from support skills and equipment effects to 50%.'
+  trigger: always
+- passive_category: innate
+  name: Fire Resilience III
+  effect: Raise own Fire Res. by 20%.
+  trigger: always
+- passive_category: innate
+  name: Ice
+  effect: Resilience Raise own Ice Res. by 10%.
+  trigger: always
+- passive_category: tp
+  name: Ice Pursuit
+  effect: 'When in front row: Gain the ability to trigger a follow-up attack when any other ally in front row exploits an enemy weakness (only activates once per action). Follow-up attack: Deal Elem. Ice damage to All Foes (potency: 100) and restore 1 BP to Self. Exploits Fan and Wind weakness (damage calculation based on Elem. Ice attack). *If the attack breaks an enemy, only the ally who initiated the attack will qualify for the break.'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # A4 Accessory - parsed from markdown
 a4_accessory:
-  name: "Elegant Hair Ornament"
-  passive_effect: "-60 P.Atk, 200 E.Atk; When consuming 3 BP or more: Raise BP recovery amount by 1 (turns: 1); Grant  the ability to  trigger a follow-up attack when attacking with Ice (*Triggers once even during a Boost)."
+  name: Elegant Hair Ornament
+  passive_effect: '-60 P.Atk, 200 E.Atk; When consuming 3 BP or more: Raise BP recovery amount by 1 (turns: 1); Grant  the ability to  trigger a follow-up attack when attacking with Ice (*Triggers once even during a Boost).'
+
+# Glossary terms - parsed from markdown
+unique_mechanics:
+- name: Enchant
+  description: Have a certain chance of being unable to act.
+- name: Frostbite
+  description: Deal elemental damage and lower Shield Points by 1 after the target takes action (will not break the target).
 
 # Metadata
 data_confidence: incomplete
