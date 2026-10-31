@@ -231,10 +231,6 @@ passives:
   trigger: battle_start
   limit_break_upgrade: 'When attacked, gain one “Dragon Tail Point”. *Multiple-hit attacks activates this once. Start of battle: Increase own Dragon Tail Points by 5.'
 - passive_category: innate
-  name: consumes 3
-  effect: Dragon Tail Points.
-  trigger: always
-- passive_category: innate
   name: Attack to Provoke
   unlock_tier: 3★
   effect: 'When using “Attack”, provoke the target (turns: 2).'

@@ -258,7 +258,8 @@ def entry_from_node(node: AsideNode) -> Entry | None:
     """Build an Entry from a node whose first line carries a bold header."""
     stripped = node.text.strip()
     first_line, _, rest = stripped.partition("\n")
-    header_match = re.search(r"\*\*(.+?)\*\*", first_line)
+    first_line = re.sub(r"^\s*(<img[^>]*>\s*)*", "", first_line)
+    header_match = re.match(r"\*\*(.+?)\*\*", first_line)
     if not header_match or header_match.group(1).startswith("Lv."):
         return None
 
@@ -319,9 +320,11 @@ def build_entries(node: AsideNode, glossary: dict[str, str]) -> list[Entry]:
         child_entry, *child_extra = build_entries(child, glossary)
         if child_entry.is_6star:
             entry.limit_break_upgrade = child_entry.body
+            entry.notes.extend(child_entry.notes)
         elif child_entry.name in (None, entry.name):
             label = f"Lv.{child_entry.tp_level}" if child_entry.tp_level else "Upgraded"
             entry.upgrades.append(f"{label}: {child_entry.body}")
+            entry.upgrades.extend(f"{label}: {note}" for note in child_entry.notes)
         else:
             extra.append(child_entry)
         extra.extend(child_extra)

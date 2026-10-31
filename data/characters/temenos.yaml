@@ -226,6 +226,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: When selecting a command, grant Self the special effect Condemn (turns: 1). Condemn: When selecting an attack other than “Attack” (with some exceptions), can exploit all weaknesses (excluding non-elemental weaknesses/Damage calculation based on original attack) and grant the ability to trigger critical hits with elemental attacks.'
+  - 'Lv.2: Preparation Turns: 2'
+  - 'Lv.2: Reuse Turns: 4'
   notes: 'Preparation Turns: 2; Reuse Turns: 4'
 - passive_category: tp
   name: Damage Limit Up

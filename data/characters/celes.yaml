@@ -233,10 +233,6 @@ passives:
   trigger: always
   limit_break_upgrade: 'At the end of turn after consuming 1 BP or more, grant Self “Runic Stance” (times: 3/max: 4/activates even in back row/cancels when unable to act).'
 - passive_category: innate
-  name: 3 BP
-  effect: 'to Self, grant SP Stock (amount: 30% of max SP/Does not stack) and raise Elem. Atk. by 30% (turns: 3). Also lower Phys. Atk. and Elem. Atk. of the attacking enemy by 30% (turns: 3). *Triggers before other counterattack actions.'
-  trigger: always
-- passive_category: innate
   name: Celes Cadenza
   unlock_tier: 3★
   effect: 'When in front row: Grant Entire Front Row automatic SP recovery (amount: 3% of max SP) and raise Ice and Light damage by 15%.'

@@ -108,13 +108,7 @@ skills:
   upgrades:
   - 'Lv.88: SP Saver: 92→74'
   limit_break_upgrade: 'Act faster during turn and raise Fire and Wind damage of Entire Front Row by 30% (turns: 2/3/5/7).'
-  notes: 'With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to 50% (turns: 2/3/5/7).'
-- skill_category: active
-  name: 60%
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - '(turns: 2/3/5/7).'
+  notes: 'With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to 50% (turns: 2/3/5/7).; With “Succor”: Reaches All Allies and also raise the limits of Fire and Wind damage augments from battle skills to 60% (turns: 2/3/5/7).'
 - skill_category: active
   unlock_tier: 4★
   sp_cost: 74

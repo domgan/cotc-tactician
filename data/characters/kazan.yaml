@@ -213,6 +213,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: Start of battle: Raise yourself a Toast (turns: 4). Start a countdown (turns: 3/turn count overwritten). Once the countdown ends, deal Elem. Wind damage to All Foes (potency: 410). Exploits Tome and Fire weaknesses (damage calculation based on Elem. Wind attack). This attack has double potency against broken enemies but cannot be reactivated as part of a Skill Chain. *If executed again before the countdown ends, the countdown will be removed. *This attack cannot be triggered again by the support ability Connoisuer.'
+  - 'Lv.2: Preparation Turns: 0'
+  - 'Lv.2: Reuse Turns: 4'
   notes: 'Preparation Turns: 0; Reuse Turns: 4'
 - passive_category: tp
   name: Damage Limit Up

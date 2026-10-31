@@ -212,17 +212,8 @@ skills:
   - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
   upgrades:
   - 'Lv.2: Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x95). When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.'
+  - 'Lv.2: Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x95). Ignores effects that completely dodge or block attacks. Damage Limit of this skill is increased by 500,000. When consuming 3 BP or more: Reactivate this skill. When consuming 5 BP: Potency is increased by 1.5x.'
   notes: 'Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x85). Ignores effects that completely dodge or block attacks. When consuming 3 BP or more: Reactivate this skill.'
-- skill_category: active
-  name: 3x95
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - ).
-  - Ignores effects that completely dodge or block attacks.
-  - Damage Limit of this skill is increased by 500,000.
-  - 'When consuming 3 BP or more: Reactivate this skill.'
-  - 'When consuming 5 BP: Potency is increased by 1.5x.'
 - skill_category: ex
   unlock_tier: EX
   skill_type: debuff

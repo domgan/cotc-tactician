@@ -267,6 +267,12 @@ passives:
   trigger: always
   upgrades:
   - 'Upgraded: When selecting a command, grant Self “Black Corrosion” (turns: 3). Black Corrosion: Raise Phys. Atk. and Critical by 30% and change the performance of “Attack” (potency: 65/2x75 Boost Lv. 2/3x85 Boost Lv. 3/4x110 Max Boost), but take damage at the end of turn (amount: 15% of max HP).take 15% of max HP as damage.'
+  - 'Upgraded: Preparation: 3 turns Reuse: 5 turns Complete Side Story “How to Use Power”'
+  - 'Upgraded: Preparation Turns: 2'
+  - 'Upgraded: Reuse Turns: 5'
+  - 'Upgraded: Preparation: 3 turns Reuse: 5 turns'
+  - 'Upgraded: Preparation Turns: 1'
+  - 'Upgraded: Reuse Turns: 3'
   notes: 'Preparation: 3 turns Reuse: 5 turns; Preparation Turns: 2; Reuse Turns: 5'
 - passive_category: innate
   name: Absorb SP through Attacks

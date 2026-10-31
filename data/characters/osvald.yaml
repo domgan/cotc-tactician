@@ -248,6 +248,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: Upon activation, grant Self the special effect Concentration (turns: 1). Concentration: Change target of some spells to a single foe and add 30% of P.Atk to E.Atk. Also apply bonus effects to certain spells.'
+  - 'Lv.2: Preparation Turns: 2'
+  - 'Lv.2: Reuse Turns: 2'
   notes: 'Preparation Turns: 2; Reuse Turns: 2'
 - passive_category: tp
   name: Damage Limit Up

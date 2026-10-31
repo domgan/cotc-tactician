@@ -189,7 +189,7 @@ passives:
   effect: 'When selecting a command, grant Self the special effect of “Savage” (turns: 2). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot.'
   trigger: always
   limit_break_upgrade: 'When selecting a command, grant Self the special effect of “Savage” (turns: 3). “Savage”: Become unable to select action (switching is allowed) and execute attacking skill in the first slot at Max Boost twice (without consuming SP nor BP). *Cannot be used if no skill is assigned to the first skill slot.'
-  notes: 'Preparation Turns: 3; Reuse Turns : 6'
+  notes: 'Preparation Turns: 3; Reuse Turns : 6; Preparation Turns: 3; Reuse Turns : 6'
 - passive_category: innate
   unlock_tier: 3★
   effect: 'Raise own Phys. Atk. and Axe damage of Self by 15% and increase the Axe damage limit from support skills and equipment effects to 50%. When in “Savage” state: Add 50% of P.Def to P.Atk (including equipment stats/Cannot be stacked)'

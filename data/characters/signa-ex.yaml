@@ -189,12 +189,6 @@ skills:
   - 'Deal Phys. Axe damage to Single Foe (potency: 230/260/300/400).'
   upgrades:
   - 'Lv.2: Deal Phys. Axe damage to Single Foe (potency: 230/260/300/400).'
-- skill_category: active
-  name: '2'
-  skill_type: buff
-  target: single_enemy
-  effects:
-  - /Does not stack/Granted as a support skill).
 - skill_category: special
   name: Resolve to Vanquish Evil
   skill_type: buff

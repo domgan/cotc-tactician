@@ -195,6 +195,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: Upon activation, gain Dark Curse (turns: 1). Dark Curse: Skill configuration changes to the following:'
+  - 'Lv.2: Preparation Turns: 3'
+  - 'Lv.2: Reuse Turns: 3'
   notes: 'Preparation Turns: 3; Reuse Turns: 6'
 - passive_category: innate
   name: Cursed Hellfire

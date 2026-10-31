@@ -176,12 +176,6 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: 69→55'
   limit_break_upgrade: 'Deal Phys. Dagger damage to Single Foe (potency: 290/320/380/1250). Exploits Staff weakness (damage calculation based on Phys. Dagger attack). At Max Boost: Potency increases by 2.5x (reflected in potency value).'
-- skill_category: active
-  name: 500,000
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - .
 - skill_category: tp
   name: Dragon’s Stance
   sp_cost: 48

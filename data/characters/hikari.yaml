@@ -229,6 +229,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: Upon activation, grant Self the special effect Shadow’s Hold (turns: 1). When an ally breaks an enemy, reduce reuse turns by 4. Shadow’s Hold: Skill configuration changes to the following.'
+  - 'Lv.2: Preparation Turns: 2'
+  - 'Lv.2: Reuse Turns : 4'
   notes: 'Preparation Turns: 2; Reuse Turns : 4'
 - passive_category: innate
   name: Tenretsuzan

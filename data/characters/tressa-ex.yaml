@@ -164,12 +164,6 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: 59→47'
   limit_break_upgrade: 'Act faster during turn and deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x65).'
-- skill_category: active
-  name: '2'
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - .
 - skill_category: tp
   name: Burning Trap (All)
   sp_cost: 31

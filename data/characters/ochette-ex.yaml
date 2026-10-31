@@ -216,6 +216,8 @@ passives:
   trigger: always
   upgrades:
   - 'Lv.2: Upon activation, grant All Allies the special effect Remodelling (turns: 1). Remodeling: Raise the potency of Phys. Sword, Polearm and Axe attacks by 100% (Does not stack with effects of the same type).'
+  - 'Lv.2: Preparation Turns: 1'
+  - 'Lv.2: Reuse Turns: 3'
   notes: 'Preparation Turns: 3; Reuse Turns: 6'
 - passive_category: tp
   name: Damage Limit Up

@@ -155,12 +155,6 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: 70→56'
   limit_break_upgrade: 'Deal Phys. Axe damage to Single Foe 2 time(s) (potency: 2x150).'
-- skill_category: active
-  name: 50,000
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - .
 - skill_category: tp
   name: Dawnbreaker
   sp_cost: 70

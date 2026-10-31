@@ -176,18 +176,6 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: 51→41'
   limit_break_upgrade: 'Deal Elem. Wind damage to Single Foe 4 time(s) (potency: 4x45). Exploits Fan weakness (damage calculation based on Elem. Wind attack).'
-- skill_category: active
-  name: '6'
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - .
-- skill_category: active
-  name: '8'
-  skill_type: utility
-  target: single_enemy
-  effects:
-  - .
 - skill_category: tp
   name: Windy Refrain
   sp_cost: 90

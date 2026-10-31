@@ -173,6 +173,7 @@ skills:
   - Fill the Ultimate Technique gauge of Entire Front Row by 25%/50%/100%/200% based on Boost Lv..
   upgrades:
   - 'Lv.2: Fill the Ultimate Technique gauge of Entire Front Row by 25%/50%/100%/200% based on Boost Lv.) and restore their SP (amount: 5% of target’s max SP).'
+  - 'Lv.2: If performed as a Jest, also raise their Damage Limit by 50,000 (turns: 2).'
   notes: 'If performed as a Jest, also raise their Damage Limit by 50,000 (turns: 2).'
 - skill_category: special
   name: Egg On
