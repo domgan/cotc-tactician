@@ -46,6 +46,9 @@ SKILL_META_LABELS = (
     "Backsurge",
 )
 
+# Pre-release Notion exports use these instead of real names; never store them as names.
+PLACEHOLDER_NAMES = {"Name", "???", "TBD"}
+
 ABBREVIATION = re.compile(r"\b(Phys|Elem|Atk|Def|Res|Lv|Spd|vs)\.")
 TIER_TAG = re.compile(r"\((\d★|Initial|EX)\)")
 
@@ -246,7 +249,7 @@ def parse_header(header: str) -> tuple[str | None, str | None, bool, int | None,
     name = re.sub(r"\((\d★|Initial|EX)\)|✦|Lv\.\s*\d+", "", header).strip(' |“”"')
     unlock_tier = tier_match.group(1) if tier_match else None
     return (
-        name or None,
+        None if name in PLACEHOLDER_NAMES or "???" in name else name or None,
         unlock_tier,
         "✦" in header,
         int(level_match.group(1)) if level_match else None,
@@ -273,7 +276,7 @@ def entry_from_node(node: AsideNode) -> Entry | None:
     ]
     body_raw = re.sub(r"\*\*Lv\.\d+\s*\|\*\*[^\n]*", "", body_raw)
     sp_cost = parse_sp_cost(body_raw)
-    body = clean_html_tags(re.sub(r"\[\d+\s*SP\]", "", body_raw))
+    body = clean_html_tags(re.sub(r"\[(\d+|X+)\s*SP\]", "", body_raw))
 
     entry = Entry(
         name=name,
@@ -454,7 +457,7 @@ def parse_a4_accessory(content: str) -> dict | None:
     if section is None:
         return None
     name_match = re.search(r"\*\*([^*]+)\*\*", section)
-    if not name_match:
+    if not name_match or name_match.group(1).strip(' “”"') in PLACEHOLDER_NAMES:
         return None
     effects = re.findall(r"·([^\n]+)", section)
     return {

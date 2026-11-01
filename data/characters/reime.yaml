@@ -221,11 +221,6 @@ passives:
   trigger: always
   limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
-# A4 Accessory - parsed from markdown
-a4_accessory:
-  name: ???
-  passive_effect: ''
-
 # Glossary terms - parsed from markdown
 unique_mechanics:
 - name: Ultimate Sword

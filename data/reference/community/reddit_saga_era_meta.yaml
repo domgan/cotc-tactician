@@ -63,6 +63,37 @@ mechanics:
     source: https://www.reddit.com/r/OctopathCotC/comments/1unk19u/octopath_traveler_cotc_tp_level_2_enhancement/
 
 auto_battle:
+  - topic: "Auto-battle AI rules (Game8 JP spec, updated 2025-11-21, before the 2026 auto upgrade)"
+    notes:
+      - "Front row acts first. Uses all available BP (max boost). Row swap when BP reaches 0 (toggle in settings)."
+      - "Skill use setting by SP: unlimited / 50% / 75% / never. Prefers the skill with the most hits, then the one higher in the equipped list."
+      - "Targets: weakness first, then the leftmost enemy; AoE preferred when several enemies are present."
+      - "Never heals, never buffs/debuffs, never uses keepers, pets or divine beasts. Ultimate/EX used as soon as possible but only if they deal damage."
+      - "Elemental attack skills are skipped when the basic Attack can already hit a weakness; equip physical AoE for farming."
+      - "To force a skill, unequip the others. Attacking ultimates fire on turn 1 with a 100%-gauge-at-start accessory (TW QoL post)."
+    source: https://game8.jp/octopathtraveler-sp/578890
+  - topic: "Auto-battle player observations"
+    notes:
+      - "u/garnish_guy (2025-03): always uses AoE if available; prefers more hits; never uses support skills unless they also deal damage; swaps the highest-BP unit to the front."
+      - "u/EverySquareInch (2025-11): pick skills that deal direct damage, not delayed (Elrica EX Brilliant Phantasm does not activate on auto)."
+      - "u/Arbiteksu (2026-08): if auto stops after each battle, set auto-battle memory from 'No Memory' to 'All Memories'."
+      - "Community (2025-08 thread): Rinyuu EX spams her damaging row-swap skill on auto; Shana's SP Stock is a farming must; passive auto-healers (Shelby, Ramona, Devin) keep 4★ teams alive."
+      - "Repo owner observation (2026-11-01): auto never used Aviete's Advent of Simurgh (revive, 2 uses), consistent with the no-support rule."
+    sources:
+      - https://www.reddit.com/r/OctopathCotC/comments/1jcal60/help_with_auto_battle/
+      - https://www.reddit.com/r/OctopathCotC/comments/1oxrr2g/2025_auto_battle_octopath_cotc_ditrainaex_testing/
+      - https://www.reddit.com/r/OctopathCotC/comments/1ve3gkh/auto_battle_question/
+      - https://www.reddit.com/r/OctopathCotC/comments/1mgmrjt/any_especially_good_characters_for_auto_battle/
+  - topic: "2026 auto-battle upgrade"
+    notes:
+      - "CN (2026-01-27): 'Ults and EX skills can now be used in auto-battle with a more detailed set-up menu' (details only in a screenshot)."
+      - "GL v4.8.1 (2026-09-24) lists 'auto-battle update' among ported CN QoLs. Exact options in GL are not documented in text sources found."
+      - "NiaDB marks some skills with auto priorities from game data, e.g. Phenn's 4★ barrier/cover skill (highest priority) and his ultimate."
+      - "Repo owner check of GL settings (2026-11-01): only 'Using abilities in auto-battle' (unlimited / up to 50% SP / up to 75% SP / do not use) and 'Automatic switch in auto-battle' (on/off). No ultimate/EX auto menu found in GL."
+    sources:
+      - https://www.reddit.com/r/OctopathCotC/comments/1qo72fx/xerc_free_awakening_stone_free_ot_mt_awakening/
+      - https://www.reddit.com/r/OctopathCotC/comments/1wnyv44/tiziano_ex_levina_ex2_cn_qols_here_this_week/
+      - https://meowdb.com/db/octopath-traveler-cotc/characters/phenn
   - topic: "Auto-battle physical team for most EX3"
     characters: [mydia, richard-ex, final-emperor, stia, levina-ex2, molrusso-ex, phenn, aviete]
     notes:

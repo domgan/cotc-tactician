@@ -35,6 +35,8 @@ usage_strategy: |
   2★/5★ bow finishers for guaranteed crit burst. Ult on break/setup turns for 100% potency
   on physical jobs; 200% gauge doubles the AOE hit. Often back-loaded after barrier setup;
   pairs with Pardis III, Ditraina EX, Kaine, Mahrez, Edgar per community clears.
+  Auto-battle (NiaDB): uses the 4★ barrier/cover skill with the highest priority and
+  prioritizes his ultimate.
 
 best_use_cases:
   - "Physical DPS teams needing stacked debuffs + damage cap support"
@@ -81,140 +83,17 @@ unique_mechanics:
       9+: raise passive/equipment P.Def down cap to 50%. Two bow skills consume all stacks
       at 9+ for guaranteed crit, bonus hits/effects, then reset to 0.
 
-# Skills — from MeowDB + Notion Character Index (names not yet localized in export)
-skills:
-  - skill_category: active
-    name: "Bow Volley (Base)"
-    skill_type: attack
-    damage_types: [bow]
-    target: aoe
-    power: "150→260"
-  - skill_category: active
-    name: "Front Row Heal (Base)"
-    skill_type: heal
-    target: front_row
-    power: "130→220"
-    effects:
-      - "If target healed to full HP, grant HP barrier (25% of Phenn max HP, not stackable)"
-  - skill_category: active
-    name: "Phys/Elem Atk Down (1★)"
-    skill_type: debuff
-    target: single_enemy
-    effects:
-      - "20% P.Atk and E.Atk down (2→5 turns)"
-  - skill_category: active
-    name: "Shield Shave Shot (2★)"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "5x"
-    power: "5x5→5x20"
-    effects:
-      - "When target not broken, launch 5 additional hits (5x5→5x20)"
-  - skill_category: active
-    name: "Resilience Burst (2★)"
-    skill_type: attack
-    damage_types: [bow, axe]
-    target: aoe
-    hit_count: "2x"
-    power: "2x240→2x380"
-    effects:
-      - "Damage cap +300k"
-      - "At 9+ HoR on select: +15% P.Def down (2T), guaranteed crit, 1.5× potency; consumes HoR"
-  - skill_category: active
-    name: "Bow Weakness Implant (3★)"
-    skill_type: utility
-    target: single_enemy
-    effects:
-      - "Implant bow weakness (6→9 times)"
-      - "Raise active bow damage cap +50% for front row (2→5 turns)"
-      - "Granted bow weakness stacks from any source (max 9); +20% bow damage if already weak"
-  - skill_category: active
-    name: "Guardian's Cover (4★)"
-    skill_type: utility
-    target: self
-    effects:
-      - "HP barrier (40%→120% max HP), damage reduction (20%→60%, 1→4 turns)"
-      - "Cover front row from single-target attacks; usable 2×/battle; highest auto-battle priority"
-  - skill_category: active
-    name: "Physical Party Buff (5★)"
-    skill_type: buff
-    target: front_row
-    effects:
-      - "20% P.Atk up + 20% sword/axe/bow/staff damage up (2→5 turns)"
-      - "At max boost: reaches all allies"
-  - skill_category: active
-    name: "Resilience Finisher (5★)"
-    skill_type: attack
-    damage_types: [bow, axe]
-    target: single_enemy
-    power: "205→420"
-    effects:
-      - "Damage cap +500k"
-      - "At 9+ HoR on select: implant bow weakness ×3, attack hits 3×, 1.5× potency; consumes HoR"
-  - skill_category: tp
-    name: "Resilience Rain (TP)"
-    skill_type: mixed
-    damage_types: [bow]
-    target: aoe
-    hit_count: "5x"
-    power: "5x80→5x130"
-    effects:
-      - "15% bow res down (2 turns)"
-      - "Gain 3 Heart of Resilience"
-  - skill_category: ex
-    name: "Barrier Double Shot (EX)"
-    skill_type: attack
-    damage_types: [bow]
-    target: single_enemy
-    hit_count: "4x"
-    power: "4x65→4x110"
-    effects:
-      - "While HP barrier active: cast twice"
-      - "Usable from turn 2, 2×/battle"
-  - skill_category: special
-    name: "Ultimate (Potency Support)"
-    skill_type: mixed
-    damage_types: [bow, axe]
-    target: aoe
-    power: "300→500 (Lv1→20)"
-    effects:
-      - "100% potency up (1T, not extendable) + 50k→100k dmg cap (2→3T) for warriors/apothecaries/hunters/clerics"
-      - "Self potency up duration +1 turn; ult dmg cap +500k; exploits axe via bow calc"
-      - "200% gauge: attack cast twice; superburst +50% damage when consuming 2 gauges"
-
-passives:
-  - passive_category: innate
-    effect: |
-      Front-row allies using sword/axe/bow/staff attacks trigger Phenn FUA: +3 HoR and
-      HP barrier (20% max HP, not stackable).
-    trigger: ally_front_row_physical_attack
-  - passive_category: innate
-    effect: |
-      Based on HoR stacks on all foes: 3+ → 20% P.Atk/P.Def down; 6+ → 20% sword/axe/bow/staff
-      res down; 9+ → raise passive/equipment P.Def down cap to 50%.
-    trigger: always
-  - passive_category: innate
-    effect: |
-      While Phenn has HP barrier: front row +10% P.Atk/P.Def, +50k dmg cap, physical counter
-      (3-hit bow ×50 potency, exploits axe).
-    trigger: has_hp_barrier
-  - passive_category: tp
-    effect: |
-      While HP barrier: self +20% P.Atk/P.Def, +100k dmg cap, receive 1.5× potency and dmg cap buffs.
-    trigger: has_hp_barrier
-    limit_break_upgrade: "Raise self damage limit by 30,000 (6★)"
-
 a4_accessory:
-  name: "A4 Accessory (name TBD in Character Index)"
-  passive_effect: |
-    40 P.Atk, 1000 HP. +50k damage cap. Start of battle: 50% max HP barrier (not stackable).
+  name: "Bloodstained Straps"
+  passive_effect: "40 P.Atk, 1000 HP; Grant self 50k damage cap; Start of battle: grant self a 50% HP barrier (not stackable)"
 
+# In-game English skill names are not in any source yet (Notion export is pre-release,
+# NiaDB lists "skill names coming soon"). Skills are identified by unlock tier.
 debuff_categories:
   active:
     - type: phys_atk_down
       value: 20
-      source_skill: "Phys/Elem Atk Down (1★)"
+      source_skill: "1★ single-foe P.Atk/E.Atk down skill"
     - type: phys_def_down
       value: 20
       source_skill: "Heart of Resilience passive at 3+ stacks"
@@ -226,16 +105,155 @@ buff_categories:
   active:
     - type: phys_atk_up
       value: 20
-      source_skill: "Physical Party Buff (5★)"
+      source_skill: "5★ front-row P.Atk + Sword/Axe/Bow/Staff damage up skill"
     - type: weapon_damage_up
       value: 20
-      source_skill: "Physical Party Buff (5★)"
+      source_skill: "5★ front-row P.Atk + Sword/Axe/Bow/Staff damage up skill"
   ultimate:
     - type: potency_up
       value: 100
-      source_skill: "Ultimate (Potency Support)"
+      source_skill: "Ultimate (Warriors/Apothecaries/Hunters/Clerics potency up)"
+
+# Skills - parsed from markdown
+skills:
+- skill_category: active
+  unlock_tier: Initial
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: '150'
+  effects:
+  - 'Deal Phys. Bow damage to All Foes (potency: 150).'
+- skill_category: active
+  unlock_tier: Initial
+  skill_type: heal
+  target: front_row
+  power: '130'
+  effects:
+  - 'Restore HP of Entire Front Row (potency: 130).'
+  - 'If the target is healed to full HP, also grant them an HP Barrier (amount: 25% of user’s max HP/Does not stack).'
+- skill_category: active
+  unlock_tier: 1★
+  skill_type: debuff
+  target: single_enemy
+  effects:
+  - 'Lower Phys. Atk. and Elem. Atk. of Single Foe by 20% (turns: 2/3/4/5).'
+- skill_category: active
+  unlock_tier: 2★
+  skill_type: utility
+  damage_types:
+  - bow
+  target: single_enemy
+  hit_count: 5x
+  power: 5x5
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe 5 time(s) (potency: 5x5).'
+  - 'When the target’s Shield Points are above 5, additionally deal Phys. Bow damage to the same target 5 times (potency: 5x5).'
+- skill_category: active
+  unlock_tier: 2★
+  skill_type: utility
+  damage_types:
+  - bow
+  - axe
+  target: aoe
+  hit_count: 2x
+  power: 2x240
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 2 time(s) (potency: 2x240).'
+  - Exploits Axe weakness (damage calculation based on Phys. Bow attack).
+  - Damage Limit of this skill is increased by 300,000.
+  notes: 'With 9+ “Heart of Resilience” Points when selecting the command: Also lower their Phys. Def. by 15% (turns: 2), attacks become guaranteed critical hits and potency is increased by 1.5x, but reset own “Heart of Resilience” Points to 0.'
+- skill_category: active
+  unlock_tier: 3★
+  skill_type: utility
+  target: front_row
+  effects:
+  - 'Grant Single Foe a Bow weakness (times: 6/7/8/9) and raise the limit of Bow damage augments of Entire Front Row to 50% (turns: 2/3/4/5).'
+  upgrades:
+  - 'Lv.88: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 4★
+  skill_type: utility
+  target: front_row
+  priority: true
+  effects:
+  - 'Act faster during turn, gain an HP Barrier (amount: 40%/60%/80%/120% of user’s max HP/Does not stack), lower received damage by 20%/30%/40%/60% (turns: 1/2/3/4/Turn count overwritten) and take damage for single-target attack in place of allies in the front row.'
+  - '*Usable twice per battle.'
+  upgrades:
+  - 'Lv.96: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 5★
+  skill_type: buff
+  target: front_row
+  effects:
+  - 'Raise Phys. Atk of Entire Front Row by 20% and raise their Sword, Axe, Bow and Staff damage by 20% (turns: 2/3/4/5).'
+  - 'At Max Boost: Reaches All Allies.'
+  upgrades:
+  - 'Lv.99: SP Saver: ??→??'
+- skill_category: active
+  unlock_tier: 5★
+  skill_type: utility
+  damage_types:
+  - bow
+  - axe
+  target: single_enemy
+  power: '205'
+  effects:
+  - 'Deal Phys. Bow damage to Single Foe (potency: 205).'
+  - Exploits Axe weakness (damage calculation based on Phys. Bow attack).
+  - Damage Limit of this skill is increased by 500,000.
+  upgrades:
+  - 'Lv.100: SP Saver: ??→??'
+  notes: 'With 9+ “Heart of Resilience” Points when selecting the command: Also grant a Bow weakness (times: 3), attack count becomes 3 and potency is increased by 1.5x, but reset own “Heart of Resilience” Points to 0.'
+- skill_category: tp
+  skill_type: debuff
+  damage_types:
+  - bow
+  target: aoe
+  hit_count: 5x
+  power: 5x65
+  effects:
+  - 'Deal Phys. Bow damage to All Foes 5 time(s) (potency: 5x65), lower their Bow Res. by 15% (turns: 2) and gain 3 “Heart of Resilience” Points.'
+- skill_category: special
+  skill_type: utility
+  damage_types:
+  - bow
+  target: aoe
+  power: 300→400→500
+  priority: true
+  effects:
+  - 'Act faster during turn, raise the potency of all Warriors, Apothecaries, Hunters and Clerics by 100% (turns: 1/Turns cannot be extended) and their Damage Limit by 50,000→75,000→100,000 (turns: 2→3) and deal Phys. Bow damage to All Foes (potency: 300→400→500).'
+  - Damage Limit of this Ultimate Technique is increased by 500,000.
+  - '*The duration of Potency Up on Self becomes 2 turns.'
+  notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 15%/BP→20%/BP→30%/BP 30%/BP→40%/BP→60%/BP; Overcharge: Attack count becomes 2.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
+
+# Passives - parsed from markdown
+passives:
+- passive_category: innate
+  name: Heart of Resilience
+  effect: 'Gain the ability to trigger a follow-up effect when an ally in Entire Front Row when when using Phys. Sword, Axe, Bow and Staff attacks. Follow-up effect: Gain 3 “Heart of Resilience” Points and an HP Barrier (amount: 20% of user’s max HP/Does not stack).'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 1★
+  effect: 'Apply effects on All Foes based on own “Heart of Resilience” Points. ·3+: Lower their Phys. Atk. and Phys. Def. by 20%. ·6+: Also lower their Sword, Axe, Bow and Staff Res. by 20%. ·9+: Raise the limit of their Phys. Def. reductions from support skills and equipment effects to 50%.'
+  trigger: always
+- passive_category: innate
+  unlock_tier: 3★
+  effect: 'With an HP Barrier: Raise Phys. Atk. and Phys. Def. of Entire Front Row by 10%, their Damage Limit by 50,000 and gain the ability to counter physical attacks. Counter: Deal Phys. Bow damage to Single Foe 3 time(s) (potency: 3x50). Exploits Axe weakness (damage calculation based on Phys. Bow attack).'
+  trigger: always
+- passive_category: innate
+  effect: Raise own ??? Res. by 20%.
+  trigger: always
+- passive_category: innate
+  effect: Raise own ??? Res. by 10%.
+  trigger: always
+- passive_category: tp
+  effect: 'With an HP Barrier: Raise Phys. Atk. and Phys. Def. of Self by 20% and Damage Limit by 100,000 and receive 1.5x greater Potency and Damage Limit augments (Does not stack with effects of the same type).'
+  trigger: always
+  limit_break_upgrade: Raise Self’s Damage Limit by 30,000.
 
 # Metadata
 data_confidence: incomplete
-data_source: "MeowDB + Notion Character Index + Reddit community (June 2026 GL launch)"
-last_updated: "2026-06-20"
+data_source: "Kit: Notion Character Index export (pre-release text, no names/SP). A4 name, auto-battle priorities: NiaDB https://meowdb.com/db/octopath-traveler-cotc/characters/phenn. Strategy: Reddit (June 2026)"
+last_updated: '2026-10-31'

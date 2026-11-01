@@ -130,11 +130,11 @@ def test_nested_tp_upgrade_named_child_and_6star(tmp_path):
 def test_inline_bold_in_headerless_child_is_not_a_skill(tmp_path):
     md = tmp_path / "Final Emperor 0000a618231983488409816cd3f3d7f2.md"
     md.write_text(
-        "## Battle Skills\n\n<aside>\n<img src=\"a.png\" /> **([✦](https://x))**\n"
+        '## Battle Skills\n\n<aside>\n<img src="a.png" /> **([✦](https://x))**\n'
         "Deal Phys. Axe damage to Random Foe 3 time(s) (potency: **3x85**). [60 SP]\n\n"
-        "<aside>\n<img src=\"a.png\" /> **([✦](https://x)) Lv.2**\n"
+        '<aside>\n<img src="a.png" /> **([✦](https://x)) Lv.2**\n'
         "Deal Phys. Axe damage to Random Foe 3 time(s) (potency: **3x95**). [60 SP]\n\n"
-        "<aside>\n<img src=\"Glimmer.png\" /> Deal Phys. Axe damage to Random Foe 3 time(s) "
+        '<aside>\n<img src="Glimmer.png" /> Deal Phys. Axe damage to Random Foe 3 time(s) '
         "(potency: **3x95**). Damage Limit of this skill is increased by 500,000.\n</aside>\n\n"
         "</aside>\n\n</aside>\n",
         encoding="utf-8",
@@ -144,6 +144,21 @@ def test_inline_bold_in_headerless_child_is_not_a_skill(tmp_path):
     assert len(skills) == 1
     assert skills[0]["power"] == "3x85"
     assert any("Lv.2:" in u and "500,000" in u for u in skills[0]["upgrades"])
+
+
+def test_prerelease_placeholders_are_dropped(tmp_path):
+    md = tmp_path / "Phenn 2172a61823198217891e81e14cee43ad.md"
+    md.write_text(
+        '## Battle Skills\n\n<aside>\n<img src="a.png" /> **(Initial)**\n'
+        "Deal Phys. Bow damage to All Foes (potency: 150). [XX SP]\n</aside>\n\n"
+        '## Ultimate Technique\n\n<aside>\n<img src="u.png" /> **Name**\n'
+        "Act faster during turn.\n</aside>\n",
+        encoding="utf-8",
+    )
+    skills = parse_markdown_file(md)["skills"]
+
+    assert skills[0]["effects"] == ["Deal Phys. Bow damage to All Foes (potency: 150)."]
+    assert "name" not in skills[-1]
 
 
 def test_ultimate_name_and_meta(tmp_path):
