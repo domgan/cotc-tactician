@@ -17,9 +17,13 @@ weakness_coverage:
 - dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Bow/dark single and AoE damage; blindness infliction.
+  Self Phys Atk Up 15–30% when blind enemy present.
+  Ultimate +100,000 damage limit.
 
 # Stats (base level)
 hp: 2692

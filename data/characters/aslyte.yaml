@@ -17,9 +17,17 @@ weakness_coverage:
 - ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [breaker, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Shield Breaker and EX lower shield points off-weakness; Iceprone (All) III lowers Ice Res. 20% on all foes.
+  Freeze Drain heals self 20% of damage dealt. EX Indigo Explosion hits 5 times.
+debuff_categories:
+  active:
+  - type: ice_res_down
+    value: 20
+    source_skill: "Iceprone (All) III"
 
 # Stats (base level)
 hp: 2887

@@ -17,9 +17,21 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Ice damage with Light Res/Ice Res down; self Elem Atk +30% and Ice damage +30%.
+  Paired Allies Elem Def +10% start of battle; ice damage support on A4.
+  Ultimate single-target ice nuke + res shred.
+debuff_categories:
+  active:
+    - type: ice_res_down
+      value: 10
+      source_skill: "1★ ice res down skill"
+    - type: ice_res_down
+      value: 15
+      source_skill: "Ultimate ice res down"
 
 # Stats (base level)
 hp: 2266

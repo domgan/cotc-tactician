@@ -17,9 +17,17 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Divine Speed raises self Spd 20%. TP Swift Blade Storm lowers Wind Res. 15% on all foes after 3-hit wind AOE.
+  Sword/wind damage including Refresh self-heal 165 and multi-hit EX/ult.
+debuff_categories:
+  active:
+  - type: wind_res_down
+    value: 15
+    source_skill: "Swift Blade Storm"
 
 # Stats (base level)
 hp: 3062

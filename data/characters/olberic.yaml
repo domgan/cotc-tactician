@@ -18,9 +18,17 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Impregnable Wall raises self P.Def/E.Def 20%; Lightning Storm and Storm's Vengeance lower Lightning Res. 10–15%.
+  Sword/polearm/lightning damage including Thousand Spears 3–5 hits.
+debuff_categories:
+  active:
+  - type: lightning_res_down
+    value: 15
+    source_skill: "Storm's Vengeance"
 
 # Stats (base level)
 hp: 3452

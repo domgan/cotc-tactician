@@ -23,9 +23,11 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Paint buffs on allies; ultimate restores all allies HP 205 and applies Paint effects.
 
 # Stats (base level)
 hp: 2676

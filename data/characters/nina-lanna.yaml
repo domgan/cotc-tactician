@@ -17,9 +17,25 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  EX Dark Augment raises front-row Dark damage 30%. Prowling Darkness and Festing Darkness lower Elem. Def./Dark Res. 15%.
+  Dark/tome nukes with Analyze All.
+buff_categories:
+  active:
+  - type: dark_damage_up
+    value: 30
+    source_skill: "Dark Augment (Front/All) V"
+debuff_categories:
+  active:
+  - type: elem_def_down
+    value: 15
+    source_skill: "Prowling Darkness"
+  - type: dark_res_down
+    value: 15
+    source_skill: "Festing Darkness"
 
 # Stats (base level)
 hp: 2806

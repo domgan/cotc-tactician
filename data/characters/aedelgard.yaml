@@ -17,9 +17,25 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'tank']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  AoE sword hit provokes (turns: 2); self regen with Crit +15% and Sword damage +15%.
+  Ultimate raises battle-skill P.Atk limit to 50% and Damage Limit +100,000 (self).
+
+buff_categories:
+  active:
+  - type: crit_up
+    value: 15
+    source_skill: "self regen skill (self only)"
+  - type: sword_damage_up
+    value: 15
+    source_skill: "self regen skill (self only)"
+  ultimate:
+  - type: phys_atk_up
+    value: 50
+    source_skill: "Ultimate (self only — battle skill P.Atk limit)"
 
 # Stats (base level)
 hp: 3232

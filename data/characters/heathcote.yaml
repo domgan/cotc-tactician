@@ -17,9 +17,17 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Fast dagger/wind multi-hits; 6★ single-target lowers Dagger Res. 15% (turns: 2).
+
+debuff_categories:
+  active:
+  - type: dagger_res_down
+    value: 15
+    source_skill: "6★ faster-turn single hit"
 
 # Stats (base level)
 hp: 2822

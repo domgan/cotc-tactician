@@ -17,9 +17,17 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Self P/E Atk and Def ups to 20%; hits apply Phys. Def. Down 10–20%; multi-hit random target.
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 20
+    source_skill: "Crumbling Cut"
 
 # Stats (base level)
 hp: 3222

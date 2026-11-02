@@ -17,9 +17,21 @@ weakness_coverage:
 - ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer', 'debuffer', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Sacrifice HP to heal/regen allies or raise front BP recovery; inflicts Ice weakness on all foes.
+  Near-death passive grants self HP Barrier 75% max HP.
+
+debuff_categories:
+  active:
+  - type: axe_res_down
+    value: 15
+    source_skill: "Lower Axe and Ice Res. of All Foes"
+  - type: ice_res_down
+    value: 15
+    source_skill: "Lower Axe and Ice Res. of All Foes"
 
 # Stats (base level)
 hp: 3210

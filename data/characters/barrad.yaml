@@ -17,9 +17,11 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'tank']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  6★ AoE polearm provokes (turns: 2); self P/E Atk +10% and self regen; ultimate Damage Limit +100,000.
 
 # Stats (base level)
 hp: 3470

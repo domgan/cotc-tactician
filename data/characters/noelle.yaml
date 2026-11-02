@@ -17,9 +17,29 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, buffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Buff single ally Elem Atk/Def +15%; AoE Wind Res down 15–20%.
+  Wind AoE damage; corrosion on limit-break debuff skill.
+  Self Elem Atk Up 30% on front-row switch.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 15
+      source_skill: "1★ single ally buff skill"
+    - type: elem_def_up
+      value: 15
+      source_skill: "1★ single ally buff skill"
+debuff_categories:
+  active:
+    - type: wind_res_down
+      value: 15
+      source_skill: "3★ AoE wind res down skill"
+    - type: wind_res_down
+      value: 20
+      source_skill: "3★ LB wind res down skill"
 
 # Stats (base level)
 hp: 2895

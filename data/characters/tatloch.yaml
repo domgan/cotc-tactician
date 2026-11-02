@@ -21,9 +21,29 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['buffer', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  All-ally Phys. Atk. and Speed +15%; later skill +30% P/E Def on all allies.
+
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Raise Phys. Atk. and Speed of All Allies"
+  - type: phys_def_up
+    value: 30
+    source_skill: "Raise Phys. Def. and Elem. Def. of All Allies"
+  - type: elem_def_up
+    value: 30
+    source_skill: "Raise Phys. Def. and Elem. Def. of All Allies"
+
+debuff_categories:
+  active:
+  - type: fan_res_down
+    value: 15
+    source_skill: "fan multi-hit Fan Res. Down"
 
 # Stats (base level)
 hp: 3236

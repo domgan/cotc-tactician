@@ -19,9 +19,12 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Guaranteed crit on True Strike/Crippling Shot; Rain of Arrows 3–5 hits and Arrowstorm 3–5 hits on all foes.
+  TP Darkwood Arrow Barrage 6 hits; EX Arrow of Enlightenment 5 guaranteed crit hits. Pugnacity is self P.Atk/P.Def Up 20%.
 
 # Stats (base level)
 hp: 3096

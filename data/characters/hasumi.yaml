@@ -17,9 +17,29 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row heals 130–200; all-ally heal 130 with Elem Atk +15%.
+  Front-row Phys/Elem Def Up 15%; SP recovery to front/all at high tiers.
+  Fan/light damage and Elem Atk Down 15% on single foe.
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 15
+      source_skill: "3★ front-row def skill"
+    - type: elem_def_up
+      value: 15
+      source_skill: "3★ front-row def skill"
+    - type: elem_atk_up
+      value: 15
+      source_skill: "Ultimate all-ally heal skill"
+debuff_categories:
+  active:
+    - type: elem_atk_down
+      value: 15
+      source_skill: "2★ elem atk down skill"
 
 # Stats (base level)
 hp: 2756

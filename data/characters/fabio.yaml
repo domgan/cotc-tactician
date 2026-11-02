@@ -17,9 +17,26 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Peacock Parade raises front-row Elem. Atk. 10%; ultimate Airy Arabesque adds front-row Elem. Atk. 5–10% after AOE wind hit.
+  Wind and fan damage with self Clear-headed Elem. Atk. Up 20%.
+buff_categories:
+  active:
+  - type: elem_atk_up
+    value: 10
+    source_skill: "Peacock Parade"
+  ultimate:
+  - type: elem_atk_up
+    value: 10
+    source_skill: "Airy Arabesque"
+debuff_categories:
+  active:
+  - type: wind_res_down
+    value: 10
+    source_skill: "Stormy Ballad"
 
 # Stats (base level)
 hp: 2776

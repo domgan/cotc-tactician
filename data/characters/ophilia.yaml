@@ -119,8 +119,7 @@ skills:
   target: front_row
   power: '110, turns: 2-5 based on Boost Lv.'
   effects:
-  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - and Speed.
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed.'
 - skill_category: active
   name: Healing Protection II
   unlock_tier: 3★

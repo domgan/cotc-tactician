@@ -54,6 +54,13 @@ Adventurer & Fox EX level 100 vs 120, Kagemune EX3 speed/P.Def. Kainé's weaknes
 
 Worked examples: `rocbouquet.yaml`, `noel.yaml`, `final-emperor.yaml`, `final-empress.yaml`.
 
+**Agent curation.** Bulk passes by an agent follow `tasks/curation_rules.md` and start
+`role_notes` with `Kit-derived (agent, <date>, needs review).` `tests/test_data_integrity.py`
+rejects any agent-written buff/debuff value that no kit sentence supports (same %, stat and
+raise/lower direction), and any `tank_type` without the `tank` role. It cannot tell a self-only
+buff from a party buff; that still needs a human read. When you confirm a unit in game, delete
+the `Kit-derived` line.
+
 ### Kits from a new Notion export
 
 ```bash

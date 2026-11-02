@@ -17,9 +17,11 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single-target heals 90–350; restores front-row BP 1–4 (delayed); cures poison on ultimate.
 
 # Stats (base level)
 hp: 3220

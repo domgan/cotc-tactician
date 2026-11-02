@@ -18,9 +18,17 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['tank', 'dps']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  2★ Provoke All Foes with self P/E Def +15%; A4 at full HP provokes all and +15% sword damage.
+
+buff_categories:
+  passive:
+  - type: sword_damage_up
+    value: 15
+    source_skill: "A4 passive (self only)"
 
 # Stats (base level)
 hp: 3242

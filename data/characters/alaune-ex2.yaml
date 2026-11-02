@@ -22,9 +22,29 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, buffer, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  AoE Sword/element damage; restores 1 BP to entire front row on several skills.
+  Lowers Sword/Elem Res 10% AoE; can grant six weakness types (4 counts each) at Max Boost.
+  Self HP Barrier 10–40% max HP; EX raises front-row Phys/Elem Atk 15% on limit break.
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 15
+      source_skill: "limit_break_upgrade front-row Phys/Elem Atk"
+debuff_categories:
+  active:
+    - type: sword_res_down
+      value: 10
+      source_skill: "2★ AoE res down skill"
+    - type: elem_res_down
+      value: 10
+      source_skill: "2★ AoE res down skill"
+    - type: elem_res_down
+      value: 15
+      source_skill: "Elem Res down single skill"
 
 # Stats (base level)
 hp: 3442

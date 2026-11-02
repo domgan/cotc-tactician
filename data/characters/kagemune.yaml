@@ -19,9 +19,11 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  AoE lowers Speed 15%; up to 5-hit dagger/random attacks; self Dagger damage +30%.
 
 # Stats (base level)
 hp: 2862

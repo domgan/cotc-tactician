@@ -17,9 +17,18 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row heals 55–150 with regen; ultimate heal 150 + Dark damage +10%.
+  Front-row Elem Atk Up 15%; dark/staff bleed damage.
+  Self counter chance 50% with bleed.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 15
+      source_skill: "2★ front-row elem atk skill"
 
 # Stats (base level)
 hp: 2807

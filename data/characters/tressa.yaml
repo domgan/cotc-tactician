@@ -17,9 +17,17 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['tank', 'buffer', 'dps']
+tank_type: dodge
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  2★ provoke all with front Phys. Atk. +15%; dodge physical (self/party); restores ally BP.
+
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Provoke All Foes and impart Entire Front Row Phys. Atk. Up"
 
 # Stats (base level)
 hp: 3080

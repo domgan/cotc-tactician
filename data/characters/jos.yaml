@@ -17,9 +17,26 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single and front-row heals 90–130; Guardian’s Healing adds Elem Def Up 10%.
+  Buff single ally Elem Atk +10%; start Paired Allies Elem Def +10%.
+  Light damage with AoE Elem Def Down 15%.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 10
+      source_skill: "2★ single ally elem atk skill"
+    - type: elem_def_up
+      value: 10
+      source_skill: "Guardian’s Healing"
+debuff_categories:
+  active:
+    - type: elem_def_down
+      value: 15
+      source_skill: "4★ AoE elem def down skill"
 
 # Stats (base level)
 hp: 2782

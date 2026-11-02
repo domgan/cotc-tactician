@@ -17,9 +17,17 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single-target heals to 295 potency; front-row Elem. Atk. Up 15% (LB also +15% damage).
+
+buff_categories:
+  active:
+  - type: elem_atk_up
+    value: 15
+    source_skill: "Aura of Wisdom II"
 
 # Stats (base level)
 hp: 2777

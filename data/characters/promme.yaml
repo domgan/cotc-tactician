@@ -17,9 +17,20 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Medica (All) restores front-row HP with regen. Purifying Flames lowers Fire Res. 20% on all foes; Flame of Sanctions −10% single.
+  Staff/fire damage including Hammer of Judgement 230 potency.
+debuff_categories:
+  active:
+  - type: fire_res_down
+    value: 20
+    source_skill: "Purifying Flames"
+  - type: fire_res_down
+    value: 10
+    source_skill: "Flame of Sanctions"
 
 # Stats (base level)
 hp: 2897

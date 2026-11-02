@@ -17,9 +17,12 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Emergency First Aid and Mint Bath heal allies/front row; Lightning Ward raises ally Lightning Res. 15%.
+  EX Benevolence Smash heals front row 180 after self-damage; crit axe damage focus.
 
 # Stats (base level)
 hp: 3223

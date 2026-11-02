@@ -17,9 +17,12 @@ weakness_coverage:
 - dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [breaker, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Shield Breaker, Broad Break, TP Knight's Dagger, and multi-hit EX strip shield points off-weakness.
+  Dagger/dark damage with Spider Fang Spd down 15% on single foe.
 
 # Stats (base level)
 hp: 2062

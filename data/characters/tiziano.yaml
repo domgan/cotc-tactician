@@ -101,8 +101,7 @@ skills:
   skill_type: buff
   target: single_ally
   effects:
-  - Impart Single Ally with Phys. Atk. Up 20%, raise Crit.
-  - 'by 15% (turns: 2/3/4/5) and grant Dead Aim (guaranteed critical hits) (turns: 2).'
+  - 'Impart Single Ally with Phys. Atk. Up 20%, raise Crit. by 15% (turns: 2/3/4/5) and grant Dead Aim (guaranteed critical hits) (turns: 2).'
 - skill_category: active
   name: Follow-up
   unlock_tier: 3★
@@ -154,8 +153,7 @@ skills:
   skill_type: buff
   target: front_row
   effects:
-  - Impart Entire Front Row with Phys. Atk. Up 15% and raise Crit.
-  - 'by 15%, raise critical damage by 15% and Damage Limit by 20,000 (turns: 2/3/4/5).'
+  - 'Impart Entire Front Row with Phys. Atk. Up 15% and raise Crit. by 15%, raise critical damage by 15% and Damage Limit by 20,000 (turns: 2/3/4/5).'
   upgrades:
   - 'Lv.100: SP Saver: 57→46'
 - skill_category: tp

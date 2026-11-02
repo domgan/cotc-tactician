@@ -17,9 +17,21 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Provokes foes onto Paired Ally while granting ally dodge (support, not self-tank).
+  Back-row: ally HP recovery 15% of damage taken; follow-up on paired attacks.
+  Tome/ice damage, counters lowering foe Phys/Elem Def 5–10%.
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 5
+      source_skill: "3★ counter def down"
+    - type: elem_def_down
+      value: 5
+      source_skill: "3★ counter def down"
 
 # Stats (base level)
 hp: 2756

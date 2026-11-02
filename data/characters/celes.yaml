@@ -18,9 +18,29 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, buffer, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row Elem. Atk +30% and SP regen; AoE ice with Sword/Light res down 10%.
+  Can grant Ice weakness ×4 at Max Boost; frostbite on hits.
+  Ultimate and multi-hit ice skills for damage.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 30
+      source_skill: "3★ front-row elem atk skill"
+    - type: elem_damage_up
+      value: 30
+      source_skill: "4★ Fire/Ice/Lightning damage skill"
+debuff_categories:
+  active:
+    - type: ice_res_down
+      value: 10
+      source_skill: "2★ ice/light res down skill"
+    - type: light_res_down
+      value: 10
+      source_skill: "2★ ice/light res down skill"
 
 # Stats (base level)
 hp: 3072

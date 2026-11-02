@@ -17,9 +17,27 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row regen 150 and wide +10% Phys/Elem stats; cleanse + Wind Res.
+  Single/front-row direct heals 230 with ailment cleanse on EX LB.
+  Axe/lightning damage.
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 10
+      source_skill: "5★ front-row stat buff skill"
+    - type: elem_atk_up
+      value: 10
+      source_skill: "5★ front-row stat buff skill"
+    - type: phys_def_up
+      value: 10
+      source_skill: "5★ front-row stat buff skill"
+    - type: elem_def_up
+      value: 10
+      source_skill: "5★ front-row stat buff skill"
 
 # Stats (base level)
 hp: 3230

@@ -89,7 +89,7 @@ auto_battle:
       - "CN (2026-01-27): 'Ults and EX skills can now be used in auto-battle with a more detailed set-up menu' (details only in a screenshot)."
       - "GL v4.8.1 (2026-09-24) lists 'auto-battle update' among ported CN QoLs. Exact options in GL are not documented in text sources found."
       - "NiaDB marks some skills with auto priorities from game data, e.g. Phenn's 4★ barrier/cover skill (highest priority) and his ultimate."
-      - "Repo owner check of GL settings (2026-11-01): only 'Using abilities in auto-battle' (unlimited / up to 50% SP / up to 75% SP / do not use) and 'Automatic switch in auto-battle' (on/off). No ultimate/EX auto menu found in GL."
+      - "Repo owner check of GL settings (2026-11-01): only 'Using abilities in auto-battle' (unlimited / up to 50% SP / up to 75% SP / do not use) and 'Automatic switch in auto-battle' (on/off). No ultimate/EX auto menu found in GL. Also 'Lowest usable boost mode stage during auto-battle' (1 / 2 / 3); behavior not documented in any source found (likely the minimum boost stage auto will spend BP on; unverified)."
     sources:
       - https://www.reddit.com/r/OctopathCotC/comments/1qo72fx/xerc_free_awakening_stone_free_ot_mt_awakening/
       - https://www.reddit.com/r/OctopathCotC/comments/1wnyv44/tiziano_ex_levina_ex2_cn_qols_here_this_week/

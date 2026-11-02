@@ -17,9 +17,20 @@ weakness_coverage:
 - dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Emergency First Aid heals allies; Healing Cleave self-heals 140 on AOE axe hit. TP Grand Axe Strike lowers Phys. Def. and Axe Res. 15%.
+  Self Battle Balm raises P.Atk and Spd 15%; EX Super Battle Balm is self-only potency/Damage Limit.
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Grand Axe Strike"
+  - type: axe_res_down
+    value: 15
+    source_skill: "Grand Axe Strike"
 
 # Stats (base level)
 hp: 3235

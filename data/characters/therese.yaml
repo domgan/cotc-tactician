@@ -17,9 +17,17 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Lightning AoE/multi-hit; lowers Lightning Res. 15% on several skills.
+
+debuff_categories:
+  active:
+  - type: lightning_res_down
+    value: 15
+    source_skill: "5★ / single-target Lightning Res. Down"
 
 # Stats (base level)
 hp: 2876

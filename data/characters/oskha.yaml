@@ -17,9 +17,27 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  8-hit and 10-hit polearm skills; ultimate 10×25–45 with quad stat down 10–20%.
+  Random multi-hit fire/polearm with res/atk/def down chances.
+  Self potency spikes at low BP (250–300%).
+debuff_categories:
+  active:
+    - type: phys_atk_down
+      value: 20
+      source_skill: "5★ random phys atk down skill"
+    - type: phys_def_down
+      value: 20
+      source_skill: "Ultimate quad stat down"
+    - type: elem_atk_down
+      value: 20
+      source_skill: "Ultimate quad stat down"
+    - type: elem_def_down
+      value: 20
+      source_skill: "Ultimate quad stat down"
 
 # Stats (base level)
 hp: 3490

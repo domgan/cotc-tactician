@@ -20,9 +20,13 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Bow/fire multi-hit with poison/paralysis/blind; 6-hit random bow.
+  Multi-weapon AoE/single ult; shield-point shave via unique mechanics.
+  Status ailment scaling on limit-break EX.
 
 # Stats (base level)
 hp: 3042

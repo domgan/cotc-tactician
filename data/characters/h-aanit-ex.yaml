@@ -177,8 +177,7 @@ skills:
   target: aoe
   power: '150'
   effects:
-  - 'Deal Phys. Fan damage to All Foes (potency: 150) and lower Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - 'and Spd. by 15% (turns: 2).'
+  - 'Deal Phys. Fan damage to All Foes (potency: 150) and lower Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Spd. by 15% (turns: 2).'
   upgrades:
   - 'Lv.100: SP Saver 78→62'
 - skill_category: tp

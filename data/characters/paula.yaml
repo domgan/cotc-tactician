@@ -17,9 +17,26 @@ weakness_coverage:
 - fan
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Sprightly White Wolf Waltz II raises front-row Crit 15%; Oblivion's Elegy lowers all foes' Dark Res. 20%.
+  Dark fan AOE damage and sustained EX dark ticks.
+buff_categories:
+  active:
+  - type: crit_up
+    value: 15
+    source_skill: "Sprightly White Wolf Waltz II"
+debuff_categories:
+  active:
+  - type: dark_res_down
+    value: 20
+    source_skill: "Oblivion's Elegy"
+  ultimate:
+  - type: dark_res_down
+    value: 15
+    source_skill: "Night Dirge"
 
 # Stats (base level)
 hp: 2776
@@ -67,8 +84,7 @@ skills:
   skill_type: buff
   target: front_row
   effects:
-  - Raise Crit.
-  - 'of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.).'
+  - 'Raise Crit. of Entire Front Row by 10% (turns: 2-5 based on Boost Lv.).'
 - skill_category: active
   name: Sweep
   unlock_tier: 1★
@@ -106,8 +122,7 @@ skills:
   skill_type: buff
   target: front_row
   effects:
-  - Raise Crit.
-  - 'of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
+  - 'Raise Crit. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
   upgrades:
   - 'Lv.72: SP Saver: 23→18'
   - 'Upgraded: Raise Crit. of Entire Front Row by 15% (turns: 3-6 based on Boost Lv.).'

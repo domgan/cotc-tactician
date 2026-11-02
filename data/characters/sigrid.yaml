@@ -17,9 +17,12 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Swift raises self Spd 15%. Sword/lightning damage with Trifold Slash 3 hits and EX Swift Four Flashes 4-hit AOE.
+  TP Swift Falcon hits random foe 4 times.
 
 # Stats (base level)
 hp: 3210

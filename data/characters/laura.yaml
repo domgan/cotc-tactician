@@ -17,9 +17,17 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  EX Rapid Thunder (All) II lowers all foes' Elem. Def. 10% after 3-hit lightning barrage.
+  Lightning bolt AOE/single kit with paralysis chances on some skills.
+debuff_categories:
+  active:
+  - type: elem_def_down
+    value: 10
+    source_skill: "Rapid Thunder (All) II"
 
 # Stats (base level)
 hp: 2890

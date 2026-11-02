@@ -19,9 +19,23 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['debuffer', 'buffer', 'breaker', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Grants foes Sword/Axe/Bow/Staff weaknesses (6–9); front regen; −15% Phys. Res. and foe P/E Atk/Def.
+
+debuff_categories:
+  active:
+  - type: phys_atk_down
+    value: 15
+    source_skill: "Lower Phys. Atk. and Phys. Def. of Single Foe"
+  - type: phys_def_down
+    value: 15
+    source_skill: "Lower Phys. Atk. and Phys. Def. of Single Foe"
+  - type: phys_res_down
+    value: 15
+    source_skill: "4-hit axe Phys. Res. Down"
 
 # Stats (base level)
 hp: 3720

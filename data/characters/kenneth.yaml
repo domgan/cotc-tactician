@@ -17,9 +17,17 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Iceprone lowers Ice Res. 15%; EX Frozen Fang Surge restores 10% max SP to entire front row.
+  Ice/tome damage and Analyze weak-point utility.
+debuff_categories:
+  active:
+  - type: ice_res_down
+    value: 15
+    source_skill: "Iceprone (Single) II"
 
 # Stats (base level)
 hp: 2236

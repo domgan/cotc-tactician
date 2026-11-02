@@ -17,9 +17,24 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Cure restores ally HP; scales to front row at 6★. TP Electron lowers target Elem. Def. and Lightning Res. 15%.
+  Lightningprone lowers Lightning Res. 20%; thunder nukes and Analyze.
+debuff_categories:
+  active:
+  - type: lightning_res_down
+    value: 20
+    source_skill: "Lightningprone (Single) III"
+  ultimate:
+  - type: elem_def_down
+    value: 15
+    source_skill: "Electron"
+  - type: lightning_res_down
+    value: 15
+    source_skill: "Electron"
 
 # Stats (base level)
 hp: 3136

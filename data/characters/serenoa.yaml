@@ -114,8 +114,7 @@ skills:
   skill_type: heal
   target: single_ally
   effects:
-  - 'Restore HP of Single Ally (recovery amount: 25%-100% of max HP based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - and Speed.
+  - 'Restore HP of Single Ally (recovery amount: 25%-100% of max HP based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed.'
   - '*Can be used 3 times per battle.'
 - skill_category: active
   name: Strength in Numbers

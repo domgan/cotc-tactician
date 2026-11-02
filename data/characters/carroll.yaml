@@ -17,9 +17,11 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['tank', 'dps']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Multiple polearm hits provoke single or all foes; faster-turn AoE provoke all (turns: 2).
 
 # Stats (base level)
 hp: 3450

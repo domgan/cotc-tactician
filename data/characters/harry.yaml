@@ -17,9 +17,21 @@ weakness_coverage:
 - fire
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  White Wolf Waltz lines raise ally/front-row Crit 10–15%; TP raises front-row critical damage 10%.
+  EX Great White Wolf Waltz grants front row Dead Aim; fire fan damage on dances.
+buff_categories:
+  active:
+  - type: crit_up
+    value: 15
+    source_skill: "Sprightly White Wolf Waltz"
+  ultimate:
+  - type: crit_up
+    value: 15
+    source_skill: "Passionate Polka"
 
 # Stats (base level)
 hp: 2776

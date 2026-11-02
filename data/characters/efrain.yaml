@@ -17,9 +17,12 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Ethereal Healing grants ally regen (110 potency) and Enhanced Healing restores 225–295 HP.
+  Staff bash lines and fireball for damage; ult raises Damage Limit 100,000.
 
 # Stats (base level)
 hp: 2787

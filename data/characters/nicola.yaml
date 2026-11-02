@@ -17,9 +17,20 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['debuffer', 'dps', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  All-foes Phys. Def. Down 15%; light AoE Elem. Def. Down 15%; restores front-row SP 100–250.
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Impart All Foes with Phys. Def. Down"
+  - type: elem_def_down
+    value: 15
+    source_skill: "Elem. Light AoE"
 
 # Stats (base level)
 hp: 2877

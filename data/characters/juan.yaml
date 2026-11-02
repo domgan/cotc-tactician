@@ -17,9 +17,12 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, dps]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Tease provokes single foe; Fire Up provokes all foes. EX Sorrowful Dark Summon provokes per hit and raises self P.Def/E.Def 30%.
+  Polearm AOE damage and self Relax heal 95 potency.
 
 # Stats (base level)
 hp: 3470

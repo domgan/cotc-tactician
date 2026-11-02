@@ -17,9 +17,26 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Broken Blade's Mercy/Divine Mercy heal allies/front row; Divine Gift grants front-row regen 110.
+  Unwavering Blade and Sword of Consecration raise ally Def/Atk/Crit 20%; chaotic random-hit fireballs for damage.
+buff_categories:
+  active:
+  - type: phys_def_up
+    value: 20
+    source_skill: "Unwavering Blade"
+  - type: elem_def_up
+    value: 20
+    source_skill: "Unwavering Blade"
+  - type: phys_atk_up
+    value: 20
+    source_skill: "Sword of Consecration"
+  - type: crit_up
+    value: 20
+    source_skill: "Sword of Consecration"
 
 # Stats (base level)
 hp: 2772

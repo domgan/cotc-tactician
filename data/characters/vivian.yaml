@@ -17,9 +17,17 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Bow/light damage; AoE lowers Bow Res. 10% (turns: 2).
+
+debuff_categories:
+  active:
+  - type: bow_res_down
+    value: 10
+    source_skill: "AoE 2x95 Bow Res. Down"
 
 # Stats (base level)
 hp: 3042

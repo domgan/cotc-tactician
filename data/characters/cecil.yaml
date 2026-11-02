@@ -18,9 +18,21 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, healer, buffer, dps]
+tank_type: cover
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Cover: take damage for single ally 1 turn with 20–50% damage cut (front row).
+  Restore front-row HP 130; raise front-row Phys/Elem Def 15%.
+  Sword AoE/single damage exploiting Light/Dark weaknesses.
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 15
+      source_skill: "3★ front-row def skill"
+    - type: elem_def_up
+      value: 15
+      source_skill: "3★ front-row def skill"
 
 # Stats (base level)
 hp: 3252

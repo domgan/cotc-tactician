@@ -17,9 +17,13 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  6–8 hit random bow skills; ultimate AoE +100,000 damage limit.
+  Bow/wind AoE; passive +15,000 bow damage limit to all allies.
+  Self heal 125 on one skill.
 
 # Stats (base level)
 hp: 3072

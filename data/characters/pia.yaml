@@ -17,9 +17,18 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, buffer, dps]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Provoke single/all; EX raises front-row Phys Atk and Spd 10–30%.
+  Bonus damage vs provoked targets; polearm/light offense.
+  Low HP self regen and Phys Def Up 15% at 50%+ HP.
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 15
+      source_skill: "3★ provoke + front-row atk skill"
 
 # Stats (base level)
 hp: 3450

@@ -17,9 +17,21 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, tank]
+tank_type: hp_barrier
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Multiple front-row heals 60–300 with Elem Def Up 10–30%.
+  Grant all allies HP barrier 5–20% max HP.
+  Staff/ice damage; back-row front-row regen 85.
+buff_categories:
+  active:
+    - type: elem_def_up
+      value: 15
+      source_skill: "2★ single ally elem def skill"
+    - type: elem_def_up
+      value: 15
+      source_skill: "4★ front-row elem def skill"
 
 # Stats (base level)
 hp: 3132

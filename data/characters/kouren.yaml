@@ -17,9 +17,12 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Warm Up raises self P.Atk and Spd 15%. Boosting Blade recovers 1 BP on hit; ult restores 1–2 BP.
+  Sword/light damage with shield-scaling Armor Piercer and multi-hit EX Peacock's Radiant.
 
 # Stats (base level)
 hp: 3222

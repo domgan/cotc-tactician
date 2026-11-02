@@ -16,9 +16,24 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row heals (potency 60–200); end-of-turn heal 280 + Elem. Def. +15%.
+  Elem. Def. Up 15% front row; staff hit applies Elem. Def. Down 15%.
+
+buff_categories:
+  active:
+  - type: elem_def_up
+    value: 15
+    source_skill: "Impart Entire Front Row with Elem. Def. Up"
+
+debuff_categories:
+  active:
+  - type: elem_def_down
+    value: 15
+    source_skill: "staff hit Elem. Def. Down"
 
 # Stats (base level)
 hp: 2772

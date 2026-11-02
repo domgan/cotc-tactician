@@ -17,9 +17,18 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Mass Fetter lowers all foes Spd 10%; shield-shave skill on kit.
+  A4/passives: Paired Allies Phys. Atk and Dagger damage +10%, SP regen 8.
+  Mostly single-target dagger/light damage.
+buff_categories:
+  passive:
+    - type: phys_atk_up
+      value: 10
+      source_skill: "A4 Paired Allies (when Billy)"
 
 # Stats (base level)
 hp: 2892

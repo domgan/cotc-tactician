@@ -18,9 +18,12 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Fire tome kit with Analyze single/all weak-point reveal. Great Flame Magic AOE with combust; ult shows all weak points.
+  Focus raises self Elem. Atk. 15%.
 
 # Stats (base level)
 hp: 2886

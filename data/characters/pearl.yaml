@@ -17,9 +17,29 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Heal single/front row 90–205; ultimate heal + Elem Atk Up 10–30%.
+  Single ally Phys Def Up 10%; start Paired Elem Atk +10%.
+  Staff/fire damage; AoE Elem Atk/Def Down 15%.
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 10
+      source_skill: "2★ single ally phys def skill"
+    - type: elem_atk_up
+      value: 30
+      source_skill: "Ultimate heal elem atk up"
+debuff_categories:
+  active:
+    - type: elem_atk_down
+      value: 15
+      source_skill: "4★ AoE elem atk down skill"
+    - type: elem_def_down
+      value: 15
+      source_skill: "4★ AoE elem def down skill"
 
 # Stats (base level)
 hp: 2762

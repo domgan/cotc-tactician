@@ -17,9 +17,12 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Sword damage kit with Heightened Reflexes self Crit Up 15%. Random multi-hit slashes and dark Chain Shadow Impact.
+  EX Twilight Slash hits random foe 5 times.
 
 # Stats (base level)
 hp: 3207

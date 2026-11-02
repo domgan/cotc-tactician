@@ -17,7 +17,7 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: ["dps"]
+roles: ["dps", "tank"]
 role_notes: |
   Cleric who wants to be DPS but fails to do well. Abilities all over the place with support skills that are nothing interesting. Introduces new debuff Miss Elemental Attacks that makes enemy fail to cast elemental attack based on debuff counter.
 

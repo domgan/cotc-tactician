@@ -17,9 +17,13 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, healer, dps]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Provoke all enemies 2–5 turns; EX heals front row 200–250 while hitting 4×75.
+  Single-ally counter and dodge setup with forced targeting on one ally.
+  Switch passive restores front-row HP 90.
 
 # Stats (base level)
 hp: 3400

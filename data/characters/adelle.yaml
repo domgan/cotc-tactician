@@ -17,9 +17,13 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, breaker, tank]
+tank_type: dodge
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Shield Burst and Dream Within a Dream lower shield points without weak hits.
+  Utsusemi: dodge physical attacks 1–4 times; Godspeed Strike 5 hits.
+  Self Phys. Atk. Up 30% with poisoned foe; ultimate +100,000 damage limit.
 
 # Stats (base level)
 hp: 2887

@@ -17,9 +17,21 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, dps, debuffer]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  At full HP: Provoke All Foes (passive); polearm ice/random multi-hit.
+  Self heal and optional HP Barrier 20% on upgraded skill.
+  Lowers foe Spd/Polearm Res/Phys Atk on random hits.
+debuff_categories:
+  active:
+    - type: polearm_res_down
+      value: 15
+      source_skill: "4★ polearm res down skill"
+    - type: phys_atk_down
+      value: 15
+      source_skill: "5★ random atk down skill"
 
 # Stats (base level)
 hp: 3464

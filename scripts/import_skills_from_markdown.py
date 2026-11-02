@@ -49,7 +49,7 @@ SKILL_META_LABELS = (
 # Pre-release Notion exports use these instead of real names; never store them as names.
 PLACEHOLDER_NAMES = {"Name", "???", "TBD"}
 
-ABBREVIATION = re.compile(r"\b(Phys|Elem|Atk|Def|Res|Lv|Spd|vs)\.")
+ABBREVIATION = re.compile(r"\b(Phys|Elem|Atk|Def|Res|Lv|Spd|Crit|vs)\.")
 TIER_TAG = re.compile(r"\((\d★|Initial|EX)\)")
 
 

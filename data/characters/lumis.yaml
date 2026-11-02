@@ -17,9 +17,17 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Emergency First Aid, Esoteric Salve, and EX restore front-row HP; Thunderproof Formula heals and raises ally Lightning Res. 15%.
+  EX also raises front-row Critical 15% after 4-hit axe AOE.
+buff_categories:
+  active:
+  - type: crit_up
+    value: 15
+    source_skill: "EX"
 
 # Stats (base level)
 hp: 3165

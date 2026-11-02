@@ -18,9 +18,21 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['buffer', 'dps', 'tank']
+tank_type: hp_barrier
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row regen (potency 110); Monarch mode raises front P/E Atk +5–15%.
+  Warrior Tenacity spends for self HP barrier (50% max HP).
+
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Monarch front-row Atk up"
+  - type: elem_atk_up
+    value: 15
+    source_skill: "Monarch front-row Atk up"
 
 # Stats (base level)
 hp: 3232
@@ -103,8 +115,7 @@ skills:
   skill_type: buff
   target: front_row
   effects:
-  - 'Monarch: Raise Crit.'
-  - 'and damage of Entire Front Row by 10% (turns: 2/3/4/5, based on Boost Lv.).'
+  - 'Monarch: Raise Crit. and damage of Entire Front Row by 10% (turns: 2/3/4/5, based on Boost Lv.).'
   - 'Warrior: Raise own Sword damage by 30% (turns: 3/4/5/6, based on Boost Lv.).'
 - skill_category: active
   name: Tenacious Royal Sword

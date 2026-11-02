@@ -17,9 +17,21 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Mole Dance lines raise Phys. Def. 10–15% on single ally or entire front row; TP/ult extend front-row def buffs with fan damage.
+  Wind and fan attacks for damage.
+buff_categories:
+  active:
+  - type: phys_def_up
+    value: 15
+    source_skill: "Spirited Mole Dance II"
+  ultimate:
+  - type: phys_def_up
+    value: 15
+    source_skill: "Red Valley Dance"
 
 # Stats (base level)
 hp: 1986

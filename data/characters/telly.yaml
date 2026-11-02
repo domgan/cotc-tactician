@@ -17,9 +17,21 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Heal Wounds/Heal More restore ally HP; TP Divine Ethereal Healing heals front row 130 with chance of regen/SP recovery.
+  Sheltering Veil raises ally Elem. Def. 10%; EX Preservation grants ally auto-revival.
+buff_categories:
+  active:
+  - type: elem_def_up
+    value: 10
+    source_skill: "Sheltering Veil"
+  ultimate:
+  - type: elem_def_up
+    value: 30
+    source_skill: "Telly's Prayer"
 
 # Stats (base level)
 hp: 2772

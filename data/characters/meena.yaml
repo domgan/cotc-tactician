@@ -17,9 +17,24 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Healing Hymn and ult heal front row 60–300 with Phys Def Up 10–30%.
+  Front-row Phys Def Up 10–15% on buff skills.
+  Fan/light damage.
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 10
+      source_skill: "1★ front-row phys def skill"
+    - type: phys_def_up
+      value: 15
+      source_skill: "3★ front-row phys def skill"
+    - type: phys_def_up
+      value: 30
+      source_skill: "Ultimate heal phys def up"
 
 # Stats (base level)
 hp: 2786

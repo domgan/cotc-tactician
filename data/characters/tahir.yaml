@@ -17,9 +17,13 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Sword/fire physical DPS; self Phys Def Up 15% start and skill.
+  Fire weakness exploitation on several sword skills.
+  Ultimate +100,000 damage limit.
 
 # Stats (base level)
 hp: 3244

@@ -17,9 +17,17 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Focus and Heart and Soul raise self Elem. Atk./Def. 15%. TP Raging Duskfall lowers Dark Res. 15% per hit.
+  Dark AOE and single-target damage; ult Damage Limit +100,000.
+debuff_categories:
+  active:
+  - type: dark_res_down
+    value: 15
+    source_skill: "Raging Duskfall III"
 
 # Stats (base level)
 hp: 2925

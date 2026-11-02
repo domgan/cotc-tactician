@@ -17,7 +17,7 @@ import yaml
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 JUNK_NAME = re.compile(r"^(Lv\.\d+.*|\(Initial\)|\(EX\)|.*\|.*)$")
-TRUNCATED_ENDING = re.compile(r"\b(Phys|Elem|Atk|Def|Res|their|with|deal|and|of)$")
+TRUNCATED_ENDING = re.compile(r"\b(Phys|Elem|Atk|Def|Res|Crit|Spd|their|with|deal|and|of)$")
 
 
 def load_dir(kind: str) -> dict[str, dict]:

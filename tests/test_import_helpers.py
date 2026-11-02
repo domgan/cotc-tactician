@@ -87,10 +87,14 @@ def _write_md(tmp_path: Path) -> Path:
 
 
 def test_split_sentences_keeps_stat_abbreviations():
-    text = "Lower their Phys. Def. and Elem. Def. by 15%. Raise Spd. by 10% (Boost Lv.)."
+    text = (
+        "Lower their Phys. Def. and Elem. Def. by 15%. Raise Spd. by 10% (Boost Lv.). "
+        "Raise Crit. of Entire Front Row by 15%."
+    )
     assert split_sentences(text) == [
         "Lower their Phys. Def. and Elem. Def. by 15%.",
         "Raise Spd. by 10% (Boost Lv.).",
+        "Raise Crit. of Entire Front Row by 15%.",
     ]
 
 

@@ -127,8 +127,7 @@ skills:
   target: front_row
   effects:
   - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.) and cure some status ailments.'
-  - Restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.
-  - and Speed at Max Boost.
+  - Restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed at Max Boost.
   upgrades:
   - 'Lv.88: SP Saver: 50→40'
   limit_break_upgrade: 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.), cure some status ailments and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed. At Max Boost: Grant immunity to certain status ailments (turns: 2).'

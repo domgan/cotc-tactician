@@ -122,8 +122,7 @@ skills:
   skill_type: heal
   target: front_row
   effects:
-  - 'Cure status ailments of Entire Front Row, grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - and Speed.
+  - 'Cure status ailments of Entire Front Row, grant immunity to some status ailments (with some exceptions) (turns: 1-4 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed.'
   - Reaches All Allies at Max Boost.
 - skill_category: active
   name: Firaga

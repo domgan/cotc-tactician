@@ -17,9 +17,23 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Shield-shave dagger skills; Phys Def Down 15% on hit.
+  Start-of-battle Paired Allies Phys. Atk. Up 20% (3 turns).
+  Life steal and ultimate AoE dagger + self heal.
+buff_categories:
+  passive:
+    - type: phys_atk_up
+      value: 20
+      source_skill: "Start of battle Paired Allies"
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 15
+      source_skill: "2★ def down attack skill"
 
 # Stats (base level)
 hp: 2787

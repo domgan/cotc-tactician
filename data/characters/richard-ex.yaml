@@ -23,9 +23,19 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Multi-weapon single/AoE hits; on weakness lowers foe Phys Def 15%.
+  Self buffs on weakness (def, damage, HP barrier); high damage-limit EX skills.
+  No ally healing. Self only: at 3+ BP +30% Atk/Crit and exploits all weapon weaknesses;
+  ultimate at 200% gauge gives self +15% Atk/Crit and physical damage.
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 15
+      source_skill: "3★ AoE weakness proc def down"
 
 # Stats (base level)
 hp: 3750

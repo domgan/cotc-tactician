@@ -17,9 +17,17 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Self Phys. Def. Up 10–15%; sword hits apply Phys. Atk. Down 5–15% on foes.
+
+debuff_categories:
+  active:
+  - type: phys_atk_down
+    value: 15
+    source_skill: "ultimate sword Phys. Atk. Down"
 
 # Stats (base level)
 hp: 3222

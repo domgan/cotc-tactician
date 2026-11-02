@@ -17,9 +17,17 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [debuffer, breaker, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Armor Corrosive II and Backstab apply Phys. Def. Down 15%. Double Break and TP/EX strip shield points off-weakness.
+  Dagger AOE and single-target damage focus.
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Armor Corrosive II"
 
 # Stats (base level)
 hp: 2932

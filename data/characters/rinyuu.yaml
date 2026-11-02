@@ -18,9 +18,20 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  All-ally regen with P/E Def +15% and ailment immunity; revive all at 100% HP on ultimate.
+
+buff_categories:
+  active:
+  - type: phys_def_up
+    value: 15
+    source_skill: "Grant All Allies automatic HP recovery"
+  - type: elem_def_up
+    value: 15
+    source_skill: "Grant All Allies automatic HP recovery"
 
 # Stats (base level)
 hp: 2702

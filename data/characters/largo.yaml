@@ -19,9 +19,11 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['tank', 'dps', 'breaker']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Special Fragant Dumpling provokes all and −15% Phys. Atk.; fire/polearm AoE damage.
 
 # Stats (base level)
 hp: 3260

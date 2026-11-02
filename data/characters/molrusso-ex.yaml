@@ -21,9 +21,20 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Hustle Dance restores front-row HP 65–155; Final Frolic raises front P.Atk/E.Atk 15%.
+  Egg On raises ally potency 100% and Damage Limit 10k–100k for 1 turn; whistle summons mix damage and debuffs.
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Final Frolic"
+  - type: elem_atk_up
+    value: 15
+    source_skill: "Final Frolic"
 
 # Stats (base level)
 hp: 2786

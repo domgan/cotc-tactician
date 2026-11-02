@@ -17,9 +17,27 @@ weakness_coverage:
 - ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Bow/ice single-target damage; Bow Res down 10–15%.
+  Self HP Barrier 50% max HP on one skill; Phys/Elem Def Down 15%.
+  Self Phys Atk Up 10–15% on attack skills.
+debuff_categories:
+  active:
+    - type: bow_res_down
+      value: 10
+      source_skill: "2★ bow res down skill"
+    - type: bow_res_down
+      value: 15
+      source_skill: "4★ bow res down skill"
+    - type: phys_def_down
+      value: 15
+      source_skill: "5★ phys def down skill"
+    - type: elem_atk_down
+      value: 20
+      source_skill: "4★ elem atk down skill"
 
 # Stats (base level)
 hp: 3092

@@ -24,9 +24,29 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'buffer', 'debuffer', 'healer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row +10% damage and +10% P/E Def on skills; single heal 100–220; Phys. Def. Down 10–15% on hit.
+
+buff_categories:
+  active:
+  - type: phys_damage_up
+    value: 10
+    source_skill: "Raise damage of Entire Front Row"
+  - type: phys_def_up
+    value: 10
+    source_skill: "raise Phys. Def. and Elem. Def. of Entire Front Row"
+  - type: elem_def_up
+    value: 10
+    source_skill: "raise Phys. Def. and Elem. Def. of Entire Front Row"
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "sword hit Phys. Def. Down"
 
 # Stats (base level)
 hp: 3232

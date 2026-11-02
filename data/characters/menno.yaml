@@ -17,9 +17,20 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row heal + regen; Wind Res. debuff on all foes; random wind hits lower Speed/Wind Res.
+
+debuff_categories:
+  active:
+  - type: wind_res_down
+    value: 15
+    source_skill: "Windprone / TP wind hits"
+  - type: elem_def_down
+    value: 10
+    source_skill: "Melodic Sea Breeze limit break"
 
 # Stats (base level)
 hp: 2046

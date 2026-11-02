@@ -17,9 +17,21 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker, healer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Grant Sword/Light weakness to all foes then dual-type hit; front-row heal 205.
+  Light Res Down 20% single target; Elem Atk Down 15%.
+  Heavy sword/light nukes and ultimate dual-type AoE.
+debuff_categories:
+  active:
+    - type: elem_atk_down
+      value: 15
+      source_skill: "2★ elem atk down skill"
+    - type: light_res_down
+      value: 20
+      source_skill: "Light Res Down skill"
 
 # Stats (base level)
 hp: 3092

@@ -17,9 +17,11 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Self Phys. Atk +20% and Spd +20%; ice/sword damage; single-target skill lowers foe Spd 15% (turns: 2).
 
 # Stats (base level)
 hp: 3217

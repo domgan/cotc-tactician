@@ -17,9 +17,13 @@ weakness_coverage:
 - dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, healer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Grant single ally HP regen 120–150; raise ally Light Res +15%.
+  Axe/dark damage with bleed; self regen when bleeding foe present.
+  Front-row down self Phys Atk +20%.
 
 # Stats (base level)
 hp: 3245

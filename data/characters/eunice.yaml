@@ -17,9 +17,26 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Light Res down 10–15% on multiple skills; triple damage vs Light Res Down.
+  Paired Allies Elem Atk/Light damage +10% via A4 when equipped.
+  Light-element single and random-target damage.
+buff_categories:
+  passive:
+    - type: elem_atk_up
+      value: 10
+      source_skill: "A4 Paired Allies (when Eunice)"
+debuff_categories:
+  active:
+    - type: light_res_down
+      value: 10
+      source_skill: "1★ light res down skill"
+    - type: light_res_down
+      value: 15
+      source_skill: "3★ random light res down skill"
 
 # Stats (base level)
 hp: 2886

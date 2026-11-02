@@ -17,9 +17,29 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row Elem Atk/Def Up 15% and Wind Res +15% on multiple skills.
+  Lightning AoE with Elem Def Down 15%; ultimate buffs front-row Wind Res.
+  Fan/lightning offense and support.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 15
+      source_skill: "1★ front-row elem atk skill"
+    - type: elem_def_up
+      value: 15
+      source_skill: "3★ front-row def skill"
+debuff_categories:
+  active:
+    - type: elem_def_down
+      value: 10
+      source_skill: "2★ elem def down skill"
+    - type: elem_def_down
+      value: 15
+      source_skill: "5★ AoE elem def down skill"
 
 # Stats (base level)
 hp: 2770

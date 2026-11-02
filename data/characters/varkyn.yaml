@@ -17,9 +17,24 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  AoE Light Res down 20%; random hits lower Light Res 15%.
+  Pre-turn random light hits; start-of-battle all foes Elem Def −15% (passive).
+  Heavy light/tome damage and high damage-limit ultimate.
+debuff_categories:
+  active:
+    - type: light_res_down
+      value: 20
+      source_skill: "1★ AoE light res down skill"
+    - type: light_res_down
+      value: 15
+      source_skill: "3★ random light res down skill"
+    - type: elem_def_down
+      value: 15
+      source_skill: "passive start-of-battle elem def down"
 
 # Stats (base level)
 hp: 3026

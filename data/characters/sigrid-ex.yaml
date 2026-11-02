@@ -18,9 +18,21 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, dps, debuffer]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Provoke all or single; front-row +15% damage at 50%+ SP.
+  Combust setup with polearm/fire hits; 6-hit random polearm.
+  Lowers Polearm Res 30% start of battle.
+debuff_categories:
+  active:
+    - type: phys_def_down
+      value: 10
+      source_skill: "4★ phys def down skill"
+    - type: polearm_res_down
+      value: 15
+      source_skill: "passive ally break polearm res down"
 
 # Stats (base level)
 hp: 3130

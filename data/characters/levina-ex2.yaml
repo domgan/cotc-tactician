@@ -18,9 +18,20 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['debuffer', 'breaker', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Dagger Fragility stacks weakness; shield shave without weak points; 2★ fills front-row ult gauge 25–200%.
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 10
+    source_skill: "2★ Lower Phys. Def. and Elem. Def. of All Foes"
+  - type: elem_def_down
+    value: 10
+    source_skill: "2★ Lower Phys. Def. and Elem. Def. of All Foes"
 
 # Stats (base level)
 hp: 3252

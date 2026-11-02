@@ -17,9 +17,20 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Refreshment restores ally 155–225 HP; TP Luxurious Refreshment heals front row 25 and raises P.Atk 15%.
+  EX Strip Cutting raises front-row Sword damage 10%; sword/wind damage and self regen on ult.
+buff_categories:
+  active:
+  - type: phys_atk_up
+    value: 15
+    source_skill: "Luxurious Refreshment"
+  - type: sword_damage_up
+    value: 10
+    source_skill: "Strip Cutting"
 
 # Stats (base level)
 hp: 3195

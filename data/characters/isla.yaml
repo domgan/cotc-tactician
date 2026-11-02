@@ -18,9 +18,26 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row Elem. Atk +15%; countdown restores 3 BP to front row.
+  Ultimate raises all allies Elem Atk/elemental damage 10–30%.
+  Self dodge; fire/lightning random multi-hit damage.
+buff_categories:
+  active:
+    - type: elem_atk_up
+      value: 15
+      source_skill: "2★ front-row elem atk skill"
+    - type: elem_atk_up
+      value: 30
+      source_skill: "Ultimate all-ally elem atk skill"
+debuff_categories:
+  active:
+    - type: lightning_res_down
+      value: 15
+      source_skill: "3★ lightning res down skill"
 
 # Stats (base level)
 hp: 2746

@@ -16,9 +16,27 @@ weakness_coverage:
 - bow
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['debuffer', 'tank', 'breaker']
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row passive provoke with −10% foe P/E Atk; reveals 1–4 weak points and −15% foe P/E Def.
+  Bow skills shave shield without weak points.
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Lower Phys. Def. and Elem. Def. of All Foes"
+  - type: elem_def_down
+    value: 15
+    source_skill: "Lower Phys. Def. and Elem. Def. of All Foes"
+  - type: phys_atk_down
+    value: 15
+    source_skill: "counter hit"
+  - type: elem_atk_down
+    value: 15
+    source_skill: "counter hit"
 
 # Stats (base level)
 hp: 3372

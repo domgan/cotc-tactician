@@ -17,9 +17,13 @@ weakness_coverage:
 - light
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, dps, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single/front-row heals 155–295; front-row cleanse + Dark Res +15%.
+  5-hit random axe skill; ultimate self-heal + axe nuke.
+  Back-row passive regen 100 to front row.
 
 # Stats (base level)
 hp: 3210

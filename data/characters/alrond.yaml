@@ -96,8 +96,7 @@ skills:
   target: front_row
   power: '110, turns: 2-5 based on Boost Lv.'
   effects:
-  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - and Speed.
+  - 'Grant Entire Front Row automatic HP recovery (potency: 110, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed.'
 - skill_category: active
   name: Fixed Rate
   unlock_tier: 1★
@@ -150,8 +149,7 @@ skills:
   target: all_allies
   power: '140, turns: 2-5 based on Boost Lv.'
   effects:
-  - 'Grant All Allies automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.'
-  - and Speed.
+  - 'Grant All Allies automatic HP recovery (potency: 140, turns: 2-5 based on Boost Lv.) and restore Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed.'
   upgrades:
   - 'Lv.96: SP Saver: 84→67'
 - skill_category: active

@@ -91,8 +91,7 @@ skills:
   power: 3x 65
   effects:
   - 'Deal Elem. Lightning damage to Single Foe 3 time(s) (potency: 3x 65).'
-  - Raise Spd. of Entire Front Row by 15% and Crit.
-  - 'by 15% (turns: 2).'
+  - 'Raise Spd. of Entire Front Row by 15% and Crit. by 15% (turns: 2).'
 - skill_category: active
   name: Cool Colors
   unlock_tier: 2★

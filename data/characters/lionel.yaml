@@ -17,9 +17,12 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, dps]
+tank_type: hp_barrier
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  EX Hymn of the Dragonslayer restores 100% HP and grants self HP Barrier 40% max HP, plus 30% P.Atk and 50k Damage Limit.
+  Impregnable Wall and Guardian Rage raise self defenses; ult provokes all foes with P.Def Up.
 
 # Stats (base level)
 hp: 3252

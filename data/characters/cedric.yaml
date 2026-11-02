@@ -17,9 +17,21 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [healer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Medica line restores HP plus regen on single ally and front row. Scorching Sacred Flame and EX apply Phys. Def. Down 15%.
+  Staff and fire damage skills round out kit.
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Scorching Sacred Flame"
+  ultimate:
+  - type: elem_def_down
+    value: 15
+    source_skill: "Bloody Burial"
 
 # Stats (base level)
 hp: 2052

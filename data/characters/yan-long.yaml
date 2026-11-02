@@ -17,9 +17,24 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Staff/ice damage; can grant Staff weakness ×2 at Max Boost.
+  Lowers Staff Res 10–20% and foe Phys Def 10% on break (passive).
+  Self Phys Def Up 20% on heal skill; slow-turn scaling damage.
+debuff_categories:
+  active:
+    - type: staff_res_down
+      value: 10
+      source_skill: "2★ staff res down skill"
+    - type: staff_res_down
+      value: 20
+      source_skill: "4★ AoE staff res down skill"
+    - type: phys_def_down
+      value: 10
+      source_skill: "passive on break phys def down"
 
 # Stats (base level)
 hp: 3032

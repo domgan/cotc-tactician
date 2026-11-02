@@ -17,9 +17,18 @@ weakness_coverage:
 - polearm
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, dps]
+tank_type: provoke
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Provoke all or single foe; front-row switch provoke all 1 turn.
+  Skill raises front-row Phys/Elem Def 10% for 1 turn when used.
+  Polearm/lightning damage; passive +6,000 polearm damage limit to allies.
+buff_categories:
+  active:
+    - type: phys_def_up
+      value: 10
+      source_skill: "4★ front-row def on turn skill"
 
 # Stats (base level)
 hp: 3460

@@ -182,8 +182,7 @@ skills:
   skill_type: heal
   target: all_allies
   effects:
-  - Cure some status ailments of All Allies, restore their Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit.
-  - 'and Speed, raise Sword damage of Self by 10%→20%→30% (turns: 3) and, if Sublative Insight is not active, assume a Sublation Stance (turns: 3/Granted as a support skill).'
+  - 'Cure some status ailments of All Allies, restore their Phys. Atk., Phys. Def., Elem. Atk., Elem. Def., Crit. and Speed, raise Sword damage of Self by 10%→20%→30% (turns: 3) and, if Sublative Insight is not active, assume a Sublation Stance (turns: 3/Granted as a support skill).'
   notes: 'Uses: 1→2 Initial Gauge: 20%→30%→40% Gauge Increase: 20%/BP→25%/BP→40%/BP 40%/BP→50%/BP→80%/BP; Overcharge: Also gain the ability to completely block some attacks and counter (times: 4). Counter: Deal Phys. Sword damage to All Foes 3 time(s) (potency: 3x45) and lower their Sword Res. by 15% (turns: 2/Inflicted as a battle skill). Exploits Wind weakness (damage calculation based on Phys. Sword attack).; Backsurge: When consuming 2 gauges, the Ultimate Technique can be activated from the back row. Meanwhile, Paired Ally can also act.; *Requires an Awakening Stone for Ultimate Technique Awakening.'
 
 # Passives - parsed from markdown

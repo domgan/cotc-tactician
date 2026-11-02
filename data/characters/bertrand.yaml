@@ -17,9 +17,17 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Quicken raises single ally Spd 15%. Lightning Arrow lowers Lightning Res. 20% on all foes after damage.
+  Bow and lightning nukes for primary damage.
+debuff_categories:
+  active:
+  - type: lightning_res_down
+    value: 20
+    source_skill: "Lightning Arrow"
 
 # Stats (base level)
 hp: 3052

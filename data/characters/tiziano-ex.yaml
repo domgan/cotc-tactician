@@ -17,9 +17,26 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [tank, buffer, breaker, dps]
+tank_type: cover
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Cover single ally 1 turn with 20–50% damage reduction (front row).
+  Shield-shave polearm; raise front-row Phys Atk +20% and Polearm/Dagger damage +20%.
+  Multi-hit polearm exploiting Dagger/Wind; res down 10%.
+buff_categories:
+  active:
+    - type: phys_atk_up
+      value: 20
+      source_skill: "4★ front-row atk/damage skill"
+debuff_categories:
+  active:
+    - type: polearm_res_down
+      value: 10
+      source_skill: "2★ polearm/dagger res down skill"
+    - type: dagger_res_down
+      value: 10
+      source_skill: "2★ polearm/dagger res down skill"
 
 # Stats (base level)
 hp: 4030

@@ -17,9 +17,11 @@ weakness_coverage:
 - ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single-target heals 155; cures ally weakness; 4-hit axe damage.
 
 # Stats (base level)
 hp: 3220

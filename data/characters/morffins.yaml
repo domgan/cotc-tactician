@@ -17,9 +17,17 @@ weakness_coverage:
 - ice
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['buffer', 'healer', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Dominance support; front/all regen; raises All Allies Ice damage +15%.
+
+buff_categories:
+  active:
+  - type: ice_damage_up
+    value: 15
+    source_skill: "Raise Ice damage of All Allies"
 
 # Stats (base level)
 hp: 3220

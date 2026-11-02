@@ -23,9 +23,20 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'debuffer', 'breaker']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Sword/polearm AoE; lowers Sword/Polearm Res. 15%; 8-hit polearm on one skill.
+
+debuff_categories:
+  active:
+  - type: sword_res_down
+    value: 15
+    source_skill: "sword AoE Res. down"
+  - type: phys_def_down
+    value: 15
+    source_skill: "random sword hits Phys. Def. Down"
 
 # Stats (base level)
 hp: 3242

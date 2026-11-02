@@ -17,9 +17,11 @@ weakness_coverage:
 - fire
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['healer', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Single-ally regen and sleep cleanse; faster-turn front-row heal 65 and raises ally Ice Res. 15% (turns: 2).
 
 # Stats (base level)
 hp: 3250

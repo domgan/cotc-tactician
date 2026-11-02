@@ -17,9 +17,20 @@ weakness_coverage:
 - fire
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['debuffer', 'breaker', 'dps']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Phys. Def. Down 10–15% on foes; 3★ lowers shield without weak points; AoE Phys. Res. Down 10%.
+
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Impart Single Foe with Phys. Def. Down"
+  - type: phys_res_down
+    value: 10
+    source_skill: "AoE dagger Phys. Res. Down"
 
 # Stats (base level)
 hp: 2902

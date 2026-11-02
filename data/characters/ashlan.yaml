@@ -17,9 +17,17 @@ weakness_coverage:
 - dark
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['dps', 'buffer']
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Front-row Crit +15% (turns: 2–5); self Crit +15% and Damage Limit +100,000 on EX.
+
+buff_categories:
+  active:
+  - type: crit_up
+    value: 15
+    source_skill: "Raise Crit of Entire Front Row"
 
 # Stats (base level)
 hp: 3085

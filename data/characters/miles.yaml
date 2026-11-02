@@ -17,9 +17,20 @@ weakness_coverage:
 - sword
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: ['tank', 'dps', 'buffer']
+tank_type: hp_barrier
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Self HP Barrier 50–200% max HP; single-ally P/E Def +15%; A4 at full HP provokes all.
+
+buff_categories:
+  active:
+  - type: phys_def_up
+    value: 15
+    source_skill: "Impart Single Ally with Phys. Def. Up"
+  - type: elem_def_up
+    value: 15
+    source_skill: "Impart Single Ally with Phys. Def. Up"
 
 # Stats (base level)
 hp: 3230

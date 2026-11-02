@@ -17,9 +17,18 @@ weakness_coverage:
 - wind
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, debuffer, breaker, healer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Shield-shave dagger; heal single ally 95 (LB front row + Wind damage +10%).
+  Wind Res down 15%; AoE Spd down 15%.
+  Wind/dagger nukes and ultimate AoE.
+debuff_categories:
+  active:
+    - type: wind_res_down
+      value: 15
+      source_skill: "3★ wind res down skill"
 
 # Stats (base level)
 hp: 2892

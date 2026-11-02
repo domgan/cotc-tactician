@@ -18,9 +18,18 @@ weakness_coverage:
 - staff
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [dps, buffer]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Summon Lulu staff + bow/light multi-hit; full HP buffs paired/front Phys Atk +10%.
+  On break lowers Bow Res 10% (3 turns).
+  Staff/bow hybrid damage.
+buff_categories:
+  passive:
+    - type: phys_atk_up
+      value: 10
+      source_skill: "At full HP Paired Allies (LB front row)"
 
 # Stats (base level)
 hp: 3032

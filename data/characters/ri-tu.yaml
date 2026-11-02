@@ -17,9 +17,17 @@ weakness_coverage:
 - lightning
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [breaker, debuffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  Dual Destruction, Dual Ruin, Wild Twin Deadly Dance, and EX Needle's Eye strip shield points off-weakness.
+  Bind Feet lowers all foes' Spd 10%; Thunder's Roar may apply Phys. Def. Down 15%.
+debuff_categories:
+  active:
+  - type: phys_def_down
+    value: 15
+    source_skill: "Thunder's Roar"
 
 # Stats (base level)
 hp: 2782

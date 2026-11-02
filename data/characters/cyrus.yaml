@@ -19,9 +19,26 @@ weakness_coverage:
 - tome
 
 # Roles - [HUMAN-REQUIRED] Must be assigned manually based on skills
-roles: []  # TODO: Add roles (tank, healer, buffer, debuffer, breaker, dps)
+roles: [buffer, dps]
+tank_type: none
 role_notes: |
-  TODO: Describe role capabilities based on skill analysis
+  Kit-derived (agent, 2026-11-02, needs review).
+  EX The Three Elements raises front-row Fire/Ice/Lightning damage 30%. Focus raises self Elem. Atk. 15–25%.
+  Tri-element single and AOE nukes plus Analyze weak-point reveal.
+buff_categories:
+  active:
+  - type: elem_atk_up
+    value: 15
+    source_skill: "Focus (self only)"
+  - type: fire_damage_up
+    value: 30
+    source_skill: "The Three Elements"
+  - type: ice_damage_up
+    value: 30
+    source_skill: "The Three Elements"
+  - type: lightning_damage_up
+    value: 30
+    source_skill: "The Three Elements"
 
 # Stats (base level)
 hp: 2746

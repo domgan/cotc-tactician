@@ -108,8 +108,7 @@ skills:
   skill_type: buff
   target: self
   effects:
-  - Raise Crit.
-  - 'of Self and Bow damage by 15% (turns: 3-6 based on Boost Lv.).'
+  - 'Raise Crit. of Self and Bow damage by 15% (turns: 3-6 based on Boost Lv.).'
 - skill_category: active
   name: Obliterating Arrow
   unlock_tier: 2★
