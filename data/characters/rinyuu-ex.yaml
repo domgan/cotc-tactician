@@ -68,6 +68,39 @@ awakening_stage: 4  # Assume max for team comp purposes
 gl_tier: "S+ (10.00 - 9.50)"
 jp_tier: "A | 9.7"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Deal Elem. Light damage to Single Foe 3 time(s) (potency: 3x65)"
+    name: "Triple Light Powder"
+    sp_cost: 46
+  - match: "Restore HP of Entire Front Row (potency: 65) and grant automatic HP recovery (potency: 100"
+    name: "Emergency Panacea (Front/All)"
+    sp_cost: 42
+  - match: "Raise Elem. Atk. and elemental damage of Entire Front Row by 15%"
+    name: "Elemental Serum (Front/All) II"
+    sp_cost: 57
+  - match: "grant Damage Limit Up (effect: 20,000"
+    name: "Crusader's Serum"
+    sp_cost: 52
+  - match: "Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x45)"
+    name: "Quadruple Light Powder"
+    sp_cost: 66
+  - match: "Restore HP of Entire Front Row at the end of every turn (potency: 205"
+    name: "Sustained Adjuvant (Front/All)"
+    sp_cost: 92
+  - match: "grant All Allies HP Barrier (potency: 10%-40%"
+    name: "Gracious Serum"
+    sp_cost: 83
+  - match: "deal Elem. Light damage to All Foes 4 time(s) (potency: 4x35)"
+    name: "Quadruple Glimmering Plume"
+    sp_cost: 75
+  - match: "deal Elem. Light damage to Random Foe 3 time(s) at the beginning of every turn"
+    name: "Sustained Light Powder"
+    sp_cost: 101
+  - match: "Deal Elem. Light damage to Single Foe (potency: 630)"
+    name: "Guardian of Light's Powder"
+    sp_cost: 300
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
@@ -100,7 +133,7 @@ skills:
   effects:
   - 'Raise Elem. Atk. and elemental damage of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
 - skill_category: active
-  name: Crusader’s Serum
+  name: Crusader's Serum
   unlock_tier: 2★
   sp_cost: 52
   skill_type: buff
@@ -136,6 +169,7 @@ skills:
   upgrades:
   - 'Lv.88: SP Saver: 115→92'
   limit_break_upgrade: 'Restore HP of Entire Front Row at the end of every turn (potency: 205/times: 2-5). If the user is in front row during the healing, also cure status ailments of targets.'
+  notes: 'In-game SP at owner''s level: 92'
 - skill_category: active
   name: Gracious Serum
   unlock_tier: 4★
@@ -149,6 +183,7 @@ skills:
   - Subsequently, switch all other front row allies to the back row.
   upgrades:
   - 'Lv.96: SP Saver: 104→83'
+  notes: 'In-game SP at owner''s level: 83'
 - skill_category: active
   name: Quadruple Glimmering Plume
   unlock_tier: 5★
@@ -166,6 +201,7 @@ skills:
   - Subsequently, switch all other front row allies to the back row.
   upgrades:
   - 'Lv.99: SP Saver: 94→75'
+  notes: 'In-game SP at owner''s level: 75'
 - skill_category: active
   name: Sustained Light Powder
   unlock_tier: 5★
@@ -182,8 +218,9 @@ skills:
   - If the user is in front row during the attack, attack count becomes 4.
   upgrades:
   - 'Lv.100: SP Saver: 126→101'
+  notes: 'In-game SP at owner''s level: 101'
 - skill_category: tp
-  name: Guardian of Light’s Powder
+  name: Guardian of Light's Powder
   sp_cost: 300
   skill_type: utility
   damage_types:

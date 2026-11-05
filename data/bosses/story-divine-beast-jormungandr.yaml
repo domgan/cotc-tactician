@@ -16,7 +16,9 @@ location: "Emberflame Story Chapter 16 — Demon Tree Swamp (Sacred Tree Spring 
 # STATS (main body)
 # ===========================================================================
 shield_count: 33
-hp: 3200000
+hp: 3237840
+speed: 428
+level: 100
 
 weaknesses:
   elements:
@@ -40,11 +42,15 @@ recommended_weakness_coverage:
 enemies:
   - name: "Jörmungandr (Main Body)"
     is_main_target: true
-    hp: 3200000
+    hp: 3237840
     shield_count: 33
     notes: |
-      Locks physical weaknesses after any physical hit; locks elemental weaknesses
-      after any elemental hit (until end of turn, including implanted weaknesses).
+      When the party lands a physical attack, all physical weaknesses lock; when the party
+      lands an elemental attack, all elemental weaknesses lock (until end of turn, including
+      implanted weaknesses). Special gauge fills by 1 per turn (max 8); breaking lowers it by 6.
+      NiaDB stats: P.Def 575, E.Def 575, Speed 428. Below 60% HP adds Chaos Wave, Cramp
+      (AoE Can't Switch 2t), Dark Eye, Incubus (AoE Comatose 2t). Also has Illusion (AoE Charm 2t)
+      and Isolate (self Repel Phys./Repel Elem.).
       On break: seals front-row physical OR elemental attacks (break-type dependent);
       drains -5 BP from entire party (scheduled BP for that turn still usable).
   - name: "Twin Heads (Right/Left)"
@@ -60,7 +66,7 @@ enemies:
 mechanics:
   - name: "Weakness Lock (Physical)"
     mechanic_type: passive
-    trigger: "After boss uses a physical attack"
+    trigger: "After the party lands a physical attack (Game8: 物理攻撃を行うと物理弱点をロック)"
     target: all
     effects:
       - "Locks all physical weaknesses until end of turn (includes implanted weaknesses)"
@@ -71,7 +77,7 @@ mechanics:
 
   - name: "Weakness Lock (Elemental)"
     mechanic_type: passive
-    trigger: "After boss uses an elemental attack"
+    trigger: "After the party lands an elemental attack"
     target: all
     effects:
       - "Locks all elemental weaknesses until end of turn (includes implanted weaknesses)"
@@ -135,7 +141,10 @@ mechanics:
     effects:
       - "Sleep and switch prohibition (2 turns; boss slow so ~1 effective turn)"
     threat_level: medium
-    counter_strategy: "Ailment accessories; ensure back row can shield shave if front locked."
+    counter_strategy: |
+      Ailment accessories; ensure back row can shield shave if front locked. Shana's
+      Rehabilitate (All) at Max Boost cures Can't Switch, Comatose and Silence (kit text).
+      NiaDB lists the trigger as below 60% HP.
 
 hp_thresholds:
   - hp_percent: 50
@@ -186,6 +195,15 @@ general_strategy: |
   - Canary useful for breaking; Shana BP restore on break turn.
   - Sazantos cover can block front-row break hits (annoying interaction).
   - No-break brute force possible but needs high investment; not recommended for most.
+  - u/BrickSuccessful4703 (2026-04): Kaine and Pardis (even Partitio EX) naturally hit its
+    weaknesses; no need for DK. Several clears ignored the break and went all-out with
+    Pardis (+ Kaine or DK); "Pardis just doesn't care about the heal" (u/xenna-t).
+  - u/DecentWay1879: turtle + buff/debuff everyone except Pardis and Kaine; Kaine at max BP
+    with her ult active is back at max BP after the break drain; Pardis Godblow finishes.
+  - u/viiciousrobot (2026-08): Edgar (Drill), Phenn (ultimate), Signa EX nukes, Relm skill that
+    bypasses damage reduction; back row Molrusso EX, Aviete for dmg/cap/potency.
+  - u/HowdyFancyPanda: Ditraina (bow 3x turn 1, EX turn 2) then hits all weaknesses, 9-hit shave.
+  - Game8 comment (2026): with power creep top teams now clear it in ~2 turns.
 
   GAME8 RECOMMENDED ARCHETYPES:
   Sword (Mahrez/Eltrix/Pardis), bow (Ditraina EX/Kilns/Rymys EX), dagger (Tiziano/Kagemune/Sonia),
@@ -206,6 +224,7 @@ common_mistakes:
 data_confidence: tested
 data_source: |
   Game8 JP (https://game8.jp/octopathtraveler-sp/691370, /691369);
-  Reddit r/OctopathCotC (2026-04, u/Winter_Code2286, u/jobpasin);
+  NiaDB https://meowdb.com/db/octopath-traveler-cotc/enemies/divine-beast-j-rmungandr (stats, skills);
+  Reddit r/OctopathCotC (2026-04: 1sgofpn, 1skhmos, 1spu14y; 2026-08: 1vt74lc);
   video https://youtu.be/FRhpd4qU-BU
-last_updated: 2026-06-12
+last_updated: 2026-11-03

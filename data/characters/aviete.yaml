@@ -76,6 +76,39 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "S+ | 9.9"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Restore HP of Single Ally (potency: 160/180/220/280)"
+    name: "Heal More (Single)"
+    sp_cost: 24
+  - match: "Deal Elem. Wind damage to All Foes 2 time(s) (potency: 2x70"
+    name: "Advent of Stollenwurm"
+    sp_cost: 39
+  - match: "Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x55"
+    name: "Advent of Lykaon"
+    sp_cost: 36
+  - match: "Cure status ailments of Entire Front Row and grant them immunity"
+    name: "Sanctification (Front/All)"
+    sp_cost: 30
+  - match: "Grant Entire Front Row automatic revival at 25%"
+    name: "Advent of Simurgh"
+    sp_cost: 120
+  - match: "Deal Elem. Light damage to Random Foe 4 time(s) (potency: 4x35"
+    name: "Advent of Yuetu"
+    sp_cost: 73
+  - match: "Restore HP of Entire Front Row (potency: 65/80/110/150)"
+    name: "Medica (Front/All) III"
+    sp_cost: 44
+  - match: "Deal Elem. Lightning damage to All Foes 3 time(s) (potency: 3x55"
+    name: "Advent of Svadilfari"
+    sp_cost: 74
+  - match: "Deal Elem. Ice damage to All Foes 3 time(s) (potency: 3x55"
+    name: "Advent of Lutiya"
+    sp_cost: 74
+  - match: "Deal Elem. Fire damage to Single Foe 3 time(s) (potency: 3x110"
+    name: "Advent of the Divine"
+    sp_cost: 97
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
@@ -117,8 +150,9 @@ skills:
   - 'Deal Elem. Dark damage to Random Foe 3 time(s) (potency: 3x55/3x65/3x80/3x100).'
   - 'Exploits Dagger weakness (damage calculation based on Elem. Dark attack) and is enhanced with Reverence Points: ·3+: Attack count becomes 4.'
   - '·6+: Also have a low chance to lower Phys. Def. and Elem. Def. by 10% with every attack (turns: 2).'
+  notes: 'In-game SP at owner''s level: 36'
 - skill_category: active
-  name: Rehabillitate Magic (Front/All)
+  name: Sanctification (Front/All)
   unlock_tier: 2★
   sp_cost: 30
   skill_type: heal
@@ -153,6 +187,7 @@ skills:
   - '·6+: Also raise physical damage of Entire Front Row by 15% (turns: 2).'
   upgrades:
   - 'Lv.88: SP Saver: 91→73'
+  notes: 'In-game SP at owner''s level: 73'
 - skill_category: active
   name: Medica (Front/All) III
   unlock_tier: 4★
@@ -165,6 +200,7 @@ skills:
   - Reaches All Allies at Max Boost.
   upgrades:
   - 'Lv.96: SP Saver: 55→44'
+  notes: 'In-game SP at owner''s level: 44'
 - skill_category: active
   name: Advent of Svadilfari
   unlock_tier: 5★
@@ -182,6 +218,7 @@ skills:
   - '·6+: Raise Phys. Atk. and Elem. Atk. for 3 turns instead.'
   upgrades:
   - 'Lv.99: SP Saver: 93→74'
+  notes: 'In-game SP at owner''s level: 74'
 - skill_category: active
   name: Advent of Lutiya
   unlock_tier: 5★
@@ -199,6 +236,7 @@ skills:
   - '·6+: Raise Phys. Def. and Elem. Def. for 3 turns instead.'
   upgrades:
   - 'Lv.100: SP Saver: 93→74'
+  notes: 'In-game SP at owner''s level: 74'
 - skill_category: tp
   name: Advent of the Divine
   sp_cost: 97

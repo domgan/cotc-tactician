@@ -65,9 +65,43 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "A | 9.7"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Restore HP of Single Ally (potency: 100)"
+    name: "First Aid"
+    sp_cost: 12
+  - match: "Lower Phys. Atk. and Phys. Def. of Single Foe by 15%"
+    name: "Carpenter's Insight"
+    sp_cost: 18
+  - match: "Deal Phys. Axe damage to All Foes (potency: 150)"
+    name: "Chop Wood"
+    sp_cost: 39
+  - match: "Grant All Foes Sword, Axe, Bow and Staff weaknesses"
+    name: "Best-Laid Plans"
+    sp_cost: 79
+  - match: "Deal Phys. Axe damage to Random Foe 6 time(s) (potency: 6x40)"
+    name: "Uproot"
+    sp_cost: 91
+  - match: "Grant Entire Front Row automatic HP recovery (potency: 150"
+    name: "Rejuvenating Optimism"
+    sp_cost: 64
+  - match: "Deal Phys. Axe damage to All Foes 4 time(s) (potency: 4x35)"
+    name: "Clearcutting"
+    sp_cost: 97
+  - match: "Deal Phys. Axe damage to Single Foe (potency: 260)"
+    name: "Hometown Havoc"
+    sp_cost: 43
+  - match: "Act faster during turn and restore HP of Entire Front Row (potency: 205)"
+    name: "Hometown Healing"
+    sp_cost: 62
+  - match: "Deal Phys. Axe damage to Single Foe 3 time(s) (potency: 3x160)"
+    name: "Lay of the Land"
+    sp_cost: 200
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
+  name: First Aid
   unlock_tier: Initial
   sp_cost: 12
   skill_type: heal
@@ -76,6 +110,7 @@ skills:
   effects:
   - 'Restore HP of Single Ally (potency: 100).'
 - skill_category: active
+  name: Carpenter's Insight
   unlock_tier: Initial
   sp_cost: 18
   skill_type: debuff
@@ -83,6 +118,7 @@ skills:
   effects:
   - 'Lower Phys. Atk. and Phys. Def. of Single Foe by 15% (turns: 2-5 based on Boost Lv.).'
 - skill_category: active
+  name: Chop Wood
   unlock_tier: 1★
   sp_cost: 39
   skill_type: utility
@@ -94,6 +130,7 @@ skills:
   - 'Deal Phys. Axe damage to All Foes (potency: 150).'
   - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
 - skill_category: active
+  name: Best-Laid Plans
   unlock_tier: 2★
   sp_cost: 79
   skill_type: utility
@@ -101,6 +138,7 @@ skills:
   effects:
   - 'Grant All Foes Sword, Axe, Bow and Staff weaknesses (times each: 6-9).'
 - skill_category: active
+  name: Uproot
   unlock_tier: 2★
   sp_cost: 91
   skill_type: utility
@@ -113,6 +151,7 @@ skills:
   - 'Deal Phys. Axe damage to Random Foe 6 time(s) (potency: 6x40).'
   - Exploits Staff, Tome and Wind weaknesses (damage calculation based on Phys. Axe attack).
 - skill_category: active
+  name: Rejuvenating Optimism
   unlock_tier: 3★
   sp_cost: 80
   skill_type: buff
@@ -125,7 +164,9 @@ skills:
   - '·9+: Also restore 1 BP.'
   upgrades:
   - 'Lv.88: SP Saver: 80→64'
+  notes: 'In-game SP at owner''s level: 64'
 - skill_category: active
+  name: Clearcutting
   unlock_tier: 4★
   sp_cost: 121
   skill_type: debuff
@@ -140,7 +181,9 @@ skills:
   - 'At Max Boost: Absorb 1% of damage dealt as SP.'
   upgrades:
   - 'Lv.96: SP Saver: 121→97'
+  notes: 'In-game SP at owner''s level: 97'
 - skill_category: active
+  name: Hometown Havoc
   unlock_tier: 5★
   sp_cost: 54
   skill_type: utility
@@ -154,7 +197,9 @@ skills:
   - 'At Max Boost: Summon again the last summoned ally in battle.'
   upgrades:
   - 'Lv.99: SP Saver: 54→43'
+  notes: 'In-game SP at owner''s level: 43'
 - skill_category: active
+  name: Hometown Healing
   unlock_tier: 5★
   sp_cost: 78
   skill_type: heal
@@ -166,7 +211,9 @@ skills:
   - 'At Max Boost: Summon again the last summoned ally in battle.'
   upgrades:
   - 'Lv.100: SP Saver: 78→62'
+  notes: 'In-game SP at owner''s level: 62'
 - skill_category: tp
+  name: Lay of the Land
   sp_cost: 200
   skill_type: utility
   damage_types:

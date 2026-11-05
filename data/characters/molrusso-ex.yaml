@@ -64,10 +64,40 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "S | 9.8"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Deal Phys. Staff damage to Random Foe 2 time(s) (potency: 2x75)"
+    name: "Stone's Throw"
+    sp_cost: 28
+  - match: "Cure some status ailments of Single Ally and grant immunity"
+    name: "Sobering Slap"
+    sp_cost: 25
+  - match: "Deal Phys. Tome damage to Single Foe (potency: 170)"
+    name: "Whistle: Bubble Slime"
+    sp_cost: 31
+  - match: "Restore HP of Entire Front Row (potency: 65-155"
+    name: "Hustle Dance"
+    sp_cost: 38
+  - match: "Deal Phys. Sword damage to Random Foe 2 time(s) (potency: 2x120)"
+    name: "Whistle: Skeleton Swordsman"
+    sp_cost: 46
+  - match: "Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5"
+    name: "Final Frolic"
+    sp_cost: 40
+  - match: "Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x80)"
+    name: "Harvest Moon"
+    sp_cost: 36
+  - match: "Deal Elem. Fire damage to All Foes 3 time(s) (potency: 3x80)"
+    name: "Whistle: Green Dragon"
+    sp_cost: 69
+  - match: "Fill the Ultimate Technique gauge of Entire Front Row by 25%"
+    name: "Sweet Talk"
+    sp_cost: 90
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
-  name: Stone’s Throw
+  name: Stone's Throw
   sp_cost: 28
   skill_type: utility
   damage_types:
@@ -129,7 +159,7 @@ skills:
   - 'Raise Phys. Atk. and Elem. Atk. of Entire Front Row by 15% (turns: 2-5 based on Boost Lv.).'
   upgrades:
   - 'Lv.88: SP Saver: 50→40'
-  notes: 'If performed as a Jest, also raise their damage by 15% (turns: 3).'
+  notes: 'If performed as a Jest, also raise their damage by 15% (turns: 3).; In-game SP at owner''s level: 40'
 - skill_category: active
   name: 'Whistle: Living Statue'
   unlock_tier: 4★
@@ -159,7 +189,7 @@ skills:
   - 'Deal Phys. Axe damage to All Foes 2 time(s) (potency: 2x80).'
   upgrades:
   - 'Lv.99: SP Saver: 45→36'
-  notes: If performed as a Jest, attack count becomes 4.
+  notes: 'If performed as a Jest, attack count becomes 4.; In-game SP at owner''s level: 36'
 - skill_category: active
   name: 'Whistle: Green Dragon'
   unlock_tier: 5★
@@ -175,6 +205,7 @@ skills:
   - 'At Max Boost: Attack count becomes 5.'
   upgrades:
   - 'Lv.100: SP Saver: 86→69'
+  notes: 'In-game SP at owner''s level: 69'
 - skill_category: tp
   name: Sweet Talk
   sp_cost: 90

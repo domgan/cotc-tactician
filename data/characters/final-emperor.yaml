@@ -94,9 +94,40 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "S++ | 10.0"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "(potency: 170) and have a low chance to inflict paralysis"
+    name: "Riposte"
+    sp_cost: 27
+  - match: "Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x55)"
+    name: "Dancing Sword"
+    sp_cost: 25
+  - match: "completely block some physical attacks"
+    name: "Parry"
+    sp_cost: 87
+  - match: "Restore HP of Entire Front Row (potency: 205), cure some status"
+    name: "Earth Heal"
+    sp_cost: 81
+  - match: "Deal Phys. Sword damage to Single Foe 3 time(s) (potency: 3x55)"
+    name: "Flowing Slash"
+    sp_cost: 71
+  - match: "Raise Phys. Atk. of Self by 30%"
+    name: "Gilded Strength"
+    sp_cost: 58
+  - match: "deal Phys. Staff damage to All Foes (potency: 240"
+    name: "Fissure Strike"
+    sp_cost: 103
+  - match: "Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x85)"
+    name: "Bonecrusher"
+    sp_cost: 84
+  - match: "Deal Phys. Axe damage to Random Foe 3 time(s) (potency: 3x85)"
+    name: "Time Lapse"
+    sp_cost: 60
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
+  name: Riposte
   unlock_tier: Initial
   sp_cost: 27
   skill_type: utility
@@ -109,6 +140,7 @@ skills:
   - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
   notes: 'Deal Phys. Sword damage to Single Foe 2 time(s) (potency: 2x90) and have a moderate chance to inflict paralysis (turns: 2).'
 - skill_category: active
+  name: Dancing Sword
   unlock_tier: Initial
   sp_cost: 25
   skill_type: utility
@@ -121,6 +153,7 @@ skills:
   - 'Deal Phys. Sword damage to Random Foe 3 time(s) (potency: 3x55).'
   - 'At Max Boost: Attack count becomes 5.'
 - skill_category: active
+  name: Parry
   unlock_tier: 1★
   sp_cost: 87
   skill_type: buff
@@ -128,6 +161,7 @@ skills:
   effects:
   - 'Grant Self the ability to completely block some physical attacks (turns: 2) and restore 2 BP when blocking an attack from this skill.'
 - skill_category: active
+  name: Earth Heal
   unlock_tier: 2★
   sp_cost: 81
   skill_type: heal
@@ -136,6 +170,7 @@ skills:
   effects:
   - 'Restore HP of Entire Front Row (potency: 205), cure some status ailments and raise their BP recovery by 1 (turns: 2).'
 - skill_category: active
+  name: Flowing Slash
   unlock_tier: 2★
   sp_cost: 71
   skill_type: debuff
@@ -149,6 +184,7 @@ skills:
   - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
   notes: 'Deal Phys. Sword damage to All Foes 4 time(s) (potency: 4x55) and lower Phys. Atk. and Phys. Def. by 15% (turns: 2). Exploits Ice weakness (damage calculation based on Phys. Sword attack).'
 - skill_category: active
+  name: Gilded Strength
   unlock_tier: 3★
   sp_cost: 72
   skill_type: buff
@@ -158,7 +194,9 @@ skills:
   - 'When consuming 1 BP or more: Also raise Sword, Axe and Staff damage by 30% (turns: 3-8 based on Boost Lv.).'
   upgrades:
   - 'Lv.88: SP Saver: 72→58'
+  notes: 'In-game SP at owner''s level: 58'
 - skill_category: active
+  name: Fissure Strike
   unlock_tier: 4★
   sp_cost: 129
   skill_type: debuff
@@ -172,7 +210,9 @@ skills:
   - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
   upgrades:
   - 'Lv.96: SP Saver: 129→103'
+  notes: 'In-game SP at owner''s level: 103'
 - skill_category: active
+  name: Bonecrusher
   unlock_tier: 5★
   sp_cost: 105
   skill_type: debuff
@@ -186,7 +226,7 @@ skills:
   - When consuming 5 BP, “Glimmer” this skill and change it for the rest of the battle.
   upgrades:
   - 'Lv.99: SP Saver: 105→84'
-  notes: 'Deal Phys. Staff damage to Single Foe 4 time(s) (potency: 4x85), raise the limit of Phys. Def. reductions from battle skills on All Foes to 50% and lower their Phys. Def. by 30% (turns: 4). Ignores Phys. Def. and Elem. Def. augments and damage reductions.'
+  notes: 'Deal Phys. Staff damage to Single Foe 4 time(s) (potency: 4x85), raise the limit of Phys. Def. reductions from battle skills on All Foes to 50% and lower their Phys. Def. by 30% (turns: 4). Ignores Phys. Def. and Elem. Def. augments and damage reductions.; In-game SP at owner''s level: 84'
 - skill_category: active
   unlock_tier: 5★
   skill_type: utility
@@ -200,6 +240,7 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: 97→78'
 - skill_category: tp
+  name: Time Lapse
   sp_cost: 60
   skill_type: utility
   damage_types:

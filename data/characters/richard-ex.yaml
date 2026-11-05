@@ -65,6 +65,36 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "S+ | 9.9"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Phys. Bow damage 2 time(s) (potency: 2x65) and Phys Dagger"
+    name: "Art of the Dagger's Storm"
+    sp_cost: 23
+  - match: "automatic SP recovery (amount: 10%"
+    name: "Pomegranate River Beans"
+    sp_cost: 38
+  - match: "Deal Phys. Polearm damage (potency: 80) and Phys. Dagger"
+    name: "Yatagarasu's Bounty"
+    sp_cost: 30
+  - match: "Deal Phys. Sword damage (potency: 80) and Phys. Staff"
+    name: "Aelfric's Liondog"
+    sp_cost: 30
+  - match: "Deal Phys. Axe damage 2 time(s) (potency: 2x35) and Phys. Dagger"
+    name: "Tiger's Reckoning"
+    sp_cost: 61
+  - match: "Deal Phys. Polearm damage 2 time(s) (potency: 2x35) and Phys. Staff"
+    name: "Bifelgan's Horn"
+    sp_cost: 56
+  - match: "Deal Phys. Sword damage 2 time(s) (potency: 2x35) and Phys. Bow"
+    name: "Guardian's Rage"
+    sp_cost: 56
+  - match: "Deal Phys. Polearm damage (potency: 230) and Phys. Sword"
+    name: "Art of the Polearm's Thunder"
+    sp_cost: 51
+  - match: "Deal Phys. Polearm damage (potency: 260) and Phys. Axe"
+    name: "Nightmare Chimera"
+    sp_cost: 300
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
@@ -80,6 +110,7 @@ skills:
   - 'Deal Phys. Axe damage 2 time(s) (potency: 2x65) and Phys Staff damage (potency: 65) to Single Foe.'
   - 'When exploiting a weakness: Also raise Phys. Def. of Self by 15% (turns: 2).'
 - skill_category: active
+  name: Art of the Dagger's Storm
   unlock_tier: Initial
   sp_cost: 23
   skill_type: utility
@@ -92,6 +123,7 @@ skills:
   - 'Deal Phys. Bow damage 2 time(s) (potency: 2x65) and Phys Dagger damage (potency: 65) to Single Foe.'
   - 'When exploiting a weakness: Also raise Elem. Def. of Self by 15% (turns: 2).'
 - skill_category: active
+  name: Pomegranate River Beans
   unlock_tier: 1★
   sp_cost: 38
   skill_type: buff
@@ -99,6 +131,7 @@ skills:
   effects:
   - 'Grant Self automatic SP recovery (amount: 10% of user’s max SP) and raise BP recovery amount by 1 (turns: 3-6 based on Boost Lv.).'
 - skill_category: active
+  name: Yatagarasu's Bounty
   unlock_tier: 2★
   sp_cost: 30
   skill_type: debuff
@@ -111,6 +144,7 @@ skills:
   - 'Deal Phys. Polearm damage (potency: 80) and Phys. Dagger damage (potency: 80) to All Foes.'
   - 'When exploiting a weakness: Also lower their Phys. Def. by 15% (turns: 2).'
 - skill_category: active
+  name: Aelfric's Liondog
   unlock_tier: 2★
   sp_cost: 30
   skill_type: debuff
@@ -123,6 +157,7 @@ skills:
   - 'Deal Phys. Sword damage (potency: 80) and Phys. Staff damage (potency: 80) to All Foes.'
   - 'When exploiting a weakness: Also lower Phys. Def. by 15% (turns: 2).'
 - skill_category: active
+  name: Tiger's Reckoning
   unlock_tier: 3★
   sp_cost: 76
   skill_type: utility
@@ -137,7 +172,9 @@ skills:
   - 'When exploiting a weakness: Also raise Phys. damage of Self by 30% (turns: 2-5 based on Boost Lv.).'
   upgrades:
   - 'Lv.88: SP Saver: 76→61'
+  notes: 'In-game SP at owner''s level: 61'
 - skill_category: active
+  name: Bifelgan's Horn
   unlock_tier: 4★
   sp_cost: 70
   skill_type: utility
@@ -152,7 +189,9 @@ skills:
   - 'When exploiting a weakness: Absorb 1% of damage dealt as SP.'
   upgrades:
   - 'Lv.96: SP Saver: 70→56'
+  notes: 'In-game SP at owner''s level: 56'
 - skill_category: active
+  name: Guardian's Rage
   unlock_tier: 5★
   sp_cost: 70
   skill_type: utility
@@ -167,7 +206,9 @@ skills:
   - 'When exploiting a weakness: Grant Self HP Barrier (potency: 50% of user’s Max HP).'
   upgrades:
   - 'Lv.99: SP Saver: 70→56'
+  notes: 'In-game SP at owner''s level: 56'
 - skill_category: active
+  name: Art of the Polearm's Thunder
   unlock_tier: 5★
   sp_cost: 64
   skill_type: utility
@@ -182,7 +223,9 @@ skills:
   - 'At Max Boost: Activate this skill twice and ignore Phys. Def. Up, Elem. Def. Up and damage reductions.'
   upgrades:
   - 'Lv.100: SP Saver: 64→51'
+  notes: 'In-game SP at owner''s level: 51'
 - skill_category: tp
+  name: Nightmare Chimera
   sp_cost: 300
   skill_type: utility
   damage_types:

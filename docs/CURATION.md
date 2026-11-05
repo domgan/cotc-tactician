@@ -54,6 +54,11 @@ Adventurer & Fox EX level 100 vs 120, Kagemune EX3 speed/P.Def. Kainé's weaknes
 
 Worked examples: `rocbouquet.yaml`, `noel.yaml`, `final-emperor.yaml`, `final-empress.yaml`.
 
+**Skill names from the game.** For units whose export has no names, add a `skill_overrides`
+list above the marker (`match`: a phrase from the skill's effect text, `name`, optional
+`sp_cost`). The importer applies it on every re-import and warns if a match hits 0 or 2+
+skills. Example: `phenn.yaml`.
+
 **Agent curation.** Bulk passes by an agent follow `tasks/curation_rules.md` and start
 `role_notes` with `Kit-derived (agent, <date>, needs review).` `tests/test_data_integrity.py`
 rejects any agent-written buff/debuff value that no kit sentence supports (same %, stat and

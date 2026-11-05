@@ -196,6 +196,46 @@ def test_update_regenerates_marked_kit_and_keeps_curated_fields(tmp_path):
     assert data["unique_mechanics"][0]["name"] == "Enchant"
 
 
+def test_skill_overrides_survive_reimport(tmp_path):
+    parsed = parse_markdown_file(_write_md(tmp_path))
+    path = tmp_path / "with-overrides.yaml"
+    path.write_text(
+        "id: rocbouquet\n"
+        "skill_overrides:\n"
+        "  - match: 'Deal Elem. Wind damage to All Foes 3 time(s)'\n"
+        "    name: In-Game Name\n"
+        "    sp_cost: 88\n\n" + _character_yaml("incomplete", marker=True).split("\n", 1)[1],
+        encoding="utf-8",
+    )
+
+    assert update_yaml_file(path, parsed) is True
+    skills = yaml.safe_load(path.read_text(encoding="utf-8"))["skills"]
+    named = [s for s in skills if s.get("name") == "In-Game Name"]
+    assert len(named) == 1 and named[0]["sp_cost"] == 88 and named[0]["unlock_tier"] == "3★"
+
+
+def test_skill_override_keeps_base_sp_and_notes_levelled_cost(tmp_path):
+    parsed = parse_markdown_file(_write_md(tmp_path))
+    path = tmp_path / "levelled.yaml"
+    path.write_text(
+        "id: rocbouquet\n"
+        "skill_overrides:\n"
+        "  - match: 'Deal Elem. Wind damage to All Foes 3 time(s)'\n"
+        "    name: In-Game Name\n"
+        "    sp_cost: 70\n\n" + _character_yaml("incomplete", marker=True).split("\n", 1)[1],
+        encoding="utf-8",
+    )
+
+    update_yaml_file(path, parsed)
+    skill = next(
+        s
+        for s in yaml.safe_load(path.read_text(encoding="utf-8"))["skills"]
+        if s.get("name") == "In-Game Name"
+    )
+    assert skill["sp_cost"] == 88
+    assert "In-game SP at owner's level: 70" in skill["notes"]
+
+
 def test_update_skips_hand_edited_kit(tmp_path):
     parsed = parse_markdown_file(_write_md(tmp_path))
     path = tmp_path / "hand-edited.yaml"

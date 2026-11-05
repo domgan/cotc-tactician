@@ -523,6 +523,27 @@ def render_generated_block(parsed: dict, include_unique_mechanics: bool) -> list
     return lines
 
 
+def apply_skill_overrides(skills: list[dict], overrides: list[dict], label: str) -> None:
+    """Set curated names/SP (e.g. read from the game) on the skill whose effects contain `match`."""
+    for override in overrides:
+        hits = [s for s in skills if override["match"] in " ".join(s.get("effects", []))]
+        if len(hits) != 1:
+            print(f"  WARN: {label} override {override['match']!r} matched {len(hits)} skills")
+            continue
+        skill = hits[0]
+        named = {"skill_category": skill["skill_category"], "name": override["name"]}
+        skill_rest = {k: v for k, v in skill.items() if k not in named}
+        skill.clear()
+        skill.update({**named, **skill_rest})
+        observed = override.get("sp_cost")
+        if observed and not skill.get("sp_cost"):
+            skill["sp_cost"] = observed
+        elif observed and observed != skill["sp_cost"]:
+            # Source gives base SP; the game screen shows the levelled cost (SP Saver upgrades).
+            note = f"In-game SP at owner's level: {observed}"
+            skill["notes"] = f"{skill['notes']}; {note}" if skill.get("notes") else note
+
+
 def update_yaml_file(yaml_path: Path, parsed_data: dict, dry_run: bool = False) -> bool:
     """Replace the generated skills..metadata region of an importer-owned YAML file."""
     if not yaml_path.exists():
@@ -533,6 +554,8 @@ def update_yaml_file(yaml_path: Path, parsed_data: dict, dry_run: bool = False) 
     if not is_importer_owned(content):
         print(f"  SKIP: {yaml_path.name} is hand-curated")
         return False
+    overrides = (yaml.safe_load(content) or {}).get("skill_overrides") or []
+    apply_skill_overrides(parsed_data.get("skills") or [], overrides, yaml_path.name)
 
     lines = content.split("\n")
     skills_idx = next((i for i, line in enumerate(lines) if line.startswith("skills:")), None)

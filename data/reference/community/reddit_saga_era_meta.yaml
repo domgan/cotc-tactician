@@ -79,6 +79,7 @@ auto_battle:
       - "u/Arbiteksu (2026-08): if auto stops after each battle, set auto-battle memory from 'No Memory' to 'All Memories'."
       - "Community (2025-08 thread): Rinyuu EX spams her damaging row-swap skill on auto; Shana's SP Stock is a farming must; passive auto-healers (Shelby, Ramona, Devin) keep 4★ teams alive."
       - "Repo owner observation (2026-11-01): auto never used Aviete's Advent of Simurgh (revive, 2 uses), consistent with the no-support rule."
+      - "Repo owner observation (2026-11-03, GL): Phenn's Wishvale's Past (barrier/cover, 2 uses) still 2/2 at turn 10 with Phenn in front row, despite NiaDB's 'auto uses with highest priority' note. Non-damaging skills should be assumed unused on GL auto."
     sources:
       - https://www.reddit.com/r/OctopathCotC/comments/1jcal60/help_with_auto_battle/
       - https://www.reddit.com/r/OctopathCotC/comments/1oxrr2g/2025_auto_battle_octopath_cotc_ditrainaex_testing/

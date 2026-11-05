@@ -35,8 +35,9 @@ usage_strategy: |
   2★/5★ bow finishers for guaranteed crit burst. Ult on break/setup turns for 100% potency
   on physical jobs; 200% gauge doubles the AOE hit. Often back-loaded after barrier setup;
   pairs with Pardis III, Ditraina EX, Kaine, Mahrez, Edgar per community clears.
-  Auto-battle (NiaDB): uses the 4★ barrier/cover skill with the highest priority and
-  prioritizes his ultimate.
+  Auto-battle: NiaDB says auto uses the 4★ barrier/cover skill (Wishvale's Past) with the
+  highest priority, but on GL it was still 2/2 unused at turn 10 with Phenn in front
+  (repo owner screenshot, 2026-11-03). Do not rely on it for auto.
 
 best_use_cases:
   - "Physical DPS teams needing stacked debuffs + damage cap support"
@@ -83,12 +84,43 @@ unique_mechanics:
       9+: raise passive/equipment P.Def down cap to 50%. Two bow skills consume all stacks
       at 9+ for guaranteed crit, bonus hits/effects, then reset to 0.
 
+# In-game GL names/SP from the repo owner's Change Skills screenshots (2026-11-03); battle
+# screens can show higher SP (in-fight cost effects). The importer applies these on re-import.
+skill_overrides:
+  - match: "Act faster during turn, gain an HP Barrier"
+    name: "Wishvale's Past"
+    sp_cost: 82
+  - match: "Deal Phys. Bow damage to All Foes 2 time(s)"
+    name: "Resentment Burst"
+    sp_cost: 84
+  - match: "Deal Phys. Bow damage to All Foes (potency: 150)"
+    name: "Sweeping Sturdy Shot"
+    sp_cost: 32
+  # In-game GL names/SP from repo owner screenshots (2026-11-03).
+  - match: "If the target is healed to full HP, also grant them an HP Barrier"
+    name: "Emergency Bandaging"
+    sp_cost: 52
+  - match: "Lower Phys. Atk. and Elem. Atk. of Single Foe by 20%"
+    name: "Counter Trap"
+    sp_cost: 30
+  - match: "Deal Phys. Bow damage to Single Foe 5 time(s) (potency: 5x5)"
+    name: "Silent Ambush"
+    sp_cost: 86
+  - match: "Grant Single Foe a Bow weakness (times: 6/7/8/9)"
+    name: "Silent Hawk"
+    sp_cost: 40
+  - match: "Raise Phys. Atk of Entire Front Row by 20%"
+    name: "Wishvale's Future"
+    sp_cost: 82
+  - match: "Deal Phys. Bow damage to Single Foe (potency: 205)"
+    name: "Final Lament"
+    sp_cost: 90
+
 a4_accessory:
   name: "Bloodstained Straps"
   passive_effect: "40 P.Atk, 1000 HP; Grant self 50k damage cap; Start of battle: grant self a 50% HP barrier (not stackable)"
 
-# In-game English skill names are not in any source yet (Notion export is pre-release,
-# NiaDB lists "skill names coming soon"). Skills are identified by unlock tier.
+# Notion export is pre-release (no names/SP); names come from in-game screenshots above.
 debuff_categories:
   active:
     - type: phys_atk_down
@@ -117,6 +149,7 @@ buff_categories:
 # Skills - parsed from markdown
 skills:
 - skill_category: active
+  name: Sweeping Sturdy Shot
   unlock_tier: Initial
   skill_type: utility
   damage_types:
@@ -125,7 +158,9 @@ skills:
   power: '150'
   effects:
   - 'Deal Phys. Bow damage to All Foes (potency: 150).'
+  sp_cost: 32
 - skill_category: active
+  name: Emergency Bandaging
   unlock_tier: Initial
   skill_type: heal
   target: front_row
@@ -133,13 +168,17 @@ skills:
   effects:
   - 'Restore HP of Entire Front Row (potency: 130).'
   - 'If the target is healed to full HP, also grant them an HP Barrier (amount: 25% of user’s max HP/Does not stack).'
+  sp_cost: 52
 - skill_category: active
+  name: Counter Trap
   unlock_tier: 1★
   skill_type: debuff
   target: single_enemy
   effects:
   - 'Lower Phys. Atk. and Elem. Atk. of Single Foe by 20% (turns: 2/3/4/5).'
+  sp_cost: 30
 - skill_category: active
+  name: Silent Ambush
   unlock_tier: 2★
   skill_type: utility
   damage_types:
@@ -150,7 +189,9 @@ skills:
   effects:
   - 'Deal Phys. Bow damage to Single Foe 5 time(s) (potency: 5x5).'
   - 'When the target’s Shield Points are above 5, additionally deal Phys. Bow damage to the same target 5 times (potency: 5x5).'
+  sp_cost: 86
 - skill_category: active
+  name: Resentment Burst
   unlock_tier: 2★
   skill_type: utility
   damage_types:
@@ -164,7 +205,9 @@ skills:
   - Exploits Axe weakness (damage calculation based on Phys. Bow attack).
   - Damage Limit of this skill is increased by 300,000.
   notes: 'With 9+ “Heart of Resilience” Points when selecting the command: Also lower their Phys. Def. by 15% (turns: 2), attacks become guaranteed critical hits and potency is increased by 1.5x, but reset own “Heart of Resilience” Points to 0.'
+  sp_cost: 84
 - skill_category: active
+  name: Silent Hawk
   unlock_tier: 3★
   skill_type: utility
   target: front_row
@@ -172,7 +215,9 @@ skills:
   - 'Grant Single Foe a Bow weakness (times: 6/7/8/9) and raise the limit of Bow damage augments of Entire Front Row to 50% (turns: 2/3/4/5).'
   upgrades:
   - 'Lv.88: SP Saver: ??→??'
+  sp_cost: 40
 - skill_category: active
+  name: Wishvale's Past
   unlock_tier: 4★
   skill_type: utility
   target: front_row
@@ -182,7 +227,9 @@ skills:
   - '*Usable twice per battle.'
   upgrades:
   - 'Lv.96: SP Saver: ??→??'
+  sp_cost: 82
 - skill_category: active
+  name: Wishvale's Future
   unlock_tier: 5★
   skill_type: buff
   target: front_row
@@ -191,7 +238,9 @@ skills:
   - 'At Max Boost: Reaches All Allies.'
   upgrades:
   - 'Lv.99: SP Saver: ??→??'
+  sp_cost: 82
 - skill_category: active
+  name: Final Lament
   unlock_tier: 5★
   skill_type: utility
   damage_types:
@@ -206,6 +255,7 @@ skills:
   upgrades:
   - 'Lv.100: SP Saver: ??→??'
   notes: 'With 9+ “Heart of Resilience” Points when selecting the command: Also grant a Bow weakness (times: 3), attack count becomes 3 and potency is increased by 1.5x, but reset own “Heart of Resilience” Points to 0.'
+  sp_cost: 90
 - skill_category: tp
   skill_type: debuff
   damage_types:

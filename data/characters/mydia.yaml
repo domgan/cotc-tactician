@@ -52,6 +52,39 @@ awakening_stage: 4  # Assume max for team comp purposes
 # Tier ratings (from community)
 jp_tier: "S | 9.8"
 
+# In-game GL names/SP from repo owner screenshots (2026-11-03).
+skill_overrides:
+  - match: "Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x65)"
+    name: "Flaring Smash"
+    sp_cost: 44
+  - match: "Restore HP of Entire Front Row (potency: 55) and grant automatic"
+    name: "Medica (Front/All) II"
+    sp_cost: 42
+  - match: "Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x65)"
+    name: "Flaring Bludgeon"
+    sp_cost: 66
+  - match: "Raise Phys. damage of Entire Front Row by 15%"
+    name: "Grand Abolishment"
+    sp_cost: 48
+  - match: "Deal Phys. Staff damage to Single Foe 2 time(s) (potency: 2x90)"
+    name: "Benedictory Bash"
+    sp_cost: 66
+  - match: "Grant Staff weakness to All Foes"
+    name: "Punitive Pathos"
+    sp_cost: 56
+  - match: "Deal Phys. Staff damage to All Foes 3 time(s) (potency: 3x80)"
+    name: "Shielding Mace"
+    sp_cost: 88
+  - match: "Deal Phys. Staff damage to Single Foe 6 time(s) (potency: 6x40)"
+    name: "Radiant Smash"
+    sp_cost: 70
+  - match: "Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x110)"
+    name: "Radiant Bludgeon"
+    sp_cost: 77
+  - match: "Deal Phys. Staff damage to Random Foe 4 time(s) (potency: 4x45)"
+    name: "Raging Flaring Bash"
+    sp_cost: 72
+
 # Skills - parsed from markdown
 skills:
 - skill_category: active
@@ -67,7 +100,7 @@ skills:
   - 'Deal Phys. Staff damage to Single Foe 3 time(s) (potency: 3x65).'
   - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
 - skill_category: active
-  name: Medica (Front/All)
+  name: Medica (Front/All) II
   sp_cost: 42
   skill_type: heal
   target: front_row
@@ -120,6 +153,7 @@ skills:
   - 'Grant Staff weakness to All Foes (times: 6-9 based on Boost Lv.) and lower Staff, Fire and Light Res. by 15% (turns: 2-5 based on Boost Lv.).'
   upgrades:
   - 'Lv.88: SP Saver: 70→56'
+  notes: 'In-game SP at owner''s level: 56'
 - skill_category: active
   name: Shielding Mace
   unlock_tier: 4★
@@ -136,6 +170,7 @@ skills:
   - 'Restore HP of Entire Front Row (potency: 60) and grant HP Barrier (potency: 30% of user’s max HP/Does not stack).'
   upgrades:
   - 'Lv.96: SP Saver: 110→88'
+  notes: 'In-game SP at owner''s level: 88'
 - skill_category: active
   name: Radiant Smash
   unlock_tier: 5★
@@ -151,6 +186,7 @@ skills:
   - Exploits Fire and Light weakness (damage calculation based on Phys. Staff attack).
   upgrades:
   - 'Lv.99: SP Saver: 88→70'
+  notes: 'In-game SP at owner''s level: 70'
 - skill_category: active
   name: Radiant Bludgeon
   unlock_tier: 5★
@@ -167,6 +203,7 @@ skills:
   - 'At Max Boost: Potency doubles.'
   upgrades:
   - 'Lv.100: SP Saver: 110→77'
+  notes: 'In-game SP at owner''s level: 77'
 - skill_category: tp
   name: Raging Flaring Bash
   sp_cost: 72
